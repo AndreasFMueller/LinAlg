@@ -1,0 +1,90 @@
+%
+% skript.tex -- Skript zur Vorlesung Lineare Algebra
+%               gehalten an der Hochschule Rapperswil im Wintersemester 09
+%
+% (c) 2009 Prof. Dr. Andreas Mueller, HSR
+% $Id: skript.tex,v 1.34 2008/11/02 22:46:16 afm Exp $
+%
+\documentclass[a4paper,12pt]{book}
+\usepackage{german}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{textcomp}
+\usepackage[all]{xy}
+\usepackage{txfonts}
+\usepackage{array}
+\usepackage{makeidx}
+\usepackage{verbatim}
+\usepackage{pdflscape}
+\usepackage{paralist}
+\usepackage{epic}
+\setlength{\unitlength}{1pt}
+\usepackage{color}
+\makeindex
+\begin{document}
+\pagestyle{fancy}
+\lhead{Lineare Algebra}
+\frontmatter
+\newcommand\HRule{\noindent\rule{\linewidth}{1.5pt}}
+\begin{titlepage}
+\vspace*{\stretch{1}}
+\HRule
+\vspace*{10pt}
+\begin{flushright}
+{\Huge
+Lineare Algebra}
+\end{flushright}
+\HRule
+\begin{flushright}
+\vspace{30pt}
+\LARGE
+Andreas M"uller
+\end{flushright}
+\vspace*{\stretch{2}}
+\begin{center}
+Hochschule f"ur Technik, Rapperswil, 2009-2012
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+\newtheorem{satz}{Satz}[chapter]
+\newtheorem{hilfssatz}[satz]{Hilfssatz}
+\newtheorem{definition}[satz]{Definition}
+\newtheorem{annahme}[satz]{Annahme}
+% Beispiel
+\newenvironment{beispiel}[1][Beispiel]{%
+\begin{proof}[\bf #1]%
+\renewcommand{\qedsymbol}{$\bigcirc$}%
+}{\end{proof}}
+\mainmatter
+\input linsys.tex
+\input einleitung.tex
+\input lingl.tex
+\section{Anwendungen}
+\input applications/kirchhoff.tex
+\input applications/sniping.tex
+\input determinanten.tex
+\section{Anwendungen}
+\input applications/spanning.tex
+\input vektorgeometrie.tex
+\input geometrie.tex
+\section{Anwendungen}
+\input applications/fitting.tex
+\input applications/traegheit.tex
+\input applications/wavelets.tex
+\input zerlegung.tex
+%\input wavelets.tex
+%\input vektoren.tex
+%\input polynome.tex
+%\input abbildungen.tex
+\input eigen.tex
+\section{Anwendungen}
+\input applications/google.tex
+\input skript.ind
+\appendix
+\end{document}

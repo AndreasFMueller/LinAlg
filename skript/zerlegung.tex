@@ -1,0 +1,993 @@
+%
+% Matrixzerlegungen
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\chapter{Matrixzerlegungen\label{chapter-zerlegung}}
+\rhead{Matrixzerlegungen}
+Der Gauss-Algorithmus l"ost nicht nur Gleichungssysteme, er berechnet
+auch die inverse Matrix oder die Determinante. F"ur viele Zwecke ist
+aber die Berechnung der Inversen nicht unbedingt notwendig, es reicht,
+wenn eine gegebenen Matrix $A$ in Faktoren $A=BC$ zerlegt werden kann,
+wobei die Faktoren $B$ und $C$ besondere Eigenschaften haben sollen.
+Um ein Gleichungssystem
+\[
+Ax=b
+\]
+zu l"osen, m"ussen dann zwei Gleichungssysteme Systeme
+\begin{align*}
+Cy&=b\\
+Bx&=y
+\end{align*}
+gel"ost werden, was trotzdem eine Vereinfachung sein kann, wenn
+$B$ und $C$ besonders einfach zu invertieren sind.
+Oder die Berechnung der Determinanten kann mit Hilfe der Formel
+\[
+\det(A)=\det(B)\det(C)
+\]
+vereinfacht werden, sofern die Matrizen $B$ oder $C$ einfach
+zu berechnende Determinanten haben.
+
+\section{Zerlegung von Dreiecksmatrizen}
+\index{Dreiecksmatrix}
+Als Vorbereitung untersuchen wir einige Beispiele von m"oglichen
+Zerlegungen von Dreiecksmatrizen. In diesem Abschnitt ist $L$ immer
+eine untere Dreiecksmatrix
+\[
+L=\begin{pmatrix}
+l_{11}&0     &\dots &0     \\
+l_{21}&l_{22}&\dots &0     \\
+\vdots&\vdots&\ddots&\dots \\
+l_{n1}&l_{n2}&\dots &l_{nn}
+\end{pmatrix}
+\]
+\begin{hilfssatz}
+Eine untere Dreiecksmatrix $L$ kann als Produkt einer Diagonalmatrix
+mit einer unteren Dreiecksmatrix $L_0$ mit Einsen auf der Diagonalen
+ggeschrieben werden, $L=\operatorname{diag}(l_{11},\dots,l_{nn}) L_0$.
+\end{hilfssatz}
+
+\begin{proof}[Beweis]
+F"ur $L_0$ muss man die Matrix
+\begin{align*}
+L_0&=
+\operatorname{diag}(l_{11},\dots,l_{nn})^{-1} L
+=
+\begin{pmatrix}
+\frac1{l_{11}}&0             &\dots &0\\
+0             &\frac1{l_{22}}&\dots &\vdots\\
+\vdots        &\vdots        &\ddots&\vdots\\
+0             &0             &\dots &\frac1{l_{nn}}
+\end{pmatrix}
+\begin{pmatrix}
+l_{11}&0     &\dots &0     \\
+l_{21}&l_{22}&\dots &0     \\
+\vdots&\dots &\ddots&\dots \\
+l_{n1}&l_{n2}&\dots &l_{nn}
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\frac{l_{11}}{l_{11}}&0                    &\dots &0     \\
+\frac{l_{21}}{l_{22}}&\frac{l_{22}}{l_{22}}&\dots &0     \\
+\vdots               &\vdots               &\ddots&\vdots\\
+\frac{l_{n1}}{l_{nn}}&\frac{l_{n2}}{l_{nn}}&\dots &\frac{l_{nn}}{l_{nn}}
+\end{pmatrix}
+=
+\begin{pmatrix}
+1                    &0                    &\dots &0     \\
+\frac{l_{21}}{l_{22}}&1                    &\dots &0     \\
+\vdots               &\vdots               &\ddots&\vdots\\
+\frac{l_{n1}}{l_{nn}}&\frac{l_{n2}}{l_{nn}}&\dots &1
+\end{pmatrix}
+\end{align*}
+nehmen.
+\end{proof}
+Offenbar entsteht $L_0$ aus $L$, indem man jede Zeile durch das zugeh"orige
+Diagonalelement teilt, "ahnlich wie man das im Laufe des Gauss-Algorithmus
+macht.
+
+\begin{hilfssatz}
+Sei $L$ eine unter Dreicksmatrix mit $n$ Zeilen und Spalten, und $k<n$. 
+Dann kann man $L$ in zwei untere Dreiecksmatrizen aufteilen:
+\begin{align*}
+L&=
+\begin{pmatrix}
+l_{11}   &\dots &0        &0          &\dots &0     \\
+\vdots   &\ddots&\vdots   &\vdots     &\ddots&\vdots\\
+l_{k1}   &\dots &l_{kk}   &0          &\dots &0     \\
+l_{k+1,1}&\dots &l_{k+1,k}&l_{k+1,k+1}&\dots &0     \\
+\vdots   &\ddots&\vdots   &\vdots     &\ddots&\vdots\\
+l_{nn}   &\dots &l_{nk}   &l_{n,k+1}  &\dots &l_{nn}
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+l_{11}   &\dots &0        &0          &\dots &0     \\
+\vdots   &\ddots&\vdots   &\vdots     &\ddots&\vdots\\
+l_{k1}   &\dots &l_{kk}   &0          &\dots &0     \\
+l_{k+1,1}&\dots &l_{k+1,k}&1          &\dots &0     \\
+\vdots   &\ddots&\vdots   &\vdots     &\ddots&\vdots\\
+l_{nn}   &\dots &l_{nk}   &0          &\dots &1
+\end{pmatrix}
+\begin{pmatrix}
+1        &\dots &0        &0          &\dots &0     \\
+\vdots   &\ddots&\vdots   &\vdots     &\ddots&\vdots\\
+0        &\dots &1        &0          &\dots &0     \\
+0        &\dots &0        &l_{k+1,k+1}&\dots &0     \\
+\vdots   &\ddots&\vdots   &\vdots     &\ddots&\vdots\\
+0        &\dots &0        &l_{n,k+1}  &\dots &l_{nn}
+\end{pmatrix}
+\end{align*}
+\end{hilfssatz}
+
+\begin{proof}[Beweis]
+Durch Nachrechnen.
+\end{proof}
+
+Diese Zerlegung kann man nat"urlich iterieren, bis in jeder Teilmatrix
+nur noch eine Spalte "ubrig bleibt. Schreiben wir
+\[
+L_i=\begin{pmatrix}
+1      &\dots &0     &\dots &0     \\
+\vdots &\ddots&\vdots&\ddots&\vdots\\
+0      &\dots &l_{ii}&\dots &0     \\
+\vdots &\ddots&\vdots&\ddots&\vdots\\
+0      &\dots &l_{ni}&\dots &1
+\end{pmatrix},
+\]
+dann k"onnen wir $L$ schreiben als
+\begin{equation}
+L=L_1L_2\dots L_{n-1}L_n.
+\label{lproductdecomposition}
+\end{equation}
+
+\section{Zerlegung einer Matrix in Dreiecksmatrizen}
+\index{LU-Zerlegung}
+\index{Zerlegung!LU}
+Der Gauss-Algorithmus produziert mit bei der Vorw"artsreduktion eine
+obere Dreiecksmatrix, die noch dazu lauter Einsen auf der Diagonalen
+hat. Es liegt also nahe, eine Zerlegung von $A$ mit dieser Dreiecksmatrix
+als Faktor $U$ zu versuchen.
+
+Um den zweiten Faktor zu finden, studieren wir nochmals den
+Gauss-Algorithmus. Im $k$-ten Schritt wird das Diagonalelement
+$a_{kk}$ zu $1$ gemacht, und damit werden alle Elemente sp"ateren
+Elemente in der Spalte eleminiert. Man weiss also bereits, was an
+diesen Stellen in der Matrix stehen wird, es ist nicht n"otig, diese
+Eintr"age zu berechnen oder zu speichern. Wir lassen daher diese
+Eintr"age stehen. Das Gauss-Tableau sieht dann nach der Vorw"artsreduktion
+so aus:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+a_{11}&a_{12}&a_{13}&\dots &a_{1n}\\
+a_{21}&a_{22}&a_{23}&\dots &a_{2n}\\
+a_{31}&a_{32}&a_{33}&\dots &a_{3n}\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+a_{n1}&a_{n2}&a_{n3}&\dots &a_{nn}\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+l_{11}&u_{12}&u_{13}&\dots &u_{1n}\\
+l_{21}&l_{22}&u_{23}&\dots &u_{2n}\\
+l_{31}&l_{32}&l_{33}&\dots &u_{3n}\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+l_{n1}&l_{n2}&l_{n3}&\dots &l_{nn}\\
+\hline
+\end{tabular}
+\]
+Zu beachten ist ferner, dass der Gauss-Algorithmus im $k$-ten Schritt nur 
+die Elemente in den Zeilen mit Indices $\ge k$ und Spalten mit Indices $>k$ 
+modifiziert.
+Die beiden Matrizen $L$ und $R$ sind dann
+\[
+L=\begin{pmatrix}
+l_{11}&0     &0     &\dots &0\\
+l_{21}&l_{22}&0     &\dots &0\\
+l_{31}&l_{32}&l_{33}&\dots &0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+l_{n1}&l_{n2}&l_{n3}&\dots &l_{nn}
+\end{pmatrix},
+\qquad
+U=
+\begin{pmatrix}
+1     &u_{12}&u_{13}&\dots &u_{1n}\\
+0     &1     &u_{23}&\dots &u_{2n}\\
+0     &0     &1     &\dots &u_{3n}\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+0     &0     &0     &\dots &1
+\end{pmatrix}.
+\]
+Wir wissen bereits aus (\ref{lproductdecomposition}), dass sich $L$
+ein Produkt von Matrizen $L_i$ zerlegen l"asst, die jeweils nur
+die $i$-te Spalte von $L$ enthalten, im "ubrigen aber wie eine Einheitsmatrix
+aussehen.
+
+Wir behaupten jetzt, dass $L_i$ den $i$-ten Gauss-Vorw"artsredutionsschritt
+r"uck\-g"angig macht. Da $U$ das Resultat der Vorw"artsreduktion ist, 
+muss $LU$ die urspr"ungliche Matrix $A$ sein. 
+
+Um den $i$-ten Gauss-Schritt r"uckg"angig zu machen, muss die
+$i$-Zeile mit dem Pivot-Element multipliziert werden. Die Multiplikation
+der Matrix $L_k$ mit einer Matrix $B$ liefert in Zeile $i$ aber genau das Produkt
+von
+\[
+\begin{pmatrix}
+0&\dots&l_{ii}&\dots &0
+\end{pmatrix}
+\]
+mit allen Spalten von $B$, also jeweils das $i$-te Element dieser
+Spalten multipliziert mit $l_{ii}$:
+\begin{align*}
+\begin{pmatrix}
+0&\dots&l_{ii}&\dots &0
+\end{pmatrix}
+\begin{pmatrix}
+b_{11}&\dots &b_{1n}\\
+\vdots&\ddots&\vdots\\
+b_{i1}&\dots &b_{in}\\
+\vdots&\ddots&\vdots\\
+b_{n1}&\dots &b_{nn}
+\end{pmatrix}
+=
+\begin{pmatrix}
+l_{ii}b_{i1}&\dots &l_{ii}b_{ii}&\dots &l_{ii}b_{in}
+\end{pmatrix}
+\end{align*}
+Multiplikation mit $L_i$ macht
+also die Division durch das Pivot-Element r"uckg"angig.
+
+Eine sp"atere Zeile $k>i$ von $L_i$ hat die Form
+\[
+\begin{pmatrix}
+0&\dots&l_{ki}&\dots&1&\dots\\
+\end{pmatrix}.
+\]
+Multipliziert man sie mit der Matrix $B$, bekommt man:
+\begin{align*}
+\begin{pmatrix}
+0&\dots&l_{ki}&\dots&1&\dots\\
+\end{pmatrix}
+\begin{pmatrix}
+b_{11}&\dots &b_{1n}\\
+\vdots&\ddots&\vdots\\
+b_{i1}&\dots &b_{in}\\
+\vdots&\ddots&\vdots\\
+b_{k1}&\dots&b_{kn}\\
+\vdots&\ddots&\vdots\\
+b_{n1}&\dots &b_{nn}
+\end{pmatrix}
+&=
+\begin{pmatrix}
+l_{ki}b_{i1}+b_{k1}
+&\dots&
+l_{ki}b_{in}+b_{kn}
+\end{pmatrix}
+\\
+&=
+l_{ki}
+\begin{pmatrix}
+b_{i1}
+&\dots&
+b_{in}
+\end{pmatrix}
++
+\begin{pmatrix}
+b_{k1}
+&\dots&
+b_{kn}
+\end{pmatrix}
+\end{align*}
+Zur Zeile $k$ wird also das $l_{ki}$-fache der Zeile
+$i$ hinzuaddiert. Das ist genau die Umkehrung dessen, was
+die Gausselimination macht: da wurde von der Zeile $k$
+das $l_{ki}$-fache der $i$-ten Zeile subtrahiert.
+
+Damit ist gezeigt, dass das $A=LU$, wir haben also den folgenden
+Satz bewiesen.
+
+\begin{satz}[LU-Zerlegung]
+\index{LU-Zerlegung}
+\index{Zerlegung!LU}
+\label{ludecomposition}
+Sei $A$ eine $m\times n$ Matrix mit Rang $r$.
+Dann gibt es eine $m\times r$-Matrix $L$ und eine $r\times n$-Matrix
+$U$ mit $A=LU$. Ausserdem haben $L$ und $U$ die folgende Form:
+\[
+L=\begin{pmatrix}
+l_{11}&0&\dots&0\\
+l_{21}&l_{22}&\dots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+l_{r1}&l_{r2}&\dots&l_{rr}\\
+\vdots&\vdots& &\vdots\\
+l_{m1}&l_{m2}&\dots&l_{mr}
+\end{pmatrix},\qquad
+U=\begin{pmatrix}
+1&u_{12}&\dots&u_{1r}&u_{1,r+1}&\dots&u_{1n}\\
+0&1     &\dots&u_{2r}&u_{2,r+1}&\dots&u_{2n}\\
+\vdots&\vdots&\ddots&\vdots&\vdots\\
+0&0&\dots&1&u_{r,r+1}&\dots&u_{rn}
+\end{pmatrix}
+\]
+\end{satz}
+
+F"ur quadratische $n\times n$-Matrizen mit Rang $n$ folgt insbesondere,
+dass $L$ eine untere Dreiecksmatrix und $U$ eine obere Dreiecksmatrix
+mit lauter $1$ auf der Diagonalen ist. Damit wird die Berechnug der
+Determinanten besonders einfach:
+
+\begin{satz}
+Sei $A$ eine $n\times n$-Matrix mit Rang $n$ und $A=LU$ die LU-Zerlegung.
+Dann ist
+\[
+\det(A)=\det(L)=l_{11}l_{22}\dots l_{nn}.
+\]
+\end{satz}
+
+Dieser Satz ist nat"urlich nichts anderes als Satz~\ref{detprodpivot}.
+Die Pivots sind ja genau die $l_{ii}$, und 
+das Produkt der Pivots ist das Produkt der Elemente
+$l_{11}\dots l_{nn}$.
+
+Nat"urlich k"onnen wir $L$ auch noch in ein Produkt aus einer
+Dreiecksmatrix und einer Diagonalmatrix zerlegen:
+
+\begin{satz}[LDU-Zerlegung]
+\index{LDU-Zerlegung}
+\index{Zerlegung!LDU}
+\label{ldrdecomposition}
+Sei $A$ eine $m\times n$ Matrix mit Rang $r$. Dann gibt es eine $m\times r$
+Matrix $L_0$, eine $r\times n$-Matrix $R$ und eine $r\times r$-Diagonalmatrix $D$
+so, dass $A=L_0DR$. Ausserdem hat $L_0$ die Form
+mit folgender Form:
+\[
+L_0=\begin{pmatrix}
+1     &0&\dots&0\\
+l_{21}&1     &\dots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+l_{r1}&l_{r2}&\dots&1     \\
+\vdots&\vdots& &\vdots\\
+l_{m1}&l_{m2}&\dots&l_{mr}
+\end{pmatrix}
+\]
+und $R$ die Form wie in Satz \ref{ludecomposition}.
+\end{satz}
+
+\begin{proof}[Beweis]
+Man verwendet 
+\[
+D=\operatorname{diag}(l_{11},\dots,l_{rr}),
+\]
+und berechnet $L_0$ aus dem $L$ gem"ass Satz \ref{ludecomposition} durch
+Multiplikation mit $D^{-1}$, also $L_0=LD^{-1}$. Es ist klar, dass
+$L_0DR=LR=A$.
+\end{proof}
+
+\begin{satz}[LR-Zerlegung]
+\index{LR-Zerlegung}
+\index{Zerlegung!LR}
+Eine $m\times n$ Matrix mit Rang $r$ kann zerlegt werden in ein Produkt $A=LR$
+werden, wobei $L$ eine $m\times r$-Matrix ist mit $l_{ii}=1$ und $l_{ik}=0$
+f"ur $k>i$, und $U$ eine $r\times n$-Matrix ist mit $u_{ik}=0$ mit $k<i$.
+\end{satz}
+
+\begin{proof}[Beweis]
+Aus einer Zerlegung $A=LDU$ gem"ass Satz \ref{ldrdecomposition} kann man
+$R=DU$ bilden, und erh"alt so die Zerlegung $A=LR$.
+\end{proof}
+
+\begin{beispiel}
+Man finde die LU-Zerlegung und LR-Zerlegung der Matrix 
+\[
+A=\begin{pmatrix}
+-1&0&2\\
+1&3&3\\
+-1&-3&1
+\end{pmatrix}
+\]
+Der Gauss-Algorithmus liefert
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+-1%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+&0&2\\
+1&3&3\\
+-1%
+\begin{picture}(0,0)
+\color{blue}\drawline(-14,-2)(-14,24)(1,24)(1,-2)
+\end{picture}%
+&-3&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&-2\\
+0&3%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+&5\\
+0&-3%
+\begin{picture}(0,0)
+\color{blue}\drawline(-14,-2)(-14,10)(1,10)(1,-2)
+\end{picture}%
+&3\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&-2\\
+0&1&\frac53\\
+0&0&4%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&-2\\
+0&1&\frac53\\
+0&0&1\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus kann man jetzt die LU-Zerlegung ablesen:
+\[
+L=\begin{pmatrix}
+-1%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+& 0& 0\\
+ 1& 3%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+& 0\\
+-1%
+\begin{picture}(0,0)
+\color{blue}\drawline(-14,-2)(-14,24)(1,24)(1,-2)
+\end{picture}%
+&-3%
+\begin{picture}(0,0)
+\color{blue}\drawline(-14,-2)(-14,10)(1,10)(1,-2)
+\end{picture}%
+& 4%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+\end{pmatrix}
+,\qquad
+U=\begin{pmatrix}
+1& 0&-2\\
+0& 1&\frac53\\
+0& 0&1
+\end{pmatrix}
+\]
+F"ur die LR-Zerlegung bildet man zun"achst $L_0$
+\[
+L
+\begin{pmatrix}
+-1%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+& 0& 0\\
+ 0& 3%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+& 0\\
+ 0& 0& 4%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+ 1& 0&0\\
+-1& 1&0\\
+ 1&-1&1
+\end{pmatrix}
+=L_0
+\]
+und dann
+\[
+R=
+\begin{pmatrix}
+-1%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+& 0& 0\\
+ 0& 3%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+& 0\\
+ 0& 0& 4%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+\end{pmatrix}U
+=
+\begin{pmatrix}
+-1%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+&0&2\\
+0&3%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+&5\\
+0&0&4%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+\end{pmatrix}
+\]
+Kontrolle
+\[
+L_0R=
+\begin{pmatrix}
+ 1& 0&0\\
+-1& 1&0\\
+ 1&-1&1
+\end{pmatrix}
+\begin{pmatrix}
+-1&0&2\\
+0&3&5\\
+0&0&4
+\end{pmatrix}
+=\begin{pmatrix}
+-1&0&2\\
+1&3&5\\
+-1&-3&1
+\end{pmatrix}
+=A.
+\]
+\end{beispiel}
+
+\section{QR-Zerlegung\label{section-qr}}
+\index{QR-Zerlegung}
+\index{Zerlegung!QR}
+Die Zerlegung in zwei Dreiecksmatrizen mag f"ur das Problem, Gleichungen
+zu l"osen, ad"aquat sein. F"ur viele andere Problem w"unscht man
+sich von den Faktoren weitere oder andere Eigenschaften, zum Beispiel
+Orthogonalit"at. Die QR-Zerlegung liefert eine Matrix mit orthonormierten
+Spalten.
+
+Betrachten wir nochmals den Orthonormalisierungsprozess. Im $k$-ten
+Schritt erzeugt er den Vektor $b_k'$ aus $b_1',\dots,b_{k-1}'$
+und $b_k$ nach der Formel
+\[
+b_k'=\frac{
+b_k-(b_1'\cdot b_k)b_1'-\dots-(b_{k-1}'\cdot b_k)b_{k-1}'
+}{|
+b_k-(b_1'\cdot b_k)b_1'-\dots-(b_{k-1}'\cdot b_k)b_{k-1}'
+|}
+\]
+Da sich die Vektoren $b_1',\dots,b_{k-1}'$ aus 
+$b_1,\dots,b_{k-1}$ kombinieren lassen, gibt es Koeffizienten $r_{ik}$
+so, dass
+\[
+b_k'=r_{1k}b_1+\dots r_{kk}b_k
+\]
+Schreiben wir wieder $\tilde B$ f"ur die Matrix, deren Spalten die
+$b_i$ sind, ist dies gleichbedeutend mit
+\[
+b_k'=\tilde B\begin{pmatrix}r_{1k}\\\vdots\\r_{kk}\\\vdots\\0\end{pmatrix}
+\]
+Man kann also alle Koeffizienten $r_{ki}$ in eine $n\times n$ Matrix $R$
+zusammenfassen:
+\[
+R=\begin{pmatrix}
+r_{11}&r_{12}&r_{13}&\dots &r_{1k}\\
+0     &r_{22}&r_{23}&\dots &r_{2k}\\
+0     &0     &r_{33}&\dots &r_{3k}\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+0     &0     &0     &\dots &r_{kk}\\
+\end{pmatrix}.
+\]
+$R$ ist eine invertierbare
+obere Dreiecksmatrix, weil keines der
+Diagonalelemente
+\[
+r_{ii}=\frac1{|
+b_i-(b_1'\cdot b_i)b_1'-\dots-(b_{i-1}'\cdot b_i)b_{i-1}'
+|}
+\]
+verschwindet.
+Die Matrix $\tilde B'$ mit Spalten $b_i'$ entsteht als Produkt aus $\tilde B$
+und $R$:
+\[
+\tilde B'=\tilde BR
+\quad\Rightarrow\quad
+\tilde B=\tilde B'R^{-1}
+\]
+Da auch $R^{-1}$ eine Dreiecksmatrix ist, haben wir eine Zerlegung der
+Matrix $\tilde B$ in eine Matrix $\tilde B'$ mit orthonormierten
+Spalten und eine obere Dreiecksmatrix erreicht.
+
+\begin{satz}[QR-Zerlegung]
+\index{QR-Zerlegung}
+\index{Zerlegung!QR}
+Ist $A$ eine $m\times n$-Matrix mit linear unabh"angigen Spalten,
+dann gibt es eine $m\times n$-Matrix $Q$ mit orthogonalen Spalten
+und eine $n\times n$-Dreicksmatrix $R$ so, dass $A=QR$.
+\end{satz}
+
+Im Spezialfall $n=m$, also f"ur quadratische Matrizen, liefert der
+Algorithmus eine orthogonale Matrix $Q$ und obere Dreiecksmatrix eine $R$
+so, dass $A=QR$. Da $Q^{-1}=Q^t$ ist, kann man $R=AQ^t$ bestimmen,
+was die Berechnung von $R$ vereinfacht.
+Wieder ist $\det(A)=\det(Q)\det(R)=\pm\det(R)$.
+
+\begin{beispiel}
+Man finde die QR-Zerlegung von 
+\[
+A=\begin{pmatrix}1&0&0\\1&1&0\\1&1&1\end{pmatrix}.
+\]
+F"ur die Matrix $Q$ kann man das Resultat der Orthonormalisierung
+verwenden, welches wir bereits in einem fr"uheren Beispiel gefunden
+haben:
+\[
+Q=
+\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac{-2}{\sqrt{6}}&0\\
+\frac1{\sqrt{3}}&\frac{1}{\sqrt{6}}&\frac{-1}{\sqrt{2}}\\
+\frac1{\sqrt{3}}&\frac{1}{\sqrt{6}}&\frac{1}{\sqrt{2}}
+\end{pmatrix}
+\]
+Dann muss $R=Q^{-1}A=Q^tA$ sein:
+\[
+R=
+\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+\frac{-2}{\sqrt{6}}&\frac{1}{\sqrt{6}}&\frac{1}{\sqrt{6}}\\
+0&\frac{-1}{\sqrt{2}}&\frac{1}{\sqrt{2}}
+\end{pmatrix}
+\begin{pmatrix}1&0&0\\1&1&0\\1&1&1\end{pmatrix}
+=
+\begin{pmatrix}
+\sqrt{3}&\frac{2}{\sqrt{3}}&\frac{1}{\sqrt{3}}\\
+0&\frac2{\sqrt{6}}&\frac1{\sqrt{6}}\\
+0&0&\frac1{\sqrt{2}}
+\end{pmatrix}
+\]
+\end{beispiel}
+
+\section{Cholesky-Zerlegung}
+\index{Cholesky-Zerlegung}
+\index{Zerlegung!Cholesky}
+Kann man aus einer Matrix die Wurzel ziehen? Was w"are das "uberhaupt?
+Aus einer Diagonalmatrix mit positiven Diagonalelementen kann man offenbar
+die Wurzel ziehen, in dem man die Wurzel aus den Diagonalelementen zieht.
+Negative Diagonalelemente machen dies unm"oglich. Man muss also auf jeden
+Fall fordern, dass die Matrix in einem gewissen Sinn positiv ist. 
+
+\begin{definition}
+Eine symmetrische Matrix $A$ heisst positiv definit, falls $v^tAv>0$ f"ur
+alle Vektoren $v\ne 0$.
+\end{definition}
+
+F"ur positiv definite symmetrische Matrizen gibt es eine Quadratwurzel
+im Sinne des folgenden Satzes:
+\begin{satz}[Cholesky-Zerlegung]
+\index{Cholesky-Zerlegung}
+\index{Zerlegung!Cholesky}
+Ist $A$ eine symmetrische positiv definite Matrix, dann gibt es genau ein
+untere Dreiecksmatrix $L$ mit $A=LL^t$.
+\end{satz}
+
+Anstelle eines Beweises zeigen wir einen Algorithmus, mit dem man die Matrix
+$L$ konstruieren kann. Das Verfahren startet mit einer positiv definiten
+symmetrischen $n\times n$-Matrix $A$. Gesucht wird eine untere Dreiecksmatrix $L$
+mit $A=LL^t$.
+Die Matrix $L$ kann man symbolisch in der Form 
+\[
+L=\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+l_{11}&&0&\\
+\hline
+&&&\\
+l&&L'&\\
+&&&
+\end{tabular}
+\right)
+\]
+Darin ist $l'$ ein $n-1$-dimensionaler Spaltenvektor und $L'$ eine
+untere Dreicksmatrix mit $n-1$ Zeilen und Spalten.
+Wir wollen $LL^t$ mit $A$ vergleichen, und unterteilen deshalb auch die
+Matrix $A$ nach dem gleichen Muster
+\[
+A=\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+a_{11}&&a^t&\\
+\hline
+&&&\\
+a&&A'&\\
+&&&
+\end{tabular}
+\right).
+\]
+Dann bekommen wir f"ur $LL^t$:
+\[
+LL^t=
+\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+l_{11}&&0&\\
+\hline
+&&&\\
+l&&L'&\\
+&&&
+\end{tabular}
+\right)
+\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+l_{11}&&l^t&\\
+\hline
+&&&\\
+0&&L'^t&\\
+&&&
+\end{tabular}
+\right)
+=
+\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+l_{11}^2&&l_{11}l^t&\\
+\hline
+&&&\\
+l_{11}l&&ll^t+L'L'^t&\\
+&&&
+\end{tabular}
+\right)
+\]
+Daraus k"onnen wir ablesen, dass 
+\begin{align*}
+a_{11}&=l_{11}^2   &\Rightarrow&&l_{11}&=\sqrt{a_{11}}\\
+     a&=l_{11}l    &\Rightarrow&&     l&=\frac1{\sqrt{a_{11}}}a\\
+    A'&=ll^t+L'L'^t&\Rightarrow&&L'L'^t&=A'-ll^t
+\end{align*}
+Um $L$ zu finden, muss also nur noch eine Zerlegung von $A'-ll^t$
+finden. Damit wurde das $n$-dimensionale Problem auf ein $n-1$-dimensionales
+Problem reduziert. Durch Wiederholung dieses Schrittes gelangt man am Schluss
+zu einem eindimensionalen Problem, als dem Problem, die Wurzel aus einer
+positiven Zahl zu ziehen.
+
+\begin{beispiel}
+Man finde die Cholesky-Zerlegung der Matrix
+\[
+A=\begin{pmatrix}
+9&3&3\\
+3&17&21\\
+3&21&107
+\end{pmatrix}.
+\]
+Der erste Schritt leitet daraus ab, dass
+\begin{align*}
+l_{11}&=3,&
+l&=\frac13\begin{pmatrix}3\\3\end{pmatrix}=\begin{pmatrix}1\\1\end{pmatrix},&
+ll^t&=\begin{pmatrix}1&1\\1&1\end{pmatrix},&
+A'-ll^t&=\begin{pmatrix}16&20\\20&106\end{pmatrix}
+\end{align*}
+Bis jetzt ist bekannt, dass
+\[
+L=\begin{pmatrix}
+3&0&0\\
+1&?&?\\
+1&?&?
+\end{pmatrix}
+\]
+F"ur den unbekannten Teil wird jetzt der gleiche Algorithmus auf
+die Matrix $A'-ll^t$ angewendet.
+Im zweiten Schritt muss jetzt die Matrix $A'-ll^t$ zerlegt werden.
+Wir rezyklieren die Bezeichnungen aus dem ersten Schritt, und
+bekommen
+\begin{align*}
+l_{11}&=4,&
+l&=\frac14\begin{pmatrix}20\end{pmatrix}=\begin{pmatrix}5\end{pmatrix},&
+ll^t&=\begin{pmatrix}25\end{pmatrix},&
+A'-ll^t&=\begin{pmatrix}81\end{pmatrix}
+\end{align*}
+Damit ist jetzt von $L$ bekannt:
+\[
+L=\begin{pmatrix}
+3&0&0\\
+1&4&0\\
+1&5&?
+\end{pmatrix}
+\]
+F"ur das fehlende Element muss jetzt nur noch die Cholesky-Zerlegung
+einer $1\times 1$-Matrix bestimmt werden, dies ist aber die 
+Quadratwurzel. Somit ist
+\[
+L=
+\begin{pmatrix}
+3&0&0\\
+1&4&0\\
+1&5&9
+\end{pmatrix}
+,\quad\text{Kontrolle:}\;
+\begin{pmatrix}
+3&0&0\\
+1&4&0\\
+1&5&9
+\end{pmatrix}
+\begin{pmatrix}
+3&1&1\\
+0&4&5\\
+0&0&9
+\end{pmatrix}
+=\begin{pmatrix}
+9&3&3\\
+3&17&21\\
+3&21&107
+\end{pmatrix}=A.
+\]
+\end{beispiel}
+
+{\small
+Unsere Beschreibung des Algorithmus f"ur die Cholesky-Zerlegung ist in
+einem Punkt unvollst"andig. Woher wissen wir, dass $A'-ll^t$ positiv
+definit ist? Dies ist ja die Voraussetzung, dass der Algorithmus
+"uberhaupt angewendet werden kann.
+
+Wir wissen, dass $A$ und $A'$ positiv definit sind. F"ur jeden $n-1$-dimensionalen
+Vektor $v$ k"onnen wir einen Vektor
+\[
+\tilde v=\left(
+\begin{tabular}{c}
+$\alpha$\\
+\hline
+$\mathstrut$\\
+$v$\\
+$\mathstrut$
+\end{tabular}
+\right)
+\]
+bilden. Nach Voraussetzung ist $v^tA'v>0$ und $\tilde v^tA\tilde v>0$.
+Wir m"ochten nachrechnen, dass $v^t(A'-ll^t)v>0$ gilt, das w"urde bedeuten,
+dass $A'-ll^t$ positiv definit ist.
+Es ist
+\begin{align*}
+0\ge
+\tilde v^tA\tilde v
+&=
+\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+\alpha&&v^t&
+\end{tabular}
+\right)
+\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+a_{11}&&a^t&\\
+\hline
+&&&\\
+a&&A'&\\
+&&&
+\end{tabular}
+\right)
+\left(
+\begin{tabular}{>{$}c<{$}}
+\alpha\\
+\hline
+\mathstrut\\
+v\\
+\mathstrut
+\end{tabular}
+\right)
+\\
+&=
+\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+\alpha&&v^t&
+\end{tabular}
+\right)
+\left(
+\begin{tabular}{>{$}c<{$}}
+a_{11}\alpha+a^tv\\
+\hline
+\\
+\alpha a+A'v\\
+\\
+\end{tabular}
+\right)
+\\
+&=\alpha^2a_{11}+\alpha a^tv+\alpha v^ta+v^tA'v
+\\
+&=\alpha^2a_{11}+2\alpha (a\cdot v)+v^tA'v
+\end{align*}
+Setzt man $\alpha=-(a\cdot v)/a_{11}$, wird daraus
+\[
+\frac{(a\cdot v)^2}{a_{11}^2}a_{11}-2\frac{(a\cdot v)^2}{a_{11}}+v^tAv
+=v^tAv-(l\cdot v)^2\ge 0.
+\]
+Andererseits ist
+\[
+v^t(A-ll^t)v=v^tAv-v^tll^tv=v^tAv-(l\cdot v)^2\ge 0,
+\]
+also ist $A-ll^t$ positiv definit.
+}
+
+\section{Singul"arwertzerlegung\label{section-svd}}
+\index{Singulaerwertzerlegung@Singul\"arwertzerlegung}
+\index{Zerlegung!Singulaerwerte@Singul\"arwerte}
+In der QR-Zerlegung unterscheidet sich von der LR-Zerlegung
+dadurch, dass die Matrix $Q$ orthogonal ist, w"ahrend $L$ eine
+untere Dreiecksmatrix ist.
+Kann man die LDU-Zerlegung so verallgemeinern,
+dass $L$ und $R$ durch orthogonale Matrizen ersetzt
+werden k"onnen?  Eine solche Zerlegung existiert tats"achlich,
+und sie ist besonders n"utzlich, um das Eigenwertproblem
+(Kapitel \ref{chapter-eigen}) zu l"osen.
+
+\begin{satz}[Singul"arwertzerlegung]\label{satz-svd}
+Sei $A$ eine $m\times n$-Matrix mit Rang $r$.
+Dann gibt es eine orthogonale $m\times m$-Matrix $U$, eine
+orthogonale $n\times n$-Matrix $V$ und eine $m\times n$-Diagonalmatrix
+mit Rang $r$ 
+\[
+S=\left(
+\begin{tabular}{>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+s_1   &\dots &0     &0     &\dots &0\\
+\vdots&\ddots&\vdots&\vdots&\ddots&\vdots\\
+0     &\dots &s_r   &0     &\dots &0\\
+\hline
+0     &\dots &0     &0     &\dots &0\\
+\vdots&\ddots&\vdots&\vdots&\ddots&\vdots\\
+0     &\dots &0     &0     &\dots &0\\
+\end{tabular}
+\right)
+\]
+mit $s_1\ge s_2\ge\dots \ge s_r$ und $A=USV^t$.
+\end{satz}
+
+Die Berechnung der Singul"arwertzerlegung kann in Octave/Matlab
+mit der Funktion {\tt svd} erfolgen. Sie liefert einen Vektor
+mit den Singul"arwerten $s_1,\dots,s_n$ zur"uck. Will man auch die
+Matrizen $U$ und $V$ bekommen, muss man als R"uckgabewert eine
+Matrix von R"uckgabewerten spezifizieren
+\begin{verbatim}
+[U, S, V] = svd(A)
+\end{verbatim}
+
+\begin{beispiel}
+Die Singul"arwertzerlegung der Matrix A aus dem letzten Beispiel 
+bekommt man mit Octave:
+\begin{verbatim}
+> [U,S,V] = svd([9,3,3;3,17,21;3,21,107])
+U =
+
+   0.034813  -0.443841   0.895429
+   0.217231  -0.871189  -0.440272
+   0.975499   0.209842   0.066088
+
+S =
+
+Diagonal Matrix
+
+   111.7835          0          0
+          0    13.4702          0
+          0          0     7.7464
+
+V =
+
+   0.034813  -0.443841   0.895429
+   0.217231  -0.871189  -0.440272
+   0.975499   0.209842   0.066088
+\end{verbatim}
+\end{beispiel}

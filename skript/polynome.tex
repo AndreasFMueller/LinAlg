@@ -1,0 +1,45 @@
+\chapter{Polynome\label{chapter-polynome}}
+\rhead{Polynome}
+Polynome sind zwar keine lineare Funktionen, aber viele 
+Operationen mit Polynomen lassen sich als lineare Operationen
+auf den Koeffizienten verstehen.
+
+\section{Polynome als Vektoren}
+Ein Polynom 
+$$p(x)=a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x +a_0$$
+kann als Vektor betrachtet werden, indem man nur noch die Koeffizienten
+beh"alt:
+$$p=(
+a_0\quad a_1\quad \dots\quad a_{n-1}\quad a_n
+)
+$$
+Polynome k"onnen addiert werden oder mit Skalaren multipliziert
+werden.
+Diese Operationen f"ur Polynome werden zu den entsprechenden Operationen
+f"ur Vektoren. Beispielsweise f"ur die Skalarmultiplikation:
+\begin{align*}
+\lambda p(x)&=\lambda a_nx^2+\dots +\lambda a_1x+\lambda a_0
+\\
+\lambda p&=(\lambda a_0\quad a_1\quad \dots\quad \lambda a_n)
+\end{align*}
+der f"ur die Summe von zwei Polynomen
+$p(x)=$ und $q(x)=b_nx^n+\dots b_1x+b_0$:
+\begin{align*}
+p(x)+q(x)&=(a_n+b_n)x^n+\dots+(a_1+b_1)x+(a_0+b_0)\\
+p+q&=((a_0+b_0)\quad(a_1+b_1)\quad\dots\quad (a_n+b_n))
+\end{align*}
+
+\section{Interpolationspolynom}
+Gesucht wird ein Polynom $p(x)$, welches auf den Punkten $x_0,\dots,x_n$
+vorgegebene Wert $y_0,\dots,y_n$ annimmt. Setzt man $x_i$ in das Polynom
+ein, erh"alt man insgesammt $n+1$ Gleichungen
+\begin{align*}
+a_nx_0^n+\dots+a_1x_0+a_0&=y_0\\
+a_nx_1^n+\dots+a_1x_1+a_0&=y_1\\
+\vdots&\quad\vdots\\
+a_nx_n^n+\dots+a_1x_n+a_0&=y_n\\
+\end{align*}
+f"ur die $n+1$ Unbekannten $a_0,\dots,a_n$.
+
+
+

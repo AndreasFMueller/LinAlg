@@ -1,0 +1,1433 @@
+%
+% Geometrie der linearen Gleichungssysteme
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\chapter{Lineare R"aume\label{chapter-vr}}
+\rhead{Lineare R"aume}
+Lineare Gleichungssysteme stellen nur das algebraische Hilfsmittel dar,
+mit dem allgemeinere Probleme der linearen Algebra gel"ost werden 
+k"onnen.
+Die Vektorgeometrie ist eine solche Anwendung, sie l"ost konkrete 
+Probleme der dreidimensionalen Geometrie mit algebraischen Mitteln.
+Die Beschr"ankung auf drei Dimensionen ist aber nur durch die unmittelbare
+Anwendung gegeben, die daraus ableitbare Intuition kann durchaus 
+auch in R"aumen beliebig hoher Dimension als Leitlinie zur L"osung
+abstrakter Probleme dienen. Nachgerade kann es auch f"ur dreidimensionale
+Probleme von Vorteil sein, den dreidimensionalen Raum zu verlassen,
+und das Problem in einem h"oherdimensionalen Raum zu l"osen.
+
+\index{Schnittgerade}
+Als Beispiel betrachten wir das Problem, die Schnittgerade von
+zwei Ebenen zu bestimmen. Wir wollen illustrieren, dass die
+Berechnung in einem 7-dimensionalen Raum schneller und
+``computergerechter'' zu einer L"osung f"uhrt als die klassische
+Methode, die zum Beispiel das Vektorprodukt verwendet.
+Seien 
+\begin{equation}
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=
+\begin{pmatrix}6\\4\\7\end{pmatrix}
++t
+\begin{pmatrix}3\\-2\\2\end{pmatrix}
++s
+\begin{pmatrix}-5\\3\\-7\end{pmatrix}
+,\qquad
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=
+\begin{pmatrix}2\\2\\4\end{pmatrix}
++u
+\begin{pmatrix}4\\11\\0\end{pmatrix}
++v
+\begin{pmatrix}-1\\1\\3\end{pmatrix}
+\label{zweiebenen}
+\end{equation}
+die Parameterdarstellungen der beiden Ebenen. Gesucht ist die
+Schnittgerade, auch wieder in Parameterdarstellung, also
+zwei Vektoren $\vec p_0$ und $\vec r$ so, dass $\vec p_0+v\vec r$
+f"ur alle Werte von $v$ den Ortsvektor eines Punktes der
+Schnittgeraden ergibt.
+Die klassische Methode setzt diese beiden Vektorgleichungen
+gleich, und findet somit ein Gleichungssystem mit vier unbekannten
+$t$, $s$, $u$ und $v$. Die L"osung erlaubt $u$ durch $v$ auszudr"ucken,
+was man dann in die zweite Gleichung einsetzen muss, um die Parameterdarstellung
+der Schnittgeraden zu finden. Oder man verwendet das Vektorprodukt
+um die Normalen $\vec n_1$ und $\vec n_2$ der beiden Ebenen zu finden, und daraus
+erneut mit dem Vektorprodukt den Richtungsvektor
+$\vec r=\vec n_1\times\vec n_2$ zu berechnen. Dann braucht man nur noch einen
+einzelnen Punkt der Schnittgeraden, den man zum Beispiel dadurch finden kann,
+dass man $v=0$ setzt und damit das Gleichungssystem eindeutig l"osbar
+macht.
+
+Es geht aber wesentlich einfacher in sieben Dimensionen.
+Die Parameterdarstellungen (\ref{zweiebenen})
+sind eigentlich 6 lineare Gleichungen f"ur die sieben Unbekannten
+$x$, $y$, $z$, $t$, $s$, $u$ und $v$, man kann (\ref{zweiebenen})
+also auch als Gleichungssystem mit sechs Gleichungen f"ur sieben
+Unbekannte schreiben
+\begin{equation}
+\begin{linsys}{7}
+x& & & & &-&3t&+&5s& &   & &  &=&6\\
+ & &y& & &+&2t&-&3s& &   & &  &=&4\\
+ & & & &z&-&2t&+&7s& &   & &  &=&7\\
+x& & & & & &  & &  &-& 4u&+& v&=&2\\
+ & &y& & & &  & &  &-&11u&-& v&=&2\\
+ & & & &z& &  & &  & &   &-&3v&=&4\\
+\end{linsys}
+\label{sechsdimensional}
+\end{equation}
+Das gleiche System in Tableauform geschrieben ist
+\begin{center}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&0&-3&5&0&0&6\\
+0&1&0&2&-3&0&0&4\\
+0&0&1&-2&7&0&0&7\\
+1&0&0&0&0&-4&1&2\\
+0&1&0&0&0&-11&-1&2\\
+0&0&1&0&0&0&-3&4\\
+\hline
+\end{tabular}
+\end{center}
+Anwendung des Gauss-Algorithmus liefert
+\begin{center}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&0&0&0&0& 1&\frac{10}3\\
+0&1&0&0&0&0&-1&\frac{17}3\\
+0&0&1&0&0&0&-3&4\\
+0&0&0&1&0&0& 2&-\frac13\\
+0&0&0&0&1&0& 1&\frac13\\
+0&0&0&0&0&1& 0&\frac13\\
+\hline
+\end{tabular}
+\end{center}
+Schreibt man die ersten zwei Zeilen wieder als Gleichungen, wobei
+man auch gleich $v$ auf die rechte Seite schafft, ergibt sich
+\begin{equation}
+\begin{linsys}{4}
+x& & & & &=&\frac{10}3&-& v\\
+ & &y& & &=&\frac{17}3&+& v\\
+ & & & &z&=&4         &-&3v\\
+\end{linsys}
+\end{equation}
+oder in Vektorform
+\begin{equation}
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=\begin{pmatrix}\frac{10}3\\\frac{17}3\\4\end{pmatrix}
++v\begin{pmatrix}-1\\1\\-3\end{pmatrix},
+\end{equation}
+und damit die gesuchte Parameterdarstellung der Schnittgeraden.
+
+Ziel dieses Kapitels ist daher, eine geometrische Sprache f"ur die
+Algebra in den Mengen $\mathbb R^n$ zu entwickeln und m"oglichst viel
+der bekannten Vektorgeometrischen Vorstellungen in diese Sprache
+zu "ubertragen.
+
+\section{Vektorr"aume $\mathbb R^n$ und Unterr"aume}
+\index{Vektorraum@Vektorraum $\mathbb R^n$}
+Die Menge $V$ der $n$-dimensionalen Spaltenvektoren bildet was man
+einen Vektorraum nennt: Spaltenvektoren k"onnen addiert und mit
+einem Skalar multipliziert werden. Die beiden Operationen sind
+miteinander vertr"aglich, was durch die Distributivgesetze ausgedr"uckt
+wird. Intuitiv sagen diese, dass die ``"ubliche Algebra funktioniert'',
+man kann mit diesen Vektoren genau so rechnen, wie man sich das von
+der Algebra mit gew"ohnlichen Zahlen gewohnt ist, wenigstens solange
+man nicht versucht, Vektoren miteinander zu multiplizieren oder zu
+dividieren.
+Es gibt auch einen Nullvektor, der bei Addition nichts "andert,
+also die Funktion der Null "ubernimmt.
+
+Es gibt aber auch Teilmengen von $\mathbb R^n$, die vergleichbare
+Eigenschaften haben. Typischerweise k"onnen diese durch lineare
+Gleichungen definiert werden. Die Menge
+\[
+V=\left\{\left.\begin{pmatrix}x\\y\end{pmatrix}\,\right|\,x=y\right\}
+\subset\mathbb R^2
+\]
+besteht aus Vektoren der Form $\begin{pmatrix}x\\x\end{pmatrix}$,
+es ist also ziemlich offensichlich, dass die Summe und die skalaren
+Vielfachen von  Vektoren aus $V$ wieder in $V$ liegen. $V$ ist
+bez"uglich der Rechenoperationen abgeschlossen, und auch der Nullvektor
+$0\in V$.
+
+\index{Unterraum}
+\begin{definition}
+Eine Teilmenge $V\subset\mathbb R^n$ heisst Unterraum von $\mathbb R^n$,
+wenn f"ur zwei Vektoren
+$u,v\in V$ und zwei reelle Zahlen $\lambda,\mu\in\mathbb R$
+auch die daraus gebildete Linearkombination
+$\lambda u+\mu v\in V$ ist.
+\end{definition}
+
+Der kleinste m"ogliche Unterraum ist $\{0\}$, also der Vektorraum, der nur aus
+dem Nullvektor besteht. F"ur diesen Raum schreibt man manchmal auch nur $0$.
+
+\subsubsection{Beispiel: Nullraum}
+\index{Nullraum}
+\index{Kern|see{Nullraum}}
+\index{ker|see{Nullraum}}
+Sei $A$ eine $m\times n$-Matrix. Die Menge
+\[
+U=\{v\in\mathbb R^n\,|\,Av=0\}
+\]
+ist ein Unterraum, der Nullraum oder Kern von $A$, geschrieben
+$\operatorname{ker}A$. Tats"achlich gilt f"ur $u,v\in\operatorname{ker}A$
+\[
+A(\lambda v+\mu u)=\lambda Av+\mu Au=0,
+\]
+also ist $\lambda v+\mu u\in\operatorname{ker}A$.
+
+\begin{satz} Sind $U$ und $V$ Unterr"aume, dann auch $U\cap V$ und
+\[
+U+V=\{u+v\,|\,u\in U,v\in V\}.
+\]
+\end{satz}
+
+Sind $U$ und $V$ Unterr"aume von $\mathbb R^n$, dann ist auch
+$U\cap V$ ein Unterraum. Dazu ist zu pr"ufen, dass die Linearkombinationen
+von zwei Vektoren $u,v\in U\cap V$ wieder in $U\cap V$ sind. Da beide
+Vektoren aus $U$ sind, muss auch jede Linearkombination in $U$ sein. Dasselbe
+gilt f"ur $V$, also ist jede Linearkombination in $U\cap V$.
+
+\begin{satz}
+Sei $A$ eine $m\times n$-Matrix und $V$ ein Unterraum von $\mathbb R^n$.
+Dann ist
+\[
+AV=\{ Av\,|v\in V\}\subset\mathbb R^m
+\]
+ein Unterraum von $\mathbb R^m$.
+\end{satz}
+\begin{proof}[Beweis]
+Sind zwei Vektoren $u_1$ und $u_2$ in $AV$, dann gibt es $v_1,v_2\in V$ mit
+$u_1=Av_1$ und $u_2=Av_2$. Also ist
+\[
+\lambda_1u_1+\lambda_2u_2
+=
+\lambda_1Av_1+\lambda_2Av_2
+=
+A(\lambda_1v_1+\lambda_2v_2)\in AV,
+\]
+also ist $AV$ ein Unterraum.
+\end{proof}
+Falls $V=\mathbb R^n$ schreibt man auch $A\mathbb R^n=\operatorname{im}A$
+und nennt $\operatorname{im}A$ das Bild von $A$.
+\index{Bild}
+\index{im@$\operatorname{im}A$|see{Bild}}
+
+\section{L"osungen von linearen Gleichungen}
+Die Sprache der linearen R"aume erlaubt uns, die Erkenntnisse "uber
+lineare Gleichungssysteme jetzt etwas geometrischer zu formulieren.
+
+Sei $A$ eine $m\times n$-Matrix, $b$ ein $m$-dimensionaler Vektor und $x$
+ein Vektor von $n$ Unbekannten. Dann ist $Ax=b$ ein lineares Gleichungssystem
+mit $m$ Gleichungen f"ur $n$ Unbekannte. Nat"urlich ist das Gleichungssystem
+nur dann l"osbar, wenn der Vektor $b$ im Bild der Matrix $A$ drin liegt.
+
+Falls also $b\in\operatorname{im}A$ ist, gibt es auf jeden Fall mindestens
+eine L"osung $x\in\mathbb R^n$ mit $Ax=b$. Kann es auch mehrere geben? Nehmen
+wir an, $x$ und $y$ seien beides solche L"osungen, dann ist
+\[
+\left.
+\begin{aligned}
+Ax&=b\\
+Ay&=b
+\end{aligned}
+\right\}
+\qquad\Rightarrow\qquad
+Ax-Ay=A(x-y)=0
+\qquad\Rightarrow\qquad
+x-y\in\operatorname{ker}A.
+\]
+Der Nullraum von $A$ gibt also dar"uber Auskunft, ob ein Gleichungssystem
+eine oder mehrere L"osungen hat:
+\begin{satz}
+Sei $A$ eine $m\times n$-Matrix und $b\in\mathbb R^m$. Dann gilt.
+\begin{enumerate}
+\item Das Gleichungssystem hat keine L"osung, wenn $b\not\in \operatorname{im}A$.
+\item Falls $b\in\operatorname{im}A$, und $x_p$ eine L"osung des Gleichungssystems
+$Ax=b$ ist, dann ist jede andere L"osung von der Form $x=x_p+x_h$, wobei
+$x_h\in\operatorname{ker}A$ ist.
+\item Das Gleichungssystem hat genau dann nur eine L"osung, wenn $\operatorname{ker}A=0$
+\end{enumerate}
+\end{satz}
+Das Gleichungssystem $Ax=0$ heisst das zu $Ax=b$ geh"orige homogene System.
+Der Satz sagt also, dass man eine einzige L"osung von $Ax=b$ finden muss,
+dies ist das $x_p$, und die L"osungen von $Ax=0$, dass sind die Elemente
+des Kerns von $A$, die im Satz mit $x_h$ bezeichnet werden. Eine L"osung
+von $Ax=b$ ist dann immer von der Form $x_p+x_h$. In der Tat bekommt
+man 
+\[
+Ax=A(x_p+x_h)=Ax_p+Ax_h=b+0=b,
+\]
+also ist jedes solche $x$ tats"achlich eine L"osung.
+
+Wie entscheidet man, ob $b\not\in\operatorname{im}A$? Nat"urlich mit
+Hilfe des Gauss-Algorithmus, der ja kl"art, ob das Gleichungssystem
+$Ax=b$ eine L"osung hat. Wie findet man die Vektoren in $ker A$?
+Nat"urlich auch mit dem Gauss-Algorithmus, der ja auch die L"osungsmenge
+von $Ax=0$ berechnen kann.
+
+\section{Basis}
+\index{Basis}
+In den bisherigen Beispielen sind Vektorr"aume entweder als Nullr"aume oder
+als Bildr"aume einer Matrix entstanden. Der Test, ob ein Vektor in einem
+Vektorraum drin ist, muss entsprechend auf verschiedene Art erfolgen:
+\begin{enumerate}
+\item Ist $V=\operatorname{ker}A$, berechnet man einfach $Av$, falls $Av=0$
+kann man schliessen, dass $v\in V$.
+\item Ist $V=\operatorname{im}A$, dann muss man einen Vektor $u\in\mathbb R^n$
+finden mit $v=Au$, man muss also ein lineares Gleichungssystem l"osen.
+\end{enumerate}
+Der zweite Fall ist also deutlich aufwendiger. Schreibt man die Bedingung
+$v=Au$ als Gleichung von Spaltenvektoren von $A$, bekommt man
+\[
+\begin{pmatrix}v_1\\\vdots\\v_m\end{pmatrix}
+=
+\begin{pmatrix}a_{11}\\\vdots\\a_{m1}\end{pmatrix}u_1+\dots+
+\begin{pmatrix}a_{1n}\\\vdots\\a_{mn}\end{pmatrix}u_n.
+\]
+Man muss also entscheiden, ob sich $v$ durch die Spaltenvektoren von
+$A$ ausdr"ucken l"asst. Selbst wenn $\operatorname{im}A$ nur ein
+relativ kleiner Raum ist, zum Beispiel weil alle Spalten von $A$
+Vielfache eines
+einzigen Vektors sind, gibt dies ziemlich viel Arbeit. Wir m"ochten
+daher einen Vektorraum als Bildraum einer m"oglichst kleinen Matrix
+schreiben k"onnen. Gleichbedeutend damit ist, dass wir die Vektoren
+des Raumes aus einer m"oglichst kleinen Zahl von Vektoren linear
+kombinieren k"onnen m"ochten.
+
+Diese Art von Darstellung beliebiger Vektoren mit Hilfe einer
+ausgew"ahlten Familie von Vektoren liegt dem Koordinaten-Systemen
+zu Grunde. Um die Koordinaten eines Punktes zu finden, zerlegt
+man seinen Ortsvektor in die Vektoren entlang der Koordinatenachsen:
+\[
+\begin{pmatrix}2\\3\\5\end{pmatrix}
+=
+2\begin{pmatrix}1\\0\\0\end{pmatrix}+
+3\begin{pmatrix}0\\1\\0\end{pmatrix}+
+5\begin{pmatrix}0\\0\\1\end{pmatrix}
+\]
+Es m"ussen aber zwei Dinge sichergestellt werden:
+\begin{enumerate}
+\item Jeder Vektor muss in dieser Form darstellbar sein. F"ur die
+Standardbasisvektoren ist dies offensichtlich, aber wie findet man
+dies bei einer beliebigen Menge von Vektoren heraus?
+\item Die Darstellung muss eindeutig sein, sonst hat man offensichtlich
+mehrere Beschreibungen des gleichen Punktes. Wie kann man entscheiden,
+ob ein Vektor nur auf eine Art aus den Vektoren kombiniert werden kann?
+\end{enumerate}
+Die n"achsten zwei Abschnitte adressieren diese Fragen.
+
+\subsection{Aufgespannter Raum}
+\index{aufspannter Raum}
+Wir m"ussen also zun"achst kl"aren, was es heisst, dass wir ``gen"ugend''
+Vektoren haben, um den Unterraum $V$ zu bilden.
+
+\begin{definition}
+\index{erzeugen}
+Eine Menge $B=\{b_1,b_2,\dots,b_n\}$ von Vektoren erzeugt den
+linearen Raum
+\[
+\langle B\rangle =
+\langle b_1,\dots , b_n\rangle =
+\{\lambda_1b_1+\dots+\lambda_nb_n\,|\,\lambda_i\in\mathbb R\}.
+\]
+Man sagt auch, $B$ spannt den Raum $\langle B\rangle$ auf.
+\end{definition}
+
+\begin{beispiel}[Beispiel: Standardbasisvektoren]
+\index{Standardbasisvektoren}
+Die speziellen Vektoren
+\[
+e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix},\quad
+e_2=\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix},
+\dots,
+e_n=\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}
+\]
+erzeugen den ganzen Raum $\mathbb R^n$, denn jeder Vektor $v\in\mathbb R^n$
+l"asst sich schreiben als
+\[
+v=\begin{pmatrix}v_1\\v_2\\\vdots\\v_n\end{pmatrix}
+=
+v_1\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}+
+v_2\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix}+
+\dots+
+v_n\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}.
+\]
+Somit ist $\mathbb R^n=\langle e_1,e_2,\dots,e_n\rangle$.
+die Vektoren $e_i$ heissen die Standardbasisvektoren.
+\end{beispiel}
+
+\begin{beispiel}
+Gegeben seien die Vektoren
+\[
+a_1=\begin{pmatrix}1\\4\\7\end{pmatrix},\quad
+a_2=\begin{pmatrix}2\\5\\8\end{pmatrix},\quad
+a_3=\begin{pmatrix}3\\6\\9\end{pmatrix}
+\]
+Spannen diese drei Vektoren den ganzen Raum $\mathbb R^3$ auf,
+oder anders ausgedr"uckt, kann man damit jeden Vektor in $\mathbb R^3$
+linear kombinieren?
+
+Dies w"are m"oglich, wenn die offensichtlich ganz $\mathbb R^3$
+aufspannenden Vektoren $e_1,e_2,e_3$ durch $a_i$ ausgedr"uckt werden
+k"onnen. Also testen wir, ob $e_i\in \operatorname{im}A$, wobei
+\[
+A=\begin{pmatrix}
+1&2&3\\
+4&5&6\\
+7&8&9
+\end{pmatrix}
+\]
+ist. Der Gauss-Algorithmus gibt folgende Tableaux:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+&2&3&1&0&0\\
+4&5&6&0&1&0\\
+7%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,-2)(-8,25)(1,25)(1,-2)
+\end{picture}%
+&8&9&0&0&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&3&1&0&0\\
+0&-3%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+&-6&-4&1&0\\
+0&-6%
+\begin{picture}(0,0)
+\color{blue}\drawline(-15,-2)(-15,10)(1,10)(1,-2)
+\end{picture}%
+&-12&-7&0&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&3&1&0&0\\
+0&1&2&\frac43&-\frac13&0\\
+0&0&0&1&-2&1\\
+\hline
+\end{tabular}
+\end{align*}
+Man kann also keinen einzigen der Vektoren $e_i$ mit den Vektoren $a_i$
+darstellen, die Vektoren $a_i$ k"onnen also unm"oglich den ganzen
+$\mathbb R^3$ aufspannen.
+\end{beispiel}
+
+\subsection{Basis}
+\index{Basis}
+Eine Menge von Vektoren, mit denen man alle Vektoren eines Unterraums
+linear kombinieren kann, muss linear unabh"angig sein. Sonst k"onnte
+man n"amlich einen der Vektoren durch die anderen ausdr"ucken, damit
+wird er selbst unn"otig. 
+
+\begin{definition}
+\index{Basis}
+Ein Menge $B\subset V$ von Vektoren in einem linearen Raum $V$ heisst
+Basis, wenn gilt:
+\begin{enumerate}
+\item $B$ spannt $V$ auf: $V=\langle B\rangle$.
+\item Die Vektoren in $B$ sind linear unabh"angig.
+\end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+Der Raum
+\[
+\left\{\left.\begin{pmatrix}x\\y\end{pmatrix}\,\right|\, x=y\right\}
+\]
+wird aufgespannt von 
+\[
+B=\left\{\begin{pmatrix}1\\1\end{pmatrix}\right\}.
+\]
+\end{beispiel}
+
+Wie kann man testen, ob eine Menge von Vektoren eine Basis ist?
+Schreibt man die Vektoren der Basis $B$ als Spalten in eine Matrix
+$\tilde B$, m"ussen wir offenbar zwei Dinge testen:
+\begin{enumerate}
+\item $V = \operatorname{im}\tilde B$: das Gleichungssystem $\tilde Bx=b$
+muss f"ur jeden Vektor $b\in V$ l"osbar sein.
+\item Die Vektoren von $B$ sind linear unabh"angig: die Spalten sind
+linear unabh"angig. Dies kann auf zwei Arten geschehen:
+\begin{enumerate}
+\item Der Gauss-Algorithmus, angewendet auf $\tilde B^t$, liefert eine
+Nullzeile genau dann, wenn die Zeilen von $\tilde B^t$ linear abh"angig sind,
+das sind aber genau die Spalten von $\tilde B$. Wenn also keine Nullzeile
+auftritt, sind die Vektoren linear unabh"angig.
+\item Falls der Gauss-Algorithmus f"ur das homogene Gleichungssystem
+$\tilde B x=0$ nur die L"osung $x=0$ findet, sind die Spalten linear
+unabh"angig. Anders ausgedr"uckt: wenn das Gleichungssystem $\tilde Bx=b$
+f"ur jedes in Frage kommende $b$ genau eine L"osung hat, sind die
+Spalten von $\tilde B$ linear unabh"angig.
+\end{enumerate}
+\end{enumerate}
+
+
+\begin{satz}
+\index{Standardbasis}
+Die Standardbasisvektoren bilden eine Basis von $\mathbb R^n$,
+die Standardbasis.
+\end{satz}
+
+\begin{proof}[Beweis]
+Wir wissen bereits, dass die Standardbasisvektoren $\mathbb R^n$ aufspannen,
+wir m"ussen aber nur noch erkennen, dass sie auch linear unabh"angig sind.
+Schreibt man die Vektoren als Spalten in eine Matrix $\tilde B$, entsteht die
+Einheitsmatrix, und ein Gleichungssystem $Ex=b$ hat immer genau die eine
+L"osung $x=b$, also ist 
+\end{proof}
+
+\begin{beispiel}
+Die Vektoren 
+\[
+b_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\quad
+b_2=\begin{pmatrix}1\\1\\0\end{pmatrix},\quad
+b_3=\begin{pmatrix}1\\1\\1\end{pmatrix},\quad
+\]
+bilden eine Basis von $\mathbb R^3$.
+Zwei Dinge sind zu pr"ufen:
+spannen sie den ganzen Raum auf und sind sie linear unabh"angig.
+Da man alle Standardbasisvektoren durch die $b_i$ ausdr"ucken kann, n"amlich
+durch
+\[
+e_1=b_1,\qquad e_2=b_2-b_1,\qquad\text{und}\qquad e_3=b_3-b_2-b_1,
+\]
+ist jeder Vektor durch die $b_i$ ausdr"uckbar. Lineare Abh"angigkeit kann
+man mit dem Gauss-Algorithmus testen. Wir schreiben dazu die Vektoren
+als Zeilen in ein Gausstableau:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&0\\
+1&1&0\\
+1&1&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&0\\
+0&1&0\\
+0&0&1\\
+\hline
+\end{tabular}
+\]
+Da keine Nullzeile entstanden ist, sind die Zeilen linear unabh"angig. 
+Die Zeilen waren aber genau die Vektoren $b_i$. Damit ist klar, dass
+die Vektoren $b_i$ eine Basis bilden.
+\end{beispiel}
+
+\begin{definition}
+\index{Dimension}
+Die Dimension $\dim V$ eines Vektorraumes $V$ ist die Zahl der
+Basisvektoren einer Basis von $V$.
+\end{definition}
+
+\begin{beispiel} Man finde eine Basis des Nullraumes der Matrix
+\[
+A=\begin{pmatrix}
+1&2&3\\
+4&5&6\\
+7&8&9
+\end{pmatrix}.
+\]
+Wendet man den Gauss-Algorithmus f"ur das homogene Gleichungssystem
+an, findet man:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+& 2& 3&0\\
+ 4& 5& 6&0\\
+ 7%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,-2)(-8,24)(1,24)(1,-2)
+\end{picture}%
+& 8& 9&0\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 2&  3&0\\
+ 0&-3%
+\begin{picture}(0,0)
+\color{red}\put(-6,4){\circle{15}}
+\end{picture}%
+& -6&0\\
+ 0&-6%
+\begin{picture}(0,0)
+\color{blue}\drawline(-15,-2)(-15,10)(2,10)(2,-2)
+\end{picture}%
+&-12&0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 2%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,10)(-8,-2)(2,-2)(2,10)
+\end{picture}%
+&  3&0\\
+ 0& 1&  2&0\\
+ 0& 0&  0&0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 0& -1&0\\
+ 0& 1&  2&0\\
+ 0& 0&  0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Offenbar gibt es genau eine frei w"ahlbare Variable $z$, und
+die L"osungsmenge ist 
+\[
+t\begin{pmatrix}
+1\\-2\\1
+\end{pmatrix}
+\]
+Der Nullraum wird also vom Vektor
+\[
+\begin{pmatrix}
+1\\-2\\1
+\end{pmatrix}
+\]
+aufgespannt.
+\end{beispiel}
+
+\begin{beispiel}
+Man finde eine Basis des Bildraumes $\operatorname{im}A$ mit der gleichen
+Matrix wie im vorangegangenen Beispiel. 
+
+Die Basis besteht aus so wenigen linear unabh"angigen Vektoren wie
+m"oglich, aber alle Spaltenvektoren von $A$ m"ussen damit erzeugt
+werden k"onnen. Dazu nehmen wir einfach einen Vektor um den anderen
+hinzu, solange die Menge der Vektoren linear unabh"angig bleibt.
+
+Der erste Spaltenvektor ist nicht der Nullvektor, also k"onnen wir
+den in die Basis hineinnehmen. Der zweite ist nicht proportional,
+also sind die ersten beiden Spalten linear unabh"angig. Als
+Basis k"onnten wir daher
+\[
+\left\{
+\begin{pmatrix}1\\4\\7\end{pmatrix}
+,
+\begin{pmatrix}2\\5\\8\end{pmatrix}
+\right\}
+\]
+nehmen. Den dritten Spaltenvektor d"urfen wir nicht hinzunehmen.
+Aus dem letzten Beispiel wissen wir ja, dass die Matrix singul"ar
+ist. Es kann also h"ochstens zwei linear unabh"angige Vektoren haben.
+\end{beispiel}
+
+\subsection{Koordinaten}
+\index{Koordinaten}
+Gibt man eine Basis $B=\{b_1,\dots,b_k\}$ von $V$ vor,
+dann kann man die Vektoren
+in $V$ in der Basis $B$ ausdr"ucken. Dazu muss man zu einem 
+Vektor $v\in V$ Zahlen $\xi_i$ finden mit
+\[
+v=\xi_1 b_1+\dots +\xi_k b_k.
+\]
+Schreiben wir wieder die Basisvektoren von $B$ als Spaltenvektoren in 
+eine Matrix $\tilde B$, dann ist 
+\[
+v=\tilde B\begin{pmatrix}\xi_1\\\vdots\\\xi_n\end{pmatrix}.
+\]
+Eine Basis eines $k$-dimensionalen Raumes $V$ erm"oglicht also,
+die Vektoren von $V$ mit Hilfe von $k$-Tupeln, bestehend
+aus den Zahlen $\xi_i$, darzustellen. Die $\xi_i$ heissen
+Koordinanten eines Vektors $v$ in der Basis $B$, wir schreiben
+oft auch einfach $\xi$ f"ur den Vektor mit Komponenten $\xi_i$.
+Das Finden der Koordinaten eines Vektors $v$ l"auft immer auf die L"osung
+des Gleichungssystems $\tilde B\xi=v$ hinaus.
+
+\begin{beispiel}
+Die Basis \[
+B=\left\{
+\begin{pmatrix}1\\2\\3\end{pmatrix},
+\begin{pmatrix}3\\2\\1\end{pmatrix}
+\right\}
+\]
+spannt einen zweidimensionalen Unterraum von $\mathbb R^3$ auf. Man finde
+die Koordinaten des Vektors 
+\[
+v=
+\begin{pmatrix}
+0\\4\\8
+\end{pmatrix}
+\]
+in der Basis $B$.
+
+Dazu muss man das Gleichungssystem $v=\tilde B\xi$ l"osen:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+&3&0\\
+2&2&4\\
+3%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,-2)(-8,25)(2,25)(2,-2)
+\end{picture}%
+&1&8\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&3&0\\
+0&-4%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+&4\\
+0&-8%
+\begin{picture}(0,0)
+\color{blue}\drawline(-15,-2)(-15,10)(1,10)(1,-2)
+\end{picture}%
+&8\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&3%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,10)(-8,-2)(1,-2)(1,10)
+\end{picture}%
+&0\\
+0&1&-1\\
+0&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&3\\
+0&1&-1\\
+0&0&0\\
+\hline
+\end{tabular}
+\]
+man kann also die Koordinaten $3$ und $-1$ ablesen.
+Kontrolle:
+\[
+\tilde B\xi
+=
+\begin{pmatrix}
+1&3\\
+2&2\\
+3&1\end{pmatrix}
+\begin{pmatrix}3\\-1\end{pmatrix}
+=\begin{pmatrix}
+0\\4\\8
+\end{pmatrix}
+=v.
+\]
+\end{beispiel}
+
+\subsection{Basiswechsel}
+\index{Basiswechsel}
+Jede beliebige linear unabh"angige Teilmenge von $V$, welche ganz $V$
+aufspannt, kann als Basis verwendet werden. Oft ist es praktischer,
+statt der Standardbasis eine andere Basis zu verwenden, zum Beispiel
+um die Koordinatenachsen parallel zu den Kanten eines Werkst"ucks zu
+bekommen, oder um eine spezielle Symmetrie des Problems einfacher
+ausdr"ucken zu k"onnen. Wie sind die Koordinaten zwischen zwei Basen
+$B$ und $B'$ umzurechnen?
+
+Zu jeder Basis $B$ gibt es die Matrix $\tilde B$, die aus den
+Koordinaten $\xi$ eines Vektors $v$ den Vektor mittels $v=\tilde B\xi$
+berechnet. Hat man zwei Basen $B$ und $B'$, hat auch jeder Vektor
+in $V$ zwei verschiedene Koordinaten-Vektoren $\xi$ und $\xi'$:
+\[
+v=\tilde B\xi =\tilde B'\xi'.
+\]
+Wie kann man $\xi'$ aus $\xi$ berechnen?
+
+Zun"achst besagt die Definition einer Basis, dass man 
+jeden Vektor der Basis $B$ durch die Vektoren von $B'$
+ausdr"ucken kann. Es gibt also Zahlen $t_{ji}$ mit
+der Eigenschaft
+\[
+b_i=\sum_{j=1}^kt_{ji}b_j'.
+\]
+Man beachte, dass dies eine Vektorgleichung ist, trotz der "Ahnlichkeit
+zu einem Produkt $\text{Matrix}\times\text{Vektor}$ kann man dies
+nicht mit Matrizen schreiben. Die Zahlen $t_{ji}$ findet man
+als L"osung des Gleichungssystems $\tilde B'x=b_i$, oder
+\[
+\tilde B'\begin{pmatrix}t_{1i}\\\vdots\\t_{ki}\end{pmatrix}=b_i.
+\]
+
+Damit kann man jetzt den Vektor $v\in V$ auf die neue Basis umrechnen:
+\[
+v
+=\xi_1b_1+\dots+\xi_kb_k
+=\sum_{i=1}^k\xi_i\sum_{j=1}^kt_{ji}b_j'
+=\sum_{j=1}^k\underbrace{\biggl( \sum_{i=1}^kt_{ji} \xi_i\biggr)}_{\xi_j'} b_j'
+\]
+Daraus kann man jetzt die $\xi'$-Koordinaten ablesen, es sind die
+Koeffizienten von $b_j'$. Wir finden also als Umrechnungsformel:
+\[
+\xi'_j=\sum_{i=1}^kt_{ji}\xi_i
+\quad\Rightarrow\quad
+\begin{pmatrix}\xi_1'\\\vdots\\\xi_k'\end{pmatrix}
+=
+\begin{pmatrix}
+t_{11}&\dots&t_{1k}\\
+\vdots&\ddots&\vdots\\
+t_{k1}&\dots&t_{kk}
+\end{pmatrix}
+\begin{pmatrix}\xi_1\\\vdots\\\xi_k \end{pmatrix}.
+\]
+Die Zahlen $t_{ji}$ bilden also eine Matrix $T$, welche die Koordinanten
+von der Basis $B$ auf die Basis $B'$ umrechnet:
+$\xi'=T\xi$.
+
+\begin{beispiel}[Basiswechsel in $\mathbb R^2$]
+Statt der Standardbasis m"ochte man im $\mathbb R^2$ die Basis
+$B'$
+aus den Vektoren 
+\[
+b_1'=\begin{pmatrix}1\\-1\end{pmatrix}
+,\quad
+b_2'=\begin{pmatrix}1\\1\end{pmatrix}
+\]
+verwenden. Finden Sie die Transformationsmatrix, die Koordinaten von
+der Standardbasis auf die Basis $B'$ umrechnet.
+
+Zuerst muss man die Zahlen $t_{ji}$ bestimmen. Dazu muss man die
+Standardbasisvektoren durch die neuen Basisvektoren ausdr"ucken:
+\begin{align*}
+e_1&=\begin{pmatrix}1\\0\end{pmatrix}=\frac12b_1'+\frac12b_2'\\
+e_2&=\begin{pmatrix}0\\1\end{pmatrix}=-\frac12b_1'+\frac12b_2'
+\end{align*}
+Die gesuchten Zahlen $t_{ji}$ sind die Koeffizienten vor den Basisvektoren,
+aber ``transponiert'':
+\[
+T=\begin{pmatrix}\frac12&-\frac12\\\frac12&\frac12\end{pmatrix}.
+\]
+Eine Koordinatenumrechnung kann jetzt mit $T$ erfolgen:
+\[
+v=\begin{pmatrix}2\\3\end{pmatrix}
+\;\Rightarrow\;
+\xi=\begin{pmatrix}2\\3\end{pmatrix}
+\;\Rightarrow\;
+\xi'=T\xi=\frac12\begin{pmatrix}1&-1\\1&1\end{pmatrix} \begin{pmatrix}2\\3\end{pmatrix}
+=\frac12\begin{pmatrix}-1\\5\end{pmatrix}=\xi'.
+\]
+Kontrolle:
+\[
+-\frac12b_1'+\frac52b_2'
+=
+\begin{pmatrix}-\frac12+\frac52\\\frac12+\frac52\end{pmatrix}
+=
+\begin{pmatrix}2\\3\end{pmatrix}=v.
+\]
+Die Matrix $T$ heisst Transformationsmatrix.
+\index{Transformationsmatrix}
+\end{beispiel}
+
+\begin{beispiel}[Basiswechsel in $\mathbb R^n$]
+Die erste Basis ist jetzt die Standardbasis in $\mathbb R^n$, die
+zweite ist besteht aus irgendwelchen Vektoren $b_1',\dots,b_n'$.
+Man finde die Transformationsmatrix $T$.
+
+Wir schreiben $B'$ f"ur die Matrix mit Spalten $b_j'$. Nach dem
+Rezept m"ussen die Vektoren $e_i$ durch die $b_j'$ ausgedr"uckt
+werden, man muss also L"osungen der Gleichungen
+\[
+B't_j=e_j
+\]
+finden. Das Gausstableau f"ur die simultane L"osung all dieser
+Gleichungen ist
+\[
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}
+\hline
+B'&E\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}
+\hline
+E&B'^{-1}\\
+\hline
+\end{tabular}
+\]
+Die gesuchten Elemente $t_{ji}$ stehen jeweils in den Spalten
+von $B'^{-1}$, da wir aber ohnehin noch transformieren m"ussen,
+erhalten wir
+\[
+T=B'^{-1}.
+\]
+\end{beispiel}
+
+\begin{beispiel}[Basiswechsel f"ur beliebige Basen]
+Seien jetzt zwei beliebige Basen gegeben, 
+\begin{align*}
+\text{Basis 1:}&\quad \{b_1,\dots,b_n\}
+&
+\text{Basis 2:}&\quad \{b'_1,\dots,b'_n\}
+\\
+B&=\begin{pmatrix}
+b_1&\dots&b_n
+\end{pmatrix}
+&
+B'&=\begin{pmatrix}
+b_1'&\dots&b_n'
+\end{pmatrix}
+\end{align*}
+Wie im letzten Beispiel suchen wir Spaltenvektoren, die die alten
+Basisvektoren durch die neuen ausdr"ucken, also
+\[
+b_j=B't_j\quad\forall j\qquad\Rightarrow\qquad B=B'T.
+\]
+Daraus k"onnen wir ablesen:
+\[
+T=B'^{-1}B.
+\]
+\end{beispiel}
+
+\section{Lineare Abbildungen}
+\subsection{Definition}
+Eine $m\times n$-Matrix $A$ berechnet aus einem gegeben Vektor
+$v\in\mathbb R^n$ mit Hilfe des
+Matrizenproduktes einen neuen Vektor $Av\in\mathbb R^m$. $A$ definiert also
+auch eine Abbildung
+\[
+A\colon\mathbb R^n\to\mathbb R^m:v\mapsto Av
+\]
+mit den Eigenschaften
+\[
+\left.
+\begin{aligned}
+A(u+v)&=Au+Av\\
+A(\lambda u)&=\lambda Au
+\end{aligned}\right\}\quad
+\Rightarrow\quad
+A(\lambda u+\mu v)=\lambda Au+\mu Av.
+\]
+Eine solche Abbildung heisst linear.
+\index{lineare Abbildung}
+
+\subsection{Matrix einer linearen Abbildung}
+Umgekehrt definiert jede lineare Abbildung $V\to V$ mit Hilfe einer
+Basis auch eine Matrix. Sei $\varphi\colon V\to V$ eine Abbildung
+mit $\varphi(\lambda u+\mu v)=\lambda \varphi(u)+\mu\varphi(v)$,
+und $B=\{b_1,\dots,b_n\}$ eine Basis. Dann gen"ugt die Kenntnis
+von $\varphi(b_i)$ f"ur alle $i$, um die lineare Abbildung f"ur
+jeden beliebigen Vektor berechnen zu k"onnen.
+
+Man kann n"amlich jeden Vektor mit Hilfe seiner Koordinanten aus
+den Basisvektoren linear kombinieren, also gilt auch
+\[
+\varphi(v)
+=
+\varphi(\xi_1b_1+\dots+\xi_nb_n)
+=
+\xi_1\varphi(b_1)+\dots+\xi_n\varphi(b_n).
+\]
+Ausserdem kann man die Koordinaten von $\varphi(b_i)$ in der Basis
+$B$ ermitteln, und diese Koordinatenvektoren in eine Matrix $A$
+schreiben. Dann ist $A\xi$ der Koordinatenvektor von $\varphi(v)$.
+Die Matrix $A$ enth"alt also in den Spalten die Bilder der Basisvektoren.
+
+\subsection{Basiswechsel}
+Wie sieht die Matrix einer linearen Abbildung aus, wenn man statt
+der Basis $B$ die Basis $B'$ verwendet? Sei $T$ die Transformationsmatrix,
+die Koordinaten bez"uglich $B$ in Koordinaten bez"uglich $B'$ umrechnet.
+Die lineare Abbildung hat bez"uglich der Basis $B$ die Matrix $A$, wir
+suchen aber die Matrix $A'$, die die lineare Abbildung bez"uglich der
+Basis $B'$ beschreibt:
+\[
+\xymatrix{
+\mathbb R^n\ar[r]^{A} \ar[d]_{T}
+	&\mathbb R^n \ar[d]^{T}
+\\
+\mathbb R^n\ar[r]^{A'}
+	&\mathbb R^n
+}
+\]
+Aus dem Diagramm k"onnen wir ablesen, dass $A'$ gleichbedeutend
+ist damit, die Koordinaten zuerst mit $T^{-1}$ von der Basis $B'$
+auf die Basis $B$ umzurechnen, dort die Matrix $A$ anzuwenden, und
+dann erneut mit $T$ in die Basis $B'$ zur"uckzukehren:
+\[
+A'=TAT^{-1}.
+\]
+
+\section{Skalarprodukt}
+\index{Skalarprodukt}
+\subsection{Skalarprodukte und symmetrische Matrizen}
+Das in der Vektorgeometrie definiert Skalarprodukt kann in beliebig
+vielen Dimensionen definiert werden. Zwei Vektoren $v$ und $u$ haben
+das Skalarprodukt
+\[
+u\cdot v=
+\begin{pmatrix}u_1\\\vdots\\u_n\end{pmatrix}
+\cdot
+\begin{pmatrix}v_1\\\vdots\\v_n\end{pmatrix}
+=u_1v_1+\dots+u_nv_n=u^tv.
+\]
+In den Anwendungen findet man aber weitere Beispiel von
+Skalarprodukt-"ahnlichen Gr"ossen, zum Beispiel das Tr"agheitsmoment.
+Die Rotationsenergie eines starren K"orpers kann aus dem Vektor $\omega$
+der Winkelgeschwindigkeit mit der (symmetrischen) Matrix des
+Tr"agheitsmomentes $\Theta$
+berechnet werden:
+$
+E=\frac12 \omega^t\Theta \omega.
+$
+Die allgemeinste Form eines Skalarproduktes verwendet daher eine
+symmetrische Matrix $M$, also eine Matrix mit der Eigenschaft
+$M=M^t$, und berechnet das Skalarprodukt zweier Vektoren $u$ und $v$
+als $u^tMv$.
+
+Mit dem Skalarprodukt kann auch die L"ange eines Vektors definiert 
+werden, wir schreiben
+\[
+|v|=\sqrt{v^tv}
+\]
+f"ur die L"ange.
+
+\subsection{Basiswechsel}
+Sei wieder $T$ die Matrix, die Koordinaten von der Basis $B'$ in die
+Basis $B$ umrechnet.
+Um das Skalarprodukt bez"uglich der Basis $B'$ zu berechnen,
+m"ussen die Vektoren zuerst mit $T$ in die Basis $B$ umgerechnet werden,
+so dass dann die Formel f"ur das Skalarprodukt in der Basis $B$
+verwendet werden kann:
+\[
+(T\xi)^tT\eta=\xi^tT^tT\eta
+\]
+Die Matrix $T^tT$ ist symmetrisch, der ``Spezialfall'' eines Skalarproduktes,
+welches mit Hilfe einer symmetrischen Matrix definiert worden ist,
+ist also unvermeidlich, wenn man die Basis wechseln will.
+
+\subsection{Orthogonale Matrizen}
+\index{Matrix!orthognale}
+Das Skalarprodukt erlaubt, L"angen und Winkel zu berechnen. 
+Lineare Abbildungen, welche L"angen und Winkel nicht "andern, beschreiben
+Bewegungen des Raumes. Damit zwei Vektoren $u$ und $v$ sollen nach Abbildung
+mit der Matrix $A$ immer noch das gleiche Skalarprodukt haben, muss
+\[
+u^tv=(Au)^tAv=u^tA^tAv
+\]
+gelten. Dies ist jedoch nur dann f"ur alle Vektoren $u$ und $v$ m"oglich,
+wenn $A^tA$ die Einheitsmatrix ist, also $A^tA=E$. Das ist aber gleichbedeutend
+damit, dass $A^t=A^{-1}$. Lineare Abbildungen, die L"angen und
+Winkel erhalten, haben also besonders einfach zu invertieren Matrizen.
+
+\begin{definition}
+\index{orthogonal}
+Eine Matrix $A$ heisst orthogonal, wenn $A^tA=AA^t=E$.
+\end{definition}
+
+\begin{beispiel}
+Die Matrix 
+\[
+A=
+\begin{pmatrix}
+\frac{\sqrt{2}}2& \frac{\sqrt{2}}2\\
+-\frac{\sqrt{2}}2& \frac{\sqrt{2}}2
+\end{pmatrix}
+\]
+ist orthogonal:
+\[
+A^tA=
+\begin{pmatrix}
+\frac{\sqrt{2}}2&-\frac{\sqrt{2}}2\\
+\frac{\sqrt{2}}2& \frac{\sqrt{2}}2
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\sqrt{2}}2& \frac{\sqrt{2}}2\\
+-\frac{\sqrt{2}}2& \frac{\sqrt{2}}2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac24+\frac24&\frac24-\frac12\\
+\frac24-\frac24&\frac24+\frac12
+\end{pmatrix}
+=E.
+\]
+\end{beispiel}
+\begin{beispiel}
+Die Matrix
+\[
+D_\alpha
+=
+\begin{pmatrix}
+\cos\alpha&\sin\alpha\\
+-\sin\alpha&\cos\alpha
+\end{pmatrix}
+\]
+ist orthogonal:
+\[
+D_\alpha^tD_\alpha
+=
+\begin{pmatrix}
+\cos\alpha&-\sin\alpha\\
+\sin\alpha&\cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+\cos\alpha&\sin\alpha\\
+-\sin\alpha&\cos\alpha
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos^2\alpha+\sin^2\alpha&0\\
+0&\sin^2\alpha+\cos^2\alpha
+\end{pmatrix}
+=E.
+\]
+Diese Matrix beschreibt eine Drehung um den Winkel $\alpha$
+in zwei Dimensionen.
+\end{beispiel}
+
+\begin{beispiel}
+\index{Spiegelung}
+Die Matrix einer Spiegelung an einer Geraden ist orthogonal.
+
+\smallskip
+
+{\parindent 0pt
+Sei} $v$ ein zweidimensionaler Vektor der L"ange $1$. Dann ist
+die Abbildung 
+\[
+u\mapsto u-2v(v\cdot u)
+\]
+die Spiegelung an der Geraden mit der Normalen $u$. Ist n"amlich
+ein Vektor $u\perp v$, ist das Skalarprodukt $0$, und $u\mapsto u$
+bleibt unver"andert. Andererseits wird der Vektor $v$ auf
+$v-2v(v\cdot v)=v-2v=-v$ abgebildet. Vektoren senkrecht auf $v$
+werden also belassen, solche parallel zu $v$ werden umgekehrt.
+
+Die Matrix dieser linearen Abbildung ist
+\[
+S_v=\begin{pmatrix}1&0\\0&1\end{pmatrix}
+-
+2\begin{pmatrix}v_1\\v_2\end{pmatrix}
+\begin{pmatrix}v_1&v_2\end{pmatrix}
+=
+\begin{pmatrix}
+1-2v_1^2&2v_1v_2\\
+2v_1v_2&1-2v_2^2
+\end{pmatrix},
+\]
+wir wollen nachrechnen, dass sie orthogonal ist. Dabei beachten
+wir, dass $1-v_1^2=v_2^2$ ist, weil ja $|v|=1$, also kann man $S_v$
+auch schreiben
+\[
+S_v=\begin{pmatrix}
+v_2^2-v_1^2&2v_1v_2\\
+2v_1v_2&v_1^2-v_2^2
+\end{pmatrix}
+\]
+
+\begin{align*}
+S_v^tS_v
+&=
+\begin{pmatrix}
+v_2^2-v_1^2&2v_1v_2\\
+2v_1v_2&v_1^2-v_2^2
+\end{pmatrix}
+\begin{pmatrix}
+v_2^2-v_1^2&2v_1v_2\\
+2v_1v_2&v_1^2-v_2^2
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+v_2^4-2v_1^2v_2^2+v_1^4+4v_1^2v_2^2&
+2(v_2^2-v_1^2)v_1v_2
++
+2(v_1^2-v_2^2)v_1v_2
+\\
+2(v_1^2-v_2^2)v_1v_2
++
+2(v_2^2-v_1^2)v_1v_2
+&
+v_2^4-2v_1^2v_2^2+v_1^4+4v_1^2v_2^2
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+v_1^4+2v_1^2v_2^2+v_2^4&0\\
+0&v_1^4+2v_1^2v_2^2+v_2^4\\
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+(v_1^2+v_2)^2&0\\
+0&(v_1^2+v_2)^2
+\end{pmatrix}=E
+\end{align*}
+Die Matrix $S_v$ ist also tats"achlich immer orthogonal.
+
+Analog gilt in beliebig vielen Dimensionen, dass die Matrix
+$S_v=E-2v v^t$  f"ur einen Vektor $v$ der L"ange $1$ eine orthogonale
+Matrix ist, die die Spiegelung an einer Ebene mit Normale $v$
+beschreibt.
+\end{beispiel}
+
+\begin{satz}
+Die Spalten einer orthogonale Matrix $A$ sind orthonormiert, sie sind
+orthogonale Vektoren der L"ange 1. Ausserdem ist $A^{-1}=A^t$.
+\end{satz}
+
+\begin{proof}[Beweis]
+Multipliziert man $A^tA=E$ von rechts mit $A^{-1}$, bekommt man
+$A^tAA^{-1}=A^t=A^{-1}$.
+
+Wir interpretieren die Bedingung $A^tA=E$. F"ur ein beliebiges $i$
+bedeutet sie, dass Zeile $i$ von $A^t$ mal Spalte $i$ von $A$ $1$ ergibt.
+Dies ist aber das Skalarprodukt von Spalte $i$ von $A$ mit Spalte $i$
+von $A$, also die L"ange vom Spaltenvektor mit der Nummer $i$.
+
+Seien jetzt $i\ne j$ zwei verschiedene Indizes. Dann bedeutet $A^tA=E$,
+dass Zeile $i$ von $A^t$ mal Spalte $j$ von $A$ $0$ ergibt. Oder das
+Skalarprodukt von Spalte $i$ von $A$ mit Spalte $j$ von $A$ ist $0$.
+Dies wiederum heisst, dass die Spaltenvektoren senkrecht stehen.
+\end{proof}
+
+\subsection{Orthonormalisierung}
+\index{Orthonormalisierung}
+\index{Gram-Schmidt-Prozess|see{Orthonormalisierung}}
+Orthogonale Vektoren sind besonders gut als Basis geeignet, weil
+sich dann das Skalarprodukt am einfachsten ausdr"ucken l"asst.
+Dies ist der eigentliche Inhalt des Satzes von Pythagoras: wenn
+\index{Pythagoras}
+man die Achsen orthogonal w"ahlt, kann man die L"ange mit Hilfe
+einer Quadratsumme der Koordinaten ausrechnen. Daher stellt sich 
+das Problem, aus einer gegebenen Menge von Vektoren eine Menge
+von orthogonalen Vektoren zu machen.
+
+Sei also $V=\{b_1,\dots,b_n\}$ eine linear unabh"angige Menge von
+Vektoren. Gesucht ist eine ebenfalls linear unabh"angige Menge 
+von Vektoren $B'=\{b_1',\dots,b_n'\}$, die den gleichen Unterraum
+aufspannen.
+Ausserdem soll gelten:
+\begin{enumerate}
+\item $b_i'^tb_j'=0$ falls $i\ne j$: Vektoren von $B'$ sind orthogonal.
+\item $|b_i'|=1$ f"ur alle $i$: Vektoren von $B'$ sind normiert.
+\end{enumerate}
+Eine Menge von Vektoren $B'$ mit diesen Eigenschaften heisst
+{\it orthonormiert}.
+Man beachte, dass $B$ keine Basis sein muss, die Vektoren sind zwar
+linear unabh"angig, m"ussen aber nicht den ganzen Vektorraum erzeugen. 
+Falls $B$ eine Basis ist, dann wird auch $B'$ eine Basis sein, beide
+Vektormengen erzeugen den ganzen Raum.
+
+Wir konstruieren jetzt schrittweise die Menge $B'$.
+Der Vektor $b_1$ hat als schlimmsten m"oglichen Fehler, dass er
+nicht die richtige L"ange hat, also setzen wir
+\[
+b_1' = \frac{b_1}{|b_1|}.
+\]
+Der zweite Vektor $b_2$ hat m"oglicherweise nicht die richtige L"ange,
+aber noch viel schwerer wiegt, dass er nicht senkrecht auf $b_1'$
+steht. Man kann jedoch die zu $b_1'$ parallele Komponente mit Hilfe
+des Skalarproduktes finden: $(b_1'\cdot b_2)b_1'$ ist ein Vektor
+parallel zu $b_1'$. Subtrahieren wir dieses St"uck von $b_2$ bekommen
+wir einen Vektor, der senkrecht auf $b_1'$ steht:
+\[
+b_1'\cdot(b_2-(b_1'\cdot b_2)b_1')=
+b_1'\cdot b_2-(b_1'\cdot b_2)(\underbrace{b_1'\cdot b_1'}_{=1})
+=
+b_1'\cdot b_2-
+b_1'\cdot b_2=0.
+\]
+Bringen wir ihn noch auf L"ange $1$, bekommen wir den Vektor
+\[
+b_2'=\frac{
+b_2-(b_2\cdot b_1')b_1'
+}{
+|b_2-(b_2\cdot b_1')b_1'|
+}
+\]
+Im n"achsten Schritt gehen wir im Prinzip gleich vor, m"ussen aber
+auch noch $b_2$ hinzuziehen:
+\begin{align*}
+b_3'&=\frac{
+b_3-(b_3\cdot b_1')b_1'-(b_3\cdot b_2')b_2'
+}{
+|b_3-(b_3\cdot b_1')b_1'-(b_3\cdot b_2')b_2'|
+}
+\\
+&\vdots
+\\
+b_n'&=\frac{
+b_n-(b_n\cdot b_1')b_1'-\dots-(b_n\cdot b_{n-1}')b_{n-1}'
+}{
+|b_n-(b_n\cdot b_1')b_1'-\dots-(b_n\cdot b_{n-1}')b_{n-1}'|
+}
+\end{align*}
+
+Damit haben wir einen rekursiven Algorithmus gefunden,
+der das gestellt Problem l"ost:
+
+\begin{satz}[Gram-Schmidt] Ist $B$ eine linear unabh"angige Menge von Vektoren,
+dann gibt es eine orthonormierte Menge von Vektoren $B'$ so, dass
+$\langle b_1,\dots,b_k\rangle=\langle b_1',\dots,b_k'\rangle$. Die
+Vektoren $b_i'$ sind
+\begin{align*}
+b_1'&=\frac{b_1}{|b_1|}\\
+b_k'&=\frac{b_k-(b_k\cdot b_1')b_1'-\dots -(b_k\cdot b_{k-1}')b_{k-1}'}%
+{|b_k-(b_k\cdot b_1')b_1'-\dots -(b_k\cdot b_{k-1}')b_{k-1}'|}
+\end{align*}
+\end{satz}
+
+\begin{beispiel}
+Man orthonormalisiere die Menge 
+\[
+B=\left\{
+b_1=\begin{pmatrix}1\\1\\1\end{pmatrix},
+b_2=\begin{pmatrix}0\\1\\1\end{pmatrix},
+b_3=\begin{pmatrix}0\\0\\1\end{pmatrix}
+\right\}.
+\]
+Die Rekursionsformeln liefern nacheinander
+\begin{align*}
+b_1'&=\frac{b_1}{|b_1|}=\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}
+\\
+b_2\cdot b_1'&=\frac2{\sqrt{3}}
+\\
+b_2&=\frac{
+b_2-\frac2{\sqrt{3}}b_1'
+}{
+|b_2-\frac2{\sqrt{3}}b_1'|
+}
+=
+\frac{
+\begin{pmatrix}0\\1\\1\end{pmatrix}-\frac23\begin{pmatrix}1\\1\\1\end{pmatrix}
+}{
+|b_2-\frac2{\sqrt{3}}b_1'|
+}
+=
+\frac{\begin{pmatrix}-\frac23\\\frac13\\\frac13\end{pmatrix}}{
+\sqrt{\frac19+\frac19+\frac49}}
+=\frac1{\sqrt{6}}\begin{pmatrix}-2\\1\\1\end{pmatrix}
+\\
+b_3\cdot b_1'&=\frac1{\sqrt{3}}
+\\
+b_3\cdot b_2'&=\frac1{\sqrt{6}}
+\\
+b_3'&=\frac{
+b_3-(b_3\cdot b_1')b_1'-(b_3\cdot b_2')b_2'
+}{
+|b_3-(b_3\cdot b_1')b_1'-(b_3\cdot b_2')b_2'|
+}
+=
+\frac{
+\begin{pmatrix}0\\0\\1\end{pmatrix}
+-\frac1{\sqrt{3}}\cdot\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}
+-\frac1{\sqrt{6}}\cdot\frac1{\sqrt{6}}\begin{pmatrix}-2\\1\\1\end{pmatrix}
+}{
+|b_3-(b_3\cdot b_1')b_1'-(b_3\cdot b_2')b_2'|
+}
+\\
+&
+=
+\frac{
+\begin{pmatrix}0\\0\\1\end{pmatrix}
+-\frac13\begin{pmatrix}1\\1\\1\end{pmatrix}
+-\frac16\begin{pmatrix}-2\\1\\1\end{pmatrix}
+}{
+|b_3-(b_3\cdot b_1')b_1'-(b_3\cdot b_2')b_2'|
+}
+=
+\frac{
+\begin{pmatrix}0\\-\frac12\\\frac12\end{pmatrix}
+}{
+\sqrt{\frac14+\frac14}
+}
+=\sqrt{2}
+\begin{pmatrix}0\\-\frac12\\\frac12\end{pmatrix}
+\end{align*}
+Die gesuchte Menge $B'$ ist also
+\[
+B'=\left\{
+b_1'=\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix},
+b_2'=\frac1{\sqrt{6}}\begin{pmatrix}-2\\1\\1\end{pmatrix},
+b_3'=\frac1{\sqrt{2}}\begin{pmatrix}0\\-1\\1\end{pmatrix}
+\right\}
+\]
+Man kann leicht verifizieren, dass diese Menge die verlangten
+Orthogonalit"atseigenschaften erf"ullt, die Vektoren haben
+alle die L"ange $1$ und sie sind paarweise senkrecht.
+\end{beispiel}
+
+\section{"Uberbestimmte Gleichungssysteme\label{section:ueberbestimmt}}
+\index{Gleichungssystem!ueberbestimmtes@\"uberbestimmtes}
+"Uberbestimmte Gleichungssysteme sind Gleichungssysteme der Form
+$Ax=b$ mit einer $m\times n$-Matrix mit $m>n$, also mehr Gleichungen
+als Unbekannten. Im allgemeinen sind sie nicht l"osbar, weil $b$ nicht
+im Bild von $A$ enthalten ist: $b\not\in \operatorname{im}A$.
+
+Statt einer exakten L"osung k"onnte man daher eine approximative
+L"osung suchen, welche die Gleichung m"oglichst gut erf"ullt,
+der Vektor $Ax-b$ sollte also m"oglichst kurz sein. Geometrisch
+geht es also darum, das Lot vom Punkt $b$ auf den von den Spaltenvektoren
+von $A$ aufgespannten Unterraum zu f"allen. Wir suchen also
+einen Vektor, der auf allen Spaltenvektoren von $A$ senkrecht steht.
+Das Skalarprodukt von Spaltenvektoren von $A$ mit $Ax-b$ ist aber
+$A^t(Ax-b)$, wir m"ussen also das Gleichungssystem
+\[A^t(Ax-b)=0\]
+l"osen. Nach Ausmultiplizieren bekommen wir
+\begin{equation}
+A^tAx-A^tb=0\quad\Rightarrow\quad A^tAx=A^tb\quad\Rightarrow\quad
+x=(A^tA)^{-1}A^tb.
+\label{uberbestimmt}
+\end{equation}
+Man beachte, dass $A$ nicht quadratisch ist, und dass man daher
+nicht mit $(A^tA)^{-1}A^t=A^{-1}(A^t)^{-1}A^t=A^{-1}$ vereinfachen
+kann.
+
+\begin{beispiel}
+Sei 
+\[
+A=\begin{pmatrix}1\\1\\1\\\end{pmatrix},\quad b=\begin{pmatrix}1\\2\\3\end{pmatrix}.
+\]
+Offenbar ist $b\not\in\operatorname{im}A$.  Nach der Formel (\ref{uberbestimmt})
+muss man zun"achst $A^tA$ ausrechnen:
+\[
+A^tA=\begin{pmatrix}1&1&1\end{pmatrix}\begin{pmatrix}1\\1\\1\end{pmatrix}=3.
+\]
+Damit kann man jetzt nach (\ref{uberbestimmt}) die bestm"ogliche
+approximative L"osung finden:
+\[
+x=\frac13\cdot\begin{pmatrix}1&1&1\end{pmatrix}
+\begin{pmatrix}1\\2\\3\end{pmatrix}=2.
+\]
+Der von $b$ am wenigsten weit entfernte Punkt der Geraden mit
+Richtung $A$ ist also der Punkt $(2,2,2)$.
+\end{beispiel}

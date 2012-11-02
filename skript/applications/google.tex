@@ -1,0 +1,195 @@
+%
+% Anwendung: Google-Pagerank
+%
+% (c) 2012 Prof Dr Andreas Mueller
+% $Id$
+%
+\subsection{Google Pagerank}
+\index{Pagerank}
+\index{Google}
+\index{Suchbegriff}
+\index{Suchmaschine}
+Es gibt viel mehr Web-Seiten als es m"ogliche Suchw"orter gibt, jede Web-Suche
+liefert notwendigerweise Tausende wenn nicht Millionen von Treffern.
+Welche Seiten soll man dem Benutzer der Suchmaschine auf der ersten Seite 
+anzeigen?
+
+\subsubsection{Wahrscheinlichkeitsmodell des Internets}
+\index{Internet}
+\index{Link}
+Googles Antwort auf dieses Problem ist: man fragt das Internet!
+Ob eine Web-Seite interessant ist entscheiden die Internet-User dadurch,
+dass sie auf ihren eigenen Seiten Links darauf setzen. Je mehr Links auf
+eine Seite zeigen, desto bedeutender ist sie.
+\begin{figure}
+\[\UseTips
+\entrymodifiers={++[o][F]}
+\xymatrix @=1.5cm {
+1 \ar[r] \ar[d]
+	& 3 \ar[r] \ar[dl]
+		& 5 \ar[d] \ar@/^/[r] \ar[rd]
+			& 7 \ar@/^/[d]  \ar@/^/[l]
+                                \ar `ul^l[lll]+/u6mm/`l^dl[lll] [lll]
+\\
+2 \ar@/^/[r]
+	& 4 \ar@/^/[l] \ar[r] \ar[ur]
+		& 6 \ar@/^/[r]
+			& 8 \ar@/^/[l] \ar@/^/[u]
+}
+\]
+\caption{Beispiel-Internet\label{google-sample}}
+\end{figure}%
+
+Die bedeutendste Seite ist diejenige, die von den meisten Benutzern
+besucht wird. Nummerieren wir alle Internet-Seiten von $1$ bis $n$,
+k"onnen wir die Besuchs\-h"aufigkeiten $p_i$ aller Seiten in einem
+Vektor
+\[
+p=\begin{pmatrix}p_1\\\vdots\\p_n\end{pmatrix}
+\]
+zusammenfassen. In regelm"assigen Zeitabst"anden verlassen Benutzer
+die Seiten, die sie gerade am Lesen sind, und klicken sich weiter zu
+anderen Seiten. Die Benutzer verteilen sich neu, sie besuchen jetzt mit
+H"aufigkeit $p_i'$ die Seite $i$.
+Dabei folgen sie nat"urlich den Links.
+Gibt es auf einer Seite $k$ Links, nehmen wir an, dass die Benutzer
+zu gleichen Teilen diesen Links folgen.
+Im Beispiel-Internet nach Abbildung~\ref{google-sample} gibt es drei
+Links, die von Seite 5 abgehen.
+Die Benutzer, die die Seite 5
+besuchen, klicken sich weiter zu je einem Drittel auf die
+Seiten 6, 7 und 8.
+Daraus kann man jetzt die H"aufigkeit ausrechnen, mit der die
+einzelnen Seiten nach dem Weiterklicken besucht werden.
+Die Besucher, die nach dem Klicken auf Seite $8$ landen, rekrutieren
+sich von den Seiten 5, 6 und 7:
+\[
+p_8'=\frac13p_5+p_6+\frac13p_7.
+\]
+Der Vektor $p'$ kann aus dem Vektor $p$ mit einer Matrix
+\[
+H=\begin{pmatrix}
+%     1 2       3       4       5 6       7       8
+      0&0&      0&      0&      0&0&\frac13&      0\\
+\frac12&0&\frac12&\frac13&      0&0&      0&      0\\
+\frac12&0&      0&      0&      0&0&      0&      0\\
+      0&1&      0&      0&      0&0&      0&      0\\
+      0&0&\frac12&\frac13&\frac13&0&\frac13&\frac12\\
+      0&0&      0&\frac13&\frac13&0&      0&\frac12\\
+      0&0&      0&      0&\frac13&1&      0&      0\\
+      0&0&      0&      0&0&0&\frac13&0\\
+\end{pmatrix}
+\]
+nach der Formel $p'=Hp$ berechnet werden. Man beachte, dass sich die
+Elemente in jeder Spalte von $H$ zu $1$ summieren.
+
+Nat"urlich "andert sich die Beliebtheit einer Webseite viel langsamer
+als die Klicks Zeit brauchen, also sollten sich die H"aufigkeiten
+$p_i'$ von den H"aufigkeiten $p_i$ nicht unterscheiden:
+\[
+p=Hp.
+\]
+Insbesondere ist $p$ ein Eigenvektor zum Eigenwert $1$.
+
+Im Beispiel-Internet findet man f"ur den Eigenvektor numerisch
+\[
+p=
+\begin{pmatrix}
+   0.077670\\
+   0.087379\\
+   0.038835\\
+   0.087379\\
+   0.247573\\
+   0.150485\\
+   0.233010\\
+   0.077670\\
+\end{pmatrix}.
+\]
+Seite  5 ist also die beliebteste, gefolgt von Seite 7 und 6.
+
+\subsubsection{Freier Wille}
+\index{freier Wille}
+Das Modell, dem die Matrix $H$ zu Grunde liegt, ber"ucksichtigt
+noch nicht, dass einige Benutzer eine Seite nicht dank der Links
+finden, sondern weil sie von ihrem freien Willen gebrauch machen,
+im URL-Feld des Browsers einen beliebigen URL einzugeben.
+Ohne weitere Informationen m"ussen wir annehmen, dass auf diesem
+Wege die Benutzer jede beliebige Seite anspringen k"onnen.
+W"are dies der einzige Mechanismus, mit dem man andere Seiten erreichen
+kann, dann w"are
+\[
+p'=\frac1n\begin{pmatrix}
+1\\\vdots\\1
+\end{pmatrix}.
+\]
+Wir m"ochten dies aber wieder in der Form $p'=Mp$ schreiben.
+Da die $p_i$ sich zu $1$ summieren, gilt
+\[
+\begin{pmatrix}
+     1&     1&\dots &     1\\
+     1&     1&\dots &     1\\
+\vdots&\vdots&\ddots&\vdots\\
+     1&     1&\dots &     1
+\end{pmatrix}
+p=\begin{pmatrix}1\\1\\\vdots\\1\end{pmatrix}.
+\]
+Wir bezeichnen die Matrix aus lauter Einsen mit $A$, dann ist
+\[
+p'=\frac{1}{n}Ap.
+\]
+
+Wir f"ugen jetzt die Matrix $H$ mit dem freien Wille zusammen zur 
+sogenannten Google-Matrix.
+\begin{definition}
+Die Matrix 
+\[
+G=(1-\alpha)H+\frac{\alpha}nA
+\]
+heisst Google-Matrix.
+Der Eigenvektor zum Eigenwert $1$ heisst Google Pagerank.
+\end{definition}
+\index{Pagerank}
+\index{Google-Matrix}
+Je gr"osser der Wert $\alpha$ gew"ahlt wird, desto bedeutender wird die
+Komponente des freien Willens. F"ur $\alpha=0$ ist $G=H$.
+
+F"ur das Beispiel-Internet verschiebt sich die Beliebtheit jetzt ein bisschen,
+f"ur $\alpha = 0.1$ zum Beispiel bekommen wir f"ur den Pagerank-Vektor
+\[
+p=\begin{pmatrix}
+   0.077241\\
+   0.099007\\
+   0.047258\\
+   0.101606\\
+   0.233925\\
+   0.147918\\
+   0.215804\\
+   0.077241
+\end{pmatrix}.
+\]
+Die Seite 5 ist zwar immer noch die beliebteste, aber sie ist etwas zur"uckgefallen,
+daf"ur ist jetzt Seite 7 etwas beliebter geworden.
+
+\subsubsection{Bestimmung des Eigenvektors}
+Die Google-Matrix ist nur dann praktisch anwendbar, wenn es eine
+M"oglichkeit gibt, den Pagerank-Vektor auch dann zu berechnen, wenn $n$
+sehr gross ist, also von der Gr"ossenordnung $10^{10}$.
+
+Tats"achlich ist bekannt, dass jeder andere Eigenwert deutlich kleiner als $1$
+ist.
+Die Potenzmethode von Abschnitt \ref{section:dominant} ist anwendbar,
+da der gesuchte Eigenvektor der Eigenvektor zum dominanten Eigenwert
+ist.
+Man muss also nur mit einer m"oglichst guten Approximation von $p_0$ beginnen,
+und dann die Matrix $G$ mehrmals wiederholt darauf anwenden, 
+\[
+p_1=Gp_0,\quad
+p_2=Gp_1,\quad
+p_3=Gp_2,\quad\dots p_k=Gp_{k-1}=G^kp.
+\]
+Google verf"ugt nat"urlich immer "uber eine gute erste Approximation $p_0$:
+den Pagerank-Vektor aus der letzten Berechnung.
+Alle paar Tage oder Wochen berechnet Google den Pagerank-Vektor neu,
+wobei sich die Reihenfolge der Suchresultate nat"urlich ver"andern
+kann. Webmaster nennen dieses Ph"anomen den Google-Dance. 
+
