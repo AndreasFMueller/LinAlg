@@ -961,7 +961,7 @@ Nat"urlich muss man in beiden F"allen die gleiche Gerade bekommen,
 dies ist eine h"ubsche Kontrolle f"ur die Richtigkeit des Resultates.
 \end{beispiel}
 
-\subsection{Vereinheitlichtes L"osungsverfahren}
+\subsection{Vereinheitlichtes L"osungsverfahren\label{section-vereinheitlichtes-verfahren}}
 Alle in den bisherigen Abschnitten vorgestellten L"osungsverfahren 
 laufen darauf hinaus, dass man f"ur die Parameter der Parameterdarstellungen
 Gleichungen dadurch aufstellt, dass man wo n"otig Gleichungen herstellt.
@@ -1652,14 +1652,14 @@ heisst {\em Kronecker-Delta}.
 \end{definition}
 
 \begin{definition}
-$n$ Vektoren $\vec b_i$ heissen orthonormalisiert, wenn gilt
+$n$ Vektoren $\vec b_i$ heissen orthonormiert, wenn gilt
 \[
 \vec b_i\cdot\vec b_j=\delta_{ij}.
 \]
 \end{definition}
 
 \begin{satz}
-Sind die Vektoren $\vec b_i$ orthonormalisiert, dann kann man jeden
+Sind die Vektoren $\vec b_i$ orthonormiert, dann kann man jeden
 Vektor $\vec v$ als Linearkombination der Vektoren $\vec b_i$
 \[
 \vec v=
@@ -1720,13 +1720,16 @@ F"ur orthonormierte Vektoren ist es besonders einfach, eine Darstellung
 eines beliebigen Vektors als Linearkombination zu finden. Es ist daher
 sicher n"utzlich, aus einer Menge von Vektoren
 $\{\vec a_1,\vec a_2,\vec a_3\}$ 
-eine neue Menge zu konstruieren, die sich von der gegeben m"oglichst wenig
+eine neue Menge von Vektoren zu konstruieren, die sich von der gegeben
+m"oglichst wenig
 unterscheidet, aber dennoch aus orthonormierten Vektoren besteht.
 
-\begin{satz}
+\begin{satz}[Gram-Schmidt]
+\label{satz-gram-schmidt}
 Seien $\{\vec a_1,\vec a_2,\vec a_3\}$ linear unabh"angige Vektoren.
-Dann gibt es orthonormalisiert Vektoren $\{\vec b_1,\vec b_2,\vec b_3\}$.
-Sie lassen sich wie folgt berechnen
+Dann gibt es orthonormierte Vektoren $\{\vec b_1,\vec b_2,\vec b_3\}$ so,
+dass $b_k$ aus $a_1,\dots,a_k$ linear kombiniert werden kann, f"ur jedes $k$.
+Die $b_i$ lassen sich wie folgt berechnen
 \begin{align*}
 \vec b_1&=\frac1{|\vec a_1|}a_1\\
 \vec b_2&=
@@ -1745,12 +1748,79 @@ Sie lassen sich wie folgt berechnen
 \vec a_3-(\vec a_3\cdot \vec b_1)\vec b_1-(\vec a_3\cdot\vec b_2)\vec b_2
 |
 }
+\\
+&\phantom{=}\vdots\\
+\vec b_k&=\frac{\vec a_k-(\vec a_k\cdot \vec b_1)\vec b_1-(\vec a_k\cdot \vec b_2)\vec b_2-\dots-(\vec a_k\cdot \vec b_{k-1})\vec b_{k-1}}{|\vec a_k-(\vec a_k\cdot \vec b_1)\vec b_1-(\vec a_k\cdot \vec b_2)\vec b_2-\dots-(\vec a_k\cdot \vec b_{k-1})\vec b_{k-1}|}
 \end{align*}
 Das Verfahren l"asst sich offenbar auf eine beliebige Zahl linear
 unabh"angiger $n$-dimensionaler Vektoren verallgemeinern.
 \end{satz}
 
-\subsection{``Least Squares''}
+Auf die Reihenfolge der Vektoren kommt es entscheidend an, wie die 
+folgenden zwei Beispiele zeigen
+\begin{beispiel}
+Die Vektoren 
+\[
+\vec a_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad
+\vec a_2=\begin{pmatrix}1\\1\\0\end{pmatrix},\qquad
+\vec a_3=\begin{pmatrix}1\\1\\1\end{pmatrix} 
+\]
+sind zu orthonormieren.
+
+Die Formeln aus Satz~\ref{satz-gram-schmidt} liefern folgende Vektoren:
+\begin{align*}
+\vec b_1&=\frac{\vec a_1}{|\vec a_1|}=\begin{pmatrix}1\\0\\0\end{pmatrix}\\
+\vec b_2&=
+\frac{
+\vec a_2-(\vec a_2\cdot \vec b_1)\vec b_1
+}{
+|\vec a_2-(\vec a_2\cdot \vec b_1)\vec b_1|
+}
+=
+\frac{
+\begin{pmatrix}1\\1\\0\end{pmatrix}-1\cdot\begin{pmatrix}1\\0\\0\end{pmatrix}
+}{\dots}=\begin{pmatrix}0\\1\\0\end{pmatrix}\\
+\\
+\vec b_3&=
+\frac{\vec a_3 -(\vec a_3\cdot \vec b_1)\vec b_1-(\vec a_3\cdot\vec b_2)\vec b_2}{\dots}
+=\frac{\begin{pmatrix}1\\1\\1\end{pmatrix}-1\cdot \begin{pmatrix}1\\0\\0\end{pmatrix}-1\cdot\begin{pmatrix}0\\1\\0\end{pmatrix}
+}{\dots}=\begin{pmatrix}0\\0\\1\end{pmatrix}
+\end{align*}
+Man findet also genau die Vektoren der Standardbasis.
+\end{beispiel}
+
+\begin{beispiel}
+Die Vektoren 
+\[
+\vec a_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad
+\vec a_2=\begin{pmatrix}1\\1\\1\end{pmatrix},\qquad
+\vec a_3=\begin{pmatrix}1\\1\\0\end{pmatrix} 
+\]
+sind zu orthonormieren.
+
+Dieses Beispiel unterscheidet sich vom vorangegangenen nur
+durch die Reihenfolge der Vektoren. Wieder k"onnen die 
+Formeln von Satz~\ref{satz-gram-schmidt} angewandt werden:
+\begin{align*}
+\vec b_1&=\frac{\vec a_1}{|\vec a_1|}=\begin{pmatrix}1\\0\\0\end{pmatrix}
+\\
+\vec b_2
+&=
+\frac{\vec a_2-(\vec a_2\cdot \vec b_1)\vec b_1}{\dots}
+=
+\frac{\begin{pmatrix}1\\1\\1\end{pmatrix}-1\cdot\begin{pmatrix}1\\0\\0\end{pmatrix}}{\dots}=\frac1{\sqrt{2}}\begin{pmatrix}0\\1\\1\end{pmatrix}
+\\
+\vec b_3
+&=
+\frac{\vec a_3-(\vec a_3\cdot\vec b_1)\vec b_1-(\vec a_3\cdot\vec b_2)\vec b_2}{\dots}
+=\frac{\begin{pmatrix}1\\1\\0\end{pmatrix}-1\cdot\begin{pmatrix}1\\0\\0\end{pmatrix}-\frac1{\sqrt{2}}\cdot\frac1{\sqrt{2}}\begin{pmatrix}0\\1\\1\end{pmatrix} }{\cdots}
+=\frac{1}{\sqrt{2}}\begin{pmatrix}0\\1\\-1\end{pmatrix}.
+\end{align*}
+Die gefundenen Vektoren sind v"ollig verschiedenen von den Vektoren
+im vorangegagenen Beispiel.
+\end{beispiel}
+
+\subsection{"Uberbestimmte Gleichungssysteme -- ``Least Squares''}
 Bei einem "uberbestimmten Gleichungssystem, als einem Gleichungssystem
 mit mehr Gleichungen als Unbekannten, kann man im allgemeinen nicht davon
 ausgehen, dass es "uberhaupt eine L"osung gibt. Ein solches Gleichungssystem
@@ -1763,6 +1833,7 @@ In drei Dimensionen hat $v$ also zwei oder sogar nur eine Komponenten,
 die Menge aller m"oglichen Vektoren $Av$ ist also eine Ebene oder
 Gerade. 
 
+\subsubsection{L"osung im Sinne kleinsten Abstandes}
 Das beste, was man erwarten kann, ist ein Vektor $v_0$ so, dass
 der Abstand des Punktes $ b$ von der Ebene (Gerade) bestehende
 aus allen $Av$ f"ur $v=v_0$ am kleinsten wird. Dies geschieht
@@ -1857,6 +1928,62 @@ steht:
 \]
 im Rahmen der Rechengenauigkeit steht die Differenz also tats"achlich auf
 den Richtungsvektoren senkrecht.
+\end{beispiel}
+
+\subsubsection{``Alles in einem Schritt''}
+In Abschnitt \ref{section-vereinheitlichtes-verfahren} wurde gezeigt,
+wie man Schnittproblem mit nur einer Durchf"uhrung des Gaussalgorithmus
+l"osen konnte. Im soeben gel"osten Problem musste man aber wieder
+in mehrere Schritten vorgehen. Zuerst wurden $s$ und $t$ bestimmt,
+und erst in einem zweiten Schritt konnte der Fusspunkt des Lotes
+berechnet werden.
+
+Nat"urlich ist das auch f"ur dieses Problem m"oglich, man behandelt
+$x$, $y$ und $z$ einfach als zus"atzliche Variablen, die als Koordinaten
+von $Av$ berechnet werden. Das Gauss-Tableau dazu ist
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&y&s\quad t&\\
+\hline
+1&0&0&        &0\\
+0&1&0&-A^tA   &0\\
+0&0&1&        &0\\
+\hline
+ & & &A^tA    &A^tb\\
+\hline
+\end{tabular}
+\]
+\begin{beispiel}
+F"ur das Zahlenbeispiel lautet dieses Gauss-Tableau:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&y&s  &  t&\\
+\hline
+1&0&0& -8& -9&0\\
+0&1&0&-10&-13&0\\
+0&0&1&-10&-12&0\\
+\hline
+0&0&0&264&322&242\\
+0&0&0&322&394&295\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}r<{$}|}
+\hline
+x&y&y&s  &  t&\\
+\hline
+1&0&0&0&0&7.4337\\
+0&1&0&0&0&9.0602\\
+0&0&1&0&0&9.1928\\
+\hline
+0&0&0&1&0&1.0783\\
+0&0&0&0&1&-0.1325\\
+\hline
+\end{tabular}
+\]
+Man erh"alt also genau die bereits fr"uher gefundenen L"osungen.
 \end{beispiel}
 
 \section{Kreis und Kugel}
