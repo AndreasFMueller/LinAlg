@@ -7,7 +7,7 @@ all:	skript.pdf
 
 install:	install-skript
 
-TEXFILES = abbildungen.tex determinanten.tex eigen.tex lingl.tex \
+TEXFILES = determinanten.tex eigen.tex lingl.tex \
 	linsys.tex vektoren.tex vektorgeometrie.tex \
 	einleitung.tex geometrie.tex zerlegung.tex \
 	applications/hauptachse.tex \
@@ -22,9 +22,13 @@ TEXFILES = abbildungen.tex determinanten.tex eigen.tex lingl.tex \
 skript.pdf:	skript.tex $(TEXFILES) skript.ind
 	pdflatex skript.tex
 
-skript.ind:	skript.tex $(TEXFILES)
+skript.ind:	images skript.tex $(TEXFILES)
+	touch skript.ind
 	pdflatex skript.tex
 	makeindex skript.idx
+
+images:
+	cd images; make
 
 clean:
 	rm -f skript.dvi skript.pdf
