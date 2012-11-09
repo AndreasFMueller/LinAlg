@@ -2061,7 +2061,8 @@ Fall wird daraus
 |\vec p_0-\vec m|^2-r^2
 )
 \]
-Die Diskriminante ist zum Beispiel immer positiv, wenn der St"utzpunkt $\vec p_0$
+Die Diskriminante ist zum Beispiel immer positiv, wenn der St"utzpunkt
+$\vec p_0$
 der Gerade innerhalb der Kugel ist, also $|\vec p_0-\vec m|<r$
 \subsection{Thaleskreis}
 Mit dem Skalarprodukt kann man ausdr"ucken, von welchen Punkten aus
@@ -2111,10 +2112,26 @@ sofort angeben:
 \begin{satz}\label{kugeltangentialebene}
 Die Tangentialebene an eine Kugel mit Mittelpunktsortsvektor
 $\vec m$ und Radius  $r$ im Punkt mit Ortsektor $\vec p_0$ ist
-\[
-\{\vec p| (\vec p-\vec p_0)\cdot(\vec p-\vec m)=0\}
-\]
+\begin{equation}
+\{\vec p\;|\;
+(\vec p-\vec p_0)\cdot(\vec p_0-\vec m)=0
+\}
+\label{eqn-kugeltangente}
+\end{equation}
 \end{satz}
+Diese Form (\ref{eqn-kugeltangente}) ist noch nicht optimal, man kann den
+Radius nicht direkt ablesen. Addieren wir jedoch noch die Gleichung
+der Kugel f"ur den Vektor $\vec p_0$, erhalten wir
+\begin{align*}
+(\vec p-\vec p_0)\cdot(\vec p_0-\vec m)&=0\\
+(\vec p_0-\vec m)\cdot(\vec p_0-\vec m)&=r^2\\
+\Rightarrow\qquad
+(\vec p-\vec m)\cdot(\vec p_0-\vec m)&=r^2
+\end{align*}
+Die Tantentengleichung ist also die Kreisgleichung, in der man
+eine Kopie von $\vec p$ durch den Ber"uhrpunkt $\vec p_0$ ersetzt
+hat.
+
 \subsection{Tangente von einem Punkt an einen Kreis}
 Es sind die Gleichungen der Tangenten an einen Kreis $K(M,r)$ zu finden,
 welche durchd den Punkt $P$ gehen. Die klassische Konstruktion der
