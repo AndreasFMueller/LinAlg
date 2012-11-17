@@ -5,8 +5,6 @@
 #
 all:	skript.pdf
 
-install:	install-skript
-
 TEXFILES = determinanten.tex eigen.tex lingl.tex \
 	linsys.tex vektoren.tex vektorgeometrie.tex \
 	einleitung.tex geometrie.tex zerlegung.tex \
@@ -19,15 +17,18 @@ TEXFILES = determinanten.tex eigen.tex lingl.tex \
 	applications/wavelets.tex \
 	applications/google.tex
 
-skript.pdf:	skript.tex $(TEXFILES) skript.ind
+images:
+	cd images; make
+
+skript.pdf:	skript.tex $(TEXFILES) skript.ind 
 	pdflatex skript.tex
 
-skript.ind:	images skript.tex $(TEXFILES)
+skript.ind:	images skript.tex $(TEXFILES) images-subdir
 	touch skript.ind
 	pdflatex skript.tex
 	makeindex skript.idx
 
-images:
+images-subdir:
 	cd images; make
 
 clean:
