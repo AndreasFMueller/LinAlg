@@ -773,148 +773,195 @@ v=\tilde B\xi =\tilde B'\xi'.
 \]
 Wie kann man $\xi'$ aus $\xi$ berechnen?
 
-Zun"achst besagt die Definition einer Basis, dass man 
-jeden Vektor der Basis $B$ durch die Vektoren von $B'$
-ausdr"ucken kann. Es gibt also Zahlen $t_{ji}$ mit
-der Eigenschaft
+\subsubsection{Spezialfall $\mathbb R^n$}
+In diesem Fall sind die beiden Matrizen $\tilde B$ und $\tilde B'$
+regul"are $n\times n$-Matrizen. Die Gleichung
 \[
-b_i=\sum_{j=1}^kt_{ji}b_j'.
+v=\tilde B\xi =\tilde B'\xi'.
 \]
-Man beachte, dass dies eine Vektorgleichung ist, trotz der "Ahnlichkeit
-zu einem Produkt $\text{Matrix}\times\text{Vektor}$ kann man dies
-nicht mit Matrizen schreiben. Die Zahlen $t_{ji}$ findet man
-als L"osung des Gleichungssystems $\tilde B'x=b_i$, oder
-\[
-\tilde B'\begin{pmatrix}t_{1i}\\\vdots\\t_{ki}\end{pmatrix}=b_i.
-\]
-
-Damit kann man jetzt den Vektor $v\in V$ auf die neue Basis umrechnen:
-\[
-v
-=\xi_1b_1+\dots+\xi_kb_k
-=\sum_{i=1}^k\xi_i\sum_{j=1}^kt_{ji}b_j'
-=\sum_{j=1}^k\underbrace{\biggl( \sum_{i=1}^kt_{ji} \xi_i\biggr)}_{\xi_j'} b_j'
-\]
-Daraus kann man jetzt die $\xi'$-Koordinaten ablesen, es sind die
-Koeffizienten von $b_j'$. Wir finden also als Umrechnungsformel:
-\[
-\xi'_j=\sum_{i=1}^kt_{ji}\xi_i
-\quad\Rightarrow\quad
-\begin{pmatrix}\xi_1'\\\vdots\\\xi_k'\end{pmatrix}
-=
-\begin{pmatrix}
-t_{11}&\dots&t_{1k}\\
-\vdots&\ddots&\vdots\\
-t_{k1}&\dots&t_{kk}
-\end{pmatrix}
-\begin{pmatrix}\xi_1\\\vdots\\\xi_k \end{pmatrix}.
-\]
-Die Zahlen $t_{ji}$ bilden also eine Matrix $T$, welche die Koordinanten
-von der Basis $B$ auf die Basis $B'$ umrechnet:
-$\xi'=T\xi$.
-
-\begin{beispiel}[Basiswechsel in $\mathbb R^2$]
-Statt der Standardbasis m"ochte man im $\mathbb R^2$ die Basis
-$B'$
-aus den Vektoren 
-\[
-b_1'=\begin{pmatrix}1\\-1\end{pmatrix}
-,\quad
-b_2'=\begin{pmatrix}1\\1\end{pmatrix}
-\]
-verwenden. Finden Sie die Transformationsmatrix, die Koordinaten von
-der Standardbasis auf die Basis $B'$ umrechnet.
-
-Zuerst muss man die Zahlen $t_{ji}$ bestimmen. Dazu muss man die
-Standardbasisvektoren durch die neuen Basisvektoren ausdr"ucken:
+Kann dann durch Multiplikation mit $\tilde B^{-1}$ oder $\tilde B^{\prime-1}$
+von links aufgel"ost werden:
 \begin{align*}
-e_1&=\begin{pmatrix}1\\0\end{pmatrix}=\frac12b_1'+\frac12b_2'\\
-e_2&=\begin{pmatrix}0\\1\end{pmatrix}=-\frac12b_1'+\frac12b_2'
+\tilde B^{\prime-1}\tilde B\xi&= \tilde B^{\prime -1}\tilde B'\xi'=E\xi'=\xi'\\
+\xi=\tilde B^{-1}B\tilde B\xi&=\tilde B^{-1}\tilde B'\xi'
 \end{align*}
-Die gesuchten Zahlen $t_{ji}$ sind die Koeffizienten vor den Basisvektoren,
-aber ``transponiert'':
+Daraus k"onnen wir die Matrix zur Berechnung von $\xi'$ aus $\xi$
+ablesen: 
 \[
-T=\begin{pmatrix}\frac12&-\frac12\\\frac12&\frac12\end{pmatrix}.
+T=\tilde B^{\prime-1}B \quad\Rightarrow\quad
+\xi'=T\xi.
 \]
-Eine Koordinatenumrechnung kann jetzt mit $T$ erfolgen:
-\[
-v=\begin{pmatrix}2\\3\end{pmatrix}
-\;\Rightarrow\;
-\xi=\begin{pmatrix}2\\3\end{pmatrix}
-\;\Rightarrow\;
-\xi'=T\xi=\frac12\begin{pmatrix}1&-1\\1&1\end{pmatrix} \begin{pmatrix}2\\3\end{pmatrix}
-=\frac12\begin{pmatrix}-1\\5\end{pmatrix}=\xi'.
-\]
-Kontrolle:
-\[
--\frac12b_1'+\frac52b_2'
-=
-\begin{pmatrix}-\frac12+\frac52\\\frac12+\frac52\end{pmatrix}
-=
-\begin{pmatrix}2\\3\end{pmatrix}=v.
-\]
-Die Matrix $T$ heisst Transformationsmatrix.
-\index{Transformationsmatrix}
-\end{beispiel}
 
-\begin{beispiel}[Basiswechsel in $\mathbb R^n$]
-Die erste Basis ist jetzt die Standardbasis in $\mathbb R^n$, die
-zweite ist besteht aus irgendwelchen Vektoren $b_1',\dots,b_n'$.
-Man finde die Transformationsmatrix $T$.
+\subsubsection{Allgemeiner Fall}
+Im allgemeinen Fall eines beliebigen Unterraumes funktioniert diese
+Methode nicht. $\tilde B$ und $\tilde B'$ sind keine quadratischen
+Matrizen, also k"onnen Sie auch nicht invertiert werden. Vielmehr
+sind sie jetzt $n\times m$-Matrizen mit $m<n$.
 
-Wir schreiben $B'$ f"ur die Matrix mit Spalten $b_j'$. Nach dem
-Rezept m"ussen die Vektoren $e_i$ durch die $b_j'$ ausgedr"uckt
-werden, man muss also L"osungen der Gleichungen
+Wenn $B$ und $B'$ Basen sind, dann l"asst sich jeder Vektor $v\in
+\operatorname{im}\tilde B=\operatorname{im}\tilde B'$ 
+sowohl mit $\xi$-Koordinaten als auch mit $\xi'$-Koordinaten
+beschreiben:
 \[
-B't_j=e_j
+v=\tilde B\xi=\tilde B'\xi'.
 \]
-finden. Das Gausstableau f"ur die simultane L"osung all dieser
-Gleichungen ist
+Darin sind die $\xi$- und $\xi'$-Vektoren sind Vektoren in $\mathbb R^m$.
+
+Speziell k"onnte man f"ur die $\xi$-Vektoren die Standardbasisvektoren
+in $R^m$ w"ahlen. Mit dem ersten Standardbasisvektor bek"ame man
+das Gleichungssystem
+\begin{equation}
+\tilde B\begin{pmatrix} 1\\0\\\vdots\\0\end{pmatrix}
+=\tilde B'\xi'
+\label{t-gleichung}
+\end{equation}
+Dieses Gleichungssystem kann man mit dem Gauss-Algorithmus aufl"osen,
+und $\xi'$ finden. Dasselbe kann man nat"urlich auch f"ur den
+zweiten Standardbasis-Vektor machen, und auch f"ur alle folgenden.
+
+Wir k"onnen alle diese Gleichungen zusammen in eine einzige
+Matrixgleichung schreiben:
 \[
-\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}
+\tilde B\begin{pmatrix}
+1&0&\dots&0\\
+0&1&\dots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\dots&1
+\end{pmatrix}
+=B'\begin{pmatrix}
+\mathstrut t_{11}&t_{12}&\dots&t_{1m}\\
+\mathstrut t_{21}&t_{22}&\dots&t_{2m}\\
+\mathstrut \vdots&\vdots&\ddots&\vdots\\
+\mathstrut t_{m1}&t_{m2}&\dots&t_{mm}\\
+\end{pmatrix}
+\]
+Die Matrix $T$ auf der rechten Seite enth"alt als Spalten
+die L"osungen der Gleichungen (\ref{t-gleichung}).
+
+Da die Spalten von $T$ L"osungen eines linearen Gleichungssystems
+mit Koeffizienten $\tilde B'$ und rechten Seiten $B$ ist, k"onnen
+wir das Verfahren zur simultatenen L"osung anwenden. Das zugeh"orige
+Gauss-Tableau ist:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-B'&E\\
+\quad\mathstrut&         &\quad\mathstrut&\quad\mathstrut&        &\quad\mathstrut\\
+      &         &      &      &        &      \mathstrut\\
+      &         &      &      &        &      \mathstrut\\
+      &\tilde B'&      &      &\tilde B&      \mathstrut\\
+      &         &      &      &        &      \mathstrut\\
+      &         &      &      &        &      \mathstrut\\
+      &         &      &      &        &      \mathstrut\\
 \hline
 \end{tabular}
 \rightarrow
-\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-E&B'^{-1}\\
+1     &     0&\dots   &0      & &        & \\
+0     &     1&\dots   &0      & &        & \\
+\vdots&\vdots&\ddots  &\vdots & &   T    & \\
+0     &     0&\dots   &1      & &        & \\
+\hline
+0     &     0&\dots   &0      &*&        &*\\
+0     &     0&\dots   &0      &*&        &*\\
 \hline
 \end{tabular}
 \]
-Die gesuchten Elemente $t_{ji}$ stehen jeweils in den Spalten
-von $B'^{-1}$, da wir aber ohnehin noch transformieren m"ussen,
-erhalten wir
-\[
-T=B'^{-1}.
-\]
-\end{beispiel}
+Weil wir wissen, dass die Gleichungen immer eine L"osung haben, finden
+wir an den Pl"atzen der Sterne unten rechts immer $0$, also steht im
+Feld oben rechts genau die Transformationsmatrix $T$.
 
-\begin{beispiel}[Basiswechsel f"ur beliebige Basen]
-Seien jetzt zwei beliebige Basen gegeben, 
+\begin{beispiel}
+In der Ebene aufgespannt von den Vektoren 
+\[
+b_1=\begin{pmatrix}1\\1\\0 \end{pmatrix}
+,\qquad
+b_2=\begin{pmatrix}0\\1\\1 \end{pmatrix}
+\]
+m"ochte man die Basis aus den Basisvektoren
+\[
+b_1'=\begin{pmatrix}1\\2\\1\end{pmatrix}
+,\qquad
+b_2'=\begin{pmatrix}1\\0\\-1\end{pmatrix}
+\]
+Finden Sie die Koordinatentransformationsmatrix $T$, mit der
+man von den Parameter $t$ $s$ in der Parameterdarstellung
+mit Richtungsvektoren $b_1$ und $b_2$ auf die Koordinaten in
+der Basis $B'$ umrechnen kann. Man finde ausserdem die 
+Koordinaten in der Basis $B'$ des Vektors, der in der Basis $B$
+die Koordinaten $(2,-1)$ hat.
+
 \begin{align*}
-\text{Basis 1:}&\quad \{b_1,\dots,b_n\}
-&
-\text{Basis 2:}&\quad \{b'_1,\dots,b'_n\}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1&1&0\\
+2& 0&1&1\\
+1&-1&0&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1& 1&0\\
+0&-2&-1&1\\
+0&-2&-1&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1&      1&       0\\
+0& 1&\frac12&-\frac12\\
+\hline
+0& 0&      0&       0\\
+\hline
+\end{tabular}
 \\
-B&=\begin{pmatrix}
-b_1&\dots&b_n
-\end{pmatrix}
-&
-B'&=\begin{pmatrix}
-b_1'&\dots&b_n'
-\end{pmatrix}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 0& \frac12& \frac12\\
+0& 1& \frac12&-\frac12\\
+\hline
+0& 0&      0&       0\\
+\hline
+\end{tabular}
 \end{align*}
-Wie im letzten Beispiel suchen wir Spaltenvektoren, die die alten
-Basisvektoren durch die neuen ausdr"ucken, also
+Die Transformationsmatrix ist also 
 \[
-b_j=B't_j\quad\forall j\qquad\Rightarrow\qquad B=B'T.
+T=
+\frac12\begin{pmatrix} 1&1\\1&-1 \end{pmatrix}.
 \]
-Daraus k"onnen wir ablesen:
+Die Koordinaten $(2,-1)$ ergeben nach Umrechnung mit $T$ 
 \[
-T=B'^{-1}B.
+\xi'=
+T\begin{pmatrix}2\\-1\end{pmatrix}
+=
+\frac12\begin{pmatrix} 1&1\\1&-1 \end{pmatrix}
+\begin{pmatrix}2\\-1\end{pmatrix}
+=\frac12\begin{pmatrix}1\\3\end{pmatrix}.
 \]
+Zur Kontrolle berechnen wir den zugeh"origen Vektor in $\mathbb R^3$:
+\[
+\tilde B\xi=
+\begin{pmatrix}
+1&0\\
+1&1\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}2\\-1\end{pmatrix}
+=\begin{pmatrix} 2\\1\\-1 \end{pmatrix}
+,\qquad
+\tilde B' \xi'
+=
+\begin{pmatrix}
+1& 1\\
+2& 0\\
+1&-1
+\end{pmatrix}\begin{pmatrix}\frac12\\\frac32\end{pmatrix}
+=\begin{pmatrix}2\\1\\-1 \end{pmatrix},
+\]
+beide stimmen "uberein.
 \end{beispiel}
 
 \section{Lineare Abbildungen}
@@ -981,9 +1028,10 @@ Aus dem Diagramm k"onnen wir ablesen, dass $A'$ gleichbedeutend
 ist damit, die Koordinaten zuerst mit $T^{-1}$ von der Basis $B'$
 auf die Basis $B$ umzurechnen, dort die Matrix $A$ anzuwenden, und
 dann erneut mit $T$ in die Basis $B'$ zur"uckzukehren:
-\[
+\begin{equation}
 A'=TAT^{-1}.
-\]
+\label{abbildung-basiswechsel}
+\end{equation}
 
 \section{Skalarprodukt}
 \index{Skalarprodukt}
@@ -1035,6 +1083,7 @@ ist also unvermeidlich, wenn man die Basis wechseln will.
 
 \subsection{Orthogonale Matrizen}
 \index{Matrix!orthognale}
+\subsubsection{Definition}
 Das Skalarprodukt erlaubt, L"angen und Winkel zu berechnen. 
 Lineare Abbildungen, welche L"angen und Winkel nicht "andern, beschreiben
 Bewegungen des Raumes. Damit zwei Vektoren $u$ und $v$ sollen nach Abbildung
@@ -1080,7 +1129,8 @@ A^tA=
 =E.
 \]
 \end{beispiel}
-\begin{beispiel}
+
+\subsubsection{Drehungen im zweidimensionalen Raum}
 Die Matrix
 \[
 D_\alpha
@@ -1111,9 +1161,8 @@ D_\alpha^tD_\alpha
 \]
 Diese Matrix beschreibt eine Drehung um den Winkel $\alpha$
 in zwei Dimensionen.
-\end{beispiel}
 
-\begin{beispiel}
+\subsubsection{Spiegelungen}
 \index{Spiegelung}
 Die Matrix einer Spiegelung an einer Geraden ist orthogonal.
 
@@ -1197,7 +1246,8 @@ Analog gilt in beliebig vielen Dimensionen, dass die Matrix
 $S_v=E-2v v^t$  f"ur einen Vektor $v$ der L"ange $1$ eine orthogonale
 Matrix ist, die die Spiegelung an einer Ebene mit Normale $v$
 beschreibt.
-\end{beispiel}
+
+\subsubsection{Eigenschaften orthogonaler Matrizen}
 
 \begin{satz}
 Die Spalten einer orthogonale Matrix $A$ sind orthonormiert, sie sind
@@ -1218,6 +1268,271 @@ dass Zeile $i$ von $A^t$ mal Spalte $j$ von $A$ $0$ ergibt. Oder das
 Skalarprodukt von Spalte $i$ von $A$ mit Spalte $j$ von $A$ ist $0$.
 Dies wiederum heisst, dass die Spaltenvektoren senkrecht stehen.
 \end{proof}
+
+\subsubsection{Vertauschung der Koordinatenachsen}
+F"ur Transformation, die die Koordinatenachsen vertauscht, ist
+die Transformationsmatrix ebenfalls leicht zu ermitteln. 
+In der Basis
+\[
+\left\{
+b_1'=\begin{pmatrix}0\\0\\1\end{pmatrix},
+b_2'=\begin{pmatrix}0\\1\\0\end{pmatrix},
+b_3'=\begin{pmatrix}1\\0\\0\end{pmatrix},
+\right\}
+\]
+sind die $x$- und die $z$-Achse vertauscht worden. 
+die zugeh"orige Transformationsmatrix ist
+\begin{equation}
+T=\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}.
+\label{transformation-vertauschung}
+\end{equation}
+
+\subsection{Drehungen des dreidimensionalen Raumes}
+\subsubsection{Drehungen um die Koordinatenachsen}
+Drehungen um die Koordinatenachsen k"onnen mit Hilfe der zweidmensionalen
+Drehmatrix $D_\alpha$ gefunden werden. Die Drehung um die $x$-Achse um den
+Winkel $\alpha$ "andert die $x$-Koordinate nicht, hat also die
+Matrix
+\[
+D_{x,\alpha}=
+\begin{pmatrix}
+1&0&0\\
+0&\cos\alpha&-\sin\alpha\\
+0&\sin\alpha&\cos\alpha
+\end{pmatrix}
+\]
+Analog k"onnen Drehungen um die anderen zwei Achsen formuliert werden:
+\[
+D_{y,\alpha}=\begin{pmatrix}
+\cos\alpha&0&-\sin\alpha\\
+0&1&0\\
+\sin\alpha&0&\cos\alpha
+\end{pmatrix}
+,\qquad
+D_{z,\alpha}=\begin{pmatrix}
+\cos\alpha&-\sin\alpha&0\\
+\sin\alpha&\cos\alpha&0\\
+0&0&1
+\end{pmatrix}
+\]
+Man kann diese Matrizen aus $D_{x,\alpha}$ aber auch mit Hilfe einer
+Koordinatentransformation bekommen. Die Transformationsmatrix
+haben wir in (\ref{transformation-vertauschung}) gefunden:
+\[
+T=
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}
+=T^{-1}
+\]
+Mit der Basiswechsel-Formel (\ref{abbildung-basiswechsel}) kann
+man jetzt die Drehmatrix um die $z$-Achse aus der Drehmatrix um die
+$x$-Achse berechnen:
+\begin{align*}
+D_{z,-\alpha}=TD_{x,\alpha}T^{-1}
+&=
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}
+\begin{pmatrix}
+1&0&0\\
+0&\cos\alpha&-\sin\alpha\\
+0&\sin\alpha&\cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+0&\sin\alpha&\cos\alpha\\
+0&\cos\alpha&-\sin\alpha\\
+1&0&0
+\end{pmatrix}
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos\alpha&\sin\alpha&0\\
+-\sin\alpha&\cos\alpha&0\\
+0&0&1
+\end{pmatrix}.
+\end{align*}
+\subsubsection{Drehwinkel ermitteln}
+F"ur die Standard-Drehmatrizen $D_{x,\alpha}$ ist der Drehwinkel 
+leicht mit Hilfe der Spur zu ermitteln. Die Spur ist die Summe der
+Diagonalelemente einer Matrix:
+\[
+\operatorname{Spur}
+\begin{pmatrix}
+a_{11}&\dots &a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{n1}&\dots &a_{nn}\\
+\end{pmatrix}
+=a_{11}+a_{22}+\dots+a_{nn}
+\quad
+\Rightarrow
+\quad
+\operatorname{Spur}D_{x,\alpha}=1+2\cos\alpha.
+\]
+Die Spur hat aber interessante algebraische Eigenschaften, welche
+die Berechnung des Drehwinkels auch f"ur beliebige Drehmatrizen
+erlauben:
+\begin{satz}
+\label{spursatz}
+Seinen $A$, $B$ und $C$ beliebige $n\times n$-Matrizen. Dann gilt
+\begin{compactenum}
+\item $\operatorname{Spur}(ABC)=\operatorname{Spur}(BCA)=\operatorname{Spur}(CAB)$
+\item $\operatorname{Spur}(AB)=\operatorname{Spur}(BA)$
+\end{compactenum}
+\end{satz}
+Wir zeigen zun"achst, wie man damit den Drehwinkel einer beliebigen
+Drehung $D$ des dreidimensionalen Raumes bestimmen kann. Sei $T$ eine
+Koordinatentransformation, welche die Drehachse der Drehung in die
+$x$-Achse transformiert. Dann hat die transformierte Drehmatrix die
+Form $D_{x,\alpha}$:
+\[
+TDT^{-1}= D_{x,\alpha}
+\]
+F"ur die Spur gilt dann
+\begin{align*}
+\operatorname{Spur}(TDT^{-1})
+&=
+\operatorname{Spur}(DT^{-1}T)
+=
+\operatorname{Spur}(D)
+\\
+\operatorname{Spur}(TDT^{-1})
+&=
+\operatorname{Spur}(D_{x,\alpha}=1+2\cos\alpha
+\end{align*}
+Aufgel"ost nach $\cos\alpha$:
+\begin{satz}\label{drehwinkelsatz}
+Der Drehwinkel einer Drehung des $\mathbb R^3$ mit Matrix $D$ ist
+\[
+\cos\alpha =\frac{\operatorname{Spur}(D) -1 }2.
+\]
+\end{satz}
+
+\begin{proof}[Beweis des Satzes \ref{spursatz}]
+Die zweite Aussage folgt aus der ersten, indem man $C=E$ setzt:
+\[
+\operatorname{Spur}(AB)=\operatorname{Spur}(ABE)=\operatorname{Spur}(BEA)=
+\operatorname{Spur}(BA).
+\]
+Die zyklische Vertauschung der Faktoren folgt aus den Formeln f"ur die
+Matrix-Multiplikation. Das Element $ik$ der Matrix $AB$ ist
+\[
+\sum_{j=1}^na_{ij}b_{jk}
+\]
+und entsprechend ist das Matrixelement $il$ von $ABC$ 
+\[
+\sum_{j=1, k=1}^na_{ij}b_{jk}c_{kl}
+\]
+Die Diagonalelemente sind jene mit $i=l$, die Spur ist deren Summe:
+\[
+\operatorname{Spur}(ABC)
+=\sum_{i,j,k=1}^na_{ij}b_{jk}c{ki}
+=\sum_{i,j,k=1}^nc_{ki}a_{ij}b_{jk}
+=\sum_{j,k,i=1}^nc_{ij}a_{jk}b_{ki}
+\operatorname{Spur}(CAB)
+\]
+\end{proof}
+
+\subsubsection{Euler-Winkel}
+Um die Lage eines K"orpers im Raum festzulegen wurde schon fr"uh
+die folgende nach Euler benannte  Parametrisierung verwendet.
+Die Lage wird durch drei aufeinanderfolgende Drehungen um die $z$-,
+die $x$- und dann nochmals die $z$-Achse herbeigef"uhrt. Die drei
+Drehungen sind
+\begin{compactenum}
+\item eine Drehung um die $z$-Achse um den Winkel $\alpha$
+\item eine Drehung um die $x$-Achse um den Winkel $\beta$
+\item eine Drehung um die $z$-Achse um den Winkel $\gamma$
+\end{compactenum}
+Mit der Matrizen-Darstellung der einzelnen Drehungen kann auch
+die Matrix der gesamten Drehung berechnet werden. Wir schreiben
+$D_{x,\alpha}$ f"ur eine Drehung um die $x$-Achse um den Winkel
+$\alpha$, und sinngem"ass f"ur die anderen Achsen.
+Es ist
+\begin{align*}
+O(\alpha,\beta,\gamma)
+&=
+D_{z,\gamma}
+D_{x,\beta}
+D_{z,\alpha}
+\\
+&=
+\begin{pmatrix}
+\cos\gamma&-\sin\gamma&0\\
+\sin\gamma&\cos\gamma&0\\
+0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+1&0&0\\
+0&\cos\beta&-\sin\beta\\
+0&\sin\beta&\cos\beta
+\end{pmatrix}
+\begin{pmatrix}
+\cos\alpha&-\sin\alpha&0\\
+\sin\alpha&\cos\alpha&0\\
+0&0&1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\cos\gamma&-\sin\gamma&0\\
+\sin\gamma&\cos\gamma&0\\
+0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+\cos\alpha&-\sin\alpha&0\\
+\sin\alpha\cos\beta&\cos\alpha\cos\beta&-\sin\beta\\
+\sin\alpha\sin\beta&\cos\alpha\sin\beta&\cos\beta
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\cos\alpha\cos\gamma+\sin\alpha\cos\beta\sin\gamma
+        &-\sin\alpha\cos\gamma-\cos\alpha\cos\beta\sin\gamma
+                &\sin\beta\sin\gamma\\
+\cos\alpha\sin\gamma+\sin\alpha\cos\beta\cos\gamma
+        &-\sin\alpha\sin\gamma+\cos\alpha\cos\beta\cos\gamma
+                &-\sin\beta\cos\gamma\\
+\sin\alpha\sin\beta&\cos\alpha\sin\beta&\cos\beta
+\end{pmatrix}
+\end{align*}
+In der Astronomie und der Raumfahrt sind die Winkel sehr gebr"achlich.
+Der Winkel $\beta$ ist die Neigung der Bahn gegen"uber der Referenzebene,
+bei Satellitenbahnen um die Erde ist dies die "Aquatorebene,
+bei interplanetaren Missionen die Ebene der Erdbahn.
+Der Winkel $\gamma$ ist der Winkel zwischen einer Referenzrichtung
+und der Schnittgeraden der Bahnebene mit der Referenzebene.
+Diese Schnittgerade heisst auch die Knotenlinie.
+Bei Planetenbahnen ist die Referenzrichtung die Richtung des Fr"uhlingspunktes.
+Der Winkel $\alpha$ ist der Winkel zwischen der Knotenlinie und dem
+erd- oder sonnenn"achsten Punkt.
+
+
 
 \subsection{Orthonormalisierung}
 \index{Orthonormalisierung}
