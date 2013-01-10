@@ -1,0 +1,103 @@
+Betrachten Sie das Gleichungssystem
+\[
+\begin{linsys}{3}
+2x&&&-&z&=&6\\
+&&2y&-&4z&=&-2\\
+&&ay&+&z&=&0\\
+\end{linsys}
+\]
+mit den Unbekannten $x$, $y$ und $z$. F"ur welche Werte von $a$
+hat dieses Gleichungssystem keine, genau eine oder unendlich viele
+L"osungen?
+
+Geben Sie die L"osung in dem Falle an, wo sie eindeutig ist.
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+Wir f"uhren den Gauss-Algorithmus durch
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2&0&-1&6\\
+0&2&-4&-2\\
+0&a&1&0\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&-\frac12&3\\
+0&2&-4&-2\\
+0&a&1&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&-\frac12&3\\
+0&1&-2&-1\\
+0&0&1+2a&a\\
+\hline
+\end{tabular}
+\end{align*}
+Damit das Gleichungssystem eine L"osung hat, muss an dieser Stelle
+der Gauss-Algorithmus fortgesetzt werden k"onnen. Regul"ar ist es
+also nur, wenn $1+2a\ne 0$.
+Singul"ar ist das System genau dann, wenn $a=-\frac12$.
+
+In allen anderen
+F"allen, also bei $a\ne -\frac12$  ist es regul"ar, und hat damit
+genau eine
+L"osung. Diese findet man, indem man den Gauss-Algorithmus zu Ende f"uhrt:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&-\frac12&3\\
+0&1&-2&-1\\
+0&0&1+2a&a\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&0&3+\frac{a}{2+4a}\\
+0&1&0&-1+\frac{2a}{1+2a}\\
+0&0&1&\frac{a}{1+2a}\\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&0&\frac{6+13a}{2(1+2a)}\\
+0&1&0&\frac{-1}{1+2a}\\
+0&0&1&\frac{a}{1+2a}\\
+\hline
+\end{tabular}
+\end{align*}
+Die L"osung ist also
+\[
+\frac1{1+2a}
+\begin{pmatrix}
+\frac{6+13a}2\\-1\\a
+\end{pmatrix}.
+\]
+
+Setzt man $a=-\frac12$ in das Gauss-Tableau ein, bekommt man
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&-\frac12&3\\
+0&1&-2&-1\\
+0&0&0&-\frac12\\
+\hline
+\end{tabular}
+\]
+Die letzte Zeile entspricht der Gleichung $0=-\frac12$, die niemals
+erf"ullbar ist.  Im singul"aren Fall gibt es also gar keine L"osung,
+der Fall unendlich vieler L"osungen kommt nicht vor.
+\end{loesung}
+}{
+}
+

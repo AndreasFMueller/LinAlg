@@ -1,0 +1,124 @@
+L"osen Sie das Gleichungssystem
+$Ax=b$ mit
+\[
+A=
+\begin{pmatrix}
+   1&  0&  1\\
+   1& -5&  2\\
+  -1&  1& -1
+\end{pmatrix}
+,\qquad
+b=\begin{pmatrix}1\\2\\3\end{pmatrix}
+\]
+mit Hilfe der inversen Matrix.
+
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+Es ist also zun"achst die Inverse von $A$ zu ermitteln, was mit dem
+Gauss-Algorithmus geschehen kann:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1 &  0 &  1 &1&0&0\\
+   1 & -5 &  2 &0&1&0\\
+  -1 &  1 & -1 &0&0&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1 &  0 &  1 &  1 &0&0\\
+   0 & -5 &  1 & -1 &1&0\\
+   0 &  1 &  0 &  1 &0&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1 &  0 &  1       &  1      &0       &0\\
+   0 &  1 & -\frac15 & \frac15 &-\frac15&0\\
+   0 &  1 &  0       &  1      &0       &1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1 &  0 &  1       &  1      &0       &0\\
+   0 &  1 & -\frac15 & \frac15 &-\frac15&0\\
+   0 &  0 &  \frac15 & \frac45 & \frac15&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1 &  0 &  0 & -3 & -1 & -5 \\
+   0 &  1 &  0 &  1 &  0 &  1\\
+   0 &  0 &  1 &  4 &  1 &  5\\
+\hline
+\end{tabular}
+\end{align*}
+Die Inverse von $A$ ist also
+\[
+A^{-1}
+=
+\begin{pmatrix}
+  -3& -1& -5\\
+   1&  0&  1\\
+   4&  1&  5
+\end{pmatrix}.
+\]
+Die Korrektheit dieses Zwischenresultates kann man durch Ausmultiplizieren
+von $AA^{-1}$ "uberpr"ufen:
+\[
+\begin{pmatrix}
+   1&  0&  1\\
+   1& -5&  2\\
+  -1&  1& -1
+\end{pmatrix}
+\begin{pmatrix}
+  -3& -1& -5\\
+   1&  0&  1\\
+   4&  1&  5
+\end{pmatrix}
+=
+\begin{pmatrix}
+-3+0+4&-1+0+1&-5+0+5\\
+-3-5+8&-1+0+2&-5-5+10\\
+3+1-4&1+0-1&5+1-5
+\end{pmatrix}
+=E.
+%\begin{pmatrix}
+%1&0&0\\
+%0&1&0\\
+%0&0&1
+%\end{pmatrix}
+\]
+Daraus kann man jetzt die L"osung des Gleichungssystems finden:
+\[
+x=A^{-1}b=
+\begin{pmatrix}
+  -3& -1& -5\\
+   1&  0&  1\\
+   4&  1&  5
+\end{pmatrix}
+\begin{pmatrix}1\\2\\3\end{pmatrix}
+=
+\begin{pmatrix}
+(-3)\cdot 1+(-1)\cdot 2+(-5)\cdot 3\\
+1\cdot 1+0\cdot 2+1\cdot 3\\
+4\cdot 1+1\cdot 2+5\cdot 3
+\end{pmatrix}
+=
+\begin{pmatrix}
+-20\\
+4\\
+21
+\end{pmatrix}.
+\]
+\end{loesung}
+}{}
+

@@ -1,0 +1,218 @@
+Betrachten Sie das folgende Netzwerk
+\[
+\entrymodifiers={++[o][F]}
+\xymatrix{
+1\ar[r]^1 \ar[d]^2 \ar[dr]^3
+	&2\ar[d]^5 \ar[dl]^4
+\\
+3 \ar[r]^6
+	&4
+}
+\]
+\begin{teilaufgaben}
+\item Berechnen Sie die $\partial$-Matrix dieses Netzwerkes.
+\item Bestimmen Sie die Zyklen.
+\item Welche Str"ome sind frei w"ahlbar? Bestimmen Sie die Gleichungen daf"ur.
+\item Berechnen Sie den Laplace-Operator $\partial\partial^t$ 
+durch Ausmultiplizieren des Matrizenproduktes.
+\item Berechnen Sie den Laplace-Operator $\partial S\partial^t$, wenn
+die Leitwerte proportional zur L"ange der Dr"ahte in der graphischen
+Darstellung des Netzwerkes sind.
+\end{teilaufgaben}
+
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die Matrix $\partial$ ist eine $4\times 6$-Matrix,
+sie codiert die Verbindungen im Graphen:
+\[
+\partial=
+\begin{pmatrix}
+-1&-1&-1& 0& 0& 0\\
+ 1& 0& 0&-1&-1& 0\\
+ 0& 1& 0& 1& 0&-1\\
+ 0& 0& 1& 0& 1& 1
+\end{pmatrix}
+\]
+\item Die Zyklen findet man als L"osungen von $\partial z=0$.
+Der Gauss-Algorithmus ergibt das folgende Tableau
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  0&  0& -1& -1&  0\\
+   0&  1&  0&  1&  0& -1\\
+   0&  0&  1&  0&  1&  1\\
+   0&  0&  0&  0&  0&  0\\
+\hline
+\end{tabular}
+\]
+Offenbar sind die drei Variablen $z_4$, $z_5$ und $z_6$ frei w"ahlbar.
+W"ahlt man jeweils eine diese Variablen als $1$, die anderen als $0$, bekommt
+man die folgenden drei Zyklen als L"osung:
+\[
+\begin{pmatrix}
+1\\-1\\0\\1\\0\\0
+\end{pmatrix},
+\qquad
+\begin{pmatrix}
+1\\0\\-1\\0\\1\\0
+\end{pmatrix},
+\qquad
+\text{und}
+\qquad
+\begin{pmatrix}
+0\\1\\-1\\0\\0\\1
+\end{pmatrix}.
+\]
+Diesen Vektoren entsprechen die Zyklen $1\to2\to3\to 1$, $1\to 2\to 4\to 1$
+und $1\to 3\to 4\to 1$.
+\item
+Dazu braucht man zun"achst die Matrix 
+\[
+Z=
+\begin{pmatrix}
+ 1& 1& 0\\
+-1& 0& 1\\
+ 0&-1&-1\\
+ 1& 0& 0\\
+ 0& 1& 0\\
+ 0& 0& 1
+\end{pmatrix}
+\]
+Die frei w"ahlbaren Str"ome ergeben sich als L"osung der
+Gleichung
+\[
+Z^tRZj=Ze
+\]
+Wir berechnen $Z^tRZ$:
+\begin{align*}
+Z^tRZ&=
+\begin{pmatrix}
+   1& -1&  0&  1&  0&  0\\
+   1&  0& -1&  0&  1&  0\\
+   0&  1& -1&  0&  0&  1
+\end{pmatrix}
+\begin{pmatrix}
+R_1&   &   &   &   &   \\
+   &R_2&   &   &   &   \\
+   &   &R_3&   &   &   \\
+   &   &   &R_4&   &   \\
+   &   &   &   &R_5&   \\
+   &   &   &   &   &R_6
+\end{pmatrix}
+\begin{pmatrix}
+ 1& 1& 0\\
+-1& 0& 1\\
+ 0&-1&-1\\
+ 1& 0& 0\\
+ 0& 1& 0\\
+ 0& 0& 1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+ R_1&-R_2&   0& R_4&   0&   0\\
+ R_1&   0&-R_3&   0& R_5&   0\\
+   0& R_2&-R_3&   0&   0& R_6
+\end{pmatrix}
+\begin{pmatrix}
+ 1& 1& 0\\
+-1& 0& 1\\
+ 0&-1&-1\\
+ 1& 0& 0\\
+ 0& 1& 0\\
+ 0& 0& 1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+R_1+R_2+R_4&R_1&-R_2\\
+R_1&R_1+R_3+R_5&R_3\\
+-R_2&R_3&R_1+R_2+R_3
+\end{pmatrix}
+\end{align*}
+Damit sind alle Matrizen des Gleichungssystems bekannt, es kann mit
+dem Computer gel"ost werden.
+\item Ausmultiplizieren ergibt
+\[
+\begin{pmatrix}
+-1&-1&-1& 0& 0& 0\\
+ 1& 0& 0&-1&-1& 0\\
+ 0& 1& 0& 1& 0&-1\\
+ 0& 0& 1& 0& 1& 1
+\end{pmatrix}
+\begin{pmatrix}
+  -1&  1&  0&  0\\
+  -1&  0&  1&  0\\
+  -1&  0&  0&  1\\
+   0& -1&  1&  0\\
+   0& -1&  0&  1\\
+   0&  0& -1&  1
+\end{pmatrix}
+=\begin{pmatrix}
+   3& -1& -1& -1\\
+  -1&  3& -1& -1\\
+  -1& -1&  3& -1\\
+  -1& -1& -1&  3
+\end{pmatrix}
+\]
+Die letzte Matrix sagt, was man auch von blossem Auge sehen kann,
+n"amlich dass jeder Knoten mit drei Nachbarn verbunden ist.
+\item In diesem Fall sind die diagonalen Dr"ahte l"anger, haben
+als Widerstand $\sqrt{2}$ statt $1$. Der Laplace-Operator wird 
+damit
+\begin{align*}
+\partial S\partial^t
+&=
+\begin{pmatrix}
+-1&-1&-1& 0& 0& 0\\
+ 1& 0& 0&-1&-1& 0\\
+ 0& 1& 0& 1& 0&-1\\
+ 0& 0& 1& 0& 1& 1
+\end{pmatrix}
+\begin{pmatrix}
+1& &                &                & & \\
+ &1&                &                & & \\
+ & &\frac{\sqrt{2}}2&                & & \\
+ & &                &\frac{\sqrt{2}}2& & \\
+ & &                &                &1& \\
+ & &                &                & &1
+\end{pmatrix}
+\begin{pmatrix}
+  -1&  1&  0&  0\\
+  -1&  0&  1&  0\\
+  -1&  0&  0&  1\\
+   0& -1&  1&  0\\
+   0& -1&  0&  1\\
+   0&  0& -1&  1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+-1&-1&-\frac{\sqrt{2}}2&                0& 0& 0\\
+ 1& 0&                0&-\frac{\sqrt{2}}2&-1& 0\\
+ 0& 1&                0& \frac{\sqrt{2}}2& 0&-1\\
+ 0& 0& \frac{\sqrt{2}}2&                0& 1& 1
+\end{pmatrix}
+\begin{pmatrix}
+  -1&  1&  0&  0\\
+  -1&  0&  1&  0\\
+  -1&  0&  0&  1\\
+   0& -1&  1&  0\\
+   0& -1&  0&  1\\
+   0&  0& -1&  1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+ 1+\frac{\sqrt{2}}2&                -1&                -1& -\frac{\sqrt{2}}2\\
+-1                 &2+\frac{\sqrt{2}}2& -\frac{\sqrt{2}}2&                -1\\
+-1                 & -\frac{\sqrt{2}}2&2+\frac{\sqrt{2}}2&                -1\\
+  -\frac{\sqrt{2}}2&                -1&                -1&2+\frac{\sqrt{2}}2
+\end{pmatrix}.
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+}{}
+

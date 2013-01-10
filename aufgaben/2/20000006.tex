@@ -1,0 +1,146 @@
+Ein $2^2\times 2^2$-Sudoku sieht zum Beispiel so aus:
+\begin{center}
+\begin{tabular}{|cc|cc|}
+\hline
+1&2&3&4\\
+3&4&1&2\\
+\hline
+2&3&4&1\\
+4&1&2&3\\
+\hline
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item Berechnen Sie die Determinante dieser Zahlen, betrachtet
+als Eintr"age einer $4\times 4$-Matrix.
+\item Wenn man die $2\times 2$-Unterquadrate jeweils "uber die Diagonalen
+die Pl"atze tauschen l"asst, so dass also das Unterquadrat links unten
+mit dem Unterquadrat rechts oben den Platz tauscht, und analog die beiden
+anderen Unterquadrate, entsteht wieder ein $2^2\times 2^2$-Sudoku.
+Was passiert bei diesem Prozess mit der  Determinante?
+\end{teilaufgaben}
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Determinante kann mit dem Entwicklungssatz bestimmt werden. Wir
+entwickeln nach der ersten Spalte:
+\begin{align*}
+\left|\,
+\begin{matrix}
+1&2&3&4\\
+3&4&1&2\\
+2&3&4&1\\
+4&1&2&3
+\end{matrix}
+\,\right|
+&=
+1\cdot\left|\,
+\begin{matrix}
+4&1&2\\
+3&4&1\\
+1&2&3
+\end{matrix}
+\,\right|
+-3\cdot\left|\,
+\begin{matrix}
+2&3&4\\
+3&4&1\\
+1&2&3
+\end{matrix}
+\,\right|
++2\cdot\left|\,
+\begin{matrix}
+2&3&4\\
+4&1&2\\
+1&2&3
+\end{matrix}
+\,\right|
+-4\cdot \left|\,
+\begin{matrix}
+2&3&4\\
+4&1&2\\
+3&4&1\\
+\end{matrix}
+\,\right|
+\\
+&=
+1\cdot(48+1+12-8-8-9)
+-3\cdot(24+3+24-16-4-27)\\
+&\quad+2\cdot(6+6+32-4-8-36)
+-4\cdot(2+18+64-12-16-12)
+\\
+&=1\cdot 36
+-3\cdot 4
++2\cdot (-4)
+-4\cdot 44
+\\
+&=
+36-12-8-176=-160
+\end{align*}
+
+
+Wir kontrollieren das Resultat mit dem Gauss-Algorithmus, der
+sie als das Produkt der Pivots zu bestimmen erlaubt:
+\begin{align*}
+\begin{tabular}{|cccc|}
+\hline
+1&2&3&4\\
+3&4&1&2\\
+2&3&4&1\\
+4&1&2&3\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|cccc|}
+\hline
+1&2&3&4\\
+0&$-2$&$-8$&$-10$\\
+0&$-1$&$-2$&$-7$\\
+0&$-7$&$-10$&$-13$\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|cccc|}
+\hline
+1&2&3&4\\
+0&$1$&$2$&$7$\\
+0&$2$&$8$&$10$\\
+0&$7$&$10$&$13$\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|cccc|}
+\hline
+1&2&3&4\\
+0&$1$&$2$&$7$\\
+0&$0$&$4$&$-4$\\
+0&$0$&$-4$&$-36$\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|cccc|}
+\hline
+1&2&3&4\\
+0&$1$&$2$&$7$\\
+0&$0$&$1$&$-1$\\
+0&$0$&$0$&$-40$\\
+\hline
+\end{tabular}
+\end{align*}
+Die Pivots sind $1$, $1$, $4$ und $-40$, also ist die Determinante $-160$.
+
+\item Die Vertauschung der $2\times 2$-Unterquadrate kann dadurch
+ausgef"uhrt werden, dass man die erste Zeile mit der dritten vertauscht,
+und die zweite mit der vierten, und analog f"ur die Spalten. Jede
+solche Vertauschung kehrt das Vorzeichen, da insgesammt eine gerade
+Anzahl von Vertauschung ausgef"uhrt wird, bleibt das Vorzeichen das
+selbe.
+\end{teilaufgaben}
+\end{loesung}
+}{}
+

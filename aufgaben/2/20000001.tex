@@ -1,0 +1,62 @@
+Berechnen Sie die folgenden Determinanten
+\begin{teilaufgaben}
+\item $A=\left|\,\begin{matrix}1&6\\4&1\end{matrix}\,\right|$
+\item $B=\left|\,\begin{matrix}a+b&a\\b&a+b\end{matrix}\,\right|$
+\item $C=\left|\,\begin{matrix}2&1&1\\0&5&-2\\1&-3&4\end{matrix}\,\right|$
+\end{teilaufgaben}
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+\[
+\left|\,\begin{matrix}1&6\\4&1\end{matrix}\,\right|=1\cdot 1-6\cdot 4=1-24=-23.
+\]
+\item
+\[
+\left|\,\begin{matrix}a+b&a\\b&a+b\end{matrix}\,\right|=(a+b)^2 -ab=a^2+ab+b^2.
+\]
+\item Durch Vertauschung der Zeilen erreicht man zun"achst die einfachere
+Situation, in der wir den Gauss-Algorithmus anwenden k"onnen
+\begin{align*}
+\det(C)&=
+\left|\,\begin{matrix}
+1&-3&4\\
+2&1&1\\
+0&5&-2
+\end{matrix}\,\right|
+\\
+&=
+\left|\,\begin{matrix}
+1&-3&4\\
+0&7&-7\\
+0&5&-2
+\end{matrix}\,\right|
+\\
+&=
+7\left|\,\begin{matrix}
+1&-3&4\\
+0&1&-1\\
+0&0&3
+\end{matrix}\,\right|
+\\
+&=
+7\cdot 3
+\left|\,\begin{matrix}
+1&-3&4\\
+0&1&-1\\
+0&0&1
+\end{matrix}\,\right|
+\\
+&=21
+\left|\,\begin{matrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{matrix}\,\right|=21
+\end{align*}
+
+\end{teilaufgaben}
+\end{loesung}
+}{}
+

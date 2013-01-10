@@ -684,6 +684,18 @@ Eine symmetrische Matrix $A$ heisst positiv definit, falls $v^tAv>0$ f"ur
 alle Vektoren $v\ne 0$.
 \end{definition}
 
+Im Abschnit \ref{section-least-squares} haben wir eine Anwendung
+kennengelernt, in der ein Gleichungssystem der Form
+\[
+A^tAx=A^t b
+\]
+gel"ost werden musste. Die Matrix $A^tA$ ist genau von der hier
+beschriebenen Art: symmetrisch und positiv definit. Es ist n"amlich
+\[
+v^tA^tAv=(Av)^tAv=(Av)\cdot (Av)=|Av|^2> 0
+\]
+falls $A$ regul"ar, wie f"ur positiv definite Matrizen gefordert.
+
 F"ur positiv definite symmetrische Matrizen gibt es eine Quadratwurzel
 im Sinne des folgenden Satzes:
 \begin{satz}[Cholesky-Zerlegung]
@@ -765,7 +777,7 @@ a_{11}&=l_{11}^2   &\Rightarrow&&l_{11}&=\sqrt{a_{11}}\\
 Um $L$ zu finden, muss also nur noch eine Zerlegung von $A'-ll^t$
 finden. Damit wurde das $n$-dimensionale Problem auf ein $n-1$-dimensionales
 Problem reduziert. Durch Wiederholung dieses Schrittes gelangt man am Schluss
-zu einem eindimensionalen Problem, als dem Problem, die Wurzel aus einer
+zu einem eindimensionalen Problem, also dem Problem, die Wurzel aus einer
 positiven Zahl zu ziehen.
 
 \begin{beispiel}

@@ -1,0 +1,84 @@
+%
+% skript.tex -- Skript zur Vorlesung Mathematische Grundlagen der Informatik
+%               gehalten an der Hochschule Rapperswil im Wintersemester 09
+%
+% (c) 2009 Prof. Dr. Andreas Mueller, HSR
+% $Id: skript.tex,v 1.34 2008/11/02 22:46:16 afm Exp $
+%
+\documentclass[a4paper,12pt]{book}
+\usepackage{german}
+\usepackage{times}
+\usepackage{alltt}
+\usepackage{verbatim}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{picins}
+\usepackage{ifthen}
+\usepackage{multirow}
+\usepackage{txfonts}
+%\usepackage[basic]{circ}
+\usepackage[all]{xy}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{makeidx}
+\usepackage{paralist}
+\makeindex
+\begin{document}
+\pagestyle{fancy}
+\lhead{Aufgabensammlung}
+\rhead{}
+\frontmatter
+\newcommand\HRule{\noindent\rule{\linewidth}{1.5pt}}
+\begin{titlepage}
+\vspace*{\stretch{1}}
+\HRule
+\vspace*{2pt}
+\begin{flushright}
+{\Huge
+Lineare Algebra:\\
+\bigskip
+Aufgabensammlung}
+\end{flushright}
+\HRule
+\begin{flushright}
+\vspace{30pt}
+\LARGE
+Andreas M"uller
+\end{flushright}
+\vspace*{\stretch{2}}
+\begin{center}
+Hochschule f"ur Technik, Rapperswil, 2011-2013
+\end{center}
+\end{titlepage}
+\rhead{Inhaltsverzeichnis}
+\tableofcontents
+\newenvironment{beispiel}[1][Beispiel]{%
+\begin{proof}[#1]%
+\renewcommand{\qedsymbol}{$\bigcirc$}
+}{\end{proof}}
+\mainmatter
+\input ../skript/linsys.tex
+\input uebungen.tex
+\setboolean{loesungen}{true}
+\aufgabetoplevel{./}
+
+\chapter{Lineare Gleichungssysteme}
+\input 1.tex
+\chapter{Determinanten}
+\input 2.tex
+\chapter{Vektorgeometrie}
+%\input 3.tex
+\chapter{Lineare R"aume}
+%\input 4.tex
+\chapter{Matrixzerlegungen}
+%\input 5.tex
+\chapter{Eigenwerte und Eigenvektoren}
+%\input 6.tex
+\input aufgabensammlung.ind
+\end{document}

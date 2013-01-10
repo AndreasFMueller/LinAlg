@@ -1,0 +1,96 @@
+Berechnen Sie die folgende Determinante
+\[
+\left|\,\begin{matrix}
+4&6& 0&3\\
+7&1& 0&4\\
+0&0&11&0\\
+8&0& 0&0
+\end{matrix}\,\right|.
+\]
+
+%   4   6   0   3
+%   7   1   0   4
+%   0   0  11   0
+%   8   0   0   0
+
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+Die Determinante kann mit dem Entwicklungssatz bestimmt werden, wobei
+als Entwicklung nach der dritten Spalte am zweckm"assigsten ist:
+\begin{align*}
+\left|\,\begin{matrix}
+4&6& 0&3\\
+7&1& 0&4\\
+0&0&11&0\\
+8&0& 0&0
+\end{matrix}\,\right|
+&=
+11\cdot
+\left|\,\begin{matrix}
+4&6&3\\
+7&1&4\\
+8&0&0
+\end{matrix}\,\right|
+\\
+&=
+11\cdot
+8\cdot
+\left|\,\begin{matrix}
+6&3\\
+1&4
+\end{matrix}\,\right|
+\\
+&=
+11\cdot
+8\cdot
+(6\cdot 4-1\cdot 3)=11\cdot 8\cdot 21=1848.
+\end{align*}
+
+
+Alternative k"onnte man die Determinante auch unter Anwendung der
+Rechenregeln f\"ur Determinanten berechnen. Dazu vertauschen wir
+zun\"achst Zeilen und Spalten, bis wir ann"ahernd Dreiecksform erreichen,
+um dann die Determinante in wenigen Gauss-Schritten zu berechnen:
+\begin{align*}
+\left|\,\begin{matrix}
+4&6& 0&3\\
+7&1& 0&4\\
+0&0&11&0\\
+8&0& 0&0
+\end{matrix}\,\right|
+&=
+\left|\,\begin{matrix}
+0&0&11&0\\
+4&6& 0&3\\
+7&1& 0&4\\
+8&0& 0&0
+\end{matrix}\,\right|
+\\
+&=
+\left|\,\begin{matrix}
+11&0&0&0\\
+ 0&6&3&4\\
+ 0&1&4&7\\
+ 0&0&0&8
+\end{matrix}\,\right|\\
+&=
+-\left|\,\begin{matrix}
+11&0&0&0\\
+ 0&1&4&7\\
+ 0&6&3&4\\
+ 0&0&0&8
+\end{matrix}\,\right|\\
+&=
+-\left|\,\begin{matrix}
+11&0&  0&  0\\
+ 0&1&  4&  7\\
+ 0&0&-21&-38\\
+ 0&0&  0&  8
+\end{matrix}\,\right|\\
+&-11\cdot 1\cdot (-21)\cdot 8=11\cdot 8\cdot 21=1848
+\end{align*}
+\end{loesung}
+}{
+}
+

@@ -1,0 +1,207 @@
+L"osen Sie die folgenden Gleichungssysteme und geben Sie an,
+ob das System genau eine, keine oder unendlich viele L"osungen
+hat.
+\begin{teilaufgaben}
+\item
+\[
+\begin{linsys}{2}
+ x & + & 3y & = &  1\\
+-x & + & 5y & = & -1
+\end{linsys}
+\]
+\item
+\[
+\begin{linsys}{3}
+x & + & 2y & + &  z & = & 1\\
+  &   &  y & + & 2z & = & 3\\
+x & + & 2y & + & 2z & = & 5 
+\end{linsys}
+\]
+\item
+\[
+\begin{linsys}{2}
+  x & - & 3y & = & 4 \\
+-2x & + & 6y & = & 5
+\end{linsys}
+\]
+\item
+\[
+\begin{linsys}{2}
+  x & - & 3y & =  4 \\
+-2x & + & 6y & = -8
+\end{linsys}
+\]
+\end{teilaufgaben}
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Fr"uher h"atten Sie diese Aufgabe vielleicht so gel"ost:
+Addition ergibt
+\[
+\begin{linsys}{2}
+x&+&3y&=&1\\
+&&8y&=&0
+\end{linsys}
+\]
+so dass $y=0$ sein muss. Einsetzen in die erste Gleichung ergibt
+$x=1$.
+ 
+Mit dem Gauss-Algorithmus entstehen die folgenden Tableaux:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&3&1\\
+-1&5&-1\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&3&1\\
+0&8&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&3&1\\
+0&1&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&1\\
+0&1&0\\
+\hline
+\end{tabular}
+\end{align*}
+\item
+Fr"uher h"atten Sie diese Aufgabe vielleicht so gel"ost:
+Subtrahiert man die erste Gleichung von der letzten erh"alt man
+$z=4$. Setzt man dies in die Gleichungen ein, erh"alt man
+das Gleichugnssystem
+$$
+\begin{linsys}{2}
+x&+&2y&=&-3\\
+ & & y&=&-5
+\end{linsys}
+$$
+d.~h.~man kann aus der zweiten Gleichung $y=-5$ ablesen, und zusammen
+mit der ersten Gleichung folgt $x=7$.
+
+Mit dem Gauss-Algorithmus wird daraus
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&2&1&-3\\
+0&1&2&3\\
+1&2&2&5\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&2&1&1\\
+0&1&2&3\\
+0&0&1&4\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&2&0&-3\\
+0&1&0&-5\\
+0&0&1&4\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&0& 7\\
+0&1&0&-5\\
+0&0&1&4\\
+\hline
+\end{tabular}
+\end{align*}
+\item
+Fr"uher h"atten Sie die Aufgaben vielleicht so gel"ost:
+Multipliziert man die erste Gleichung mit $2$ und die zweite mit $-1$,
+erh"alt man
+\[
+\begin{linsys}{2}
+ 2x & - & 6y & = & 8 \\
+ 2x & - & 6y & = &-5
+\end{linsys}
+\]
+Diese beiden Gleichungen widersprechen sich, es ist unm"oglich beide
+Gleichungen zu erf"ullen, das System hat also keine L"osung.
+
+Mit dem Gauss-Algorithmus finden sie folgende Tableaux:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-3&4\\
+-2&6&5\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-3&4\\
+0& 0&13\\
+\hline
+\end{tabular}
+\end{align*}
+An dieser Stelle kommt der Gauss-Algorithmus nicht mehr weiter, weil
+er eine Nullzeile gefunden hat. Auf der rechten Seite steht $-13$,
+wir haben hier also eine Gleichung $0=-13$, welche niemals erf"ullt
+werden kann. Also gibt es keine L"osung.
+\item
+Fr"uher h"atten Sie diese Aufgabe vielleicht wie folgt gel"ost:
+Die gleichen Operationen wie in Teilaufgabe c) f"uhren hier auf
+\[
+\begin{linsys}{2}
+ 2x & - & 6y & =  8 \\
+ 2x & - & 6y & =  8
+\end{linsys}
+\]
+Die beiden Gleichungen sind also im wesentlichen identisch, die L"osungsmenge
+ist 
+\[
+\mathbb L=\{ (x,y)| x=4+3y\}
+\]
+also unendlich.
+
+Mit dem Gauss-Algorithmus bekommen Sie folgende Tableaux:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-3&4\\
+-2&6&-8\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-3&4\\
+0& 0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Die letzte Zeile entspricht der Gleichung $0=0$ die immer
+zutrifft. Die Gleichungen gen"ugen offenbar nicht, um $y$ 
+festzulegen, $y$ ist also frei w"ahlbar und $x$ kann mit
+der ersten Gleichung daraus berechnet werden:
+\[
+x-3y=4\quad\Rightarrow\quad x=4+3y.
+\]
+\end{teilaufgaben}
+\end{loesung}
+}{}

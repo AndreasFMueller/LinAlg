@@ -1,0 +1,63 @@
+Betrachten Sie das Gleichungssystem
+\[
+\begin{linsys}{2}
+x&+&ay&=&4\\
+ax&+&9y&=&b
+\end{linsys}
+\]
+\begin{teilaufgaben}
+\item F"ur welche Werte von $a$ und $b$ hat das Gleichungssystem eine
+eindeutig bestimmte L"osung
+\item Finden Sie die Werte von $a$ und $b$, f"ur die das Gleichungssystem
+mehr als eine L"osung hat.
+\end{teilaufgaben}
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+Aus dem Gauss-Verfahren bekommen wir
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&a&4\\
+a&9&b\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&a&4\\
+0&9-a^2&b-4a\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&a&4\\
+0&1&\frac{b-4a}{9-a^2}\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&4-a \frac{b-4a}{9-a^2}\\
+0&1&\frac{b-4a}{9-a^2}\\
+\hline
+\end{tabular}
+\\
+\end{align*}
+\begin{teilaufgaben}
+\item Die Durchf"uhrung des Gaussverfahrens ist nur m"oglich, wenn $9-a^2\ne 0$, also
+$|a|\ne 3$. Wie gross $b$ ist spielt in diesem Fall keine Rolle.
+\item Dies ist der singul"are Fall, er tritt ein, wenn $9-a^2=0$ ist. Damit das Gleichungssystem
+"uberhaupt eine L"osungen hat, muss die letzte Zeile im Gaussalgorithmus verschwinden,
+also $b=4a$. Ist dies der Fall, dann sind alle Punkte der Geraden 
+\[
+\left\{(x,y)\left|y=-\frac1ax+\frac4a\right.\right\}
+\]
+L"osungen des Gleichungssystems.
+\end{teilaufgaben}
+\end{loesung}
+}{}
+

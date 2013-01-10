@@ -1,0 +1,82 @@
+Berechnen Sie die folgenden Matrizenprodukte
+\begin{teilaufgaben}
+\item $J=
+\begin{pmatrix}0&-1\\1&0\end{pmatrix}
+$, berechnen Sie $J^2$, $J^3$,
+$J^4$,\dots
+\item $D_\alpha=\begin{pmatrix}\cos\alpha&\sin\alpha\\-\sin\alpha&\cos\alpha\end{pmatrix}$, berechnen Sie $D_\alpha D_\beta$.
+\item $A=
+\begin{pmatrix}0&0&1\\1&0&0\\0&1&0\end{pmatrix}
+$, berechnen Sie
+$A^3$.
+\end{teilaufgaben}
+
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+\begin{align*}
+J^2=J\cdot J
+&=
+\begin{pmatrix}0&-1\\1&0\end{pmatrix}
+\begin{pmatrix}0&-1\\1&0\end{pmatrix}
+=
+\begin{pmatrix}-1&0\\0&-1\end{pmatrix}\\
+J^3=J^2\cdot J&=
+\begin{pmatrix}-1&0\\0&-1\end{pmatrix}
+\begin{pmatrix}0&-1\\1&0\end{pmatrix}
+=
+\begin{pmatrix}0&1\\-1&0\end{pmatrix}=-J
+\\
+J^4=J^2\cdot J^2
+&=
+\begin{pmatrix}-1&0\\0&-1\end{pmatrix}
+\begin{pmatrix}-1&0\\0&-1\end{pmatrix}
+=
+\begin{pmatrix}1&0\\0&1\end{pmatrix}.
+\end{align*}
+\item
+\begin{align*}
+D_\alpha
+D_\beta
+&=
+\begin{pmatrix}\cos\alpha&\sin\alpha\\
+-\sin\alpha&\cos\alpha\end{pmatrix}
+\begin{pmatrix}\cos\beta&\sin\beta\\
+-\sin\beta&\cos\beta\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\cos\alpha\cos\beta-\sin\alpha\sin\beta
+	&\cos\alpha\sin\beta+\sin\alpha\cos\beta\\
+-\sin\alpha\cos\beta+\cos\alpha\sin\beta
+	&\sin\alpha\sin\beta+\cos\alpha\cos\beta
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+ \cos(\alpha+\beta)&\sin(\alpha+\beta)\\
+-\sin(\alpha+\beta)&\cos(\alpha+\beta)
+\end{pmatrix}=D_{\alpha+\beta}.
+\end{align*}
+\item
+\begin{align*}
+A^2
+&=
+\begin{pmatrix}0&0&1\\1&0&0\\0&1&0\end{pmatrix}
+\begin{pmatrix}0&0&1\\1&0&0\\0&1&0\end{pmatrix}
+=
+\begin{pmatrix} 0&1&0\\ 0&0&1\\ 1&0&0\end{pmatrix}
+\\
+A^3&=
+\begin{pmatrix}0&0&1\\1&0&0\\0&1&0\end{pmatrix}
+\begin{pmatrix} 0&1&0\\ 0&0&1\\ 1&0&0\end{pmatrix}
+=
+\begin{pmatrix}
+1&0&0\\0&1&0\\0&0&1
+\end{pmatrix}.
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+}{}

@@ -1,0 +1,126 @@
+Gegeben sind die Matrizen
+\[
+A=\begin{pmatrix}
+-11&6\\
+-20&11
+\end{pmatrix}
+\qquad
+\text{und}
+\qquad
+B=
+\begin{pmatrix}
+1&3\\
+2&5
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item Berechnen Sie $B^{-1}AB$.
+\item Berechnen Sie $A^{2012}$.
+\end{teilaufgaben}
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Zun"achst berechnen wir die inverse Matrix von $B$ mit dem Gauss-Algorithmus:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&3&1&0\\
+2&5&0&1\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&3&1&0\\
+0&-1&-2&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&3&1&0\\
+0&1&2&-1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&3&-5&3\\
+0&1&2&-1\\
+\hline
+\end{tabular}
+\end{align*}
+\[
+B^{-1}
+=
+\begin{pmatrix}-5&3\\2&-1\end{pmatrix}.
+\]
+
+Damit kann man jetzt $B^{-1}AB$ bestimmen:
+\begin{align*}
+B^{-1}A
+&=
+\begin{pmatrix}-5&3\\2&-1\end{pmatrix}
+\begin{pmatrix} -11&6\\ -20&11 \end{pmatrix}
+=
+\begin{pmatrix}
+55-60&-30+33\\
+-22+20&12-11
+\end{pmatrix}
+=
+\begin{pmatrix}
+-5&3\\
+-2&1
+\end{pmatrix},
+\\
+B^{-1}AB
+&=
+\begin{pmatrix}
+-5&3\\
+-2&1
+\end{pmatrix}
+\begin{pmatrix}
+1&3\\
+2&5
+\end{pmatrix}
+=
+\begin{pmatrix}
+-5+6&-15+15\\
+-2+2&-6+5
+\end{pmatrix}
+=\begin{pmatrix}
+1&0\\
+0&-1
+\end{pmatrix}.
+\end{align*}
+
+\item
+Berechnung der Potenzen von $A$ liefert:
+\begin{align*}
+A^2
+&=
+\begin{pmatrix} -11&6\\-20&11\end{pmatrix}
+\begin{pmatrix} -11&6\\-20&11\end{pmatrix}
+=\begin{pmatrix}
+(-11)\cdot(-11)+6\cdot(-20)&(-11)\cdot 6+6\cdot 11\\
+(-20)\cdot(-11)+11\cdot(-20)&(-20)\cdot 6+11\cdot 11
+\end{pmatrix}
+\\
+&=\begin{pmatrix}1&0\\0&1\end{pmatrix}=E\\
+A^3&=A^2\cdot A=EA=A\\
+A^4&=A^3\cdot A=A\cdot A=A^2=E\\
+\end{align*}
+Die geraden Potenzen sind also Einheitsmatrizen, ungerade 
+Potenzen sind identisch mit $A$:
+\begin{align*}
+A^{2k}&=E&A^{2k+1}&=A.
+\end{align*}
+f"ur $k\in \mathbb N$.
+\end{teilaufgaben}
+\end{loesung}
+}{ }
+

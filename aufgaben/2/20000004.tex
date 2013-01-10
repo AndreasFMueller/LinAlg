@@ -1,0 +1,61 @@
+Berechnen Sie die Determinante
+\[
+\left|\begin{matrix}
+3&2&1\\
+2&3&2\\
+1&2&3
+\end{matrix}\right|
+.
+\]
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+Man kann die Determinante schrittweise mit Zeilenoperationen umformen,
+zum Beispiel im ersten Schritt durch hinzuaddieren der ersten Zeile
+zur letzten, oder im dritten durch subtrahieren eines geeigneten
+Vielfachen der dritten Zeile von den anderen:
+\begin{align*}
+\left|\,\begin{matrix}
+3&2&1\\
+2&3&2\\
+1&2&3
+\end{matrix}\,\right|
+&=
+\left|\,\begin{matrix}
+3&2&1\\
+2&3&2\\
+4&4&4
+\end{matrix}\,\right|
+\\&=
+4\cdot \left|\,\begin{matrix}
+3&2&1\\
+2&3&2\\
+1&1&1
+\end{matrix}\,\right|
+\\&=
+4\cdot \left|\,\begin{matrix}
+0&-1&-2\\
+0& 1& 0\\
+1& 1& 1
+\end{matrix}\,\right|
+\\&=
+4\cdot \left|\,\begin{matrix}
+1& 1& 1\\
+0&-1&-2\\
+0& 1& 0
+\end{matrix}\,\right|
+\\&=
+-4\cdot \left|\,\begin{matrix}
+1& 1& 1\\
+0&-2&-1\\
+0& 0& 1
+\end{matrix}\,\right|
+\\&=
+-4\cdot 1\cdot (-2)\cdot 1=8
+\end{align*}
+Im letzten Schritt hat man die Eigenschaft einer Dreiecksmatrix verwendet,
+dass deren Determinante einfach das Produkt der Diagonalelemente ist.
+Dies wurde in \"Ubung 4 gefunden.
+\end{loesung}
+}{}
+

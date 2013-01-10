@@ -1,0 +1,52 @@
+Das folgende Gleichungssystem ist unterbestimmt, beschreiben
+Sie die L"osungsmenge:
+$$
+\begin{linsys}{3}
+ x & + & 2y & - & 4z & = & 7 \\
+3x & - & 5y & + & 6z & = & 8
+\end{linsys}
+$$
+
+\ifthenelse{\boolean{loesungen}}{
+\begin{loesung}
+Mit dem Gauss-Algorithmus bekommt man
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&2&-4&7\\
+3&-5&6&8\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&2&-4&7\\
+0&-11&18&-13\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&2&-4&7\\
+0&1&-\frac{18}{11}&\frac{13}{11}\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&-\frac{8}{11}&\frac{51}{11}\\
+0&1&-\frac{18}{11}&\frac{13}{11}\\
+\hline
+\end{tabular}
+\end{align*}
+Die Tableaux reichen nicht aus, um $z$ zu bestimmen, diese Variable
+ist also frei w"ahlbar, die anderen Variablen m"ussen daraus
+bestimmt werden.
+
+Die L"osungsmenge ist also
+$$\mathbb L=\left\{(x,y,z)\left| x=\frac{51}{11}+\frac{8}{11}z, y=\frac{13}{11}+\frac{18}{11}z\right.\right\}.
+$$
+\end{loesung}
+}{}
