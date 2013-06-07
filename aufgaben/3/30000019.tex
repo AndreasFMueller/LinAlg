@@ -1,0 +1,44 @@
+Finden Sie die Normalenform einer Ebenen durch den
+Nullpunkt, die die $z$-Achse
+unter einem Winkel von $30^\circ$ schneidet und ausserdem
+parallel ist zur Geraden durch die Punkte $A=(1,0,0)$ und
+$B=(0,2,0)$.
+
+\begin{loesung}
+Der Normalenvektor $\vec n$ muss mit der $z$-Achse einen $60^\circ$-Winkel
+bilden, und muss auf dem Vektor $\overrightarrow{AB}$ senkrecht stehen.
+Mit Skalarprodukten ausgedr"uckt heisst dies:
+\begin{align*}
+\vec n\cdot \vec e_3&=\frac12\\
+\vec n\cdot \begin{pmatrix}-1\\2\\0\end{pmatrix}&=0\\
+\vec n\cdot\vec n&=1
+\end{align*}
+Setzen wir an
+\[
+\vec n =
+\begin{pmatrix}x\\y\\z\end{pmatrix},
+\]
+so finden wir die Gleichungen
+\begin{align*}
+z&= \frac12\\
+-x+2y&=0\\
+x^2+y^2+z^2&=1
+\end{align*}
+Aus der zweiten Gleichung bekommen wir $x=2y$ und damit aus der ersten
+und dritten
+\begin{align*}
+4y^2+y^2+\frac14&=1
+\\
+y&=\frac12\sqrt{\frac35}
+x&=\sqrt{\frac35}
+\end{align*}
+Die gesuchte Normalenform der Gleichung ist also
+\[
+\begin{pmatrix}
+\sqrt{\frac35}\\
+\frac12\sqrt{\frac35}\\
+\frac12
+\end{pmatrix}\cdot \begin{pmatrix}x\\y\\z\end{pmatrix} =0
+\]
+\end{loesung}
+

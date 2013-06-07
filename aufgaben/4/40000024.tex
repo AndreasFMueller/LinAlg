@@ -1,0 +1,52 @@
+Sei $A$ die Matrix
+\[
+A=\frac13\begin{pmatrix}
+2&-2& 1\\
+1& 2& 2\\
+2& 1&-2
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item Ist $A$ orthogonal?
+\item Zeigen Sie: $A$ ist keine Drehmatrix.
+\item Finden Sie die Matrix $S$ einer Spiegelung an der $x$-$y$-Ebene
+\item Berechnen Sie $AS$
+\item Zeigen Sie: $AS$ ist eine Drehmatrix
+\item Bestimmen Sie den Drehwinkel von $AS$
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item $A^tA=E$ durch nachrechnen, also ist $A$ orthogonal.
+\item $\det(A)=-1$, eine Drehmatrix h"atte $\det(A)=1$.
+\item Die Matrix $S$ ist
+\[
+S=\begin{pmatrix}1&0&0\\0&1&0\\0&0&-1\end{pmatrix},
+\]
+sie ist orthogonal und $\det(S)=-1$.
+\item
+\[
+AS=\frac13\begin{pmatrix}
+2&-2& 1\\
+1& 2& 2\\
+2& 1&-2
+\end{pmatrix}
+\begin{pmatrix}1&0&0\\0&1&0\\0&0&-1\end{pmatrix}
+=
+\frac13\begin{pmatrix}
+2&-2&-1\\
+1& 2&-2\\
+2& 1& 2
+\end{pmatrix}
+\]
+\item $AS$ ist als Produkt orthogonaler Matrizen auch orthogonal,
+und $\det(AS)=\det(A)\det(S)=(-1)\cdot(-1)=1$.
+\item Den Drehwinkel kann man mit der Spurformel ermitteln:
+\begin{align*}
+\cos\alpha&= \frac{\operatorname{Spur} A -1}2=\frac{\frac136-1}2=\frac12
+\\
+\alpha&=60^\circ
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+

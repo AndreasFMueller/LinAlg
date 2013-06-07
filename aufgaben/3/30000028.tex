@@ -1,0 +1,37 @@
+Die Gerade
+\[
+\vec r
+=
+\frac12\begin{pmatrix}3\\0\\3\end{pmatrix}
++t
+\begin{pmatrix}1\\4\\-1\end{pmatrix}
+\]
+schneidet die Kugel um den Nullpunkt mit Radius $3$ in zwei Punkten.
+Berechnen Sie den Winkel zwischen den Tangentialebenen in diesen
+Punkten.
+
+\begin{loesung}
+Einsetzen der Geradengleichung in die Kugelgleichung ergibt
+\begin{align*}
+(\frac32+t)^2 + 16t^2 + (\frac32 - t)^2&=3^2\\
+\frac94+3t+t^2+16t^2+\frac94-3t+t^2&=9\\
+\frac92+18t^2&=9\\
+18t^2&=\frac92\\
+t^2&=\frac14\\
+t&=\pm\frac12
+\end{align*}
+Die Schnittpunkte sind daher
+\begin{align*}
+t&=\frac12&\Rightarrow\qquad p_1&=\begin{pmatrix}2\\2\\1\end{pmatrix}\\
+t&=-\frac12&\Rightarrow\qquad p_2&=\begin{pmatrix}1\\-2\\2\end{pmatrix}
+\end{align*}
+Diese Vektoren sind auch gleich die Normalen der genannten Tangentialebenen,
+also ist der Zwischenwinkel:
+\begin{align*}
+\cos\alpha&=\frac{p_1\cdot p_2}{|p_1|\;|p_2|} =\frac{2-4+2}{3\cdot 3}=0
+\\
+\alpha&=90^\circ,
+\end{align*}
+die beiden Ebenen stehen also senkrecht aufeinander.
+\end{loesung}
+

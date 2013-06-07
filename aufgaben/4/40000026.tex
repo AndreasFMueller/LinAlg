@@ -1,0 +1,197 @@
+Betrachten Sie die Matrix
+\[
+A=
+\begin{pmatrix}
+1&2&0&0&0\\
+2&3&4&0&0\\
+0&4&5&6&0\\
+0&0&6&7&8\\
+0&0&0&8&9
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item Ist $A$ orthogonal?
+\item Berechnen Sie die Determinante von $A$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Spalten einer orthogonalen Matrix sind orthonormiert,
+insbesondere haben Sie l"ange $1$. Jede Spalte von $A$ hat mindestens eine
+Koordinate mit Betrag $>1$, sie kann also nicht L"ange $1$ haben.
+Daher kann $A$ auch nicht orthogonal sein.
+
+Alternativ kann man argumentieren, dass eine orthogonale
+Matrix die Gleichung $AA^t=E$ erf"ullen m"usste. Die Matrix $A$
+ist symmetrisch, also $A=A^t$. Wir berechnen das Element links
+oben im Produkt $AA^t=A^2$:
+\[
+\begin{pmatrix}
+1&2&0&0&0\\
+2&3&4&0&0\\
+0&4&5&6&0\\
+0&0&6&7&8\\
+0&0&0&8&9
+\end{pmatrix}
+\begin{pmatrix}
+1&2&0&0&0\\
+2&3&4&0&0\\
+0&4&5&6&0\\
+0&0&6&7&8\\
+0&0&0&8&9
+\end{pmatrix}
+=
+\begin{pmatrix}
+5&?&?&?&?\\
+?&?&?&?&?\\
+?&?&?&?&?\\
+?&?&?&?&?\\
+?&?&?&?&?
+\end{pmatrix}
+\ne E,
+\]
+die Matrix $A$ kann also nicht orthogonal sein.
+\item
+Wir berechnen der Determinante mit dem Entwicklungssatz, indem wir nach der
+ersten Spalte entwickeln:
+\begin{align*}
+\det(A)=
+&
+=
+1\cdot
+\left|\,\begin{matrix}
+3&4&0&0\\
+4&5&6&0\\
+0&6&7&8\\
+0&0&8&9
+\end{matrix}\,\right|
+-2\cdot
+\left|\,\begin{matrix}
+2&0&0&0\\
+4&5&6&0\\
+0&6&7&8\\
+0&0&8&9
+\end{matrix}\,\right|
+\\
+&
+=
+1\cdot 3\cdot
+\left|\,\begin{matrix}
+5&6&0\\
+6&7&8\\
+0&8&9
+\end{matrix}\,\right|
+-1\cdot 4\cdot
+\left|\,\begin{matrix}
+4&0&0\\
+6&7&8\\
+0&8&9
+\end{matrix}\,\right|
+-2\cdot2\cdot
+\left|\,\begin{matrix}
+5&6&0\\
+6&7&8\\
+0&8&9
+\end{matrix}\,\right|
+\\
+&
+=
+(1\cdot 3-2\cdot 2)
+\left|\,\begin{matrix}
+5&6&0\\
+6&7&8\\
+0&8&9
+\end{matrix}\,\right|
+-4\cdot 4
+\left|\,\begin{matrix}
+7&8\\
+8&9
+\end{matrix}\,\right|
+\\
+&
+=
+-(5\cdot7\cdot9-8\cdot8\cdot 5-6\cdot 6\cdot 9)-16(7\cdot 9-8\cdot 8)
+\\
+&
+=
+-(315-320-324)-16(-1)=-315+320+324+16
+\\
+&
+=345.
+\end{align*}
+Dabei wurde im zweiten Schritt die erste Determinante durch Entwicklung
+nach der ersten Spalten auf $3\times 3$-Determinanten reduziert,
+und die zweite durch Entwicklung nach der ersten Zeile. F"ur die
+zweite $3\times 3$-Determinante wurde nochmals der Entwicklungssatz angewandt,
+die anderen $3\times 3$-Determi\-nanten wurden mit der Sarrusschen Formel
+bestimmt.
+
+Alternativ kann die Determinante auch mit dem Gauss-Algorithmus bestimmt
+werden.
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&0&0&0\\
+2&3&4&0&0\\
+0&4&5&6&0\\
+0&0&6&7&8\\
+0&0&0&8&9\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&0&0&0\\
+0&-1&4&0&0\\
+0&4&5&6&0\\
+0&0&6&7&8\\
+0&0&0&8&9\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&0&0&0\\
+0&1&-4&0&0\\
+0&0&21&6&0\\
+0&0&6&7&8\\
+0&0&0&8&9\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&0&0&0\\
+0&1&-4&0&0\\
+0&0&1&\frac{2}{7}&0\\
+0&0&0&\frac{37}{7}&8\\
+0&0&0&8&9\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&0&0&0\\
+0&1&-4&0&0\\
+0&0&1&\frac{2}{7}&0\\
+0&0&0&1&\frac{56}{37}\\
+0&0&0&0&-\frac{115}{37}\\
+\hline
+\end{tabular}
+\end{align*}
+Aus den Pivot-Elementen kann jetzt die Determinante berechnet
+werden:
+\[
+\det(A)
+=
+1\cdot(-1)\cdot21\cdot\frac{37}{7}\cdot(-\frac{115}{37})
+=3 \cdot 115=345
+\]
+Insbesondere erh"alt man die gleiche Determinante wie mit dem Entwicklungssatz.
+\end{teilaufgaben}
+\end{loesung}
+

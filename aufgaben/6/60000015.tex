@@ -1,0 +1,145 @@
+\begin{teilaufgaben}
+\item
+Kann man die Matrix
+\[
+A=\begin{pmatrix}
+5&4\\
+-3&-2
+\end{pmatrix}
+\]
+diagonalisieren?
+Wenn ja, welche Basis m"usste man dazu verwenden?
+\item
+Kann man $A$ in einer Basis aus orthonormierten Vektoren
+diagonalisieren?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wenn $A$ diagonalisierbar ist, dann muss dazu eine Basis aus
+Eigenvektoren verwendet werden, wir bestimmen also als erstes
+die Eigenwerte und Eigenvektoren von $A$.
+
+Das charakeristische Polynom von $A$ ist
+\begin{align*}
+\det(A-\lambda E)
+&=
+\left|\,
+\begin{matrix}
+5-\lambda&4\\-3&-2-\lambda
+\end{matrix}
+\,\right|
+=(5-\lambda)(-2-\lambda)+12
+\\
+&
+=
+\lambda^2-3\lambda-10+12
+=
+\lambda^2-3\lambda+2
+=0
+\\
+\Rightarrow
+\lambda_\pm&=\frac32\pm\sqrt{\frac94-2}=\frac32\pm\sqrt{\frac14}=\begin{cases}
+2\\
+1
+\end{cases}
+\end{align*}
+Jetzt m"ussen wir f"ur jeden Eigenwert den zugeh"origen Eigenvektor
+finden, indem wir den Gauss-Algorithmus auf die $A-\lambda E$ anwenden.
+
+F"ur $\lambda_+=2$ findet man
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+5-2&4&0\\
+-3&-2-2&0\\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+3&4&0\\
+-3&-4&0\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&\frac43&0\\
+0&0&0\\
+\hline
+\end{tabular}.
+\end{align*}
+Daraus kann man ablesen, dass
+\[
+v_+
+=
+\begin{pmatrix}1\\-\frac34 \end{pmatrix}
+\]
+ein Eigenvektor zum Eigenwert $\lambda_+=2$ ist.
+
+F"ur $\lambda_-=1$  gilt entsprechend
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+5-1&4&0\\
+-3&-2-1&0\\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+4&4&0\\
+-3&-3&0\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&1&0\\
+0&0&0\\
+\hline
+\end{tabular}.
+\end{align*}
+Daraus kann man ablesen, dass
+\[
+v_-
+=
+\begin{pmatrix}1\\-1 \end{pmatrix}
+\]
+ein Eigenvektor zum Eigenwert $\lambda_-=1$ ist.
+
+Man muss also die Basis
+\[
+\left\{
+\begin{pmatrix}1\\-\frac34 \end{pmatrix}
+,
+\begin{pmatrix}1\\-1 \end{pmatrix}
+\right\}
+\]
+verwenden, um die Matrix zu diagonalisieren.
+\item
+Die Basisvektoren, in denen $A$ diagonal ist, m"ussen auf jeden Fall
+Eigenvektoren von $A$ sein.
+Wir haben die Eigenvektoren bestimmt, wenigstens bis auf Vielfache.
+Wenn die Diagonalisierung mit einer orthonormierten Basis m"oglich w"are,
+dann m"usste man daf"ur Vielfache der bereits gefundenen Vektoren verwenden
+k"onnen, und diese Vielfachen m"ussten senkrecht aufeinander stehen.
+Orthogonalit"at "andert sich durch Skalieren der Vektoren nicht.
+Das Skalarprodukt der bereits gefundenen Eigenvektoren $v_{\pm}$
+ist
+\[
+v_+\cdot v_-=
+\begin{pmatrix}1\\-\frac34 \end{pmatrix}
+\cdot
+\begin{pmatrix}1\\-1 \end{pmatrix}
+=1+\frac34=\frac74 >0,
+\]
+die beiden Vektoren sind also niemals senkrecht.
+Also kann man die Matrix $A$ nicht mit einer Orthonormalbasis diagonalisieren.
+\end{teilaufgaben}
+\end{loesung}
+

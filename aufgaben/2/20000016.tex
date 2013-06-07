@@ -1,0 +1,75 @@
+Berechnen Sie die folgende Determinante
+\[
+\left|\,\begin{matrix}
+67&5&0&2\\
+0&5&0&0\\
+67&0&3&0\\
+0&5&0&2\\
+\end{matrix}\,\right|.
+\]
+
+\begin{loesung}
+Die Determinante kann als Produkt der Pivots bei der Durchf"uhrung des
+Gauss-Algorithmus gefunden werden, in der aktuellen Form w"urden aber
+etwas unhandliche Br"uche entstehen, so dass es sich lohnt, zun"achst
+die gemeinsamen Faktoren in den Spalten vor die Determinante zu nehmen:
+\[
+\left|\,\begin{matrix}
+67&5&0&2\\
+0&5&0&0\\
+67&0&3&0\\
+0&5&0&2\\
+\end{matrix}\,\right|
+=
+67\cdot5\cdot3\cdot 2\cdot
+\left|\,\begin{matrix}
+1&1&0&1\\
+0&1&0&0\\
+1&0&1&0\\
+0&1&0&1\\
+\end{matrix}\,\right|.
+\]
+F"ur diese Matrix ist die Durchf"uhrung des Gauss-Algorithmus jetzt
+wesentlich einfacher:
+\[
+\begin{tabular}{|cccc|}
+\hline
+1&1&0&1\\
+0&1&0&0\\
+1&0&1&0\\
+0&1&0&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|cccc|}
+\hline
+1&1&0&1\\
+0&1&0&0\\
+0&$-1$&1&$-1$\\
+0&1&0&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|cccc|}
+\hline
+1&1&0&1\\
+0&1&0&0\\
+0&0&1&$-1$\\
+0&0&0&1\\
+\hline
+\end{tabular}
+\]
+Da die Matrix jetzt Dreiecksform hat, kann man aufh"oren
+(das R"uckw"artseinsetzen ist f"ur die Bestimmung der
+Determinante nicht mehr n"otig. Da alle Pivots $1$ waren, ist
+die Determinante dieser Matrix $1$, also
+\[
+\left|\,\begin{matrix}
+67&5&0&2\\
+0&5&0&0\\
+67&0&3&0\\
+0&5&0&2\\
+\end{matrix}\,\right|=2010.
+\]
+\end{loesung}
+

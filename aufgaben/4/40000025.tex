@@ -1,0 +1,69 @@
+Sei $\vec u$ ein Einheitsvektor, und $\varphi$ ein beliebiger Winkel.
+Wir setzen $s=\sin\varphi$ und $c=\cos\varphi$. Betrachten Sie jetzt
+die Matrix
+\[
+O=\begin{pmatrix}
+c+(1-c)u_1^2    &(1-c)u_1u_2-u_3s   &(1-c)u_1u_3+u_2s\\
+(1-c)u_1u_2+u_3s&c+(1-c)u_2^2       &(1-c)u_2u_3-u_1s\\
+(1-c)u_1u_3-u_2s&(1-c)u_2u_3+u_1s   &c+(1-c)u_3^2
+\end{pmatrix}
+\]
+Man kann nachrechnen, dass dies eine Drehmatrix ist (nicht verlangt).
+\begin{teilaufgaben}
+\item Bestimmen Sie den Drehwinkel.
+\item Zeigen sie, dass $\vec u$ die Richtung der Drehachse ist.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Der Drehwinkel kann mit der Spurformel bestimmt werden. Dazu berechnen
+wir zun"achst die Spur von $A$
+\[
+\operatorname{Spur}O=
+c+(1-c)u_1^2+c+(1-c)u_2^2+c+(1-c)u_3^2=3c+(1-c)(u_1^2+u_2^2+u_3^2)=1+2c
+\]
+Jetzt wenden wir die Spurformel an:
+\[
+\cos\alpha=\frac{\operatorname{Spur}O-1}2=c=\cos\varphi,
+\]
+Der Drehwinkel ist also gerade der Winkel $\varphi.$
+\item
+Die Richtung $\vec v$ der Drehachse erf"ullt die Bedingung $O\vec v=\vec v$,
+wir m"ussen also nachpr"ufen, ob $O\vec u=\vec u$.
+Dazu setzen wir ein:
+\begin{align*}
+O\vec u
+&=
+\begin{pmatrix}
+c+(1-c)u_1^2    &(1-c)u_1u_2-u_3s   &(1-c)u_1u_3+u_2s\\
+(1-c)u_1u_2+u_3s&c+(1-c)u_2^2       &(1-c)u_2u_3-u_1s\\
+(1-c)u_1u_3-u_2s&(1-c)u_2u_3+u_1s   &c+(1-c)u_3^2
+\end{pmatrix}
+\begin{pmatrix}u_1\\u_2\\u_3\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+cu_1+(1-c)u_1^3 +(1-c)u_1u_2^2-u_2u_3s+(1-c)u_1u_3^2+u_2u_3s\\
+(1-c)u_1^2u_2+u_1u_3s+cu_2+(1-c)u_2^3+(1-c)u_2^2u_3-u_1u_3s\\
+(1-c)u_1^2u_3-u_1u_2s+(1-c)u_2^2u_3+u_1u_2s+cu_3+(1-c)u_3^3
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+cu_1+(1-c)u_1(u_1^2+u_2^2+u_3^2)\\
+(1-c)u_2(u_1^2+u_2^2+u_3^2)+cu_2\\
+(1-c)u_3(u_1^2+u_2^2+u_3^2)+cu_3
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+cu_1+(1-c)u_1\\
+(1-c)u_2+cu_2\\
+(1-c)u_3+cu_3
+\end{pmatrix}
+=\begin{pmatrix}u_1\\u_2\\u_3\end{pmatrix}.
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+

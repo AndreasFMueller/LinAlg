@@ -1,0 +1,83 @@
+Sei $A$ die Matrix
+\[
+A=\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+\frac1{\sqrt{6}}&-\frac2{\sqrt{6}}&\frac1{\sqrt{6}}\\
+-\frac1{\sqrt{2}}&0&\frac1{\sqrt{2}}
+\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item Ist $A$ orthogonal?
+\item Zeigen Sie: $A$ ist keine Drehmatrix.
+\item Finden Sie die Matrix $S$ einer Spiegelung an der
+Ebene aufgespannt von der $z$-Achse und der Winkelhalbierenden
+von $x$- und $y$-Achse.
+\item Berechnen Sie $AS$
+\item Zeigen Sie: $AS$ ist eine Drehmatrix
+\item Bestimmen Sie den Drehwinkel von $AS$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die Zeilen von $A$ sind Einheitsvektoren und stehen
+senkrecht aufeinander. Dies ist nur f"ur die ersten beiden
+Zeilen nicht ganz offensichtlich:
+\[
+\frac1{\sqrt{3}}\cdot\frac1{\sqrt{6}}
++
+\frac1{\sqrt{3}}\cdot\frac{-2}{\sqrt{6}}
++
+\frac1{\sqrt{3}}\cdot\frac1{\sqrt{6}}
+=\frac{1\cdot 1+1\cdot(-2)+1\cdot 1}{\sqrt{3}\cdot\sqrt{6}}=0,
+\]
+also ist die Matrix orthogonal.
+\item $A$ ist keine Drehmatrix, da die Determinante
+$\det A=-1$ ist.
+\item Die gesuchte Matrix $S$ vertauscht $x$- und $y$-Achse. Da in den
+Spalten der Matrix die Bilder der Basisvektoren stehen, muss sein
+\[
+S=\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}.
+\]
+Selbstverst"andlich ist dies eine orthogonale Matrix, da bei einer
+Spiegelung L"angen und Winkel erhalten bleiben.
+\item
+\[
+AS=
+\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+\frac1{\sqrt{6}}&-\frac2{\sqrt{6}}&\frac1{\sqrt{6}}\\
+-\frac1{\sqrt{2}}&0&\frac1{\sqrt{2}}
+\end{pmatrix}
+\begin{pmatrix}0&1&0\\1&0&0\\0&0&1\end{pmatrix}
+=\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+-\frac2{\sqrt{6}}&\frac1{\sqrt{6}}&\frac1{\sqrt{6}}\\
+0&-\frac1{\sqrt{2}}&\frac1{\sqrt{2}}
+\end{pmatrix}
+\]
+also die Matrix $A$ in der die ersten beiden Spalten vertauscht
+wurden.
+\item
+$AS$ ist also auch wieder orthogonal, es bleibt zu "uberpr"ufen,
+ob die Determinante den richtigen Wert hat:
+\[
+\det(AS)=\det(A)\det(S)=(-1)\cdot(-1)=1
+\]
+also ist $AS$ ein Drehmatrix. Alternativ kann man auch argumentieren,
+dass in $AS$ gegen"uber $A$ zwei Spalten vertauscht wurden, was das
+Vorzeichen der Determinante umkehrt. Da $\det A=-1$ war, muss also
+$AS$ orthogonal sein.
+\item
+Der Drehwinkel kann mit der Spur bestimmt
+werden:
+\begin{align*}
+\cos \alpha&=\frac{\operatorname{Spur}(A)-1}2=\frac{\frac1{\sqrt{3}}+\frac1{\sqrt{6}}+\frac1{\sqrt{2}}-1}2
+=\frac{\frac{\sqrt{2}+1+\sqrt{3}}{\sqrt{6}}-1}2
+\\
+&=\frac{\sqrt{2}+1+\sqrt{3}-\sqrt{6}}{2\sqrt{6}}\simeq  0.34635267
+\\
+\alpha&=\pm 69.7356^\circ
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+

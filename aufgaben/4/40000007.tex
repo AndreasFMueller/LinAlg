@@ -1,0 +1,57 @@
+Finden Sie die Abbildungsmatrix $A$ einer linearen Abbildung von $\mathbb R^2$,
+welche die $x$-Komponente halbiert, die $y$-Komponenten verdoppelt und
+danach die beiden Komponenten vertauscht.
+\begin{teilaufgaben}
+\item Berechnen Sie die Determinante von $A$.
+\item Wie gross ist der Winkel zwischen den Bildern der Vektoren
+$e_1$ und $e_2$?
+\item Wie gross ist der Winkel zwischen den Bildern der Vektoren
+\[
+\begin{pmatrix}1\\1\end{pmatrix}\quad\text{und}\quad
+\begin{pmatrix}1\\-1\end{pmatrix}
+\]
+\end{teilaufgaben}
+
+\begin{loesung}
+In den Spalten der Abbildungsmatrix stehen die Bilder der Basisvektoren, also
+\[
+\begin{pmatrix}1\\0\end{pmatrix}\mapsto\begin{pmatrix}0\\\frac12\end{pmatrix}
+,\quad
+\begin{pmatrix}0\\1\end{pmatrix}\mapsto\begin{pmatrix}2\\0\end{pmatrix}
+\qquad
+\Rightarrow\qquad
+A=\begin{pmatrix}
+0&2\\
+\frac12&0
+\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item
+Die Determinante ist $\det(A)=-2\cdot\frac12=-1.$
+\item
+Die Vektoren $e_1$ und $e_1$ liegen nach der Transformation wieder auf
+den $x$- bzw.~$y$-Achsen, sie schliessen also auch nach der Transformation
+einen rechten Winkel ein.
+\item
+Die Zwischenwinkelformel muss auf die Vektoren $A(e_1+e_2)$ und
+$A(e_1-e_2)$ angewendet werden:
+\begin{gather}
+\begin{aligned}
+\left|\begin{pmatrix}2\\\frac12\end{pmatrix}\right|&=\frac{\sqrt{17}}2,&
+\left|\begin{pmatrix}-2\\\frac12\end{pmatrix}\right|&=\frac{\sqrt{17}}2,&
+\begin{pmatrix}2\\\frac12\end{pmatrix}
+\cdot
+\begin{pmatrix}-2\\\frac12\end{pmatrix}
+&=-4+\frac14=-\frac{15}4.
+\end{aligned}
+\\
+\begin{aligned}
+\cos\alpha&=-\frac{\frac{15}{4}}{\frac{\sqrt{17}}{2}\cdot\frac{\sqrt{17}}2}
+=-\frac{15}{17}=-0.88235\\
+\alpha&=151.927^\circ.
+%28.073
+\end{aligned}
+\end{gather}
+\end{teilaufgaben}
+\end{loesung}
+

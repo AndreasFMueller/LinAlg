@@ -1,0 +1,84 @@
+Ist die Matrix
+\[
+\begin{pmatrix}
+2&6\\
+1&-3
+\end{pmatrix}
+\]
+diagonalisierbar? Wenn ja, in welcher Basis?
+
+\begin{loesung}
+Wir m"ussen Eigenwerte und Eigenvektoren finden. Das charkteristische
+Polynom ist
+\begin{align*}
+\left|\begin{matrix}
+2-\lambda&6\\
+1&-3-\lambda
+\end{matrix}\right|
+&=(2-\lambda)(-3-\lambda)-6=(\lambda-2)(\lambda+3)-6=\lambda^2+\lambda-6-6
+\\
+&=\lambda^2+\lambda-12=(\lambda-3)(\lambda + 4)
+\end{align*}
+Die Eigenwerte sind also $\lambda_1=3$ und $\lambda_2=-4$. Um die Eigenvektoren und damit
+die Basisvektoren f"ur eine Diagonalbasis zu finden, muss man
+jetzt die L"osungen von $(A-\lambda_i E)x=0$.
+
+F"ur $\lambda_1=3$ erh"alt man
+\[
+(2-\lambda_1)x+6y=0\quad\Rightarrow\quad -x+6y=0\Rightarrow x = 6y
+\]
+Der Vektor
+$\begin{pmatrix}6\\1\end{pmatrix}$
+ist also ein Eigenvektor. Tats"achlich ist
+\[
+A\begin{pmatrix}6\\1\end{pmatrix}
+=
+\begin{pmatrix}
+2&6\\
+1&-3
+\end{pmatrix}
+\begin{pmatrix}6\\1\end{pmatrix}
+=\begin{pmatrix}
+2\cdot 6+6\cdot 1\\
+1\cdot 6+(-3)\cdot 1
+\end{pmatrix}
+=\begin{pmatrix}
+18\\
+3
+\end{pmatrix}
+=
+\lambda_1 
+\begin{pmatrix}6\\1\end{pmatrix}
+\]
+
+F"ur $\lambda_2=-4$ folgt analog
+\[
+(2-(-4))x+6y=0\quad\Rightarrow x=-y
+\]
+Somit ist der Vektor
+$\begin{pmatrix}1\\-1\end{pmatrix}$
+ein Eigenvektor zum Eigenwert $-4$. Tats"achlich ist
+\[
+A
+\begin{pmatrix}1\\-1\end{pmatrix}
+=
+\begin{pmatrix}
+2&6\\
+1&-3
+\end{pmatrix}
+\begin{pmatrix}1\\-1\end{pmatrix}
+=
+\begin{pmatrix}
+2\cdot 1 +6\cdot(-1)\\
+1\cdot1+(-3)\cdot(-1)
+\end{pmatrix}
+=
+\begin{pmatrix}
+-4\\
+4
+\end{pmatrix}
+=\lambda_2
+\begin{pmatrix}1\\-1\end{pmatrix}.
+\]
+\end{loesung}
+

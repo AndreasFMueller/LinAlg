@@ -1,0 +1,74 @@
+Berechnen Sie die folgende Determinante
+\[
+\left|\,\begin{matrix}
+0&1&3&9\\
+4&1&4&16\\
+0&1&2&4\\
+0&1&1&1
+\end{matrix}\,\right|.
+\]
+
+\begin{loesung}
+Nach dem Entwicklungssatz ist
+\[
+\left|\,\begin{matrix}
+0&1&3&9\\
+4&1&4&16\\
+0&1&2&4\\
+0&1&1&1
+\end{matrix}\,\right|
+=-4\cdot\left|\,\begin{matrix}
+1&3&9\\
+1&2&4\\
+1&1&1
+\end{matrix}\,\right|
+=
+4\cdot\left|\,\begin{matrix}
+1&1&1\\
+1&2&4\\
+1&3&9
+\end{matrix}\,\right|
+\]
+Die letzte Determinante ist eine Vandermondesche Determinante,
+wie sie auch in einer "Ubung berechnet wurde. Sie kann im vorliegenden
+Fall aber (ausser mit der Sarrussschen Regel) auch mit Gauss
+berechne werden:
+\[
+\begin{tabular}{|ccc|}
+\hline
+1&1&1\\
+1&2&4\\
+1&3&9\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|ccc|}
+\hline
+1&1&1\\
+0&1&3\\
+0&2&8\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|ccc|}
+\hline
+1&1&1\\
+0&1&3\\
+0&0&2\\
+\hline
+\end{tabular}
+\]
+Daraus liest man die Pivot-Elemente $1$, $1$ und $2$ ab, die
+Vandermondesche Determinante muss also den Wert $2$ haben.
+Somit gilt
+\[
+\left|\,\begin{matrix}
+0&1&3&9\\
+4&1&4&16\\
+0&1&2&4\\
+0&1&1&1
+\end{matrix}\,\right|
+= 8
+\]
+\end{loesung}
+

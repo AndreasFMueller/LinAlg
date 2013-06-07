@@ -1,0 +1,135 @@
+Liegt der Ursprung  auf der Ebene durch die Punkte
+$A=(-2, 0, 1)$, $B=(4,0,-2)$ und $C=(-1,-4,3)$?
+
+\begin{loesung}
+Dieser Fall tritt ein, wenn die Ortsvektoren der drei Punkte
+in einer Ebene liegen, die drei Ortsvektoren also linear abh"angig
+sind. Dies kann man zum Beispiel mit dem Gaussalgorithmus testen:
+\begin{align*}
+\begin{tabular}{|ccc|}
+\hline
+$-2$&4&$-1$\\
+0&0&$-4$\\
+1&$-2$&3\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|ccc|}
+\hline
+1&$-2$&3\\
+0&0&$-4$\\
+$-2$&4&$-1$\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|}
+\hline
+1&$-2$&3\\
+0&0&$-4$\\
+0&0&5\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|}
+\hline
+1&$-2$&3\\
+0&0&1\\
+0&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Die Matrix hat also nur den Rang $2$, insbesondere ist sie singul"ar,
+die Vektoren sind linear abh"angig, der Ursprung ist also ein Punkt
+der Ebene.
+
+Alternativ kann man die Ebene in Parameterdarstellung finden:
+\begin{align*}
+\vec r&=\overrightarrow{OA}+\lambda \overrightarrow{AB}+\mu\overrightarrow{AC}\\
+&=
+\begin{pmatrix}
+-2\\0\\1
+\end{pmatrix}
++
+\lambda
+\begin{pmatrix}
+6\\0\\-3
+\end{pmatrix}
++
+\mu
+\begin{pmatrix}
+1\\-4\\2
+\end{pmatrix}
+\end{align*}
+und $\lambda$ und $\mu$ so zu bestimmen versuchen, dass
+der Nullvektor entsteht, also
+\[
+\begin{pmatrix}
+-2\\0\\1
+\end{pmatrix}
++
+\lambda
+\begin{pmatrix}
+6\\0\\-3
+\end{pmatrix}
++
+\mu
+\begin{pmatrix}
+1\\-4\\2
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\0\\0
+\end{pmatrix}.
+\]
+Dies f"uhrt auf das "uberbestimmte Gleichungssystem
+\[
+\begin{linsys}{3}
+6\lambda&+&\mu&=&2\\
+&-&\mu&=&0\\
+-3\lambda&+&2\mu&=&-1\\
+\end{linsys}
+\]
+Aus der zweiten Gleichung folgt $\mu=0$. Damit werden die anderen
+zwei Gleichungen zu $3\lambda=1$ oder $\lambda=\frac13$. Die Gleichungen
+sind also l"osbar, somit liegt der Nullpunkt auf der Ebene.
+
+Schliesslich kann auch der Normalenvektor bestimmt werden:
+\[
+\vec n=
+\begin{pmatrix}
+6\\0\\-3
+\end{pmatrix}
+\times
+\begin{pmatrix}
+1\\-4\\2
+\end{pmatrix}
+=\begin{pmatrix}
+0\cdot 2-(-4)\cdot(-3)\\
+(-3)\cdot 1-2\cdot 6\\
+6\cdot(-4)-1\cdot 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+-12\\
+-15\\
+-24
+\end{pmatrix}
+\]
+Der Ursprung liegt in der Ebene, wenn $\overrightarrow{OA}$ auf
+$\vec n$ senkrecht steht:
+\[
+\vec n\cdot\overrightarrow{OA}
+=
+\begin{pmatrix}
+-12\\ -15\\ -24 \end{pmatrix}
+\cdot
+\begin{pmatrix}
+-2\\0\\1
+\end{pmatrix}
+=(-12)\cdot(-2)+(-15)\cdot 0+(-24)\cdot 1=0,
+\]
+der Ursprung liegt also tats"achlich auf der Ebenen.
+\end{loesung}
+

@@ -1,0 +1,163 @@
+In der Wikipedia findet man die Aussage, dass die zwanzig Punkte mit
+den Koordinaten gem"ass untenstehender Tabelle die Ecken eines
+Dodekaeders bilden. Dabei ist
+$\varphi=\frac12(1+\sqrt{5})$ und die Vorzeichen symbolisiert durch
+das Zeichen $\pm$ k"onnen unabh"angig voneinander ver"andert werden:
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Punkt&Anzahl\\
+\hline
+$(\pm 1,\pm 1,\pm 1)$&$8$\\
+$(0,\pm\frac1{\varphi},\pm\varphi)$&$4$\\
+$(\pm\frac1{\varphi},\pm\varphi,0)$&$4$\\
+$(\pm\varphi,0,\pm\frac1{\varphi})$&$4$\\
+\hline
+&$20$\\
+\hline
+\end{tabular}
+\end{center}
+Die meisten dieser Punkte interessieren uns nicht, wir betrachten
+nur die beiden Kanten
+\[
+\text{von $(1,1,1)$ nach $(0,\frac1{\varphi},\varphi)$}
+\qquad\text{und}\qquad
+\text{von $(-1,-1,-1)$ nach $(-\frac1{\varphi},-\varphi,0).$}
+\]
+Sie sind nicht parallel. Wie gross ist der minimale
+Abstand der Geraden, die durch diese Kanten verlaufen?
+
+{\it Hinweis:} Sie d"urfen die folgenden Formeln f"ur $\varphi$ verwenden,
+um die algebraischen Rechnungen zu vereinfachen:
+\[
+\frac1{\varphi}=\varphi-1,\qquad
+\frac1{\varphi}-1=\varphi-2,\qquad
+\varphi^2=\varphi+1
+\]
+Damit k"onnen Sie beliebige Polynome in $\varphi$ zu linearen Ausdr"ucken
+vereinfachen, zum Beispiel $(\varphi-1)^2=\varphi^2-2\varphi+1=\varphi+1-2\varphi+1=2-2\varphi$.
+
+\begin{loesung}
+Es geht darum, den windschiefen Abstand zweier Geraden mit den
+Richtungsvektoren
+\[
+\vec r_1=\begin{pmatrix}
+-1\\
+\frac1{\varphi}-1\\
+\varphi-1
+\end{pmatrix}
+\qquad\text{und}\qquad
+\vec r_2
+=\begin{pmatrix}
+-\frac1{\varphi}+1\\
+-\varphi+1\\
+1
+\end{pmatrix}
+=-\begin{pmatrix}
+\frac1{\varphi}-1\\
+\varphi-1\\
+-1
+\end{pmatrix}
+\]
+durch die Punkte $(1,1,1)$ und $(-1,-1,-1)$ zu bestimmen. Dazu
+muss die L"ange der Projektion des Vektors
+\[
+\vec d= \begin{pmatrix} 2\\2\\2\end{pmatrix}
+\]
+auf den Vektor $\vec n = \vec r_1\times\vec r_2$ bestimmt werden.
+Diese kann mit der in der Vorlesung abgeleiteten Formel
+\[
+\frac{\vec  n\cdot\vec d}{|\vec n|}
+\]
+bestimmt werden.
+
+Die Anwendung der im Hinweis genannten Formeln erlaubt,
+die Vektoren $\vec r_1$ und $\vec r_2$ so zu schreiben,
+dass $\varphi$ nicht mehr im Nenner vorkommt:
+\[
+\vec r_1=\begin{pmatrix}
+-1\\
+\varphi-2\\
+\varphi-1
+\end{pmatrix}
+\qquad\text{und}\qquad
+\vec r_2
+=-\begin{pmatrix}
+\varphi-2\\
+\varphi-1\\
+-1
+\end{pmatrix}
+\]
+Damit berechnen wir jetzt das Vektorprodukt von $\vec r_1$ und $\vec r_2$:
+\begin{align*}
+\vec n=
+\vec r_1\times\vec r_2
+&=
+-\begin{pmatrix}
+-1\\
+\varphi-2\\
+\varphi-1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+\varphi-2\\
+\varphi-1\\
+-1
+\end{pmatrix}
+=
+-
+\begin{pmatrix}
+-\varphi+2-(\varphi-1)^2\\
+(\varphi-1)(\varphi-2)-1\\
+-\varphi+1-(\varphi-2)^2
+\end{pmatrix}
+\\
+&=
+-\begin{pmatrix}
+-\varphi+2-\varphi^2+2\varphi-1\\
+\varphi^2-3\varphi+2-1\\
+-\varphi+1-\varphi^2+4\varphi-4
+\end{pmatrix}
+\\
+&=
+-\begin{pmatrix}
+-\varphi+2-\varphi-1+2\varphi-1\\
+\varphi+1-3\varphi+2-1\\
+-\varphi+1-\varphi-1+4\varphi-4
+\end{pmatrix}
+\\
+&=
+-\begin{pmatrix}
+0\\
+2-2\varphi\\
+2\varphi-4
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+2\varphi-2\\
+-2\varphi+4
+\end{pmatrix}
+\end{align*}
+Der gesuchte Abstand ist das Skalarprodukt dieses Vektors $\vec n$
+mit $\vec d$, geteilt durch die L"ange von $\vec n$. Das Skalarprodukt
+ist
+\[
+\vec n\cdot\vec d=2\cdot 0+2(2\varphi-2)+2(-2\varphi+4)
+=4\varphi-4-4\varphi+8=4.
+\]
+Die L"ange von $\vec n$ ist
+\begin{align*}
+|\vec n|^2&=(2\varphi-2)^2+(-2\varphi+4)^2\\
+&=4 \varphi^2-8\varphi+4+4\varphi^2-16\varphi+16\\
+&=4\varphi+4-8\varphi+4+4\varphi+4-16\varphi+16\\
+&=28-16\varphi\\
+|\vec n|&=\sqrt{28-16\varphi}
+\end{align*}
+Der gesucht Abstand ist also
+\[
+\frac{\vec n\cdot \vec d}{|\vec n|}=\frac{4}{\sqrt{28-16\varphi}}\simeq
+2.7528
+\]
+\end{loesung}
+

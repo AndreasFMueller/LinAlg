@@ -1,0 +1,45 @@
+L"osen Sie das Gleichungssystem $Ax=b$ mit
+\[
+A=\frac12\begin{pmatrix}2&1&0\\1&2&1\\0&1&2\end{pmatrix},\qquad
+b=\frac12\begin{pmatrix}1\\2\\0\end{pmatrix}
+\]
+mit Hilfe der Cramerschen Regel.
+
+\begin{loesung}
+Die Determinante von $A$ ist
+\[
+\operatorname{det}A
+=
+\frac18
+\left|\,\begin{matrix}2&1&0\\1&2&1\\0&1&2\end{matrix}\,\right|
+=\frac18(8+0+0-0-2-2)=\frac12
+\]
+Die Determinanten, in denen man die $i$-te Spalte durch $b$ ersetzt hat:
+\begin{align*}
+\frac12 x_1&=
+\frac18\left|\,\begin{matrix}
+1&1&0\\
+2&2&1\\
+0&1&2\end{matrix}\,\right|
+=\frac18(4+0+0-0-1-4)=-\frac18
+&x_1&=-\frac14
+\\
+\frac12 x_2&=
+\frac18\left|\,\begin{matrix}
+2&1&0\\
+1&2&1\\
+0&0&2\end{matrix}\,\right|
+=\frac18(8+0+0-0-0-2)=\frac34
+&x_2&=\frac32
+\\
+\frac12 x_3&=
+\frac18\left|\,\begin{matrix}
+2&1&1\\
+1&2&2\\
+0&1&0\end{matrix}\,\right|
+=\frac18(0+0+1-0-4-0)=-\frac38
+&x_3&=-\frac34
+\end{align*}
+\end{loesung}
+
+

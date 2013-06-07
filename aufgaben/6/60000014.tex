@@ -1,0 +1,94 @@
+Gegeben ist die Matrix
+\[
+A=\begin{pmatrix}
+0&1&0\\
+0&0&1\\
+0&0&0\\
+\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item Berechnen Sie die Matrix $B=(A-\lambda E)^3$
+\item Bestimmen Sie die Determinante von $B$.
+\item F"ur welche Werte von $\lambda$ ist $B$ singul"ar?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Es gilt die binomische Formel:
+\begin{align*}
+(A-\lambda E)^3&=A^3-3\lambda A^2+3\lambda^2 A-\lambda^3 E
+\end{align*}
+Die Potenzen von $A$ sind aber besonders leicht auszurechnen:
+\begin{align*}
+A^2&=
+\begin{pmatrix}
+0&1&0\\
+0&0&1\\
+0&0&0
+\end{pmatrix}
+\begin{pmatrix}
+0&1&0\\
+0&0&1\\
+0&0&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&0&1\\
+0&0&0\\
+0&0&0
+\end{pmatrix}
+\\
+A^3&=A^2A=
+\begin{pmatrix}
+0&0&1\\
+0&0&0\\
+0&0&0
+\end{pmatrix}
+\begin{pmatrix}
+0&1&0\\
+0&0&1\\
+0&0&0
+\end{pmatrix}
+=\begin{pmatrix}
+0&0&0\\
+0&0&0\\
+0&0&0
+\end{pmatrix}
+\\
+\end{align*}
+Die gesuchte Matrix $B$ ist also
+\[
+B=0 -3\lambda \begin{pmatrix}
+0&0&1\\
+0&0&0\\
+0&0&0
+\end{pmatrix}
++3\lambda^2
+\begin{pmatrix}
+0&1&0\\
+0&0&1\\
+0&0&0
+\end{pmatrix}
+-\lambda^3\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}
+=\begin{pmatrix}
+-\lambda^3& 3\lambda^2&-3\lambda\\
+         0&- \lambda^3&3\lambda^3\\
+         0&          0&- \lambda^3
+\end{pmatrix}
+\]
+\item
+Da $B$ eine Dreiecksmatrix ist, ist die Determinante einfach das Produkt
+der Diagonalelemente, also
+\[
+\det(B)=-\lambda^9.
+\]
+Oder man verwendet
+\[
+\det((A-\lambda E)^3)
+=
+\det(A-\lambda E)^3=(-\lambda^3)^3=-\lambda^9.
+\]
+\item Die Determinante verschwindet genau dann, wenn $\lambda=0$.
+\end{teilaufgaben}
+\end{loesung}
+

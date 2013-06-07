@@ -1,0 +1,55 @@
+Ist die Matrix
+\[
+\begin{pmatrix}
+4&-7\\
+2&-5
+\end{pmatrix}
+\]
+diagonalisierbar? Wenn ja, in welcher Basis?
+
+\begin{loesung}
+Zun"achst m"ussen die Eigenwerte der Matrix
+\[
+A=
+\begin{pmatrix}
+4&-7\\
+2&-5
+\end{pmatrix}
+\]
+bestimmt werden. Das
+charakteristische Polynom ist
+\begin{align*}
+\chi_A(\lambda)&=
+\det(A-\lambda E)
+=
+\left|\,\begin{matrix}4-\lambda&-7\\2&-5-\lambda\end{matrix}\,\right|
+=(4-\lambda)(-5-\lambda)+14\\
+&=-20+5\lambda-4\lambda+\lambda^2+14
+=\lambda^2+\lambda-6=(\lambda -2)(\lambda +3).
+\end{align*}
+Seine Nullstellen sind $\lambda_1=2$ und $\lambda_2=-3$. Da zwei
+verschiedene Eigenwerte vorliegen, und es zu jedem Eigenwert
+mindestens einen Eigenvektor geben muss, kann man die Frage, ob
+die Matrix diagonalisierbar ist, bereits positiv beantworten. Um
+eine geeignete Basis zu finden, m"ussen jetzt noch die Eigenvektoren
+gefunden werden. Dazu muss das Gleichungssystem $(A-\lambda_i)v_i=0$
+gel"ost werden. F"ur $\lambda_1$ ergibt sich
+\[
+A-\lambda_1 E=\begin{pmatrix}
+2&-7\\
+2&-7
+\end{pmatrix}
+\qquad \Rightarrow\qquad v_1=\begin{pmatrix}7\\2\end{pmatrix}
+\]
+und f"ur $\lambda_2$ erh"alt man
+\[
+A-\lambda_2 E=\begin{pmatrix}
+7&-7\\
+2&-2
+\end{pmatrix}
+\qquad \Rightarrow\qquad v_2=\begin{pmatrix}1\\1\end{pmatrix}
+\]
+Die Vektoren $v_1$ und $v_2$ bilden eine Basis, in der die Matrix $A$
+diagonal wird.
+\end{loesung}
+

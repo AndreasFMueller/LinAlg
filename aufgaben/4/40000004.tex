@@ -1,0 +1,57 @@
+Polynome vom Grad h"ochstens 3 kann man durch die Folge der
+Koeffizienten als Vektoren beschreiben:
+\[
+9x^3+10x^2+11x+12\mapsto 
+\begin{pmatrix}
+12\\11\\10\\9
+\end{pmatrix}
+\]
+Betrachten Sie jetzt die Matrix
+\[
+D=\begin{pmatrix}
+0&1&0&0\\
+0&0&2&0\\
+0&0&0&3\\
+0&0&0&0
+\end{pmatrix},
+\qquad
+I=\begin{pmatrix}
+0&0&0&0\\
+1&0&0&0\\
+0&\frac12&0&0\\
+0&0&\frac13&0\\
+\end{pmatrix}
+\]
+Bestimmen Sie Kern und Bild von $D$, $I$, $DI$ und $ID$.
+
+\begin{loesung}
+Wir berechnen zun"achst die Matrizenprodukte:
+\[
+DI=\begin{pmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&0
+\end{pmatrix},\qquad
+ID=\begin{pmatrix}
+0&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}
+\]
+Der Kern besteht jeweils aus den L"osungen des homogenen Systems mit der
+Matrix.
+
+$D$: Die erste Variable ist frei w"ahlbar, dem Kern von $D$ entsprechen also
+die konstanten Polynome. Die Vektoren $e_1$, $e_2$ und $e_3$ sind Basisvektoren
+des Bildraumes $\operatorname{im}D$, kubische Polynome kommen also im Bild
+nicht vor. Dasselbe gilt f"ur $ID$.
+
+$I$: Die letzte Variable ist frei w"ahlbar, der Kern umfasst also
+genau die kubischen Monome. Die Vektoren $e_2$, $e_3$ und $e_4$
+sind Basisvektoren des Bildes $\operatorname{im}I$. Dasselbe gilt
+f"ur $DI$.
+\end{loesung}
+
+

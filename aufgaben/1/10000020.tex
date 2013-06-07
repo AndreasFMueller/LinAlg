@@ -1,0 +1,63 @@
+Wieviele L"osungen hat das Gleichungssystem
+\[
+%   1   1   0   1   0   0
+%   3   4   1   0   1   0
+%   3   6   3   0   0   1
+%   1.00000   0.00000  -1.00000   0.00000   1.00000  -0.66667
+%   0.00000   1.00000   1.00000   0.00000  -0.50000   0.50000
+%   0.00000   0.00000   0.00000   1.00000  -0.50000   0.16667
+\begin{linsys}{3}
+ x&+& y& &  &=& 3\\
+3x&+&4y&+& z&=&17\\
+3x&+&6y&+&3z&=&33\\
+\end{linsys}
+\]
+Geben Sie die L"osungsmenge an.
+
+\begin{loesung}
+Mit dem Gauss-Algorithmus findet man:
+\begin{align*}
+\begin{tabular}{|ccc|c|}
+\hline
+1&1&0& 3\\
+3&4&1&17\\
+3&6&3&33\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&1&0& 3\\
+0&1&1& 8\\
+0&3&3&24\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&1&0&1\\
+0&1&1&8\\
+0&0&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&0&$-1$&$-5$\\
+0&1&1&8\\
+0&0&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Offenbar hat die Gleichung unendlich viele L"osungen,
+die man schreiben kann als
+L"osungsmenge
+\[
+\mathbb L=
+\left\{
+\left.
+\begin{pmatrix}-5\\8\\0\end{pmatrix}+z\begin{pmatrix}-1\\1\\0\end{pmatrix}\;\right|\;z\in\mathbb R
+\right\}.
+\]
+\end{loesung}
+

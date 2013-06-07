@@ -1,0 +1,166 @@
+Ein wesentlicher Schritt des Jacobi-Algorithmus ist, den Winkel
+$\alpha$ so zu bestimmen, dass die symmetrische Matrix $A$ durch eine Drehung
+um den Winkel $\alpha$ diagonalisiert wird:
+\[
+\begin{pmatrix}
+ \cos\alpha&\sin\alpha\\
+-\sin\alpha&\cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+a_{11}&a_{12}\\
+a_{21}&a_{22}
+\end{pmatrix}
+\begin{pmatrix}
+ \cos\alpha&-\sin\alpha\\
+ \sin\alpha& \cos\alpha
+\end{pmatrix}
+=
+\begin{pmatrix}
+\lambda_1&0\\
+0&\lambda_2
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item Bestimmen Sie eine Gleichung f"ur $\alpha$.
+\item L"osen Sie die Gleichung in dem Spezialfall
+\[
+A=\begin{pmatrix}
+3&1\\
+1&1
+\end{pmatrix}
+\]
+\item Bestimmen Sie Eigenwerte und Eigenvektoren f"ur den
+Spezialfall b) mit dem Jacobi-Algorithmus.
+\item "Uberpr"ufen Sie Eigenwerte und Eigenvektoren mit dem klassischen
+Algorithmus.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Zun"achst sind die Matrizenprodukte auf der linken Seite zu berechnen
+\begin{align*}
+D_{-\alpha}AD_{\alpha}
+&=
+\begin{pmatrix}
+ a_{11}\cos\alpha+a_{21}\sin\alpha & a_{12}\cos\alpha + a_{22}\sin\alpha\\
+-a_{11}\sin\alpha+a_{21}\cos\alpha &-a_{12}\sin\alpha + a_{22}\cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+ \cos\alpha&-\sin\alpha\\
+ \sin\alpha& \cos\alpha
+\end{pmatrix}
+\end{align*}
+F"ur die Gleichung f"ur $\alpha$ brauchen wir nur das Matrixelement
+in der rechten oberen Ecke, also
+\begin{align*}
+0
+&=
+-a_{11}\sin\alpha\cos\alpha -a_{21}\sin^2\alpha+a_{12}\cos^2\alpha+a_{22}\sin\alpha\cos\alpha
+\\
+&=
+(a_{22}-a_{11})\sin\alpha\cos\alpha+a_{12}(\cos^2\alpha-\sin^2\alpha)
+\\
+&=
+\frac{a_{22}-a_{11}}2\sin2\alpha +a_{12}\cos 2\alpha
+\\
+\frac{2a_{12}}{a_{11}-a_{22}}
+&=
+\tan2\alpha
+\\
+\alpha&=\frac12\arctan\frac{2a_{12}}{a_{11}-a_{22}}
+\end{align*}
+\item
+In diesem Spezialfall gilt
+\[
+\alpha=\frac12\arctan\frac{2\cdot 1}{3 - 1}=\frac12\arctan 1=\frac{\pi}8.
+\]
+\item
+Die Spalten der Drehmatrix sind Eigenvektoren:
+\[
+D_{\frac{\pi}8}=\begin{pmatrix}
+   0.92388& -0.38268\\
+   0.38268&  0.92388
+\end{pmatrix}
+\]
+Transformiert man die Matrix $A$ damit, erh"alt man
+\[
+D^tAD=
+\begin{pmatrix}
+   3.41421&  0.00000\\
+   0.00000&  0.58579
+\end{pmatrix}
+\]
+\item
+Die Eigenwerte werden mit dem charakteristischen Polynom bestimmt:
+\begin{align*}
+0&=\left|\,\begin{matrix}3-\lambda&1\\1&1-\lambda\end{matrix}\,\right|
+\\
+&=(3-\lambda)(1-\lambda)-1=\lambda^2-4\lambda+2
+\\
+\lambda_{\pm}
+&=
+2\pm\sqrt{4-2}=2\pm\sqrt{2}=\begin{cases}
+2+\sqrt{2}=3.41421\\
+2-\sqrt{2}=0.58579
+\end{cases}
+\end{align*}
+Die Eigenvektoren bestimmt man mit dem Gauss-Algorithmus.
+F"ur $\lambda_+$ erh"alt man
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+3-\lambda_+ & 1\\
+1&1-\lambda+\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1-\sqrt{2} & 1\\
+1&-(1+\sqrt{2})\\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{1}{1-\sqrt{2}}\\
+1&-\sqrt{2}\\
+\hline
+\end{tabular}
+\\
+&
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{1+\sqrt{2}}{-1}\\
+1&-(1+\sqrt{2})\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1-\sqrt{2}\\
+0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Die zweite Variable ist also frei w"ahlbar, und damit ist
+\[
+v_+=\begin{pmatrix}1+\sqrt{2}\\1\end{pmatrix}
+\]
+ein Eigenvektor. Octave hat auf L"ange 1 normierte Eigenvektoren
+geliefert, tut man dies hier auch, mit $|v_+|=\sqrt{4+2\sqrt{2}}$
+bekommt man den Vektor
+\[
+\frac{v_+}{|v_+|}=\frac{1}{\sqrt{4+2\sqrt{2}}}\begin{pmatrix}
+1+\sqrt{2}\\1\end{pmatrix}
+=\begin{pmatrix}
+0.92388\\
+0.38268
+\end{pmatrix},
+\]
+also genau der Vektor aus der ersten Spalte der Drehmatrix.
+Die Berechnung f"ur $\lambda_-$ und $v_-$ verl"auft analog.
+\end{teilaufgaben}
+\end{loesung}
+

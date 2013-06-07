@@ -1,0 +1,56 @@
+Bestimmen Sie das charakteristische Polynom der Matrix
+\[
+A=\begin{pmatrix}
+       0&       1&       0&       0\\
+       0&       0&       1&       0\\
+       0&       0&       0&       1\\
+-a_0    &-a_1    &-a_2    &-a_3
+\end{pmatrix}
+\]
+Leiten Sie daraus den Wert der Determinante von $A$ ab.
+
+\begin{loesung}
+Man kann die Determinante $\det(A-\lambda E)$ nach der letzten Zeile
+entwickeln:
+\begin{align*}
+\chi_A(\lambda)&=\det(A-\lambda E)\\
+&=\left|\;\begin{matrix}
+-\lambda&       1&       0&       0\\
+       0&-\lambda&       1&       0\\
+       0&       0&-\lambda&       1\\
+-a_0    &-a_1    &-a_2    &-a_3-\lambda
+\end{matrix}\;\right|
+\\
+&=
+-(-a_0)\cdot
+\left|\;\begin{matrix}
+       1&       0&       0\\
+-\lambda&       1&       0\\
+       0&-\lambda&       1\\
+\end{matrix}\;\right|
++(-a_1)\cdot
+\left|\;\begin{matrix}
+-\lambda&       0&       0\\
+       0&       1&       0\\
+       0&-\lambda&       1\\
+\end{matrix}\;\right|
+\\
+&\phantom{=}\,
+-(-a_2)\cdot
+\left|\;\begin{matrix}
+-\lambda&       1&       0\\
+       0&-\lambda&       0\\
+       0&       0&       1\\
+\end{matrix}\;\right|
++(-a_3-\lambda)\cdot
+\left|\;\begin{matrix}
+-\lambda&       1&       0\\
+       0&-\lambda&       1\\
+       0&       0&-\lambda\\
+\end{matrix}\;\right|
+\\
+&=a_0+a_1\lambda+a_2\lambda^2+a_3\lambda^3+\lambda^4
+\end{align*}
+Der Wert der Determinante ist $\chi_A(0)=a_0$.
+\end{loesung}
+

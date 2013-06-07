@@ -1,0 +1,159 @@
+Berechnen Sie die Determinante der Matrix
+\[
+A=
+\begin{pmatrix}
+1&1&0&0&0\\
+1&0&1&0&0\\
+0&1&0&1&0\\
+0&0&1&0&1\\
+0&0&0&1&1
+\end{pmatrix}.
+\]
+
+\begin{loesung}
+Mit dem Entwicklungssatz findet man durch Entwicklung nach der
+ersten Spalte:
+\begin{align*}
+\det(A)
+&=
+\left|\;
+\begin{matrix}
+0&1&0&0\\
+1&0&1&0\\
+0&1&0&1\\
+0&0&1&1
+\end{matrix}
+\;\right|
+-
+\left|\;
+\begin{matrix}
+1&0&0&0\\
+1&0&1&0\\
+0&1&0&1\\
+0&0&1&1
+\end{matrix}
+\;\right|
+\end{align*}
+Die einzelnen Determinanten kann man erneut nach der ersten Zeile
+entwicklen und erh"alt
+\begin{align*}
+\det(A)
+&=
+-\left|\;
+\begin{matrix}
+1&1&0\\
+0&0&1\\
+0&1&1
+\end{matrix}
+\;\right|
+-
+\left|\;
+\begin{matrix}
+0&1&0\\
+1&0&1\\
+0&1&1
+\end{matrix}
+\;\right|
+\\
+&=
+\left|\;
+\begin{matrix}
+1&1&0\\
+0&1&1\\
+0&0&1
+\end{matrix}
+\;\right|
++
+\left|\;
+\begin{matrix}
+1&0&1\\
+0&1&0\\
+0&1&1
+\end{matrix}
+\;\right|
+\\
+&=
+\left|\;
+\begin{matrix}
+1&1&0\\
+0&1&1\\
+0&0&1
+\end{matrix}
+\;\right|
++
+\left|\;
+\begin{matrix}
+1&0&1\\
+0&1&0\\
+0&0&1
+\end{matrix}
+\;\right|
+=2
+\end{align*}
+Dabei hat man in der zweiten Zeile versucht, mit Zeilenvertauschungen
+soweit m"oglich Dreiecksform zu erreichen.
+In der dritten Zeile wurde in der zweiten Determinante die
+zweite Zeile von der dritten Zeile subtrahiert, was den Wert
+dieser Determinante nicht "andert.
+Beide Determinanten sind jetzt Determinanten von Dreiecksmatrizen,
+die einfach auszuwerten sind: sie sind das Produkt der Diagonalelemente.
+
+Alternativ kann man die Determinante auch mit dem Gauss-Algorithmus berechnen.
+Dazu m"ussen die folgenden Tableaux ausgerechnet werden:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&1&0&0&0\\
+1&0&1&0&0\\
+0&1&0&1&0\\
+0&0&1&0&1\\
+0&0&0&1&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1&0&0&0\\
+0&-1&1&0&0\\
+0& 1&0&1&0\\
+0& 0&1&0&1\\
+0& 0&0&1&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1& 0&0&0\\
+0& 1&-1&0&0\\
+0& 0& 1&1&0\\
+0& 0& 1&0&1\\
+0& 0& 0&1&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1& 0& 0&0\\
+0& 1&-1& 0&0\\
+0& 0& 1& 1&0\\
+0& 0& 0&-1&1\\
+0& 0& 0& 1&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1& 0& 0& 0\\
+0& 1&-1& 0& 0\\
+0& 0& 1& 1& 0\\
+0& 0& 0& 1&-1\\
+0& 0& 0& 0& 2\\
+\hline
+\end{tabular}
+\end{align*}
+Im Laufe des Verfahrens sind die Pivots $1$, $-1$, $1$, $-1$, $2$
+aufgetreten, die Determinaten ist ihr Produkt, also $\det(A)=2$.
+\end{loesung}

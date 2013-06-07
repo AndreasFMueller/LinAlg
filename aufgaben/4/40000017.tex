@@ -1,0 +1,116 @@
+Man betrachtet den Vektorraum $V_n$ der ``Exponentialpolynome vom Grad $n$'',
+d.~h.~der Funktionen der Form
+\[
+f(x)=
+a_0e^{\frac{x^2}2}
++a_1xe^{\frac{x^2}2}
++a_2x^2e^{\frac{x^2}2}
++a_3x^3e^{\frac{x^2}2}
++\dots
++a_nx^ne^{\frac{x^2}2}
+\]
+Die Funktionen
+$e^{\frac{x^2}2}$,
+$xe^{\frac{x^2}2}$,
+$x^2e^{\frac{x^2}2}$,
+$x^3e^{\frac{x^2}2},\dots,
+x^ne^{\frac{x^2}2}$
+bilden eine Basis dieses $(n+1)$-dimensionalen Vektorraumes.
+\begin{teilaufgaben}
+\item Differentiation
+ist eine lineare Abbildung.
+Zeigen Sie, dass
+\[
+D\colon V_n\to V_{n+1},
+\]
+dass also $Df\in V_{n+1}$ falls nur $f\in V_n$. Beim Ableiten wird der Grad
+also h"ochstens um eins gr"osser.
+\item Stellen Sie die $6\times 5$-Matrix von $D\colon V_4\to V_5$ auf.
+\item Gibt es eine Funktion $f\in V_4$ so dass $Df=e^{\frac{x^2}2}$?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item F"ur die Ableitung gilt die Kettenregel:
+\begin{equation}
+Dx^ke^{\frac{x^2}2}=kx^{k-1}e^{\frac{x^2}2}+x^{k+1}e^{\frac{x^2}2}
+\label{kettenregel}
+\end{equation}
+Wenn also $k\le n$, also $x^ke^{\frac{x^2}2}\in V_n$, dann ist
+$Dx^ke^{\frac{x^2}2}\in V_{n+1}.$
+\item
+In der Spalte der Matrix von $D$ stehen die Bilder der Basisvektoren,
+aus der Formel (\ref{kettenregel}) kann man also die Matrix ablesen:
+\[
+\begin{pmatrix}
+0&1&0&0&0\\
+1&0&2&0&0\\
+0&1&0&3&0\\
+0&0&1&0&4\\
+0&0&0&1&0\\
+0&0&0&0&1
+\end{pmatrix}
+\]
+\item
+Es muss ein Vektor gefunden werden, der durch die Matrix $D$ auf
+den Vektor $\begin{pmatrix}1&0&0&0&0&0\end{pmatrix}^t$
+abgebildet wird. Es muss also ein lineares Gleichungssystem mit
+Matrix $D$ gel"ost werden, wir verwenden daf"ur den Gauss-Algorithmus:
+\begin{align*}
+\begin{tabular}{|ccccc|c|}
+\hline
+0&1&0&0&0&1\\
+1&0&2&0&0&0\\
+0&1&0&3&0&0\\
+0&0&1&0&4&0\\
+0&0&0&1&0&0\\
+0&0&0&0&1&0\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|ccccc|c|}
+\hline
+1&0&2&0&0&0\\
+0&1&0&3&0&0\\
+0&0&1&0&4&0\\
+0&0&0&1&0&0\\
+0&0&0&0&1&0\\
+0&1&0&0&0&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccccc|c|}
+\hline
+1&0&2&0&0&0\\
+0&1&0&3&0&0\\
+0&0&1&0&4&0\\
+0&0&0&1&0&0\\
+0&0&0&0&1&0\\
+0&0&0&-3&0&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccccc|c|}
+\hline
+1&0&2&0&0&0\\
+0&1&0&3&0&0\\
+0&0&1&0&4&0\\
+0&0&0&1&0&0\\
+0&0&0&0&1&0\\
+0&0&0&0&0&1\\
+\hline
+\end{tabular}
+\end{align*}
+Im ersten Schritt haben wir die erste Zeile ganz nach unten geschoben,
+dann hat das Schema bis auf die letzte Zeile bereits die angestrebte
+Dreicksform. Die Einsen auf der Diagonalen erlauben dann, die linke
+Seite der letzten Zeile zu Null zu machen, dabei wird die $1$ auf der
+rechten Seite nicht ver"andert. Insbesondere hat das Gleichungssystem
+also kein L"osung. Man beachte, dass dieses Argument unabh"angig von
+$n$ funktioniert, es gibt also in keinem der Vektorr"aume $V_n$
+eine Funktion $f$, f"ur die $Df=e^{\frac{x^2}2}$.
+\end{teilaufgaben}
+\end{loesung}
+

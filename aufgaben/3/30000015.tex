@@ -1,0 +1,65 @@
+Die sechs Punkte $(\pm 1,0,0)$, $(0,\pm1,0)$ und $(0,0,\pm1)$ bilden
+die Ecken eines Oktaeders.
+Wie gross ist der kleinste Abstand zweier Kanten, die sich
+nicht schneiden und nicht parallel sind.
+
+\begin{loesung}
+Wegen der Symmetrie des Oktaeders gibt es nur einen solchen Abstand.
+Wir w"ahlen als erste Kante jene von $(1,0,0)$ nach $(0,1,0)$. Eine
+Kante, die diese nicht schneidet und nicht parallel ist, muss einen
+Punkt ausserhalb der $x$-$y$-Ebene haben, denn die Kanten in der
+$x$-$y$-Ebene sind entweder parallel oder schneiden. Wir w"ahlen die
+Kante von $(0,0,1)$ zu $(-1,0,0)$.
+
+F"ur den windschiefen Abstand der Kanten ben"otigen wir die Richtungen
+der Kanten: dies sind die Vektoren
+\[
+v_1=\begin{pmatrix}
+-1\\1\\0
+\end{pmatrix}
+,\qquad
+v_2=\begin{pmatrix}
+-1\\0\\-1
+\end{pmatrix}
+\]
+und deren Vektorprodukt:
+\[
+n=v_1\times v_2
+=
+\begin{pmatrix}
+-1\\1\\0
+\end{pmatrix}
+\times
+\begin{pmatrix}
+-1\\0\\-1
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1\\
+-1\\
+1\\
+\end{pmatrix}
+\]
+Die L"ange  dieses Vektorproduktes ist
+\[
+|v_1\times v_2|=\sqrt{3}.
+\]
+Der windschiefe Abstand ist jetzt die Projektion des Vektors
+\[
+q=\begin{pmatrix}
+-1\\0\\1
+\end{pmatrix},
+\]
+der die ``Anfangspunkte''  der beiden Vektoren $v_1$ und $v_2$
+verbindet, auf $n$. Diese kann man mit Hilfe des Skalarproduktes
+berechnen:
+\[
+d=\frac{n\cdot q}{|n|}=
+\frac1{\sqrt{3}} \begin{pmatrix}-1\\-1\\1\end{pmatrix}\cdot\begin{pmatrix}
+-1\\0\\1
+\end{pmatrix}
+=\frac2{\sqrt{3}}
+=1.15470053837925152902
+\]
+\end{loesung}
+

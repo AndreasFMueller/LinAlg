@@ -1,0 +1,72 @@
+Wie viele L"osungen hat das Gleichungssystem
+\[
+\begin{linsys}{3}
+3u&+&5v&+&7w&=&4\\
+5u&+&7v&+&11w&=&6\\
+4u&+&6v&+&9w&=&5\\
+\end{linsys}
+\qquad
+?
+\]
+Geben Sie die L"osungsmenge an.
+
+\begin{loesung}
+Die dritte Gleichung ist das arithmetische Mittel der ersten zwei,
+die gleichungen sind also linear abh"angig, das System ist singular
+und hat unendlich viele L"osungen. Diese findet man mit dem
+Gauss-Algorithmus, doch um den Gang der Rechnung etwas zu vereinfachen,
+ersetzen wir im ersten Schritt die erste Zeile durch die Differenz von
+zweiter und erster Zeile:
+\begin{align*}
+\begin{tabular}{|ccc|c|}
+\hline
+3&5&7&4\\
+5&7&11&6\\
+4&6&9&5\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+2&2&4&2\\
+5&7&11&6\\
+4&6&9&5\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&1&2&1\\
+0&2&1&1\\
+0&2&1&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&1&2&1\\
+0&1&$\frac12$&$\frac12$\\
+0&0&0&0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&0&$\frac32$&$\frac12$\\
+0&1&$\frac12$&$\frac12$\\
+0&0&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Aus der letzten Form kann man ablesen, dass die Matrix den
+Rang 1 hat und damit der L"osungsraum eindimensional wird.
+Die Variable $w$ kann frei gew"ahlt werden, als L"osungsraum
+ergibt sich
+\[
+{\mathbb L}=\left\{\left.\begin{pmatrix}\frac12-\frac32w\\\frac12-\frac12w\\w\end{pmatrix}\right|\;w\in\mathbb R\right\}.
+\]
+\end{loesung}
+

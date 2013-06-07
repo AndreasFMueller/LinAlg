@@ -1,0 +1,45 @@
+Statt der Standardbasis solle die Basis aus den Vektoren
+\[
+b'_1 = \begin{pmatrix}1\\-1\end{pmatrix},\qquad
+b'_2 = \begin{pmatrix}1\\2\end{pmatrix}
+\]
+verwendet werden.
+Dazu m"ussen zu Koordinaten
+$\begin{pmatrix}x_1\\x_2\end{pmatrix}$ in der Standardbasis
+die neuen Koordinaten in der Form
+\[
+\begin{pmatrix}x'_1\\x'_2\end{pmatrix}=T
+\begin{pmatrix}x_1\\x_2\end{pmatrix}
+\]
+gefunden werden. Bestimmen Sie die Matrix $T$.
+
+\begin{loesung}
+F"ur die Basisvektoren gilt
+\begin{align*}
+b'_1&=e_1-e_2\\
+b'_2&=e_1+2e_2
+\end{align*}
+F"ur die Transformationsmatrix in Richtung
+$\{b'_1,b'_2\}\to\{e_1,e_2\}$ muss die transponiert
+Koeffizientenmatrix  davon verwendet werden:
+\[
+\begin{pmatrix}
+1&1\\-1&2
+\end{pmatrix}
+\]
+Die verlangte Transformation verl"auft jedoch in die entgegengesetzte
+Richtung, man braucht also die inverse Matrix
+\[
+T=
+\begin{pmatrix}
+1&1\\-1&2
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+\frac23&-\frac13\\
+\frac13&\frac13
+\end{pmatrix},
+\]
+wie man zum Beispiel mit dem Gauss-Algorithmus finden kann.
+\end{loesung}
+

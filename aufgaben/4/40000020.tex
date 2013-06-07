@@ -1,0 +1,77 @@
+Die Vektoren
+\begin{align*}
+b_1&=\frac1{\sqrt{8}} \begin{pmatrix}1&1&1&1&1&1&1&1\end{pmatrix}^t&
+b_2&=\frac1{\sqrt{8}} \begin{pmatrix}1&1&1&1&-1&-1&-1&-1\end{pmatrix}^t\\
+b_3&=\frac1{\sqrt{4}} \begin{pmatrix}1&1&-1&-1&0&0&0&0\end{pmatrix}^t&
+b_4&=\frac1{\sqrt{4}} \begin{pmatrix} 0&0&0&0&1&1&-1&-1\end{pmatrix}^t\\
+b_5&=\frac1{\sqrt{2}} \begin{pmatrix}1&-1&0&0&0&0&0&0\end{pmatrix}^t&
+b_6&=\frac1{\sqrt{2}} \begin{pmatrix}0&0&1&-1&0&0&0&0\end{pmatrix}^t\\
+b_7&=\frac1{\sqrt{2}} \begin{pmatrix}0&0&0&0&1&-1&0&0\end{pmatrix}^t&
+b_8&=\frac1{\sqrt{2}} \begin{pmatrix}0&0&0&0&0&0&1&-1\end{pmatrix}^t
+\end{align*}
+bilden eine orthonormierte Basis eines achtdimensionalen Vektorraumes.
+Stellen Sie den Vektor $v$ mit den Komponenten
+\[
+v_k=(k-4.5)^2,\quad{1\le k\le 8}
+\]
+als Linearkombination der Vektoren $b_i$ dar.
+
+\begin{loesung}
+Da die Basisvektoren $b_i$ orthonormiert sind, k"onnen die Koeffizienten
+in der Entwicklung mit Hilfe des Skalarproduktes ermittelt werden. Der
+Vektor $v$ ist
+\[
+v=\frac14\begin{pmatrix}
+49\\
+25\\
+9\\
+1\\
+1\\
+9\\
+25\\
+49
+\end{pmatrix}
+=\frac14v_0
+\]
+Die Skalarprodukte sind
+\begin{align*}
+b_1\cdot v_0&=\frac1{\sqrt{8}}2\cdot(1+9+25+49)=\frac{84}{\sqrt{2}}=59.397\\
+b_2\cdot v_0&=\frac1{\sqrt{8}}(1+9+25+49)-\frac1{\sqrt{8}}(1+9+25+49)=0\\
+b_3\cdot v_0&=\frac12(49+25-9-1)=32\\
+b_4\cdot v_0&=-32\\
+b_5\cdot v_0&=\frac1{\sqrt{2}}(49-25)=\frac{24}{\sqrt{2}}\\
+b_6\cdot v_0&=\frac1{\sqrt{2}}(9-1)=\frac{8}{\sqrt{2}}\\
+b_7\cdot v_0&=\frac1{\sqrt{2}}(1-9)=-\frac{8}{\sqrt{2}}\\
+b_8\cdot v_0&=\frac1{\sqrt{2}}(25-49)=-\frac{24}{\sqrt{2}}\\
+\end{align*}
+also gilt
+\[
+v=
+\frac{21}{\sqrt{2}}b_1
++
+4b_3
+-4b_4
++\frac{6}{\sqrt{2}}b_5
++\frac{2}{\sqrt{2}}b_6
+-\frac{2}{\sqrt{2}}b_7
+-\frac{6}{\sqrt{2}}b_8.
+\]
+Numerisch sind die Koeffizienten der $b_i$:
+\begin{center}
+\begin{tabular}{|c|r|}
+\hline
+$i$&$b_i\cdot v$\\
+\hline
+1&$14.849$\\
+2&$ 0.000$\\
+3&$ 8.000$\\
+4&$-8.000$\\
+5&$ 4.243$\\
+6&$ 1.414$\\
+7&$-1.414$\\
+8&$-4.243$\\
+\hline
+\end{tabular}
+\end{center}
+\end{loesung}
+

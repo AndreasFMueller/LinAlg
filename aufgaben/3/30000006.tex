@@ -1,0 +1,36 @@
+Gegeben sind die Punkt $A=(-2,3,-2)$ und $B=(-6,-1,1)$. Von welchen Punkten
+der $x$-Achse wird die Strecke $AB$ unter einem $90^\circ$-Winkel gesehen?
+
+\begin{loesung}
+Die Punkte der $x$-Achse haben die Ortsvektoren
+\[
+\begin{pmatrix}x\\0\\0\end{pmatrix}
+.
+\]
+Die Vektoren $\overset{\rightarrow}{OA}$ und $\overset{\rightarrow}{OB}$ sind
+genau dann senkrecht, wenn das Skalarprodukt verschwindet, also
+\begin{align*}
+\left(
+\begin{pmatrix}-2\\3\\-2\end{pmatrix}
+-
+\begin{pmatrix}x\\0\\0\end{pmatrix}
+\right)\cdot\left(
+\begin{pmatrix}-6\\-1\\1\end{pmatrix}
+-
+\begin{pmatrix}x\\0\\0\end{pmatrix}
+\right)
+&=0
+\\
+\begin{pmatrix}-2-x\\3\\-2\end{pmatrix}
+\cdot
+\begin{pmatrix}-6-x\\-1\\1\end{pmatrix}
+&=0
+\\
+(2+x)(6+x)-3-2&=0\\
+x^2+8x+7&=0\\
+(x+7)(x+1)&=0
+\end{align*}
+Daraus liest man ab, dass $x\in\{-1,-7\}$ sein muss, die gesuchten Punkte
+sind also $(-1,0,0)$ und $(-7,0,0)$.
+\end{loesung}
+

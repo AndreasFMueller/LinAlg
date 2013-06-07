@@ -1,0 +1,54 @@
+Bestimmen Sie die gegenseitige Lage der Geraden
+\[
+\begin{pmatrix}0\\2\\1\end{pmatrix}
++t
+\begin{pmatrix}2.5\\5\\-3\end{pmatrix}
+\qquad
+\text{und}
+\qquad
+\begin{pmatrix}2\\6\\1\end{pmatrix}
++t
+\begin{pmatrix}-5\\-10\\6\end{pmatrix}
+\]
+und ihren Abstand.
+
+\begin{loesung}
+Die beiden Richtungsvektoren sind parallel.
+Wir schreiben f"ur den gemeinsamen Richtungsvektor
+\[
+\vec v=
+\begin{pmatrix}-5\\-10\\6\end{pmatrix},
+\]
+um Br"uche zu vermeiden.
+
+Zur Bestimmung des
+Abstands kann das Vektorprodukt verwendet werden, dazu braucht man
+die Differenz zwischen zwei Punkten auf der Geraden:
+\[
+\vec d=
+\begin{pmatrix}0\\2\\1\end{pmatrix}
+-\begin{pmatrix}2\\6\\1\end{pmatrix}
+=
+\begin{pmatrix}-2\\-4\\0\end{pmatrix}
+\]
+Das Vektorprodukt ist
+\[
+\vec v\times \vec d
+=
+\begin{pmatrix}-5\\-10\\6\end{pmatrix}
+\times
+\begin{pmatrix}-2\\-4\\0\end{pmatrix}
+=
+\begin{pmatrix}24\\-12\\0\end{pmatrix}
+\]
+Damit wird der Abstand
+\begin{align*}
+d
+=
+\frac{|\vec v\times \vec d|}{|\vec v|}
+=\frac{\sqrt{24^2+12^2}}{\sqrt{5^2+10^2+6^2}}
+=\frac{\sqrt{720}}{\sqrt{161}}
+\simeq 2.114722
+\end{align*}
+\end{loesung}
+

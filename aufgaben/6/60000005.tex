@@ -1,0 +1,47 @@
+Berechnen Sie $A^{47}e_1$ f"ur die Matrix
+\[
+A=\begin{pmatrix}
+3&1\\
+1&3
+\end{pmatrix}
+\]
+
+\begin{loesung}
+Die Wirkung von $A$ auf Eigenvektoren ist einfach zu ermitteln,
+denn es gilt $Av_{\pm}=\lambda_{\pm}v_{\pm}$.
+Das charakteristische Polynom ist
+\begin{align*}
+\left|\,\begin{matrix}3-\lambda&1\\1&3-\lambda\end{matrix}\,\right|
+&=
+(3-\lambda)^2-1=\lambda^2-6\lambda+8=0
+\\
+\lambda_{\pm}&=3\pm\sqrt{9-8}=3\pm1.
+\end{align*}
+F"ur die Eigenwert $\lambda_+=4$ und $\lambda_-=2$ ergeben sich die
+Eigenvektoren
+\[
+v_+=\begin{pmatrix}1\\1\end{pmatrix},\qquad
+v_-=\begin{pmatrix}1\\-1\end{pmatrix}
+\]
+Jetzt kann man
+\[
+e_1=\frac12(v_++v_-)
+\]
+schreiben, und damit $A^{47}e_1$ ausrechnen
+\[
+A^{47}e_1=\frac12( \lambda_+^{47}v_++\lambda_-^{47}v_-)
+=\frac12\begin{pmatrix}
+4^{47}+2^{47}\\
+4^{47}-2^{47}
+\end{pmatrix}
+=\frac{2^{47}}2\begin{pmatrix}
+2^{47}+1\\
+2^{47}-1
+\end{pmatrix}
+=2^{46}\begin{pmatrix}
+2^{47}+1\\
+2^{47}-1
+\end{pmatrix}.
+\]
+\end{loesung}
+

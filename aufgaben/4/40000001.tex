@@ -1,0 +1,132 @@
+Bei der Firma Richter Spielger"ate GmbH kann man das unten abgebildete
+kardanisch aufgeh"angte Becken kaufen. 
+\begin{center}
+\includeagraphics[width=0.5\hsize]{kardan.png}
+\end{center}
+Der "aussere Rahmen ist fest montiert, der innere Rahmen kann um
+die Lager vorne rechts und hinten links um den Winkel $\alpha$
+aus der Horizontalen
+gedreht werden. Das Becken ganz zuinnerst kann um die Achse
+senkrecht dazu um den Winkel $\beta$ aus der Horizontalen gedreht werden.
+Welchen
+Winkel zur Vertikalen hat die Normale des Beckens (in Abh"angigkeit
+von $\alpha$ und $\beta$)?
+
+\begin{loesung}
+Wir w"ahlen eine Koordinatensystem, dessen $x$-Achse durch die
+erste Drehachse verl"auft, und dessen $z$-Achse vertikal ist.
+Die Normale des Beckens entsteht dadurch, dass zuerst der
+Einheitsvektor $e_3$ (die Normale des Beckens in der Ausgangslage)
+um den Winkel $\beta$ um die $y$-Achse gedreht wird,
+und dann der innere Rahmen um den Winkel $\alpha$ um die
+$x$-Achse. Die Drehungen k"onnen durch Drehmatrizen beschrieben werden:
+\begin{align*}
+\vec n
+&=
+\begin{pmatrix}
+1&0&0\\
+0&\cos\alpha&-\sin\alpha\\
+0&\sin\alpha& \cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+\cos\beta&0&-\sin\beta\\
+0&1&0\\
+\sin\beta&0&\cos\beta
+\end{pmatrix}\vec e_3
+\\
+&=
+\begin{pmatrix}
+1&0&0\\
+0&\cos\alpha&-\sin\alpha\\
+0&\sin\alpha& \cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+-\sin\beta\\
+0\\
+\cos\beta
+\end{pmatrix}
+=
+\begin{pmatrix}
+-\sin\beta\\
+\sin\alpha\cos\beta\\
+\cos\alpha\cos\beta
+\end{pmatrix}
+\end{align*}
+Der Winkel zur Vertikalen kann mit dem Skalarprodukt bestimmt
+werden:
+\begin{align*}
+\cos\gamma
+&=
+\vec n\cdot\vec e_3=
+\begin{pmatrix}
+-\sin\beta\\
+\sin\alpha\cos\beta\\
+\cos\alpha\cos\beta
+\end{pmatrix}
+\cdot
+\begin{pmatrix}0\\0\\1\end{pmatrix}=\cos\alpha\cos\beta
+\\
+\gamma&=\arccos(\cos\alpha\cos\beta).
+\end{align*}
+\end{loesung}
+
+\begin{diskussion}
+Das Produkt der beiden Drehmatrizen ist
+\begin{align*}
+\begin{pmatrix}
+1&0&0\\
+0&\cos\alpha&-\sin\alpha\\
+0&\sin\alpha& \cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+\cos\beta&0&-\sin\beta\\
+0&1&0\\
+\sin\beta&0&\cos\beta
+\end{pmatrix}
+&=
+\begin{pmatrix}
+\cos\beta           &0         &-\sin\beta\\
+-\sin\alpha\sin\beta&\cos\alpha&-\sin\alpha\cos\beta\\
+ \sin\alpha\sin\beta&\sin\alpha&\cos\alpha\cos\beta
+\end{pmatrix}
+\end{align*}
+Man k"onnte jetzt versucht sein, die L"osung mit Hilfe der Spurformel
+zu bestimmen, man bek"ame dann f"ur den Winkel die Formel
+\[
+\cos\gamma' = \frac{\cos\beta+\cos\alpha+\cos\alpha\cos\beta-1}{2}.
+\]
+Dies ist aber falsch: die Spurformel berechnet den Drehwinkel $\gamma'$
+der Drehung,
+die das ganze Koordinatensystem mit in einer Drehung mit dem verdrehten
+Koordinatensystem zur Deckung bringt. Die Aufgabe fragt aber nur
+nach dem Drehwinkel $\gamma$ der Drehung um eine horizontale Achse,
+die die verdrehte Normale
+zur"uck in die Vertikale bringt. Dass dies nicht das selbe ist kann
+man zum Beispiel daran sehen, dass bei einer Drehung um die $z$-Achse 
+die Normale sicher den Winkel 0 zur Vertikalen hat, die Spurformel
+liefert aber den Drehwinkel um die $z$-Achse.
+\end{diskussion}
+
+\begin{diskussion}
+Man beachte, dass f"ur kleine Winkel gilt
+\begin{align*}
+\cos\gamma=
+1-\frac{\gamma^2}2+\frac{\gamma^4}{4!}+\dots
+&=
+\biggl(
+1-\frac{\alpha^2}2+\frac{\alpha^4}{4!}+\dots
+\biggl)
+\biggl(
+1-\frac{\beta^2}2+\frac{\beta^4}{4!}+\dots
+\biggl)
+\\
+&=
+1-\frac{\alpha^2+\beta^2}2+\dots
+\\
+\Rightarrow\qquad
+\gamma^2&\simeq\alpha^2+\beta^2
+\end{align*}
+F"ur kleine Winkel ist der Winkel ungef"ahr der Betrag der Auslenkung aus der
+Vertikalen, und die beiden senkrecht stehenden Auslenkungen m"ussen nat"urlich
+nach dem Satz des Pythagoras addiert werden.
+\end{diskussion}

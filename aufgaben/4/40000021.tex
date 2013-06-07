@@ -1,0 +1,96 @@
+Ist die Matrix
+\[
+A=
+\begin{pmatrix}
+\frac1{\sqrt{2}}&\frac12&-\frac12\\
+0&-\frac1{\sqrt{2}}&-\frac1{\sqrt{2}}\\
+-\frac1{\sqrt{2}}&\frac12&-\frac12
+\end{pmatrix}
+\]
+orthogonal? Ist sie eine Drehmatrix?  Wenn ja, wie gross ist der Drehwinkel?
+
+\begin{loesung}
+Wir m"ussen kontrollieren, ob $A^tA=E$, d.h
+\begin{align*}
+A^tA&=
+\begin{pmatrix}
+\frac1{\sqrt{2}}&0&-\frac1{\sqrt{2}}\\
+\frac12&-\frac1{\sqrt{2}}&-\frac12\\
+-\frac12&\frac1{\sqrt{2}}&-\frac12
+\end{pmatrix}
+\begin{pmatrix}
+\frac1{\sqrt{2}}&\frac12&-\frac12\\
+0&-\frac1{\sqrt{2}}&-\frac1{\sqrt{2}}\\
+-\frac1{\sqrt{2}}&\frac12&-\frac12
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\frac1{\sqrt{2}}\cdot\frac1{\sqrt{2}} + (-\frac1{\sqrt{2}})\cdot(-\frac1{\sqrt{2}})
+        &\frac1{\sqrt{2}}\cdot\frac12-\frac1{\sqrt{2}}\cdot\frac12
+                &-\frac1{\sqrt{2}}\cdot\frac12+\frac1{\sqrt{2}}\cdot\frac12\\
+0&1&0\\
+0&0&1
+\end{pmatrix}=E
+\end{align*}
+Also ist $A$ orthogonal.
+
+Die Determinante kann man zun"achst etwas umformen
+\begin{align*}
+\det(A)
+&=
+\left|\,\begin{matrix}
+\frac1{\sqrt{2}}&\frac12&-\frac12\\
+0&-\frac1{\sqrt{2}}&-\frac1{\sqrt{2}}\\
+-\frac1{\sqrt{2}}&\frac12&-\frac12
+\end{matrix}\,\right|
+=
+\left|\,\begin{matrix}
+\frac{\sqrt{2}}2&\frac12&-\frac12\\
+0&-\frac{\sqrt{2}}2&-\frac{\sqrt{2}}2\\
+-\frac{\sqrt{2}}2&\frac12&-\frac12
+\end{matrix}\,\right|
+\\
+&=
+\frac1{2^3}
+\left|\,\begin{matrix}
+\sqrt{2}&1&-1\\
+0&\sqrt{2}&-\sqrt{2}\\
+-\sqrt{2}&1&-1
+\end{matrix}\,\right|
+=
+\frac1{2^3}\sqrt{2}
+\left|\,\begin{matrix}
+1&1&-1\\
+0&\sqrt{2}&-\sqrt{2}\\
+-1&1&-1
+\end{matrix}\,\right|
+=
+\frac1{2^3}(\sqrt{2})^2
+\left|\,\begin{matrix}
+1&1&-1\\
+0&-1&-1\\
+-1&1&-1
+\end{matrix}\,\right|
+\\
+&=
+\frac14\biggl(
+\left|\,\begin{matrix}
+-1&-1\\1&-1
+\end{matrix}\,\right|
+-
+\left|\,\begin{matrix}
+1&-1\\
+-1&-1
+\end{matrix}\,\right|
+\biggr)=\frac14((1-(-1))-(-1-1))=1.
+\end{align*}
+Also handelt es sich um eine Drehmatrix. Der Drehwinkel kann mit der
+Spurformel ermittelt werden
+\begin{align*}
+\cos\alpha&=\frac{\operatorname{Spur}(A)-1}2=\frac{-\frac12-1}2=-\frac34
+\\
+\alpha&=\arccos\biggl(-\frac34\biggr)=138.59^\circ
+\end{align*}
+\end{loesung}
+

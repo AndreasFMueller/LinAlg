@@ -1,0 +1,77 @@
+Die Gerade
+\[
+\vec r
+=
+\begin{pmatrix}6\\0\\3\end{pmatrix}
++t
+\begin{pmatrix}4\\-1\\1\end{pmatrix}
+\]
+schneidet die Kugel um den Nullpunkt mit Radius $3$ in zwei Punkten.
+Berechnen Sie den Winkel zwischen den Tantentialebenen in diesen
+Punkten.
+
+\begin{loesung}
+Die Gleichung der Kugel ist $\vec r^2=9$. Wir setzen die Geradengleichung
+darin ein:
+\begin{align*}
+9&=\left(
+\begin{pmatrix}6\\0\\3\end{pmatrix}+t\begin{pmatrix}4\\-1\\1\end{pmatrix}
+\right)^2
+\\
+&=
+\begin{pmatrix}6\\0\\3\end{pmatrix}
+\cdot
+\begin{pmatrix}6\\0\\3\end{pmatrix}
++2t
+\begin{pmatrix}6\\0\\3\end{pmatrix}
+\cdot
+\begin{pmatrix}4\\-1\\1\end{pmatrix}
++t^2
+\begin{pmatrix}4\\-1\\1\end{pmatrix}
+\cdot
+\begin{pmatrix}4\\-1\\1\end{pmatrix}
+\\
+&=(36+9)+2(24+3)t+(16+1+1)t^2\\
+&=45+54t+18t^2
+\\
+0&=18t^2+54+36
+\\
+0&=t^2+3t+2=(t+1)(t+2)
+\end{align*}
+Die L"osungen sind
+\[
+t_{\pm}=\frac{-3\pm\sqrt{3^2-4\cdot1\cdot 2}}{2\cdot 1}
+=\frac{-3\pm1}{2}
+=\begin{cases}
+-1\\
+-2
+\end{cases}
+\]
+Setzt man die beiden $t$-Werte ein, ergeben sich die Punkte
+\begin{align*}
+\vec r_+&=
+\begin{pmatrix}6\\0\\3\end{pmatrix}
+-
+\begin{pmatrix}4\\-1\\1\end{pmatrix}
+=
+\begin{pmatrix}2\\1\\2\end{pmatrix}
+\\
+\vec r_-&=
+\begin{pmatrix}6\\0\\3\end{pmatrix}
+-2
+\begin{pmatrix}4\\-1\\1\end{pmatrix}
+=
+\begin{pmatrix}-2\\2\\1\end{pmatrix}
+\end{align*}
+Diese Vektoren sind auch die Normalen auf den Tangentialebenen,
+somit ist der Schnittwinkel der Tangetialebenen einfach der
+Zwischenwinkel der beiden Vektoren, den man mit der Zwischenwinkelformel
+berechnen kann:
+\[
+\cos \alpha=
+\frac{\vec r_+\cdot\vec r_-} {|\vec r_+|\;|\vec r_-|}
+=\frac{-4+2+2}{9\cdot 9}=0
+\]
+Die beiden Ebenen stehen also senkrecht.
+\end{loesung}
+

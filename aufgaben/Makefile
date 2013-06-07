@@ -7,7 +7,7 @@
 all:	aufgabensammlung.pdf
 
 TEXFILES = aufgabensammlung.tex uebungen.tex \
-	1.tex 2.tex
+	1.tex 2.tex 3.tex 4.tex 5.tex 6.tex o.tex
 
 aufgabensammlung.pdf:	$(TEXFILES) aufgabensammlung.ind
 	pdflatex aufgabensammlung.tex uebungen.tex
@@ -18,7 +18,7 @@ aufgabensammlung.ind:	$(TEXFILES)
 	makeindex aufgabensammlung.idx
 
 clean:
-	rm -f *.dvi *.log aufgabensammlung.pdf
+	rm -f *.dvi *.log ?.tex aufgabensammlung.pdf
 
 1.tex:	buildchapter.sh 1/*.tex
 	./buildchapter.sh 1 > 1.tex
@@ -37,3 +37,6 @@ clean:
 
 6.tex:	buildchapter.sh 6/*.tex
 	./buildchapter.sh 6 > 6.tex
+
+o.tex:	buildchapter.sh o/*.tex
+	./buildchapter.sh o > o.tex

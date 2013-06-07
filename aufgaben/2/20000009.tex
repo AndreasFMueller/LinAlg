@@ -1,0 +1,76 @@
+Berechnen Sie die Inverse der Matrix
+\[
+A=
+\begin{pmatrix}
+ 0& 1& 2\\
+ 0& 2& 3\\
+-t& 0& 1
+\end{pmatrix}
+\]
+mit Hilfe der Minoren. Kontrollieren Sie Ihr Resultat
+mit Hilfe der Matrixmultiplikation.
+
+\begin{loesung}
+Die Inverse kann mit Hilfe der Minoren bestimm werden. Dazu wird zun"achst die
+Determinante von $A$ ben"otigt:
+\begin{align*}
+\det(A)&=(-t)\left|\,
+\begin{matrix}
+1&2\\2&3
+\end{matrix}
+\,\right|
+=
+-t(1\cdot 3-2\cdot 2)=t
+\end{align*}
+Daraus kann man jetzt die inverse Matrix berechnen:
+\[
+A^{-1}
+=
+\frac1t
+\begin{pmatrix}
+ +\left|\,\begin{matrix} 2&3\\0&1\end{matrix}\,\right|
+&-\left|\,\begin{matrix} 1&2\\0&1\end{matrix}\,\right|
+&+\left|\,\begin{matrix} 1&2\\2&3\end{matrix}\,\right|\\
+ -\left|\,\begin{matrix} 0&3\\-t&1\end{matrix}\,\right|
+&+\left|\,\begin{matrix} 0&2\\-t&1\end{matrix}\,\right|
+&-\left|\,\begin{matrix} 0&2\\0&3\end{matrix}\,\right|\\
+ +\left|\,\begin{matrix} 0&2\\-t&0\end{matrix}\,\right|
+&-\left|\,\begin{matrix} 0&1\\-t&0\end{matrix}\,\right|
+&+\left|\,\begin{matrix} 0&1\\0&2\end{matrix}\,\right|\\
+\end{pmatrix}
+=
+\frac1t
+\begin{pmatrix}
+ 2 &-1 &-1\\
+-3t& 2t& 0\\
+ 2t& -t& 0
+\end{pmatrix}
+\]
+Kontrolle:
+\begin{align*}
+AA^{-1}
+&=
+\begin{pmatrix}
+ 0& 1& 2\\
+ 0& 2& 3\\
+-t& 0& 1
+\end{pmatrix}
+\cdot
+\frac1t
+\begin{pmatrix}
+ 2 &-1 &-1\\
+-3t& 2t& 0\\
+ 2t& -t& 0
+\end{pmatrix}
+\\
+&=
+\frac1t
+\begin{pmatrix}
+0-3t+4t&0+2t-2t&0+0+0\\
+0-6t+6t&0+4t-3t&0+0+0\\
+-2t+0+2t&t+0-t&t+0+0
+\end{pmatrix}
+\\
+&=\frac1t\begin{pmatrix}t&0&0\\0&t&0\\0&0&t\end{pmatrix}=E
+\end{align*}
+\end{loesung}

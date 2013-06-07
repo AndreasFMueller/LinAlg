@@ -1,0 +1,113 @@
+Finden Sie eine Basis, in der
+\[
+A=\begin{pmatrix}
+0&1&1\\
+1&0&1\\
+1&1&0
+\end{pmatrix}
+\]
+diagonal ist.
+
+\begin{loesung}
+Das charakteristische Polynom ist
+\begin{align*}
+\det(A-\lambda E)
+&=
+\left|\,
+\begin{matrix}
+-\lambda&1&1\\
+1&-\lambda&1\\
+1&1&-\lambda
+\end{matrix}
+\,\right|
+\\
+&=-\lambda^3+2+3\lambda
+\\
+&=-\lambda^3+3\lambda+2
+\end{align*}
+Eine Nullstelle, n"amlich $2$, kann man erraten, daher ist das
+charakteristische Polynom durch $\lambda-2$ teilbar:
+\begin{align*}
+-\lambda^3+3\lambda+2
+&=-(\lambda-2)(\lambda+1)^2
+\end{align*}
+also sind die Eigenwerte $-1$ und $2$.
+
+F"ur $\lambda=2$ sind die Eignvektoren die Nullvektoren der Matrix
+\[
+\begin{pmatrix}
+-2&1&1\\
+1&-2&1\\
+1&1&-2
+\end{pmatrix}
+\]
+welche man mit dem Gauss-Algorithmus l"osen bestimmen kann
+\begin{align*}
+\begin{tabular}{|ccc|c|}
+\hline
+$-2$&1&1&0\\
+1&$-2$&1&0\\
+1&1&$-2$&0\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&$-\frac12$&$-\frac12$&0\\
+0&$-\frac32$&$\frac32$&0\\
+0&$\frac32$&$-\frac32$&0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&$-\frac12$&$-\frac12$&0\\
+0&1&$-1$&0\\
+0&0&0&0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&0&$-1$&0\\
+0&1&$-1$&0\\
+0&0&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Also ist
+\[
+v_1=\begin{pmatrix}1\\1\\1\end{pmatrix}
+\]
+ein Eigenvektor zum Eigenwert $\lambda=2$.
+
+F"ur $\lambda=1$ findet man f"ur das Gleichungssystem
+\begin{align*}
+\begin{tabular}{|ccc|c|}
+\hline
+1&1&1&0\\
+1&1&1&0\\
+1&1&1&0\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&1&1&0\\
+0&0&0&0\\
+0&0&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Man kann also die zweite und dritte Koordiaten frei w"ahlen, und damit
+die Eigenvektoren
+\[
+v_2=\begin{pmatrix}1\\-1\\0\end{pmatrix},\qquad
+v_3=\begin{pmatrix}1\\0\\-1\end{pmatrix}
+\]
+zum Eigenwert $-1$ finden. Die gesuchte Basis besteht aus den
+drei Vektoren $v_i$, $B=\{v_1,v_2,v_3\}$.
+\end{loesung}
+

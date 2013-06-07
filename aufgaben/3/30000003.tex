@@ -1,0 +1,139 @@
+Wo durchst"osst die Gerade durch den Punkt $(0,0,1)$ mit Richtungsvektor
+\[
+\begin{pmatrix}1\\1\\-1\end{pmatrix}
+\]
+die Ebene durch die Punkte $O$, $(1,0,1)$ und $(0,1,1)$?
+
+\begin{loesung}
+Die Ortsvektoren von Punkten in der Ebene sind
+\[
+t
+\begin{pmatrix}1\\0\\1\end{pmatrix}
++
+s
+\begin{pmatrix}0\\1\\1\end{pmatrix}
+\]
+Punkte auf der Geraden haben die Form
+\[
+\begin{pmatrix}0\\0\\1\end{pmatrix}+u\begin{pmatrix}1\\1\\-1\end{pmatrix}.
+\]
+Der Durchstosspunkt kann also als L"osung der Gleichung
+\begin{align*}
+t\begin{pmatrix}1\\0\\1\end{pmatrix}
++
+s\begin{pmatrix}0\\1\\1\end{pmatrix}
+&=
+\begin{pmatrix}0\\0\\1\end{pmatrix}+u\begin{pmatrix}1\\1\\-1\end{pmatrix}
+\\
+t\begin{pmatrix}1\\0\\1\end{pmatrix}
++
+s\begin{pmatrix}0\\1\\1\end{pmatrix}
+-u\begin{pmatrix}1\\1\\-1\end{pmatrix}
+&=
+\begin{pmatrix}0\\0\\1\end{pmatrix}
+\end{align*}
+gefunden werden.
+Man muss also das folgende Gleichungssystem l"osen:
+\begin{align*}
+\begin{tabular}{|ccc|c|}
+\hline
+1&0&-1&0\\
+0&1&-1&0\\
+1&1&1&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&0&-1&0\\
+0&1&-1&0\\
+0&1&2&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&0&-1&0\\
+0&1&-1&0\\
+0&0&3&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&0&0&$\frac13$\\
+0&1&0&$\frac13$\\
+0&0&1&$\frac13$\\
+\hline
+\end{tabular}
+\end{align*}
+Somit ist $u=\frac13$, also
+\[
+\begin{pmatrix}0\\0\\1\end{pmatrix}+\frac13\begin{pmatrix}1\\1\\-1\end{pmatrix}
+=
+\begin{pmatrix}\frac13\\\frac13\\\frac23\end{pmatrix}
+\]
+der Ortsvektor des Durchstosspunktes.
+
+Noch etwas "okonomischer ist das folgende Verfahren, welches auch in der
+Vorlesung besprochen wurde. Die Variablen werden {\color{red}} markiert.
+Die Ebenengleichung liefert Ortsvektoren von Punkten auf der Ebene
+\[
+\begin{pmatrix}
+{\color{red}x}\\
+{\color{red}y}\\
+{\color{red}z}
+\end{pmatrix}
+=
+{\color{red}t}
+\begin{pmatrix}1\\0\\1\end{pmatrix}
++
+{\color{red}s}
+\begin{pmatrix}0\\1\\1\end{pmatrix}.
+\]
+Die Geradengleichung entsprechend
+\[
+\begin{pmatrix}
+{\color{red}x}\\
+{\color{red}y}\\
+{\color{red}z}
+\end{pmatrix}
+=
+\begin{pmatrix}0\\0\\1\end{pmatrix}+{\color{red}}u\begin{pmatrix}1\\1\\-1\end{pmatrix}.
+\]
+Wir haben also insgesamt sechs Gleichungen mit sechs Unbekannten.
+Das Gauss-Tableau dieses Gleichungssystems ist
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+{\color{red}x}&{\color{red}y}&{\color{red}z}&{\color{red}t}&{\color{red}s}&{\color{red}u}&\\
+\hline
+1&0&0&-1& 0& 0& 0\\
+0&1&0& 0&-1& 0& 0\\
+0&0&1&-1&-1& 0& 0\\
+1&0&0& 0& 0&-1& 0\\
+0&1&0& 0& 0&-1& 0\\
+0&0&1& 0& 0& 1& 1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+{\color{red}x}&{\color{red}y}&{\color{red}z}&{\color{red}t}&{\color{red}s}&{\color{red}u}&\\
+\hline
+1&0&0&0&0&0&\frac13\\
+0&1&0&0&0&0&\frac13\\
+0&0&1&0&0&0&\frac23\\
+0&0&0&1&0&0&\frac13\\
+0&0&0&0&1&0&\frac13\\
+0&0&0&0&0&1&\frac13\\
+\hline
+\end{tabular}
+\]
+Daraus liest man ab, dass $(\frac13,\frac13,\frac23)$ der Schnittpunkt ist,
+und dass er auf der Ebene mit den Parameterwerten $t=\frac12$  und $s=\frac13$
+und auf der Geraden mit dem Parameterwert $u=\frac13$ erreicht wird.
+\end{loesung}
+

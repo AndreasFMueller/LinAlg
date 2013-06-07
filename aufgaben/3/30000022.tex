@@ -1,0 +1,118 @@
+In einem zugegebenermassen nicht unbedingt zweckm"assig gew"ahlten
+Koordinatensystem haben die horizontalen Kanten eines Wohnzimmers
+die Darstellung
+\[
+\vec v_1=\begin{pmatrix}
+1\\1\\1
+\end{pmatrix}
+\qquad\text{und}\qquad
+\vec v_2=\begin{pmatrix}
+1\\-2\\1
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item Stehen die Kanten senkrecht aufeinander?
+\item Finden Sie einen Vektor parallel zur vertikalen Kante
+des Zimmers.
+\item Finden Sie eine Gleichung f"ur die Ebene des Wohnzimmerbodens, wenn
+sich der Koordinatennullpunkt in einer unteren Ecke befindet.
+\item In Zimmer soll jetzt ein Weihnachtsbaum aufgestellt werden.
+Leider gelingt es nicht, den Baum in genau vertikale Position zu
+bringen. Man muss sich damit begn"ugen, dass es zwei Richtungen
+gibt, aus denen der Baum gerade aussieht. Finden Sie Einheitsvektoren
+f"ur diese Richtungen,
+wenn der Stamm des Baums parallel ist zu
+\[
+\vec b=\begin{pmatrix}
+1\\0\\2
+\end{pmatrix}.
+\]
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Das Skalarprodukt ist
+\[
+\vec v_1\cdot\vec v_2
+=
+\begin{pmatrix}
+1\\1\\1
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+1\\-2\\1
+\end{pmatrix}
+=1\cdot 1+1\cdot(-2)+1\cdot 1=1-2+1=0,
+\]
+also stehen die Vektoren senkrecht aufeinander.
+\item Ein solcher Vektor kann mit dem Vektorprodukt gefunden werden:
+\[
+\vec n=\vec v_1\times\vec v_2
+=
+\begin{pmatrix}
+1\\1\\1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+1\\-2\\1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1\cdot 1-1\cdot(-2)\\
+1\cdot 1-1\cdot 1\\
+1\cdot(-2)-1\cdot 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+3\\0\\-3
+\end{pmatrix}
+\]
+\item
+Die Ebene besteht aus den Punkten mit Ortsvektoren $\vec p$
+senkrecht zum in b) gefunden Vektor,
+die Ebenengleichung ist also
+\[
+\vec n\cdot \vec p =0\quad\Rightarrow\quad 3x-3z=0.
+\]
+\item
+Es muss die Projektion des Vektors auf die von den beiden Zimmerkanten
+aufgespannte Ebene gefunden werden. Dazu muss die Komponenten
+subtrahiert werden, die parallel zu dem in Teilaufgabe b) gefundenen
+Vektor ist. Diese Komponente ist
+\begin{align*}
+\vec b_{\|}
+&=
+\left(\frac{\vec n}{|\vec n|}\cdot \vec b\right)\frac{\vec n}{|\vec n|}
+=
+\frac{\vec n\cdot\vec b}{\vec n\cdot \vec n} \vec n
+\\
+&
+=
+\frac{3\cdot 1+0\cdot 0+(-3)\cdot 2}{3^2+0^2+3^2}\begin{pmatrix}3\\0\\-3\end{pmatrix}
+=
+\frac{-3}{18}\begin{pmatrix}3\\0\\-3\end{pmatrix}
+=
+\frac{-1}{2}\begin{pmatrix}1\\0\\-1\end{pmatrix}
+=
+\begin{pmatrix}-\frac12\\0\\\frac12\end{pmatrix}
+\end{align*}
+Diese Komponente muss von $\vec b$ subtrahiert werden:
+\[
+\vec b -\vec b_{\|}
+=\begin{pmatrix}1\\0\\2\end{pmatrix}
+-
+\begin{pmatrix}-\frac12\\0\\\frac12\end{pmatrix}
+=
+\begin{pmatrix}\frac32\\0\\\frac32\end{pmatrix}
+\]
+Man kontrolliert auch leicht, dass
+$\vec b -\vec b_{\|} = v_1+\frac12v_2$, dass also der gefundene
+Vektor tats"achlich in der verlangten Ebene liegt.
+Er ist aber noch kein Einheitsvektor, durch Normieren finden wir
+die zwei gesuchten Richtungen
+\[
+\vec r=\pm\frac1{\sqrt{2}}\begin{pmatrix}1\\0\\1\end{pmatrix}.
+\]
+\end{teilaufgaben}
+\end{loesung}
+

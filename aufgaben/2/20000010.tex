@@ -1,0 +1,69 @@
+Berechnen Sie die Determinante
+\[
+D=\left|\,
+\begin{matrix}
+a_{11}&a_{12}&0     &0     \\
+a_{21}&a_{22}&0     &0     \\
+0     &0     &d_{11}&d_{12}\\
+0     &0     &d_{21}&d_{22}
+\end{matrix}
+\,\right|
+\]
+
+\begin{loesung}
+Entwicklung nach der ersten Zeile ergibt
+\begin{align*}
+D
+&=
+a_{11}\left|\,
+\begin{matrix}
+a_{22}&0     &0     \\
+0     &d_{11}&d_{12}\\
+0     &d_{21}&d_{22}
+\end{matrix}
+\,\right|
+-
+a_{21}
+\left|\,
+\begin{matrix}
+a_{12}&0     &0     \\
+0     &d_{11}&d_{12}\\
+0     &d_{21}&d_{22}
+\end{matrix}
+\,\right|
+\\
+&=
+a_{11}a_{22}\left|\,
+\begin{matrix}
+d_{11}&d_{12}\\
+d_{21}&d_{22}
+\end{matrix}
+\,\right|
+-
+a_{21}a_{12}
+\left|\,
+\begin{matrix}
+d_{11}&d_{12}\\
+d_{21}&d_{22}
+\end{matrix}
+\,\right|
+\\
+&=
+\left|\,
+\begin{matrix}
+a_{11}&a_{12}\\
+a_{21}&a_{22}
+\end{matrix}
+\,\right|
+\cdot
+\left|\,
+\begin{matrix}
+d_{11}&d_{12}\\
+d_{21}&d_{22}
+\end{matrix}
+\,\right|
+\\
+&=\det(A)\det(D).
+\end{align*}
+\end{loesung}
+

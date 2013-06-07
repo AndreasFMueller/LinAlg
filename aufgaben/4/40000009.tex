@@ -1,0 +1,42 @@
+Betrachten Sie die Menge der Funktionen
+\[
+V=\{
+a_0+a_1\cos x+b_1\sin x\,|\,a_0,a_1,b_1\in\mathbb R\}.
+\]
+$V$ hat die Funktionen $1$, $\cos x$ und $\sin x$ als Basis,
+jede Funktion in $V$ kann aus diesen drei Funktionen linear
+kombiniert werden.
+Die Ableitung $D$ ist eine lineare Abbildung $V\to V$:
+\[
+D:a_0+a_1\cos x+b_1\sin x\mapsto b_1\cos x -a_1\sin x.
+\]
+Finden Sie die Matrix von $D$ in dieser Basis. Berechnen Sie
+die Matrix von $D^4$.
+
+\begin{loesung}
+Um die Matrix von $D$ zu finden, m"ussen die Bilder der
+Basisvektoren wieder in der Basis ausgedr"uckt werden:
+\[
+1\mapsto 0=\begin{pmatrix}0\\0\\0\end{pmatrix},\quad
+\cos x\mapsto -\sin x=\begin{pmatrix}0\\0\\-1\end{pmatrix},\quad
+\sin x\mapsto \cos x=\begin{pmatrix}0\\1\\0\end{pmatrix}.
+\]
+Die Matrix hat daher die Form
+\[
+D=\begin{pmatrix}
+0&0&0\\
+0&0&1\\
+0&-1&0
+\end{pmatrix}.
+\]
+Die vierte Ableitung einer trigonometrischen Funktion ist wieder
+die Ausgangsfunktion. Also ist
+\[
+D^4=\begin{pmatrix}
+0&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}
+\]
+\end{loesung}
+

@@ -1,0 +1,86 @@
+Gegeben sind
+\[
+A=\begin{pmatrix}1&2\\2&1\\2&1\end{pmatrix},\qquad
+b=\begin{pmatrix}2\\2\\2\end{pmatrix}.
+\]
+Das Gleichungssystem $Ax=b$ ist "uberbestimmt, es wurde fr"uher
+gezeigt, dass die beste L"osung aus dem (nicht "uberbestimmten)
+Gleichungssystem
+\[
+A^tAx=A^tb
+\]
+bestimmt werden kann.
+\begin{teilaufgaben}
+\item Bestimmen Sie $A^tA$ und $A^tb$.
+\item $A^tA$ ist eine symmetrische Matrix, finden Sie die
+Cholesky-Zerlegung $A^tA=LL^t$.
+\item L"osen Sie $Ly=A^tb$.
+\item L"osen Sie $L^tx=y$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+\begin{align*}
+A^tA&=
+\begin{pmatrix}1&2&2\\2&1&1\end{pmatrix}
+\begin{pmatrix}1&2\\2&1\\2&1\end{pmatrix}
+=
+\begin{pmatrix}
+9&6\\
+6&6
+\end{pmatrix}
+\\
+A^tb&=
+\begin{pmatrix}1&2&2\\2&1&1\end{pmatrix}
+\begin{pmatrix}2\\2\\2\end{pmatrix}
+=
+\begin{pmatrix}
+10\\8
+\end{pmatrix}
+\end{align*}
+\item Nach dem in der Vorlesung besprochenen Algorithmus f"ur die
+Cholesky-Zerlegung bestimmt man zuerst das Element in der Ecke
+links oben:
+\[
+L=\begin{pmatrix}
+3&0\\
+2&?
+\end{pmatrix}
+\]
+Aus der Gleichung
+\[
+LL^t=\begin{pmatrix}9&6\\6&1+?^2\end{pmatrix}=\begin{pmatrix}9&6\\6&6\end{pmatrix}
+\]
+schliesst man dann, dass $?=\sqrt{2}$, also
+\[
+L=\begin{pmatrix}
+3&0\\2&\sqrt{2}
+\end{pmatrix}.
+\]
+\item $y$ ist L"osung des Gleichungssystems
+\[
+\begin{pmatrix}
+3&0\\
+2&\sqrt{2}
+\end{pmatrix}y=\begin{pmatrix}10\\8\end{pmatrix}
+\quad
+\Rightarrow
+\quad
+y_1=\frac{10}{3},\quad y_2=\frac{4}{3\sqrt{2}}
+\]
+\item $x$ ist L"osung des Gleichungsystems
+\[
+\begin{pmatrix}
+3&2\\
+0&\sqrt{2}
+\end{pmatrix}x=\begin{pmatrix}
+\frac{10}{3}\\
+\frac{4}{3\sqrt{2}}
+\end{pmatrix}
+\quad\Rightarrow\quad
+x_2=\frac23,\quad x_1=\frac23
+\]
+\end{teilaufgaben}
+\end{loesung}
+

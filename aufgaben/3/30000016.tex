@@ -1,0 +1,120 @@
+Der Mittelpunkt einer Kugel bewegt sich auf der Geraden durch
+die Punkt $A=(2,2,1)$ und $B=(0,0,\frac12)$. Welchen Durchmesser
+darf sie h"ochstens haben, wenn sie noch durch das dreieckig
+Fenster mit Ecken $C=(2,0,0)$, $D=(0,2,0)$ und $E=(0,0,2)$ passen
+soll?
+
+\begin{loesung}
+Die Frage ist, wie gross der minimale Abstand zwischen
+der Geraden $AB$ und jeder der Kanten des Dreiecks, also
+der Geraden $CD$, $DE$ und $CE$ ist.
+
+Den Abstand zweier windschiefer Geraden kann man mit dem
+Abstandsformel
+\[
+\frac{(\vec r_1\times \vec r_2)\cdot (\vec p_1-\vec p_2)}{|\vec r_1\times \vec r_2|}
+\]
+ausrechnen.
+Dazu braucht man die Richtungsvektoren aller beteiligten Geraden.
+\begin{align*}
+\overrightarrow{AB}
+&=
+\begin{pmatrix} -2\\-2\\-\frac12 \end{pmatrix}
+\\
+\overrightarrow{CD}
+&=
+\begin{pmatrix} -2\\2\\0\end{pmatrix}
+\\
+\overrightarrow{DE}
+&=
+\begin{pmatrix} 0\\-2\\2\end{pmatrix}
+\\
+\overrightarrow{CE}
+&=
+\begin{pmatrix} -2\\0\\2\end{pmatrix}
+\end{align*}
+Jetzt sind die Vektorprodukte von $\overrightarrow{AB}$ mit den
+anderen Vektoren auszurechnen:
+\begin{align*}
+\overrightarrow{AB}\times\overrightarrow{CD}
+&=
+\begin{pmatrix} -2\\-2\\-\frac12 \end{pmatrix}
+\times
+\begin{pmatrix} -2\\2\\0\end{pmatrix}
+%=
+%\begin{pmatrix}
+%(-2)\cdot 0-2\cdot(-\frac12)\\
+%(-\frac12)\cdot(-2)-0\cdot(-2)\\
+%(-2)\cdot 2-(-2)\cdot(-2)
+%\end{pmatrix}
+=
+\begin{pmatrix}
+1\\1\\-8
+\end{pmatrix},
+&
+|\overrightarrow{AB}\times\overrightarrow{CD}|
+&=
+\sqrt{66}
+\\
+\overrightarrow{AB}\times\overrightarrow{DE}
+&=
+\begin{pmatrix} -2\\-2\\-\frac12 \end{pmatrix}
+\times
+\begin{pmatrix} 0\\-2\\2\end{pmatrix}
+=
+\begin{pmatrix} -5\\4\\4\end{pmatrix},
+&
+|\overrightarrow{AB}\times\overrightarrow{DE}|
+&=
+\sqrt{57}
+\\
+\overrightarrow{AB}\times\overrightarrow{CE}
+&=
+\begin{pmatrix} -2\\-2\\-\frac12 \end{pmatrix}
+\times
+\begin{pmatrix} -2\\0\\2\end{pmatrix}
+=
+\begin{pmatrix} -4\\5\\-4\end{pmatrix},
+&
+|\overrightarrow{AB}\times\overrightarrow{CE}|
+&=
+\sqrt{57}
+\end{align*}
+Als Ausgangspunkt f"ur die Gerade $AB$ nehmen wir $A$, f"ur
+die anderen Geraden jeweils die alphabetisch fr"uhere Ecke.
+\begin{align*}
+\overrightarrow{AC}
+&=
+\begin{pmatrix}0\\-2\\-1\end{pmatrix}
+&
+\overrightarrow{AC}
+\cdot
+\frac{\overrightarrow{AB}\times\overrightarrow{CD}}{|\overrightarrow{AB}\times\overrightarrow{CD}|}
+&=
+\frac{0-2+8}{\sqrt{66}}=\frac6{\sqrt{66}}=0.73855
+\\
+\overrightarrow{AD}
+&=
+\begin{pmatrix}-2\\0\\-1\end{pmatrix}
+&
+\overrightarrow{AD}
+\cdot
+\frac{ \overrightarrow{AB}\times\overrightarrow{DE}}{|\overrightarrow{AB}\times\overrightarrow{DE}|}
+&=
+\frac{10+0-4}{\sqrt{57}}=\frac{6}{\sqrt{57}}=0.79472
+\\
+\overrightarrow{AC}
+&=
+\begin{pmatrix}0\\-2\\-1\end{pmatrix}
+&
+\overrightarrow{AC}
+\cdot
+\frac{ \overrightarrow{AB}\times\overrightarrow{CE}}{|\overrightarrow{AB}\times\overrightarrow{CE}|}
+&=
+\frac{0-10+4}{\sqrt{57}}=-\frac{6}{\sqrt{57}}=-0.79472
+\end{align*}
+Der geringste Abstand entsteht also zur Kante $CD$, der Radius darf
+$r=\frac6{\sqrt{66}}$ nicht "uberschreiten, wenn die Kugel die Kante
+in der $x$-$y$-Ebene nicht ber"uhren soll.
+\end{loesung}
+

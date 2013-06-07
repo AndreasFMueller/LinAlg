@@ -1,0 +1,52 @@
+Sei $A$ die Matrix
+\[
+A=\begin{pmatrix}
+1&5\\
+5&1
+\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item Warum ist $A$ diagonalisierbar?
+\item Finden Sie eine Basis, in der $A$ diagonal ist.
+\item Wie gross ist der Winkel zwischen den neuen Basisvektoren?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Matrix $A$ ist symmetrisch, also gibt es eine Basis aus
+Eigenvektoren.
+\item
+Zur Bestimmung der Basis m"ussen die Eigenwerte bestimmt werden.
+Dazu berechnet man zun"achst das charakteristische Polynom und
+seine Nullstellen:
+\begin{align*}
+\chi_A(\lambda)
+&=\det(A-\lambda E)=(1-\lambda)^2-25=\lambda^2-2\lambda +24
+=(\lambda-6)(\lambda +4),
+\end{align*}
+die Nullstellen sind also $\lambda_1=6$ und $\lambda_2=-4$. Zu jeder
+Nullstelle muss jetzt auch noch ein Eigenvektor gefunden werden.
+F"ur den Eigenwert $\lambda_1=6$ wird die Matrix des dazu zu l"osenden
+homogenen Gleichungssystems
+\[
+\begin{pmatrix}-5&5\\5&-5\end{pmatrix},
+\]
+es ist offensichtlich dass
+\[
+v_1=\begin{pmatrix}1\\1\end{pmatrix}
+\]
+ein L"osungsvektor ist. F"ur $\lambda_2=-4$ ist die Matrix
+\[
+\begin{pmatrix}5&5\\5&5\end{pmatrix},
+\]
+mit dem mindestens ebenso offensichtlichen L"osungsvektor
+\[
+\vec v_2=\begin{pmatrix}1\\-1\end{pmatrix}.
+\]
+\item
+Eigenvektoren einer symmetrischen Matrix zu verschiedenen Eigenwerten
+stehen immer senkrecht aufeinander.
+\end{teilaufgaben}
+\end{loesung}
+

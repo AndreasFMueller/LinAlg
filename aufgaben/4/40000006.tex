@@ -1,0 +1,70 @@
+Im Vektorraum $\mathbb R^2$ soll statt der Standardbasis die Basis
+\[
+\begin{pmatrix}
+\frac12\\
+\frac{\sqrt{3}+1}2
+\end{pmatrix},\quad
+\begin{pmatrix}
+-1\\
+0
+\end{pmatrix}
+\]
+verwendet werden.
+Bestimmen Sie die Transformationsmatrix.
+Welche Komponenten hat der Vektor
+\[
+\xi=
+\begin{pmatrix}
+-\frac12\\
+\frac{\sqrt{3}+1}2
+\end{pmatrix}
+\]
+in der Basis $B'$?
+
+\begin{loesung}
+Den Basen entsprechen die Matrizen
+\[
+B=\begin{pmatrix}1&0\\0&1\end{pmatrix},\qquad
+B'=\begin{pmatrix}
+\frac12&-1\\
+\frac{\sqrt{3}+1}2&0
+\end{pmatrix}.
+\]
+In der Vorlesung wurde gefunden, dass Transformationsmatrix in diesem
+Fall ($B=E$) die Inverse von $B'$ ist, also
+\[
+T=B'^{-1}=\frac2{\sqrt{3}+1}\begin{pmatrix}
+0&1\\
+-\frac{\sqrt{3}+1}2&\frac12
+\end{pmatrix}
+=\begin{pmatrix}
+0&\frac{2}{\sqrt{3}+1}\\
+-1&\frac1{2(\sqrt{3}+1)}
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&\sqrt{3}-1\\
+-1&\frac{\sqrt{3}-1}{2}
+\end{pmatrix}
+\]
+Mit der Matrix $T$ kann man jetzt auch den gegebenen Vektor $\xi$  in
+die neue Basis umrechnen:
+\[
+\xi'=
+T\xi
+=
+\begin{pmatrix}
+0&\sqrt{3}-1\\
+-1&\frac{\sqrt{3}-1}{2}
+\end{pmatrix}
+\begin{pmatrix}
+-\frac12\\
+\frac{\sqrt{3}+1}2
+\end{pmatrix}
+=
+\begin{pmatrix}1\\
+\frac12+\frac12\end{pmatrix}
+=\begin{pmatrix}1\\1\end{pmatrix}.
+\]
+\end{loesung}
+

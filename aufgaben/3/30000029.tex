@@ -1,0 +1,50 @@
+Bestimmen Sie die gegenseitige Lage der Geraden
+\[
+p_1+tr_1
+=
+\begin{pmatrix} 3\\ 0\\ 0 \end{pmatrix}
++t
+\begin{pmatrix} 2\\ 2\\ 3 \end{pmatrix}
+\qquad
+\text{und}
+\qquad
+p_2+tr_2
+=
+\begin{pmatrix} 4\\ 4\\ 0 \end{pmatrix}
++t
+\begin{pmatrix} 1\\ 4\\ 3 \end{pmatrix}
+\]
+und ihren Abstand.
+
+\begin{loesung}
+Die Richtungsvektoren sind nicht linear abh"angig, also sind
+die Geraden vermutlich windschief. Wir berechnen ihren Abstand mit
+Hilfe der Formel f"ur den Abstand zweier Geraden. Dazu brauchen
+wir zun"achste die Normale auf der von den beiden Richtungsvektoren
+aufgespannte Gerade:
+\begin{align*}
+n&=r_1\times r_2 =\begin{pmatrix} 2\\ 2\\ 3 \end{pmatrix}
+\times
+\begin{pmatrix} 1\\ 4\\ 3 \end{pmatrix}
+=
+\begin{pmatrix} -6\\-3\\6 \end{pmatrix}
+=3
+\begin{pmatrix} -2\\-1\\2 \end{pmatrix}
+\\
+n^0&=\frac{n}{|n|}=
+\frac13
+\begin{pmatrix} -2\\-1\\2 \end{pmatrix}
+\end{align*}
+Der vorzeichenbehaftete Abstand ist dann
+\[
+d=n^0\cdot(p_1-p_2)=
+\frac13
+\begin{pmatrix} -2\\-1\\2 \end{pmatrix}
+\cdot
+\begin{pmatrix}-1\\-4\\0\end{pmatrix}
+=\frac13(-2-4)=-2.
+\]
+Die Geraden sind also tats"achlich windschief, und
+ihr Abstand ist $2$.
+\end{loesung}
+

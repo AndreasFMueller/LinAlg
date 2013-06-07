@@ -1,0 +1,70 @@
+Bestimmen Sie die Determinante der Matrix
+\[
+A=\begin{pmatrix}
+1&0&2&0\\
+0&3&0&4\\
+2&0&1&0\\
+0&4&0&3
+\end{pmatrix}.
+\]
+Ist $A$ regul"ar?
+
+\begin{loesung}
+Durch Vertauschen der mittleren Zeilen und Spalten (2 Vertauschungen) "andert $\det(A)$
+seinen Wert nicht, die erh"alt aber Blockform. Die Determinante einer Blockmatrix ist
+das Produkt der Determinanten der einzelnen Bl"ocke:
+\begin{align*}
+\det(A)&=
+\left|\;\begin{matrix}
+1&0&2&0\\
+0&3&0&4\\
+2&0&1&0\\
+0&4&0&3
+\end{matrix}\;\right|
+=
+\left|\;\begin{matrix}
+1&2&0&0\\
+2&1&0&0\\
+0&0&3&4\\
+0&3&4&3
+\end{matrix}\;\right|
+=
+\left|\;\begin{matrix}
+1&2\\2&1
+\end{matrix}\;\right|
+\cdot
+\left|\;\begin{matrix}
+3&4\\4&3
+\end{matrix}\;\right|
+\\
+&=
+(1\cdot 1-2\cdot 2)(3\cdot 3-4\cdot 4)=(-3)\cdot(-7)=21.
+\end{align*}
+Alternativ kann die Determinante auch mit dem Entwicklungssatz
+berehnet werden, zum Beispiel durch Entwicklung nach der ersten
+Spalte:
+\begin{align*}
+\det(A)
+&=
+1\cdot\left|\;\begin{matrix}
+3&0&4\\
+0&1&0\\
+4&0&3
+\end{matrix}\;\right|
++
+2\cdot\left|\;\begin{matrix}
+0&2&0\\
+3&0&4\\
+4&0&3
+\end{matrix}\;\right|
+\\
+&=
+1\cdot 1\cdot\left|\;\begin{matrix}3&4\\4&3\end{matrix}\;\right|
+-2\cdot 2\cdot\left|\;\begin{matrix}3&4\\4&3\end{matrix}\;\right|
+\\
+&=
+(1\cdot 1-2\cdot 2)(3\cdot 3-4\cdot 4)=(-3)\cdot(-7)=21.
+\end{align*}
+Da $\det(A)\ne 0$ ist $A$ regul"ar.
+\end{loesung}
+

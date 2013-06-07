@@ -1,0 +1,45 @@
+F"ur den dreidimensionalen Raum m"ochte man die Vektoren
+\[
+B=\left\{
+b_1=\begin{pmatrix}0\\0\\1\end{pmatrix},
+b_2=\begin{pmatrix}-1\\-3\\-1\end{pmatrix},
+b_3=\begin{pmatrix}1\\2\\5\end{pmatrix}
+\right\}
+\]
+als Basis verwenden. Bilden sie tats"achlich eine Basis?
+
+\begin{loesung}
+Die drei Vektoren bilden eine Basis, wenn jeder Vektor $v$ eindeutig
+als Linearkombination der Vektoren $b_i$ geschrieben werden kann.
+Dazum muss das Gleichungssystem $Bx = v$ f"ur jeden Vektor eine
+eindeutige L"osung haben. Dies tritt genau dann ein, wenn die Matrix
+$B$ regul"ar ist. Das kann man aber mit dem Gauss-Algorithmus pr"ufen:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+0&-1&1\\
+0&-3&2\\
+1&-1&5\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1&5\\
+0&-1&1\\
+0&-3&2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1&5\\
+0&1&-1\\
+0&0&-1\\
+\hline
+\end{tabular}
+\]
+Weiter m"ussen wir den Gaussalgorithmus gar nicht treiben, man kann
+schon jetzt sehen dass $\det(B)\ne 0$, also $B$ regul"ar ist.
+\end{loesung}
+

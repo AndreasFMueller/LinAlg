@@ -1,0 +1,156 @@
+%A =
+%
+%   1  -0   1
+%   1  -5   2
+%  -1   1  -1
+%
+%inverse =
+%
+%  -3  -1  -5
+%   1   0   1
+%   4   1   5
+%
+%transform =
+%
+%    3    0    1
+%  -19   -3  -24
+%    3    1    6
+Die Matrix
+\[
+T=
+\begin{pmatrix}
+   1&  0&  1\\
+   1& -5&  2\\
+  -1&  1& -1
+\end{pmatrix}
+\]
+transformiert die Koordinaten $(x_1,x_2,x_3)$ in neue Koordinaten $(x_1',x_2',x_3')$.
+Eine lineare Abbildung hat in den $x_i$-Koordinaten die Matrix
+\[
+A=
+\begin{pmatrix}
+    0&  14&  -5\\
+    1&  -3&   2\\
+    3& -19&   9
+\end{pmatrix}
+\]
+Wie lautet ihre Matrix in den $x_i'$-Koordinaten?
+
+\begin{loesung}
+Die Koordinatentransformation f"ur die Matrix erfolgt nach der Formel $A'=TAT^{-1}$.
+Es ist also zun"achst die Inverse von $T$ zu ermitteln, was mit dem Gauss-Algorithmus
+geschehen kann:
+\begin{align*}
+\begin{tabular}{|ccc|ccc|}
+\hline
+   1 &  0 &  1 &1&0&0\\
+   1 &$-5$&  2 &0&1&0\\
+ $-1$&  1 &$-1$&0&0&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|ccc|ccc|}
+\hline
+   1 &  0 &  1 &  1 &0&0\\
+   0 &$-5$&  1 &$-1$&1&0\\
+   0 &  1 &  0 &  1 &0&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|ccc|}
+\hline
+   1 &  0 &  1 &  1 &0&0\\
+   0 &  1 &  0 &  1 &0&1\\
+   0 &$-5$&  1 &$-1$&1&0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|ccc|}
+\hline
+   1 &  0 &  1 &  1 &0&0\\
+   0 &  1 &  0 &  1 &0&1\\
+   0 &  0 &  1 &  4 &1&5\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|ccc|}
+\hline
+   1 &  0 &  1 &$-3$&$-1$&$-5$\\
+   0 &  1 &  0 &  1 &  0 &  1\\
+   0 &  0 &  1 &  4 &  1 &  5\\
+\hline
+\end{tabular}
+\end{align*}
+Die Inverse von $T$ ist also
+\[
+T^{-1}
+=
+\begin{pmatrix}
+  -3& -1& -5\\
+   1&  0&  1\\
+   4&  1&  5
+\end{pmatrix}
+\]
+Die transformierte Matrix ist damit
+\begin{align*}
+A'&=TAT^{-1}
+\\
+&=
+\begin{pmatrix}
+   1&  0&  1\\
+   1& -5&  2\\
+  -1&  1& -1
+\end{pmatrix}
+\begin{pmatrix}
+    0&  14&  -5\\
+    1&  -3&   2\\
+    3& -19&   9
+\end{pmatrix}
+\begin{pmatrix}
+  -3& -1& -5\\
+   1&  0&  1\\
+   4&  1&  5
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+   0+0+3&14+0-19& -5+0+9\\
+   0-5+6&14+15-38&-5-10+18\\
+-2&-14-3+19&5+2-9
+\end{pmatrix}
+\begin{pmatrix}
+  -3& -1& -5\\
+   1&  0&  1\\
+   4&  1&  5
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+   3& -5&  4\\
+   1& -9&  3\\
+  -2&  2& -2
+\end{pmatrix}
+\begin{pmatrix}
+  -3& -1& -5\\
+   1&  0&  1\\
+   4&  1&  5
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+-3-5+16&-3+0+4&-15-5+20\\
+-3-9+12&-1+0+3&-5-9+15\\
+6+2-8&2+0-2&10+2-10
+\end{pmatrix}
+=
+\begin{pmatrix}
+2&1&0\\
+0&2&1\\
+0&0&2
+\end{pmatrix}
+\end{align*}
+\end{loesung}
+

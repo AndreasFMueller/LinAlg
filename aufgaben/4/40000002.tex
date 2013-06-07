@@ -1,0 +1,240 @@
+Gegeben sind die beiden Vektoren
+\[
+\vec a
+=
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+,\qquad
+\vec b
+=
+\begin{pmatrix}
+1\\1\\0
+\end{pmatrix}.
+\]
+Finden Sie eine Basis aus aufeinander senkrecht stehenden
+Einheitsvektoren so, dass der erste Basisvektor parallel zu
+$\vec a$ ist und der dritte auf der von $\vec a$ und $\vec b$
+aufgespannten Ebenen senkrecht steht.
+
+\begin{loesung}
+Der erste Basisvektor muss offenbar ein Vielfaches von $\vec a$ sein.
+Da $\vec a$ kein Einheitsvektor ist, muss man ihn durch seine L"ange
+teilen:
+\[
+|\vec a|=\sqrt{1^2+4^2+8^1}=\sqrt{1+16+64}=\sqrt{81}=9
+\quad
+\Rightarrow
+\quad
+\frac19
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}.
+\]
+Der dritte Basisvektor muss auf $\vec a$ und $\vec b$ senkrecht stehen,
+das Vektorprodukt der beiden Basisvektoren tut dies:
+\[
+\vec a\times\vec b=
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+\times
+\begin{pmatrix}
+1\\1\\0
+\end{pmatrix}
+=
+\begin{pmatrix}
+4\cdot 0-1\cdot 8\\
+8\cdot 1-0\cdot 1\\
+1\cdot 1-1\cdot 4
+\end{pmatrix}
+=
+\begin{pmatrix}
+-8\\
+8\\
+-3
+\end{pmatrix}
+\]
+Da dies ebenfalls kein Einheitsvektor ist, m"ussen wir ihn auch noch
+normieren, seine L"ange ist
+\[
+\sqrt{8^2+8^2+ 3^2}=\sqrt{64+64+9}=\sqrt{137}.
+\]
+Jetzt fehlt nur noch der zweite Basisvektor.
+Da dieser auf den bereits
+gefundenen senkrecht stehen muss, kann man ihn ebenfalls mit 
+dem Vektorprodukt finden. Da die beiden Faktoren bereits senkrecht
+stehen und L"ange $1$ haben, wird das Vektorprodukt automatisch
+L"ange $1$ haben:
+\[
+\frac19
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+\times
+\frac1{\sqrt{137}}\begin{pmatrix}-8\\8\\-3\end{pmatrix}
+=
+\frac1{9\sqrt{137}}
+\begin{pmatrix}
+4\cdot(-3)-8\cdot 8\\
+8\cdot(-8)-(-3)\cdot1\\
+1\cdot 8-(-8)\cdot 4
+\end{pmatrix}
+=
+\frac1{9\sqrt{137}}
+\begin{pmatrix}
+-76\\
+-61\\
+40\\
+\end{pmatrix}
+\]
+Tats"achlich ist dies ein Einheitsvektor:
+\[
+\sqrt{76^2+61^2+40^2}=\sqrt{11097}=9\sqrt{137}.
+\]
+Die gesuchten Baisvektoren sind also: 
+\[
+\frac19
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+,
+\qquad
+\frac1{9\sqrt{137}}
+\begin{pmatrix}
+-76\\
+-61\\
+40\\
+\end{pmatrix},
+\qquad
+\frac1{\sqrt{137}}
+\begin{pmatrix}
+-8\\
+8\\
+-3
+\end{pmatrix}
+\]
+
+Alternativ kann man die Vektoren auch mit Hilfe des
+Orthonormalisierungsverfahrens von Gram-Schmidt bestimmen.
+Die Vektoren $\vec b_1=\vec a$ und $\vec b_2=\vec b$ sind 
+zu orthonormalisieren.
+Der Vektor $\vec b_1'$ ist wie in der ersten L"osung der auf L"ange 1 normierte
+Vektor $\vec a$:
+\[
+\vec b_1' 
+=
+\frac19
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+\]
+Die Formel f"ur den zweiten Vektor lautet
+\[
+\vec b_2'=\frac{
+\vec b_2-(\vec b_1'\cdot \vec b_2)\vec b_1'
+}{
+|\vec b_2-(\vec b_1'\cdot \vec b_2)\vec b_1'|
+}
+\]
+Setzt man die Vektoren ein, wird der Z"ahler zu
+\[
+\vec b_2-(\vec b_1'\cdot \vec b_2)b_1'
+=
+\begin{pmatrix}
+1\\1\\0
+\end{pmatrix}
+-\left(
+\frac19
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+1\\1\\0
+\end{pmatrix}
+\right)
+\frac19
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+=
+\begin{pmatrix}
+1\\1\\0
+\end{pmatrix}
+-
+\frac5{81}
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+=
+\frac1{81}\begin{pmatrix}
+76\\
+61\\
+-40
+\end{pmatrix}
+\]
+Dieser Vektor muss jetzt noch normiert werden, seien L"ange ist
+\[
+\frac1{81}\sqrt{76^2+61^2+40^2}
+=
+\frac1{81}\sqrt{11097}
+=
+\frac19
+\sqrt{137}.
+\]
+Der Vektor $\vec b_2'$ wird dadurch zu
+\[
+\vec b_2'
+=
+\frac1{9\sqrt{137}}\begin{pmatrix}
+76\\
+61\\
+-40
+\end{pmatrix}
+\]
+Der dritte Vektor kann nicht durch das Orthonormalisierungsverfahren
+gewonnen werden, weil dieses ja nur gegebene Vektoren orthonormalisiert.
+Gegeben sind jedoch nur gerade zwei Vektoren. Man muss daher den dritten
+Vektor wieder mit dem Vektorprodukt ausrechnen:
+\begin{align*}
+\vec b_3'
+=
+\vec b_1'\times\vec b_2'
+&=
+\frac19
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+\times
+\frac1{9\sqrt{137}}\begin{pmatrix}
+76\\
+61\\
+-40
+\end{pmatrix}
+=
+\frac1{9^2\sqrt{137}}
+\begin{pmatrix}
+4\cdot (-40)-61\cdot 8\\
+8\cdot 76-(-40)\cdot 1\\
+1\cdot 61-4\cdot 76
+\end{pmatrix}
+\\
+&=
+\frac1{9^2\sqrt{137}}
+\begin{pmatrix}
+-648\\
+648\\
+-243
+\end{pmatrix}
+=
+\frac1{\sqrt{137}}
+\begin{pmatrix}
+-8\\
+8\\
+-3
+\end{pmatrix}.
+\end{align*}
+Bis auf die Vorzeichen der Vektoren, an die die Aufgabe keine Bedingungen
+gestellt hat, sind die L"osungen identisch.
+\end{loesung}

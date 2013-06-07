@@ -1,0 +1,83 @@
+Sei $\omega$ der Vektor
+\[
+\omega=\begin{pmatrix}\omega_1\\\omega_2\\\omega_3\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item
+Finden Sie eine Matrix $\Omega$, die auf beliebigen $3$-dimensionalen Vektoren $v$ die gleiche
+Wirkung hat wie das Vektorprodukt:
+\[
+\Omega v=\omega\times v.
+\]
+\item Bestimmen Sie $\operatorname{Spur}(\Omega\Omega^t)$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item In die Spalten der Matrix $\Omega$ kommen die Bilder der Basisvektoren,
+man muss also nur $\omega\times e_i$ f"ur alle $i$ berechnen:
+\begin{align*}
+\omega\times e_1
+&=
+\begin{pmatrix}\omega_1\\\omega_2\\\omega_3\end{pmatrix}
+\times
+\begin{pmatrix}1\\0\\0\end{pmatrix}
+=
+\begin{pmatrix}0\\\omega_3\\-\omega_2\end{pmatrix}
+\\
+\omega\times e_2
+&=
+\begin{pmatrix}\omega_1\\\omega_2\\\omega_3\end{pmatrix}
+\times
+\begin{pmatrix}0\\1\\0\end{pmatrix}
+=
+\begin{pmatrix}-\omega_3\\0\\\omega_1\end{pmatrix}
+\\
+\omega\times e_3
+&=
+\begin{pmatrix}\omega_1\\\omega_2\\\omega_3\end{pmatrix}
+\times
+\begin{pmatrix}0\\0\\1\end{pmatrix}
+=
+\begin{pmatrix}\omega_2\\-\omega_1\\0\end{pmatrix}
+\\
+\end{align*}
+Also ist die Matrix
+\[
+\Omega=\begin{pmatrix}
+0&-\omega_3&\omega_2\\
+\omega_3&0&-\omega_1\\
+-\omega_2&\omega_1&0
+\end{pmatrix}
+\]
+\item
+F"ur die Berechnung von $\operatorname{Spur}(\Omega\Omega^t)$ muss erst
+das Produkt $\Omega\Omega^t$ bestimmt werden:
+\begin{align*}
+\Omega\Omega^t
+&=
+\begin{pmatrix}
+0&-\omega_3&\omega_2\\
+\omega_3&0&-\omega_1\\
+-\omega_2&\omega_1&0
+\end{pmatrix}
+\begin{pmatrix}
+0&\omega_3&-\omega_2\\
+-\omega_3&0&\omega_1\\
+\omega_2&-\omega_1&0
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\omega_3^2+\omega_2^2&-\omega_1\omega_2&-\omega_1\omega_3\\
+-\omega_1\omega_2&\omega_3^2+\omega_1^2&-\omega_2\omega_3\\
+-\omega_2\omega_3&-\omega_2\omega_3&\omega_2^2+\omega_1^2
+\end{pmatrix}
+\end{align*}
+Also ist
+\[
+\operatorname{Spur}(\Omega\Omega^t)=2(\omega_1^2+\omega_2^2+\omega_3^2)=2|\omega|^2.
+\]
+\end{teilaufgaben}
+\end{loesung}
+

@@ -1,0 +1,111 @@
+Bei den Tests einer Tr"agheitsplattform lieferte diese folgende Matrix,
+die die Lage der Achsen der Tr"agheitsplattform beschreiben.
+% 0.650501 0.090217 -0.754128
+% -0.719082 0.392770 -0.573283
+% 0.244479 0.915201 0.320371
+% A=[ 0.650501,0.090217,-0.754128; -0.719082,0.392770,-0.573283; 0.244479,0.915201,0.320371]
+\[
+A=\begin{pmatrix}
+\phantom{-}0.650501&0.090217&          -0.754128\\
+  -0.719082&0.392770&          -0.573283\\
+\phantom{-}0.244479&0.915201&\phantom{-}0.320371
+\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item Ist $A$ orthogonal (im Rahmen der angegebenen Genauigkeit)?
+\item Bestimmen Sie die Determinante von $A$
+\item Ist $A$ eine Drehmatrix? Wenn ja, bestimmen Sie den Drehwinkel.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Es ist zu "uberpr"ufen, ob $A^tA=E$ ist, was man direkt nachrechnen kann:
+\begin{align*}
+A^t A&=
+\begin{pmatrix}
+\phantom{-}0.650501&0.090217&          -0.754128\\
+  -0.719082&0.392770&          -0.573283\\
+\phantom{-}0.244479&0.915201&\phantom{-}0.320371
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\phantom{-}0.650501&           -0.719082& \phantom{-}0.244479\\
+\phantom{-}0.090217& \phantom{-}0.392770& \phantom{-}0.915201\\
+  -0.754128&           -0.573283& \phantom{-}0.320371\\
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\phantom{-}1.000000455166&          -0.000000163144&0.000000449787\\
+  -0.000000163144&\phantom{-}1.000000250390&0.000000329885\\
+\phantom{-}0.000000449787&\phantom{-}0.000000329885&1.000000016114
+\end{pmatrix}
+\simeq E.
+\end{align*}
+Im Rahmen der Genauigkeit von 6 Stellen, mit denen die Matrix die
+Matrix $A$ angegeben wurde, stimmt $A^tA$ mit $E$ "uberein.
+\item Eine orthogonale Matrix hat Determinante $+1$ oder $-1$. Man muss
+also nur noch herausfinden, welcher der F"alle eingetreten ist.
+
+e Determinante kann in diesem Fall mit der Sarrusschen Regel
+berechnet werden, es ergibt sich ein Wert nahe bei 1.
+Alternativ kann man auch testen, ob die Determinante ist $+1$,
+indem man nachrrechnet, ob die drei Spaltenvektoren eine
+Rechts-System bilden, oder ob die ersten zwei Spalten als Vektorprodukt
+die dritte Spalte ergeben. Dies kann man direkt nachrechnen:
+\begin{align*}
+\begin{pmatrix}
+\phantom{-}0.650501\\
+  -0.719082\\
+\phantom{-}0.244479
+\end{pmatrix}
+\times
+\begin{pmatrix}
+0.090217\\
+0.392770\\
+0.915201
+\end{pmatrix}
+&=
+\begin{pmatrix}
+-0.719082\cdot 0.915201 - 0.244479\cdot 0.392770\\
+\phantom{-}0.244479\cdot 0.090217 - 0.650501\cdot 0.915201\\
+\phantom{-}0.650501\cdot 0.392770 + 0.719082\cdot 0.090217\\
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+%-0.719082 * 0.915201 - 0.244479 * 0.392770
+%0.244479 * 0.090217 - 0.650501 * 0.915201
+%0.650501 * 0.392770 + 0.719082 * 0.090217
+%
+-0.754128582312\\
+-0.573283003758\\
+\phantom{-}0.320370698564
+\end{pmatrix}
+\simeq
+\begin{pmatrix}
+-0.754128\\
+-0.573283\\
+\phantom{-}0.320371
+\end{pmatrix}
+\end{align*}
+Somit bilden die Spalten der Matrix $A$ ein Rechtssystem, die Determinante
+ist $\det(A)=+1$.
+\item Wegen $\det(A)=1$ ist die orthogonale Matrix $A$ eine Drehmatrix,
+der Drehwinkel $\alpha$ kann aus der Spur mit Hilfe der Formel
+\[
+\operatorname{Spur}(A)=1+2\cos\alpha\qquad\Rightarrow\qquad
+\cos\alpha=\frac{\operatorname{Spur}(A)-1}2
+\]
+gefunden werden. Der Wert der Spur ist
+\[
+\operatorname{Spur}(A) = 0.650501  + 0.392770  + 0.320371 = 1.363642.
+\]
+Also folgt f"ur den Drehwinkel:
+\[
+\cos\alpha=\frac{1.363642-1}2= 0.181821\qquad\Rightarrow\qquad
+\alpha=79.5242^\circ.
+\]
+\end{teilaufgaben}
+\end{loesung}
+

@@ -1,0 +1,89 @@
+Sei $A$ eine $n\times n$-Matrix und $B$ eine $m\times m$-Matrix. Aus diesen beiden
+Matrizen kann man einen neue $(n+m)\times(n+m)$-Matrix $M$ bilden:
+\[
+M=\begin{pmatrix}
+A&0\\
+0&B
+\end{pmatrix}
+\]
+Eine solche Matrix heisst Blockmatrix.
+\begin{teilaufgaben}
+\item
+Zeigen Sie:
+Ist $B=E$ die $m\times m$-Einheitsmatrix, dann ist $\det(M)=\det(B)$.
+\item
+$\det(M)=\det(A)\det(B)$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Wir bezeichnen (tempor"ar) mit $E_k$ die $k\times k$-Einheitsmatrix,
+und berechnen die Determinante mit Hilfe des Entwicklungssatzes nach der
+letzten Spalte:
+\[
+\left|\,
+\begin{matrix}
+A&0\\
+0&E_m
+\end{matrix}
+\,\right|
+=0\cdot +\dots+(-1)^{2m+2n}1\cdot
+\left|\,
+\begin{matrix}
+A&0\\
+0&E_{m-1}
+\end{matrix}
+\,\right|
+=
+\left|\,
+\begin{matrix}
+A&0\\
+0&E_{m-2}
+\end{matrix}
+\,\right|
+=\dots=
+\det(A).
+\]
+
+\item
+Man kann die Matrix $M$ in ein Produkt zerlegen:
+\[
+M=
+\begin{pmatrix}
+A&0\\
+0&B
+\end{pmatrix}
+=
+\begin{pmatrix}
+AE&0\\
+0&EB
+\end{pmatrix}
+=
+\begin{pmatrix}
+A&0\\
+0&E
+\end{pmatrix}
+\begin{pmatrix}
+E&0\\
+0&B
+\end{pmatrix}
+\]
+Nach der Produktformel f"ur die Determinante gilt jetzt
+\[
+\det(M) =
+\det
+\begin{pmatrix}
+A&0\\
+0&E
+\end{pmatrix}
+\det
+\begin{pmatrix}
+E&0\\
+0&B
+\end{pmatrix}
+=\det(A)\det(B),
+\]
+wobei wir das Resultat von a) verwendet haben.
+\end{teilaufgaben}
+\end{loesung}
+

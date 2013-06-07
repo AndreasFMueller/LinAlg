@@ -1,0 +1,145 @@
+Betrachten Sie die Matrix
+\[
+A=
+\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+0&-\frac1{\sqrt{2}}&\frac1{\sqrt{2}}\\
+\frac2{\sqrt{6}}&-\frac1{\sqrt{6}}&-\frac1{\sqrt{6}}
+\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item
+Ist $A$ orthogonal?
+\item
+Bestimmen Sie die Determinante von $A$.
+\item
+Ist $A$ eine Drehmatrix? Wenn ja, bestimmen Sie den Drehwinkel?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Um nachzupr"ufen, dass die Matrix orthogonal ist, muss das Produkt
+$A^tA$ berechnet werden:
+\begin{align*}
+A^tA
+&=
+\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+0&-\frac1{\sqrt{2}}&\frac1{\sqrt{2}}\\
+\frac2{\sqrt{6}}&-\frac1{\sqrt{6}}&-\frac1{\sqrt{6}}
+\end{pmatrix}^t
+\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+0&-\frac1{\sqrt{2}}&\frac1{\sqrt{2}}\\
+\frac2{\sqrt{6}}&-\frac1{\sqrt{6}}&-\frac1{\sqrt{6}}
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\frac1{\sqrt{3}}&0&\frac2{\sqrt{6}}\\
+\frac1{\sqrt{3}}&-\frac1{\sqrt{2}}&-\frac1{\sqrt{6}}\\
+\frac1{\sqrt{3}}&\frac1{\sqrt{2}}&-\frac1{\sqrt{6}}
+\end{pmatrix}
+\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+0&-\frac1{\sqrt{2}}&\frac1{\sqrt{2}}\\
+\frac2{\sqrt{6}}&-\frac1{\sqrt{6}}&-\frac1{\sqrt{6}}
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\frac13+\frac46 & \frac13-\frac26         & \frac12 -\frac26       \\
+\frac13-\frac26 & \frac13+\frac12+\frac16 & \frac13-\frac12+\frac16\\
+\frac13-\frac26 & \frac13-\frac12+\frac16 & \frac13+\frac12+\frac16
+\end{pmatrix}
+\\
+&=\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}
+=E
+\end{align*}
+Somit ist $A^tA=E$, $A$ ist also orthogonal.
+\item
+Eine orthogonale Matrix kann nur die Determinante $1$ oder $-1$ haben.
+Sie hat Determinante $1$, wenn der dritte Vektor das Vektorprodukt der
+ersten zwei ist, also
+\begin{align*}
+\begin{pmatrix}
+\frac1{\sqrt{3}}\\0\\\frac{2}{\sqrt{6}}
+\end{pmatrix}\times\begin{pmatrix}
+\frac1{\sqrt{3}}\\-\frac1{\sqrt{2}}\\-\frac1{\sqrt{6}}
+\end{pmatrix}
+&=
+\begin{pmatrix}
+0\cdot\bigl(-\frac1{\sqrt{6}}\bigr)-\bigl(-\frac1{\sqrt{2}}\bigr)\cdot\frac2{\sqrt{6}}\\
+\frac2{\sqrt{6}}\cdot\frac1{\sqrt{3}}-\bigl(-\frac1{\sqrt{6}} \bigr)\cdot\frac1{\sqrt{3}}\\
+\frac1{\sqrt{3}}\cdot\bigl(-\frac1{\sqrt{2}}\bigr)-\frac1{\sqrt{3}}\cdot 0
+\end{pmatrix}
+\\
+&=\begin{pmatrix}
+\frac1{\sqrt{3}}\\
+\frac23\cdot\frac1{\sqrt{2}}+\frac13\cdot\frac1{\sqrt{2}}\\
+-\frac1{\sqrt{6}}
+\end{pmatrix}
+\\
+&=\begin{pmatrix}
+\frac1{\sqrt{3}}\\
+\frac1{\sqrt{2}}\\
+-\frac1{\sqrt{6}}
+\end{pmatrix}
+\\
+\end{align*}
+Das Vektorprodukt der ersten zwei Spalten ist also tats"achlich
+identisch mit dem dritten Vektor, die Determinante muss also $1$ sein.
+
+Nat"urlich kann man die Determinante auch mit der Sarrusschen Formel ermitteln:
+\begin{align*}
+\left|
+\begin{matrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+0&-\frac1{\sqrt{2}}&\frac1{\sqrt{2}}\\
+\frac2{\sqrt{6}}&-\frac1{\sqrt{6}}&-\frac1{\sqrt{6}}
+\end{matrix}
+\right|
+&=
+\frac1{\sqrt{3}}\cdot\biggl(-\frac1{\sqrt{2}}\biggr)\cdot\biggl(-\frac1{\sqrt{6}}\biggr)
++
+\frac1{\sqrt{3}}\cdot\frac1{\sqrt{2}}\cdot\frac2{\sqrt{6}}
+\\
+&\qquad 
++
+\frac1{\sqrt{3}}\cdot0\cdot\biggl(-\frac1{\sqrt{6}}\biggr)
+-
+\frac2{\sqrt{6}}\cdot\biggl(-\frac1{\sqrt{2}}\biggr)\cdot\frac1{\sqrt{3}}
+\\
+&\qquad
+-
+\biggl(-\frac1{\sqrt{6}}\biggr)\cdot\frac1{\sqrt{2}}\cdot \frac1{\sqrt{3}}
+-
+\biggl(-\frac1{\sqrt{6}}\biggr)\cdot0\cdot\frac1{\sqrt{3}}
+\\
+&=
+\frac16+\frac26+0+\frac26+\frac16+0=1
+\end{align*}
+\item
+Die Matrix $A$ ist also in $\operatorname{SO}(3)$, also kann man den
+Drehwinkel $\alpha$ mit Hilfe der Spur ermitteln:
+\begin{align*}
+\operatorname{tr} A=1+2\cos\alpha&=\frac1{\sqrt{3}}-\frac1{\sqrt{2}}-\frac1{\sqrt{6}}
+\\
+&=\frac{\sqrt{2}-\sqrt{3}-1}{\sqrt{6}}=-0.53800480246078477625
+\\
+\Rightarrow\qquad
+\cos\alpha&=\frac12\left(
+\frac{\sqrt{2}-\sqrt{3}-1}{\sqrt{6}}-1
+\right)=-0.76900240123039238812
+\\
+\alpha&=2.448075423264433\\
+\alpha&=140.2643896827546^\circ\\
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+

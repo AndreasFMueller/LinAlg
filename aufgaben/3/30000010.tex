@@ -1,0 +1,25 @@
+Berechnen Sie den Winkel zwischen den Ebenen mit den Gleichungen
+\[
+\begin{linsys}{3}
+2x&+&3y&+&4z&=&6\\
+3x&-&2y&-&z&=&-4
+\end{linsys}
+\]
+
+\begin{loesung}
+Der Zwischenwinkel kann berechnet werden als Zwischenwinkel der
+beiden Normalenvektoren, die man aus den Geradengleichungen
+ablesen kann:
+$$
+\vec n_1=\begin{pmatrix}2\\3\\4\end{pmatrix},\qquad
+\vec n_2=\begin{pmatrix}3\\-2\\-1\end{pmatrix}
+$$
+Der Zwischenwinkel ist
+\begin{align*}
+\cos\alpha&=\frac{\vec n_1\cdot\vec n_2}{|\vec n_1|\,|\vec n_2|}=\frac{6-6-4}{\sqrt{4+9+16}\sqrt{9+4+1}}
+=\frac{-4}{\sqrt{29\cdot14}}=-0.19851666679418605336
+\\
+\alpha&=101.450231136612^\circ
+\end{align*}
+\end{loesung}
+

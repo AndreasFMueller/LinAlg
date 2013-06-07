@@ -1,0 +1,57 @@
+Berechnen Sie die folgende Determinante
+\[
+\left|
+\begin{matrix}
+2&3&4&0\\
+3&4&0&0\\
+4&0&0&0\\
+1&2&3&4
+\end{matrix}
+\right|
+\]
+
+\begin{loesung}
+Mit drei Zeilenvertauschungen, die jedesmal das Vorzeichen der
+Determinante umkehren, also insgesammt das Vorzeichen "andern,
+kann man die Determinante in die Form
+\[
+\left|
+\begin{matrix}
+2&3&4&0\\
+3&4&0&0\\
+4&0&0&0\\
+1&2&3&4
+\end{matrix}
+\right|
+=
+-\left|
+\begin{matrix}
+4&0&0&0\\
+3&4&0&0\\
+2&3&4&0\\
+1&2&3&4
+\end{matrix}
+\right|
+\]
+Transposition "andert die Determinante nicht, also ist
+\[
+\left|
+\begin{matrix}
+2&3&4&0\\
+3&4&0&0\\
+4&0&0&0\\
+1&2&3&4
+\end{matrix}
+\right|
+=
+-\left|
+\begin{matrix}
+4&3&2&1\\
+0&4&3&2\\
+0&0&4&3\\
+0&0&0&4
+\end{matrix}
+\right|=-4^4=-256
+\]
+\end{loesung}
+

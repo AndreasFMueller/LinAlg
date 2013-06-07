@@ -1,0 +1,162 @@
+Betrachten Sie das Gleichungssytem
+\[
+\begin{linsys}{3}
+-x&-&3y&-&3z&=&-21\\
+ x&+&4y&+& z&=& 16\\
+ x&-&5y&-&3z&=&  3
+\end{linsys}
+\]
+\begin{teilaufgaben}
+\item Berechnen Sie die Inverse der Koeffizientenmatrix.
+\item Finden Sie die L"osung des Gleichungssystems mit Hilfe der Inversen.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir berechnen die Inverse der Koeffizientenmatrix
+\[
+A=\begin{pmatrix}
+-1&-3&-3\\
+ 1& 4& 1\\
+ 1&-5&-3
+\end{pmatrix},
+\]
+da damit dann auch die L"osung berechnet werden kann.
+Wir verwenden den Gauss-Algorithmus daf"ur:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+-1&-3&-3&1&0&0\\
+ 1& 4& 1&0&1&0\\
+ 1&-5&-3&0&0&1\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 3& 3&-1&0&0\\
+ 0& 1&-2& 1&1&0\\
+ 0&-8&-6& 1&0&1\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 3&  3&-1& 0&0\\
+ 0& 1& -2& 1& 1&0\\
+ 0& 0&-22& 9& 8&1\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 3&  3&      -1     & 0           &       0\\
+ 0& 1& -2&       1     & 1           &       0\\
+ 0& 0&  1&-\frac{9}{22}&-\frac{8}{22}&-\frac1{22}\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 3&  0& \frac{5}{22}& \frac{24}{22}& \frac{3}{22}\\
+ 0& 1&  0& \frac{4}{22}& \frac{ 6}{22}&-\frac{2}{22}\\
+ 0& 0&  1&-\frac{9}{22}&-\frac{ 8}{22}&-\frac{1}{22}\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 3&  0&-\frac{7}{22}& \frac{ 6}{22}& \frac{9}{22}\\
+ 0& 1&  0& \frac{4}{22}& \frac{ 6}{22}&-\frac{2}{22}\\
+ 0& 0&  1&-\frac{9}{22}&-\frac{ 8}{22}&-\frac{1}{22}\\
+\hline
+\end{tabular}
+\end{align*}
+Die inverse Matrix ist also
+\[
+A^{-1}=
+\begin{pmatrix}
+-\frac{7}{22}& \frac{ 6}{22}& \frac{9}{22}\\
+ \frac{4}{22}& \frac{ 6}{22}&-\frac{2}{22}\\
+-\frac{9}{22}&-\frac{ 8}{22}&-\frac{1}{22}
+\end{pmatrix}
+=
+\frac1{22}
+\begin{pmatrix}
+-7&  6& 9\\
+ 4&  6&-2\\
+-9&- 8&-1
+\end{pmatrix}
+\simeq
+\begin{pmatrix}
+  -0.318&  0.272&  0.409\\
+   0.181&  0.272& -0.090\\
+  -0.409& -0.363& -0.045
+\end{pmatrix}
+\]
+\item
+Die L"osung $x$ findet man jetzt durch Multiplikation der Inversen $A^{-1}$
+mit der rechten Seite
+\[
+b=
+\begin{pmatrix}
+-21\\16\\3
+\end{pmatrix}.
+\]
+Man findet
+\begin{align*}
+x&
+=
+A^{-1}b=
+\frac1{22}
+\begin{pmatrix}
+-7&  6& 9\\
+ 4&  6&-2\\
+-9&- 8&-1
+\end{pmatrix}
+\begin{pmatrix}
+-21\\16\\3
+\end{pmatrix}
+\\
+&=
+\frac1{22}
+\begin{pmatrix}
+(-7)\cdot(-21)+6\cdot 16+9\cdot 3\\
+4\cdot (-21)+ 6\cdot 16+ (-2)\cdot 3\\
+(-9)\cdot(-21)+ (-8)\cdot 16+ (-1)\cdot 3
+\end{pmatrix}
+\\
+&
+=
+\frac1{22}
+\begin{pmatrix}
+270\\
+6\\
+58
+\end{pmatrix}
+=
+\frac1{11}
+\begin{pmatrix}
+135\\
+3\\
+29
+\end{pmatrix}
+\simeq
+\begin{pmatrix}
+   12.272\\
+    0.272\\
+    2.636
+\end{pmatrix}
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}

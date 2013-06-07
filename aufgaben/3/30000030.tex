@@ -1,0 +1,132 @@
+%a =
+%
+%   1   4   3  -3
+%   0  -3   1   2
+%   0   0  -1   4
+%
+%ans =
+%
+%    1    0    0   17
+%    0    1    0   -2
+%    0    0    1   -4
+%
+%b =
+%
+%   1   0   0
+%   3   1   0
+%  -1   2   1
+%
+%ans =
+%
+%    1    4    3   -3
+%    3    9   10   -7
+%   -1  -10   -2   11
+Die beiden Ebenen mit den Gleichungen
+\[
+\begin{linsys}{3}
+ x&+&4y&+& 3z&=&-3\\
+3x&+&9y&+&10z&=&-7
+\end{linsys}
+\]
+haben eine Schnittgerade $g$.
+Ausserdem sei die Ebene $\sigma$ mit der Normalen
+\[
+\vec n=
+\begin{pmatrix}1\\10\\2\end{pmatrix}
+\]
+durch den Punkt $P=(1,-1,-1)$ gegeben. Finden Sie den Durchstosspunkt
+von $g$ durch $\sigma$.
+
+\begin{loesung}
+Es geht darum den gemeinsamen Schnittpunkt der beiden Ebenen mit der
+dritten gegebenen Ebene zu finden. Von letzterer muss erst noch die
+Gleichung gefunden werden. Dazu verwendet man zweckm"assigerweise
+die Normalenform, also
+\[
+\begin{pmatrix}1\\10\\2\end{pmatrix}
+\cdot\left(
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+-
+\begin{pmatrix}1\\-1\\-1 \end{pmatrix}
+\right)
+=
+x+10y+2z+11=0
+\]
+Das zu l"osende Gleichungssystem ist jetzt also
+\[
+\begin{linsys}{3}
+ x&+&4y&+& 3z&=&-3\\
+3x&+&9y&+&10z&=&-7\\
+x&+&10y&+& 2z&=&-11\\
+\end{linsys}
+\]
+Die L"osung findet man am einfachsten mit dem Gauss-Algorithmus,
+der in diesem Fall wie folgt aussieht:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1& 4& 3& -3\\
+3& 9&10& -7\\
+1&10& 2&-11\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1& 4& 3& -3\\
+0&-3& 1&  2\\
+0& 6&-1& -8\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1& 4&       3&      -3\\
+0& 1&-\frac13&-\frac23\\
+0& 0&       1&      -4\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1& 4&       0&       9\\
+0& 1&       0&      -2\\
+0& 0&       1&      -4\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1& 0&       0&      17\\
+0& 1&       0&      -2\\
+0& 0&       1&      -4\\
+\hline
+\end{tabular}
+\end{align*}
+Der gemeinsame Schnittpunkt ist also $S=(17,-2,-4)$. Zur Kontrolle
+setzen wir in die "urspr"unglichen Gleichungen ein
+\[
+\begin{pmatrix}
+1&4& 3\\
+3&9&10\\
+1&10&2
+\end{pmatrix}
+\begin{pmatrix}17\\-2\\-4\end{pmatrix}
+=
+\begin{pmatrix}
+17-8-12\\
+51-18-40\\
+17-20-8
+\end{pmatrix}
+=
+\begin{pmatrix}
+-3\\
+-7\\
+-11
+\end{pmatrix}.
+\]
+\end{loesung}
+

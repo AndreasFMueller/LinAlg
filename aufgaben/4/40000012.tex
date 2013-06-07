@@ -1,0 +1,93 @@
+Bei einer Basistransformation transformieren sich die
+Koordinaten
+von der neuen in die alte Basis mit der Matrix
+$D_{z,\alpha}$. Eine lineare Abbildung hat
+in der alten Basis die Matrix
+\[
+B=
+\begin{pmatrix}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item Ist $B$ orthogonal? Ist $B$ eine Drehmatrix?
+\item Welche Matrix hat sie in der neuen Basis?
+\item Rechnen Sie nach, ab die Matrix in der neuen Basis orthogonal oder
+eine Drehmatrix ist.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Mit der Formel von Sarrus findet man $\det(B)=-1$.
+\item
+Die Transformationsmatrix ist $T=D_{z,\alpha}^{-1}=D_{z,-\alpha}$.
+In der neuen Basis ist die Matrix
+\begin{align*}
+TBT^{-1}
+&=
+\begin{pmatrix}
+ \cos\alpha& \sin\alpha&0\\
+-\sin\alpha& \cos\alpha&0\\
+ 0         &0          &1
+\end{pmatrix}
+\begin{pmatrix}
+0&1&0\\
+1&0&0\\
+0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+ \cos\alpha&-\sin\alpha&0\\
+ \sin\alpha& \cos\alpha&0\\
+ 0         &0          &1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+ \sin\alpha& \cos\alpha&0\\
+ \cos\alpha&-\sin\alpha&0\\
+ 0         &0          &1
+\end{pmatrix}
+\begin{pmatrix}
+ \cos\alpha&-\sin\alpha&0\\
+ \sin\alpha& \cos\alpha&0\\
+ 0         &           &1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+ 2\sin\alpha\cos\alpha   &-\sin^2\alpha+\cos^2\alpha&0\\
+\cos^2\alpha-\sin^2\alpha&-2\sin\alpha\cos\alpha    &0\\
+ 0                       &0                         &1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+ \cos2\alpha &-\sin2\alpha & 0\\
+-\sin2\alpha &-\cos2\alpha & 0\\
+      0      &      0      & 1
+\end{pmatrix}
+\end{align*}
+\item
+Die Matrix ist orthogonal, denn wenn man das Vorzeichen der
+ersten Spalte, also die Richtung des ersten Spaltenvektors umkehrt,
+entsteht die Matrix $D_{z,-2\alpha}$, welche bekanntermassen
+orthogonal ist. An der Tatsache, dass die Spaltenvektoren orthogonal
+und von L"ange $1$ sind "andert sich durch diese Operation allerdings
+nichts.
+
+Jetzt ist nur noch zu pr"ufen, dass die Determinante $1$ ist:
+\begin{align*}
+\left|\,
+\begin{matrix}
+ \cos2\alpha &-\sin2\alpha & 0\\
+-\sin2\alpha &-\cos2\alpha & 0\\
+      0      &      0      & 1
+\end{matrix}\,\right|
+&=(-\cos^22\alpha-\sin^22\alpha)\cdot 1=-1
+\end{align*}
+Die Matrix ist zwar orthogonal, aber die Determinante ist $-1$.
+\end{teilaufgaben}
+\end{loesung}
+

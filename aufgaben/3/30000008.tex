@@ -1,0 +1,73 @@
+\begin{teilaufgaben}
+\item Bestimmen Sie die Parameterdarstellung der Ebene durch die
+Punkte $(1,0,0)$, $(0,1,0)$ und $(0,0,1)$.
+\item Bestimmen Sie die Normale der Ebene.
+\item Wie gross ist der Abstand des Punktes $(1291, 1848, 1918)$ von
+der Ebene?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Als Parameterdarstellung kann man
+\[
+\begin{pmatrix}1\\0\\0\end{pmatrix}
++s\begin{pmatrix}-1\\1\\0\end{pmatrix}
++t\begin{pmatrix}-1\\0\\1\end{pmatrix}
+\]
+verwenden.
+\item  Der Normalenvektor $\vec n$ erf"ullt die Gleichungen
+\[
+\begin{linsys}{3}
+-n_1&+&n_2& &    &=&0\\
+-n_1& &   &+&n_3 &=&0
+\end{linsys}
+\]
+Man kann zwar die L"osung
+\[
+\vec n=
+\begin{pmatrix}1\\1\\1\end{pmatrix}
+\]
+sofort ablesen, wir zeigen hier trotzdem auch noch das Gauss-Tableau
+\[
+\begin{tabular}{|ccc|c|}
+\hline
+$-1$&1&0&0\\
+$-1$&0&1&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&$-1$&0&0\\
+0&$-1$&1&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1& 0&$-1$&0\\
+0& 1&$-1$&0\\
+\hline
+\end{tabular}
+\]
+Es besagt $x=y=z$, alle drei Komponenten sind also gleich,
+wie bereits festgestellt.
+\item Der Abstand eines Punktes mit Ortsvektor $q$ kann mit Hilfe von
+$\vec n$ berechnet werden, wenn $\vec n$ Einheitsl"ange hat. Der bisher
+gefundene Vektor erf"ullt diese Bedingung nicht, aber
+\[
+\vec n^0=\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}.
+\]
+hat L"ange $1$.
+Die Entfernung ist dann
+\[
+d=\left(\vec q- \begin{pmatrix}1\\0\\0\end{pmatrix}\right)\cdot\vec n
+=
+\frac1{\sqrt{3}}\begin{pmatrix}1290\\1848\\1918\end{pmatrix}
+\cdot
+\begin{pmatrix}1\\1\\1\end{pmatrix}
+=\frac1{\sqrt{3}}(1290+1848+1918)=\frac{5056}{\sqrt{3}}.
+\]
+\end{teilaufgaben}
+\end{loesung}
+

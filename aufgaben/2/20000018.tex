@@ -1,0 +1,49 @@
+Berechnen Sie die folgende Determinante
+\[
+\left|\,\begin{matrix}
+4&6& 0&3\\
+7&1& 0&4\\
+0&0&11&0\\
+8&0& 0&0
+\end{matrix}\,\right|.
+\]
+
+%   4   6   0   3
+%   7   1   0   4
+%   0   0  11   0
+%   8   0   0   0
+
+
+\begin{loesung}
+Die Determinante kann mit dem Entwicklungssatz bestimmt werden, wobei
+als Entwicklung nach der dritten Spalte am zweckm"assigsten ist:
+\begin{align*}
+\left|\,\begin{matrix}
+4&6& 0&3\\
+7&1& 0&4\\
+0&0&11&0\\
+8&0& 0&0
+\end{matrix}\,\right|.
+&=
+11\cdot
+\left|\,\begin{matrix}
+4&6&3\\
+7&1&4\\
+8&0&0
+\end{matrix}\,\right|
+\\
+&=
+11\cdot
+8\cdot
+\left|\,\begin{matrix}
+6&3\\
+1&4
+\end{matrix}\,\right|
+\\
+&=
+11\cdot
+8\cdot
+(6\cdot 4-1\cdot 3)=11\cdot 8\cdot 21=1848.
+\end{align*}
+\end{loesung}
+

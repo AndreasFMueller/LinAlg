@@ -1,0 +1,73 @@
+Auf den Koordinatenachsen werden jeweils in positiver und
+negativer Richtung Strecken gleicher L"ange abgetragen. F"ur die
+$x$-Achse ist die L"ange $2$, f"ur die $y$-Achse $3$ und f"ur die
+$z$-Achse $5$. Durch Verbinden der Endpunkte entsteht ein
+unregelm"assiges Oktaeder. Sei $g$ die
+Gerade durch die beiden Punkte auf der positiven $x$- und $y$-Achse,
+und $h$ die Gerade durch den Punkte auf der negativen $x$-Achse
+und auf der $z$-Achse. Bestimmen Sie den Abstand von $g$ und $h$.
+
+\begin{loesung}
+Die beiden Kanten sind windschiefe Geraden, deren Abstand mit
+der Abstandsformel gefunden werden kann. Dazu ben"otigt man zun"achst die
+Richtungsvektoren
+\begin{align*}
+\vec r_1&=\begin{pmatrix}2\\0\\0\end{pmatrix}-\begin{pmatrix}0\\3\\0\end{pmatrix}
+=
+\begin{pmatrix}2\\-3\\0\end{pmatrix}
+,\\
+\vec r_2&=\begin{pmatrix}-2\\0\\0\end{pmatrix}-\begin{pmatrix}0\\0\\5\end{pmatrix}
+=
+\begin{pmatrix}-2\\0\\-5\end{pmatrix}
+.
+\end{align*}
+Daraus berechnet man jetzt das Vektorprodukt
+\[
+\vec r_1\times \vec r_2
+=
+\begin{pmatrix}2\\-3\\0\end{pmatrix}
+\times
+\begin{pmatrix}-2\\0\\-5\end{pmatrix}
+=
+\begin{pmatrix}
+15\\10\\ -6
+\end{pmatrix},
+\]
+welchse wir auch noch normieren m"ussen:
+\begin{align*}
+|\vec r_1\times\vec r_2|^2
+&=15^2+10^2+6^2=225+100+36=19^2
+\\
+\vec n&=
+\frac{\vec r_1\times\vec r_2}{|\vec r_1\times\vec r_2|}=
+\frac1{19}
+\begin{pmatrix}
+15\\10\\ -6
+\end{pmatrix}.
+\end{align*}
+Ausserdem braucht man die Differenz zweier Punkte,
+wir nehmen die Punkte auf der $x$-Achse
+\[
+\vec q_1-\vec q_2
+=
+\begin{pmatrix}2\\0\\0\end{pmatrix}
+-
+\begin{pmatrix}-2\\0\\0\end{pmatrix}
+=
+\begin{pmatrix}4\\0\\0\end{pmatrix}
+\]
+Die Abstandsformel liefert dann
+\[
+d=\vec n\cdot (\vec q_1-\vec q_2)=
+\frac1{19}
+\begin{pmatrix}
+15\\10\\ -6
+\end{pmatrix}
+\cdot
+\begin{pmatrix}4\\0\\0\end{pmatrix}
+=\frac{60}{19}
+=
+3.15789473684210526315.
+\]
+\end{loesung}
+
