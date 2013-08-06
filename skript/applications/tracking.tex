@@ -131,10 +131,12 @@ effizient l"osen.
 \subsubsection{Korrektur}
 Wir jetzt eine Positions-Abweichung $(x,y)$ des Leitsterns gemessen,
 kann aus $A$ und $v$ die Korrektur in Rektaszension und Deklination
-ermittelt werden, mit der die Abweichung innert einer Sekunde wieder
+ermittelt werden, mit der die Abweichung innert $t=1$ Sekunde wieder
 zum Verschwinden gebracht werden kann. Dazu muss man nur
 (\ref{guiding:model}) nach $(\alpha,\delta)$ aufl"osen:
 \[
+\begin{pmatrix}x\\y\end{pmatrix}
+=
 A\begin{pmatrix}\alpha\\\delta\end{pmatrix}+tv
 \qquad
 \Rightarrow
@@ -144,7 +146,7 @@ A^{-1}\left(
 \begin{pmatrix}
 x\\y
 \end{pmatrix}
--v
+-tv
 \right).
 \]
 Die Kalibrationsdaten $A$ und $v$ h"angen offenbar nur von der relativen
