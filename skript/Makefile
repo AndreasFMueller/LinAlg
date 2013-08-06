@@ -6,7 +6,7 @@
 all:	skript.pdf
 
 TEXFILES = determinanten.tex eigen.tex lingl.tex \
-	linsys.tex vektoren.tex vektorgeometrie.tex \
+	linsys.tex vektorgeometrie.tex \
 	einleitung.tex geometrie.tex zerlegung.tex \
 	applications/hauptachse.tex \
 	applications/kirchhoff.tex \
