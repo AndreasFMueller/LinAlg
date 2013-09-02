@@ -1,0 +1,94 @@
+Ein neu entwickeltes Drehzahlmessger"at basiert auf einem
+3-Achs-Beschleunigungs\-sensor, der genau auf der Achse der zu
+messenden Drehung montiert wird. Diese Achse sei die $x$-Achse.
+Er misst laufend die Richtung der Erdbeschleunigung und "ubermittelt
+die Messresultate via Bluetooth.
+
+Der Sensor hat ein eigenes, mit dem Sensor mitdrehendes Koordinatensystem,
+dessen $z$-Achse parallel zur Drehachse verl"auft.
+Ist die Drehachse horizontal, befindet sich der gemessene Vektor
+in der $x$-$y$-Ebene des drehenden Koordinatensystems.
+Der Drehwinkel ist proportional zur Zeit: $\omega t$, $\omega$ ist die
+Winkelgeschwindigkeit.
+
+Nun stellt sich aber heraus, dass die Drehachse
+gegen die Horizontale um den Winkel $\alpha$ geneigt ist. 
+Finden Sie die Transformationsmatrix, die gestattet, den "ubermittelten Vektor
+aus dem drehenden Koordinatensystem in das feste Koordinatensystem
+umzurechnen.
+
+\begin{loesung}
+Zun"achst sind schon zur Zeit $t=0$ die Koordinatensysteme gegeneinander
+verdreht: die $z$-Achse des rotierenden Koordinatensystems ist die 
+$x$-Achse des festen Koordinatensystems.
+Die Umrechung von rotierendem Koordinatensystem zu festem Koordinatensystem
+erfolgt mit der Matrix
+\[
+Z
+=
+\begin{pmatrix}
+0& 0&1\\
+0&-1&0\\
+1& 0&0
+\end{pmatrix}
+\]
+
+Die Drehung um die $z$-Achse ist im rotierenden Koordinatensystem
+durch die Transformationsmatrix
+\[
+D_{z,\omega t}
+=
+\begin{pmatrix}
+\cos\omega t &-\sin\omega t & 0\\
+\sin\omega t & \cos\omega t & 0\\
+     0       &     0        & 1
+\end{pmatrix}
+\]
+gegeben.
+Zur Zeit $\omega t$ zeigt ein Vektor mit Koordinaten $x$ im rotierenden
+Koordinatensystem in Richtung $D_{z,\omega t}^{-1}x=D_{z,-\omega t}x$,
+dargestellt im rotierenden Koordinatensystem zur Zeit $t=0$.
+Im festen Koordinatensystem ist dies $ZD_{z,-\omega t}x$.
+
+Da die Drehachse aber geneigt ist, muss diese Matrix noch mit einer
+Drehung um den Winkel $\alpha$ um die $y$-Achse multipliziert werden:
+\begin{align*}
+T&=
+D_{y,\beta}ZD_{z,-\omega t}\\
+&=
+\begin{pmatrix}
+\cos\alpha&0&-\sin\alpha\\
+     0    &1&     0     \\
+\sin\alpha&0& \cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+0& 0&1\\
+0&-1&0\\
+1& 0&0
+\end{pmatrix}
+\begin{pmatrix}
+ \cos\omega t & \sin\omega t & 0\\
+-\sin\omega t & \cos\omega t & 0\\
+     0       &     0        & 1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\cos\alpha&0&-\sin\alpha\\
+     0    &1&     0     \\
+\sin\alpha&0& \cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+     0        &      0       & 1\\
+ \sin\omega t &-\cos\omega t & 0\\
+ \cos\omega t & \sin\omega t & 0
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\sin\alpha\cos\omega t & -\sin\alpha\cos\omega t &\cos\alpha\\
+\sin\omega t           & -\cos\omega t           & 0\\
+\cos\alpha\cos\omega t &  \cos\alpha\sin\omega t &\sin\alpha
+\end{pmatrix}.
+\end{align*}
+\end{loesung}

@@ -1,0 +1,124 @@
+Betrachten Sie das folgende Gleichungssystem f"ur $x$, $y$ und $z$, 
+welches von einem Parameter $t$ abh"angt.
+
+\[
+\begin{linsys}{3}
+(2t-1)x&-&(t-1)y&+& z&=& 1\\
+    2tx&-&(t-1)y&+&2z&=& 1\\
+(2t+4)x&-&(t+2)y&+&2z&=&-1
+\end{linsys}
+\]
+\begin{teilaufgaben}
+\item
+F"ur welche Werte des Parameters $t$ hat das Gleichungssystem
+keine, genau eine oder unendlich viele L"osungen?
+\item
+L"asst man $t$ gr"osser werden, ver"andert sich auch die L"osung
+des Gleichungssystems. Gegen welchen Vektor strebt die L"osung
+des Gleichungssystem im Grenzfall $t\to\infty$?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Das Gauss-Tableau dieses Gleichungssystems ist
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2t-1&-t+1&1& 1\\
+  2t&-t+1&2& 1\\
+2t+4&-t-2&2&-1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+  -1&   0&-1& 0\\
+  2t&-t+1& 2& 1\\
+   4&  -3& 0&-2\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+   1&   0&    1&   0\\
+   0&-t+1&-2t+2&   1\\
+   0&  -3&   -4&  -2\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+   1&     0&      1&   0\\
+   0&    -3&     -4&  -2\\
+   0&-(t-1)&-2(t-1)&   1\\
+\hline
+\end{tabular}
+\end{align*}
+Im letzten Tableau kann man ablesen, dass das Gleichungssystem singul"ar
+ist, wenn $t=1$, dann verschwinden n"amlich die Klammerausdr"ucke.
+Setzt man $t=1$ ein, wird das Tableau reduziert auf
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+   1&   0&    1&   0\\
+   0&  -3&   -4&  -2\\
+   0&   0&    0&   1\\
+\hline
+\end{tabular}
+\]
+Da in der letzten Seite die rechten Seite nicht Null ist, hat das
+Gleichungssystem keine L"osung.
+
+\item
+Die allgemeine L"osung des Gleichungssystems kann man f"ur $t\ne 1$
+ebenfalls ausrechnen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+   1&   0&    1&   0\\
+   0&-t+1&-2t+2&   1\\
+   0&  -3&   -4&  -2\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+   1&   0&    1&            0\\
+   0&   1&    2&\frac{1}{1-t}\\
+   0&  -3&   -4&           -2\\
+\hline
+\end{tabular}
+\end{align*}
+Die rationale Funktion auf der rechten Seite strebt f"ur $t\to\infty$
+gegen $0$, damit k"onnen wir weiterrechnen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+   1&   0&    1&            0\\
+   0&   1&    2&            0\\
+   0&  -3&   -4&           -2\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+   1&   0&    1&  0\\
+   0&   1&    2&  0\\
+   0&   0&    2& -2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+   1&   0&    0&     1\\
+   0&   1&    0&     2\\
+   0&   0&    1&    -1\\
+\hline
+\end{tabular}
+\end{align*}
+F"ur $t\to\infty$ strebt also $x\to 1$, $y\to 2$ und $z\to -1$.
+\end{teilaufgaben}
+\end{loesung}

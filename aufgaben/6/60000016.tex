@@ -1,0 +1,227 @@
+Betrachten Sie die Matrix
+\[
+A
+=
+\begin{pmatrix}
+3&-3&2\\
+2&-2&2\\
+2&-3&3
+\end{pmatrix}.
+\]
+%\begin{teilaufgaben}
+%\item
+Bestimmen Sie alle Eigenwerte und zugeh"orige Eigenvektoren.
+%\item
+%Berechnen Sie $A^{10}$ mit Hilfe der Eigenwerte und Eigenvektoren.
+%\end{teilaufgaben}
+
+\begin{hinweis} $2$ ist ein Eigenwert von $A$.
+\end{hinweis}
+
+\begin{loesung}
+Man beachte, dass $A$ nicht symmetrisch ist, und damit die Existenz der
+Eigenwerte nicht automatisch garantiert ist.
+%\begin{teilaufgaben}
+%\item
+Wir bestimmen zun"achst das charakteristische Polynom:
+\begin{align*}
+\chi_A(\lambda)=
+\det (A-\lambda E)
+&=
+\left|\,
+\begin{matrix}
+3-\lambda&-3&2\\
+2&-2-\lambda&2\\
+2&-3&3-\lambda
+\end{matrix}
+\,\right|
+\\
+&=-(3-\lambda)(2+\lambda)(3-\lambda) -12-12
++4(2+\lambda)+6(3-\lambda)+6(3-\lambda)
+\\
+&=
+-(9-6\lambda+\lambda^2)(2+\lambda)-24 +8+4\lambda +36-12\lambda
+\\
+&=
+-(18-12\lambda+2\lambda^2+9\lambda -6\lambda^2+\lambda^3)+20-8\lambda
+\\
+&=
+-\lambda^3+4\lambda^2-5\lambda+2
+\end{align*}
+Wir wissen, dass diese Polynom die Nullstelle $\lambda=2$ hat, und
+dividieren daher durch $\lambda -2$:
+\[
+(-\lambda^3+4\lambda^2-5\lambda+2):(\lambda -2)=-\lambda^2+2\lambda-1
+=-(\lambda -1)^2
+\]
+Also gilt
+\[
+\chi_A(\lambda)=-(\lambda -1)^2(\lambda -2),
+\]
+die Matrix $A$ hat also die Eigenwerte $1$ und $2$, wobei die Nullstelle
+$1$ doppelt zu z"ahlen ist. Wir erwarten, dass es zu dieser Nullstellen
+zwei verschiedene Eigenvektoren geben kann.
+
+Zur Berechnung der Eigenvektoren setzen wir jetzt $\lambda$ in die
+Gleichungen $(A-\lambda E)x=0$ ein, und bestimmen $x$. F"ur $\lambda=2$
+erhalten wir das Gauss-Tableau:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-3&2\\
+2&-4&2\\
+2&-3&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-3& 2\\
+0& 2&-2\\
+0& 3&-3\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-3& 2\\
+0& 1&-1\\
+0& 0& 0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 0&-1\\
+0& 1&-1\\
+0& 0& 0\\
+\hline
+\end{tabular}
+\]
+Daraus kann man jetzt ablesen, dass ein Eigenvektor zum Eigenwert $2$
+alle Komponenten gleich hat, zum Beispiel:
+\[
+v_2=\begin{pmatrix}1\\1\\1\end{pmatrix}.
+\]
+
+F"ur den Eigenwert $\lambda=1$ bekommt man dagegen folgendes Gauss-Tableau
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+2&-3&2\\
+2&-3&2\\
+2&-3&2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-\frac32&1\\
+0& 0&0\\
+0& 0&0\\
+\hline
+\end{tabular}.
+\]
+Wie erwartet gibt es zwei frei w"ahlbare Variablen, also auch zwei linear
+unabh"angige Eigenvektoren. Die zwei Eigenvektoren
+\[
+v_{1,1}=\begin{pmatrix}1\\0\\-1 \end{pmatrix},
+\qquad
+v_{1,2}=\begin{pmatrix}3\\2\\0 \end{pmatrix}.
+\]
+Das Resultat k"onnen wir durch Auswerten des Produktes $Av$ pr"ufen.
+Dazu schreiben wir die Eigenvektoren in die Spalten einer Matrix $B$:
+\[
+B=
+\begin{pmatrix}
+1& 1&3\\
+1& 0&2\\
+1&-1&0
+\end{pmatrix}
+\]
+und berechnen damit
+\[
+AB=
+\begin{pmatrix}
+3&-3&2\\
+2&-2&2\\
+2&-3&3
+\end{pmatrix}
+\begin{pmatrix}
+1& 1&3\\
+1& 0&2\\
+1&-1&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+2& 1&3\\
+2& 0&2\\
+2&-1&0
+\end{pmatrix}
+= B \operatorname{diag}(2,1,1).
+\]
+Die erste Spalte enth"alt den Eigenvektor zum Eigenwert $2$, und wird 
+daher verdoppelt, die anderen Spalten enthalten Eigenvektoren zum
+Eigenwert $1$, sie bleiben unver"andert.
+%\item
+%Das Produkt $A^10$ kann jetzt mit Hilfe der Formel
+%\[
+%A = B\operatorname{diag}(2,1,1) B^{-1}
+%\Rightarrow
+%A^{10}=
+%B\operatorname{diag}(2,1,1)^{10}B^{-1}
+%=
+%B\operatorname{diag}(1024,1,1)B^{-1}
+%\]
+%Die Inverse von $B$ kann zum Beispiel mit dem Gauss-Algorithmus gefunden
+%werden:
+%\[
+%B^{-1}
+%=
+%\begin{pmatrix}
+%   2& -3&  2\\
+%   2& -3&  1\\
+%  -1&  2& -1
+%\end{pmatrix}
+%\]
+%Und durch ausmultiplizieren:
+%\begin{align*}
+%A^{10}
+%&=
+%B
+%\operatorname{diag}(1024,0,0)
+%B^{-1}
+%=
+%\begin{pmatrix}
+%1& 1&3\\
+%1& 0&2\\
+%1&-1&0
+%\end{pmatrix}
+%\begin{pmatrix}1024&0&0\\0&1&0\\0&0&1\end{pmatrix}
+%\begin{pmatrix}
+%   2& -3&  2\\
+%   2& -3&  1\\
+%  -1&  2& -1
+%\end{pmatrix}
+%\\
+%&=
+%\begin{pmatrix}
+%1024&1&3\\
+%1024&0&2\\
+%1024&-2&0
+%\end{pmatrix}
+%\begin{pmatrix}
+%   2& -3&  2\\
+%   2& -3&  1\\
+%  -1&  2& -1
+%\end{pmatrix}
+%=
+%\begin{pmatrix}
+%2047&-3096&2046\\
+%2046&-3068&2046\\
+%2046&-3069&2047
+%\end{pmatrix}.
+%\end{align*}
+%\end{teilaufgaben}
+\end{loesung}
+
