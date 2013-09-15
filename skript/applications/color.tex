@@ -1,0 +1,197 @@
+%
+% color.tex -- RGB Farben als Beispiel eines dreidimensionalen Vektorraumes
+%
+% (c) 2013 Prof Dr Andreas Mueller, Hochschule Rapperswi
+%
+\subsection{Farben}
+\subsubsection{Farben als Vektorraum}
+Die Netzhaut des menschlichen Auges enth"alt zwei Arten von Rezeptoren.
+Die hochemfindlichen St"abchenzellen sind vor allem f"ur gr"unes Licht
+empflindlich, werden aber nur benutzt, wenn nicht ausreichend Licht
+zur Verf"ugung steht.
+Sie kommen vor allem bei Dunkelheit zum Einsatz, es ist mit ihnen
+nicht m"oglich, Farben zu unterscheiden, daher nehmen wir in der
+Nacht alles als grau war.
+Auch beim Blick durch ein Teleskop kann man eine ferne Galaxie nicht
+farbig sehen, da nur die St"abchenzellen empfindlich genug sind, die
+uns keinen Farbeindruck liefern k"onnen. Helligkeit l"asst sich durch
+eine einzige Zahl charakterisieren.
+
+Bei Tageslicht sind die St"abchenzellen
+bereits geblendet, dann kommen die Zapfen-Zellen zum Einsatz.
+Sie sind viel weniger empfindlich, daf"ur gibt es sie in drei Ausf"uhrungen,
+die f"ur Rot, Gr"un oder Blau empfindlich sind.
+Sie erm"oglichen unser Farbensehen.
+Jede Farbinformation muss sich also durch die Intensit"at wiedergeben
+lassen, die die drei Arten von Zapfenzellen bestimmen k"onnen.
+Die Menge aller Farben ist daher ein dreidimensionaler Vektorraum
+bestehend aus Vektoren
+\[
+c=\begin{pmatrix}r\\g\\b\end{pmatrix}
+\in\mathbb R^3,
+\]
+wobei $r$ das Signal der roten Zapfen, $g$ das Signal der gr"unen Zapfen
+und $b$ das Signal der blauen Zapfen bezeichnet.
+
+\subsubsection{Luminanz}
+Wie hell ist eine Farbe?
+Von den St"abchenzellen erhalten wir keine
+Farbinformation, sondern nur Helligkeitsinformation.
+Dabei bekommt der gr"une Anteil des Lichtes offenbar das
+gr"osste Gewicht, weil St"abchen dort am empfindlichsten sind.
+F"ur rotes und blaues Licht sind die St"abchen nicht ganz unempfindlich,
+die roten und blauen Komponeten tragen also auch zum Helligkeitseindruck
+bei, wenn auch in geringerem Masse.
+
+Bei gen"ugend Licht werden die Zapfen aktiv, die Farbinformation liefern.
+Trotzdem ist es uns weiterhin m"oglich, verschiedene Helligkeit
+zu unterscheiden.
+Offenbar ist das Gehirn in der Lage, eine Abbildung zu konsturieren,
+die aus einer Farbe eine Helligkeit ableitet:
+\[
+L\colon \begin{pmatrix}r\\g\\b\end{pmatrix}\mapsto l.
+\]
+Diese Abbildung erf"ullt einige nat"urliche Bedingungen:
+\begin{enumerate}
+\item Wenn man zwei verschiedene Farben mischt, dann ist die Helligkeit
+die Summe der Helligkeiten der einzelnen Farben:
+\[
+L(c_1 + c_2)=L(c_1) + L(c_2).
+\]
+\item Wenn man in einer Farbe alle Farbkomponenten mit dem gleichen 
+Faktor verst"arkt, dann wird die Helligkeit ebenfalls um diesen Faktor
+verst"arkt:
+\[
+L(\lambda c)=\lambda L(c).
+\]
+\end{enumerate}
+Die Helligkeit oder {\em Luminanz} ist also eine lineare Abbildung
+aus dem dreidimensionalen Farbraum in den eindimensionalen Helligkeitsraum.
+
+Die Abbildung $L$ wird zum Beispiel ben"otigt, wenn man aus einem Farbbild
+eine scharz/weiss-Bild machen m"ochte.
+Nicht alle Menschen sind gleich, und so verwenden 
+verschiedene technische Aufnahmesysteme
+auch verschiedene lineare Abbildungen.
+\begin{align}
+L&=0.2126 r+0.7152 g + 0.0722 b\tag{ITU-r}
+\\
+L&=0.299 r + 0.587 g + 0.114 b\tag{CCIR601}
+\\
+L&=0.33 r + 0.5 g + 0.16 b\notag
+\\
+L&=0.375 r + 0.5 g + 0.125 b\notag
+\end{align}
+Die letzten zwei Formeln stimmen nicht besonders gut mit der tats"achlichen
+Empfindlichkeitsverteilung der St"abchenzellen "uberrein, aber sie lassen
+sich extrem rasch berechnen, was f"ur die Hersteller von Video-Kameras 
+interessant ist.
+
+Wir weisen darauf hin, dass die oben aufgelisteten Luminanz-Funktionen
+alle die Eigenschaft haben, dass die Summe der Koeffizienten $1$ ist.
+Wir verwenden das als Definition:
+\begin{definition} Eine {\em Luminanz-Funktion} $L$ ist eine lineare Abbildung
+des Farbraums in den Helligkeitsraum der Form
+\[
+L(c)=\rho \cdot r + \gamma \cdot g + \beta \cdot b
+\]
+mit den Eigenschaften
+\begin{enumerate}
+\item alle Koeffizienten $\rho$, $\gamma$ und $\beta$ sind positiv,
+\item die Summe der Koeffizienten ist $1$.
+\end{enumerate}
+\end{definition}
+Die Luminanz ist ein gewichtetes Mittel der Farbkomponenten.
+
+\subsubsection{Farbs"attigung}
+In diesem Abschnitt gehen wir von einer festen Luminanzfunktion aus.
+Die Menge der Farben, die gleich hell sind wie eine vorgegebene Farbe $c_1$,
+ist 
+\[
+\{ c\in\mathbb R^3\,|\, L(c)=L(c_1)\}.
+\]
+Diese Menge ist eine Ebene im Farbraum.
+
+Gibt es einen Grauton $c_0$, welcher gleich hell ist wie $c_1$?
+Damit wir diese Farbe als Grauton wahrnehmen, m"ussen alle drei Farbkomponenten
+gleich sein, wir schreiben f"ur diese drei identischen Komponenten $x$,
+bekommen also
+\[
+c_0=\begin{pmatrix}x\\x\\x\end{pmatrix}.
+\]
+Die zugeh"orige Luminanz ist
+\[
+L(c_0)=\rho\cdot x + \gamma\cdot x + \beta \cdot x=
+(\rho + \gamma +\beta)\cdot x=x
+\]
+Der zu einer Farbe $c$ geh"orige graue Farbe ist also
+\[
+\begin{pmatrix}L(c)\\L(c)\\L(c)\end{pmatrix}
+=
+L(c)\begin{pmatrix}1\\1\\1\end{pmatrix}
+\]
+Wir schreiben f"ur den Vektor aus lauter Einsen in Zukunft $w$ (f"ur weiss):
+\[
+w=\begin{pmatrix}1\\1\\1\end{pmatrix}, \qquad L(w)=1.
+\]
+Wir k"onnen also eine Farbe $c_1$ immer in zwei Komponenten zerlegen,
+eine monochrome Komponente und eine Komponente parallel zur Ebene
+$\{ c\,|\, L(c)=L(c_1)\}$:
+\[
+c_1 = \underbrace{L(c_1)w}_{\text{Helligkeit}} + \underbrace{(c_1 - L(c_1)w)}_{\text{Farbe}}.
+\]
+Die Farbinformation steckt ausschliesslich im zweiten Term, der erste
+Term gibt die Helligkeit wieder.
+Damit bekommen wir eine M"oglichkeit, bei gleichbleibender Helligkeit
+die Intenit"at der Farben zu ver"andern. Schreiben wir
+\[
+c(t)=L(c_1)w+t(c_1-L(w))w,
+\]
+dann liefert der Wert $t=0$ eine Farbe, die ein Vielfaches von $w$ ist, also
+ein Grauwert. F"ur $t=1$ erhalten wir die urspr"ungliche Farbe zur"uck.
+Die Zwischenwerte $0 < t < 1$ liefern Farben mit zunehmender Farbintensit"at,
+oder wie man sagt, {\em Farbs"attigung}. 
+Wir sind sogar in der Lage, die Farbe noch intensiver zu machen, indem
+wir $t>1$ w"ahlen.
+In der Abbildung~\ref{color:saettigung}
+ist ein Bild mit verschiedenen Werten von $t$ gezeigt.
+\begin{figure}
+\begin{center}
+\vskip 3truein
+%\includegraphics[width=0.2\hsize]{saettigung0.jpg}
+%\includegraphics[width=0.2\hsize]{saettigung1.jpg}
+%\includegraphics[width=0.2\hsize]{saettigung2.jpg}
+%\includegraphics[width=0.2\hsize]{saettigung3.jpg}
+\end{center}
+\caption{S"attigung\label{color:saettigung}}
+\end{figure}
+
+\subsubsection{Farbton}
+Die Farben gleicher Helligkeit bilden eine Ebene. In der Ebene gibt es
+den ausgezeichneten Punkt $L(c_1)w$, der dem gleich hellen Grauton
+entspricht. Wir nennen diesen Punkt auch den {\tt Weisspunkt}.
+Je weiter entfernt ein Punkt $c$ in der Ebene von diesem
+Punkt ist, desto intensiver die Farben, desto gr"osser die Farbs"attigung.
+
+Ein Punkt in der Ebene $H=\{c\,|\, L(c)=L(c_1)\}$ ist aber durch
+den Abstand vom Weisspunkt alleine nicht bestimmt. Durch Wahl einer 
+geeigneten Null-Richtung k"onnen wir in der Ebene $H$ ein
+Polarkoordinaten-System w"ahlen. Der Winkel entspricht dabei dem
+Farbton.
+Die Menge aller vom menschlichen Auge wahrnehmbaren k"onnen daher
+auf einem Kreis angeordnet werden, dem Farbkreis.
+
+Damit haben wir ein alternatives Koordinatensystem f"ur den Farbraum
+konstruiert mit den drei Koordinaten
+\begin{center}
+\begin{tabular}{l|l}
+\hline
+Hue&Farbton, Farbwinkel\\
+Saturation&Farbs"attigung\\
+Brightness&Luminanz\\
+\hline
+\end{tabular}
+\end{center}
+Der Vorteil dieses Koordinatensystems gegen"uber dem RGB-System ist,
+dass sich Bildverarbeitungsoperationen wie ``Heller'' oder ``mehr Farbe''
+darin leichter beschreiben lassen.

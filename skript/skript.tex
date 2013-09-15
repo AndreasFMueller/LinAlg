@@ -23,6 +23,7 @@
 \usepackage{pdflscape}
 \usepackage{paralist}
 \usepackage{epic}
+\usepackage{hyperref}
 \setlength{\unitlength}{1pt}
 \usepackage{color}
 \makeindex
@@ -50,7 +51,11 @@ Andreas M"uller
 Hochschule f"ur Technik, Rapperswil, 2009-2012
 \end{center}
 \end{titlepage}
-
+\hypersetup{
+    colorlinks=true,
+    linktoc=all,
+    linkcolor=blue
+}
 \tableofcontents
 \newtheorem{satz}{Satz}[chapter]
 \newtheorem{hilfssatz}[satz]{Hilfssatz}
@@ -75,6 +80,7 @@ Hochschule f"ur Technik, Rapperswil, 2009-2012
 \input vektorgeometrie.tex
 \input geometrie.tex
 \section{Anwendungen}
+\input applications/color.tex
 \input applications/fitting.tex
 \input applications/traegheit.tex
 \input applications/wavelets.tex
