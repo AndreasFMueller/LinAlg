@@ -1,0 +1,66 @@
+Der Rang der Matrix
+\[
+\begin{pmatrix}
+1&2&3\\
+4&5&6\\
+7&8&9
+\end{pmatrix}
+\]
+ist 2, es muss also eine lineare
+Abh"angigkeit zwischen den drei Zeilen der Matrix geben. Finden
+Sie eine nichttriviale Linearkombination der drei Zeilen, die verschwindet.
+
+\begin{loesung}
+Die Koeffizienten einer solchen Linearkombination seien $\lambda_1$,
+$\lambda_2$ und $\lambda_3$. Dann m"ussen die Gleichungen
+\[
+\begin{linsys}{3}
+ \lambda_1&+&4\lambda_2&+&7\lambda_3&=&0\\
+2\lambda_1&+&5\lambda_2&+&8\lambda_3&=&0\\
+3\lambda_1&+&6\lambda_2&+&9\lambda_3&=&0
+\end{linsys}
+\]
+erf"ullt sein. Dieses Gleichungssystem kann mit dem Gaussalgorithmus
+gel"ost werden:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&4&7\\
+2&5&8\\
+3&6&9\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&4&7\\
+0&-3&-6\\
+0&-6&-12\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&4&7\\
+0&1&2\\
+0&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&-1\\
+0&1&2\\
+0&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Die Variable $\lambda_3$ ist frei w"ahlbar, wir setzen $\lambda_3=1$ und
+finden die anderen Variablen
+\[
+\lambda_3=1\qquad \lambda_1=\lambda=3=1,\qquad \lambda_2=-2\lambda_3=-2.
+\]
+Tats"achlich ist die Summe der ersten und letzten Zeile das Doppelte
+der mittleren Zeile.
+\end{loesung}
