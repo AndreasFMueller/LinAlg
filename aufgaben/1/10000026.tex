@@ -1,0 +1,119 @@
+Finden Sie f"ur das Netzwerk
+\begin{center}
+\includeagraphics[width=0.3\hsize]{10000026-1.pdf}
+\end{center}
+eine minimale Menge von Zyklen.
+
+\begin{loesung}
+Die Matrix $\partial$ dieses Netzwerkes ist
+\[
+\partial
+=
+\begin{pmatrix}
+-1&-1&-1& 0& 0& 0\\
+ 1& 0& 0&-1&-1& 0\\
+ 0& 1& 0& 1& 0&-1\\
+ 0& 0& 1& 0& 1& 1
+\end{pmatrix}
+\]
+Wendet man auf $\partial$ den Gaussalgorithmus an, findet man
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+-1&-1&-1& 0& 0& 0\\
+ 1& 0& 0&-1&-1& 0\\
+ 0& 1& 0& 1& 0&-1\\
+ 0& 0& 1& 0& 1& 1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 1& 1& 0& 0& 0\\
+ 0&-1&-1&-1&-1& 0\\
+ 0& 1& 0& 1& 0&-1\\
+ 0& 0& 1& 0& 1& 1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 1& 1& 0& 0& 0\\
+ 0& 1& 1& 1& 1& 0\\
+ 0& 0&-1& 0&-1&-1\\
+ 0& 0& 1& 0& 1& 1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 1& 1& 0& 0& 0\\
+ 0& 1& 1& 1& 1& 0\\
+ 0& 0& 1& 0& 1& 1\\
+ 0& 0& 0& 0& 0& 0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 1& 0& 0&-1&-1\\
+ 0& 1& 0& 1& 0&-1\\
+ 0& 0& 1& 0& 1& 1\\
+ 0& 0& 0& 0& 0& 0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 0& 0&-1&-1& 0\\
+ 0& 1& 0& 1& 0&-1\\
+ 0& 0& 1& 0& 1& 1\\
+ 0& 0& 0& 0& 0& 0\\
+\hline
+\end{tabular}
+\end{align*}
+Die frei w"ahlbaren Variablen entsprechen den Kanten 4, 5 und 6, man kann
+sie auf $1$ oder $-1$ setzen, je nachdem in welcher Richtung die Kante
+im entsprechenden Zyklus durchlaufen werden soll.
+Daraus liest man ab, dass drei Zyklen gebildet werden, die dadurch
+bestimmt sind, ob man die Kanten 4, 5 oder 6 im Zyklus drin haben will
+oder nicht. Die drei Zyklen haben die Kantenvektoren
+\[
+z_1=\begin{pmatrix}
+ 1\\
+-1\\
+ 0\\
+ 1\\
+ 0\\
+ 0\\
+\end{pmatrix},\quad
+z_2=\begin{pmatrix}
+ 1\\
+ 0\\
+-1\\
+ 0\\
+ 1\\
+ 0
+\end{pmatrix},\quad
+z_3= \begin{pmatrix}
+ 0\\
+ 1\\
+-1\\
+ 0\\
+ 0\\
+ 1
+\end{pmatrix}
+\]
+Die folgende Abbildung zeigt die drei Zyklen:
+\begin{center}
+\begin{tabular}{ccc}
+\includeagraphics[width=0.2\hsize]{10000026-2.pdf}&
+\includeagraphics[width=0.2\hsize]{10000026-3.pdf}&
+\includeagraphics[width=0.2\hsize]{10000026-4.pdf}
+\end{tabular}
+\end{center}
+\end{loesung}
