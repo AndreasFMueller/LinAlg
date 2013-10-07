@@ -1,0 +1,99 @@
+Ein lineares Gleichungssystem hat die Koeffizientenmatrix
+\[
+A=\begin{pmatrix}
+1&1&0\\
+3&4&1\\
+3&3&3
+\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item Ist $A$ regul"ar?
+\item Welchen Rang hat $A$?
+\item Bestimmen Sie die L"osungsmenge des homogenen Gleichungssystems mit
+Koeffizientenmatrix $A$.
+\item Der Vektor $x_p$ ist eine L"osung des inhomogenen Gleichungssystems mit
+rechter Seite $b$:
+\[
+x_p=
+\begin{pmatrix}
+-5\\8\\0
+\end{pmatrix}
+,\qquad
+b=\begin{pmatrix}
+3\\17\\33
+\end{pmatrix}.
+\]
+Bestimmen Sie die L"osungsmenge von $Ax=b$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Wir wenden den Gaussalgorithmus auf $A$ an:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&1&0\\
+3&4&1\\
+3&6&3\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&1&0\\
+0&1&1\\
+0&3&3\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&1&0\\
+0&1&1\\
+0&0&0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&-1\\
+0&1& 1\\
+0&0& 0\\
+\hline
+\end{tabular}
+\end{align*}
+Aus dem Schlusstableau kann man ableiten, dass $A$ singul"ar ist, die
+L"osung eines Gleichungssystems mit $A$ als Koeffizientenmatrix ist
+nicht regul"ar.
+\item Das Schlusstableau zeigt auch, dass $\operatorname{Rang}(A)=2$.
+\item Aus dem Schlusstableau kann man auch die L"osungsmenge ableiten
+\[
+\mathbb L_h=\left\{
+\left.
+x_3
+\begin{pmatrix}
+1\\-1\\1
+\end{pmatrix}
+\right|
+x_3\in\mathbb R
+\right\}.
+\]
+\item Die L"osungsmenge von $Ax=b$ ist
+\[
+\mathbb L= \{x_p+x_h\,|\,x_h\in\mathbb L_h\}
+=
+\left\{
+\left.
+\begin{pmatrix}
+-5+x_3\\
+8-x_3\\
+x_3
+\end{pmatrix}
+\right|
+x_3\in\mathbb R
+\right\}
+\]
+\end{teilaufgaben}
+\end{loesung}

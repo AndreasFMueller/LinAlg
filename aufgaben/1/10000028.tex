@@ -1,0 +1,144 @@
+Ein Oktaeder hat 8 Ecken und 12 Kanten. Finden Sie eine minimale
+Menge von Zyklen.
+
+\begin{loesung}
+\setcounter{MaxMatrixCols}{20}
+Die Randmatrix hat die Form
+\[
+\partial=
+\begin{pmatrix}
+-1&-1&-1&-1& 0& 0& 0& 0& 0& 0& 0& 0\\
+ 1& 0& 0& 0&-1&-1&-1& 0& 0& 0& 0& 0\\
+ 0& 1& 0& 0& 1& 0& 0&-1&-1& 0& 0& 0\\
+ 0& 0& 1& 0& 0& 1& 0& 1& 0&-1&-1& 0\\
+ 0& 0& 0& 1& 0& 0& 0& 0& 0& 1& 0&-1\\
+ 0& 0& 0& 0& 0& 0& 1& 0& 1& 0& 1& 1
+\end{pmatrix}
+\]
+Der Gaussalgorithmus findet daraus
+\begin{center}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  0&  0&  0& -1& -1&  0& -0&  1& -0&  1&  1\\
+   0&  1&  0&  0&  1&  0&  0& -1& -1& -0& -0& -0\\
+   0&  0&  1&  0& -0&  1&  0&  1&  0& -1& -1& -0\\
+   0&  0&  0&  1& -0& -0&  0& -0&  0&  1&  0& -1\\
+   0&  0&  0&  0&  0&  0&  1& -0&  1& -0&  1&  1\\
+   0&  0&  0&  0&  0&  0&  0&  0&  0&  0&  0&  0\\
+\hline
+\end{tabular}
+\end{center}
+Man kann dies schneller dadurch finden, dass man die erste Zeile in die
+f"unfte Position verscheibt, und dann den Gauss-Algorithmus startet.
+Die Kanten mit den Nummern 5, 6 und 8--12 sind frei w"ahlbar.
+Es gibt also 7 linear unabh"angige Zyklen, mit folgenden Vektoren
+\[
+z_1=
+\begin{pmatrix}
+ 1\\
+-1\\
+ 0\\
+ 0\\
+ 1\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0
+\end{pmatrix}
+,\quad
+z_1=\begin{pmatrix}
+ 1\\
+ 0\\
+-1\\
+ 0\\
+ 0\\
+ 1\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0
+\end{pmatrix}
+,\quad
+z_3=\begin{pmatrix}
+ 0\\
+ 1\\
+-1\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 1\\
+ 0\\
+ 0\\
+ 0\\
+ 0
+\end{pmatrix}
+,\quad
+z_4=\begin{pmatrix}
+-1\\
+ 1\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+-1\\
+ 0\\
+ 1\\
+ 0\\
+ 0\\
+ 0
+\end{pmatrix}
+,\quad
+z_5=
+\begin{pmatrix}
+ 0\\
+ 0\\
+ 1\\
+-1\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 1\\
+ 0\\
+ 0
+\end{pmatrix}
+,\quad
+z_6=\begin{pmatrix}
+-1\\
+ 0\\
+ 1\\
+ 0\\
+ 0\\
+ 0\\
+-1\\
+ 0\\
+ 0\\
+ 0\\
+ 1\\
+ 0
+\end{pmatrix}
+,\quad
+z_7=\begin{pmatrix}
+-1\\
+ 0\\
+ 0\\
+ 1\\
+ 0\\
+ 0\\
+-1\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 1
+\end{pmatrix}
+\]
+
+\end{loesung}
