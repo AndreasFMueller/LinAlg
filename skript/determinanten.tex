@@ -698,35 +698,112 @@ Sind $A$ und $B$ $n\times n$-Matrizen, dann ist
 \]
 \end{satz}
 
-\begin{proof}[Beweis]
-Wir betrachten die Funktion $B\mapsto \det(AB)$. Sie hat die folgenden
-Eigenschaften:
-\begin{compactenum}
-\item
-Ersetzt man in $B$ die Spalte $b_i$ durch eine Linearkombination
-$\lambda b_i' + \mu b_i''$, dann
-wird die entsprechende Bildspalte $Ab_i$ in $AB$ auch durch die
-Linearkombination $\lambda Ab_i' + \mu Ab_i''$ ersetzt. Bezeichnen
-wir mit $B'$ die Matrix $B$, in der $b_i$ durch  $b_i'$ ersetzt
-wurde, und $B''$ analog, dann folgt f"ur den Wert der Determinante
-\[
-\det(\lambda AB'+\mu AB'')=\lambda\det(AB')+\mu\det(AB'').
-\]
-Die Abbildung $B\mapsto \det(AB)$ ist also eine lineare Funktion
-der Spalten.
-\item
-F"ugt man in $B$ eine Nullspalte ein, bekommt auch $AB$ eine Nullspalte,
-$\det(AB)$ verschwindet dann.
-\end{compactenum}
-Die Abbildung $B\mapsto \det(AB)$ ist also bis auf die Normierung eine
-Determinante. Doch $\det(AE)=\det(A)$, d.~h.~die Normierung stimmt f"ur
-die Funktion $B\mapsto \det(AB)/\det(A)$. 
-Nach Satz~\ref{detcharacterisation} ist sie also die Determinante:
-\[
-\det(AB)/\det(A)=\det(B)\qquad\Rightarrow\qquad
-\det(AB)=\det(A)\det(B).
-\]
+\begin{proof}[Beweisidee]
+Wir gehen den Beweis wie folgt an. Wir betrachten zun"achst nur die
+Abh"angigkeit von $\det(AB)$ von $A$. Dabei werden wir feststellen,
+dass sich $\det(AB)$ fast wie die Determinante verh"alt, nur der
+Wert f"ur $A=E$ ist nicht der richtige, $\det(B)$ statt $1$. Indem wir
+$\det(AB)$ durch $\det(B)$ dividieren, erhalten wir aber eine Funktion,
+die sich genau wie die Determinante verh"alt.
+Weil die Eigenschaften der Determinante diese eindeutig bestimmen, muss
+$\det(AB)/\det(B)=\det(A)$ sein, woraus wir die Behauptung folgern k"onnen.
 \end{proof}
+
+\begin{proof}[Beweis]
+Wir betrachten die Funktion $d\colon A\mapsto d(A) = \det(AB)$.
+Sie hat die folgenden Eigenschaften, die weiter unten noch
+begr"undet werden m"ussen:
+\begin{enumerate}
+\item[1'.] $d$ ist eine lineare Funktion der Zeilen von $A$.
+\item[2.']
+Hat $A$ zwei gleiche Zeilen, dann auch $AB$ und damit ist $d(A)=0$.
+\item[3.]
+$d(E)=\det(B)$.
+\end{enumerate}
+Die Funktion $d$ verh"alt sich bis auf die letzte Eigenschaft
+wie die Determinante. Dividiert man die Funktion $d$ durch die Determinante
+von $B$, ist auch die letzte Eigenschaft die einer Determinanten.
+Die Funktion
+\[
+d':A\mapsto \frac{\det(AB)}{\det(B)}
+\]
+hat die Eigenschaften:
+\begin{enumerate}
+\item[1'.] $d'$ ist eine lineare Funktion der Zeilen von $A$.
+\item[2'.] Enth"alt $A$ zwei gleiche Zeilen, dann ist $d'(A)=0$.
+\item[3.] $d'(E)=1$.
+\end{enumerate}
+Nach Satz \ref{detcharacterisation} muss $d'$ die Determinante von $A$ sein:
+\begin{align*}
+d'(A)&=\det(A)\\
+\frac{\det(AB)}{\det(B)}&=\det(A)\\
+\det(AB)&=\det(A)\det(B).
+\end{align*}
+Das beweist die Produktformel, bis auf die oben behaupteten Eigenschaften
+1 und 2.
+
+Die Zeile mit der Nummer $i$ in $AB$ wird erhalten,
+indem man die Zeile $i$ von $A$
+mit der Matrix $B$ multipliziert. Wenn also $A$ zwei gleiche
+Zeilen enth"alt, dann sind auch die entsprechenden Zeilen von $AB$
+gleich. was Eigenschaft 2 beweist.
+
+Ist die Zeile $i$ von $A$ eine Linearekombination der Form
+\[
+\begin{pmatrix}
+a_{i1}&\dots&a_{in}
+\end{pmatrix}
+=
+\lambda
+\begin{pmatrix}
+a'_{i1} &\dots &a'_{in}
+\end{pmatrix}
++
+\mu
+\begin{pmatrix}
+a''_{i1} &\dots &a''_{in}
+\end{pmatrix},
+\]
+dann ist die Zeile $i$ von $AB$ ebenfalls eine Linearekombination,
+n"amlich
+\[
+\begin{pmatrix}
+a_{i1}&\dots&a_{in}
+\end{pmatrix}B
+=
+\lambda
+\begin{pmatrix}
+a'_{i1} &\dots &a'_{in}
+\end{pmatrix}B
++
+\mu
+\begin{pmatrix}
+a''_{i1} &\dots &a''_{in}
+\end{pmatrix}B.
+\]
+Schreiben wir $A'$ f"ur die Matrix, die in Zeile $i$ die $a'_{ij}$
+statt der $a_{ij}$ enthalten, und analog f"ur $A''$, dann folgt, dass
+\[
+d(A) = \det(AB)=\lambda \det(A'B)+\mu\det(A''B)=\lambda d(A') + \mu d(A''),
+\]
+was genau die Eigenschaft 1 ist.
+\end{proof}
+
+Es gibt keine vergleichbare Formel f"ur die Summe von zwei Matrizen.
+Determinante einer Summe. Schon $2\times 2$-Diagonalmatrizen zeigen uns,
+das wir eine solche Formel auch nicht erwarten k"onnen:
+\begin{align*}
+A&=\begin{pmatrix}a&0\\0&1\end{pmatrix}&
+\det(A)&=\left|\;\begin{matrix}a  &0\\0&  1\end{matrix}\;\right|= a\\
+B&=\begin{pmatrix}1&0\\0&b\end{pmatrix}&
+\det(B)&=\left|\;\begin{matrix}  1&0\\0&b  \end{matrix}\;\right|= b\\
+A+B&=\begin{pmatrix}a+1&0\\0&b+1\end{pmatrix}
+&
+\det(A+B)&=\left|\;\begin{matrix}a+1&0\\0&b+1\end{matrix}\;\right|\\
+&&&=(a+1)(b+1)=ab+a+b+1.
+\end{align*}
+Offenbar gibt es keine einfache Formel, die $\det(A+B)$ mit $\det(A)$ und
+$\det(B)$ verbindet.
 
 \section{L"osen von Gleichungssystemen}
 Aus dem Hilfssatz \ref{detlinabh} folgt sofort, dass ein Gleichungssystem
@@ -780,7 +857,7 @@ a_{n1}&\dots&a_{n,n-1}&a_{nn}\\
 \]
 Die Unbekannte $x_k$ berechnet man also als Quotient der Determinante
 von $A$, in der man die $k$-te Spalte durch die rechten Seiten $b_i$
-ersetzt hat und der Determinanten von $A$.
+ersetzt hat, und der Determinanten von $A$.
 \end{satz}
 \begin{proof}[Beweis]
 Schreiben wir $a_1,\dots,a_n$ f"ur die Spalten von $A$ und $b$ f"ur die 
@@ -840,7 +917,7 @@ bereit, praktisch n"utzlich ist diese jedoch kaum. Die Berechnung der
 $n+1$ Determinanten ist bereits aufwendiger als die Durchf"uhrung des
 Gaussverfahrens, welches die L"osung auch schon liefert.
 
-\begin{beispiel}Man finde die L"osung des Gleichugssytems
+\begin{beispiel}Man finde die L"osung des Gleichungssytems
 \[
 \begin{linsys}{4}
 -x&-&3y&&&=&\color[rgb]{0,0.5,0}-7\\
