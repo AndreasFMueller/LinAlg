@@ -1,0 +1,31 @@
+Gegeben ist das Gleichungssystem
+\[
+\begin{linsys}{3}
+ x&-&t y&=&t\\
+tx&+&  y&=&t^2.
+\end{linsys}
+\]
+Verwenden Sie die Kramersche Regel, um 
+eine Formel f"ur $x$ und $y$ in Abh"angigkeit von $t$ anzugeben.
+
+\begin{loesung}
+Wir verwenden die Kramersche Formel, dazu muss einerseits die Determinante
+der Koeffizientenmatrix des Gleichungssystems berechnet werden,
+und andereseits die Determinanten von Matrizen, die daraus durch ersetzen
+einer Spalte entstehen:
+\begin{align*}
+\left|\,\begin{matrix}1&-t\\t&1\end{matrix}\,\right|
+&=1\cdot 1-(-t)\cdot t=1+t^2
+\\
+\left|\,\begin{matrix}t&-t\\t^2&1\end{matrix}\,\right|
+&=t+t^3
+\\
+\left|\,\begin{matrix}1&t\\t&t^2\end{matrix}\,\right|
+&=t^2-t^2=0
+\end{align*}
+Daraus kann man mit der Kramerschen Formel das Gleichungssystem l"osen
+\begin{align*}
+x&=\frac{t+t^3}{1+t^2}=t,&
+y&=0.
+\end{align*}
+\end{loesung}
