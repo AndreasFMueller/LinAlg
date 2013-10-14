@@ -19,12 +19,16 @@ Der Gaussalgorithmus findet daraus
 \begin{center}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-   1&  0&  0&  0& -1& -1&  0& -0&  1& -0&  1&  1\\
-   0&  1&  0&  0&  1&  0&  0& -1& -1& -0& -0& -0\\
-   0&  0&  1&  0& -0&  1&  0&  1&  0& -1& -1& -0\\
-   0&  0&  0&  1& -0& -0&  0& -0&  0&  1&  0& -1\\
-   0&  0&  0&  0&  0&  0&  1& -0&  1& -0&  1&  1\\
+x_1&x_2&x_3&x_4&x_5&x_6&x_7&x_8&x_9&x_{10}&x_{11}&x_{12}\\
+\hline
+   1&  0&  0&  0& -1& -1&  0&  0&  1&  0&  1&  1\\
+   0&  1&  0&  0&  1&  0&  0& -1& -1&  0&  0&  0\\
+   0&  0&  1&  0&  0&  1&  0&  1&  0& -1& -1&  0\\
+   0&  0&  0&  1&  0&  0&  0&  0&  0&  1&  0& -1\\
+   0&  0&  0&  0&  0&  0&  1&  0&  1&  0&  1&  1\\
    0&  0&  0&  0&  0&  0&  0&  0&  0&  0&  0&  0\\
+\hline
+    &   &   &   &  \color{green}*&  \color{green}*&   &  \color{green}*&  \color{green}*&  \color{green}*&  \color{green}*&  \color{green}*\\
 \hline
 \end{tabular}
 \end{center}
@@ -35,109 +39,109 @@ Es gibt also 7 linear unabh"angige Zyklen, mit folgenden Vektoren
 \[
 z_1=
 \begin{pmatrix}
- 1\\
--1\\
- 0\\
- 0\\
- 1\\
- 0\\
- 0\\
- 0\\
- 0\\
- 0\\
- 0\\
- 0
+              1\\
+             -1\\
+              0\\
+              0\\
+\color{green} 1\\
+\color{green} 0\\
+              0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0
 \end{pmatrix}
 ,\quad
 z_1=\begin{pmatrix}
- 1\\
- 0\\
--1\\
- 0\\
- 0\\
- 1\\
- 0\\
- 0\\
- 0\\
- 0\\
- 0\\
- 0
+              1\\
+              0\\
+             -1\\
+              0\\
+\color{green} 0\\
+\color{green} 1\\
+              0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0
 \end{pmatrix}
 ,\quad
 z_3=\begin{pmatrix}
- 0\\
- 1\\
--1\\
- 0\\
- 0\\
- 0\\
- 0\\
- 1\\
- 0\\
- 0\\
- 0\\
- 0
+              0\\
+              1\\
+             -1\\
+              0\\
+\color{green} 0\\
+\color{green} 0\\
+              0\\
+\color{green} 1\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0
 \end{pmatrix}
 ,\quad
 z_4=\begin{pmatrix}
--1\\
- 1\\
- 0\\
- 0\\
- 0\\
- 0\\
--1\\
- 0\\
- 1\\
- 0\\
- 0\\
- 0
+             -1\\
+              1\\
+              0\\
+              0\\
+\color{green} 0\\
+\color{green} 0\\
+             -1\\
+\color{green} 0\\
+\color{green} 1\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0
 \end{pmatrix}
 ,\quad
 z_5=
 \begin{pmatrix}
- 0\\
- 0\\
- 1\\
--1\\
- 0\\
- 0\\
- 0\\
- 0\\
- 0\\
- 1\\
- 0\\
- 0
+              0\\
+              0\\
+              1\\
+             -1\\
+\color{green} 0\\
+\color{green} 0\\
+              0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 1\\
+\color{green} 0\\
+\color{green} 0
 \end{pmatrix}
 ,\quad
 z_6=\begin{pmatrix}
--1\\
- 0\\
- 1\\
- 0\\
- 0\\
- 0\\
--1\\
- 0\\
- 0\\
- 0\\
- 1\\
- 0
+             -1\\
+              0\\
+              1\\
+              0\\
+\color{green} 0\\
+\color{green} 0\\
+             -1\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 1\\
+\color{green} 0
 \end{pmatrix}
 ,\quad
 z_7=\begin{pmatrix}
--1\\
- 0\\
- 0\\
- 1\\
- 0\\
- 0\\
--1\\
- 0\\
- 0\\
- 0\\
- 0\\
- 1
+             -1\\
+              0\\
+              0\\
+              1\\
+\color{green} 0\\
+\color{green} 0\\
+             -1\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 1
 \end{pmatrix}
 \]
 
