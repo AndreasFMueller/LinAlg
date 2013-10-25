@@ -1,0 +1,100 @@
+Gegeben sind die vier Punkte 
+$P_1$,
+$P_2$,
+$P_3$ und $P_4$
+mit Ortsvektoren
+\begin{align*}
+\vec p_1&=\begin{pmatrix} 1\\ 1\\ 1\end{pmatrix},&
+\vec p_2&=\begin{pmatrix}-1\\-1\\ 1\end{pmatrix},&
+\vec p_3&=\begin{pmatrix}-1\\ 1\\-1\end{pmatrix},&
+\vec p_4&=\begin{pmatrix} 1\\-1\\-1\end{pmatrix}.
+\end{align*}
+Sie bilden die Ecken eines K"orpers.
+\begin{teilaufgaben}
+\item Berechnen Sie die Winkel der dreieckigen Fl"achen des K"orpers.
+\item Ein Methan-Molek"ul kann man sich vorstellen als bestehend aus
+einem Kohlenstoff-Atom im Nullpunkt des Koordinatensystems und vier
+Wasserstoffatomen in den Punkten $P_i$. Wie gross ist der Winkel
+$\sphericalangle P_1 O P2$?
+\item Wie gross ist der Abstand des Punktes $P_1$ von der Seitenfl"ache
+$P_2P_3P_4$?
+\item Wie gross ist der Winkel zwischen zwei Seitenfl"achen des K"orpers?
+\end{teilaufgaben}
+
+\begin{loesung}
+Die Winkel k"onnen mit dem Skalarprodukt berechnet werden, zum
+Beispiel f"ur die Vektoren
+\begin{align*}
+\overrightarrow{P_1P_2}&=\vec p_2-\vec p_1=\begin{pmatrix}-2\\-2\\ 0\end{pmatrix},&
+\overrightarrow{P_1P_3}&=\vec p_3-\vec p_1=\begin{pmatrix}-2\\ 0\\-2\end{pmatrix}
+\end{align*}
+\begin{teilaufgaben}
+\item
+Die Zwischenwinkelformel ergibt
+\begin{align*}
+\cos\alpha
+&=
+\frac{\overrightarrow{P_1P_2}\cdot\overrightarrow{P_1P_3}}{
+|\overline{P_1P_2}|\cdot |\overline{P_1P_3}|
+}
+\\
+&=
+\frac{
+\begin{pmatrix}-2\\-2\\ 0\end{pmatrix}\cdot
+\begin{pmatrix}-2\\ 0\\-2\end{pmatrix}
+}{
+\sqrt{8}\cdot\sqrt{8}
+}
+=\frac{(-2)\cdot(-2)+(-2)\cdot 0+0\cdot(-2)}{8}
+=\frac{4}{8}=\frac12,\\
+\Rightarrow\qquad\alpha&=\frac{\pi}3.
+\end{align*}
+\item
+Auch hierf"ur kann man die Zwischenwinkelformel verwenden:
+\begin{align*}
+\cos\alpha&=
+\frac{\vec p_1\cdot\vec p_2}{|\vec p_1|\cdot |\vec p_2|}
+=
+\frac{\begin{pmatrix}1\\1\\1\end{pmatrix}\cdot\begin{pmatrix}-1\\-1\\1\end{pmatrix}}{\sqrt{3}\cdot\sqrt{3}}
+=
+\frac{1\cdot(-1)+1\cdot(-1)+1\cdot 1}{3}=-\frac13
+\\
+\alpha&=\arccos\biggl(-\frac13\biggr)= 109.47122^\circ.
+\end{align*}
+\item
+Der Schwerpunkt der Seitenfl"ache $P_2P_3P_4$ hat den Ortsvektor
+\[
+\vec s=\frac13(\vec p_2+\vec p_3+\vec p_4)
+=
+\frac13\left(
+\begin{pmatrix}-1\\-1\\ 1\end{pmatrix}+
+\begin{pmatrix}-1\\ 1\\-1\end{pmatrix}+
+\begin{pmatrix} 1\\-1\\-1\end{pmatrix}
+\right)
+=\frac13
+\begin{pmatrix} -1\\-1\\-1 \end{pmatrix}.
+\]
+Die gesuchte Entfernung ist jetzt
+\[
+|\vec p_1-\vec s|
+=
+\left|
+\begin{pmatrix}1\\1\\1\end{pmatrix}
+-
+\frac13\begin{pmatrix} -1\\-1\\-1 \end{pmatrix}
+\right|
+=
+\left|
+\frac43\begin{pmatrix}1\\1\\1\end{pmatrix}
+\right|
+=\frac43\sqrt{3}=2.309401.
+\]
+\item
+Um den Winkel zwischen den Seitenfl"achen zu berechnen m"ussen wir die 
+Normalen auf den Seitenfl"achen kennen. Aber der Vektore $\vec p_1$ steht
+genau auf der Seitenfl"ache $\triangle P_2P_3P_4$ senkrecht, und "ahnlich
+f"ur alle anderen Vektoren $\vec p_i$. Die gesuchten Zwischenwinkel
+sind also genau die in Teilaufgabe b) berechneten, mit der Ausnahme, dass
+man f"ur die Fl"achen den Winkel $<90^\circ$ braucht, also $70.52878^\circ$.
+\end{teilaufgaben}
+\end{loesung}
