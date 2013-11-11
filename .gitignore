@@ -30,6 +30,7 @@
 *.vrb
 *.xdy
 *.tdo
+skript/*.pdf
 skript/images/*.pdf
 skript/images/*.mpx
 skript/images/*.[0-9]
