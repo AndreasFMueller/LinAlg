@@ -1,0 +1,123 @@
+Der Beleuchtungswahn in entwickelten L"andern f"uhrt zu einer spektakul"aren
+Lichtverschmutzung, die man erst zu ermessen lernt, wenn ein n"achtlicher
+Stromausfall die Lichtverschmutzung ausschaltet. Astrophotographen macht
+die Lichtverschmutzung ebenfalls zu schaffen, da sie alle Bilder mit
+einem Schleier "uberzieht. Man versucht daher, die Lichtverschmutzung
+zu messen und von den Pixelwerten eines Bildes zu subtrahieren. Dabei 
+stellt sich aber heraus, dass nicht ein einzelner Wert verwendet werden
+kann, n"aher an den Lichtquellen ist die Lichtverschmutzung st"arker.
+
+Statt eines konstanten Wertes versucht man also die Lichtverschmutzung
+eines Bildes in der Form
+\[
+l=ax+by+c
+\]
+zu berechnen. Darin sind $x$ und $y$ die Koordinaten eines Pixels des
+Bildes, $a$, $b$ und $c$ sind unbekannte, zu bestimmende Koeffizienten.
+Um $a$, $b$ und $c$ zu finden, betrachtet man die Pixel in den Ecken
+des Bildes. Wir gehen davon aus, dass dort nur schwarzer Nachthimmel
+abgebildet wird, oder eben nur Lichtverschmutzung.
+In einem $1001\times 1001$ Bild wurden in den Ecken folgende Pixelwerte 
+gefunden:
+\begin{center}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}c<{$}|}
+\hline
+x&y&l\\
+\hline
+   0&   0&11\\
+1000&   0&19\\
+   0&1000&26\\
+1000&1000&42\\
+\hline
+\end{tabular}
+\end{center}
+%Finden Sie m"oglichst gute Werte f"ur $a$, $b$ und $c$.
+Stellen Sie ein Gleichungssystem auf, welches die Koeffizienten $a$, $b$ 
+und $c$ eindeutig bestimmt.
+
+\begin{loesung}
+Die vier Zeilen der Tabelle entsprechen den Gleichungen
+\[
+\begin{linsys}{3}
+   0a&+&   0b&+&c&=&11\\
+1000a&+&   0b&+&c&=&19\\
+   0a&+&1000b&+&c&=&26\\
+1000a&+&1000b&+&c&=&42
+\end{linsys}
+\]
+Dies ist ein Gleichungssystem mit vier Gleichungen f"ur nur drei Unbekannte,
+also ein "uberbestimmtes Gleichungssystem mit
+\[
+A=\begin{pmatrix}
+   0&   0&1\\
+1000&   0&1\\
+   0&1000&1\\
+1000&1000&1
+\end{pmatrix}
+,\qquad\text{und}\qquad b=\begin{pmatrix}
+11\\
+19\\
+26\\
+42
+\end{pmatrix}
+\]
+Exakt kann dieses Gleichungssystem nicht erf"ullt werden, aber eine
+N"aherungs\-l"osung ist immer m"oglich, indem man das Gleichungssystem
+mit Matrix $A^tA$ und rechter Seite $A^tb$ l"ost, also
+\begin{align*}
+A^tA&=
+\begin{pmatrix}
+0&1000&   0&1000\\
+0&   0&1000&1000\\
+1&   1&   1&   1
+\end{pmatrix}
+\begin{pmatrix}
+   0&   0&1\\
+1000&   0&1\\
+   0&1000&1\\
+1000&1000&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2000000&1000000&2000\\
+1000000&2000000&2000\\
+   2000&   2000&   4
+\end{pmatrix},
+\\
+A^tb&=
+\begin{pmatrix}
+0&1000&   0&1000\\
+0&   0&1000&1000\\
+1&   1&   1&   1
+\end{pmatrix}
+\begin{pmatrix}
+11\\19\\26\\42
+\end{pmatrix}=\begin{pmatrix}61000\\68000\\98\end{pmatrix}.
+\end{align*}
+%Die numerische L"osung des Gleichungssystems mit diesen Matrizen ist
+%\[
+%\begin{pmatrix}
+%a\\
+%b\\
+%c
+%\end{pmatrix}
+%=
+%\begin{pmatrix}
+%0.012\\
+%0.019\\
+%9
+%\end{pmatrix}.
+%\]
+%Die L"osung f"ur die Lichtverschmutzungsfunktion ist also
+%\[
+%l=0.012 x + 0.019 y + 9.
+%\]
+\end{loesung}
+
+\begin{bewertung}
+Gleichungen f"ur $a$, $b$ und $c$ ({\bf G}) 2 Punkt,
+"Uberbestimmtes Gleichungssystem ({\bf U}) 1 Punkt,
+Berechnung von $A^tA$ ({\bf A}) 2 Punkt,
+Berechung von $A^tb$ ({\bf B}) 1 Punkt.
+\end{bewertung}
+
