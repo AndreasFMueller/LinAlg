@@ -1,0 +1,162 @@
+%Ein Teleskop wird um eine horizontale Achse drehbar in einer Gabel gelagert,
+%die ihrerseits um die vertikale Achse gedreht werden kann. So kann ein
+%Tourist an einem Aussichtspunkt jeden beliebigen Punkt beobachten
+%(Abbildung~\ref{40000029:altaz} links).
+%F"ur ein grosses Teleskop, welches bei $45^\circ$ n"ordlicher Breite
+%aufgestellt werden soll, ist diese Montierungsart zu simpel.
+%Um die
+%Drehung der Erde kompensieren zu k"onnen, wird die vertikale Achse
+%gekippt, so dass sie parallel zur Erdachse liegt. Dreht man das Teleskop mit
+%einer Umdrehung pro Tag um diese Achse, zeigt es immer auf den gleichen
+%Punkt am Himmel (Abbildung~\ref{40000029:altaz} rechts).
+%\begin{figure}[ht]
+%\begin{center}
+%%\includeagraphics[width=0.266\hsize]{azimutala.jpg}
+%\includeagraphics[width=0.2128\hsize]{azimutala.jpg}
+%\quad
+%\quad
+%\quad
+%\quad
+%%\includeagraphics[width=0.399\hsize]{forksaltazeq.jpg}
+%\includeagraphics[width=0.3192\hsize]{forksaltazeq.jpg}
+%\end{center}
+%\caption{Montierung von Teleskopen: azimutale Montierung (links)
+%und "aquatoriale Montierung (rechts)\label{40000029:altaz}}
+%\end{figure}
+Zur Beschreibung der Position von Objekten am Himmel sind zwei
+Koordinatensysteme "ublich.
+\begin{figure}[ht]
+\begin{center}
+\includeagraphics[width=0.3\hsize]{azimutalcoord.jpg}
+\quad
+\quad
+\includeagraphics[width=0.3\hsize]{equatorialcoord.jpg}
+\end{center}
+\caption{Koordinatensysteme: azimutal (links) und "aquatorial (rechts),
+die Richtung nach Osten ist links vorne.
+\label{40000029:coord}}
+\end{figure}
+\begin{itemize}
+\item
+Das {\it azimutale} Koordinatensystem
+(Abbildung \ref{40000029:coord} links)
+verwendet eine $x$-Achse, die genau nach Osten zeigt, und eine $z$-Achse,
+die nach oben zeigt.
+In diesem Koordinatensystem ist es besonders einfach zu entscheiden, ob
+ein Himmelsk"orper "uber dem Horizont steht: seine $z$-Koordinate ist
+positiv.
+\item
+Das {\it "aquatoriale} Koordinatensystem
+(Abbildung \ref{40000029:coord} rechts)
+verwendet wieder eine $x$-Achse,
+die nach Osten zeigt, aber die $z$-Achse ist parallel zur Erdachse.
+In diesem Koordinatensystem ist die Bewegung der Objekte, hervorgerufen
+durch die Erddrehung, besonders einfach zu berechnen.
+\end{itemize}
+In den folgenden Teilaufgaben gehen wir davon aus, dass sich der Beobachter
+bei $45^\circ$ n"ordlicher Breite befindet.
+\begin{teilaufgaben}
+\item Finden Sie die Vektoren der Nordrichtung und der Zenithrichtung
+(vertikal nach oben) im azimutalen und im "aquatorialen Koordinatensystem.
+\item Finden Sie die Transformationsmatrix, mit der Sie Vektoren
+vom azimutalen ins "aquatoriale Koordinatensystem umrechnen k"onnen.
+%\item Im "aquatorialen Koordinatensystem entspricht $\vec e_3$
+%der Erdachse. Welche Koordinaten hat dieser Vektor im azimutalen
+%Koordinatensystem?
+\item Ein Himmelsk"orper geht genau im S"udosten auf
+(Abbildung \ref{40000029:coord}).
+Bestimmen Sie einen Einheitsvektor mit Blickrichtung zum
+aufgehenden Himmelsk"orper in beiden Koordinatensystemen.
+\item Ist der Himmelsk"orper nach 8 Stunden schon wieder untergegangen?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Im azimutalen Koordinatensystem sind dies die Vektoren $\vec e_2$
+und $\vec e_3$. Im "aquatorialen System gilt
+\[
+\text{Norden:} \quad \begin{pmatrix}0\\ \cos 45^\circ\\\sin 45^\circ\end{pmatrix}
+\qquad\text{und}\qquad
+\text{Zenith:} \quad \begin{pmatrix}0\\-\sin 45^\circ\\\cos 45^\circ\end{pmatrix}
+\]
+
+\item Die Transformation ist eine Drehung um den Winkel $45^\circ$
+um die $x$-Achse, sie hat die Matrix:
+\[
+T=\begin{pmatrix}
+1& 0            & 0            \\
+0& \cos 45^\circ&-\sin 45^\circ\\
+0& \sin 45^\circ& \cos 45^\circ
+\end{pmatrix}
+\]
+%\item Bilder der Standardbasisvektoren sind die Spalten der Matrix, also
+%ist das Bild von $\vec e_3$ unter der Matrix $T$ der Vektor
+%\[
+%\begin{pmatrix}0\\\sin 45^\circ\\\cos 45^\circ\end{pmatrix}.
+%\]
+\item Im azimutalen Koordinatensystem hat der aufgehende Himmelsk"orper
+die Richtung
+\[
+v=\begin{pmatrix}
+\frac{\sqrt{2}}2\\-\frac{\sqrt{2}}2\\0
+\end{pmatrix}.
+\]
+\item
+Die Bewegung der Erde im aquatorialen Koordinatensystem ist eine Drehung
+um $ 120^\circ$ um die $z$-Achse, hat also die Matrix
+\[
+A'=\begin{pmatrix}
+ \cos 120^\circ & \sin 120^\circ & 0\\
+-\sin 120^\circ & \cos 120^\circ & 0\\
+ 0              & 0              & 1
+\end{pmatrix}
+\]
+Im azimutalen Koordinatensystem hat die Abbildung die Matrix
+$A=T^{-1}A'T.$ Wir m"ussen dieses Produkt nicht ausrechnen, sondern
+sondern nur seine Wirkung auf den Vektor $v$:
+\begin{align*}
+Av&=
+\begin{pmatrix}
+1& 0                  & 0                 \\
+0& \frac{\sqrt{2}}2   & \frac{\sqrt{2}}2  \\
+0&-\frac{\sqrt{2}}2   & \frac{\sqrt{2}}2
+\end{pmatrix}
+\begin{pmatrix}
+ \frac12          & \frac{\sqrt{3}}2 0\\
+-\frac{\sqrt{3}}2 & \frac12        & 0\\
+ 0                & 0              & 1
+\end{pmatrix}
+\begin{pmatrix}
+1& 0                 & 0                 \\
+0& \frac{\sqrt{2}}2  &-\frac{\sqrt{2}}2  \\
+0& \frac{\sqrt{2}}2  & \frac{\sqrt{2}}2  
+\end{pmatrix}v
+\\
+&=
+\begin{pmatrix}
+   0.50000 & 0.61237& -0.61237\\
+  -0.61237 & 0.75000&  0.25000\\
+   0.61237 & 0.25000&  0.75000
+\end{pmatrix}v
+=\begin{pmatrix}
+  -0.079459\\
+  -0.963343\\
+   0.256236
+\end{pmatrix}
+\end{align*}
+Da die $z$-Komponente positiv ist, steht der Himmelsk"orper immer noch
+"uber dem Horizont.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item 1 Punkt.
+\item Drehmatrix oder Matrix aus den in a) gefundenen Spalten, 1 Punkt.
+\item 1 Punkt.
+\item Drehmatrix mit Winkel $120^\circ$ ({\bf D}) 1 Punkt,
+Transformationsformel ({\bf T}) 1 Punkt,
+Resultatvektor und Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
