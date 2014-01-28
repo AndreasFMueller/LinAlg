@@ -1,0 +1,166 @@
+Ist $\frac{23}{67}=\frac{33}{97}$? Diese Frage stellt David Pengelley
+in der Dezember-Ausgabe der Zeitschrift {\it The American Mathematical
+Monthly}. Nat"urlich erwartet er eine andere L"osung als einfach nur
+in den Taschenrechner eintippen. Zum Beispiel sind die beiden Br"uche
+gleich, wenn die Vektoren
+\[
+\begin{pmatrix}
+23\\67
+\end{pmatrix}
+\qquad\text{und}\qquad
+\begin{pmatrix}
+33\\97
+\end{pmatrix}
+\]
+linear abh"angig sind, oder wenn die Matrix
+\[
+A=
+\begin{pmatrix}
+23&33\\
+67&97
+\end{pmatrix}
+\]
+singul"ar ist. Diese Idee kann man auch auf drei Br"uche erweitern: Die
+Br"uche $\frac{13}{37}$, $\frac{23}{67}$ und $\frac{33}{97}$ sind genau
+dann gleich, wenn die Matrix
+\[
+B=\begin{pmatrix}
+13&23&33\\
+37&67&97
+\end{pmatrix}
+\]
+den Rang 1 hat.
+
+\begin{teilaufgaben}
+\item Wie k"onnen Sie pr"ufen, ob $B$ den Rang 1 hat? F"uhren Sie die
+Rechnung durch.
+\item Einige Mikrokontroller haben keine Multiplikationsoperation, und
+die meisten haben keine Divisionsoperation.
+K"onnen Sie Ihre L"osung von a) so verallgemeinern, dass sie nur mit
+Addition und Subtraktion auskommt?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Den Rang bestimmt man, indem man den Gauss-Algorithmus durchf"uhrt. F"ur
+die Matrix $B$ f"uhrt er auf die folgenden Tableaux:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+13&23&33\\
+37&67&97\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{23}{13}&\frac{33}{13}\\
+0&\frac{20}{13}&\frac{40}{13}\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&-1\\
+0&1& 2\\
+\hline
+\end{tabular}.
+\]
+\item Der Gaussalgorithmus funktioniert offenbar nicht direkt, da
+er immer wieder Divisionen durch Pivot-Elemente verlangt. Die ``roten''
+Operationen sind also nicht zul"assig, man muss mit den ``blauen''
+Operationen, den Zeilenoperationen auskommen.
+
+Ohne Multiplikationen muss man halt mit wiederholten Additionen oder
+Subtraktionen das gleiche Ziel zu erreichen versuchen. Also subtrahiert
+man die erste Zeile so lange von der zweiten, bis dort etwas ``kleines''
+steht:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+13&23&33\\
+37&67&97\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+13&23&33\\
+24&44&64\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+13&23&33\\
+11&21&31\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+13&23&33\\
+-2&-2&-2\\
+\hline
+\end{tabular}
+\]
+Jetzt addiert man die zweite Zeile so oft zur ersten, bis in der
+linken oberen Ecke eine 1 steht:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+13&23&33\\
+-2&-2&-2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+11&21&31\\
+-2&-2&-2\\
+\hline
+\end{tabular}
+\rightarrow
+\dots
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1&11&21\\
+-2&-2&-2\\
+\hline
+\end{tabular}
+\]
+Wenn man jetzt noch die erste Zeile zweimal zur zweiten hinzuaddiert,
+erh"alt man 
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1&11&21\\
+-2&-2&-2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1&11&21\\
+ 0&20&40\\
+\hline
+\end{tabular}
+\]
+Jetzt hat man das gleiche erreicht wie im Gauss-Algorithmus: in der
+linken oberen Ecke steht eine Eins, darunter nur Nullen. Das reicht
+aber um ablesen zu k"onnen, dass die zweite Zeile keine Nullzeile
+wird, dass der Rang also 2 ist.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Definition des Ranges ({\bf R}) 1 Punkt,
+Durchf"uhrung des Gaussalgorithmus ({\bf G}) 2 Punkte,
+Wert des Ranges ({\bf W}) 1 Punkt.
+Ersetzen der Multiplikationen durch wiederholte Additionen/Subtraktionen
+({\bf A}) 1 Punkt, Durchf"uhrung der Berechnung bis eine
+Schlussfolgerung m"oglich ist ({\bf B}) 1 Punkt.
+\end{bewertung}
+
