@@ -1,0 +1,85 @@
+Betrachten Sie die Punkte
+\begin{align*}
+P_1&=(1,0),
+&P_2&=\biggl(\frac{-1+\sqrt{5}}4, \frac{\sqrt{10+2\sqrt{5}}}4 \biggr),
+&P_3&=\biggl(\frac{-1-\sqrt{5}}4, \frac{\sqrt{10-2\sqrt{5}}}4 \biggr),\\
+&&P_5&=\biggl(\frac{-1+\sqrt{5}}4,-\frac{\sqrt{10+2\sqrt{5}}}4 \biggr),
+&P_4&=\biggl(\frac{-1-\sqrt{5}}4,-\frac{\sqrt{10-2\sqrt{5}}}4 \biggr)
+\end{align*}
+\begin{teilaufgaben}
+\item Wie weit vom Ursprung sind die Punkte $P_1$ und $P_2$ 
+entfernt?
+\item Sind die Winkel zwischen den Ortsvektoren von aufeinanderfolgenden
+Punkten gleich, also $\angle P_1OP_2=\angle P_2OP_3=\angle P_3OP_4\dots$?
+\item Was f"ur eine Figur bilden die f"unf Punkte?
+\end{teilaufgaben}
+
+\begin{hinweis}
+Die Punkte $P_4$ und $P_5$ entstehen aus $P_3$ bzw.~$P_2$ durch
+Spiegelung an der $x$-Achse.
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die L"ange der Strecken $OP_2$ und $OP_3$ kann mit dem Satz von
+Pythagoras berechnet werden:
+\begin{align*}
+|OP_2|&=
+\biggl(\frac{-1+\sqrt{5}}4\biggr)^2+ \biggl(\frac{\sqrt{10+2\sqrt{5}}}4 \biggr)^2
+\\
+&=\frac{1-2\sqrt{5}+5}{16}+\frac{10+2\sqrt{5}}{16}=\frac{1-2\sqrt{5}+5+10+2\sqrt{5}}{16}=\frac{16}{16}=1\\
+|OP_3|&=
+\biggl(\frac{-1-\sqrt{5}}4\biggr)^2+\biggl( \frac{\sqrt{10-2\sqrt{5}}}4 \biggr)^2
+\\
+&=\frac{1+2\sqrt{5}+5}{16}+\frac{10-2\sqrt{5}}{16}=\frac{1+2\sqrt{5}+5+10-2\sqrt{5}}{16}=\frac{16}{16}=1,
+\end{align*}
+Beide Vektoren sind Einheitsvektoren.
+\item Wenn die Skalarprodukte der Ortsvektoren gleich sind, dann sind auch
+die Winkel gleich:
+\begin{align*}
+\overrightarrow{OP_1}\cdot\overrightarrow{OP_2}
+&=
+\frac{-1+\sqrt{5}}4\\
+\overrightarrow{OP_2}\cdot\overrightarrow{OP_3}
+&=
+\frac{-1+\sqrt{5}}4
+\cdot
+\frac{-1-\sqrt{5}}4
++
+\frac{\sqrt{10+2\sqrt{5}}}4
+\cdot
+\frac{\sqrt{10-2\sqrt{5}}}4
+\\
+&=
+\frac{1-5}{16}+\frac{\sqrt{100-20}}{16}
+=\frac{-1}{4}+\frac{\sqrt{5\cdot 16}}{16}
+=\frac{-1+\sqrt{5}}{4},
+\\
+\overrightarrow{OP_3}\cdot\overrightarrow{OP_4}
+&=
+\frac{-1-\sqrt{5}}4\cdot
+\frac{-1-\sqrt{5}}4
+-
+ \frac{\sqrt{10-2\sqrt{5}}}4
+\cdot
+\frac{\sqrt{10-2\sqrt{5}}}4
+\\
+&=\frac{1+2\sqrt{5}+5}{16}-\frac{10-2\sqrt{5}}{16}
+=\frac{6+2\sqrt{5}-10+2\sqrt{5}}{16}
+=\frac{-4+4\sqrt{5}}{16}=\frac{-1+\sqrt{5}}{4}.
+\end{align*}
+\item
+Die Punkte liegen alle auf dem Einheitskreis und schliessen jeweils
+den gleichen Winkel ein, also bilden sie ein regelm"assiges F"unfeck.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+L"angenberechnung mit Pythagoras/Skalarprodukt ({\bf P}) 1 Punkt,
+korrekte Werte ({\bf L}) 1 Punkt,
+Zwischenwinkelformel ({\bf Z}) 1 Punkt,
+Berechnung von zwei Winkeln mit Resultat $72^\circ$ ({\bf W}) 1 Punkt,
+Beantwortung der Frage, ob Winkel gleich sind ({\bf F}) 1 Punkt,
+regelm"assiges F"unfeck ({\bf 5}) 1 Punkt.
+\end{bewertung}
+
