@@ -1,0 +1,153 @@
+Hans kritzelt ein paar bedeutende Jahreszahlen aus seinem Leben
+auf ein Papier:
+\[
+\begin{matrix}
+1&9&9&9\\
+2&0&0&0\\
+2&0&0&7\\
+2&0&1&4
+\end{matrix}
+\]
+Sofort stellt er sich die naheliegenden Fragen:
+\begin{teilaufgaben}
+\item Bilden diese Zahlen eine regul"are Matrix? 
+\item Welchen Wert hat die Determinante?
+\item Was "andert sich, wenn Hans seine Zahlen r"uckw"arts und in
+umgekehrter zeitlicher Reihenfolge hinkritzelt?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Teilaufgabe a) l"asst sich sofort l"osen, wenn man b) gel"ost
+hat. Wenn die Determinate nicht verschwindet, ist die Matrix regul"ar.
+
+Nat"urlich kann die Regularit"at auch mit Hilfe des Gauss-Algorithmus
+festgestellt werden, was aber etwas mehr Arbeit gibt:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&9&9&9\\
+2&0&0&0\\
+2&0&0&7\\
+2&0&1&4\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  9&  9&  9\\
+0&-18&-18&-18\\
+0&-18&-18&-11\\
+0&-18&-17&-14\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  9&  9&  9\\
+0&  1&  1&  1\\
+0&  0&  0&  7\\
+0&  0&  1&  4\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  9&  9&  9\\
+0&  1&  1&  1\\
+0&  0&  1&  4\\
+0&  0&  0&  7\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  9&  9&  9\\
+0&  1&  1&  1\\
+0&  0&  1&  4\\
+0&  0&  0&  1\\
+\hline
+\end{tabular}
+\end{align*}
+Offenbar kann der Gaussalgorithmus ohne verschwindende Pivot-Elemente
+durchgef"uhrt werden, die Matrix ist also regul"ar. Die Pivot-Elemente
+waren der Reihe nach: $1$, $-18$, $1$ und $7$.
+Ausserdem wurde eine Zeilenvertauschung vorgenommen.
+\item
+Wir berechnen zun"achst die Determinante durch Entwicklung
+nach der zweiten Zeile:
+\begin{align*}
+\left|\;
+\begin{matrix}
+1&9&9&9\\
+2&0&0&0\\
+2&0&0&7\\
+2&0&1&4
+\end{matrix}
+\;\right|
+&=
+-2\cdot
+\left|\;\begin{matrix}
+9&9&9\\
+0&0&7\\
+0&1&4
+\end{matrix}\;\right|
+=-2\cdot 9\cdot
+\left|\;\begin{matrix}
+1&1&1\\
+0&0&7\\
+0&1&4
+\end{matrix}\;\right|
+\\
+&=
+-2\cdot 9\cdot(-7)\cdot
+\left|\;\begin{matrix}
+1&1\\
+0&1
+\end{matrix}\;\right|
+=
+-2\cdot 9\cdot(-7)=126.
+\end{align*}
+Da die Determinanten nicht verschwindet, ist die Matrix regul"ar.
+
+Die Determinante kann auch aus den Pivot-Elementen des oben durchgef"uhrten
+Gauss-Algorithmus abgeleitet werden. Dabei muss allerdings beachtet werden,
+dass dazu auch eine Zeilenvertauschung notwendig war, d.~h.~die Determinante
+ist 
+\[
+\det(A)=\underbrace{1\cdot (-18)\cdot 1\cdot 7}_{\text{Produkt der Pivotelemente}}\cdot \underbrace{(-1)}_{\text{Zeilenvertauschung}}
+\]
+\item R"uckw"arts geschriebene Zahlen in umgekehrter Reihenfolge 
+ergeben die Matrix
+\[
+A'=\begin{pmatrix}
+4&1&0&2\\
+7&0&0&2\\
+0&0&0&2\\
+9&9&9&1
+\end{pmatrix}
+\]
+Durch 6 Vertauschungen von aufeinanderfolgenden Zeilen und 6
+Vertauschungen aufeinanderfolgender Spalten kann $A$ in $A'$
+"ubergef"uhrt werden. Da sich bei Zeilen- oder Spaltenvertauschungen
+nur das Vorzeichen der Determinate "andert, "andert sich bei
+einer geraden Zahl von Vertauschungen wie beim "Ubergang von $A$
+zu $A'$ nichts.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Entwicklungssatz ({\bf E}) 1 Punkt,
+rekursive Berechnung der Determinanten ({\bf B}) 1 Punkt,
+Wert der Determinanten ({\bf D}) 1 Punkt,
+Regularit\"at ({\bf R}) 1 Punkt, 
+Rechenregeln f"ur Vertauschungen von Zeilen und Spalten ({\bf V}) 1 Punkt,
+Resultat $\det A=\det A'$ ({\bf A}) 1 Punkt.
+\end{bewertung}
+
+
+
+
