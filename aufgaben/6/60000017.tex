@@ -1,0 +1,219 @@
+Ist die Matrix
+\[
+A=\begin{pmatrix}2&6\\6&7\end{pmatrix}
+\]
+diagonalisierbar? Wenn ja, geben Sie eine Basis an, in der $A$ diagonal
+ist.
+
+\begin{loesung}
+Eine geeignete Basis besteht aus den Eigenvektoren von $A$. Weil $A$
+symmetrisch ist, l"asst sich immer eine Eigenvektorbasis find.
+
+Das charakteristische Polynom von $A$ ist
+\begin{align*}
+\det(A-\lambda E)
+&=\left|\begin{matrix}2-\lambda&6\\6&7-\lambda\end{matrix}\right|
+=(2-\lambda)(7-\lambda)-36=\lambda^2-9\lambda+14-36=\lambda^2-9\lambda-22
+\end{align*}
+Die Nullstellen k"onnen mit der L"osungsformel f"ur quadratische Gleichungen
+gefunden werden:
+\begin{align*}
+\lambda_{\pm}&=\frac{9}{2}\pm\frac{1}{2}\sqrt{9^2+4 \cdot 22}
+=\frac{9}{2}\pm\frac{1}{2}\sqrt{169}=\frac{9\pm13}{2}
+=\begin{cases}
+11\\-2
+\end{cases}
+\end{align*}
+F"ur jeden Eigenwert muss jetzt mit Hilfe des Gaussalgorithmus ein
+Eigenvektor gefunden werden.
+
+F"ur $\lambda_+=11$ findet man
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+2-11&6\\
+6&7-11\\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-9&6\\
+6&-4\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-\frac23\\
+0&0\\
+\hline
+\end{tabular}
+\]
+Die zweite Koordinate ist wie erwartet frei w"ahlbar, indem wir sie auf
+$3$ setzen erhalten wir einen Eigenvektor ohne Br"uche
+\[
+v_+=\begin{pmatrix}2\\3\end{pmatrix}.
+\]
+
+F"ur $\lambda_-=-2$ erhalten wir
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+2+2&6\\
+6&7+2\\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+4&6\\
+6&9\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac32\\
+0&0\\
+\hline
+\end{tabular}.
+\]
+Wieder ist die zweite Variable frei w"ahlbar, die Wahl $-2$ liefert 
+den Eigenvektor
+\[
+v_-=\begin{pmatrix}3\\-2\end{pmatrix}.
+\]
+
+Kontrolle: Wir kontrollieren die Rechnung durch Multiplikation von $A$
+mit den gefundenen Eigenvektoren:
+\begin{align*}
+Av_+&=\begin{pmatrix}2&6\\6&7\end{pmatrix}\begin{pmatrix}2\\3\end{pmatrix}
+=\begin{pmatrix}4+18\\ 12 + 21\end{pmatrix}
+=\begin{pmatrix}22\\ 33\end{pmatrix}=11\begin{pmatrix}2\\3\end{pmatrix}
+=\lambda_+v_+,\\
+Av_-&=\begin{pmatrix}2&6\\6&7\end{pmatrix}\begin{pmatrix}3\\-2\end{pmatrix}
+=\begin{pmatrix}6-12\\18-14 \end{pmatrix}
+=\begin{pmatrix}-6\\4 \end{pmatrix}=-2\begin{pmatrix}3\\-2\end{pmatrix}
+=\lambda_-v_-.
+\end{align*}
+Ausserdem sind die beiden Vektoren orthogonal, wie man das von den Eigenvektoren
+einer symmetrischen Matrix zu verschiedenen Eigenwerten erwartet:
+\[
+v_+\cdot v_-=
+\begin{pmatrix}2\\3\end{pmatrix}
+\cdot
+\begin{pmatrix}3\\-2\end{pmatrix}
+=2\cdot 3 + 3\cdot(-2)=0.
+\]
+\end{loesung}
+
+\begin{diskussion}
+Man kann sich auch die allgemeinere Frage stellen, welche ganzzahligen
+symmetrischen $2\times 2$-Matrizen eigentlich ganzzahlige Eigenwerte haben.
+Dazu untersucht man die Matrix
+\[
+A=\begin{pmatrix}a&b\\b&c\end{pmatrix}
+\]
+mit dem charakteristischen Polynom
+\[
+\chi_A(\lambda)=(a-\lambda)(c-\lambda)-b^2=\lambda^2-(a+c)\lambda+ac-b^2.
+\]
+Die Nullstellen k"onnen mit der L"osungsformel f"ur quadratische 
+Gleichungen gefunden werden:
+\begin{align*}
+\lambda_{\pm}&=\frac{a+c}2\pm\sqrt{\biggl(\frac{a+c}2\biggr)^2-ac+b^2}\\
+	&=\frac{a+c}2\pm\frac12\sqrt{a^2+2ac+c^2-4ac+4b^2}\\
+	&=\frac{a+c}2\pm\frac12\sqrt{a^2-2ac+c^2+4b^2}\\
+	&=\frac{a+c}2\pm\frac12\sqrt{(a-c)^2+4b^2}.
+\end{align*}
+Wenn die Eigenwerte ganzzahlig werden sollen, dann muss die Quadratwurzel
+auf der rechten Seite ganzzahlig sein, es muss also
+\[
+x=a-c, \quad y=2b ,\quad z=\sqrt{(a-c)^2+4b^2}
+\]
+ein pythagor"aisches Tripel sein. Schreibt man $m=\frac{a+c}2$, kann man
+die Matrix jetzt auch mit dem Tripel $(x,y,z)$ parametrisieren:
+\[
+A=\begin{pmatrix}
+m + \frac{x}2&\frac{y}2\\
+\frac{y}2&m-\frac{x}2
+\end{pmatrix}
+,\qquad
+\lambda_{\pm}=m\pm\frac{z}2.
+\]
+Mit diesen Bezeichungen kann man jetzt auch die Eigenvektoren
+berechnen. Wir schreiben das Gauss\-tableau f"ur $A-\lambda_\pm E$:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+m+\frac{x}2-\lambda_\pm&\frac{y}2\\
+\frac{y}2&m-\frac{x}2-\lambda_\pm\\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+m+\frac{x}2-m\mp \frac{z}2&\frac{y}2\\
+\frac{y}2&m-\frac{x}2-m\mp\frac{z}2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+x\mp z&y\\
+y&-x\mp z\\
+\hline
+\end{tabular}
+\]
+Daraus kann man als m"ogliche Eigenvektoren ablesen:
+\[
+v_+=\begin{pmatrix}
+y\\z-x
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+x+z\\y
+\end{pmatrix}
+,\qquad
+v_-=\begin{pmatrix}
+-y\\x+z
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+x-z\\y
+\end{pmatrix}
+\]
+Die Eigenvektoren m"ussen orthogonal sein, ihr Skalarprodukt muss also
+verschwinden:
+\begin{align*}
+\begin{pmatrix}
+y\\z-x
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+-y\\x+z
+\end{pmatrix}
+&=
+-y^2+(z+x)(z-x)=-y^2+z^2-x^2=0,
+\\
+\begin{pmatrix}
+x+z\\y
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+x-z\\y
+\end{pmatrix}
+&=
+(x+z)(x-z)+y^2=x^2-z^2+y^2=0.
+\end{align*}
+Die Aufgabe entspricht dem pythagor"aischen Tripel $(5,12,13)$.
+\end{diskussion}
+
+\begin{bewertung}
+Charakteristisches Polynom ({\bf X}) 1 Punkt,
+Nullstellen ({\bf N}) 1 Punkt,
+Gleichungssysteme f"ur $\lambda_+$ und $\lambda_-$ ({\bf G$\pm$}) je 1 Punkt,
+Eigenvektoren ({\bf E$\pm$}) je 1 Punkt.
+\end{bewertung}
+
