@@ -3,7 +3,7 @@
 #
 # (c) 2009 Prof Dr Andreas Mueller
 #
-all:	skript.pdf
+all:	skript.pdf checklist.pdf
 
 TEXFILES = determinanten.tex eigen.tex lingl.tex \
 	linsys.tex vektorgeometrie.tex \
@@ -34,4 +34,5 @@ images-subdir:
 clean:
 	rm -f skript.dvi skript.pdf
 
-
+checklist.pdf:	checklist.tex
+	pdflatex checklist.tex
