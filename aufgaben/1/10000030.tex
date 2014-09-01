@@ -1,0 +1,164 @@
+Betrachten Sie das Gleichungssystem
+\[
+\begin{linsys}{3}
+x&+&2y&+&4z&=&11\\
+x&+&4y&+&3z&=&14\\
+x&+&3y&+&4z&=&13
+\end{linsys}
+\]
+\begin{teilaufgaben}
+\item Berechnen Sie die Inverse der Koeffizientenmatrix.
+\item Finden Sie die L"osung des Gleichungssystems mit Hilfe der Inversen.
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir schreiben $A$ f"ur die Koeffizienten-Matrix:
+\[
+\begin{pmatrix}
+   1&  2&  4\\
+   1&  4&  3\\
+   1&  3&  4
+\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item
+Die Inverse kann man mit Hilfe des Gauss-Algorithmus berechnen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}
+\hline
+A&E\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  2&  4&  1&  0&  0\\
+   1&  4&  3&  0&  1&  0\\
+   1&  3&  4&  0&  0&  1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  2&  4&  1&  0&  0\\
+   0&  2& -1& -1&  1&  0\\
+   0&  1&  0& -1&  0&  1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  2&  4&  1&  0&  0\\
+   0&  1& -\frac12& -\frac12&  \frac12&  0\\
+   0&  0& \frac12& -\frac12& -\frac12&  1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  2&  0&  5&  4& -8\\
+   0&  1&  0& -1&  0&  1\\
+   0&  0&  1& -1& -1&  2\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  2&  0&  7&  4&-10\\
+   0&  1&  0& -1&  0&  1\\
+   0&  0&  1& -1& -1&  2\\
+\hline
+\end{tabular}
+=\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}
+\hline
+E&A^{-1}\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus kann jetzt die Inverse Matrix abgelesen werden:
+\[
+A^{-1}
+=
+\begin{pmatrix}
+ 7& 4&-10\\
+-1& 0&  1\\
+-1&-1&  2
+\end{pmatrix}
+\]
+Wir kontrollieren das Resultat durch Ausmultiplizieren:
+\begin{align*}
+A\cdot A^{-1}
+&=
+\begin{pmatrix}
+   1&  2&  4\\
+   1&  4&  3\\
+   1&  3&  4
+\end{pmatrix}
+\begin{pmatrix}
+ 7& 4&-10\\
+-1& 0&  1\\
+-1&-1&  2
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+1\cdot 7 + 2\cdot (-1)+4\cdot (-1)&1\cdot4 +2\cdot0 +4\cdot(-1)&1\cdot(-10) +2\cdot1 +4\cdot1\\
+1\cdot7 +4\cdot(-1) +3\cdot(-1)&1\cdot4 +4\cdot0 +3\cdot(-1)&1\cdot(-10) +4\cdot1 +3\cdot2\\
+1\cdot7 +3\cdot(-1) +4\cdot(-1)&1\cdot4 +3\cdot0 +4\cdot(-1)&1\cdot(-10) +3\cdot1 +4\cdot2
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+7-2-4&4+0-4&-10+2+8\\
+7-4-3&4+0-3&-10+4+6\\
+7-3-4&4+0-4&-10+3+8
+\end{pmatrix}
+=\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}=E.
+\end{align*}
+\item Die L"osung des Gleichungssystems kann jetzt mit $x=A^{-1}b$ gefunden
+werden:
+\begin{align*}
+b&=
+\begin{pmatrix}11\\14\\13\end{pmatrix}
+&
+x&=A^{-1}b=
+\begin{pmatrix}
+ 7& 4&-10\\
+-1& 0&  1\\
+-1&-1&  2
+\end{pmatrix}
+\begin{pmatrix}11\\14\\13\end{pmatrix}
+=
+\begin{pmatrix}
+77+56-130\\
+-11+13\\
+-11-14+26
+\end{pmatrix}
+=
+\begin{pmatrix}
+3\\
+2\\
+1
+\end{pmatrix}.
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Ansatz (\textbf{A}) 1 Punkt,
+Durchf"uhrung des Gauss Algorithmus (\textbf{G}) 2 Punkte,
+Inverse Matrix (\textbf{I}) 1 Punkt,
+\item
+L"osungsansatz $x=A^{-1}b$ (\textbf{B}) 1 Punkt,
+korrekte L"osung (\textbf{L}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+

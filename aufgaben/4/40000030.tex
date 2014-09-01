@@ -1,0 +1,129 @@
+In Zaouit Massa in Marokko auf $30^\circ$ n"ordlicher Breite steht abends
+um 20:00 Uhr ein Stern im Zenit (genau "uber dem Beobachter). Wann geht
+dieser Stern unter?
+
+\begin{loesung}
+Es ist zu berechnen, welcher Drehwinkel der Himmelskugel dazu f"uhrt,
+dass der Stern auf Horizonth"ohe zu liegen kommt. Zu Beginn hat der
+Stern in einem Koordinatensystem mit vertikaler $z$-Achse den
+Ortsvektor
+\[
+\vec s=\begin{pmatrix}0\\0\\1\end{pmatrix}=\vec e_3.
+\]
+Wir legen die $x$-Achse des Koordinatensystems in Richtung Osten.
+
+Die Drehung der Himmelskugel l"asst sich aber viel leichter in einem
+Koordinatensystem beschreiben, welches eine Gerade parallel zur Erdachse
+als $z$-Achse verwendet. Wir bezeichnen Vektoren in diesem Koordinatensystem
+mit Strichen. Es ist gegen"uber dem urspr"unglichen Koordinatensystem
+um einen Winkel $\alpha=60^\circ$ verdreht, Drehachse ist die $x$-Achse.
+Die Umrechnung eines Vektors $\vec v$ in dieses Koordinatensystem
+erfolgt mit Hilfe einer Drehmatrix.
+Die Matrix
+\[
+T=D_{x,\alpha}=\begin{pmatrix}
+1&          0&          0\\
+0& \cos\alpha&-\sin\alpha\\
+0& \sin\alpha& \cos\alpha
+\end{pmatrix}
+=
+\begin{pmatrix}
+1& 0&0\\
+0&\frac12&-\frac{\sqrt{3}}2\\
+0&\frac{\sqrt{3}}2&\frac12\\
+\end{pmatrix}
+\]
+transformiert den Vektor $\vec e_3$ in den Vektor
+\[
+\vec v'=T\vec v=
+\begin{pmatrix}
+0\\-\frac{\sqrt{3}}2\\\frac12 
+\end{pmatrix}
+\]
+die Darstellung der Sternposition im gestrichenen Koordinatensystem.
+
+Jetzt erfolgt die Drehung um den unbekannten Winkel $\varphi$ um
+die $z'$-Achse im gestrichenen Koordinatensystem, dies kann durch die
+Drehmatrix
+\[
+D_{z',\varphi}
+=
+\begin{pmatrix}
+\cos\varphi&-\sin\varphi&0\\
+\sin\varphi& \cos\varphi&0\\
+0&0&1
+\end{pmatrix}
+\]
+Nach der Drehung hat der Stern im gestrichenen Koordinatensystem die
+Koordinaten:
+\[
+D_{z',\varphi}\vec v'
+=
+\begin{pmatrix}
+\cos\varphi&-\sin\varphi&0\\
+\sin\varphi& \cos\varphi&0\\
+0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+0\\-\frac{\sqrt{3}}2\\\frac12 
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac{\sqrt{3}}2\sin\varphi\\
+-\frac{\sqrt{3}}2\cos\varphi\\
+\frac12
+\end{pmatrix}.
+\]
+
+Ob der Stern sich genau auf Horizonth"ohe befindet, kann nur im ungestrichen
+Koordinatensystem entschieden werden.
+Man muss daher wieder mit $T^{-1}$ zur"ucktransformieren:
+\[
+T^{-1}D_{z',\varphi}Te_3 = 
+\begin{pmatrix}
+1& 0&0\\
+0&\frac12&\frac{\sqrt{3}}2\\
+0&-\frac{\sqrt{3}}2&\frac12\\
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\sqrt{3}}2\sin\varphi\\
+-\frac{\sqrt{3}}2\cos\varphi\\
+\frac12
+\end{pmatrix}.
+=
+\begin{pmatrix}
+\frac{\sqrt{3}}2\sin\varphi\\
+-\frac{\sqrt{3}}4\cos\varphi+\frac{\sqrt{3}}4\\
+\frac{\sqrt{3}}4\cos\varphi+\frac14
+\end{pmatrix}
+\]
+Jetzt muss $\varphi$ so gew"ahlt werden, dass die $z$-Komponente dieses
+Vektors verschwindet:
+\begin{align*}
+\frac{\sqrt{3}}4\cos\varphi+\frac14&=0\\
+\cos\varphi&=-\frac1{\sqrt{3}}\\
+\varphi&=\pm 125.2644^\circ.
+\end{align*}
+Die Antwort ist aber in Stunden gesucht, wir m"ussen also den Winkel
+noch mit dem Faktor $\frac{24}{360}=\frac1{15}$ multiplizieren:
+\[
+\varphi=8.35096\text{h}.
+\]
+Der Stern wird also um 04:21 Uhr untergehen.
+\end{loesung}
+
+\begin{diskussion}
+Die Berechnung der Untergangszeit ist nicht ganz korrekt. Die Erde dreht
+sich n"amlich nicht einmal in 24 Stunden, sondern einmal in 23.9345 Stunden,
+dem siderischen Tag.
+Der korrekte Umrechungsfaktor ist daher $\frac{23.9245}{360}$, damit
+wird die Untergangszeit 04:19:39.
+\end{diskussion}
+
+\begin{bewertung}
+Richtung der Drehachse (\textbf{A}) 1 Punkt,
+Drehmatrix (\textbf{D}) 1 Punkt,
+Umrechnung zwischen den Koordinatensystemen (\textbf{U}) 2 Punkt,
+Ermittelung Drehwinkel (\textbf{W}) 1 Punkt,
+Berechnung der Untergangszeit (\textbf{Z}) 1 Punkt.
+\end{bewertung}

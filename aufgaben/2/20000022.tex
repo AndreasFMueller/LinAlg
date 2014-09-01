@@ -1,0 +1,282 @@
+Ist die Matrix
+\[
+A=\begin{pmatrix}
+0&1&1&1&0&0\\
+0&1&0&1&0&1\\
+0&0&0&1&1&1\\
+1&1&1&0&0&0\\
+1&0&1&0&1&0\\
+1&0&0&0&1&1
+\end{pmatrix}
+\]
+regul"ar?
+
+\begin{loesung}
+Die Zeilen 2 und 5 haben die gleiche Summe wie die Zeilen 3 und 4,
+die sechs Zeilen der Matrix $A$ sind also nicht linear unabh"angig,
+daher ist die Matrix nicht regul"ar.
+
+Man kann dieses Resultat auch dadurch finden, dass man den Gauss-Algorithmus
+darauf anwendet. Allerdings ist es zweckm"assig, die Zeilen etwas umzustellen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+0&1&1&1&0&0\\
+0&1&0&1&0&1\\
+0&0&0&1&1&1\\
+1&1&1&0&0&0\\
+1&0&1&0&1&0\\
+1&0&0&0&1&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&0&0&1&1\\
+0&1&0&1&0&1\\
+0&1&1&1&0&0\\
+0&0&0&1&1&1\\
+1&1&1&0&0&0\\
+1&0&1&0&1&0\\
+\hline
+\end{tabular}
+\\
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 0& 0& 0& 1& 1\\
+ 0& 1& 0& 1& 0& 1\\
+ 0& 1& 1& 1& 0& 0\\
+ 0& 0& 0& 1& 1& 1\\
+ 0& 1& 1& 0&-1&-1\\
+ 0& 0& 1& 0& 0&-1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 0& 0& 0& 1& 1\\
+ 0& 1& 0& 1& 0& 1\\
+ 0& 0& 1& 0& 0&-1\\
+ 0& 0& 0& 1& 1& 1\\
+ 0& 0& 1&-1&-1&-2\\
+ 0& 0& 1& 0& 0&-1\\
+\hline
+\end{tabular}
+\end{align*}
+In der letzten Matrix sind die Zeilen 3 und 6 identisch, die Matrix kann
+also nicht regul"ar sein.
+
+Die Berechnung der Determinante mit dem Entwicklungssatz ist etwas unhandlich
+aber nicht unm"oglich:
+\begin{align*}
+\det(A)&=
+-\left|\begin{matrix}
+0&0&1&0&1\\
+0&0&1&1&1\\
+1&1&0&0&0\\
+1&1&0&1&0\\
+1&0&0&1&1\\
+\end{matrix}\right|
++\left|\begin{matrix}
+0&1&1&0&1\\
+0&0&1&1&1\\
+1&1&0&0&0\\
+1&0&0&1&0\\
+1&0&0&1&1\\
+\end{matrix}\right|
+-\left|\begin{matrix}
+0&1&0&0&1\\
+0&0&0&1&1\\
+1&1&1&0&0\\
+1&0&1&1&0\\
+1&0&0&1&1\\
+\end{matrix}\right|
+\\
+&=
+-\left|\begin{matrix}
+0&0&1&1\\
+1&1&0&0\\
+1&1&1&0\\
+1&0&1&1\\
+\end{matrix}\right|
+-\left|\begin{matrix}
+0&0&1&1\\
+1&1&0&0\\
+1&1&0&1\\
+1&0&0&1\\
+\end{matrix}\right|
+%
++\left|\begin{matrix}
+1&1&0&1\\
+0&1&1&1\\
+0&0&1&0\\
+0&0&1&1\\
+\end{matrix}\right|
+-\left|\begin{matrix}
+0&1&0&1\\
+0&1&1&1\\
+1&0&1&0\\
+1&0&1&1\\
+\end{matrix}\right|
+%
++\left|\begin{matrix}
+0&0&1&1\\
+1&1&0&0\\
+1&1&1&0\\
+1&0&1&1\\
+\end{matrix}\right|
+-\left|\begin{matrix}
+0&0&0&1\\
+1&1&1&0\\
+1&0&1&1\\
+1&0&0&1\\
+\end{matrix}\right|
+\\
+&=
+\left(
+-\left|\begin{matrix}
+1&1&0\\
+1&1&0\\
+1&0&1\\
+\end{matrix}\right|
++\left|\begin{matrix}
+1&1&0\\
+1&1&1\\
+1&0&1\\
+\end{matrix}\right|
+\right)
+%
++
+\left(
+-\left|\begin{matrix}
+1&1&0\\
+1&1&1\\
+1&0&1\\
+\end{matrix}\right|
+%
++\left|\begin{matrix}
+1&1&1\\
+0&1&0\\
+0&1&1\\
+\end{matrix}\right|
+\right)
+%
++
+\left(
+\left|\begin{matrix}
+0&1&1\\
+1&1&0\\
+1&1&1\\
+\end{matrix}\right|
++\left|\begin{matrix}
+0&1&1\\
+1&0&1\\
+1&0&1\\
+\end{matrix}\right|
+\right)
+\\
+&
+\quad
++
+\left(
+\left|\begin{matrix}
+1&1&0\\
+1&1&0\\
+1&0&1\\
+\end{matrix}\right|
+-\left|\begin{matrix}
+1&1&0\\
+1&1&1\\
+1&0&1\\
+\end{matrix}\right|
+\right)
+%
++
+\left(
+\left|\begin{matrix}
+1&1&1\\
+1&0&1\\
+1&0&0\\
+\end{matrix}\right|
+\right)
+\\
+&=
+\left(
+0
++\left|\begin{matrix}
+1&1\\
+0&1\\
+\end{matrix}\right|
+-\left|\begin{matrix}
+1&1\\
+1&1\\
+\end{matrix}\right|
+\right)
+%
++
+\left(
+-\left|\begin{matrix}
+1&1\\
+0&1\\
+\end{matrix}\right|
++\left|\begin{matrix}
+1&1\\
+1&1\\
+\end{matrix}\right|
+%
++\left|\begin{matrix}
+1&1\\
+0&1\\
+\end{matrix}\right|
+\right)
+%
++
+\left(
+-
+\left|\begin{matrix}
+1&0\\
+1&1\\
+\end{matrix}\right|
++
+\left|\begin{matrix}
+1&1\\
+1&1\\
+\end{matrix}\right|
++0
+\right)
+\\
+&
+\quad
++
+\left(
+0
+-\left|\begin{matrix}
+1&1\\
+0&1\\
+\end{matrix}\right|
++\left|\begin{matrix}
+1&1\\
+1&1\\
+\end{matrix}\right|
+\right)
+%
++
+\left(
+\left|\begin{matrix}
+1&1\\
+0&1\\
+\end{matrix}\right|
+\right)
+\\
+&=
+\left( 0 +1 -0 \right)
++ \left( -1 +0 +1 \right)
++ \left( - 1 + 0 +0 \right)
++ \left( 0 -1 +0 \right)
++ \left( 1 \right)
+=0
+\end{align*}
+Die Determinante ist also $0$, die Matrix ist singul"ar.
+\end{loesung}
+

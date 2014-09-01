@@ -1,0 +1,52 @@
+Die
+Vektoren
+\[
+\vec u=\begin{pmatrix}1\\1\\1\end{pmatrix}
+\qquad\text{und}\qquad
+\vec v=\begin{pmatrix}1\\-1\\1\end{pmatrix}
+\]
+liegen in einer Ebene $\sigma$.
+In welchem Punkt schneidet die Normale auf die Ebene $\sigma$
+durch den Punkt $(1,2,3)$ die Ebene mit der Gleichung $x=5$?
+
+\begin{loesung}
+Die Normale hat die Richtung
+\[
+\vec n=\vec u\times \vec v=
+\begin{pmatrix}1\\1\\1\end{pmatrix}
+\times
+\begin{pmatrix}1\\-1\\1\end{pmatrix}
+=
+\begin{pmatrix}
+1\cdot 1-(-1)\cdot 1\\
+1\cdot 1-1\cdot 1\\
+1\cdot (-1)-1\cdot 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2\\0\\-2
+\end{pmatrix}.
+\]
+Die Normale hat die Parameterdarstellung
+\[
+\begin{pmatrix}
+1\\
+2\\
+3
+\end{pmatrix}+t\begin{pmatrix}2\\0\\-2\end{pmatrix}
+\]
+Gesucht ist also der Parameter $t$ so, dass $x=5=1+2t$, also $t=2$. Der
+Schnittpunkt ist damit $(5,2,-1)$.
+\end{loesung}
+
+\begin{bewertung}
+Normale als Vektorprodukt der Vektoren $\vec u$ und $\vec v$ ({\bf N})
+1 Punkt,
+Berechnung des Vektorprodukts ({\bf V}) 1 Punkt,
+Parameterdarstellung der Geraden ({\bf P}) 1 Punkt,
+Schnittbedingung $x = 5$ ({\bf B}) 1 Punkt,
+Berechnung von $t$ ({\bf T}) 1 Punkt,
+Schnittpunkt ({\bf S}) 1 Punkt.
+\end{bewertung}
+
+

@@ -1,0 +1,53 @@
+Die Vektoren
+\[
+\vec a
+=
+\begin{pmatrix}2\\9\\1\end{pmatrix}
+\qquad
+\text{und}
+\qquad
+\vec b
+=
+\begin{pmatrix}9\\1\\8\end{pmatrix}
+\]
+spannen im Punkt $0$ eine Ebene $\sigma$ auf. Wie weit ist der Punkt
+$P=(157,-17,-1)$ von der Ebene $\sigma$ entfernt?
+
+\begin{loesung}
+Die Normale der Ebene ist
+\[
+\vec n=
+\vec a\times\vec b
+=
+\begin{pmatrix}2\\9\\1\end{pmatrix}
+\times
+\begin{pmatrix}9\\1\\8\end{pmatrix}
+=
+\begin{pmatrix}
+9\cdot 8-1\cdot 1\\
+1\cdot 9-2\cdot 8\\
+2\cdot 1-9\cdot 9
+\end{pmatrix}
+=
+\begin{pmatrix}
+71\\-7\\-79
+\end{pmatrix}
+\]
+Um den Abstand des Punktes $P$ von der Ebene zu berechnen, verwenden
+wir die Abstandsformel
+\begin{align*}
+d&=\frac{\vec p\cdot (\vec a\times\vec b)}{|\vec a\times\vec b|}
+=\frac1{\sqrt{5041+49+6241}}\begin{pmatrix}157\\-17\\-1\end{pmatrix}\cdot
+\begin{pmatrix}
+71\\-7\\-79
+\end{pmatrix}
+=\frac{11147+119+79}{\sqrt{11331}}=\frac{11345}{\sqrt{11331}}=106.58.
+\end{align*}
+\end{loesung}
+
+\begin{bewertung}
+Normale (\textbf{N}) 1 Punkt, Normierung (\textbf{E}) 1 Punkt, 
+Ortsvektor (\textbf{O}) 1 Punkt,
+Abstandsformel (\textbf{A}) 1 Punkt, Skalarprodukt (\textbf{S}) 1 Punkt,
+Abstand (\textbf{D}) 1 Punkt.
+\end{bewertung}

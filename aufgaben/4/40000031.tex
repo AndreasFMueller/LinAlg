@@ -1,0 +1,143 @@
+Ein 3D-Drucker erzeugt dreidimensionale Objekte, in dem er sie schichtweise
+aus Kunststoff auf eine Arbeitsplatte extrudiert.
+Dabei ist entscheidend, dass die Druckplatte genau horizontal ist, damit
+die geheizte D"use, aus der der fl"ussige Kunststoff austritt, in konstantem
+Abstand "uber die Platte gef"uhrt werden kann.
+Die meisten 3D-Drucker stellen dem Benutzer f"ur diesen Zweck einige
+mechanische Einstellschrauben zur Verf"ugung.
+Der Kossel-3D-Drucker hingegen verf"ugt "uber einen Sensor, mit er den
+Abstand der Druckplatte von der D"use messen kann.
+Die Firmware steuert daher zu Beginn eines Druckes eine vorgegebene Menge von
+Positionen auf der Druckplatte an, und misst den Abstand.
+Sie kann dann eine eventuelle Schr"aglage der Druckplatte berechnen
+und kompensieren.
+Nehmen Sie an, das beim Anfahren der Messpunkte folgende H"ohen
+gemessen wurden:
+\begin{center}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+x\,\text{[mm]}&
+y\,\text{[mm]}&
+z\,\text{[mm]}\\
+\hline
+ 10& 10&0.015\\
+ 10&-10&0.022\\
+-10& 10&0.017\\
+-10&-10&0.022\\
+\hline
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Stellen Sie ein Gleichungssystem auf, mit dem man die bestm"ogliche
+Sch"atzung von $z$ als lineare Funktion von $x$ und $y$ finden kann.
+\item
+Bestimmen Sie den Neigungswinkel der Platte zur Horizontalen.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Gesucht ist eine Formel der Form
+\[
+z=ax+by+c,
+\]
+die Koeffizienten $a$, $b$ und $c$ sind zu bestimmen. Einsetzen der Messdaten
+f"uhrt auf das Gleichungssystem
+\[
+\begin{linsys}{3}
+ 10a&+&10b&+&c&=&0.015\\
+ 10a&-&10b&+&c&=&0.022\\
+-10a&+&10b&+&c&=&0.017\\
+-10a&-&10b&+&c&=&0.022
+\end{linsys}
+\]
+Dieses Gleichungssystem ist "uberbestimmt, es hat die Matrix $A$
+\[
+A
+=
+\begin{pmatrix}
+ 10& 10&1\\
+ 10&-10&1\\
+-10& 10&1\\
+-10&-10&1
+\end{pmatrix}.
+\]
+Die Theorie besagt, dass sich die bestm"ogliche L"osung finden l"asst,
+indem man das Gleichungssystem mit der Matrix $A^tA$ und rechter Seite
+$A^tb$ l"ost:
+\begin{align*}
+A^tA
+&=
+\begin{pmatrix}
+ 10& 10&-10&-10\\
+ 10&-10& 10&-10\\
+  1&  1&  1&  1
+\end{pmatrix}.
+\begin{pmatrix}
+ 10& 10&1\\
+ 10&-10&1\\
+-10& 10&1\\
+-10&-10&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+400&  0&  0\\
+  0&400&  0\\
+  0&  0&  4
+\end{pmatrix}
+\\
+A^tb
+&=
+\begin{pmatrix}
+ 10& 10&-10&-10\\
+ 10&-10& 10&-10\\
+  1&  1&  1&  1
+\end{pmatrix}
+\begin{pmatrix}
+0.015\\0.022\\0.017\\0.022
+\end{pmatrix}
+=
+\begin{pmatrix}
+-0.020\\
+-0.120\\
+0.076
+\end{pmatrix}
+\end{align*}
+Das Gleichungssystem kann dank der Diagonalform von $A^tA$
+sofort gel"ost werden:
+\[
+a=-0.00005,\qquad b=-0.00030,\qquad c=0.019.
+\]
+\item
+Die Gleichung der Plattenebene ist
+\[
+ax+by-z=-c,
+\]
+die Normale ist also der Vektor
+\[
+\vec n=\begin{pmatrix}a\\b\\-1\end{pmatrix}.
+\]
+Gesucht ist der Zwischenwinkel zwischen $\vec n$ und der Vertikalen,
+also
+\begin{align*}
+\cos\alpha&=\frac{\vec n\cdot\vec e_3}{|\vec n|\cdot|\vec e_3|}
+=\frac{-1}{\sqrt{a^2+b^2+1}\cdot 1}
+=-0.9999999537500032\\
+\alpha&=0.01743^\circ.
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Ansatz f"ur die Gleichung der Plattenebene (\textbf{A}) 1 Punkt,
+"uberbestimmtes Gleichungssystem f"ur die Plattenbene (\textbf{G}) 1 Punkt,
+L"osungsverfahren f"ur "uberbestimmte Gleichungssysteme (\textbf{L}) 1 Punkt,
+Berechnung der Koeffizienten $a$, $b$ und $c$ (\textbf{K}) 1 Punkt,
+\item
+Gleichung der Plattenebene oder Normale (\textbf{N}) 1 Punkt,
+Berechnungd es Winkels (\textbf{W}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}

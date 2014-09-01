@@ -1,0 +1,121 @@
+Ist die Matrix
+\[
+A=\begin{pmatrix}7&4\\4&22\end{pmatrix}
+\]
+diagonalisierbar? Wenn ja, geben Sie eine Basis an, in der $A$ diagonal
+ist.
+
+\begin{loesung}
+Eine geeignete Basis besteht aus den Eigenvektoren von $A$. Weil $A$
+symmetrisch ist, l"asst sich immer eine Eigenvektorbasis find.
+
+Das charakteristische Polynom von $A$ ist
+\begin{align*}
+\det(A-\lambda E)
+&=\left|\begin{matrix}7-\lambda&4\\4&22-\lambda\end{matrix}\right|
+=(7-\lambda)(22-\lambda)-16=\lambda^2-29\lambda+154-16=\lambda^2-29\lambda-138
+\end{align*}
+Die Nullstellen k"onnen mit der L"osungsformel f"ur quadratische Gleichungen
+gefunden werden:
+\begin{align*}
+\lambda_{\pm}&=\frac{29}{2}\pm\frac{1}{2}\sqrt{29^2+4 \cdot 138}
+=\frac{29}{2}\pm\frac{\sqrt{239}}{2}=\frac{29\pm17}{2}
+=\begin{cases}
+23\\6
+\end{cases}
+\end{align*}
+F"ur jeden Eigenwert muss jetzt mit Hilfe des Gaussalgorithmus ein
+Eigenvektor gefunden werden.
+
+F"ur $\lambda_+=19$ findet man
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+7-23&4\\
+4&22-23\\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-16&4\\
+4&-1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-\frac14\\
+0&0\\
+\hline
+\end{tabular}
+\]
+Die zweite Koordinate ist wie erwartet frei w"ahlbar, indem wir sie auf
+$2$ setzen erhalten wir einen Eigenvektor ohne Br"uche
+\[
+v_+=\begin{pmatrix}1\\4\end{pmatrix}.
+\]
+
+F"ur $\lambda_-=6$ erhalten wir
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+7-6&4\\
+4&22-6\\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&4\\
+4&16\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&4\\
+0&0\\
+\hline
+\end{tabular}.
+\]
+Wieder ist die zweite Variable frei w"ahlbar, die Wahl $-1$ liefert 
+den Eigenvektor
+\[
+v_-=\begin{pmatrix}4\\-1\end{pmatrix}.
+\]
+
+Kontrolle: Wir kontrollieren die Rechnung durch Multiplikation von $A$
+mit den gefundenen Eigenvektoren:
+\begin{align*}
+Av_+&=\begin{pmatrix}7&4\\4&22\end{pmatrix}\begin{pmatrix}1\\4\end{pmatrix}
+=\begin{pmatrix}4+18\\ 12 + 21\end{pmatrix}
+=\begin{pmatrix}23\\ 92\end{pmatrix}=23\begin{pmatrix}1\\4\end{pmatrix}
+=\lambda_+v_+,\\
+Av_-&=\begin{pmatrix}7&4\\4&22\end{pmatrix}\begin{pmatrix}4\\-1\end{pmatrix}
+=\begin{pmatrix}24\\-6 \end{pmatrix}
+=6\begin{pmatrix}4\\-1\end{pmatrix}
+=\lambda_-v_-.
+\end{align*}
+Ausserdem sind die beiden Vektoren orthogonal, wie man das von den Eigenvektoren
+einer symmetrischen Matrix zu verschiedenen Eigenwerten erwartet:
+\[
+v_+\cdot v_-=
+\begin{pmatrix}1\\4\end{pmatrix}
+\cdot
+\begin{pmatrix}4\\-1\end{pmatrix}
+=1\cdot 4 + 4\cdot(-1)=0.
+\]
+\end{loesung}
+
+\begin{diskussion}
+Die Aufgabe entspricht dem pythagor"aischen Tripel $(15,8,17)$.
+\end{diskussion}
+
+\begin{bewertung}
+Charakteristisches Polynom ({\bf X}) 1 Punkt,
+Nullstellen ({\bf N}) 1 Punkt,
+Gleichungssysteme f"ur $\lambda_+$ und $\lambda_-$ ({\bf G$\pm$}) je 1 Punkt,
+Eigenvektoren ({\bf E$\pm$}) je 1 Punkt.
+\end{bewertung}
+
