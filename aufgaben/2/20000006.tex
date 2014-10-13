@@ -83,8 +83,11 @@ entwickeln nach der ersten Spalte:
 Wir kontrollieren das Resultat mit dem Gauss-Algorithmus, der
 die Determinante als das Produkt der Pivots zu bestimmen erlaubt:
 \begin{align*}
-\begin{tabular}{|cccc|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
+\begin{picture}(0,0)
+\color{red}\put(3,4){\circle{12}}
+\end{picture}%
 1&2&3&4\\
 3&4&1&2\\
 2&3&4&1\\
@@ -93,44 +96,62 @@ die Determinante als das Produkt der Pivots zu bestimmen erlaubt:
 \end{tabular}
 &
 \rightarrow
-\begin{tabular}{|cccc|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-1&2&3&4\\
-0&$-2$&$-8$&$-10$\\
-0&$-1$&$-2$&$-7$\\
-0&$-7$&$-10$&$-13$\\
+1& 2&  3&  4\\
+0&-2& -8&-10\\
+0&-1& -2& -7\\
+0&-7&-10&-13\\
 \hline
 \end{tabular}
 \rightarrow
-\begin{tabular}{|cccc|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-1&2&3&4\\
-0&$1$&$2$&$7$\\
-0&$2$&$8$&$10$\\
-0&$7$&$10$&$13$\\
+1&2& 3& 4\\
+0&1%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+& 2& 7\\
+0&2& 8&10\\
+0&7&10&13\\
 \hline
 \end{tabular}
 \\
 &
 \rightarrow
-\begin{tabular}{|cccc|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-1&2&3&4\\
-0&$1$&$2$&$7$\\
-0&$0$&$4$&$-4$\\
-0&$0$&$-4$&$-36$\\
+1&2& 3&  4\\
+0&1& 2&  7\\
+0&0& 4%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+& -4\\
+0&0&-4&-36\\
 \hline
 \end{tabular}
 \rightarrow
-\begin{tabular}{|cccc|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-1&2&3&4\\
-0&$1$&$2$&$7$\\
-0&$0$&$1$&$-1$\\
-0&$0$&$0$&$-40$\\
+1&2&3&  4\\
+0&1&2&  7\\
+0&0&1& -1\\
+0&0&0&-40%
+\begin{picture}(0,0)
+\color{red}\put(-9,4){\circle{19}}
+\end{picture}%
+\\
 \hline
 \end{tabular}
 \end{align*}
+Im zweiten Schritt haben wir uns die abweichend vom Standardalgorithmus
+die Vertauschung der zweiten und dritten Zeile erlaubt, was das Vorzeichen 
+der Determinante umkehrt. Wir haben aber auch in drei Zeilen die Vorzeichen
+gewechselt, was das Vorzeichen der Determinante ebenfalls dreimal umkehrt,
+womit die Determinante insgesamt gleich bleibt.
+
 Die Pivots sind $1$, $1$, $4$ und $-40$, also ist die Determinante $-160$.
 
 \item Die Vertauschung der $2\times 2$-Unterquadrate kann dadurch
