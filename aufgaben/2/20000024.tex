@@ -1,0 +1,183 @@
+Schreibt man die Zyklen in einem Netzwerk mit $k$ Kanten und $e$ Ecken
+als Spalten in eine Matrix Z,
+dann lassen sich die Kirchhoff-Gleichungen direkt formulieren.
+$Z$ ist nat"urlich eine Matrix mit $k$ Zeilen, die Matrix $\partial$
+des Netzwerks ist eine $e\times k$-Matrix.
+Ist $R$ die $k\times k$-Matrix, die auf der Diagonalen die Widerst"ande der
+einzelnen Kanten enth"alt, dann sind die Maschengleichungen f"ur den
+$k$-Vektor der Str"ome 
+\[
+Z^tRI=Z^te,
+\]
+darin sind $e$ die Spannungsquellen.
+Die Knotengleichungen werden zu $\partial I=0$, wobei zu beachten ist,
+dass $\partial$ den Rang $k-1$ hat, eine der Gleichungen in $\partial I=0$ 
+ist also redundant.
+
+In einer fr"uheren Aufgaben wurden die Zyklen in einem Oktaeder berechnet.
+Wir nehmen an, dass alle Kanten des Oktaeders den gleichen Widerstand von
+$R_0=1\Omega$ haben. Bestimmen Sie den Widerstand zwischen zwei benachbarten
+Punkten des Oktaeders.
+
+\begin{hinweis}
+Gehen Sie dazu wie folgt vor.
+Zun"achst wird die Schaltung modifiziert: zwischen Punkte 1 und 2 wird eine
+Spannungsquelle mit Innenwiderstand $R_0$ angeschlossen,
+die eine Spannung von einem Volt liefert.
+Welcher Strom fliesst aus durch die Spannungsquelle? Welchen Widerstand
+hat ein Oktaeder zwischen zwei benachbarten Ecken?
+\end{hinweis}
+
+\begin{loesung}
+\setcounter{MaxMatrixCols}{20}
+Die $\partial$-Matrix des erweiterten Oktaeders hat eine Spalte mehr,
+f"ur die neue Kante $13$:
+\[
+\partial = \begin{pmatrix}
+-1&-1&-1&-1& 0& 0& 0& 0& 0& 0& 0& 0&-1\\
+ 1& 0& 0& 0&-1&-1&-1& 0& 0& 0& 0& 0& 1\\
+ 0& 1& 0& 0& 1& 0& 0&-1&-1& 0& 0& 0& 0\\
+ 0& 0& 1& 0& 0& 1& 0& 0& 0&-1&-1& 0& 0\\
+ 0& 0& 0& 1& 0& 0& 0& 1& 0& 1& 0&-1& 0\\
+ 0& 0& 0& 0& 0& 0& 1& 0& 1& 0& 1& 1& 0
+\end{pmatrix}
+\]
+%
+%[
+%-1,-1,-1,-1, 0, 0, 0, 0, 0, 0, 0, 0,-1;
+% 1, 0, 0, 0,-1,-1,-1, 0, 0, 0, 0, 0, 1;
+% 0, 1, 0, 0, 1, 0, 0,-1,-1, 0, 0, 0, 0;
+% 0, 0, 1, 0, 0, 1, 0, 0, 0,-1,-1, 0, 0;
+% 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0,-1, 0;
+% 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0
+%]
+%
+Der Gauss-Algorithmus liefert das Schlusstableau
+\begin{center}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+x_1&x_2&x_3&x_4&x_5&x_6&x_7&x_8&x_9&x_{10}&x_{11}&x_{12}&x_{13}\\
+\hline
+   1&  0&  0&  0& -1& -1&  0&  0&  1&  0&  1&  1&  1\\
+   0&  1&  0&  0&  1&  0&  0& -1& -1&  0&  0&  0&  0\\
+   0&  0&  1&  0&  0&  1&  0&  0&  0& -1& -1&  0&  0\\
+   0&  0&  0&  1&  0&  0&  0&  1&  0&  1&  0& -1&  0\\
+   0&  0&  0&  0&  0&  0&  1&  0&  1&  0&  1&  1&  0\\
+\hline
+    &   &   &   &  \color{green}*&  \color{green}*&   &  \color{green}*&  \color{green}*&  \color{green}*&  \color{green}*&  \color{green}*&\color{green}*\\
+\hline
+\end{tabular}
+\end{center}
+Die zus"atzliche frei w"ahlbare Variable f"ur
+die neue Kante $x_{13}$ liefert auch einen
+neuen Zyklus $z_8$, der durch die Wahl $x_{13}=1$ und alle anderen
+frei w"ahlbaren Variablen $=0$ festgelegt ist. Er verl"auft durch die
+neue Kante und die erste Kante, zu der die neue Kante parallel
+verl"auft:
+\[
+z_8=\begin{pmatrix}
+             -1\\
+              0\\
+              0\\
+              0\\
+\color{green} 0\\
+\color{green} 0\\
+              0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
+\color{green} 1
+\end{pmatrix}
+\]
+Damit kann man jetzt die $Z$-Matrix aufstellen:
+\[
+Z^t=\begin{pmatrix}
+ 1&-1& 0& 0& 1& 0& 0& 0& 0& 0& 0& 0& 0\\
+ 1& 0&-1& 0& 0& 1& 0& 0& 0& 0& 0& 0& 0\\
+ 0& 1& 0&-1& 0& 0& 0& 1& 0& 0& 0& 0& 0\\
+-1& 1& 0& 0& 0& 0&-1& 0& 1& 0& 0& 0& 0\\
+ 0& 0& 1&-1& 0& 0& 0& 0& 0& 1& 0& 0& 0\\
+-1& 0& 1& 0& 0& 0&-1& 0& 0& 0& 1& 0& 0\\
+-1& 0& 0& 1& 0& 0&-1& 0& 0& 0& 0& 1& 0\\
+-1& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 1
+\end{pmatrix}
+\]
+Damit kann man jetzt die Maschengleichungen aufstellen. Da $R=R_0E$ ist,
+wobei $R_0$ der f"ur alle Kanten gleiche Widerstand einer Kante ist,
+erh"alt man:
+\[
+Z^tR_0EI=R_0Z^tI=Z^te
+\]
+Die einzige Spannungsquelle ist die in der Kante $x_{13}$, der Vektor
+ist $e$ ist also der Standardbasisvektor $e_{13}$. Dann ist aber
+$Z^te=Z^te_{13}$ die letzte Spalte von $Z^t$, also der $8$-dimensionale
+Standardbasisvektor $e_{8}$. Die Maschengleichungen sind damit:
+\[
+R_0Z^tI=e_8.
+\]
+Dazu kommen noch die Knotengleichungen $\partial I=0$, wobei wir die letzte
+Gleichung weglassen k"onnen. Setzen wir zudem $R_0=1$, dann hat das
+gesamte Gleichungssystem die Koeffizientenmatrix
+\[
+A=\begin{pmatrix}
+ 1&-1& 0& 0& 1& 0& 0& 0& 0& 0& 0& 0& 0\\
+ 1& 0&-1& 0& 0& 1& 0& 0& 0& 0& 0& 0& 0\\
+ 0& 1& 0&-1& 0& 0& 0& 1& 0& 0& 0& 0& 0\\
+-1& 1& 0& 0& 0& 0&-1& 0& 1& 0& 0& 0& 0\\
+ 0& 0& 1&-1& 0& 0& 0& 0& 0& 1& 0& 0& 0\\
+-1& 0& 1& 0& 0& 0&-1& 0& 0& 0& 1& 0& 0\\
+-1& 0& 0& 1& 0& 0&-1& 0& 0& 0& 0& 1& 0\\
+-1& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 1\\
+-1&-1&-1&-1& 0& 0& 0& 0& 0& 0& 0& 0&-1\\
+ 1& 0& 0& 0&-1&-1&-1& 0& 0& 0& 0& 0& 1\\
+ 0& 1& 0& 0& 1& 0& 0&-1&-1& 0& 0& 0& 0\\
+ 0& 0& 1& 0& 0& 1& 0& 0& 0&-1&-1& 0& 0\\
+ 0& 0& 0& 1& 0& 0& 0& 1& 0& 1& 0&-1& 0
+\end{pmatrix}
+\]
+%
+%[
+% 1,-1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0;
+% 1, 0,-1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0;
+% 0, 1, 0,-1, 0, 0, 0, 1, 0, 0, 0, 0, 0;
+%-1, 1, 0, 0, 0, 0,-1, 0, 1, 0, 0, 0, 0;
+% 0, 0, 1,-1, 0, 0, 0, 0, 0, 1, 0, 0, 0;
+%-1, 0, 1, 0, 0, 0,-1, 0, 0, 0, 1, 0, 0;
+%-1, 0, 0, 1, 0, 0,-1, 0, 0, 0, 0, 1, 0;
+%-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1;
+%-1,-1,-1,-1, 0, 0, 0, 0, 0, 0, 0, 0,-1;
+% 1, 0, 0, 0,-1,-1,-1, 0, 0, 0, 0, 0, 1;
+% 0, 1, 0, 0, 1, 0, 0,-1,-1, 0, 0, 0, 0;
+% 0, 0, 1, 0, 0, 1, 0, 0, 0,-1,-1, 0, 0;
+% 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0,-1, 0
+%]
+%
+und die rechte Seite $e_8$. Die L"osung dieses Gleichungssystems liefert die
+Str"ome, wir interessieren uns aber nur f"ur den Strom durch die
+Kante $x_{13}$. Die numerische L"osung liefert
+\[
+I=\begin{pmatrix}
+  -0.294118\\
+  -0.147059\\
+  -0.147059\\
+  -0.117647\\
+   0.147059\\
+   0.147059\\
+   0.117647\\
+   0.029412\\
+  -0.029412\\
+   0.029412\\
+  -0.029412\\
+  -0.058824\\
+   0.705882
+\end{pmatrix}
+\]
+Daraus l"asst sich ablesen, dass ein Strom von 705mA fliesst,
+der Widerstand ist also 1.4167$\Omega$. Da der Innenwiderstand
+der Spannungsquelle auch 1$\Omega$ war, folgt, dass der "Aquivalentwiderstand
+eines Oktaeders zwischen zwei benachbarten Punkten 0.4167$\Omega$ ist.
+\end{loesung}
+
+
