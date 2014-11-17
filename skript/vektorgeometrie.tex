@@ -164,7 +164,7 @@ kennengelernt. Im aktuellen Zusammenhang schreiben wir daf"ur oft auch
 \[
 \vec e_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad
 \vec e_2=\begin{pmatrix}0\\1\\0\end{pmatrix},\qquad
-\vec e_1=\begin{pmatrix}0\\0\\1\end{pmatrix}.
+\vec e_3=\begin{pmatrix}0\\0\\1\end{pmatrix}.
 \]
 Diese Vektoren konnten daf"ur verwendet werden, einen beliebigen Vektor
 mit Hilfe einer Linearkombination zusammenzusetzen:
@@ -1220,11 +1220,11 @@ daraus $p_{\vec u}(\vec v)$ mittels
 \[
 p_{\vec u}(\vec v)
 =
-\frac{p_{\vec u}(\vec v)p_{\vec v}(\vec v)}{p_{\vec v}(\vec v)}
+\frac{p_{\vec u}(\vec v)p_{\vec u}(\vec u)}{p_{\vec u}(\vec u)}
 =
-\frac{\vec u\cdot\vec v}{\sqrt{p_{\vec v}(\vec v)^2}}
+\frac{\vec u\cdot\vec v}{\sqrt{p_{\vec u}(\vec u)^2}}
 =
-\frac{\vec u\cdot\vec v}{\sqrt{\vec v\cdot \vec v}}
+\frac{\vec u\cdot\vec v}{\sqrt{\vec u\cdot \vec u}}
 \]
 wieder zur"uckgewinnen.
 
@@ -1961,7 +1961,7 @@ von $Av$ berechnet werden. Das Gauss-Tableau dazu ist
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-x&y&y&s\quad t&\\
+x&y&z&s\quad t&\\
 \hline
 1&0&0&        &0\\
 0&1&0&-A   &0\\
@@ -1989,7 +1989,7 @@ x&y&z&s  &  t&\\
 \rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}r<{$}|}
 \hline
-x&y&y&s  &  t&\\
+x&y&z&s  &  t&\\
 \hline
 1&0&0&0&0&7.4337\\
 0&1&0&0&0&9.0602\\
@@ -2634,7 +2634,7 @@ a_2&b_2\\a_3&b_3
 \end{matrix}\;\right|\\
 ,\qquad p_2=
 \left|\;\begin{matrix}
-a_3&b_1\\a_1&b_3
+a_3&b_3\\a_1&b_1
 \end{matrix}\;\right|\\
 ,\qquad p_3=
 \left|\;\begin{matrix}
