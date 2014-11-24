@@ -1,0 +1,142 @@
+Finden Sie die Transformationsmatrix $T$, welche Koordinaten in der Basis
+\[
+B=\left\{
+\begin{pmatrix}
+2\\0\\1\\2
+\end{pmatrix},\;
+\begin{pmatrix}
+-4\\-1\\5\\4
+\end{pmatrix},\;
+\begin{pmatrix}
+-3\\1\\0\\5
+\end{pmatrix}
+\right\}
+\]
+in Koordinaten in der Basis
+\[
+B'=\left\{
+\begin{pmatrix}
+-4\\-1\\5\\4
+\end{pmatrix},\;
+\begin{pmatrix}
+-5\\0\\6\\11
+\end{pmatrix},\;
+\begin{pmatrix}
+6\\1\\-4\\-2
+\end{pmatrix}
+\right\}
+\]
+umrechnet.
+Bestimmen Sie ausserdem die Koordinaten $\xi$ des Vektors 
+\[
+v
+=
+\begin{pmatrix}
+3\\2\\-4\\3
+\end{pmatrix}
+\]
+in der Basis $B$ und rechnen Sie sie mit der Transformationsmatrix um in
+Koordinaten in der Basis $B'$. Kontrollieren Sie Ihr Resultat.
+
+\begin{loesung}
+Die Transformationsmatrix kann mit Hilfe des Gaussalgorithmus gefunden
+werden:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   -4 & -5 &  6 &  2 & -4 & -3 \\
+   -1 &  0 &  1 &  0 & -1 &  1 \\
+    5 &  6 & -4 &  1 &  5 & -0 \\
+    4 & 11 & -2 &  2 &  4 &  5 \\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1 & 0 & 0 & 1 & 1 &-2 \\
+   0 & 1 & 0 & 0 & 0 & 1 \\
+   0 & 0 & 1 & 1 & 0 &-1 \\
+\hline
+   0 & 0 & 0 & \color{red}0 & \color{red}0 & \color{red}0 \\
+\hline
+\end{tabular}
+\end{align*}
+Daraus kann man ablesen, dass die Transformationsmatrix 
+\[
+T
+=
+\begin{pmatrix}
+1&1&-2\\
+0&0& 1\\
+1&0&-1
+\end{pmatrix}
+\]
+ist. Der Vektor $v$ kann tats"achlich in der Basis $B$ ausgedr"uckt werden,
+dazu l"ost man das Gleichungssystem
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+   -4 & -5 &  6 &  3 \\
+   -1 &  0 &  1 &  2 \\
+    5 &  6 & -4 & -4 \\
+    4 & 11 & -2 &  3 \\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+   1 & 0 & 0 & 1\\
+   0 & 1 & 0 &-1\\
+   0 & 0 & 1 & 1\\
+\hline
+   0 & 0 & 0 & \color{red}0 \\
+\hline
+\end{tabular}
+\end{align*}
+Die rote $\color{red}0$ zeigt an, dass das Gleichungssystem l"osbar ist,
+die Koordinaten von $v$ in der Basis $B$ sind 
+\[
+\xi
+=
+\begin{pmatrix}
+1\\-1\\1
+\end{pmatrix}
+\]
+Mit der Matrix $T$ erh"alt man daraus die Koordinaten
+\[
+\xi'=T\xi=
+\begin{pmatrix}
+1&1&-2\\
+0&0& 1\\
+1&0&-1
+\end{pmatrix}
+\begin{pmatrix}
+1\\-1\\1
+\end{pmatrix}
+=
+\begin{pmatrix}
+-2\\1\\0
+\end{pmatrix}.
+\]
+Zur Kontrolle kann man mit den eben gefundenen Koordinaten $\xi'$ den
+zugeh"origen Vektor in $\mathbb R^4$ nachrechnen, es sollte sich $v$
+ergeben. Die Rechnung ergibt
+\[
+B'\xi'=
+\begin{pmatrix}
+-4&-5& 6\\
+-1& 0& 1\\
+ 5& 6&-4\\
+ 4&11&-2
+\end{pmatrix}
+\begin{pmatrix}
+-2\\1\\0
+\end{pmatrix}
+=
+\begin{pmatrix}
+3\\2\\-4\\3
+\end{pmatrix}.
+\]
+\end{loesung}
+
+
