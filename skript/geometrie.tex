@@ -108,7 +108,7 @@ man auch gleich $v$ auf die rechte Seite schafft, ergibt sich
 \begin{linsys}{4}
 x& & & & &=&\frac{10}3&-& v\\
  & &y& & &=&\frac{17}3&+& v\\
- & & & &z&=&4         &-&3v\\
+ & & & &z&=&4         &+&3v\\
 \end{linsys}
 \end{equation}
 oder in Vektorform
@@ -1188,8 +1188,8 @@ S_v=\begin{pmatrix}1&0\\0&1\end{pmatrix}
 \begin{pmatrix}v_1&v_2\end{pmatrix}
 =
 \begin{pmatrix}
-1-2v_1^2&2v_1v_2\\
-2v_1v_2&1-2v_2^2
+1-2v_1^2&-2v_1v_2\\
+-2v_1v_2&1-2v_2^2
 \end{pmatrix},
 \]
 wir wollen nachrechnen, dass sie orthogonal ist. Dabei beachten
@@ -1197,8 +1197,8 @@ wir, dass $1-v_1^2=v_2^2$ ist, weil ja $|v|=1$, also kann man $S_v$
 auch schreiben
 \[
 S_v=\begin{pmatrix}
-v_2^2-v_1^2&2v_1v_2\\
-2v_1v_2&v_1^2-v_2^2
+v_2^2-v_1^2&-2v_1v_2\\
+-2v_1v_2&v_1^2-v_2^2
 \end{pmatrix}
 \]
 
@@ -1206,24 +1206,24 @@ v_2^2-v_1^2&2v_1v_2\\
 S_v^tS_v
 &=
 \begin{pmatrix}
-v_2^2-v_1^2&2v_1v_2\\
-2v_1v_2&v_1^2-v_2^2
+v_2^2-v_1^2&-2v_1v_2\\
+-2v_1v_2&v_1^2-v_2^2
 \end{pmatrix}
 \begin{pmatrix}
-v_2^2-v_1^2&2v_1v_2\\
-2v_1v_2&v_1^2-v_2^2
+v_2^2-v_1^2&-2v_1v_2\\
+-2v_1v_2&v_1^2-v_2^2
 \end{pmatrix}
 \\
 &=
 \begin{pmatrix}
 v_2^4-2v_1^2v_2^2+v_1^4+4v_1^2v_2^2&
-2(v_2^2-v_1^2)v_1v_2
+-2(v_2^2-v_1^2)v_1v_2
 +
-2(v_1^2-v_2^2)v_1v_2
+-2(v_1^2-v_2^2)v_1v_2
 \\
-2(v_1^2-v_2^2)v_1v_2
+-2(v_1^2-v_2^2)v_1v_2
 +
-2(v_2^2-v_1^2)v_1v_2
+-2(v_2^2-v_1^2)v_1v_2
 &
 v_2^4-2v_1^2v_2^2+v_1^4+4v_1^2v_2^2
 \end{pmatrix}
@@ -1423,7 +1423,7 @@ F"ur die Spur gilt dann
 \\
 \operatorname{Spur}(TDT^{-1})
 &=
-\operatorname{Spur}(D_{x,\alpha}=1+2\cos\alpha
+\operatorname{Spur}(D_{x,\alpha})=1+2\cos\alpha
 \end{align*}
 Aufgel"ost nach $\cos\alpha$:
 \begin{satz}\label{drehwinkelsatz}
@@ -1451,10 +1451,10 @@ und entsprechend ist das Matrixelement $il$ von $ABC$
 Die Diagonalelemente sind jene mit $i=l$, die Spur ist deren Summe:
 \[
 \operatorname{Spur}(ABC)
-=\sum_{i,j,k=1}^na_{ij}b_{jk}c{ki}
+=\sum_{i,j,k=1}^na_{ij}b_{jk}c_{ki}
 =\sum_{i,j,k=1}^nc_{ki}a_{ij}b_{jk}
 =\sum_{j,k,i=1}^nc_{ij}a_{jk}b_{ki}
-\operatorname{Spur}(CAB)
+=\operatorname{Spur}(CAB)
 \]
 \end{proof}
 
