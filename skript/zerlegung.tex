@@ -670,6 +670,98 @@ R=
 \]
 \end{beispiel}
 
+\subsection{QR-Zerlegung und Least-Squares}
+Die QR-Zerlegung kann dazu verwendet werden, das Least-Squares-Problem
+zu l"osen. Dabei wird f"ur ein "uberbestimmtes Gleichungssystem mit
+$m\times n$-Koeffizienten\-matrix $A$ und rechter Seite $b$ ein Vektor $v$
+so gesucht,
+dass $Ax-b$ minimal wird. Die in Abschnitt~\ref{section:ueberbestimmt}
+gefundene L"osung ben"otigt die Matrizenprodukte $A^tA$ und $A^tb$, welche
+f"ur grosses $m$ aufwendig zu berechnen sind. Es besteht also die Hoffnung,
+dass eine alternative Methode diesen Aufwand reduzieren k"onnte.
+
+Die geometrische L"osung des Problems aus Abschnitt~\ref{section:ueberbestimmt}
+verwendet, dass $Av-b$ senkrecht steht auf $Av$. Die QR-Zerlegung ist
+im wesentlichen eine Umformulierung des Orthogonalisierungsverfahrens, in den
+Matrizen $Q$ und $R$ ist also die Information "uber Orthogonalit"at ebenfalls
+enthalten.
+
+Genauer: wenn $A=QR$ ist, wobei $Q$ eine orthogonale $m\times m$-Matrix
+ist und $R$ eine obere $m\times n$-Dreiecksmatrix, dann bilden die
+ersten $n$ Spaltenvektoren von $Q$ eine orthonormierte Basis des
+von den Spalten von $A$ aufgespannten Raumes. Wir nennen diese Vektoren
+$Q_{\|}$.
+Die nachfolgenden Spaltenvektoren
+in $Q$ stehen alle senkrecht auf $Av$, wir nennen sie $Q_{\perp}$.
+Mit diesen Bezeichnungen k"onnen wir die Matrix $Q$ schreiben als
+\[
+Q=\begin{pmatrix}
+*     &\dots &     *&      *&\dots   &*     \\
+\vdots&      &\vdots&\vdots &        &\vdots\\
+\vdots&Q_{\|}&\vdots&\vdots&Q_{\perp}&\vdots\\
+\vdots&      &\vdots&\vdots &        &\vdots\\
+*     &\dots &     *&      *&\dots   &*     
+\end{pmatrix}.
+\]
+Die Matrix $R$ liefert die Umrechnung von $v$ in die Basis $Q$.
+
+Gesucht ist ein jetzt Vektor $v$ so, dass
+$Av-b$ senkrecht steht auf dem von $A$ aufgespannten Raum.
+Offenbar ist dies in der Basis $Q$ viel einfacher auszudr"ucken:
+gesucht ist ein Vektor $v$ so, dass $Av-b$ im von $Q_{\perp}$
+aufgespannten Raum liegt, oder so, dass $Av-b$ verschwindende Koordinaten
+f"ur die Basisvektoren $Q_{\|}$ hat.
+
+Daf"ur m"ussen wir die Koordinaten eines Vektors in der Basis $Q$
+berechnen k"onnen. Sind $\xi$ diese Koordinaten des Vektors $v$,
+dann gilt offenbar $Q\xi = v$. Da $Q$ orthogonal ist, ist $Q^{-1}=Q^t$,
+es ist also $\xi=Q^tv$. Insbesondere sind die Koordinaten von $b$ in der
+Matrix $Q$ gegeben durch $\xi_b=Q^tb$. 
+
+Wir suchen immer noch einen Vektor $v$, so dass $Av-b$ im $Q$-Koordinatensystem
+verschwindende $Q_{\|}$-Koordinaten hat. In $Q$-Koordinaten hat dieser
+Vektor die Koordinaten
+\[
+Q^t(Av-b)=Q^t(QRv-b)=Rv-Q^tb.
+\]
+Dass die $Q_{\|}$-Koordinaten dieses Vektors verschwinden sollen ist
+gleichbedeutend damit, dass die ersten $n$ Komponenten von 
+$Rv$ und $Q^tb$ "ubereinstimmen m"ussen. Die ersten $n$ Komponenten
+von $Q^tb$ sind aber $Q_{\|}^tb$, wir erhalten so ein Gleichungssystem
+der Form
+\begin{equation}
+Rv=\begin{pmatrix}
+Q_{\|}^tb\\
+0
+\end{pmatrix}.
+\label{qr-leastsquares}
+\end{equation}
+Die letzten $m-n$ Gleichungen (mit $0$ auf der rechten Seite) sind dabei
+wegen der Dreiecksform von $R$ automatisch erf"ullt, man muss also nur
+noch das $n\times n$-Gleichungssystem bestehend aus den ersten $n$
+Gleichungen l"osen. 
+
+Wir haben also wiederum nur eine $n\times n$-Gleichungssystem
+zu l"osen, wie beim Verfahren aus Abschnitt~\ref{section:ueberbestimmt}.
+Trotzdem haben wir eine Vereinfachung erreicht:
+\begin{itemize}
+\item Wir m"ussen das Produkt $A^tA$ nicht mehr berechnen.
+\item Es ist nur noch das Produkt $Q_{\|}^tb$ zu berechnen. Da $Q_{\|}^t$
+eine $n\times m$-Matrix ist, ist dies der gleiche Aufwand wie $A^tb$.
+\item Das Gleichungssystem (\ref{qr-leastsquares}) ist bereits in Dreiecksform,
+es kann also allein durch R"uckw"artseinsetzen gel"ost werden.
+\item Falls es gelingt, einen effizienteren Algorithmus f"ur die Bestimmung
+der $QR$-Zerlegung zu finden, profitiert die L"osung des Least-Squares-Problems
+davon.
+\end{itemize}
+"Ubrigens ist es nach der $QR$-Zerlegung sehr einfach, das Produkt $A^tA$
+zu berechnen, denn es gilt:
+\[
+A^tA=(QR)^tQR=R^tQ^tQR=R^tR,
+\]
+und in der Matrix $R$ finden sich im Gegensatz zu $A$
+nur in den ersten $n$-Zeilen von $0$ verschiedene Elemente.
+
 \section{Cholesky-Zerlegung}
 \index{Cholesky-Zerlegung}
 \index{Zerlegung!Cholesky}
