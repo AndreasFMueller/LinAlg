@@ -3,11 +3,15 @@
 \index{Eigenvektor}
 \rhead{Eigenwerte und Eigenvektoren}
 In vielen Anwendungen hat man ein Gleichungssystem der Form
-$$Ax=\lambda x$$
+\[
+Ax=\lambda x
+\]
 zu l"osen, wobei nicht nur der Spaltenvektor $x$, sondern auch der
 Parameter $\lambda$ unbekannt sind. Nat"urlich kann man ein solches
 Problem immer umschreiben in die Form
-$$(A-\lambda E) x=0,$$
+\[
+(A-\lambda E) x=0,
+\]
 also ein Gleichungssystem, welches entweder gar keine, oder dann
 unendlich viele L"osungen hat. Daher interessiert die Frage 
 ganz besonders, f"ur welche $\lambda$ eine nicht triviale L"osung m"oglich ist.
@@ -70,8 +74,7 @@ dann gilt dasselbe auch f"ur $y=\mu x$:
 \[
 Ay= A(\mu x)=\mu Ax=\mu\lambda x = \lambda (\mu x)=\lambda y.
 \]
-Der Vektor $x$ kann also bestenfalls bis auf eine Vielfaches
-bestimmt werden.
+Der Vektor $x$ kann also bestenfalls bis auf ein Vielfaches bestimmt werden.
 \end{compactitem}
 
 \index{Eigenwert}
@@ -83,11 +86,13 @@ zum Eigenwert $\lambda$, wenn $v\ne 0$ und $Av=\lambda v$ gilt.
 
 \begin{beispiel}
 Die Matrix
-$$\begin{pmatrix}
+\[
+\begin{pmatrix}
 3&0&0\\
 0&5&0\\
 0&0&7
-\end{pmatrix}$$
+\end{pmatrix}
+\]
 hat die Eigenwerte $3$, $5$ und $7$, mit den Eigenvektoren
 \[
 \begin{pmatrix}
@@ -107,14 +112,14 @@ hat die Eigenwerte $3$, $5$ und $7$, mit den Eigenvektoren
 \begin{hilfssatz}
 \index{Diagonalmatrix}
 Die Diagonalmatrix
-$$
+\[
 \operatorname{diag}(\lambda_1,\dots,\lambda_n)
 =\begin{pmatrix}
 \lambda_1&\dots&0\\
 \vdots&\ddots&\vdots\\
 0&\dots&\lambda_n
 \end{pmatrix}
-$$
+\]
 hat die Eigenwerte $\lambda_1,\dots,\lambda_n$, die Einheitsvektoren
 $e_i$ sind Eigenvektoren zum Eigenwert $\lambda_i$.
 \end{hilfssatz}
@@ -125,9 +130,11 @@ $n\times n$-Matrix $A$ $n$ linear unabh"angig Eigenvektoren $v_1,\dots,v_n$
 mit Eigenwerten $\lambda_1,\dots,\lambda_n$, dann kann man die Wirkung
 der Matrix $A$ auf einen beliebigen Vektor $x=\alpha_1v_1+\dots+\alpha_nv_n$
 sofort berechnen:
-$$Ax=\alpha_1Av_1+\dots+\alpha_nAv_n=\alpha_1\lambda_1v_1+\dots+\alpha_n\lambda_nv_n.$$
+\[
+Ax=\alpha_1Av_1+\dots+\alpha_nAv_n=\alpha_1\lambda_1v_1+\dots+\alpha_n\lambda_nv_n.
+\]
 In der Basis $\{v_1,\dots,v_n\}$ hat $A$ also die Matrix
-$$
+\[
 A=\operatorname{diag}(\lambda_1,\dots,\lambda_n)
 =
 \begin{pmatrix}
@@ -135,7 +142,7 @@ A=\operatorname{diag}(\lambda_1,\dots,\lambda_n)
 \vdots&\ddots&\vdots\\
 0&\dots&\lambda_n
 \end{pmatrix}.
-$$
+\]
 \begin{definition}
 \index{diagonalisierbar}
 \index{diagonalisieren}
@@ -194,31 +201,31 @@ m\frac{d^2x_i(t)}{dt^2}
 Aus der Erfahrung wissen wir, dass so eine Federkette schwingt, wir nehmen also
 an, dass wir eine L"osung in der Form $x_i(t)=x_i(0)\sin\omega t$ finden
 k"onnen. Setzen wir dies ein, erhalten wir die Gleichungen
-$$
+\[
 -m\omega^2\sin\omega t x_i(0)=K(x_{i+1}(0)-2x_i(0)+x_{i-1}(0))\sin\omega t.
-$$
-Da diese Gleichung muss f"ur alle Zeitpunkte gelten muss, gilt sie auch f"ur
+\]
+Da diese Gleichung f"ur alle Zeitpunkte gelten muss, gilt sie auch f"ur
 Zeitpunkte, an denen $\sin\omega t\ne 0$, so dass man durch $\sin\omega t$
 teilen kann:
-$$
+\[
 -m\omega^2 x_i(0)=K(x_{i+1}(0)-2x_i(0)+x_{i-1}(0)).
-$$
+\]
 F"ur die Endpunkte der Kette gelten einfachere Formeln. Auf die Masse $1$
 wirkt die Feder links mit der Kraft $-Kx_1(t)$, die Feder rechts "ubt die
 Kraft $K(x_2(t)-x_1(t))$ aus, so dass die Bewegungsgleichung hier zu
-$$
+\[
 -m\ddot x_1(t)=K(-2x_1(t)+x_2(t)),
-$$
+\]
 die Gleichung f"ur die Anfangswerte wird
-$$
+\[
 \omega^2 x_1(0)=-\frac{K}{m}(-2x_1(0)+x_2(0)),
-$$
+\]
 und analog am anderen Ende des Intervals.
 
 Diese Gleichung soll jetzt auch noch in Matrizenform geschrieben werden.
 Die Anfangswerte $x_i(0)$ fassen wir in einen Vektor $x(0)$ zusammen.
 Die rechte Seite der Gleichung wird durch die Wirkung der $n\times n$-Matrix
-$$
+\[
 \Delta=
 -\frac{K}{m}
 \begin{pmatrix}
@@ -231,14 +238,14 @@ $$
  &&&&&&1&-2&1\\
 0&&&&&&0&1&-2
 \end{pmatrix}
-$$
+\]
 beschrieben.
 
 Unbekannt ist jetzt offenbar, welche Werte $\omega$ "uberhaupt eine nicht-%
 triviale L"osung erm"oglichen, also einen Vektor $x$ mit der Eigenschaft
-$$
+\[
 \Delta x=\lambda x
-$$
+\]
 mit $\lambda=\omega^2$. Wenn wir die zul"assigen $\lambda$ bestimmen k"onnen,
 f"ur die sich eine L"osung $x$ finden l"asst, dann kennen wir offenbar auch
 die Eigenfrequenzen, mit denen die Federkette schwingen kann.
@@ -444,13 +451,17 @@ tats"achlich die trigonometrischen Funktionen sind.
 \subsection{Fibonacci-Zahlen}
 \index{Fibonacci-Folge}
 In der Folge der Fibonacci-Zahlen
-$$0,1,1,2,3,5,8,13,21,34,55,89,144,\dots$$
+\[
+0,1,1,2,3,5,8,13,21,34,55,89,144,\dots
+\]
 entsteht das n"achste Element als Summe der beiden vorangegangenen
 Elemente. Die Folge ist offenbar festgelegt, wenn man die zwei ersten
 Werte $0$ und $1$ festlegt. Durch Wahl eines anderen Paares von Startzahlen
 erh"alt man eine alternative Fibonacci-Folge. Die Fibonacci-Zahlen
 erf"ullen die Gleichung 
-$$x_{n+1}=x_n+x_{n-1},$$
+\[
+x_{n+1}=x_n+x_{n-1},
+\]
 die wir
 auch 
 \begin{equation}
@@ -498,7 +509,9 @@ auf den Fibonacci-Zahlen.
 \index{Rekursionsgleichung}
 Um die Fibonacci-Zahlen zu berechnen, muss man sich nur jeweils die letzten zwei
 Zahlen merken, wir schreiben diese in eine Spaltenvektor
-$$\begin{pmatrix}x_n\\x_{n-1}\end{pmatrix}$$
+\[
+\begin{pmatrix}x_n\\x_{n-1}\end{pmatrix}
+\]
 Beim "Ubergang zur Fibonacci-Zahl $x_{n+1}$ muss man sich auch $x_n$ merken,
 man muss also den neuen Spaltenvektor berechnen:
 \begin{equation}
@@ -522,12 +535,14 @@ zu berechnen, da w"are eine Formel $f(n)$ sehr praktisch, in der man einfach
 die Zahl 1291 einsetzen k"onnte.
 Die Fibonacci-Zahlen nehmen sehr schnell zu, 
 wir versuchen die L"osung in der Form
-$$f(n)=a\lambda^n$$
+\[
+f(n)=a\lambda^n
+\]
 zu finden. Eingesetzt in (\ref{fibonaccirekursion}) ergibt sich
-$$
+\[
 \begin{pmatrix}a\lambda^{n+1}\\a\lambda^n\end{pmatrix}
 =A\begin{pmatrix}a\lambda^n\\a\lambda^{n-1}\end{pmatrix}
-$$
+\]
 Der Vektor auf der linken Seite ist das $\lambda$-fache des Vektors
 auf der rechten Seite, wenn es also "uberhaupt eine L"osung in der
 Form $f(n)=a\lambda^n$ gibt, dann gibt es auch einen Vektor $y$, der
@@ -539,28 +554,33 @@ a\lambda^n\\a\lambda^{n-1}
 \end{equation}
 erf"ullt. In diesem Gleichungssystem kommen die Unbekannten auch auf
 der rechten Seite vor, die Standard-Form ist daher
-$$Ay-\lambda y=(A-\lambda I)y=0.$$
+\[
+Ay-\lambda y=(A-\lambda I)y=0.
+\]
 Wir m"ussen also herausfinden, f"ur welche Werte von $\lambda$ dieses
 Gleichungssystem "uberhaupt eine nichttriviale L"osung (und damit unendlich
 viele L"osungen) hat. Dies geschieht genau dann, wenn die Determinante
 der Matrix
-$$A-\lambda I=\begin{pmatrix}1-\lambda&1\\1&-\lambda\end{pmatrix}$$
+\[
+A-\lambda I=\begin{pmatrix}1-\lambda&1\\1&-\lambda\end{pmatrix}
+\]
 verschwindet. Berechnung der
 Determinante ergibt die quadratische Gleichung
-$$\det
+\[
+\det
 \begin{pmatrix}1-\lambda&1\\1&-\lambda\end{pmatrix}
 =(1-\lambda)(-\lambda)-1=\lambda^2-\lambda-1=0.
-$$
+\]
 Sie hat die L"osungen
-$$
+\[
 \lambda_{\pm}=\frac12+\pm\sqrt{\frac14+1}=\frac{1\pm\sqrt{5}}2.
-$$
+\]
 F"ur jeden Wert $\lambda_{\pm}$ gibt es einen nichttrivialen
 L"osungsvektor, den man durch L"osen des Gleichungssystems nach
 Einsetzen von $\lambda_{\pm}$ erhalten kann. 
 
 Setzt man $\lambda_+$ ein, bekommt man die Koeffizientenmatrix
-$$
+\[
 A-\lambda_+I=
 \begin{pmatrix}
 1-\lambda_+&1\\1&-\lambda_+
@@ -569,46 +589,48 @@ A-\lambda_+I=
 \begin{pmatrix}
 \frac{1-\sqrt{5}}2&1\\1&-\frac{1+\sqrt{5}}2
 \end{pmatrix}
-$$
+\]
 Wir wissen bereits, dass das Gleichungssystem $(A-\lambda_+I)y=0$
 eine nichttriviale L"osung hat, zum Beispiel
-$$y_+=\begin{pmatrix}
+\[
+y_+=\begin{pmatrix}
 \frac{1+\sqrt{5}}2\\1
 \end{pmatrix}
 =\begin{pmatrix}
 \lambda_+\\1
 \end{pmatrix}
-$$
+\]
 Analog hat man f"ur $\lambda_-$ die Matrix
-$$
+\[
 A-\lambda_-I=
 \begin{pmatrix}
 \frac{1+\sqrt{5}}2&1\\
 1&-\frac{1-\sqrt{5}}2
 \end{pmatrix}
-$$
+\]
 und eine nichttriviale L"osung 
-$$y_-=\begin{pmatrix}
+\[
+y_-=\begin{pmatrix}
 \frac{1-\sqrt{5}}2\\
 1
 \end{pmatrix}=
 \begin{pmatrix}
 \lambda_-\\1
 \end{pmatrix}
-$$
+\]
 \subsubsection{Anfangswerte}
 Wir haben inzwischen die Folgen
-$$
+\[
 \begin{matrix}
 1&\lambda_+&\lambda_+^2&\lambda_+^3&\lambda_+^4&\dots\\
 1&\lambda_-&\lambda_-^2&\lambda_-^3&\lambda_-^4&\dots
 \end{matrix}
-$$
+\]
 gefunden, die beide L"osungen des Rekursionsgleichung sind, die Summe
 zweier Folgenglieder ergibt das n"achste Glied.
 Diese Eigenschaft bleibt auch erhalten, wenn wir zwei beliebige
 Vielfache dieser Folgen addieren. Die Folge
-$$
+\[
 \begin{matrix}
 A+B
 &A\lambda_++B\lambda_-
@@ -618,7 +640,7 @@ A+B
 &A\lambda_+^n+B\lambda_-^n
 &\dots
 \end{matrix}
-$$
+\]
 ist auch eine L"osung der Rekursionsgleichung. Tats"achlich k"onnen
 wir die L"osung
 $x_n=A\lambda_+^n + B\lambda_-^n$
@@ -642,19 +664,19 @@ f"ur sich bereits L"osungen der Rekursionsgleichung sind.
 Wir m"ochten jetzt eine Folge konstruieren, die mit bestimmten Werten
 $0$ und $1$ beginnt, dazu m"ussen wir die Koeffizienten $A$ und $B$
 bestimmen:
-$$
+\[
 \begin{matrix}
 A\phantom{\lambda_+}&+&B\phantom{\lambda_-}&=&0
 \\
 A\lambda_+&+&B\lambda_-&=&1
 \end{matrix}
-$$
+\]
 Es ist also ein Gleichungssystem mit Matrix
-$$
+\[
 \begin{pmatrix}
 1&1\\\lambda_+&\lambda_-
 \end{pmatrix}
-$$
+\]
 und den gew"unschten Anfangswerten als rechten Seiten zu l"osen. In diesem
 speziellen Fall ist das Determinanten-Verfahren zweckm"assig:
 \begin{align*}
@@ -715,7 +737,9 @@ zweier aufeinanderfolgender Fibonacci-Zahlen
 \end{align*}
 wobei $q=\lambda_+/\lambda_-$. Da $q<1$ ist, werden die Potenzen $q^n$
 f"ur grosse $n$ beliebig klein, und damit auch
-$$\lim_{n\to\infty}\frac{x_{n+1}}{x_n}=\lambda_+,$$
+\[
+\lim_{n\to\infty}\frac{x_{n+1}}{x_n}=\lambda_+,
+\]
 der Quotient aufeinanderfolgender Fibonacci-Zahlen strebt also gegen
 $\lambda_+$.
 
@@ -723,11 +747,11 @@ $\lambda_+$.
 Das eben dargestellte Verfahren zur L"osung einer endlichen 
 Differenzengleichung l"asst sich verallgemeinern.
 Eine Differenzengleichung der Form
-$$
+\[
 x_{n+1}=a_kx_n+a_{k-1}x_{n-1}+\dots+a_1x_{n-k+1}+a_0x_{n-k}
-$$
+\]
 kann in vektorieller Form als
-$$
+\[
 \begin{pmatrix}
 x_{n-k+1}\\
 x_{n-k+2}\\
@@ -750,20 +774,20 @@ x_{n-k+1}\\
 x_{n-1}\\
 x_n
 \end{pmatrix}
-$$
+\]
 geschrieben werden, wir bezeichnen die $k\times k$-Matrix mit $A$. 
 Mit einem Ansatz der Form $x_n=\lambda^n$ und
-$$
+\[
 x=
 \begin{pmatrix}
 \lambda^{n-k}\\
 \vdots\\
 \lambda^n
 \end{pmatrix}
-$$
+\]
 wird daraus ein
 Eigenwert-Problem
-$$
+\[
 \begin{pmatrix}
 \lambda_{n-k+1}\\
 \vdots\\
@@ -778,7 +802,7 @@ $$
 \lambda^n
 \end{pmatrix}
 =Ax
-$$
+\]
 Im allgemeinen wird es $k$ verschiedene Werte $\lambda_1,\dots\lambda_k$ geben,
 f"ur die dieses Gleichungssystem eine nichtriviale L"osung hat.
 Eine Linearkombination der L"osungen $\lambda_i^n$ ist wiederum eine
@@ -797,7 +821,8 @@ $(A-\lambda E)x=0$.
 Im Kapitel \ref{chapter-determinanten} wurde gezeigt, dass ein eine solche
 L"osung nur dann existieren kann, wenn die Determinante des Gleichungssystems
 verschwindet, also
-$$\det(A-\lambda E)=
+\[
+\det(A-\lambda E)=
 \left|
 \begin{matrix}
 a_{11}-\lambda&a_{12}&\dots&a_{1n}\\
@@ -806,15 +831,15 @@ a_{21}&a_{22}-\lambda&\dots&a_{2n}\\
 a_{n1}&a_{n2}&\dots&a_{nn}-\lambda
 \end{matrix}
 \right|
-$$
+\]
 Die Determinante ist ein Polynom $n$-ten Grades in $\lambda$, das Finden der
 Eigenwerte l"auf also darauf hinaus, Nullstellen eines Polynoms zu finden.
 \begin{satz}
 Die Eigenwerte einer $n\times n$ Matrix $A$ sind Nullstellen des
 Polynoms
-$$
+\[
 \chi_A(\lambda)=\det(A-\lambda E)
-$$
+\]
 vom Grad $n$.
 \end{satz}
 \begin{definition}
@@ -884,7 +909,9 @@ v_1^tAv_2&=v_1^tA^tv_2=(Av_1)^tv_2=\lambda_1v_1^tv_2
 \end{align*}
 Da $\lambda_2\ne\lambda_1$ ist $\lambda_2-\lambda_1\ne 0$, man kann
 also durch den Klammerausdruck teilen und findet
-$$v_1^tv_2=v_1\cdot v_2=0,$$
+\[
+v_1^tv_2=v_1\cdot v_2=0,
+\]
 die beiden Eigenvektoren stehen also senkrecht aufeinander.
 \end{proof}
 
@@ -896,9 +923,9 @@ Vektor, dann ist auch $Aw\perp v$.
 
 \begin{proof}[Beweis]
 Wir berechnen das Skalarprodukt
-$$
+\[
 (Aw)\cdot v=(Aw)^t v=w^tA^tv=w^tAv=w^t\lambda v=\lambda w\cdot v=0,
-$$
+\]
 also $Aw\perp v$.
 \end{proof}
 
