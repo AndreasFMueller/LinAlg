@@ -1,0 +1,259 @@
+%
+% -1  -1   5
+% -3   1  -3
+% -0  -1   2
+% inverse:
+% -0.10000  -0.30000  -0.20000
+%  0.60000  -0.20000  -1.80000
+%  0.30000  -0.10000  -0.40000
+
+
+Betrachten Sie das Gleichungssystem
+\[
+\begin{linsys}{3}
+ -x&-& y&+&5z&=&-1\\
+-3x&+& y&-&3z&=& 3\\
+   &-& y&+&2z&=& 1
+\end{linsys}
+\]
+\begin{teilaufgaben}
+\item Berechnen Sie die Inverse der Koeffizientenmatrix.
+\item Finden Sie die L"osung des Gleichungssystems mit Hilfe der Inversen.
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir schreiben $A$ f"ur die Koeffizienten-Matrix:
+\[
+\begin{pmatrix}
+  -1& -1&  5\\
+  -3&  1& -3\\
+   0& -1&  2
+\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item
+Die Inverse kann man mit Hilfe des Gauss-Algorithmus berechnen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}
+\hline
+A&E\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+  -1& -1&  5&  1&  0&  0\\
+  -3&  1& -3&  0&  1&  0\\
+   0& -1&  2&  0&  0&  1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  1& -5& -1&  0&  0\\
+   0&  4&-18& -3&  1&  0\\
+   0& -1&  2&  0&  0&  1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  1& -5     & -1      &  0      &  0\\
+   0&  1&-\frac92& -\frac34&  \frac14&  0\\
+   0&  0&-\frac52& -\frac34&  \frac14&  1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  1& -5     & -1        &  0         &  0\\
+   0&  1&-\frac92& -\frac34  &  \frac14   &  0\\
+   0&  0&  1     & \frac3{10}& -\frac1{10}&-\frac25\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  1&  0&\frac12      &-\frac12     &-2\\
+   0&  1&  0&\frac{12}{20}&-\frac{4}{20}&-\frac{9}{5}\\
+   0&  0&  1&\frac{3}{10} &-\frac1{10}  &-\frac25\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  0&  0&-\frac1{10}  &-\frac3{10}  &-\frac15\\
+   0&  1&  0&\frac35      &-\frac15     &-\frac95\\
+   0&  0&  1&\frac{3}{10} &-\frac1{10}  &-\frac25\\
+\hline
+\end{tabular}
+\\
+&=\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}
+\hline
+E&A^{-1}\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus kann jetzt die Inverse Matrix abgelesen werden:
+\[
+A^{-1}
+=
+\frac1{10}
+\begin{pmatrix}
+-1&-3& -2\\
+ 6&-2&-18\\
+ 3&-1& -4
+\end{pmatrix}
+\]
+Wir kontrollieren das Resultat durch Ausmultiplizieren:
+\begin{align*}
+A\cdot A^{-1}
+&=
+\frac1{10}
+\begin{pmatrix}
+  -1& -1&  5\\
+  -3&  1& -3\\
+   0& -1&  2
+\end{pmatrix}
+\begin{pmatrix}
+-1&-3& -2\\
+ 6&-2&-18\\
+ 3&-1& -4
+\end{pmatrix}
+\\
+&=
+\frac1{10}
+{
+\tiny
+\begin{pmatrix}
+(-1)\cdot(-1) + (-1)\cdot6 + 5\cdot3
+	&(-1)\cdot(-3) + (-1)\cdot(-2) + 5\cdot(-1)
+		&(-1)\cdot(-2) + (-1)\cdot(-18) + 5\cdot(-4)\\
+(-3)\cdot(-1) + 1\cdot6 + (-3)\cdot3
+	&(-3)\cdot(-3) + 1\cdot(-2) + (-3)\cdot(-1)
+		&(-3)\cdot(-2) + 1\cdot(-18) + (-3)\cdot(-4)\\
+0\cdot(-1) + (-1)\cdot6 + 2\cdot3
+	&0\cdot(-3) + (-1)\cdot(-2) + 2\cdot(-1)
+		&0\cdot(-2) + (-1)\cdot(-18) + 2\cdot(-4)
+\end{pmatrix}
+}
+\\
+&=
+\frac1{10}
+\begin{pmatrix}
+1-6+15 & 3+2-5 & 2 +18 - 20\\
+3+6-9  & 9 -2+3& 6-18+12\\
+0-6+6  & 0+2-2&0+18-8
+\end{pmatrix}
+=\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}=E.
+\end{align*}
+\item Die L"osung des Gleichungssystems kann jetzt mit $x=A^{-1}b$ gefunden
+werden:
+\begin{align*}
+b&=
+\begin{pmatrix}-1\\3\\1\end{pmatrix}
+&
+x&=A^{-1}b=
+\frac1{10}
+\begin{pmatrix}
+-1&-3& -2\\
+ 6&-2&-18\\
+ 3&-1& -4
+\end{pmatrix}
+\begin{pmatrix}-1\\ 3\\ 1\end{pmatrix}
+=
+\frac1{10}
+\begin{pmatrix}
+ 1-9-2\\
+-6-6-18\\
+-3-3-4
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1\\
+-3\\
+-1
+\end{pmatrix}.
+\end{align*}
+Auch dieses Resultat k"onnen wir durch Ausrechnen von $Ax$ kontrollieren:
+\begin{align*}
+Ax
+&=
+\begin{pmatrix}
+  -1& -1&  5\\
+  -3&  1& -3\\
+   0& -1&  2
+\end{pmatrix}
+\begin{pmatrix}
+-1\\-3\\-1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1+3-5\\
+3-3+3\\
+0+3-2
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1\\3\\1
+\end{pmatrix}
+=b.
+\end{align*}
+\end{teilaufgaben}
+Die Inverse Matrix in Teil a) kann nat"urlich auch mit Hilfe der
+Minoren berechnet werden.
+Dazu brauchen wir zun"achst die Determinante. Diese k"onnte man zwar mit
+Hilfe der Sarrusschen Formel erhalten, da wir aber oben den Gauss-Algorithmus
+durchgef"uhrt haben, k"onnen wir auch die Pivot-Elemente zusammentragen:
+\[
+\det(A)
+=
+(-1)\cdot 4\cdot \biggl(-\frac52\biggr)
+=
+10.
+\]
+Die Inverse kann man jetzt direkt hinschreiben:
+\begin{align*}
+A^{-1}
+&=
+\frac1{10}
+\begin{pmatrix}
+\left|\begin{matrix} 1&-3\\-1& 2\end{matrix}\right|&
+-\left|\begin{matrix}-1& 5\\-1& 2\end{matrix}\right|&
+\left|\begin{matrix}-1& 5\\ 1&-3\end{matrix}\right|\\
+-\left|\begin{matrix}-3&-3\\ 0& 2\end{matrix}\right|&
+\left|\begin{matrix}-1& 5\\ 0& 2\end{matrix}\right|&
+-\left|\begin{matrix}-1& 5\\-3&-3\end{matrix}\right|\\
+\left|\begin{matrix}-3& 1\\ 0&-1\end{matrix}\right|&
+-\left|\begin{matrix}-1&-1\\ 0&-1\end{matrix}\right|&
+\left|\begin{matrix}-1&-1\\-3& 1\end{matrix}\right|
+\end{pmatrix}
+=
+\frac1{10}
+\begin{pmatrix}
+-1&-3& -2\\
+ 6&-2&-18\\
+ 3&-1& -4
+\end{pmatrix},
+\end{align*}
+was mit der Mittels Gaussalgorithmus gefundenen Inversen "ubereinstimmt.
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Ansatz (\textbf{A}) 1 Punkt,
+Durchf"uhrung des Gauss Algorithmus (\textbf{G}) 2 Punkte,
+Inverse Matrix (\textbf{I}) 1 Punkt,
+\item
+L"osungsansatz $x=A^{-1}b$ (\textbf{B}) 1 Punkt,
+korrekte L"osung (\textbf{L}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
