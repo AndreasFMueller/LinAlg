@@ -1,0 +1,56 @@
+Ist die Matrix
+\[
+A=\begin{pmatrix}
+\pi&  0&0\\
+0  &\pi&1\\
+0  &  0&\pi
+\end{pmatrix}
+\]
+diagonalisierbar?
+
+\begin{loesung}
+Die Matrix $A$ hat das charakteristische Polynom
+\[
+\chi_A(\lambda)=\left|\begin{matrix}
+\pi-\lambda&  0&0\\
+0  &\pi-\lambda&1\\
+0  &  0&\pi-\lambda
+\end{matrix}\right|
+=(\pi-\lambda)^3
+\]
+mit der dreifachen Nullstelle $\pi$. Es gibt also nur einen Eigenwert
+$\lambda=\pi$. Um die Eigenvektoren zu finden, muss man den Gauss-Algorithmus
+auf $A-\pi E$ anwenden:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+0&0&0\\
+0&0&1\\
+0&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+0&0&1\\
+0&0&0\\
+0&0&0\\
+\hline
+\end{tabular}
+\]
+Daraus liest man ab, dass die ersten beiden Variablen frei w"ahlbar sind,
+und dass die dritte Variable immer verschwindet. Man findet also die 
+folgenden zwei m"oglichen Eigenvektoren
+\[
+e_1=\begin{pmatrix}
+1\\0\\0
+\end{pmatrix},\quad
+e_2=\begin{pmatrix}
+0\\1\\0
+\end{pmatrix}.
+\]
+Nat"urlich sind auch alle Linearkombinationen davon Eigenvektoren von $A$.
+Allerdings bilden die Eigenvektoren keine Basis von $\mathbb R^3$, die
+Matrix $A$ ist also nicht diagonalisierbar.
+\end{loesung}
+
