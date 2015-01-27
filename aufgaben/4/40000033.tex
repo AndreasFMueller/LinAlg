@@ -1,0 +1,143 @@
+Ein Best"uckungsautomat ist in der Lage, automatisch Bauteile auf
+einer Leiterplatte zu platzieren. Damit dies mit ausreichend hoher
+Genauigkeit m"oglich ist, werden auf der Leiterplatte sogenannte
+{\em Passermarken}, english  {\em fiducial markers} angebracht (im Bild
+eingekreist):
+\begin{center}
+\includeagraphics[width=0.3\hsize]{fiducials.jpg}
+\end{center}
+Der Best"uckungsautomat liest die Position der Passermarken, und korrigiert
+die Bauteilpositionen, damit die Bauteile am richtigen Ort auf der 
+Leiterplatte platziert werden.
+Dabei ist eine eventuelle Verschiebung sehr einfach zu korrigieren:
+man korrigiert um den Mittelwert der Positionsfehler der Passermarken.
+Nach der Verschiebung bleibt aber eine Rotation "ubrig, die auch
+noch korrigiert werden soll. Die Passermarken an den Position $(x_p,y_p)$
+sind durch die Drehung um $(\Delta x,\Delta y)$ verschoben:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+i&x_p&y_p&\Delta x&\Delta y\\
+\hline
+1&  2&  1& -0.095 & \phantom{-}0.171 \\
+2& -1&  1& -0.083 &          - 0.091 \\
+\hline
+\end{tabular}
+\end{center}
+Finden Sie den Drehwinkel $\alpha$.
+
+\begin{hinweis}
+Versuchen Sie nicht, direkt den Drehwinkel $\alpha$ zu bestimmen, sondern
+betrachten Sie die Zahlen $\cos\alpha$ und $\sin\alpha$, die als Koeffizienten
+in der Drehmatrix auftauchen, als voneinander unabh"angige Unbekannte.
+\end{hinweis}
+
+\begin{loesung}
+Gesucht ist die Drehmatrix
+\[
+D_\alpha
+=
+\begin{pmatrix}
+ \cos\alpha&-\sin\alpha\\
+ \sin\alpha& \cos\alpha
+\end{pmatrix},
+\]
+in der wir gem"ass Hinweis die Zahlen $\color{red}\cos\alpha$ und
+$\color{red}\sin\alpha$ als unabh"angige Unbekannte betrachten.
+F"ur jeden Vektor $(x_p,y_p)$ muss gelten
+\begin{equation}
+D_\alpha
+\begin{pmatrix}x_p\\y_p\end{pmatrix}
+-
+\begin{pmatrix}x_p\\y_p\end{pmatrix}
+=
+(D_\alpha-E)
+\begin{pmatrix}x_p\\y_p\end{pmatrix}
+=
+\begin{pmatrix}\Delta x\\\Delta y\end{pmatrix}
+\qquad
+\Leftrightarrow
+\qquad
+\begin{aligned}
+x_p{\color{red}\cos\alpha}-y_p{\color{red}\sin\alpha}&=x_p+\Delta x\\
+x_p{\color{red}\sin\alpha}+y_p{\color{red}\cos\alpha}&=y_p+\Delta y
+\end{aligned}
+\label{40000033:gleichungen}
+\end{equation}
+Dies sind zwei Gleichungen f"ur die Unbekannten $\cos\alpha$ und $\sin\alpha$
+f"ur jeden Punkt.
+Die zwei Punkte aus der Tabelle f"uhren also auf die vier Gleichungen
+\begin{equation}
+\begin{linsys}{4}
+2{\color{red}\cos\alpha}&-& {\color{red}\sin\alpha}&=& 2&-&0.095&=& 1.905\\
+ {\color{red}\cos\alpha}&+&2{\color{red}\sin\alpha}&=& 1&+&0.171&=& 1.171\\
+-{\color{red}\cos\alpha}&-& {\color{red}\sin\alpha}&=&-1&-&0.083&=&-1.083\\
+ {\color{red}\cos\alpha}&-& {\color{red}\sin\alpha}&=& 1&-&0.091&=& 0.909
+\end{linsys}
+\label{40000033:glsystem}
+\end{equation}
+Die Matrizen dieses "uberbestimmten Gleichungssystems sind
+\[
+A
+=
+\begin{pmatrix}
+\phantom{-}2&         - 1\\
+\phantom{-}1&\phantom{-}2\\
+         - 1&         - 1\\
+\phantom{-}1&         - 1
+\end{pmatrix}.
+\qquad
+b=
+\begin{pmatrix}
+\phantom{-}1.905\\
+\phantom{-}1.171\\
+         - 1.083\\
+\phantom{-}0.909
+\end{pmatrix}
+\]
+F"ur die L"osung brauchen wir die Matrix $A^tA$ und den Vektor $A^tb$:
+\[
+A^tA=
+\begin{pmatrix}
+\phantom{-}2&\phantom{-}1&-1&\phantom{-}1\\
+         - 1&\phantom{-}2&-1&         - 1
+\end{pmatrix}
+\begin{pmatrix}
+\phantom{-}2&         - 1\\
+\phantom{-}1&\phantom{-}2\\
+         - 1&         - 1\\
+\phantom{-}1&         - 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+7&0\\
+0&7
+\end{pmatrix},
+\qquad
+\qquad
+A^tb
+=
+\begin{pmatrix}
+6.973\\ 0.611
+\end{pmatrix}.
+\]
+Das Gleichungssystem ist wegen der Diagonalform von $A^tA$ trivial zu l"osen,
+\begin{align*}
+\color{red} \cos\alpha&=0.99614
+&&\Rightarrow&\alpha&=5.0358^\circ
+\\
+\color{red} \sin\alpha&=0.087286
+&&\Rightarrow&
+\alpha&=5.0075^\circ
+\end{align*}
+Offenbar sind die Passmarker um $5^\circ$ gegen"uber der Solllage verdreht.
+\end{loesung}
+
+\begin{bewertung}
+Drehmatrix ({\bf D}) 1 Punkt,
+Gleichungen (\ref{40000033:gleichungen}) ({\bf G}) 1 Punkt,
+"Uberbestimmtes Gleichungssystem (\ref{40000033:glsystem}) ({\bf "U}) 1 Punkt,
+L"osungsverfahren f"ur "uberbestimmte Gleichungssytem ({\bf V}) 1 Punkt,
+Berechnung der Matrizen $A^tA$ und $A^tb$ ({\bf M}) 1 Punkt,
+L"osung f"ur den Drehwinkel $\alpha$ ({\bf A}) 1 Punkt.
+\end{bewertung}
