@@ -1,0 +1,172 @@
+Zu zwei Matrizen $A$ und $B$ kann man den sogenannten {\em Kommutator}
+$[A,B]=AB-BA$ bilden.
+Zu jedem dreidimensionalen Vektor $\vec v$ kann man eine Matrix $V$
+bilden nach der Regel
+\[
+\vec v
+=
+\begin{pmatrix}v_1\\v_2\\v_3\end{pmatrix}
+\qquad
+\mapsto
+\qquad
+V
+=
+\begin{pmatrix}
+   0&-v_3& v_2\\
+ v_3&   0&-v_1\\
+-v_2& v_1&   0
+\end{pmatrix}.
+\]
+Seien jetzt zwei Vektoren $\vec u$ und $\vec v$ gegeben, mit zugeh"origen
+Matrizen $U$ und $V$.
+Gibt es einen Vektor $\vec w$ so, dass die zugeh"orige Matrix $W=[U,V]$ ist?
+Wenn ja, berechnen Sie $\vec w$.
+
+\begin{loesung}
+Wir berechnen den Kommutator von $U$ und $V$
+\begin{align*}
+[U,V]
+=
+UV-VU
+&=
+\begin{pmatrix}
+   0&-u_3& u_2\\
+ u_3&   0&-u_1\\
+-u_2& u_1&   0
+\end{pmatrix}
+\begin{pmatrix}
+   0&-v_3& v_2\\
+ v_3&   0&-v_1\\
+-v_2& v_1&   0
+\end{pmatrix}
+-
+\begin{pmatrix}
+   0&-v_3& v_2\\
+ v_3&   0&-v_1\\
+-v_2& v_1&   0
+\end{pmatrix}
+\begin{pmatrix}
+   0&-u_3& u_2\\
+ u_3&   0&-u_1\\
+-u_2& u_1&   0
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+-u_3v_3-u_2v_2&u_2v_1&u_3v_1\\
+u_1v_2&-u_3v_3-u_1v_1&u_3v_2\\
+u_1v_3&u_2v_3&-u_2v_2-u_1v_1
+\end{pmatrix}
+\\&\qquad
+-
+\begin{pmatrix}
+-u_3v_3-u_2v_2&u_1v_2&u_1v_3\\
+u_2v_1&-u_3v_3-u_1v_1&u_2v_3\\
+u_3v_1&u_3v_2&-u_2v_2-u_1v_1
+\end{pmatrix}
+\\
+&=\begin{pmatrix}
+   0            &-(u_1v_2-u_2v_1)&u_3v_1-u_1v_3   \\
+   u_1v_2-u_2v_1&               0&-(u_2v_3-u_3v_2)\\
+-(u_3v_1-u_1v_3)&u_2v_3-u_3v_2   &0
+\end{pmatrix}
+\end{align*}
+Daraus lesen wir ab, dass der Vektor $\vec w$ die Komponenten
+\begin{align*}
+\vec w
+=
+\begin{pmatrix}
+u_2v_3-u_3v_2\\
+u_3v_1-u_1v_3\\
+u_1v_2-u_2v_1
+\end{pmatrix}
+=\vec u\times\vec v
+\end{align*}
+haben muss.
+Der Kommutator zusammen mit der Matrixdarstellung der dreidimensionalen
+Vektoren liefert also eine Darstellung des Vektorproduktes mit Hilfe von
+Matrizen.
+\end{loesung}
+
+\begin{diskussion}
+Die Frage, ob es einen Vektor $\vec w$ gibt, kann man auch beantworten,
+ohne dass man den Kommutator ausrechnen muss. Die Matrix $V$, die man zu
+einem Vektor $\vec v$ gebildet hat, ist offenbar antisymmetrisch.
+Man kann sogar alle antisymmetrischen $3\times 3$-Matrizen auf diese
+Art bilden. Man muss sich also nur noch "uberlegen, ob der Kommutator
+wieder eine antisymmetrische Matrix ist. Wenn ja, gibt es auch einen
+zugeh"origen Vektor $\vec w$.
+
+Seien jetzt also $U$ und $V$ antisymmetrische Matrizen. Wir untersuchen
+die Symmetrie das Kommutators:
+\begin{align*}
+[U,V]^t
+&=
+(UV-VU)^t
+=
+V^tU^t-U^tV^t
+=
+(-V)(-U)-(-U)(-V)
+=
+-(UV-VU)
+=
+-[U,V].
+\end{align*}
+$[U,V]$ ist also tats"achlich antisymmetrisch, und es muss den gesuchten
+Vektor $\vec w$ geben.
+\end{diskussion}
+
+\begin{bewertung}
+Matrizenprodukt $\text{Zeilen}\times \text{Spalten}$ ({\bf P}) 1 Punkt,
+Berechnung des Kommutators ({\bf K}) 3 Punkte,
+Ablesen des Vektors $\vec w$ ({\bf W}) 1 Punkt,
+Identifikation als Vektorprodukt ({\bf V}) 1 Punkt.
+\end{bewertung}
+
+\begin{diskussion}
+Man kann auch versuchen, die Tatsache auszunutzen, dass die Matrix $U$
+auf einem Vektor $\vec a$ wie die Vektormultiplikation mit $\vec u$
+wirkt:
+\[
+U\vec a=\vec u\times \vec a
+\]
+Dann wirkt der Kommutator wie
+\[
+[U,V]\vec a
+=
+\vec u\times (\vec v\times \vec a)-\vec v\times(\vec u\times \vec a).
+\]
+Man beachte, dass man hier die Klammern nicht verschieben darf, weil
+das Vektorprodukt nicht assoziativ ist:
+\begin{align*}
+\vec e_1\times(\vec e_1\times\vec e_2)&=\vec e_1\times e_3=-\vec e_2\\
+(\vec e_1\times\vec e_1)\times\vec e_2)&=0\times e_2=0
+\end{align*}
+Aber man kann die Jacobi-Identit"at
+\[
+\vec a\times(\vec b\times \vec c)
++
+\vec b\times(\vec c\times \vec a)
++
+\vec c\times(\vec a\times \vec b)
+=
+0
+\]
+verwenden, welche
+\begin{align*}
+[U,V]\vec a
+&=
+\vec u\times (\vec v\times \vec a)-\vec v\times(\vec u\times \vec a)
+=
+-\vec a\times(\vec u\times \vec v)
+\\
+&=
+(\vec u\times \vec v)\times\vec a
+\end{align*}
+ergibt.
+Der Kommutator $[U,V]$ wirkt also tats"achlich wie die Vektormultiplikation
+mit einem Vektor, n"amlich dem Vektor $\vec u\times \vec v$.
+\end{diskussion}
+
+
+
