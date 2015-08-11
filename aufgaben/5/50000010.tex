@@ -1,0 +1,144 @@
+K"onnen Sie die symmetrische Matrix
+\[
+A=\begin{pmatrix}
+ 9& 3& 12\\
+ 3& 2&  9\\
+12& 9&122
+\end{pmatrix}
+\]
+als Produkt $A=BB^t$ schreiben? Geben Sie eine m"ogliche Matrix $B$ an.
+
+\begin{loesung}
+Man kann sogar eine untere Dreiecksmatrix $L$ mit dieser Eigesnchaft finden,
+dies ist die Cholesky-Zerlegung von $A$.
+
+Im ersten Schritt sucht man die erste Spalte von $L$ zu bestimmen.
+Es muss gelten
+\[
+LL^t=
+\begin{pmatrix}
+l_{11}&  0&  0\\
+l_{21}&  ?&  0\\
+l_{31}&  ?&  ?
+\end{pmatrix}
+\begin{pmatrix}
+l_{11}&l_{21}&l_{31}\\
+     0&     ?&     ?\\
+     0&     0&     ?
+\end{pmatrix}
+=
+\begin{pmatrix}
+    l_{11}^2&l_{11}l_{21}&l_{11}l_{31}\\
+l_{21}l_{11}&           *&           *\\
+l_{31}l_{11}&           *&           *
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 9& 3& 12\\
+ 3& 2&  9\\
+12& 9&122
+\end{pmatrix}
+\]
+Daraus kann man ablesen, dass $l_{11}=3$ sein muss, und weiter,
+dass
+$l_{21}=1$ und $l_{31}=4$. Damit ist die erste Spalte bestimmt.
+
+Im zweiten Schritt versucht man, die zweite Spalte zu bestimmen.
+Dazu schreibt man wieder
+\[
+LL^t
+=
+\begin{pmatrix}
+3&     0&0\\
+1&l_{22}&0\\
+4&l_{32}&?
+\end{pmatrix}
+\begin{pmatrix}
+3&     1&     4\\
+0&l_{22}&l_{32}\\
+0&     0&?
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 9&3           &          12\\
+ 3& 1+l_{22}^2  &4+l_{22}l_{32}\\
+12& 4+l_{32}l_{22}&         *
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 9& 3& 12\\
+ 3& 2&  9\\
+12& 9&122
+\end{pmatrix}
+\]
+Daraus liest man ab $1+l_{22}^2=2$ und damit $l_{22}=1$, und weiter
+$l_{32}=5$.
+
+Im dritten Schritt ist jetzt nur noch das Element unten rechts zu bestimmen:
+\[
+LL^t=
+\begin{pmatrix}
+3&0&     0\\
+1&1&     0\\
+4&5&l_{33}
+\end{pmatrix}
+\begin{pmatrix}
+3&1&     4\\
+0&1&     5\\
+0&0&l_{33}
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 9& 3& 12\\
+ 3& 2&  9\\
+12& 9&16+25+l_{33}^2
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 9& 3& 12\\
+ 3& 2&  9\\
+12& 9&122
+\end{pmatrix}
+\]
+woraus man ablesen kann: $41+l_{33}^2=122$ oder $l_{33}^2=81$, $l_{33}=9$.
+Die gesuchte Matrix $L$ ist also
+\[
+L=
+\begin{pmatrix}
+3&0&0\\
+1&1&0\\
+4&5&9
+\end{pmatrix}.
+\]
+Kontrolle:
+\[
+\begin{pmatrix}
+3&0&0\\
+1&1&0\\
+4&5&9
+\end{pmatrix}
+\begin{pmatrix}
+3&1&4\\
+0&1&5\\
+0&0&9
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 9& 3& 12\\
+ 3& 2&  9\\
+12& 9&122
+\end{pmatrix}.
+\]
+\end{loesung}
+
+\begin{diskussion}
+Man beachte, dass die nicht verschwindenden Zahlen in der Matrix $L^t$
+die ersten Ziffern der Dezimalentwicklung von $\pi\simeq3.14159$ sind.
+\end{diskussion}
+
+\begin{bewertung}
+Cholesky-Zerlegung ({\bf C}) 1 Punkt,
+Pro richtigem nicht verschwindendem Matrix-Element in $B$ ein Punkt,
+maximal 6 Punkte.
+\end{bewertung}
+
