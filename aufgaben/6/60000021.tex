@@ -1,0 +1,136 @@
+Ist die Matrix
+\[
+A
+=
+\begin{pmatrix}
+2&-1\\
+3& 6
+\end{pmatrix}
+\]
+diagonalisierbar?
+Wenn ja, geben Sie eine Basis an, in der $A$ diagonal ist.
+
+\begin{loesung}
+Wir bestimmen zun"achst die Eigenwerte von $A$ mit Hilfe des charakteristischen
+Polynoms:
+\[
+\chi_A(\lambda)=\left|\;\begin{matrix}
+2-\lambda&        -1\\
+        3& 6-\lambda
+\end{matrix}\;\right|
+=(2-\lambda)(6-\lambda)+3=\lambda^2-8\lambda+12+3
+=\lambda^2-8\lambda+15.
+\]
+Die Nullstellen von $\chi_A(\lambda)$ k"onnen mit der L"osungsformel
+f"ur quadratische Gleichungen gefunden werden:
+\[
+\lambda_{\pm}
+=
+4\pm\sqrt{16-15}=4\pm 1=\begin{cases}\;5\\\;3.\end{cases}
+\]
+Da die Eigenwerte verschieden sind, werden wir zwei Eigenvektoren finden,
+und k"onnen daher die Frage nach der Diagonalisierbarkeit bereits mit
+``ja'' beantworten.
+
+Um die Eigenvektoren zu bestimmen, l"osen wir das Gleichungssystem
+$(A-\lambda E)x=0$ mit $\lambda=\lambda_{\pm}$.
+Im Falle $\lambda=\lambda_+ = 5$ 
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2-\lambda_+&         -1&0\\
+          3&6-\lambda_+&0\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-3&-1&0\\
+ 3& 1&0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& \frac13&0\\
+ 0& 0&0\\
+\hline
+\end{tabular}
+&
+v_+&=\begin{pmatrix}
+1\\-3
+\end{pmatrix}.
+\end{align*}
+Zur Kontrolle rechnen wir $Av_+$ nach:
+\[
+Av_+=
+\begin{pmatrix}
+2&-1\\ 3&6
+\end{pmatrix}
+\begin{pmatrix} 1\\-3 \end{pmatrix}
+=
+\begin{pmatrix}
+5\\-15
+\end{pmatrix}
+=\lambda_+v_+.
+\]
+Entsprechend finden wir den Eigenvektor f"ur $\lambda=\lambda_-$:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2-\lambda_-&         -1&0\\
+          3&6-\lambda_-&0\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-1&-1&0\\
+ 3& 3&0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 1&0\\
+ 0& 0&0\\
+\hline
+\end{tabular}
+&
+v_-&=\begin{pmatrix}
+1\\-1
+\end{pmatrix}.
+\end{align*}
+Kontrolle:
+\[
+Av_-
+=
+\begin{pmatrix}
+1&-1\\3&6
+\end{pmatrix}
+\begin{pmatrix}
+1\\-1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2\\-2
+\end{pmatrix}
+=\lambda_-v_-.
+\]
+Eine Basis, in der $A$ diagonal wird, ist also 
+\[
+{\cal B}=\left\{
+\begin{pmatrix}1\\-3 \end{pmatrix},
+\begin{pmatrix}1\\-1 \end{pmatrix}
+\right\}.
+\]
+\end{loesung}
+
+\begin{diskussion}
+Man beachte, dass die Matrix $A$ nicht symmetrisch ist, und man daher
+auch nicht erwarten kann, dass die Diagonalisierung mit orthogonalen
+Eigenvektoren m"oglich ist.
+\end{diskussion}
+
