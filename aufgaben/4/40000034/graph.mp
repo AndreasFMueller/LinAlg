@@ -42,6 +42,11 @@ for t = 1 step 1 until 360:
 	--(t, f(t) * u)
 endfor;
 
+pickup pencircle scaled 1pt;
+
+drawarrow (-10,0)--(370,0);
+drawarrow (0,-6*u-11)--(0, 6 * u + 10);
+
 pickup pencircle scaled 0.1pt;
 draw (  0,0)--(  0,-2 * u) withcolor red;
 draw ( 45,0)--( 45, 2 * u) withcolor red;
@@ -55,9 +60,9 @@ draw ( 90, 5 * u) withcolor red;
 draw (135, 5 * u) withcolor red;
 
 pickup pencircle scaled 1pt;
-
-drawarrow (-10,0)--(370,0);
-drawarrow (0,-6*u-11)--(0, 6 * u + 10);
+for x = 0 step 45 until 360:
+	draw (x,2)--(x,-2);
+endfor;
 
 label.ulft(btex $t$ etex, (370,0));
 label.lrt(btex $f(t)$ etex, (0,6 * u + 10));

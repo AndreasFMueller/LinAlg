@@ -1,0 +1,114 @@
+Von einem Signal $f(t)$ weiss, man, dass es durch $\sin t$ und $\cos t$ in der
+Form
+\[
+f(t) = a_0 + a_1\cos t+b_1\sin t
+\]
+beschrieben werden kann, aber die Werte von $a_0$, $a_1$ und $b_1$ sind
+vorerst nicht bekannt.
+Um sie zu bestimmen, wird das Signal zu verschiedenen Zeitpunkten
+gemessen, dabei erh"alt man die folgenden Messresultate, die nat"urlich
+mit Messfehlern behaftet sind:
+\begin{center}
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}}
+           t&f(t)\\
+\hline
+           0&-2 \\
+ \frac{\pi}4& 2 \\
+ \frac{\pi}2& 5 \\
+\frac{3\pi}4& 5 \\
+\end{tabular}
+\end{center}
+Stellen Sie ein Gleichungssystem auf, mit dem
+die Koeffizienten $a_0$, $a_1$ und $b_1$ m"oglichst
+genau bestimmt werden k"onnen.
+
+\begin{loesung}
+Wir erg"anzen die Wertetabelle durch die Werte 
+\begin{center}
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}|>{$}c<{$}>{$}c<{$}}
+           t&f(t)&\cos t&\sin t\\
+\hline
+           0& -2 &                1&               0\\
+ \frac{\pi}4&  2 & \frac{\sqrt{2}}2&\frac{\sqrt{2}}2\\
+ \frac{\pi}2&  5 &                0&               1\\
+\frac{3\pi}4&  5 &-\frac{\sqrt{2}}2&\frac{\sqrt{2}}2\\
+\end{tabular}
+\end{center}
+Die Koeffizienten m"ussen so bestimmt werden, dass die Gleichungen
+\[
+f(t)=a_0+a_1\cos t + b_1\sin t
+\]
+f"ur alle vier gemessenen Werte $t$ stimmen.
+Setzen wir die Werte ein, erhalten wir das Gleichungssystem
+\[
+\begin{linsys}{4}
+a_0&+&                a_1& &                   &=&-2\\
+a_0&+&\frac{\sqrt{2}}2a_1&+&\frac{\sqrt{2}}2b_1&=& 2\\
+a_0& &                   &+&                b_1&=& 5\\
+a_0&-&\frac{\sqrt{2}}2a_1&+&\frac{\sqrt{2}}2b_1&=& 5\\
+\end{linsys}
+\]
+Dies sind vier Gleichungen f"ur nur drei Unbekannte, das Gleichungssystem
+ist also "uberbestimmt. Mit 
+\[
+A=\begin{pmatrix}
+1&                1&               0\\
+1& \frac{\sqrt{2}}2&\frac{\sqrt{2}}2\\
+1&                0&               1\\
+1&-\frac{\sqrt{2}}2&\frac{\sqrt{2}}2
+\end{pmatrix}
+\qquad
+\text{und}
+\qquad
+b=\begin{pmatrix}
+-2\\
+ 2\\
+ 5\\
+ 5
+\end{pmatrix}
+\]
+Die beste L"osung findet man mit Hilfe von kleinsten Quadraten, also
+als L"osung des Gleichungssystems $A^tAx=A^tb$.
+Wir berechnen daher zuerst $A^tA$ und $A^tb$:
+\begin{align*}
+A^tA&=
+\begin{pmatrix}
+         4&1&1+\sqrt{2}\\
+         1&2&         0\\
+1+\sqrt{2}&0&         2
+\end{pmatrix}
+=\begin{pmatrix}
+   4.00000 & 1.00000 & 2.41421 \\
+   1.00000 & 2.00000 & 0.00000 \\
+   2.41421 & 0.00000 & 2.00000
+\end{pmatrix}
+\\
+A^tb&=
+\begin{pmatrix}
+10\\
+-2-\frac{3\sqrt{2}}2\\
+5+\frac{7\sqrt{2}}2
+\end{pmatrix}
+=\begin{pmatrix}
+10.0000\\
+-4.1213\\
+\phantom{-}9.9497
+\end{pmatrix}
+\end{align*}
+Numerische L"osung des Gleichungssystems liefert 
+\begin{align*}
+a_0&=\phantom{-}0.085786\\
+a_1&=-2.103553\\
+b_1&=\phantom{-}4.871320
+\end{align*}
+\begin{figure}
+\centering
+\includeagraphics[]{graph-1.pdf}
+\caption{An vorgegebene Datenpunkte angepasste harmonische Schwingung.
+\label{40000034:1}
+}
+\end{figure}
+In Abbildung~\ref{40000034:1} ist die an die Datenpunkte angepasste
+Funktion $f(t)$ graphisch dargestellt.
+\end{loesung}
+
