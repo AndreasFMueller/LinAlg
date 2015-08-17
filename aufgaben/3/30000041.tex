@@ -1,0 +1,145 @@
+Die Punkte
+\begin{align*}
+P_1&=(1,0),
+&P_2&=\biggl(\frac{-1+\sqrt{5}}4, \frac{\sqrt{10+2\sqrt{5}}}4 \biggr),
+&P_3&=\biggl(\frac{-1-\sqrt{5}}4, \frac{\sqrt{10-2\sqrt{5}}}4 \biggr),\\
+&&P_5&=\biggl(\frac{-1+\sqrt{5}}4,-\frac{\sqrt{10+2\sqrt{5}}}4 \biggr),
+&P_4&=\biggl(\frac{-1-\sqrt{5}}4,-\frac{\sqrt{10-2\sqrt{5}}}4 \biggr)
+\end{align*}
+bilden ein regelm"assiges F"unfeck mit Seitenl"ange
+\[
+a=\sqrt{\frac{5-\sqrt{5}}2}.
+\]
+Es ist dem Einheitskreis einbeschrieben.
+"Uber diesem F"unfeck  soll jetzt eine f"unfseitige Pyramide mit
+Spitze $S$ errichtet werden.
+Die Kanten der Pyramide sollen alle die gleiche L"ange haben.
+\begin{teilaufgaben}
+\item
+Wie hoch ist die Pyramide?
+\item
+Bestimmen Sie die Normale der Ebene durch die Punkte
+$S$, $P_3$ und $P_4$ entfernt?
+\item
+Wie weit ist der Punkt $P_1$ von der Ebene durch die Punkte
+$S$, $P_3$ und $P_4$ entfernt?
+\end{teilaufgaben}
+
+\begin{hinweis}
+F"ur die Normale in Teilaufgabe b) reicht ein numerisches Resultat
+mit 5 Stellen Genauigkeit.
+\end{hinweis}
+
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die H"ohe kann mit dem Satz von Pythagoras ausgerechnet werden:
+\[
+h^2+1^2=a^2\quad a=\sqrt{a^2-1}
+=
+\sqrt{\frac{5-\sqrt{5}}2-1}
+=
+\sqrt{\frac{3-\sqrt{5}}2}.
+\]
+\item
+Wir brauchen die Normale der Ebene durch die genannten Punkte.
+Wir bekommen Sie als Vektorprodukt der Vektoren
+$\overrightarrow{SP_3}$
+und
+$\overrightarrow{SP_4}$:
+\begin{align*}
+\vec n
+&=
+\left(
+\begin{pmatrix}
+\frac{-1-\sqrt{5}}4\\
+\frac{\sqrt{10-2\sqrt{5}}}4\\
+0
+\end{pmatrix}
+-
+\begin{pmatrix}
+0\\0\\\sqrt{\frac{3-\sqrt{5}}2}
+\end{pmatrix}
+\right)
+\times
+\left(
+\begin{pmatrix}
+\frac{-1-\sqrt{5}}4\\
+-\frac{\sqrt{10-2\sqrt{5}}}4\\
+0
+\end{pmatrix}
+-
+\begin{pmatrix}
+0\\0\\\sqrt{\frac{3-\sqrt{5}}2}
+\end{pmatrix}
+\right)
+\\
+&=
+\begin{pmatrix}
+\frac{-1-\sqrt{5}}4\\
+\frac{\sqrt{10-2\sqrt{5}}}4\\
+-\sqrt{\frac{3-\sqrt{5}}2}
+\end{pmatrix}
+\times
+\begin{pmatrix}
+\frac{-1-\sqrt{5}}4\\
+-\frac{\sqrt{10-2\sqrt{5}}}4\\
+-\sqrt{\frac{3-\sqrt{5}}2}
+\end{pmatrix}
+\\
+&=\begin{pmatrix}
+  -0.80902\\
+  \phantom{-}0.58779\\
+  -0.61803   
+\end{pmatrix}
+\times
+\begin{pmatrix}
+  -0.80902\\
+  -0.58779\\
+  -0.61803
+\end{pmatrix}
+=\begin{pmatrix}
+  -0.72654\\
+   0\\
+   0.95106    
+\end{pmatrix}
+\end{align*}
+\item
+Die Abstandsformel liefert:
+\begin{align*}
+d&=\frac{\vec n\cdot \overrightarrow{SP_1}}{|\vec n|}
+=
+\begin{pmatrix}
+-0.60706\\
+\phantom{-}0.00000\\
+\phantom{-}0.79465
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+-1\\0\\\sqrt{\frac{3-\sqrt{5}}2}
+\end{pmatrix}
+=
+\begin{pmatrix}
+-0.60706\\
+\phantom{-}0.00000\\
+\phantom{-}0.79465
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+-1.00000\\
+\phantom{-}0.00000\\
+\phantom{-}0.61803
+\end{pmatrix}
+\\
+&=
+0.60706+0.49112
+=
+1.0982.
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Solche f"unfseitigen Pyramiden enstehen als Ecken eines Ikosaeders.
+\end{diskussion}
+

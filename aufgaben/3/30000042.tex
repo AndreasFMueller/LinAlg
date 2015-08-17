@@ -1,0 +1,166 @@
+In einem Krisengebiet wird ein Passagierflugzeug von Rebellen abgeschossen.
+Die Beh"orden versuchen, aus Zeugenaussagen m"oglichst genau die
+Geometrie des Abschusses zu rekonstruieren.
+In einer Kleinstadt haben zwei Zeugen $A$ und $B$ das Flugzeug just in
+dem Moment hinter dem Dach eines Wohnblocks verschwinden sehen, 
+als es von der Rebellenrakete getroffen wurde.
+Abbildung~\ref{30000042:grundriss} zeigt die Situation im Grundriss.
+\begin{figure}[h]
+\centering
+\includeagraphics[]{plan-1.pdf}
+\caption{Grundriss von Geb"aude und Beobachterpositionen
+\label{30000042:grundriss}}
+\end{figure}
+Zeuge $B$ befand sich zum Zeitpunkt des Ungl"ucks auf einer Leiter,
+er wollte eine Gl"uhbirne auswechseln. 
+Die Informationen legen eine Gerade fest, auf der sich das Ereignis
+abgespielt haben muss.
+Finden Sie eine Parameterdarstellung derselben.
+
+\begin{hinweis}
+L"osen Sie die Gleichungssysteme in dieser Aufgabe numerisch und geben Sie
+die Resultate mit 5 signifikanten Ziffern an.
+\end{hinweis}
+
+\begin{loesung}
+Gesucht ist die Schnittgerade der Ebenen aufgespannt von Beobachter und
+jeweiliger Dachkannte.
+Die Ebenen k"onnen in Form einer Parameterdarstellung angegeben werden,
+wobei die beiden Richtungen zu den vom Beobachter aus sichtbaren 
+Geb"audeecken zeigen.
+F"ur Beobachter $A$ ist dies
+\[
+\begin{pmatrix}
+x\\y\\z
+\end{pmatrix}
+=
+\begin{pmatrix}
+3\\-4\\0
+\end{pmatrix}
++s
+\begin{pmatrix}
+-3\\4\\4
+\end{pmatrix}
++t
+\begin{pmatrix}
+9\\-1\\4
+\end{pmatrix}
+\]
+F"ur Beobachter $B$ ergibt sich die Ebene
+\[
+\begin{pmatrix}
+x\\y\\z
+\end{pmatrix}
+=
+\begin{pmatrix}
+1\\5\\2
+\end{pmatrix}
++u
+\begin{pmatrix}
+-1\\-5\\2
+\end{pmatrix}
++v
+\begin{pmatrix}
+4\\7\\2
+\end{pmatrix}
+\]
+Durch Gleichsetzen ergeben sich drei Gleichungen f"ur die vier Unbekannten
+$s$, $t$, $u$ und $v$:
+\[
+\begin{linsys}{5}
+-3s&+&9t&+& u&-&4v&=& 2\\
+ 4s&-&1t&+&5u&-&7v&=&-9\\
+ 4s&+&4t&-&2u&-&2v&=&-2
+\end{linsys}
+\]
+Mit diesen Gleichungen k"onnen drei Parameter
+eliminiert werden, es bleibt eine Parameterdarstellung f"ur eine Gerade.
+Der Gaussalgorithmus liefert nach einiger Rechnung das Tableau
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}}
+\hline
+1&0&0&-0.53374&-1\\
+0&1&0&-0.50307&\phantom{-}0\\
+0&0&1&-1.07362&-1\\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}}
+\hline
+1&0&0&-\frac{ 87}{163}&-1\\
+0&1&0&-\frac{ 82}{163}&\phantom{-}0\\
+0&0&1&-\frac{175}{163}&-1\\
+\hline
+\end{tabular}
+\qquad
+\Rightarrow
+\qquad
+\begin{aligned}
+s&=0.53374v+1=\frac{ 87}{163}v+1\\
+t&=0.50307v\phantom{\mathstrut+1}=\frac{ 82}{163}v\\
+u&=1.07362v+1=\frac{175}{163}v+1
+\end{aligned}
+\]
+Jetzt muss man den Ausdruck f"ur $u$ noch in die zweite Ebenengleichung
+einsetzen, um die Geradengleichung zu finden.
+
+Besonders elegant l"asst sich das Problem mit einem einzigen Tableau
+l"osen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&z&s&t&u&v&\\
+\hline
+1&0&0& 3&-9& 0& 0& 3\\
+0&1&0&-4& 1& 0& 0&-4\\
+0&0&1&-4&-4& 0& 0& 0\\
+1&0&0& 0& 0& 1&-4& 1\\
+0&1&0& 0& 0& 5&-7& 5\\
+0&0&1& 0& 0&-2&-2& 2\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&z&s&t&u&v&\\
+\hline
+1&0&0&0&0&0&-\frac{477}{163}&0\\
+0&1&0&0&0&0&-\frac{266}{163}&0\\
+0&0&1&0&0&0&-\frac{676}{163}&4\\
+0&0&0&1&0&0&-\frac{ 87}{163}&1\\
+0&0&0&0&1&0&-\frac{ 82}{163}&0\\
+0&0&0&0&0&1&-\frac{175}{163}&1\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus kann man die Parameterdarstellung der Geraden ablesen:
+\[
+\begin{pmatrix}
+x\\y\\z
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\0\\4
+\end{pmatrix}
++v\begin{pmatrix}
+2.92638\\
+1.63190\\
+4.14724
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\0\\4
+\end{pmatrix}
++\frac{v}{163}\begin{pmatrix}
+477\\266\\676
+\end{pmatrix}.
+\]
+\begin{figure}
+\centering
+\includeagraphics[]{plan-2.pdf}
+\caption{Grundriss mit eingezeichneter Geraden (blau)
+\label{30000042:gerade}}
+\end{figure}
+In Abbildung~\ref{30000042:gerade} ist die Gerade blau im Grundriss eingezeichnet.
+\end{loesung}
+
