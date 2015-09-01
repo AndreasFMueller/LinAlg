@@ -1,4 +1,4 @@
-Gegen ist die Matrix $A$ und der Vektor $b$:
+Gegeben ist die Matrix $A$ und der Vektor $b$:
 \[
 A
 =
@@ -28,7 +28,7 @@ Werte, wo $A$ regul"ar ist. Verwenden Sie dazu die Inverse.
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-Die Inverse Matrix kann mit dem Gauss-Algorithmus berechnet werden.
+Die inverse Matrix kann mit dem Gauss-Algorithmus berechnet werden.
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -87,7 +87,7 @@ Die Inverse Matrix kann mit dem Gauss-Algorithmus berechnet werden.
 \hline
 \end{tabular}
 \end{align*}
-Daraus liest man ab, dass die Inverse Matrix
+Daraus liest man ab, dass die inverse Matrix
 \[
 A^{-1}
 =
@@ -137,6 +137,60 @@ c-4&  0&  0\\
 \end{pmatrix}
 =E.
 \end{align*}
+
+Nat"urlich kann man die Inverse auch mit Hilfe der Minoren ausrechnen,
+dazu braucht man zun"achst die Determinante der Matrix:
+\begin{align*}
+\left|\begin{matrix}
+1&2&4\\
+1&4&c\\
+1&3&4
+\end{matrix}\right|
+&=1\cdot 4\cdot 4+2\cdot c\cdot 1+4\cdot 1\cdot 3
+-1\cdot 4\cdot 4-3\cdot c\cdot 1-4\cdot 1\cdot 2
+\\
+&=
+16+2c+12-16-3c-8
+=
+-c+4
+\end{align*}
+Die Eintr"age der inversen Matrix kann man jetzt mit den Minoren bilden:
+\begin{align*}
+A^{-1}
+&=
+\def\arraystretch{2.3}
+\frac1{-c+4}\begin{pmatrix}
+\def\arraystretch{1}
+\phantom{-}\left|\begin{matrix}4&c\\3&4\end{matrix}\right|
+	&\def\arraystretch{1}
+	-\left|\begin{matrix}2&4\\3&4\end{matrix}\right|
+		&\def\arraystretch{1}
+		\phantom{-}\left|\begin{matrix}2&4\\4&c\end{matrix}\right|
+\\
+\def\arraystretch{1}
+-\left|\begin{matrix}1&c\\1&4\end{matrix}\right|
+	&\def\arraystretch{1}
+	\phantom{-}\left|\begin{matrix}1&4\\1&4\end{matrix}\right|
+		&\def\arraystretch{1}
+		-\left|\begin{matrix}1&4\\1&c\end{matrix}\right|
+\\
+\def\arraystretch{1}
+\phantom{-}\left|\begin{matrix}1&4\\1&3\end{matrix}\right|
+	&\def\arraystretch{1}
+	-\left|\begin{matrix}1&2\\1&3\end{matrix}\right|
+		&\def\arraystretch{1}
+		\phantom{-}\left|\begin{matrix}1&2\\1&4\end{matrix}\right|
+\end{pmatrix}
+\\
+&=
+\frac1{-c+4}
+\begin{pmatrix}
+   16-3c&      4&  2c-16\\
+     4-c&      0&    c-4\\
+      -1&     -1&      2
+\end{pmatrix}.
+\end{align*}
+Dies stimmt mit der mit dem Gaussalgorithmus gefundenen Inversen "uberein.
 \item
 Die Inverse existiert nicht f"ur $c=4$, in allen anderen F"allen
 liefert der Gauss-Algorithmus die Inverse.
@@ -237,4 +291,14 @@ Ax=
 \end{teilaufgaben}
 \end{loesung}
 
-
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Berechnung der Inversion mit Gauss ({\bf G}) 3 Punkte,
+\item
+Existenz der Inversen ({\bf E}) 1 Punkt,
+\item
+L"osungsformel $x=A^{-1}b$ ({\bf F}) 1 Punkt,
+L"osung ({\bf L}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}

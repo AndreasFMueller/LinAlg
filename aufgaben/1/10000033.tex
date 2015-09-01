@@ -1,7 +1,7 @@
 F"ur die Standardbasisvektoren $e_1$, $e_2$ und $e_3$ und das Vektorprodukt
 gilt die Algebra
 \begin{align*}
-e_1\times e_2&=0,&
+e_1\times e_1&=0,&
 e_1\times e_2&=e_3,\\
 e_2\times e_2&=0,&
 e_2\times e_3&=e_1,\\
@@ -36,7 +36,7 @@ E_3&=\frac12\begin{pmatrix}
 \end{align*}
 und den {\em Kommutator} $[A,B]=AB-BA$ gilt, also
 \begin{align*}
-[E_1, E_2]&=0,&
+[E_1, E_1]&=0,&
 [E_1, E_2]&=E_3,\\
 [E_2, E_2]&=0,&
 [E_2, E_3]&=E_1,\\
@@ -55,7 +55,7 @@ und $E_3$ bez"uglich dieses Skalarproduktes orthonormiert.
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-Der Kommuator einer Matrix mit sich selbst ist $[A,A]=AA-AA=0$, die
+Der Kommutator einer Matrix mit sich selbst ist $[A,A]=AA-AA=0$, die
 Gleichungen in der ersten Spalte sind also automatisch erf"ullt.
 Wir m"ussen jetzt die gemischten Kommutatoren nachrechnen:
 \begin{align*}
@@ -122,7 +122,7 @@ man kann ablesen, dass auf der Diagonalen nur Nullen stehen. Also gilt
 =
 -\operatorname{Spur}E_iE_j=0
 \qquad
-\text{f"ur $i\ne j$}
+\text{f"ur $i\ne j$}.
 \]
 F"ur $i=j$ rechnen wir
 \begin{align*}
@@ -172,3 +172,16 @@ genau das Skalarprodukt der Vektoren. Nimmt man f"ur $A$ und $B$
 $n$-dimensionale Spaltenvektoren, dann ist $A^tB$ eine $1\times 1$-Matrix,
 und die Spur davon ist genau das "ubliche Skalarprodukt von Spaltenvektoren.
 \end{diskussion}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Berechnung der Kommutatoren in $[E_i,E_j]$ mit $i\ne j$ (die F"alle
+$i=j$ sind trivial) ({\bf K}) je 1 Punkt.
+\item
+Berechnung $\operatorname{Spur}E_i^tE_j=0$ f"ur ein Paar $i\ne j$ ({\bf O})
+1 Punkt,
+Berechnung der Norm 
+$\operatorname{Spur}E_i^tE_i=1$ f"ur ein $i$ ({\bf N}) 2 Punkte.
+\end{teilaufgaben}
+\end{bewertung}
