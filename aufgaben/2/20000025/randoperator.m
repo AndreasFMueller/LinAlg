@@ -32,25 +32,18 @@ function z = zyklen(d)
 	for zyklus = 1 : zyklenzahl
 		z(zyklus, waehlbar(zyklus)) = 1;
 		for i = 1 : anzahlberechnet
-			z(zyklus, berechnet(i)) = r(i, waehlbar(zyklus));
+			z(zyklus, berechnet(i)) = -r(i, waehlbar(zyklus));
 		endfor
 	endfor
 endfunction
 
-function [A, b] = kirchhoff(z, R, d)
+function [A, e] = kirchhoff(z, R, d)
 	r = z * R;
 	A = zeros(size(r)(2));
-	for row = 1 : size(r)(1)
-		for column = 1 : size(r)(2)
-			A(row, column) = r(row, column);
-		endfor
-	endfor
-	for row = size(r)(1) + 1 : size(r)(2)
-		for column = 1 : size(r)(2)
-			A(row, column) = d(row - size(r)(1), column);
-		endfor
-	endfor
+	A(1 : size(z)(1), :) = r;
+	A(size(r)(1) + 1 : size(r)(2), :) = d(1 : size(r)(2)-size(r)(1), :);
 	b = zeros(size(r)(2), 1);
-	b(size(z)(1)) = 1;
-	b = R * b;
+	b(size(z)(2)) = 1;
+	e = zeros(size(r)(2), 1);
+	e(1:size(r)(1), 1) = z * b;
 endfunction

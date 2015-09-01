@@ -1,3 +1,9 @@
+#
+# Kantenmatrix eines Oktaeders
+#
+# Die Ecken 1 und 6 sind die Pole des Oktaeders
+#
+#
 oktaeder = [
 	1, 2;
 	1, 3;
@@ -11,5 +17,5 @@ oktaeder = [
 	4, 5;
 	4, 6;
 	5, 6;
-	1, 2
+	1, 2	# Verbindung der ersten zwei Knoten
 ];
