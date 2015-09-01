@@ -22,8 +22,12 @@ Stellen Sie ein Gleichungssystem auf, mit dem
 die Koeffizienten $a_0$, $a_1$ und $b_1$ m"oglichst
 genau bestimmt werden k"onnen.
 
+\begin{hinweis}
+Die L"osung des Gleichungssystems ist nicht verlangt.
+\end{hinweis}
+
 \begin{loesung}
-Wir erg"anzen die Wertetabelle durch die Werte 
+Wir erg"anzen die Wertetabelle durch die Werte der Winkelfunktionen:
 \begin{center}
 \begin{tabular}{>{$}c<{$}|>{$}c<{$}|>{$}c<{$}>{$}c<{$}}
            t&f(t)&\cos t&\sin t\\
@@ -49,7 +53,8 @@ a_0&-&\frac{\sqrt{2}}2a_1&+&\frac{\sqrt{2}}2b_1&=& 5\\
 \end{linsys}
 \]
 Dies sind vier Gleichungen f"ur nur drei Unbekannte, das Gleichungssystem
-ist also "uberbestimmt. Mit 
+ist also "uberbestimmt, in der "ublichen Notation
+verwenden wir die Matrix $A$ und die rechte Seite $b$ mit
 \[
 A=\begin{pmatrix}
 1&                1&               0\\
@@ -65,7 +70,7 @@ b=\begin{pmatrix}
  2\\
  5\\
  5
-\end{pmatrix}
+\end{pmatrix}.
 \]
 Die beste L"osung findet man mit Hilfe von kleinsten Quadraten, also
 als L"osung des Gleichungssystems $A^tAx=A^tb$.
