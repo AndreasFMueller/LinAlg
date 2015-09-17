@@ -54,6 +54,57 @@ Wir verwenden das Gauss-Verfahren.
 \end{tabular}
 \\
 \end{align*}
-Die letzt Zeile entspricht der Gleichung $0=1$, also ein Widerspruch.
+Die letzte Zeile entspricht der Gleichung $0=1$, also ein Widerspruch.
 Dieses Gleichungssystem kann keine L"osung haben.
+
+Der Aufgabensteller wurde darauf aufmerksam gemacht, dass diese L"osung
+nicht `reglementskonform' ist, und dass er kein gutes Vorbild gewesen sei.
+Daher hier nach dem Motto `Drittel sind zumutbar' die vollst"andig
+reglementskonforme L"osung:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+3&2&5\\
+1&3&4\\
+7&11&19\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&\frac23&\frac53\\
+1&3&4\\
+7&11&19\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&\frac23&\frac53\\
+0&\frac73&\frac73\\
+0&\frac{9}3&\frac{22}3\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&\frac23&\frac53\\
+0&1&1\\
+0&3&\frac{22}3\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&\frac23&\frac53\\
+0&1&1\\
+0&0&\frac{7}3\\
+\hline
+\end{tabular}
+\end{align*}
+Die letzte Zeile entspricht der Gleichung $0=\frac73$, es kann also
+keine L"osungen geben.
 \end{loesung}
