@@ -1,0 +1,61 @@
+Berechnen Sie die Determinante der $n\times n$-Matrix 
+\[
+A_n=\begin{pmatrix}
+\frac1n& \frac1n& \frac1n&\dots & \frac1n& \frac1n\\
+     -1&       1&       0&\dots &       0&       0\\
+      0&      -1&       1&\dots &       0&       0\\
+\vdots &\vdots  &\ddots  &\ddots& \vdots & \vdots \\
+      0&       0&       0&\dots &      -1&       1
+\end{pmatrix}.
+\]
+
+\begin{loesung}
+Die erste Zeile von $A_n$ hat den gemeinsamen Faktor $\frac1n$, den
+wir aus der Determinante ausklammern k"onnen.
+Wir erhalten dann $\det A_n =\frac1n\det B_n $, wobei 
+\[
+B_n=\begin{pmatrix}
+      1&       1&       1&\dots &       1&       1\\
+     -1&       1&       0&\dots &       0&       0\\
+      0&      -1&       1&\dots &       0&       0\\
+\vdots &\vdots  &\ddots  &\ddots& \vdots & \vdots \\
+      0&       0&       0&\dots &      -1&       1
+\end{pmatrix}
+\]
+ist.
+Die Determinante von $B_n$ k"onnen wir durch Entwicklung nach der ersten
+Spalte bestimmen:
+\[
+\det B_n
+=
+\underbrace{
+\left|\begin{matrix}
+       1&       0&\dots &       0&       0\\
+      -1&       1&\dots &       0&       0\\
+\vdots  &\ddots  &\ddots& \vdots & \vdots \\
+       0&       0&\dots &      -1&       1
+\end{matrix}\right|}_{=1}
+-(-1)\cdot
+\underbrace{
+\left|\begin{matrix}
+       1&       1&\dots &       1&       1\\
+      -1&       1&\dots &       0&       0\\
+\vdots  &\ddots  &\ddots& \vdots & \vdots \\
+       0&       0&\dots &      -1&       1
+\end{matrix}\right|}_{=\det B_{n-1}}.
+\]
+Damit haben wir eine Rekursionsformel f"ur $\det B_n$ erhalten:
+\[
+\det B_n = 1 + \det B_{n-1}
+\]
+Da $B_1$ die Einheitsmatrix ist, gilt $\det B_1=1$ und damit folgt
+\[
+\det B_n=n,
+\]
+und schliesslich
+\[
+\det A_n=\frac1n\det B_n=\frac1n\cdot n=1.
+\]
+Die Matrix $A_n$ ist also unimodular, $A_n\in\operatorname{SL}_n(\mathbb R)$.
+\end{loesung}
+
