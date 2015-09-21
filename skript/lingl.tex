@@ -571,9 +571,9 @@ visualisieren kann:
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
 1&0&\dots&0&*\\
-0&0&\dots&0&*\\
+0&1&\dots&0&*\\
 \vdots& \vdots& \ddots& \vdots&\vdots\\
-0&1&\dots&1&*\\
+0&0&\dots&1&*\\
 \hline
 \end{tabular}
 \end{gather*}
@@ -952,7 +952,10 @@ wenn die einzige lineare Beziehung
 \lambda_1l_1(x_1,\dots,x_n)+\dots+\lambda_ml_m(x_1,\dots,x_n)=0
 \label{linearabhaengig}
 \end{equation}
-Sie heissen linear abh"angig, wenn es eine Beziehung (\ref{linearabhaengig})
+jene mit $\lambda_i=0$ f"ur $1\le i\le m$ ist.
+
+Die $l_i$ heissen linear abh"angig, wenn es eine Beziehung der Form
+(\ref{linearabhaengig})
 gibt, in der nicht alle Koeffizienten $\lambda_i$ verschwinden.
 
 Die Gleichungen $l_i(x_1,\dots,x_n)=b_i,1\le i\le m$ heissen linear unabh"angig,
