@@ -1,0 +1,176 @@
+In seinem Video {\em Morley's Miracle}\footnote{Youtube: \url{https://www.youtube.com/watch?v=gjhmh3yWiTI}}
+zeigt der mathematische Video-Blogger
+{\em Mathologer} den von John Conway erdachten Beweis des Satzes von Morley:
+Teilt man in einem beliebigen Dreieck die Winkel mit Geraden durch drei, dann
+schneiden sich diese Geraden in den Ecken eines gleichseitigen Dreiecks
+(in der Zeichnung rot):
+\begin{center}
+\includeagraphics[]{morley-1.pdf}
+\end{center}
+Beim Timestamp 3:30 erkl"art Mathologer, dass man f"ur die Winkel
+$\delta_i,1\le i\le 6$, er nennt sie $a$, $b$,$c$, $d$, $e$, $f$, ein
+lineares Gleichungssystem aufstellen kann. 
+Dazu verwendet wer einerseits die Winkelsumme in den Dreiecken $\Delta_A$,
+$\Delta_B$ und $\Delta_C$ und andererseits die Tatsache, dass sich die
+Winkel an den Punkten $E$, $F$ und $G$ zu $180^\circ$ summieren m"ussen.
+die Winkel $\angle AGB$, $\angle BEC$ und $\angle CFA$ kann man aus
+der Winkelsumme der zugeh"origen Dreiecke bestimmen.
+\begin{teilaufgaben}
+\item
+Ist das so gefundene Gleichungssystem regul"ar?
+\item
+Bestimmen Sie den Rang der Koeffizientenmatrix
+\end{teilaufgaben}
+
+\begin{loesung}
+Der Winkel $\angle AGB$ ist $180^\circ-\frac{\alpha}3-\frac{\beta}3$, und
+entsprechend f"ur die Winkel bei $E$ und $F$.
+Das Gleichungssystem wird damit
+\[
+\begin{linsys}{9}
+\Delta_A:& &\delta_1&+&\delta_2& &        & &        & &        & &        &=&180^\circ-\frac{\alpha}3\\
+\Delta_B:& &        & &        & &\delta_3&+&\delta_4& &        & &        &=&180^\circ-\frac{\beta}3\\
+\Delta_C:& &        & &        & &        & &        & &\delta_5&+&\delta_6&=&180^\circ - \frac{\gamma}3\\
+E:& &\delta_1& &        & &        & &        & &        &+&\delta_6&=&180^\circ \phantom{-\frac{\alpha}3}-\frac{\beta}3-\frac{\gamma}3\\
+F:& &        & &\delta_2&+&\delta_3& &        & &        & &        &=&180^\circ -\frac{\alpha}3\phantom{-\frac{\beta}3}-\frac{\gamma}3\\
+G:& &        & &        & &        & &\delta_4&+&\delta_5& &        &=&180^\circ -\frac{\alpha}3-\frac{\beta}3\phantom{-\frac{\gamma}3}\\
+\end{linsys}
+\]
+Die rechten Seiten sind nicht weiter wichtig, da wir ja nur die L"osbarkeit
+des Gleichungssystems untersuchen m"ussen.
+Die Koeffizientenmatrix des Gleichungssystems ist
+\[
+\begin{pmatrix}
+1&1&0&0&0&0\\
+0&0&1&1&0&0\\
+0&0&0&0&1&1\\
+1&0&0&0&0&1\\
+0&1&1&0&0&0\\
+0&0&0&1&1&0
+\end{pmatrix}
+\]
+Wir verwenden daher den Gauss-Algorithmus, um den Rang zu bestimmen:
+\begin{align*}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+1&1&0&0&0&0\\
+0&0&1&1&0&0\\
+0&0&0&0&1&1\\
+1&0&0&0&0&1\\
+0&1&1&0&0&0\\
+0&0&0&1&1&0\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+ 1& 1& 0& 0& 0& 0\\
+ 0& 0& 1& 1& 0& 0\\
+ 0& 0& 0& 0& 1& 1\\
+ 0&-1& 0& 0& 0& 1\\
+ 0& 1& 1& 0& 0& 0\\
+ 0& 0& 0& 1& 1& 0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+ 1& 1& 0& 0& 0& 0\\
+ 0&-1& 0& 0& 0& 1\\
+ 0& 0& 1& 1& 0& 0\\
+ 0& 0& 0& 0& 1& 1\\
+ 0& 1& 1& 0& 0& 0\\
+ 0& 0& 0& 1& 1& 0\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+ 1& 1& 0& 0& 0& 0\\
+ 0& 1& 0& 0& 0&-1\\
+ 0& 0& 1& 1& 0& 0\\
+ 0& 0& 0& 0& 1& 1\\
+ 0& 0& 1& 0& 0& 1\\
+ 0& 0& 0& 1& 1& 0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+ 1& 1& 0& 0& 0& 0\\
+ 0& 1& 0& 0& 0&-1\\
+ 0& 0& 1& 1& 0& 0\\
+ 0& 0& 0& 0& 1& 1\\
+ 0& 0& 0&-1& 0& 1\\
+ 0& 0& 0& 1& 1& 0\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+ 1& 1& 0& 0& 0& 0\\
+ 0& 1& 0& 0& 0&-1\\
+ 0& 0& 1& 1& 0& 0\\
+ 0& 0& 0&-1& 0& 1\\
+ 0& 0& 0& 0& 1& 1\\
+ 0& 0& 0& 1& 1& 0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+ 1& 1& 0& 0& 0& 0\\
+ 0& 1& 0& 0& 0&-1\\
+ 0& 0& 1& 1& 0& 0\\
+ 0& 0& 0& 1& 0&-1\\
+ 0& 0& 0& 0& 1& 1\\
+ 0& 0& 0& 0& 1& 1\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+ 1& 1& 0& 0& 0& 0\\
+ 0& 1& 0& 0& 0&-1\\
+ 0& 0& 1& 1& 0& 0\\
+ 0& 0& 0& 1& 0&-1\\
+ 0& 0& 0& 0& 1& 1\\
+ 0& 0& 0& 0& 0& 0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+ 1& 1& 0& 0& 0& 0\\
+ 0& 1& 0& 0& 0&-1\\
+ 0& 0& 1& 0& 0& 1\\
+ 0& 0& 0& 1& 0&-1\\
+ 0& 0& 0& 0& 1& 1\\
+ 0& 0& 0& 0& 0& 0\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+ 1& 0& 0& 0& 0& 1\\
+ 0& 1& 0& 0& 0&-1\\
+ 0& 0& 1& 0& 0& 1\\
+ 0& 0& 0& 1& 0&-1\\
+ 0& 0& 0& 0& 1& 1\\
+ 0& 0& 0& 0& 0& 0\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus kann man ablesen, dass der Rang der Matrix $5$ ist, es gibt genau
+einen frei w"ahlbaren Winkel.
+Insbesonder ist das Gleichungssystem nicht regul"ar.
+\end{loesung}
