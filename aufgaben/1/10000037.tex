@@ -1,0 +1,146 @@
+Gegeben ist die Matrix
+\[
+A=
+\begin{pmatrix}
+1&2\\
+9&1
+\end{pmatrix},
+\]
+Finden Sie eine Matrix $B$ mit der Eigenschaft $AB=A-B$.
+
+\begin{loesung}
+Wir formen zun"achst die Gleichung
+\[
+\begin{aligned}
+AB&=A-B&&|\;+B\\
+(A+E)B&=A&&|\;(A+E)^{-1}\cdot\\
+B&=(A+E)^{-1}A
+\end{aligned}
+\]
+Zur Berechung von $B$ brauchen wir also die inverse Matrix von $A+E$, wir k"onnen
+sie mit dem Gauss-Algorithmus finden:
+\begin{align*}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|}
+\hline
+2&2&1&0\\
+9&2&0&1\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|}
+\hline
+1& 1& \frac12&0\\
+0&-7&-\frac92&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|}
+\hline
+1&1&-\frac2{14}& \frac17\\
+0&1& \frac9{14}&-\frac17\\
+\hline
+\end{tabular}
+\end{align*}
+Die Inverse Matrix ist also
+\[
+(A+E)^{-1}=
+\frac1{14}\begin{pmatrix}
+-2&2\\9&-2
+\end{pmatrix}
+\]
+Was wir auch noch durch Ausmultiplizieren k"onnen:
+\[
+(A+E)^{-1}(A+E)
+=
+\frac1{14}
+\begin{pmatrix}
+-2& 2\\
+ 9&-2
+\end{pmatrix}
+\begin{pmatrix}
+2&2\\
+9&2
+\end{pmatrix}
+=
+\frac1{14}
+\begin{pmatrix}
+-2\cdot 2 +   2 \cdot 9 & -2 \cdot 2 +  2  \cdot 2\\
+ 9\cdot 2 + (-2)\cdot 9 &  9 \cdot 2 +(-2) \cdot 2
+\end{pmatrix}
+=
+\frac1{14}
+\begin{pmatrix}
+14& 0\\
+ 0&14
+\end{pmatrix}
+=E.
+\]
+Damit k"onnen wir jetzt auch die Matrix $B$ bestimmen:
+\[
+B=(A+E)^{-1}A
+=
+\frac1{14}
+\begin{pmatrix}
+-2& 2\\
+ 9&-2
+\end{pmatrix}
+\begin{pmatrix}
+1&2\\
+9&1
+\end{pmatrix}
+=
+\frac1{14}
+\begin{pmatrix}
+-2 \cdot 1 +   2  \cdot 9 & -2 \cdot 2 +   2  \cdot 1 \\
+ 9 \cdot 1 + (-2) \cdot 9 &  9 \cdot 2 + (-2) \cdot 1
+\end{pmatrix}
+=
+\frac1{14}
+\begin{pmatrix}
+16& -2\\
+-9&16
+\end{pmatrix}
+\]
+Wir pr"ufen das Resultat, indem wir $AB$ ausrechnen
+\begin{align*}
+AB&=
+\begin{pmatrix}
+1&2\\
+9&1
+\end{pmatrix}
+\frac1{14}
+\begin{pmatrix}
+16& -2\\
+-9& 16
+\end{pmatrix}
+=
+\frac1{14}
+\begin{pmatrix}
+ -2&30\\
+135&-2
+\end{pmatrix}
+=
+\frac1{14}
+\begin{pmatrix}
+ 14 -  16 &28 -(-2)\\
+126 - (-9)&14 - 16
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+ 1 & 2\\
+ 9 & 1
+\end{pmatrix}
+-
+\frac1{14}
+\begin{pmatrix}
+16& -2\\
+-9& 16
+\end{pmatrix}
+=
+A-B.
+\end{align*}
+Damit ist verifiziert, dass tats"achlich $AB=A-B$ gilt.
+\end{loesung}
+

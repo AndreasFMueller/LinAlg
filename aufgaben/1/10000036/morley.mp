@@ -93,9 +93,9 @@ label.lft(btex $\delta_4$ etex, z10) shifted (-1.5,2.5);
 label.urt(btex $\delta_5$ etex, z10) shifted (1.5,-2.5);
 label.bot(btex $\delta_6$ etex, z11) shifted (3,0);
 
-label(btex $\Delta_A$ etex, (z0 + z10 + z12)/3);
-label(btex $\Delta_B$ etex, (z1 + z11 + z10)/3);
-label(btex $\Delta_C$ etex, (z2 + z12 + z11)/3);
+label(btex $\triangle_A$ etex, (z0 + z10 + z12)/3);
+label(btex $\triangle_B$ etex, (z1 + z11 + z10)/3);
+label(btex $\triangle_C$ etex, (z2 + z12 + z11)/3);
 
 label(btex $\frac{\alpha}3$ etex, (0.15 * (z1 - z0) rotated (alpha/6) shifted z0));
 label(btex $\frac{\alpha}3$ etex, (0.15 * (z1 - z0) rotated (3 * alpha/6) shifted z0));
