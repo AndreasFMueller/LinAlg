@@ -12,11 +12,140 @@ A=\begin{pmatrix}
 Wir verwenden den Gauss-Algorithmus
 \begin{align*}
 \begin{tabular}{| >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} | >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} |}
-    1 &  2 &  3 &  0 &  1 &  0 &  0 &  0 \\
-    4 &  9 & 13 &  2 &  0 &  1 &  0 &  0 \\
+\hline
+    1
+\begin{picture}(0,0)
+\color{red}\put(-3.5,3){\circle{12}}
+\end{picture}
+      &  2 &  3 &  0 &  1 &  0 &  0 &  0 \\
+    4
+\begin{picture}(0,0)
+\color{blue}\drawline(-16,-30)(-16,10)(3,10)(3,-30)
+\end{picture}
+      &  9 & 13 &  2 &  0 &  1 &  0 &  0 \\
     2 &  5 &  8 &  4 &  0 &  0 &  1 &  0 \\
-   -2 & -3 & -3 &  7 &  0 &  0 &  0 &  1 
+   -2 & -3 & -3 &  7 &  0 &  0 &  0 &  1 \\
+\hline
 \end{tabular}
 &\rightarrow
+\begin{tabular}{| >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} | >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} |}
+\hline
+    1 &  2 &  3 &  0 &  1 &  0 &  0 &  0 \\
+    0 &  1
+\begin{picture}(0,0)
+\color{red}\put(-3.5,3){\circle{12}}
+\end{picture}
+           &  1 &  2 & -4 &  1 &  0 &  0 \\
+    0 &  1
+\begin{picture}(0,0)
+\color{blue}\drawline(-10,-16)(-10,10)(3,10)(3,-16)
+\end{picture}
+           &  2 &  4 & -2 &  0 &  1 &  0 \\
+    0 &  1 &  3 &  7 &  2 &  0 &  0 &  1 \\
+\hline
+\end{tabular}
+\\
+\rightarrow
+\begin{tabular}{| >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} | >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} |}
+\hline
+    1 &  2 &  3 &  0 &  1 &  0 &  0 &  0 \\
+    0 &  1 &  1 &  2 & -4 &  1 &  0 &  0 \\
+    0 &  0 &  1
+\begin{picture}(0,0)
+\color{red}\put(-3.5,3){\circle{12}}
+\end{picture}
+                &  2 &  2 & -1 &  1 &  0 \\
+    0 &  0 &  2
+\begin{picture}(0,0)
+\color{blue}\drawline(-10,-2)(-10,10)(3,10)(3,-2)
+\end{picture}
+                &  5 &  6 & -1 &  0 &  1 \\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{| >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} | >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} |}
+\hline
+    1 &  2 &  3 &  0 &  1 &  0 &  0 &  0 \\
+    0 &  1 &  1 &  2 & -4 &  1 &  0 &  0 \\
+    0 &  0 &  1 &  2
+\begin{picture}(0,0)
+\color{blue}\drawline(-10,38)(-10,-2)(3,-2)(3,38)
+\end{picture}
+                     &  2 & -1 &  1 &  0 \\
+    0 &  0 &  0 &  1
+\begin{picture}(0,0)
+\color{red}\put(-3.5,3){\circle{12}}
+\end{picture}
+                     &  2 &  1 & -2 &  1 \\
+\hline
+\end{tabular}
+\\
+\rightarrow
+\begin{tabular}{| >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} | >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} |}
+\hline
+    1 &  2 &  3 &  0 &  1 &  0 &  0 &  0 \\
+    0 &  1 &  1
+\begin{picture}(0,0)
+\color{blue}\drawline(-10,23)(-10,-2)(3,-2)(3,23)
+\end{picture}
+                &  0 & -8 & -1 &  4 & -2 \\
+    0 &  0 &  1 &  0 & -2 & -3 &  5 & -2 \\
+    0 &  0 &  0 &  1 &  2 &  1 & -2 &  1 \\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{| >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} | >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} |}
+\hline
+    1 &  2
+\begin{picture}(0,0)
+\color{blue}\drawline(-10,9)(-10,-2)(3,-2)(3,9)
+\end{picture}
+           &  0 &  0 &  7 &  9 &-15 &  6 \\
+    0 &  1 &  0 &  0 & -6 &  2 & -1 &  0 \\
+    0 &  0 &  1 &  0 & -2 & -3 &  5 & -2 \\
+    0 &  0 &  0 &  1 &  2 &  1 & -2 &  1 \\
+\hline
+\end{tabular}
+\\
+\rightarrow
+\begin{tabular}{| >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} | >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} |}
+\hline
+    1 &  0 &  0 &  0 & 19 &  5 &-13 &  6 \\
+    0 &  1 &  0 &  0 & -6 &  2 & -1 &  0 \\
+    0 &  0 &  1 &  0 & -2 & -3 &  5 & -2 \\
+    0 &  0 &  0 &  1 &  2 &  1 & -2 &  1 \\
+\hline
+\end{tabular}
 \end{align*}
+Kontrolle:
+\[
+\begin{pmatrix}
+    1 &  2 &  3 &  0 \\
+    4 &  9 & 13 &  2 \\
+    2 &  5 &  8 &  4 \\
+   -2 & -3 & -3 &  7 
+\end{pmatrix}
+\begin{pmatrix}
+ 19 &  5 &-13 &  6 \\
+ -6 &  2 & -1 &  0 \\
+ -2 & -3 &  5 & -2 \\
+  2 &  1 & -2 &  1 
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}.
+\]
 \end{loesung}
+
+\begin{diskussion}
+Mit dem Matlab-/Octave-Programm \texttt{10000039.m} k"onnen beliebig viele
+weitere Aufgaben dieser Art generiert werden, die w"ahrend der Berechnung der
+Inversen nicht zu Br"uchen f"uhren werden.
+\end{diskussion}
+
