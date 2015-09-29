@@ -1,0 +1,146 @@
+Finden Sie die reduzierte Zeilenstufenform des Tableaus
+\begin{center}
+\begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
+\hline
+    3 & -3 & -3 &-12 & -9 &  0 &-42\\
+   -5 &  7 &  3 & 20 & 17 &  4 & 68\\
+   -5 &  3 &  7 & 25 & 13 & -9 & 92\\
+   -5 &  3 &  7 & 20 & 13 & -7 & 75\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{loesung}
+Wir verwenden den Gauss-Algorithmus ohne Spaltenvertauschungen:
+\begin{align*}
+\begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
+\hline
+    3
+\begin{picture}(0,0)
+\color{red}\put(-3.5,3){\circle{12}}
+\end{picture}
+      & -3 & -3 &-12 & -9 &  0 &-42\\
+   -5
+\begin{picture}(0,0)
+\color{blue}\drawline(-16,-30)(-16,10)(3,10)(3,-30)
+\end{picture}
+      &  7 &  3 & 20 & 17 &  4 & 68\\
+   -5 &  3 &  7 & 25 & 13 & -9 & 92\\
+   -5 &  3 &  7 & 20 & 13 & -7 & 75\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
+\hline
+\color{red}
+    1 & -1 & -1 & -4 & -3 &  0 &-14\\
+    0 &  2
+\begin{picture}(0,0)
+\color{red}\put(-3.5,3){\circle{12}}
+\end{picture}
+           & -2 &  0 &  2 &  4 & -2\\
+    0 & -2
+\begin{picture}(0,0)
+\color{blue}\drawline(-16,-16)(-16,10)(3,10)(3,-16)
+\end{picture}
+           &  2 &  5 & -2 & -9 & 22\\
+    0 & -2 &  2 &  0 & -2 & -7 &  5\\
+\hline
+\end{tabular}
+\\
+\rightarrow
+\begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
+\hline
+\color{red}
+    1 & -1 & -1 & -4 & -3 &  0 &-14\\
+    0 &\color{red}  1 & -1 &  0 &  1 &  2 & -1\\
+    0 &  0 &  0 &  5
+\begin{picture}(0,0)
+\color{red}\put(-3.5,3){\circle{12}}
+\end{picture}
+                     &  0 & -5 & 20\\
+    0 &  0 &  0 &  0
+\begin{picture}(0,0)
+\color{blue}\drawline(-16,-2)(-16,10)(3,10)(3,-2)
+\end{picture}
+                     &  0 & -3 &  3\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
+\hline
+\color{red}
+    1 & -1 & -1 & -4 & -3 &  0 &-14\\
+    0 & \color{red} 1 & -1 &  0 &  1 &  2 & -1\\
+    0 &  0 &  0 & \color{red} 1 &  0 & -1 &  4\\
+    0 &  0 &  0 &  0 &  0 & -3
+\begin{picture}(0,0)
+\color{red}\put(-6,3.5){\circle{15}}
+\end{picture}
+                               &  3\\
+\hline
+\end{tabular}
+\\
+\rightarrow
+\begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
+\hline
+\color{red}
+    1 & -1 & -1 & -4 & -3 &  0 &-14\\
+    0 & \color{red} 1 & -1 &  0 &  1 &  2 & -1\\
+    0 &  0 &  0 & \color{red} 1 &  0 & -1 
+\begin{picture}(0,0)
+\color{blue}\drawline(-16,38)(-16,-2)(3,-2)(3,38)
+\end{picture}
+                               &  4\\
+    0 &  0 &  0 &  0 &  0 & \color{red} 1 & -1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
+\hline
+\color{red}
+    1 & -1 & -1 & -4 & -3 &  0 &-14\\
+    0 & \color{red} 1 & -1 &  0
+\begin{picture}(0,0)
+\color{blue}\drawline(-16,23)(-16,-2)(3,-2)(3,23)
+\end{picture}
+                     &  1 &  0 &  1\\
+    0 &  0 &  0 & \color{red} 1 &  0 &  0 &  3\\
+    0 &  0 &  0 &  0 &  0 & \color{red} 1 & -1\\
+\hline
+\end{tabular}
+\\
+\rightarrow
+\begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
+\hline
+\color{red}
+    1 & -1
+\begin{picture}(0,0)
+\color{blue}\drawline(-16,9)(-16,-2)(3,-2)(3,9)
+\end{picture}
+           & -1 &  0 & -3 &  0 & -2\\
+    0 & \color{red} 1 & -1 &  0 &  1 &  0 &  1\\
+    0 &  0 &  0 & \color{red} 1 &  0 &  0 &  3\\
+    0 &  0 &  0 &  0 &  0 & \color{red} 1 & -1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
+\hline
+\color{red}
+    1 &  0 & -2 &  0 & -2 &  0 & -1\\
+    0 &\color{red}  1 & -1 &  0 &  1 &  0 &  1\\
+    0 &  0 &  0 & \color{red} 1 &  0 &  0 &  3\\
+    0 &  0 &  0 &  0 &  0 & \color{red} 1 & -1\\
+\hline
+\end{tabular}
+\end{align*}
+Zur Verdeutlichung sind die Einsen an Pivot-Positionen {\color{red}rot} hervorgehoben.
+\end{loesung}
+
+\begin{diskussion}
+Weitere Aufgaben dieser Art, bei denen w"ahrend der Berechnung der reduzierten
+Zeilenstufenform keine Br"uche auftreten, k"onnen mit dem Octave-/Matlab-Programm
+\texttt{10000038.m} erzeugt werden.
+\end{diskussion}
+
