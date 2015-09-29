@@ -1575,6 +1575,194 @@ bis $\tilde a_{n-r}$ und einen Vektor $\tilde b$ so, dass
 die L"osungsmenge des Gleichungssystems $Ax=b$ ist.
 \end{satz}
 
+\subsection{Reduzierte Zeilenstufenform}
+Das allgemeine Schlusstableau der Form (\ref{rangdef}) kann im Allgemeinen nur
+erreicht werden, indem nach Bedarf Zeilen- und Spaltenvertauschungen vorgenommen
+werden.
+W"ahrend Zeilenvertauschungen unproblematisch sind, muss man bei
+Spaltenvertauschungen sorgf"altig dar"uber Buchf"uhren, zu welcher Variablen
+die Spalten geh"oren.
+Dadurch wird der Algorithmus wesentlich komplizierter.
+Gew"unscht ist eine Variante des Algorithmus, die ohne Zeilenvertauschungen
+auskommt, aber immer noch die gleich einfache Interpretation des
+Schlusstableaus erm"oglicht.
+
+Wir "uberlegen uns zun"achst, wie das Schlusstableau des modifizierten
+Algorithmus aussehen m"usste.
+Das Tableau (\ref{rangdef}) enth"alt zwei Arten von Spalten:
+Spalten mit einer $1$, welche dazu dienen die zugeh"orte Variable aus der
+rechten Seite und eventuell frei w"ahlbaren Variable zu berechnen, und
+Spalten mit $*$, die frei w"ahlbare Variablen anzeigen.
+Spaltenvertauschungen auf dem Weg zu (\ref{rangdef}) verwenden immer nur Spalten
+rechts von der aktuellen Pivot-Spalte, die Spalten links davon sind ja schon als
+ausgewertet worden.
+Tauscht man die Spalten zur"uck, k"onnen zwar Spalten mit $*$ weiter links
+landen, aber h"ochstens so, dass sich links davon eine $1$-Spalte finden
+l"asst, die die $1$ nicht weiter oben hat als der unterste $*$, das
+Tableau sieht also ungef"ahr so aus:
+\begin{center}
+\begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} | >{$}c<{$}|}
+\hline
+1     &0     &*     &0     &0     &*     &0     &\dots &0     &*     &*\\
+0     &1     &*     &0     &0     &*     &0     &\dots &0     &*     &*\\
+0     &0     &0     &1     &0     &*     &0     &\dots &0     &*     &*\\
+0     &0     &0     &0     &1     &*     &0     &\dots &0     &*     &*\\
+0     &0     &0     &0     &0     &0     &1     &\dots &0     &*     &*\\
+\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\ddots&\vdots&\vdots&\vdots\\
+0     &0     &0     &0     &0     &0     &0     &\dots &1     &*     &*\\
+\hline
+0     &0     &0     &0     &0     &0     &0     &\dots &0     &0     &\color{red}*\\
+\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\ddots&\vdots&\vdots&\color{red}\vdots\\
+0     &0     &0     &0     &0     &0     &0     &\dots &0     &0     &\color{red}*\\
+\hline
+\end{tabular}
+\end{center}
+Auch in dieser Form lassen sich die Fragen bez"uglich der Anzahl der L"osung
+direkt aus dem Tableau ablesen.
+Ist einer der roten $\color{red}*$ von Null verschieden, gibt es keine L"osung,
+andernfalls gibt es unendlich viele L"osungen, wenn frei w"ahlbare Variablen
+in Spalten mit $*$ vorhanden sind.
+Die L"osungsmenge l"asst sich wieder ablesen, indem man die frei w"ahlbaren
+Variablen auf die rechte Seite bringt.
+
+Nachdem nun klar ist, wie ein Schlusstableau ohne Spaltenvertauschungen aussehen
+wird, m"ussen wir den Algorithmus so formulieren, dass wir das Tableau direkt
+finden k"onnen, ohne Umweg "uber Vertauschungen und R"uckvertauschungen.
+Im bisherigen Algorithmus wird eine Spaltenvertauschung unumg"anglich, wenn
+im n"achsten Pivot-Feld und in allen Feldern der Spalte unterhalb des Pivot-Feldes
+nur $0$ stehen:
+\begin{center}
+\begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} | >{$}c<{$} |}
+\hline
+\qquad\qquad &*     &*     &*     &\qquad\qquad&*     \\
+       &\vdots&\vdots&\vdots&      &\vdots\\
+       &1     &*     &*     &      &*     \\
+       &0     &0\begin{picture}(0,0)
+\color{red}\put(-3.5,3){\circle{15}}
+\end{picture}&*     &      &*     \\
+       &\vdots&\vdots&\vdots&      &\vdots\\
+       &0     &0     &*     &      &*     \\
+\hline
+\end{tabular}
+\end{center}
+Die zur Pivot-Spalte geh"orige Variable kann auf keinen Fall bestimmt werden,
+dann dazu w"are ja ein von Null verschiedenes Element an der Pivot-Position
+oder darunter notwendig.
+Es steht also jetzt schon fest, dass diese Variable frei w"ahlbar ist.
+Man kann daher diese Spalte "uberspringen, und in der n"achsten Spalte nach
+einem geeigneten Pivot-Element suchen:
+\begin{align*}
+\begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} | >{$}c<{$} |}
+\hline
+\qquad\qquad &*     &*     &*     &\qquad\qquad&*     \\
+       &\vdots&\vdots&\vdots&      &\vdots\\
+       &1     &*     &*     &      &*     \\
+       &0     &0     &*
+\begin{picture}(0,0)
+\color{red}\put(-3.5,3){\circle{15}}
+\end{picture}
+                            &      &*     \\
+       &\vdots&\vdots&\vdots&      &\vdots\\
+       &0     &0     &*     &      &*     \\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} | >{$}c<{$} |}
+\hline
+\qquad\qquad&*     &*     &*     &\qquad\qquad&*     \\
+            &\vdots&\vdots&\vdots&            &\vdots\\
+            &1     &*     &*     &            &*     \\
+            &0     &0     &1     &            &*     \\
+            &\vdots&\vdots&\vdots&            &\vdots\\
+            &0     &0     &0     &            &*     \\
+\hline
+\end{tabular}
+\end{align*}
+Die Einsen entstehen jetzt nicht mehr entlang der Diagonalen, sondern
+entlang einer Treppe, in der einzelne Stufen auch etwas breiter sein k"onnen.
+Das R"uckw"artseinsetzen funktioniert weiterhin, wobei nat"urlich nur
+Spalten bearbeitet werden k"onnen, in denen sich eine Pivot-Position
+befindet.
+
+\begin{beispiel}
+Man finde die L"osungsmenge des Gleichungssystems
+\[
+\begin{linsys}{5}
+3x&+&6y& &  &+&12v&=& 6\phantom{.}\\
+ x&+&2y&+&3z&+&25v&=&17\phantom{.}\\
+2x&+&4y&+&3z&+&29v&=&19.
+\end{linsys}
+\]
+In Tableauform vollzieht sich der modifizierte Gauss-Algorithmus jetzt wie
+folgt:
+\begin{align*}
+\begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} | >{$}c<{$} |}
+\hline
+  3
+\begin{picture}(0,0)
+\color{red}\put(-3.5,3){\circle{12}}
+\end{picture}
+   &  6&  0& 12&  6\\
+  1&  2&  3& 25& 17\\
+  2&  4&  3& 29& 19\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} | >{$}c<{$} |}
+\hline
+  1&  2&  0&  4&  2\\
+  0&  0&  3
+\begin{picture}(0,0)
+\color{red}\put(-3.5,3){\circle{12}}
+\end{picture}
+           & 21& 15\\
+  0&  0&  3& 21& 15\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} | >{$}c<{$} |}
+\hline
+  1&  2&  0&  4&  2\\
+  0&  0&  1&  7&  5\\
+  0&  0&  0&  0&  0\\
+\hline
+\end{tabular}
+\end{align*}
+Per Zufall ist das Element oberhalb der $1$ in der dritten Spalte auch schon $0$,
+es gibt also f"ur das R"uckw"artseinsetzen nichts mehr zu tun.
+
+Man kann jetzt die L"osungsmenge ablesen: frei w"ahlbar sind die Variablen 
+$y$ und $v$, die Variablen $x$ und $v$ k"onnen durch $y$ und $v$ ausgedr"uckt
+werden
+\begin{align*}
+x&=2-2y-4v\\
+z&=5-7v.
+\end{align*}
+Die L"osungsmenge ist daher
+\[
+{\mathbb L}
+=
+\left\{
+\left.
+\begin{pmatrix}x\\y\\z\\v\end{pmatrix}
+=
+\begin{pmatrix}2\\0\\5\\0\end{pmatrix}
++y\begin{pmatrix}-2\\1\\0\\0\end{pmatrix}
++v\begin{pmatrix}-4\\0\\-7\\1\end{pmatrix}\;\right|
+y,v\in\mathbb R
+\right\}.
+\]
+\end{beispiel}
+
+Das nach diesem modifizierten Algorithmus gefundene Schlusstableau heisst
+die {\em reduzierte Zeilenstufenform}, englisch auch {\em reduced row echelon form}.
+\index{Zeilenstufenform, reduzierte}
+\index{rref}
+\index{reduced row echelon form}
+Leistungsf"ahige Taschenrechner und Programme zur Matrizenrechnung stellen
+eine "ublicherweise \texttt{rref} genannte Funktion zur Verf"ugung, die die 
+Zeilenstufenform einer beliebigen Matrix berechnen kann.
+
 \section{Mehrere Gleichungssysteme simultan l"osen\label{simultan}}
 Mit dem Gauss-Algorithmus kann man gleichzeitig mehrere Gleichungssysteme
 l"osen, die sich nur in den rechten Seiten unterscheiden. Die rechten
@@ -1718,6 +1906,7 @@ Dann baut man die L"osung aus den Zahlen $c_{ij}$ und der rechten
 Seite $b$ zusammen. Die Berechnung der $c_{ij}$ muss nur einmal
 erfolgen, danach kann die L"osung mit verschiedenen rechten Seiten
 $b$ bestimmt werden.
+
 
 \section{Bezeichnungen: Matrizen und Vektoren}
 Viele der Operationen im L"osungsverfahren f"ur lineare Gleichungssysteme,
