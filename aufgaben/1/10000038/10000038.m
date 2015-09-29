@@ -8,7 +8,6 @@ gleichungen = 4;
 variable = 7;
 zahlenbereich = 9;
 
-
 waehlbar = variable - gleichungen;
 m = 2 * zahlenbereich + 1;
 
