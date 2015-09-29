@@ -12,6 +12,7 @@ waehlbar = variable - gleichungen;
 m = 2 * zahlenbereich + 1;
 
 # lege die frei waehlbaren Variablen fest
+global	dv;
 do 
 	varperm = randperm(variable);
 	wv = sort(varperm(1:waehlbar));
@@ -19,6 +20,16 @@ do
 until dv(1) == 1;
 printf("frei waehlbar: ")
 wv
+
+function retval = stufe(spalte)
+	global dv;
+	retval = sum(dv <= spalte);
+end;
+
+function retval = bestimmt(spalte)
+	global dv;
+	retval = sum(dv == spalte);
+end;
 
 iterationen = 0;
 
@@ -33,9 +44,10 @@ do
 		B1 = tril(round(m * rand(gleichungen) - zahlenbereich), 0);
 	until (rank(B1) == gleichungen);
 
+
 	# Die Matrix B2 ist eine obere Dreiecksmatrix mit Einsen auf der Diagonalen,
 	# sie beschreibt die Gauss-Operationen beim Rueckwaertseinsetzen
-	B2 = (tril(round(m * rand(gleichungen) - zahlenbereich), -1) + eye(gleichungen))';
+	B2 = triu(round(m * rand(gleichungen) - zahlenbereich), 1) + eye(gleichungen);
 
 	# Hilfsfunktion, mit der eine ganze Zufallszahl im Interval
 	# [-zahlenbereich, zahlenbereich] erzeugt werden kann
@@ -47,17 +59,19 @@ do
 	C = zeros(gleichungen, variable + 1);
 
 	# Fuelle die Pivot-Einsen ein
-	for i = 1:gleichungen
-		C(i, dv(i)) = 1;
-	end;
-
-	# Fuelle die *-Elemente fuer die frei waehlbaren Variablen
-	for i = 1:waehlbar
-		for j = 1:i
-			C(j, wv(i)) = r(zahlenbereich);
+	for i = 1:variable
+		s = stufe(i);
+		if bestimmt(i)
+			C(s, i) = 1;
+		else
+			# Fuelle die *-Elemente fuer die frei waehlbaren Variablen
+			for j = 1:s
+				C(j, i) = r(zahlenbereich);
+			end;
 		end;
 	end;
-	# Fuelle die *-Elemente fuer die rechte Seite
+
+	# Fuelle rechte Seite
 	for j = 1:gleichungen
 		C(j, variable + 1) = r(zahlenbereich);
 	end;
