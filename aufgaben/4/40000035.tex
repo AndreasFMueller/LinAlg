@@ -1,0 +1,134 @@
+Gegeben sind drei Punkte $B_1$, $B_2$ und $B_3$ in der $(x_1,x_2)$-Ebene.
+In der Ebene werden {\em baryzentrische Koordinaten} $(w_1,w_2,w_3)$
+im Bezug auf diese Punkte so definiert, dass die vorgegebenen Punkte
+folgende Koordinaten bekommen:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}
+\hline
+\text{Punkte}&\text{baryzentrische Koordinaten}\\
+\hline
+B_1&(1,0,0)\\
+B_2&(0,1,0)\\
+B_3&(0,0,1)\\
+\hline
+\end{tabular}
+\end{center}
+Die Seite $B_1B_2$ ist also dadurch charakterisiert, dass dort sowohl
+$w_3$ immer verschwindet, und analog f"ur die anderen Seiten
+(Abbildung~\ref{40000035:bild}).
+\begin{figure}
+\centering
+\includeagraphics[]{bary-1.pdf}
+\caption{Barizentrische Koordinaten eines Dreiecks $\triangle B_1B_2B_3$
+\label{40000035:bild}}
+\end{figure}
+
+Die Koordinaten sind nicht unabh"angig, es gilt immer $w_1+w_2+w_3=1$.
+Daher ist es auch nicht m"oglich, eine $3\times 2$-Matrix zu finden, mit
+der man die Koordinaten $(x_1,x_2)$ in der Ebene in die drei Koordinaten
+$(w_1,w_2,w_3)$ umrechnen kann, eine solche Matrix w"urde den Punkt $(0,0)$
+immer auf $(0,0,0)$ abbilden.
+
+Setzt man dagegen f"ur alle Punkte $x_3=1$, dann kann man eine $3\times 3$-Matrix
+$A$ angeben,
+mit der man $x$-Koordinaten in $w$-Koordinaten umrechnen kann.
+\begin{teilaufgaben}
+\item
+Finden Sie eine solche Matrix.
+\item
+Berechnen Sie die Matrix f"ur die Punkte $B_1=(4,1)$, $B_2=(16,-1)$ und
+$B_3=(10,12)$.
+\item 
+Wenden Sie die Matrix auf den Schwerpunkt des Dreiecks $\triangle B_1B_2B_3$ an.
+Die Schwerpunktskoordinaten sind das arithmetische Mittel der Eckkoordinaten.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir schreiben $\vec b_i$ f"ur die Ortsvektoren der Punkte $B_i$.
+Gesucht ist eine Abbildung, die die Vektoren $\vec b_i$ auf die
+Standardbasisvektoren abbildet.
+Die Umkehrabbildung bildet daher
+\[
+\begin{aligned}
+\vec e_1&\mapsto\vec b_1,&
+\vec e_2&\mapsto\vec b_2,&
+\vec e_3&\mapsto\vec b_3
+\end{aligned}
+\]
+ab.
+Die Matrix dieser Umkehrabbildung ist daher
+\[
+B
+=
+\begin{pmatrix}
+b_{11}&b_{21}&b_{13}\\
+b_{12}&b_{22}&b_{23}\\
+     1&     1&     1
+\end{pmatrix},
+\]
+wobei die Zahlen $b_{ij}$ die Komponenten des Vektors $\vec b_j$ sind.
+Die Abbildung von $x$-Koordinaten zu $z$-Koordinaten ist die Umkehrabbildung
+\[
+\begin{pmatrix}
+w_1\\w_2\\w_3
+\end{pmatrix}
+=
+B^{-1}\begin{pmatrix}
+x_1\\x_2\\1
+\end{pmatrix}.
+\]
+\item
+Unter Verwendung der numerischen Werte f"ur die Punkte $B_i$ findet man f"ur
+die Matrix
+\begin{align*}
+B=\begin{pmatrix}
+ 4&16&10\\
+ 1&-1&12\\
+ 1& 1& 1
+\end{pmatrix}
+\qquad
+\Rightarrow
+\qquad
+A=
+B^{-1}=\frac1{144}\begin{pmatrix}
+-13&-6&202\\
+ 11&-6&-38\\
+  2&12&-20
+\end{pmatrix}.
+\end{align*}
+\item
+Der Schwerpunkt hat den Ortsvektor
+\[
+\vec s = \frac13(\vec b_1+\vec b_2+\vec b_3)
+=
+\frac13\left(
+\begin{pmatrix}  4\\ 1 \end{pmatrix}
++
+\begin{pmatrix} 16\\-1 \end{pmatrix}
++
+\begin{pmatrix} 10\\12 \end{pmatrix}
+\right)
+=
+\begin{pmatrix}
+10\\4
+\end{pmatrix}.
+\]
+Die Wirkung der Matrix $A$ auf dem Schwerpunkt ist
+\[
+A\begin{pmatrix}10\\4\\1\end{pmatrix}
+=
+\frac1{144}\begin{pmatrix}48\\48\\48\end{pmatrix}
+=
+\begin{pmatrix}
+\frac13\\
+\frac13\\
+\frac13
+\end{pmatrix}.
+\]
+Die baryzentrischen Koordinaten des Schwerpunktes sind immer
+$(\frac13,\frac13,\frac13)$.
+\end{teilaufgaben}
+\end{loesung}
+
