@@ -1,5 +1,12 @@
-Ein Oktaeder hat 6 Ecken und 12 Kanten. Finden Sie eine minimale
-Menge von Zyklen.
+Ein Oktaeder hat sechs Ecken und zw"olf Kanten (\ref{10000028:oktaeder}).
+Finden Sie eine minimale Menge von Zyklen.
+\begin{figure}
+\centering
+\includeagraphics[]{octahedron-1.pdf}
+\caption{Numerierung der Ecken und Kanten eines Oktaeders f"ur die
+Aufgabe~\ref{10000028}
+\label{10000028:oktaeder}}
+\end{figure}
 
 \begin{loesung}
 \setcounter{MaxMatrixCols}{20}
@@ -7,33 +14,33 @@ Die Randmatrix hat die Form
 \[
 \partial=
 \begin{pmatrix}
--1&-1&-1&-1& 0& 0& 0& 0& 0& 0& 0& 0\\
- 1& 0& 0& 0&-1&-1&-1& 0& 0& 0& 0& 0\\
- 0& 1& 0& 0& 1& 0& 0&-1&-1& 0& 0& 0\\
- 0& 0& 1& 0& 0& 1& 0& 0& 0&-1&-1& 0\\
- 0& 0& 0& 1& 0& 0& 0& 1& 0& 1& 0&-1\\
- 0& 0& 0& 0& 0& 0& 1& 0& 1& 0& 1& 1
+%1  2  3  4  5  6  7  8  9 10 11 12
+-1&-1&-1&-1& 0& 0& 0& 0& 0& 0& 0& 0\\ % 1
+ 1& 0& 0& 0&-1& 0& 0& 1&-1& 0& 0& 0\\ % 2
+ 0& 1& 0& 0& 1&-1& 0& 0& 0&-1& 0& 0\\ % 3
+ 0& 0& 1& 0& 0& 1&-1& 0& 0& 0&-1& 0\\ % 4
+ 0& 0& 0& 1& 0& 0& 1&-1& 0& 0& 0&-1\\ % 5
+ 0& 0& 0& 0& 0& 0& 0& 0& 1& 1& 1& 1   % 6
 \end{pmatrix}
 \]
 Der Gaussalgorithmus findet daraus
 \begin{center}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
 \hline
-x_1&x_2&x_3&x_4&x_5&x_6&x_7&x_8&x_9&x_{10}&x_{11}&x_{12}\\
+z_1&z_2&z_3&z_4&z_5&z_6&z_7&z_8&z_9&z_{10}&z_{11}&z_{12}\\
 \hline
-   1&  0&  0&  0& -1& -1&  0&  0&  1&  0&  1&  1\\
-   0&  1&  0&  0&  1&  0&  0& -1& -1&  0&  0&  0\\
-   0&  0&  1&  0&  0&  1&  0&  0&  0& -1& -1&  0\\
-   0&  0&  0&  1&  0&  0&  0&  1&  0&  1&  0& -1\\
-   0&  0&  0&  0&  0&  0&  1&  0&  1&  0&  1&  1\\
+   1&  0&  0&  0& -1&  0&  0&  1&  0&  1&  1&  1\\
+   0&  1&  0&  0&  1& -1&  0&  0&  0& -1&  0&  0\\
+   0&  0&  1&  0&  0&  1& -1&  0&  0&  0& -1&  0\\
+   0&  0&  0&  1&  0&  0&  1& -1&  0&  0&  0& -1\\
+   0&  0&  0&  0&  0&  0&  0&  0&  1&  1&  1&  1\\
 \hline
-    &   &   &   &  \color{green}*&  \color{green}*&   &  \color{green}*&  \color{green}*&  \color{green}*&  \color{green}*&  \color{green}*\\
+    &   &   &   &  \color{green}*&  \color{green}*&   \color{green}*&  \color{green}*&  &\color{green}*&  \color{green}*&  \color{green}*\\
 \hline
 \end{tabular}
 \end{center}
-Man kann dies schneller dadurch finden, dass man die erste Zeile in die
-f"unfte Position verschiebt, und dann den Gauss-Algorithmus startet.
-Die Kanten mit den Nummern 5, 6 und 8--12 sind frei w"ahlbar.
+was am einfachsten mit dem Computer geht.
+Die Kanten mit den Nummern 5--8 und 10--12 sind frei w"ahlbar.
 Es gibt also 7 linear unabh"angige Zyklen, mit folgenden Vektoren
 \[
 z_1=
@@ -44,24 +51,24 @@ z_1=
               0\\
 \color{green} 1\\
 \color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
               0\\
-\color{green} 0\\
-\color{green} 0\\
 \color{green} 0\\
 \color{green} 0\\
 \color{green} 0
 \end{pmatrix}
 ,\quad
 z_2=\begin{pmatrix}
-              1\\
               0\\
+              1\\
              -1\\
               0\\
 \color{green} 0\\
 \color{green} 1\\
+\color{green} 0\\
+\color{green} 0\\
               0\\
-\color{green} 0\\
-\color{green} 0\\
 \color{green} 0\\
 \color{green} 0\\
 \color{green} 0
@@ -69,14 +76,14 @@ z_2=\begin{pmatrix}
 ,\quad
 z_3=\begin{pmatrix}
               0\\
-              1\\
               0\\
+              1\\
              -1\\
 \color{green} 0\\
 \color{green} 0\\
-              0\\
 \color{green} 1\\
 \color{green} 0\\
+              0\\
 \color{green} 0\\
 \color{green} 0\\
 \color{green} 0
@@ -84,14 +91,14 @@ z_3=\begin{pmatrix}
 ,\quad
 z_4=\begin{pmatrix}
              -1\\
+              0\\
+              0\\
               1\\
-              0\\
-              0\\
 \color{green} 0\\
 \color{green} 0\\
-             -1\\
 \color{green} 0\\
 \color{green} 1\\
+              0\\
 \color{green} 0\\
 \color{green} 0\\
 \color{green} 0
@@ -99,15 +106,15 @@ z_4=\begin{pmatrix}
 ,\quad
 z_5=
 \begin{pmatrix}
-              0\\
-              0\\
-              1\\
              -1\\
-\color{green} 0\\
-\color{green} 0\\
+              1\\
+              0\\
               0\\
 \color{green} 0\\
 \color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
+             -1\\
 \color{green} 1\\
 \color{green} 0\\
 \color{green} 0
@@ -120,9 +127,9 @@ z_6=\begin{pmatrix}
               0\\
 \color{green} 0\\
 \color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
              -1\\
-\color{green} 0\\
-\color{green} 0\\
 \color{green} 0\\
 \color{green} 1\\
 \color{green} 0
@@ -135,13 +142,34 @@ z_7=\begin{pmatrix}
               1\\
 \color{green} 0\\
 \color{green} 0\\
+\color{green} 0\\
+\color{green} 0\\
              -1\\
-\color{green} 0\\
-\color{green} 0\\
 \color{green} 0\\
 \color{green} 0\\
 \color{green} 1
 \end{pmatrix}.
 \]
+Die Zyklen $z_1$ bis $z_4$ sind in Abbildung~\ref{10000028:z1bisz4}
+dargestellt, die Zyklen $z_5$ bis $z_7$ in Abbildung~\ref{10000028:z5bisz7}.
+\begin{figure}
+\centering
+\includeagraphics[width=0.22\hsize]{octahedron-2.pdf}
+\includeagraphics[width=0.22\hsize]{octahedron-3.pdf}
+\includeagraphics[width=0.22\hsize]{octahedron-4.pdf}
+\includeagraphics[width=0.22\hsize]{octahedron-5.pdf}
+\caption{Zyklen $z_1$ bis $z_4$, zu frei w"ahlbaren Variablen geh"orende Kanten
+in gr"un
+\label{10000028:z1bisz4}}
+\end{figure}
+\begin{figure}
+\centering
+\includeagraphics[width=0.22\hsize]{octahedron-6.pdf}
+\includeagraphics[width=0.22\hsize]{octahedron-7.pdf}
+\includeagraphics[width=0.22\hsize]{octahedron-8.pdf}
+\caption{Zyklen $z_5$ bis $z_7$, zu frei w"ahlbaren Variablen geh"orende Kanten
+in gr"un
+\label{10000028:z5bisz7}}
+\end{figure}
 
 \end{loesung}
