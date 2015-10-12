@@ -29,6 +29,7 @@ z1 = (4, 1)*s;
 z2 = (16,-1)*s;
 z3 = (10,12)*s;
 z4 = (z1 + z2 + z3)/3;
+z5 = z2 shifted (z3 - z1);
 
 fill z1--z2--z3--cycle withcolor 0.9;
 
@@ -67,6 +68,7 @@ punkt(z1);
 punkt(z2);
 punkt(z3);
 punkt(z4);
+punkt(z5);
 
 label.top(btex $S$ etex, z4);
 
