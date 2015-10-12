@@ -68,4 +68,53 @@ Alternativ kann man auch die Sarrussche Formel verwenden:
 \\
 &=27+4+4-3-12-12=8.
 \end{align*}
+
+Schliesslich ist es auch m"oglich, die Determinante mit dem Gauss-Algorithmus
+zu bestimmen:
+\begin{align*}
+\renewcommand{\arraystretch}{1.3}%
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+3
+\color{red}\put(-3,4){\circle{12}}
+ &2&1\\
+2&3&2\\
+1&2&3\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\renewcommand{\arraystretch}{1.3}%
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{2}{3}&\frac{1}{3}\\
+0&\frac{5}{3}
+\color{red}\put(-3,3){\circle{15}}
+             &\frac{4}{3}\\
+0&\frac{4}{3}&\frac{8}{3}\\
+\hline
+\end{tabular}
+\rightarrow
+\renewcommand{\arraystretch}{1.3}%
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{2}{3}&\frac{1}{3}\\
+0&          1&\frac{4}{5}\\
+0&          0&\frac{8}{5}
+\color{red}\put(-3,3){\circle{15}}
+\\
+\hline
+\end{tabular}
+\end{align*}
+Auch wenn der Gauss-Algorithmus damit noch nicht zu Ende gef"uhrt ist, sind damit
+die Pivot-Elemente bekannt, und man kann die Determinante als deren Produkt
+berechnen:
+\[
+\left|\,\begin{matrix}
+3&2&1\\
+2&3&2\\
+1&2&3
+\end{matrix}\,\right|
+=3\cdot\frac{5}{3}\cdot\frac{8}{5}=8.
+\]
 \end{loesung}
