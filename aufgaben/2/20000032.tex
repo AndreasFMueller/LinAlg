@@ -1,0 +1,90 @@
+Berechnen Sie die Inverse der Matrix
+\[
+A=
+\begin{pmatrix}
+a&b&0\\
+c&a&b\\
+0&c&a
+\end{pmatrix}.
+\]
+Kontrollieren Sie Ihr Resultat, indem Sie $AA^{-1}$ ausmultiplizieren.
+
+\begin{loesung}
+Die Inverse kann mit Hilfe der Determinanten und der Minoren gefunden werden.
+Wir berechnen dazu zun"achst die Determinaten von $A$ durch Enticklung
+nach der ersten Zeile:
+\begin{align*}
+\det(A)=\left|\,\begin{matrix}
+a&b&0\\
+c&a&b\\
+0&c&a
+\end{matrix}\,\right|
+=
+a
+\cdot
+\left|\,\begin{matrix}a&b\\c&a\end{matrix}\,\right|
+-b
+\cdot
+\left|\,\begin{matrix}c&b\\0&a\end{matrix}\,\right|
+=
+a(a^2-bc)-b\cdot ac=a^3-2abc.
+\end{align*}
+Jetzt kann die inverse Matrix mit Hilfe der Minoren hingeschrieben werden
+\begin{align}
+A^{-1}
+&=
+\frac1{a^3-2abc}\begin{pmatrix}
+\phantom{-}\left|\,\begin{matrix}a&b\\c&a\end{matrix}\,\right|
+	&-\left|\,\begin{matrix}b&0\\c&a\end{matrix}\,\right|
+		&\phantom{-}\left|\,\begin{matrix}b&0\\a&b\end{matrix}\,\right|
+			\\[13pt]
+-\left|\,\begin{matrix}c&b\\0&a\end{matrix}\,\right|
+	&\phantom{-}\left|\,\begin{matrix}a&0\\0&a\end{matrix}\,\right|
+		&-\left|\,\begin{matrix}a&0\\c&b\end{matrix}\,\right|
+			\\[13pt]
+\phantom{-}\left|\,\begin{matrix}c&a\\0&c\end{matrix}\,\right|
+	&-\left|\,\begin{matrix}a&b\\0&c\end{matrix}\,\right|
+		&\phantom{-}\left|\,\begin{matrix}a&b\\c&a\end{matrix}\,\right|
+\end{pmatrix}
+=
+\frac1{a^3-2abc}\begin{pmatrix}
+a^2-bc&-ab&b^2\\
+-ac&a^2&-ab\\
+c^2&-ac&a^2-bc
+\end{pmatrix}
+\label{20000032:inverse}
+\end{align}
+Kontrolle:
+\begin{align*}
+AA^{-1}
+&=
+\frac1{a^3-2abc}
+\begin{pmatrix}
+a&b&0\\
+c&a&b\\
+0&c&a
+\end{pmatrix}
+\begin{pmatrix}
+a^2-bc&-ab&b^2\\
+-ac&a^2&-ab\\
+c^2&-ac&a^2-bc
+\end{pmatrix}
+\\
+&=
+\frac1{a^3-2abc}
+\begin{pmatrix}
+a(a^2-bc)-abc      &-a^2b+a^2b  &ab^2-ab^2          \\
+c(a^2-bc)-a^2b+bc^2&-abc+a^3-abc&b^2c-a^2b+b(a^2-bc)\\
+-ac^2+ac^2         &a^2c-a^2c   &-abc+a(a^2-bc)
+\end{pmatrix}
+\\
+&=
+\frac1{a^3-2abc}
+\begin{pmatrix}
+a^3-2abc&0&0\\
+0&a^3-2abc&0\\
+0&0&a^3-2abc
+\end{pmatrix}
+=E
+\end{align*}
+\end{loesung}

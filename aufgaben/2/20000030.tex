@@ -32,19 +32,21 @@ Jetzt k"onnen wir die inverse Matrix mit Hilfe der Minoren berechnen:
 \begin{align}
 A^{-1}
 &=
-\renewcommand*{\arraystretch}{1.5}
 \frac1{\det{A}}\begin{pmatrix}
 \phantom{-}\left|\,\begin{matrix}t&0\\1&t\end{matrix}\,\right|
 	&-\left|\,\begin{matrix}0&1\\1&t\end{matrix}\,\right|
-		&\phantom{-}\left|\,\begin{matrix}0&1\\t&0\end{matrix}\,\right|\\
+		&\phantom{-}\left|\,\begin{matrix}0&1\\t&0\end{matrix}\,\right|
+			\\[11pt]
 -\left|\,\begin{matrix}1&0\\0&t\end{matrix}\,\right|
 	&\phantom{-}\left|\,\begin{matrix}t&1\\0&t\end{matrix}\,\right|
-		&-\left|\,\begin{matrix}t&1\\1&0\end{matrix}\,\right|\\
+		&-\left|\,\begin{matrix}t&1\\1&0\end{matrix}\,\right|
+			\\[11pt]
 \phantom{-}\left|\,\begin{matrix}1&t\\0&1\end{matrix}\,\right|
 	&-\left|\,\begin{matrix}t&0\\0&1\end{matrix}\,\right|
-		&\phantom{-}\left|\,\begin{matrix}t&0\\1&t\end{matrix}\,\right|\\
+		&\phantom{-}\left|\,\begin{matrix}t&0\\1&t\end{matrix}\,\right|
 \end{pmatrix}
 =\frac1{t^3+1}
+\renewcommand{\arraystretch}{1}
 \begin{pmatrix}
 t^2&  1& -t\\
  -t&t^2&  1\\
