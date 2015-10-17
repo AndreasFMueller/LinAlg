@@ -1,0 +1,64 @@
+Wir betrachten Matrizen der Form
+\[
+A=\begin{pmatrix}a&b\\-b&a\end{pmatrix}
+=aE+bJ=a\begin{pmatrix}1&0\\0&1\end{pmatrix}+b\begin{pmatrix}0&1\\-1&0\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item
+Berechnen Sie $A^{-1}$.
+\item
+Dr"ucken Sie $A^{-1}$ in der Form $cE+dJ$ aus.
+\item
+Berechnen Sie $AA^{-1}=(aE+bJ)(cE+dJ)$ unter Verwendung der Identit"at
+$J^2=-E$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Inverse kann mit Minoren berechnet werden.
+Dazu wird zun"achst die Determinante von $A$ ben"otigt:
+\[
+\det(A)=\left|\,\begin{matrix}a&b\\-b&a\end{matrix}\,\right|=a^2+b^2.
+\]
+Die Inverse wird damit
+\[
+A^{-1}=\frac1{a^2+b^2}\begin{pmatrix}a&-b\\b&a\end{pmatrix}.
+\]
+Kontrolle:
+\[
+AA^{-1}
+=
+\begin{pmatrix}a&b\\-b&a\end{pmatrix}
+\frac{1}{a^2+b^2}
+\begin{pmatrix}a&-b\\b&a\end{pmatrix}
+=
+\frac{1}{a^2+b^2}
+\begin{pmatrix}a^2+b^2&0\\0&a^2+b^2 \end{pmatrix}=E
+\]
+\item
+Die Inverse $A^{-1}$ kann geschrieben werden als
+\[
+A^{-1}
+=
+\frac{a}{a^2+b^2}E
++
+\frac{-b}{a^2+b^2}J.
+\]
+\item Unter Verwendung von $J^2=-E$ findet man
+\begin{align*}
+AA^{-1}&=(aE+bJ)\frac1{a^2+b^2}(aE-bJ)
+=\frac1{a^2+b^2}(a^2EE-abEJ+baJE-b^2J^2)
+\\
+&=\frac1{a^2+b^2}(a^2E+b^2E)=E.
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Die Algebra der Matrizen $E$ und $J$ ist die Algebra der komplexen Zahlen.
+Die Aufgabe zeigt, dass die zu $aE+bJ$ reziproke komplexe Zahl
+$(aE-bJ)/(a^2+b^2)$ ist.
+$aE-bJ$ heisst auch die zu $aE+bJ$ konjugiert komplexe Zahl.
+\end{diskussion}
+
