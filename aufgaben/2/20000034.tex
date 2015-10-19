@@ -1,0 +1,44 @@
+Die $n\times n$-Matrix $A_n$ hat die Form
+\[
+A_n=\begin{pmatrix}
+     1&     0&     0&     0&\dots &     0\\
+     1&     2&     0&     0&\dots &     0\\
+     1&     2&     3&     0&\dots &     0\\
+     1&     2&     3&     4&\dots &     0\\
+\vdots&\vdots&\vdots&\vdots&\ddots&\vdots\\
+     1&     2&     3&     4&\dots &     n
+\end{pmatrix}.
+\]
+Die Matrix $A_nA_n^t$ hat die Form
+\[
+A_nA_n^t
+=
+\begin{pmatrix}
+     1&     1&     1&     1& \dots&      1&      1\\
+     1&     5&     5&     5& \dots&      5&      5\\
+     1&     5&    14&    14& \dots&     14&     14\\
+     1&     5&    14&    30& \dots&     30&     30\\
+\vdots&\vdots&\vdots&\vdots&\ddots& \vdots& \vdots\\
+     1&     5&    14&    30& \dots&q_{n-1}&q_{n-1}\\
+     1&     5&    14&    30& \dots&q_{n-1}&    q_n
+\end{pmatrix},
+\]
+darin ist $q_k$ die Summe der ersten $k$ Quadratzahlen:
+\[
+q_k=\sum_{i=1}^ki^2=\frac{k(k+1)(2k+1)}6.
+\qquad
+\text{(Wikipedia)}
+\]
+Berechnen Sie die Determinante von $A_nA^t_n$.
+
+\begin{loesung}
+Da $A_n$ eine Dreiecksmatrix ist, ist die Determinante das Produkt der
+Diagonalelement, also $\det(A_n)=n!$. 
+Die Determinante bleibt beim Transponieren gleich, also folgt aus der
+Produktformel
+\[
+\det(A_nA_n^t)=\det(A_n)\det(A_n^t)=\det(A_n)^2=(n!)^2.
+\]
+\end{loesung}
+
+

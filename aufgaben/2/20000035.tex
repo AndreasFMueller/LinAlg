@@ -1,0 +1,72 @@
+Berechnen Sie die Determinante der $n\times n$-Matrix
+\[
+A_n
+=
+\begin{pmatrix}
+     1&     1&     1&     1& \dots&     1&     1\\
+     1&     2&     2&     2& \dots&     2&     2\\
+     1&     2&     3&     3& \dots&     3&     3\\
+     1&     2&     3&     4& \dots&     4&     4\\
+\vdots&\vdots&\vdots&\vdots&\ddots&\vdots&\vdots\\
+     1&     2&     3&     4&      &   n-1&   n-1\\
+     1&     2&     3&     4&      &   n-1&     n
+\end{pmatrix}
+\]
+\begin{hinweis}
+Die Matrix $A_n$ l"asst sich als Produkt $A_n=B_nB_n^t$ schreiben, wobei 
+$B_n$ eine (untere) Dreiecksmatrix ist.
+\end{hinweis}
+
+\begin{loesung}
+Durch Probieren findet man, dass $B_n$ aus auf und unter der Diagonalen aus
+lauter Einsen besteht, also
+\[
+B_n
+=
+\begin{pmatrix}
+     1&     0&     0&\dots &     0\\
+     1&     1&     0&\dots &     0\\
+     1&     1&     1&\dots &     0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+     1&     1&     1&\dots &     1
+\end{pmatrix}
+\]
+Tats"achlich kann man das Produkt
+\begin{align*}
+P=B_nB_n^t
+&=
+\begin{pmatrix}
+     1&     0&     0&\dots &     0\\
+     1&     1&     0&\dots &     0\\
+     1&     1&     1&\dots &     0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+     1&     1&     1&\dots &     1
+\end{pmatrix}
+\begin{pmatrix}
+     1&     1&     1&\dots &     1\\
+     0&     1&     1&\dots &     1\\
+     0&     0&     1&\dots &     1\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+     0&     0&     0&\dots &     1
+\end{pmatrix}
+\end{align*}
+direkt berechnen.
+Die Zeile $i$ der ersten Matrix enth"alt genau $i$ Einsen, die Spalte $j$ 
+der zweiten Matrix genau $j$.
+Das Produkt hat also so viele Summanden $1$, wie die kleinere der beiden
+Zahlen angibt.
+Das Element $p_{ij}$ der Matrix ist daher
+\[
+p_{ij}=\min(i,j),
+\]
+das sind aber genau die Matrixelemente der Matrix $A_n$.
+
+Da man die Matrix $A_n$ als Produkt sehr einfacher Matrizen schreiben kann,
+kann man jetzt die Produktformel verwenden, um die Determinante zu berechnen:
+\[
+\det(A_n)=\det(B_nB_n^t)=\det(B_n)\det(B_n^t)=\det(B_n)^2=1.
+\]
+Darin wurde verwendet, dass die Determinante von $B_n$ als Determinante
+einer Dreiecksmatrix das Produkt der Diagonalelemente ist, also
+$\det(B_n)=1$. 
+\end{loesung}
