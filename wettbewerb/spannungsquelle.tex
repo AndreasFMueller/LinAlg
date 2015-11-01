@@ -1,0 +1,12 @@
+\documentclass[crop,tikz,european resistors]{standalone}
+\usepackage{circuitikz}
+\begin{document}
+\begin{tikzpicture}
+    \draw (0,0) to[R=$R$, *-] (0,2);
+    \draw (0,0) to (2,0);
+    \draw (0,2) to[european voltage source=$u_0$, -*] (0,4);
+    \draw (2,0) to[R=$R'$] (2,4);
+    \draw (0,4) to (2,4);
+
+\end{tikzpicture}
+\end{document}
