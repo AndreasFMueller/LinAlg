@@ -30,6 +30,15 @@ sky_sphere {
 #declare v11 = <-1, 0,-1>;
 #declare v12 = < 0,-1,-1>;
 
+#declare w1  = < 1, 1, 1>;
+#declare w2  = <-1, 1, 1>;
+#declare w3  = < 1,-1, 1>;
+#declare w4  = <-1,-1, 1>;
+#declare w5  = < 1, 1,-1>;
+#declare w6  = <-1, 1,-1>;
+#declare w7  = < 1,-1,-1>;
+#declare w8  = <-1,-1,-1>;
+
 #declare r = 0.1;
 object {
 	union {
@@ -75,6 +84,19 @@ object {
 		finish {
 			specular 0.9
 			metallic
+		}
+	}
+	union {
+		sphere { w1, 1.2 * r }
+		sphere { w2, 1.2 * r }
+		sphere { w3, 1.2 * r }
+		sphere { w4, 1.2 * r }
+		sphere { w5, 1.2 * r }
+		sphere { w6, 1.2 * r }
+		sphere { w7, 1.2 * r }
+		sphere { w8, 1.2 * r }
+		pigment {
+			color rgb <0.95, 0.95, 0.75>
 		}
 	}
 }
