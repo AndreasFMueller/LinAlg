@@ -4,8 +4,9 @@
 # (c) 2015 Prof Dr Andreas Mueller, Hochschule Rapperswil
 #
 aufgabe.pdf:	aufgabe.tex kubooktaeder.jpg realization.jpg \
-			vereinfachung.jpg vereinfachung2.jpg
-	pdflatex aufgabe.tex
+			vereinfachung.jpg vereinfachung2.jpg \
+			oktaeder.jpg oktaeder2.jpg
+	pdflatex -shell-escape aufgabe.tex
 
 vereinfachung.png:	vereinfachung.pov
 	povray -A0.1 -R20 -W4096 -H4096 -Overeinfachung.png vereinfachung.pov
