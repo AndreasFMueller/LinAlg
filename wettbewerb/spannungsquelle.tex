@@ -1,12 +1,25 @@
 \documentclass[crop,tikz,european resistors]{standalone}
-\usepackage{circuitikz}
+\usepackage{circuitikz}[european]
 \begin{document}
 \begin{tikzpicture}
-    \draw (0,0) to[R=$R$, *-] (0,2);
-    \draw (0,0) to (2,0);
-    \draw (0,2) to[european voltage source=$u_0$, -*] (0,4);
-    \draw (2,0) to[R=$R'$] (2,4);
-    \draw (0,4) to (2,4);
+    \draw node[circ] at (-3,0);
+    \draw node[circ] at (-3,2);
+    \draw (-3,0) to[R=$R_{jk}$] (-3,2);
+    \draw (-1,0) to[R] (-1,2);
+    \draw (-0.8,1) node[right] {$R'$};
+    \draw (-3,0) to (-1,0);
+    \draw (-3,2) to (-1,2);
+    \draw (-3,0) node[left] {$k$};
+    \draw (-3,2) node[left] {$j$};
 
+    \draw node[circ] at (3,0);
+    \draw node[circ] at (3,2);
+    \draw (3,0) to[european voltage source=$u_{jk}$] (3,2);
+    \draw (5,0) to[R] (5,2);
+    \draw (5.2,1) node[right] {$R'$};
+    \draw (3,0) to (5,0);
+    \draw (3,2) to (5,2);
+    \draw (3,0) node[left] {$k$};
+    \draw (3,2) node[left] {$j$};
 \end{tikzpicture}
 \end{document}
