@@ -55,19 +55,6 @@ Dodekaeder&Ikosaeder\\
 \end{tabular}
 \end{center}
 
-\begin{figure}
-\centering
-\includegraphics[width=\hsize]{kubooktaeder.jpg}
-\caption{Kantennetzwerk von Kubooktaeder (links) und Rhombendodekaeder (rechts)
-\label{kantennetzwerke}}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics[width=\hsize]{realization.jpg}
-\caption{Realisierung des Kantennetzwerks von Kuboktaeder (links)
-und Rhombendodekaeder (rechts) mit 1k$\Omega$-Widerst"anden.
-\label{realization}}
-\end{figure}
 Schneidet man einem W"urfel die Ecken durch Ebenen ab, die durch die
 Kantenmitten gehen, erh"alt man ein neues Polyeder aus sechs Quadraten
 und acht gleichseitigen Dreiecken, ein sogenanntes Kubooktaeder
@@ -79,7 +66,7 @@ was den Namen plausibel macht.
 Der dazu duale K"orper ist das Rhombendodekaeder, es besteht aus zw"olf Rhomben.
 
 Die Dualit"at von Kubooktaeder und Rhombendodekaeder spiegelt sich auch in
-den Symmetrieeigenschaften der Ecken und Seitenfl"achen.
+den Symmetrieeigenschaften der Ecken und Seitenfl"achen wider.
 Beim Kubooktader treffen in allen Ecken vier Kanten zusammen, aber in
 verschiedenen Winkeln ($60^\circ$ und $90^\circ$).
 Beim Kubooktaeder gibt es also nur eine Art von Ecken, aber zwei Arten von
@@ -95,6 +82,20 @@ einfach die Seitenmitten des Kubooktaeders miteinander verbindet, denn die
 Mitten der quadratischen Seitenfl"achen des Kubooktaeders liegen in der
 gleichen Ebene wie zwei der Kanten der Dreiecksfl"achen.
 Dies kann man auch in Abbildung~\ref{kantennetzwerke} sehr sch"on sehen.
+
+\begin{figure}
+\centering
+\includegraphics[width=\hsize]{kubooktaeder.jpg}
+\caption{Kantennetzwerk von Kubooktaeder (links) und Rhombendodekaeder (rechts)
+\label{kantennetzwerke}}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=\hsize]{realization.jpg}
+\caption{Realisierung des Kantennetzwerks von Kuboktaeder (links)
+und Rhombendodekaeder (rechts) mit 1k$\Omega$-Widerst"anden.
+\label{realization}}
+\end{figure}
 
 Umgekehrt ist das Kubooktaeder tats"achlich dadurch realisierbar, dass
 man die Seitenmitten des Rhombendodekaeders verbindet, was zum Beispiel
@@ -153,9 +154,10 @@ wird, sie ergibt dann bereits die Knotengleichung $\partial I=0$.
 Aus $\partial$ kann eine minimale Menge von Maschen gewonnen werden,
 die die Spalten der Matrix $Z$ bilden.
 Die Maschengleichungen sind dann
-\[
+\begin{equation}
 Z^tRI=Z^te,
-\]
+\label{maschengleichung}
+\end{equation}
 wobei $e$ der Vektor der Spannungen in den Kanten ist.
 Da die Zeilen von $\partial$ linear abh"angig sind, kann man
 einfach die letzte Zeile weglassen, so dass zusammen mit der Matrix $Z^tI$
@@ -208,14 +210,21 @@ aus nur zwei Widerst"anden, n"amlich dem Widerstand $R_{jk}$ der Kante zwischen
 den Knoten $j$ und $k$, und dem Widerstand $R'$ des restlichen Netzwerkes.
 Wir k"onnen dann den Widerstand der Kante durch eine Spannungsquelle
 $u_{jk}$ ersetzen (Abbildung~\ref{spannungsquelle}). 
+In der Maschengleichung (\ref{maschengleichung}) ist in der Matrix $R$
+der Widerstand der Kante von $j$ nach $k$ durch $0$ zu ersetzen,
+und die Spannung $u_{jk}$ ist auf der rechten Seite von
+(\ref{maschengleichung}) im Vektor $e$ an der Stelle einzutragen, die
+der Kante von $j$ nach $k$ entspricht.
+
 Der durch den Widerstand $R'$ fliessende Strom $I'$ kann aus den
 Kirchhoff-Gleichungen berechnet werden, und damit
 auch der Widerstand $R'=u_{jk}/I'$.
 Der gesuchte Widerstand $r$ des Gesamtnetzwerkes ist die Parallelschaltung
 von $R_{jk}$ und $R'$, also
 \[
-\frac1r=\frac1{R_{jk}}+\frac{I'}{u_{jk}}.
+\frac1r=\frac1{R_{jk}}+\left|\frac{I'}{u_{jk}}\right|.
 \]
+Die Betragszeichen sind n"otig, weil $I'$ oder $u_{jk}$ negativ sein k"onnten.
 
 \subsection{Resultate}
 Die Durchf"uhrung der Rechnung ergibt:
@@ -616,7 +625,7 @@ Der zugeh"orige Laplace-Operator ist
    0& -1& -1& -1& -1&  4
 \end{pmatrix}.
 \]
-Statt mit $6\times 12$-Matrix  $\partial$ muss man jetzt nur noch
+Statt der $6\times 12$-Matrix  $\partial$ muss man jetzt nur noch
 die halb so grosse $6\times 6$-Matrix $\Delta$ studieren.
 
 \subsubsection{Potentialgleichung}
