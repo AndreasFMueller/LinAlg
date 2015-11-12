@@ -3,7 +3,8 @@
 #
 # (c) 2015 Prof Dr Andreas Mueller, Hochschule Rapperswil
 #
-aufgabe.pdf:	aufgabe.tex kubooktaeder.jpg realization.jpg \
+aufgabe.pdf:	aufgabe.tex spannungsquelle.tex stern.tex \
+			kubooktaeder.jpg realization.jpg \
 			vereinfachung.jpg vereinfachung2.jpg \
 			oktaeder.jpg oktaeder2.jpg
 	pdflatex -shell-escape aufgabe.tex

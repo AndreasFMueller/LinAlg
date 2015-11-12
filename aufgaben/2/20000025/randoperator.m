@@ -37,13 +37,13 @@ function z = zyklen(d)
 	endfor
 endfunction
 
-function [A, e] = kirchhoff(z, R, d)
+function [A, b] = kirchhoff(z, R, d)
 	r = z * R;
 	A = zeros(size(r)(2));
 	A(1 : size(z)(1), :) = r;
 	A(size(r)(1) + 1 : size(r)(2), :) = d(1 : size(r)(2)-size(r)(1), :);
-	b = zeros(size(r)(2), 1);
-	b(size(z)(2)) = 1;
 	e = zeros(size(r)(2), 1);
-	e(1:size(r)(1), 1) = z * b;
+	e(size(z)(2)) = 1;
+	b = zeros(size(r)(2), 1);
+	b(1:size(r)(1), 1) = z * e;
 endfunction

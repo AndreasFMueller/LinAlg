@@ -29,19 +29,19 @@ die Berechnung zu vereinfachen helfen.
 Damit wird es m"oglich, auch exotische Netzwerke zu berechnen, zum Beispiel
 solche, die als Kanten eines Polyeders auftreten.
 
-Besonders interessant sind nat"urlich die platonischen K"orper Tetraeder, W"urfel,
-Oktaeder, Dodekaeder und Ikosaeder, zu denen es in der Aufgabensammlung
-einige Information gibt.
+Besonders interessant sind nat"urlich die platonischen K"orper Tetraeder,
+W"urfel, Oktaeder, Dodekaeder und Ikosaeder, zu denen es in der
+Aufgabensammlung einige Information gibt.
 Insbesondere sind dort die "Aquivalentwiderst"ande eines mit
 1k$\Omega$-Widerst"anden realisierten Kantennetzwerkes f"ur jeden 
 platonischen K"orper berechnet worden.
 
 Man stellt dabei auch interessante Zusammenh"ange zwischen sogenannt dualen
 K"orpern fest.
-Zwei K"orper heissen dual, wenn das Netzwerk der Kanten des einen aus dem des anderen
-dadurch hervorgeht, dass man f"ur jede Seitenfl"ache einen Knoten bildet
-und genau diejenigen Knoten miteinander "uber eine Kante verbindet, die zu
-Seitenfl"achen geh"oren, die an einer Kante zusammenstossen.
+Zwei K"orper heissen dual, wenn das Netzwerk der Kanten des einen aus dem
+des anderen dadurch hervorgeht, dass man f"ur jede Seitenfl"ache einen
+Knoten bildet und genau diejenigen Knoten miteinander "uber eine Kante
+verbindet, die zu Seitenfl"achen geh"oren, die an einer Kante zusammenstossen.
 Die Dualit"atsbeziehungen f"ur die platonischen K"orper sind:
 \begin{center}
 \begin{tabular}{ll}
@@ -54,6 +54,34 @@ Dodekaeder&Ikosaeder\\
 \hline
 \end{tabular}
 \end{center}
+
+Schneidet man einem W"urfel die Ecken durch Ebenen ab, die durch die
+Kantenmitten gehen, erh"alt man ein neues Polyeder aus sechs Quadraten
+und acht gleichseitigen Dreiecken, ein sogenanntes Kubooktaeder
+(Abbildung~\ref{kantennetzwerke}, links).
+Es besteht aus acht gleichseitigen Dreiecken und sechs Quadraten.
+Den gleichen K"orper k"onnte man auch erhalten, indem man einem Oktaeder
+die Ecken durch Ebenen durch die Kantenmitten abschneidet,
+was den Namen plausibel macht.
+Der dazu duale K"orper ist das Rhombendodekaeder, es besteht aus zw"olf Rhomben.
+
+Die Dualit"at von Kubooktaeder und Rhombendodekaeder spiegelt sich auch in
+den Symmetrieeigenschaften der Ecken und Seitenfl"achen wider.
+Beim Kubooktader treffen in allen Ecken vier Kanten zusammen, aber in
+verschiedenen Winkeln ($60^\circ$ und $90^\circ$).
+Beim Kubooktaeder gibt es also nur eine Art von Ecken, aber zwei Arten von
+Seitenfl"achen.
+Beim Rhombendodekaeder dagegen gibt es nur eine Art von Seitenfl"achen,
+aber zwei verschiedene Arten von Ecken, in denen drei oder vier
+Kanten zusammentreffen.
+Sie entsprechen nat"urlich den zwei verschiedenen Seitenfl"achen des 
+Kubooktaeders.
+
+Man kann das Rhombendodekaeder "ubrigens nicht dadurch erhalten, dass man
+einfach die Seitenmitten des Kubooktaeders miteinander verbindet, denn die
+Mitten der quadratischen Seitenfl"achen des Kubooktaeders liegen in der
+gleichen Ebene wie zwei der Kanten der Dreiecksfl"achen.
+Dies kann man auch in Abbildung~\ref{kantennetzwerke} sehr sch"on sehen.
 
 \begin{figure}
 \centering
@@ -68,33 +96,6 @@ Dodekaeder&Ikosaeder\\
 und Rhombendodekaeder (rechts) mit 1k$\Omega$-Widerst"anden.
 \label{realization}}
 \end{figure}
-Schneidet man einem W"urfel die Ecken durch Ebenen ab, die durch die
-Kantenmitten gehen, erh"alt man ein neues Polyeder aus sechs Quadraten
-und acht gleichseitigen Dreiecken, ein sogenanntes Kubooktaeder
-(Abbildung~\ref{kantennetzwerke}, links).
-Es besteht aus acht gleichseitigen Dreiecken und sechs Quadraten.
-Den gleichen K"orper k"onnte man auch erhalten, indem man einem Oktaeder
-die Ecken durch Ebenen durch die Kantenmitten abschneidet,
-was den Namen plausibel macht.
-Der dazu duale K"orper ist das Rhombendodekaeder, es besteht aus zw"olf Rhomben.
-
-Die Dualit"at von Kubooktaeder und Rhombendodekaeder spiegelt sich auch in
-den Symmetrieeigenschaften der Ecken und Seitenfl"achen.
-Beim Kubooktader treffen in allen Ecken vier Kanten zusammen, aber in
-verschiedenen Winkeln ($60^\circ$ und $90^\circ$).
-Beim Kubooktaeder gibt es also nur eine Art von Ecken, aber zwei Arten von
-Seitenfl"achen.
-Beim Rhombendodekaeder dagegen gibt es nur eine Art von Seitenfl"achen,
-aber zwei verschiedene Arten von Ecken, in denen drei oder vier
-Kanten zusammentreffen.
-Sie entsprechen nat"urlich den zwei verschiedenen Seitenfl"achen des 
-Kubooktaeders.
-
-Man kann das Rhombendodekaeder "ubrigens nicht dadurch erhalten, dass man
-einfach die Seitenmitten des Kubooktaeders miteeinander verbindet, denn die
-Mitten der quadratischen Seitenfl"achen des Kubooktaeders liegen in der
-gleichen Ebene wie zwei der Kanten der Dreiecksfl"achen.
-Dies kann man auch in Abbildung~\ref{kantennetzwerke} sehr sch"on sehen.
 
 Umgekehrt ist das Kubooktaeder tats"achlich dadurch realisierbar, dass
 man die Seitenmitten des Rhombendodekaeders verbindet, was zum Beispiel
@@ -109,7 +110,8 @@ $180^\circ$-Rotationssymmetrie m"oglich ist.
 \newtheorem{aufgabe}{Aufgabe}
 \begin{aufgabe}
 Man berechne die "Aquivalentwiderst"ande "uber eine Kante eines mit
-1k$\Omega$-Widerst"anden realisierten Kubookateders und eines Rhombendodekaeders.
+1k$\Omega$-Widerst"anden realisierten Kubookateders und eines
+Rhombendodekaeders.
 \end{aufgabe}
 
 {\parindent0pt \bf Wettbewerbsbedingungen:}
@@ -152,14 +154,20 @@ wird, sie ergibt dann bereits die Knotengleichung $\partial I=0$.
 Aus $\partial$ kann eine minimale Menge von Maschen gewonnen werden,
 die die Spalten der Matrix $Z$ bilden.
 Die Maschengleichungen sind dann
-\[
+\begin{equation}
 Z^tRI=Z^te,
-\]
+\label{maschengleichung}
+\end{equation}
 wobei $e$ der Vektor der Spannungen in den Kanten ist.
 Da die Zeilen von $\partial$ linear abh"angig sind, kann man
 einfach die letzte Zeile weglassen, so dass zusammen mit der Matrix $Z^tI$
 eine regul"are quadratische $n\times n$-Matrix entsteht.
 
+F"ur dieses spezielle Netzwerk kann man jedoch die Kirchhoff-Gleichungen
+auch noch auf andere Art bekommen.
+Da das Netzwerk das Kantennetzwerk eines Polyeders ist, kann man als
+Maschen genau die R"ander der Seitenfl"achen des Polyeders verwenden.
+Man nennt dies auch die Kreisstrommethode.
 
 \subsection{Spannungsquellen\label{quelle}}
 Um den "Aquivalentwiderstand "uber eine Kante zu ermitteln, muss
@@ -188,22 +196,50 @@ finden.
 \begin{figure}
 \centering
 \includestandalone{spannungsquelle}
-\caption{Spannungsquelle in der ersten Kante, $R$ ist der Wiederstand
-der Kante, $R'$ ist der Widerstand des Netzwerkes ohne die Kante.
+\caption{Ersetzung des Widerstands $R_{jk}$ (links)
+zwischen den Knoten $j$ und $k$
+des Netzwerkes durch eine Spannungsquelle mit Spannung $u_{jk}$ (rechts),
+$R'$ ist der Widerstand des Netzwerkes ohne die Kante $R_{jk}$.
 \label{spannungsquelle}}
 \end{figure}
 Die geringsten Modifikationen am Gleichungssystem sind n"otig, wenn
-man die Spannungsquelle mit mit Spannung $u_0$ in die interessierende
-Kante einbaut.
-Die Spannung $u_0$ dieser Spannungsquelle taucht dann in der
-der Kante entsprechenden Position in $e$ auf.
-Der resultierende Strom $i_0$ liefert den Widerstand $R+R'=u_0/i_0$
-oder $R'=u_0/i_0-R$.
-Der gesucht Widerstand $r$ ist jedoch die Parallelschaltung von $R$ und $R'$,
-also
+man die Spannungsquelle mit mit Spannung $u_{jk}$ in die interessierende
+Kante vom Knoten $j$ zum Knoten $k$ einbaut.
+Das Netzwerk k"onnen wir vereinfachen zu einem Netzwerk bestehend
+aus nur zwei Widerst"anden, n"amlich dem Widerstand $R_{jk}$ der Kante zwischen
+den Knoten $j$ und $k$, und dem Widerstand $R'$ des restlichen Netzwerkes.
+Wir k"onnen dann den Widerstand der Kante durch eine Spannungsquelle
+$u_{jk}$ ersetzen (Abbildung~\ref{spannungsquelle}). 
+In der Maschengleichung (\ref{maschengleichung}) ist in der Matrix $R$
+der Widerstand der Kante von $j$ nach $k$ durch $0$ zu ersetzen,
+und die Spannung $u_{jk}$ ist auf der rechten Seite von
+(\ref{maschengleichung}) im Vektor $e$ an der Stelle einzutragen, die
+der Kante von $j$ nach $k$ entspricht.
+
+Der durch den Widerstand $R'$ fliessende Strom $I'$ kann aus den
+Kirchhoff-Gleichungen berechnet werden, und damit
+auch der Widerstand $R'=u_{jk}/I'$.
+Der gesuchte Widerstand $r$ des Gesamtnetzwerkes ist die Parallelschaltung
+von $R_{jk}$ und $R'$, also
 \[
-\frac1r=\frac1{R}+\frac1{u_0/i_0-R}.
+\frac1r=\frac1{R_{jk}}+\left|\frac{I'}{u_{jk}}\right|.
 \]
+Die Betragszeichen sind n"otig, weil $I'$ oder $u_{jk}$ negativ sein k"onnten.
+
+\subsection{Resultate}
+Die Durchf"uhrung der Rechnung ergibt:
+\begin{align*}
+R_{\text{Kubooktaeder}}
+&=
+458.3333\Omega
+\\
+R_{\text{Rhombendodekaeder}}
+&=
+541.6666\Omega
+\end{align*}
+Man stellt fest, dass die Summe der Widerst"ande 1k$\Omega$ ist, 
+eine Eigenschaft, die sich auf duale Kanten in beliebigen dualen
+Netzwerken verallgemeinern l"asst.
 
 \subsection{Vereinfachungen\label{vereinfachung}}
 Die Gleichungssystem zur Berechnung des Widerstandes sind ziemlich gross,
@@ -247,13 +283,13 @@ verschwinden, "uber die der "Aquivalent-Widerstand bestimmt werden
 soll.
 Die Transformation muss daher im Falle des Kubooktaeders ein Dreieck 
 und im Falle des Rhombendodekaeders einen Stern unber"uhrt lassen.
-Wie die Abbildungen \ref{wuerfel} und \ref{oktaeder}
+Wie die Abbildungen \ref{wuerfel}{} und \ref{oktaeder}
 zeigen, werden im resultierenden Netzwerk drei verschiedene Widerstandswerte
 auftreten.
 
-Nadja Rutz hat in Ihrer L"osung beide Netzwerke in der oben genannten
+Nadja Rutz hat in ihrer L"osung beide Netzwerke in der oben genannten
 Art verwendet, w"ahrend Matthias Schneider die Transformation nur beim
-Kubooktaeder durchf"uhrte.
+Kubooktaeder durchgef"uhrt hat.
 
 Die Vereinfachungen k"onnten aber noch weiter getrieben werden.
 Die Ersetzung eines Sterns durch ein Dreieck ist in Abbildung~\ref{stern3}
@@ -268,7 +304,7 @@ dargestellt.
 Die Ersetzung eines Sterns durch ein Dreieck ist auch f"ur $n$-Ecke
 m"oglich, mindestens f"ur ungerade $n$.
 F"ur gerade $n$ sind zus"atzliche Bedingungen n"otig.
-Man die Gleichungen f"ur die Widerst"ande $R_i$ ablesen:
+Man kann die Gleichungen f"ur die Widerst"ande $R_i$ ablesen:
 \begin{equation}
 \begin{linsys}{3}
 R_1&+&R_2& &   &=&\displaystyle\biggl(\frac1{r_1}+\frac1{s-r_1}\biggr)^{-1}\\
@@ -419,8 +455,7 @@ alle gleich sind.
 
 Im Falle des Rhombendodekaeders, das zum gr"ossten Teil bereits in
 ein Oktaeder umgewandelt wurde wie in Abbildung~\ref{oktaeder},
-sind zwei 4-Sterne vorhanden, aus identischen Widerst"anden
-vorhanden.
+sind zwei 4-Sterne aus identischen Widerst"anden vorhanden.
 Ein $n$-Stern aus identischen Widerst"anden $R$ kann durch ein $n$-Eck
 aus ebenfalls identischen Widerst"anden $r$ ersetzt werden, und es
 gilt
@@ -458,7 +493,7 @@ auch die Kanten der platonischen K"orper (regelm"assigen Polyeder),
 und die Vermutung trifft auch dort zu.
 
 Kubooktaeder und Rhombendodekaeder sind zueinander dual.
-Bezeichnen wir die die Fl"achen\-, Kanten- und Ecken-Zahl des
+Bezeichnen wir die Fl"achen\-, Kanten- und Ecken-Zahl des
 Kubooktaeders mit $F_1$, $K_1$ und $E_1$ und die entsprechenden
 Zahlen des Rhombendodekaeders mit $F_2$, $K_2$ und $E_2$, dann
 bedeutet die Dualit"at, dass gilt
@@ -503,5 +538,278 @@ geh"orige duale Kante im dualen Netzwerk identifizieren.
 Selbst wenn die Widerst"ande der Kanten verschieden sind, kann man
 eine einfache Beziehung zwischen den "Aquivalentwiderst"anden zueinander
 dualer Kanten beweisen.
+
+\subsection{Widerstands-Distanz}
+Man kann aus den Kirchhoff-Gleichungen f"ur die Str"ome unter Verwendung
+des ohmschen Gesetzes auch eine Gleichung f"ur die Spannungen herleiten.
+Da die Maschengleichungen nur Ausdruck des ohmschen Gesetzes sind, kann
+man das Problem nun ausschliesslich mit den Knotengleichungen l"osen.
+Man erh"alt so das Konzept der Widerstandsdistanz in einem Graphen,
+welches im Folgenden entwickelt werden soll.
+
+\subsubsection{Laplace-Operator}
+Sei $U$ der Vektor der Potentiale in den Knoten.
+Wenn es eine Kante zwischen den Knoten $j$ und $k$ gibt, dann gibt es
+auch eine Spalte in $\partial$, die in der Position $j$ eine $-1$ und
+in der Position $k$ eine $1$ (oder umgekehrt) enth"alt.
+Die Potential-Differenz $U_k-U_j$ l"asst sich also bestimmen, indem
+man $U$  mit dieser Zeile multipliziert.
+Die Potentialdifferenzen entlang der Kanten sind also
+$\partial^tU$.
+
+Das ohmsche Gesetz stellt den Zusammenhang zwischen Spannungsdifferenzen
+und Str"omen her, es gilt
+\[
+U=RI
+\qquad
+\Rightarrow
+\qquad
+I=R^{-1}\partial^t U.
+\]
+Schreibt man $S=R^{-1}$ f"ur die Leitwertmatrix, wie dies auch im Skript
+gemacht wird, dann werden 
+die Knotengleichungen $\partial I=0$ zu
+\begin{equation}
+\partial I=\partial S\partial^t U=0.
+\label{stromgleichung}
+\end{equation}
+Die Matrix $\Delta=\partial S\partial^t$ heisst der Laplace-Operator des
+Netzwerks.
+Da $\Delta$ nur soviele Zeilen und Spalten hat, wie das Netzwerk
+Knoten hat, sind diese Gleichungen viel einfacher, also die vollen
+Kirchhoff-Gleichungen, die soviele Zeilen und Spalten haben wie
+das Netzwerk Kanten hat.
+
+In unserem Fall sind alle Widerst"ande und damit auch alle Leitwerte
+gleich, man braucht nur noch die Matrix $\Delta=\partial\partial^t$ zu
+bestimmen.
+Die Matrix $\Delta$ l"asst sich wie $\partial$ direkt aus der Geometrie
+des Netzwerkes ablesen.
+Auf der Diagonalen steht die Anzahl der Verbindungen, die von einem
+Knoten ausgehen, und in der Zeile und Spalte eines Knotens steht
+f"ur jede Verbindung zu einem anderen Knoten ein $-1$.
+
+\begin{figure}
+\centering
+\includegraphics{../aufgaben/1/10000028/octahedron-1.pdf}
+\caption{Oktaeder mit numerierten Ecken und Kanten
+\label{oktaeder-kanten}}
+\end{figure}
+Da die Matrizen $\partial$ f"ur Kubooktaeder und Rhombendodekaeder
+sehr umfangreich sind, bestimmen wir als Beispiele f"ur das Gesagte
+die entsprechenden Matrizen f"ur ein Oktaeder wie in
+Abbildung~\ref{oktaeder-kanten}.
+Der Operator $\partial$ ist
+\[
+\setcounter{MaxMatrixCols}{20}
+\partial=\begin{pmatrix}
+%1   2  3  4  5  6  7  8  9 10 11 12
+-1& -1&-1&-1& 0& 0& 0& 0& 0& 0& 0& 0\\ %  1
+ 1&  0& 0& 0&-1& 0& 0&-1&-1& 0& 0& 0\\ %  2
+ 0&  1& 0& 0& 1&-1& 0& 0& 0&-1& 0& 0\\ %  3
+ 0&  0& 1& 0& 0& 1&-1& 0& 0& 0&-1& 0\\ %  4
+ 0&  0& 0& 1& 0& 0& 1& 1& 0& 0& 0&-1\\ %  5
+ 0&  0& 0& 0& 0& 0& 0& 0& 1& 1& 1& 1   %  6
+\end{pmatrix}
+\]
+Der zugeh"orige Laplace-Operator ist
+\[
+\Delta=\partial\partial^t
+=\begin{pmatrix}
+%  1   2   3   4   5   6
+   4& -1& -1& -1& -1&  0\\
+  -1&  4& -1&  0& -1& -1\\
+  -1& -1&  4& -1&  0& -1\\
+  -1&  0& -1&  4& -1& -1\\
+  -1& -1&  0& -1&  4& -1\\
+   0& -1& -1& -1& -1&  4
+\end{pmatrix}.
+\]
+Statt der $6\times 12$-Matrix  $\partial$ muss man jetzt nur noch
+die halb so grosse $6\times 6$-Matrix $\Delta$ studieren.
+
+\subsubsection{Potentialgleichung}
+Um mit $\Delta$ den "Aquivalentwiderstand "uber die Kanten zwischen den
+Knoten $j$ und $k$ zu bestimmen, muss man am Knoten $j$ einen
+Strom $i_0$ einspeisen und beim Knoten $k$ wieder entnehmen.
+Die sich einstellende Potentialdifferenz $U_j-U_k$ ist proportional
+zum gesuchten Widerstand.
+Die Knotengleichungen (\ref{stromgleichung}) werden durch das Einspeisen
+des Stromes modifiziert, die rechte Seite ist nicht mehr $0$, sondern
+enth"alt an der Stelle $j$ den Strom $i_0$ und ander Stelle $k$ den
+Strom $-i_0$.
+Es ist also die Gleichung
+\begin{equation}
+\Delta U=
+\begin{pmatrix}\vdots\\i_0\\\vdots\\-i_0\\\vdots\end{pmatrix}
+=i
+\label{distanzgleichung}
+\end{equation}
+zu l"osen.
+
+W"are $\Delta$ invertierbar, und w"are $\Omega$ mit den Matrixelementen
+$\Omega_{jk}$ die Inverse von $\Delta$,
+dann k"onnte man die interessierenden Potentiale $U_j$ und $U_k$
+einfach aus dem Produkt $\Omega i$ finden:
+\[
+\begin{pmatrix}
+\vdots\\
+U_j\\
+\vdots\\
+U_k\\
+\vdots
+\end{pmatrix}
+=
+\Omega i
+=
+\Omega
+\begin{pmatrix}\vdots\\i_0\\\vdots\\-i_0\\\vdots\end{pmatrix}
+=
+\begin{pmatrix}
+\vdots\\
+\Omega_{jj}i_0-\Omega_{jk}i_0\\
+\vdots\\
+\Omega_{kj}i_0-\Omega_{kk}i_0\\
+\vdots
+\end{pmatrix}.
+\]
+Daraus kann man dann den Widerstand ablesen:
+\begin{equation}
+R_{jk}
+=
+\frac{U_j-U_k}{i_0}
+=
+\Omega_{jj}-\Omega_{jk}
+-(\Omega_{kj}-\Omega_{kk})
+=
+\Omega_{jj}
++\Omega_{kk}
+-\Omega_{jk}
+-\Omega_{kj}.
+\label{widerstandsdistanz}
+\end{equation}
+\newtheorem{definition}{Definition}
+\begin{definition}
+Der Widerstand
+\[
+R_{jk}
+=
+\Omega_{jj}
++\Omega_{kk}
+-\Omega_{jk}
+-\Omega_{kj}
+\]
+heisst die {\em Widerstandsdistanz} zwischen den Knoten $j$ und $k$.
+\end{definition}
+
+\subsubsection{L"osbarkeit\label{loesbarkeit}}
+Leider ist die Matrix $\Delta$ nicht invertierbar.
+Da eine Spalte genau so viele $-1$ enth"alt, wie der zugeh"orige Knoten
+Verbindungen hat, summieren sich diese $-1$ mit der Anzahl der Verbindungen
+auf der Diagonalen zu $0$.
+Die Summe aller Zeilen von $\Delta$ ist also $0$.
+Diese lineare Beziehung zwischen den Zeilen von $\Delta$ zeigt, dass 
+$\Delta$ nicht vollen Rang hat.
+Mit dem Vektor $a$ bestehend aus lauter Einsen kann
+man diese Summeneigenschaft auch als
+\begin{equation}
+\Delta a
+=
+\Delta\begin{pmatrix}1\\1\\\vdots\\1\end{pmatrix}
+=0
+\end{equation}
+schreiben.
+Da $\Delta=\partial\partial^t$ symmetrisch ist\footnote{Man kann zum Beispiel
+$\Delta^t=(\partial\partial^t)^t=(\partial^t)^t\partial^t=\partial\partial^t
+=\Delta$ nachrechnen.}, muss auch $a^t\Delta=0$ gelten.
+Insbesondere kann die die Gleichung $\Delta U=i$ nur dann eine L"osung
+haben, wenn auch $i$ die Bedingung $a^ti=0$ erf"ullt.
+F"ur die Str"ome in (\ref{distanzgleichung}) ist diese Bedingung
+\[
+a^ti=
+\begin{pmatrix}1&1&\dots&1\end{pmatrix}\begin{pmatrix}1\\1\\\vdots\\1\end{pmatrix}
+=i_0-i_0=0,
+\]
+also automatisch erf"ullt, die Gleichung wird eine L"osung haben.
+
+Die L"osung der Gleichung $\Delta U=i$ ist nicht eindeutig.
+Addiert man zu einer L"osung eine beliebige L"osung der homogenen Gleichung
+$\Delta U=0$, dann ergibt sich wieder eine L"osung.
+Die L"osung der homogenen Gleichung ist aber ein Vielfaches von $a$,
+und addieren des gleichen Wertes in allen Elementen von $U$ ist physikalisch
+nichts anderes als die Wahl eines anderen Potentialnullpunktes,
+insbesondere hat sie auf die Berechnung der Potentialdifferenz zwischen
+den Knoten $j$ und $k$ keinen Einfluss.
+
+\subsubsection{Pseudoinverse}
+Die Definition der Widerstandsdistanz beruhte auf der M"oglichkeit, eine
+Inverse f"ur $\Delta$ zu finden, die aber nach Abschnitt~\ref{loesbarkeit}
+gar nicht existieren kann.
+Es wird also eine Konstruktion einer Matrix $\Omega$ gesucht, die
+die Rolle der Inversen "ubernehmen kann.
+Sie muss f"ur alle in Frage kommenden Vektoren $i$ eine L"osung $U$
+der Gleichung $\Delta U=i$ liefern.
+Dies wird erreicht, wenn $\Omega$ die Matrix $\Omega$ ist, die
+$\Delta\Omega i=i$ liefert f"ur Vektoren, die die Bedingung  $a^ti=0$ erf"ullen.
+
+Die sogenannte Pseudoinverse kann die Rolle von $\Omega$ "ubernehmen, ihre
+allgemeine Definition ist jedoch erst mit der Singul"arwertzerlegung
+m"oglich, die erst im Kapitel~5 des Skriptes erw"ahnt wird.
+F"ur symmetrische Matrizen wie $\Delta$ gibt es auch noch eine
+einfachere Definition, die aber die Diagonalisierung der Matrix
+voraussetzt, die erst in Kapitel~6 des Skriptes beschrieben wird.
+Im vorliegenden Spezialfall kann man die Pseudoinverse jedoch auch 
+direkt konstruieren, was im Folgenden geschehen soll.
+
+Zun"achst erinnern wir daran, dass wird die Pseudoinverse nur brauchen
+f"ur Vektoren $i$, die die Bedingung $a^ti=0$ erf"ullen, oder die auf
+dem Vektor $a$ senkrecht stehen.
+Wir k"onnen den Vektorraum $\mathbb R^n$ ($\Delta$ ist eine $n\times n$-Matrix)
+zerlegen in die Vielfachen von $a$ und die Vektoren senkrecht dazu.
+Jeder Vektor in $v\in\mathbb R^n$ l"asst sich schreiben als die Summe
+eines Vielfachen von $a$ und eines Vektors $v_{\perp}$:
+\[
+v=\lambda a + v_{\perp},\qquad\text{mit $a^tv_{\perp}=0$}.
+\]
+F"ur die Vektorr"aume k"onnen wir die Zerlegung auch so schreiben:
+\[
+\mathbb R^n = \mathbb R a+\{v\in\mathbb R^n\,|\, a^tv=0\}
+=
+\mathbb Ra+\{a\}^{\perp},
+\]
+wobei wir mit $\{a\}^{\perp}$ die Menge aller auf $a$ orthogonalen
+Vektoren bezeichnen.
+Die Vektoren in $\mathbb R$ und $\{a\}^{\perp}$ stehen senkrecht
+aufeinander.
+Da die gesuchte Pseudoinverse eine lineare Abbildung ist, gen"ugt es,
+wenn wir sie auf den beiden orthogonalen Komponenten $a$ und $\{a\}^{\perp}$
+definieren.
+
+Vielfache von $a$ d"urfen auf der rechten Seite nicht vorkommen, insbesondere
+kann auch die Pseudoinverse damit nichts anfangen, und wir definieren,
+dass $\Omega a=0$ sein soll.
+
+Das Gleichungssystem $\Delta U=v_{\perp}$ hat unendlich viele L"osungen,
+und die Beschreibung der homogenen L"osungen in Abschnitt~\ref{loesbarkeit}
+hat gezeigt, dass wir immer eine L"osung $U_{\perp}$ w"ahlen k"onnen,
+die die Bedingung $a^tU_{\perp}=0$ erf"ullt.
+Wir definieren $\Omega v_{\perp}=U_{\perp}$.
+
+Damit ist die Matrix $\Omega$ f"ur beliebige Vektoren definiert.
+Um $\Omega v$  zu berechnen, muss man wie folgt vorgehen:
+\begin{enumerate}
+\item
+Bestimme die Zerlegung $v=\lambda a +v_{\perp}$.
+\item
+L"ose das Gleichungssystem
+$\Delta U_{\perp}=v_{\perp}$ so, dass
+$a^tU^{\perp}=0$.
+\item
+Setze $\Omega v=U_{\perp}$.
+\end{enumerate}
+Diese Abbildung ist linear, kann also als Matrix geschrieben werden.
+
+F"ur die praktische Berechnung der Pseudoinversen kann man die Funktion
+{\tt pinv} in Matlab/Octave verwenden.
 
 \end{document}
