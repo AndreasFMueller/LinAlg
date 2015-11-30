@@ -1044,7 +1044,7 @@ Sei $A$ eine $m\times n$-Matrix mit Rang $r$.
 Dann gibt es eine orthogonale $m\times m$-Matrix $U$, eine
 orthogonale $n\times n$-Matrix $V$ und eine $m\times n$-Diagonalmatrix
 mit Rang $r$ 
-\[
+\begin{equation}
 S=\left(
 \begin{tabular}{>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
 s_1   &\dots &0     &0     &\dots &0\\
@@ -1056,7 +1056,8 @@ s_1   &\dots &0     &0     &\dots &0\\
 0     &\dots &0     &0     &\dots &0\\
 \end{tabular}
 \right)
-\]
+\label{s-matrix})
+\end{equation}
 mit $s_1\ge s_2\ge\dots \ge s_r$ und $A=USV^t$.
 \end{satz}
 
@@ -1094,4 +1095,310 @@ V =
    0.217231  -0.871189  -0.440272
    0.975499   0.209842   0.066088
 \end{verbatim}
+\end{beispiel}
+\subsection{Pseudoinverse}
+\index{Pseudoinverse}
+Als Anwendung der Singul"arwertzerlegung betrachten wir das Problem, eine Matrix
+$A^\dagger$
+zu finden, die ``so inverse wie m"oglich'' ist zu einer gegebenen
+$n\times m$-Matrix $A$.
+Nat"urlich k"onnen wir nicht erwarten, dass das Produkt $AA^\dagger$ 
+oder $A^\dagger A$
+eine Einheitsmatrix ergibt.
+Wenn die Matrix $A$ den Rang $r$ hat, dann sollte auch $A^\dagger$ den Rang $r$
+haben.
+Ist der Rang nicht voll, dann k"onnten wir erwarten, dass das Produkt die Form
+\[
+P=
+\begin{pmatrix}
+1&      & & &      & \\
+ &\ddots& & &      & \\
+ &      &1& &      & \\
+ &      & &0&      & \\
+ &      & & &\ddots& \\
+ &      & & &      &0\\
+\end{pmatrix}
+\]
+mit genau $r$ Einsen in der linken oberen Ecke hat. 
+Man nennt $P$ eine {\em Projektionsmatrix}, sie hat die Eigenschaft $P^2=P$.
+\index{Projektion}
+\index{Projektionsmatrix}
+Dies ist aber zuviel verlangt, "andert man n"amlich das Koordinatensystem,
+dann geht die spezielle Form der Matrix $P$ verloren.
+Die Projektionseigenschaft $P^2=P$ ist jedoch unabh"angig vom Koordinatensystem.
+Ist n"amlich $T$ eine Transformationsmatrix und $P'=TPT^{-1}$, dann gilt
+\[
+P'^2=TPT^{-1}TPT^{-1}=TPPT^{-1}=TPT^{-1}=P'.
+\]
+
+\begin{beispiel}
+Die Matrix
+\[
+P=\begin{pmatrix}1&0\\0&0\end{pmatrix}
+\]
+ist eine Projektionsmatrix.
+Dreht man das Koordinatensystem um den Winkel $\alpha$, wird die Matrix 
+gem"ass $P'=D_\alpha AD_\alpha ^{-1}=D_\alpha AD_\alpha^t$ transformiert:
+\begin{align*}
+P'&=
+\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}
+\begin{pmatrix}1&0\\0&0\end{pmatrix}
+\begin{pmatrix}\cos\alpha&\sin\alpha\\-\sin\alpha&\cos\alpha\end{pmatrix}
+\\
+&=
+\begin{pmatrix}\cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha\end{pmatrix}
+\begin{pmatrix}\cos\alpha&\sin\alpha\\0&0\end{pmatrix}
+\\
+&=
+\begin{pmatrix}\cos^2\alpha&\cos\alpha\sin\alpha\\\sin\alpha\cos\alpha&\sin^2\alpha\end{pmatrix}.
+\end{align*}
+Wir kontrollieren die Projektionseigenschaft:
+\begin{align*}
+P^{\prime 2}
+&=
+\begin{pmatrix}
+\cos^2\alpha
+	&\sin\alpha\cos\alpha\\
+\sin\alpha\cos\alpha
+	&\sin^2\alpha
+\end{pmatrix}^2
+\\
+&=
+\begin{pmatrix}
+\cos^4\alpha + \sin^2\alpha\cos^2\alpha
+	&\sin\alpha\cos^3\alpha+\sin^3\alpha\cos\alpha\\
+\sin\alpha\cos^3\alpha+\sin^3\alpha\cos\alpha
+	&\sin^2\alpha\cos^2\alpha+\sin^4\alpha
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+(\cos^2\alpha + \sin^2\alpha)\cos^2\alpha
+	&\sin\alpha\cos\alpha(\cos^2\alpha+\sin^2\alpha)\\
+\sin\alpha\cos\alpha(\cos^2\alpha+\sin^2\alpha)
+	&\sin^2\alpha(\cos^2\alpha+\sin^2\alpha)
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\cos^2\alpha
+	&\sin\alpha\cos\alpha\\
+\sin\alpha\cos\alpha
+	&\sin^2\alpha
+\end{pmatrix}=P'.
+\end{align*}
+\end{beispiel}
+
+Wir k"onnen also nur erwarten, dass $A^\dagger A$ bzw.~$AA^\dagger$ die
+Projektionseigenschaft haben.
+Nur im Falle vollen Ranges wird eines der Produkte eine Einheitsmatrix sein.
+
+In einfachen F"allen k"onnen wir eine Pseudoinverse sofort angeben.
+Die Matrix $A$
+\[
+A=\begin{pmatrix}
+2&0&0\\
+0&3&0\\
+0&0&0
+\end{pmatrix}
+\]
+ist nicht invertierbar, weil sie nicht vollen Rang hat. Aber die Matrix
+\[
+A^\dagger=\begin{pmatrix}
+\frac12&0&0\\
+0&\frac13&0\\
+0&0&0
+\end{pmatrix}
+\]
+ist in dem Sinne eine Inverse, dass $AA^{\dagger}$ und $A^\dagger A$ zwar keine
+Einheitsmatrizen sind, aber doch mindestens Projektionsmatrizen mit dem gleichen
+Rang wie $A$:
+\begin{align*}
+AA^\dagger=A^\dagger A
+=
+\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&0
+\end{pmatrix}.
+\end{align*}
+Diesen Spezialfall wollen wir im Folgenden verallgemeinern.
+
+Eine $m\times n$-Diagonalmatrix $S$ wie in (\ref{s-matrix}) in Satz~\ref{satz-svd}
+hat als Pseudoinverse die $n\times m$-Matrix
+\begin{equation}
+S^\dagger=\left(
+\begin{tabular}{>{$\displaystyle}c<{$}>{$\displaystyle}c<{$}>{$\displaystyle}c<{$}>{$\displaystyle}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+\frac1{s_1}&           &      &           &     &      & \\
+           &\frac1{s_2}&      &           &     &      & \\
+           &           &\ddots&           &     &      & \\
+           &           &      &\frac1{s_r}&     &      & \\
+\hline
+           &           &      &           &\quad&      & \\
+           &           &      &           &     &     0& \\
+           &           &      &           &     &      &\qquad
+\end{tabular}
+\right)
+\end{equation}
+denn die Produkte $S^\dagger S$ und $SS^\dagger$ sind beide Projektionsmatrizen
+mit Rang $r$. $S^\dagger S$ ist eine $n\times n$-Matrix, $SS^\dagger$ ist eine
+$m\times m$-Matrix.
+
+Mit Hilfe der Singul"arwertzerlegung l"asst sich diese Konstruktion
+auf beliebige Matrizen verallgemeinern.
+Sei $A$ eine $m\times n$-Matrix mit Singul"artwertzerlegung
+$A=USV^t$, wobei $U$ eine orthogonale $m\times m$-Matrix, $V$ eine orthogonale
+$n\times n$-Matrix und $S$ eine $m\times n$-Diagonalmatrix wie in (\ref{s-matrix})
+von Satz~\ref{satz-svd} ist. Wir setzen
+\begin{equation}
+A^\dagger = VS^\dagger U^t,
+\label{definition-pseudoinverse}
+\end{equation}
+$A^\dagger$ heisst die {\em Pseudoinverse} von $A$.
+
+Wir "uberzeugen uns zun"achst, dass $A^\dagger$ f"ur invertierbare Matrizen
+mit der gew"ohnlichen Inversen $A^{-1}$ "ubereinstimmt.
+F"ur invertierbares $A$ ist $n=m$ und $S$ ist eine Diagonalmatrix ohne Nullen
+auf der Diagonalen. 
+Insbesondere gilt $S^\dagger=S^{-1}$, oder $S^\dagger S=SS^\dagger=E$.
+Daher gilt auch
+\begin{align*}
+A^\dagger A&=VS^\dagger U^tUSV^t=VS^\dagger SV^t=VV^t=E\\
+AA^\dagger &=USV^tVS^\dagger U^t=USS^\dagger U^t=UU^t=E,
+\end{align*}
+also ist $A^\dagger=A^{-1}$ in diesem Fall.
+
+Im allgemeinen Fall gilt
+\begin{align*}
+A^\dagger A&=VS^\dagger U^tUSV^t=VS^\dagger SV^t=VP_1V^{-1}\\
+AA^\dagger &=USV^tVS^\dagger U^t=USS^\dagger U^t=UP_2U^{-1},
+\end{align*}
+wobei die $P_i$ geeignete Projektionsmatrizen sind.
+In einem geeigneten Koordinatensystem, das im wesentlichen durch die Matrizen
+$U$ bzw.~$V$ gegeben ist, sind die Produkte $A^\dagger A$ und $AA^\dagger$
+also Projektionsmatrizen.
+Anders ausgedr"uckt, soweit es m"oglich ist, also in den durch die Projektion
+gegebenen Unterr"aumen, ist $A^\dagger$ eine Inverse von $A$.
+$A^\dagger$ heisst die {\em Pseudoinverse} von $A$.
+
+\begin{beispiel}
+Die Matrix
+\[
+A=\begin{pmatrix}
+1&2&9&1\\
+2&0&1&5
+\end{pmatrix}
+\]
+hat Rang $2$.
+Wir berechnen die Pseudoinverse mit Hilfe von Octave, dazu bestimmen wir
+zun"achst die Singul"arwertzerlegung:
+\begin{verbatim}
+> A = [1,2,9,1;2,0,1,5]
+A =
+
+   1   2   9   1
+   2   0   1   5
+
+> [U,S,V] = svd(A)
+U =
+
+  -0.96747  -0.25300
+  -0.25300   0.96747
+
+S =
+
+Diagonal Matrix
+
+   9.5490        0        0        0
+        0   5.0809        0        0
+
+V =
+
+  -0.154305   0.331029  -0.751912  -0.548852
+  -0.202631  -0.099587  -0.575830   0.785775
+  -0.938335  -0.257732   0.182137  -0.141163
+  -0.233789   0.902262   0.264337   0.247774
+\end{verbatim}
+Aus $S$ k"onnen wir jetzt die Pseudoinverse $S^\dagger$ berechnen:
+\begin{verbatim}
+
+> Sdagger = S';
+> Sdagger(1,1)=1/S(1,1);
+> Sdagger(2,2)=1/S(2,2)
+Sdagger =
+
+Diagonal Matrix
+
+   0.10472         0
+         0   0.19681
+         0         0
+         0         0
+\end{verbatim}
+Wir kontrollieren, ob sie die verlangte Projektionseigenschaft hat:
+\begin{verbatim}
+> Sdagger * S
+ans =
+
+Diagonal Matrix
+
+   1   0   0   0
+   0   1   0   0
+   0   0   0   0
+   0   0   0   0
+
+> S * Sdagger
+ans =
+
+Diagonal Matrix
+
+   1   0
+   0   1
+
+\end{verbatim}
+Jetzt k"onnen wir mit Hilfe der Matrizen $U$ und $V$ auch die Pseudoinverse
+$A^\dagger$ bestimmen.
+\begin{verbatim}
+
+> Adagger = V * Sdagger * U'
+Adagger =
+
+  -8.4962e-04   6.7120e-02
+   2.5489e-02  -1.3594e-02
+   1.0790e-01  -2.4214e-02
+  -2.1240e-02   1.7799e-01
+
+\end{verbatim}
+Das Produkt $AA^\dagger$ muss eine Projektionsmatrix vom Rang $2$ sein, wir
+berechnen
+\begin{verbatim}
+> A * Adagger
+ans =
+
+   1.0000e+00  -5.5511e-17
+  -2.7756e-17   1.0000e+00
+
+\end{verbatim}
+im Rahmen der Rechengenauigkeit ist das tats"achlich eine Einheitsmatrix.
+
+Das Produkt $A^\dagger A$ ist muss eine Projektionsmatrix sein, es muss also
+f"ur $P=A^\dagger A$ gelten, dass $P^2=P$ ist.
+Wir berechnen mit Octave die Differenz $P^2-P$ und erhalten
+\begin{verbatim}
+> P = Adagger * A
+P =
+
+   0.1333900  -0.0016992   0.0594732   0.3347494
+  -0.0016992   0.0509771   0.2158029  -0.0424809
+   0.0594732   0.2158029   0.9468989  -0.0131691
+   0.3347494  -0.0424809  -0.0131691   0.8687341
+
+> P * P - P
+ans =
+
+   5.5511e-17  -1.7347e-18   1.3878e-17   1.1102e-16
+  -1.2143e-17   6.9389e-18   0.0000e+00  -2.7756e-17
+  -2.0817e-17   0.0000e+00   1.1102e-16  -7.2858e-17
+   1.1102e-16  -1.3878e-17   0.0000e+00   3.3307e-16
+\end{verbatim}
+Im Rahmen der Rechengenauigkeit ist dass $0$.
 \end{beispiel}
