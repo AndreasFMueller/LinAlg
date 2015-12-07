@@ -682,7 +682,7 @@ dass eine alternative Methode diesen Aufwand reduzieren k"onnte.
 
 Die geometrische L"osung des Problems aus Abschnitt~\ref{section:ueberbestimmt}
 verwendet, dass $Av-b$ senkrecht steht auf $Av$. Die QR-Zerlegung ist
-im wesentlichen eine Umformulierung des Orthogonalisierungsverfahrens, in den
+im Wesentlichen eine Umformulierung des Orthogonalisierungsverfahrens, in den
 Matrizen $Q$ und $R$ ist also die Information "uber Orthogonalit"at ebenfalls
 enthalten.
 
@@ -1274,7 +1274,7 @@ A^\dagger A&=VS^\dagger U^tUSV^t=VS^\dagger SV^t=VP_1V^{-1}\\
 AA^\dagger &=USV^tVS^\dagger U^t=USS^\dagger U^t=UP_2U^{-1},
 \end{align*}
 wobei die $P_i$ geeignete Projektionsmatrizen sind.
-In einem geeigneten Koordinatensystem, das im wesentlichen durch die Matrizen
+In einem geeigneten Koordinatensystem, das im Wesentlichen durch die Matrizen
 $U$ bzw.~$V$ gegeben ist, sind die Produkte $A^\dagger A$ und $AA^\dagger$
 also Projektionsmatrizen.
 Anders ausgedr"uckt, soweit es m"oglich ist, also in den durch die Projektion
@@ -1321,7 +1321,6 @@ V =
 \end{verbatim}
 Aus $S$ k"onnen wir jetzt die Pseudoinverse $S^\dagger$ berechnen:
 \begin{verbatim}
-
 > Sdagger = S';
 > Sdagger(1,1)=1/S(1,1);
 > Sdagger(2,2)=1/S(2,2)
@@ -1353,7 +1352,6 @@ Diagonal Matrix
 
    1   0
    0   1
-
 \end{verbatim}
 Jetzt k"onnen wir mit Hilfe der Matrizen $U$ und $V$ auch die Pseudoinverse
 $A^\dagger$ bestimmen.
@@ -1376,11 +1374,10 @@ ans =
 
    1.0000e+00  -5.5511e-17
   -2.7756e-17   1.0000e+00
-
 \end{verbatim}
 im Rahmen der Rechengenauigkeit ist das tats"achlich eine Einheitsmatrix.
 
-Das Produkt $A^\dagger A$ ist muss eine Projektionsmatrix sein, es muss also
+Das Produkt $A^\dagger A$ muss eine Projektionsmatrix sein, es muss also
 f"ur $P=A^\dagger A$ gelten, dass $P^2=P$ ist.
 Wir berechnen mit Octave die Differenz $P^2-P$ und erhalten
 \begin{verbatim}
