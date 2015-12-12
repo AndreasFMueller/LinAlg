@@ -3,7 +3,7 @@
 #
 # (c) 2015 Prof Dr Andreas Mueller, Hochschule Rapperswil
 #
-bild = bary-1.pdf
+bild = bary-1.pdf bary-2.pdf
 
 $(bild): bary.mp
 	TEX=latex mpost bary.mp
