@@ -1,6 +1,6 @@
 Gegeben sind
 \[
-A=\begin{pmatrix}1&2\\2&1\\2&1\end{pmatrix},\qquad
+A=\begin{pmatrix}1&2\\2&3\\2&4\end{pmatrix},\qquad
 b=\begin{pmatrix}2\\2\\2\end{pmatrix}.
 \]
 Das Gleichungssystem $Ax=b$ ist "uberbestimmt, finden Sie die Least-Squares
@@ -16,15 +16,15 @@ unter Verwendung der QR-Zerlegung ist $Q^tb$:
 Das Gleichungssystem wird damit zu
 \[
 \begin{linsys}{3}
--3.00000x&-&2.00000y&=&-3.33333\\
-         & &1.41421y&=&\phantom{-}0.94281,
+-3.00000x&-&5.33333y&=&-3.33333\\
+         & &0.74536y&=&\phantom{-}0.29814
 \end{linsys}
 \]
 mit der L"osung
 \[
 \begin{pmatrix}
-0.66666\\
-0.66666
+0.4\\
+0.4
 \end{pmatrix}.
 \]
 Man kann die QR-Zerlegung nat"urlich auch mit dem Verfahren von Gram-Schmidt
@@ -32,29 +32,84 @@ von Hand bestimmen. Dazu orthonormalisiert man die Vektoren
 \[
 b_1=\begin{pmatrix}1\\2\\2\end{pmatrix}
 \quad\text{und}\quad
-b_2=\begin{pmatrix}2\\1\\1\end{pmatrix}.
+b_2=\begin{pmatrix}2\\3\\4\end{pmatrix}.
 \]
 Man findet:
 \begin{align*}
 b_1'&=\frac{b_1}{|b_1|}=\frac13\begin{pmatrix}1\\2\\2\end{pmatrix}\\
 b_2'&
 =\frac{b_2 - (b_2\cdot b_1') b_1'}{\dots}
-=\frac{b_2 - 2 b_1'}{\dots}
-=\frac{\displaystyle\begin{pmatrix}2\\1\\1\end{pmatrix}-\frac23\begin{pmatrix}1\\2\\2\end{pmatrix}
+=\frac{b_2 - \frac{16}{3} b_1'}{\dots}
+=\frac{\displaystyle\begin{pmatrix}2\\3\\4\end{pmatrix}-\frac{16}9\begin{pmatrix}1\\2\\2\end{pmatrix}
 }{\dots}
-=\frac{\displaystyle\frac13\begin{pmatrix}4\\-1\\-1\end{pmatrix}}{\dots}
-=\frac{\displaystyle\frac13\begin{pmatrix}4\\-1\\-1\end{pmatrix}}{\sqrt{2}}
-=\frac1{3\sqrt{2}}\begin{pmatrix}4\\-1\\-1 \end{pmatrix}
+=\frac{\displaystyle\frac19\begin{pmatrix}18-16\\27-32\\36-32\end{pmatrix}}{\dots}
+=\frac{\displaystyle\frac19\begin{pmatrix}2\\-5\\4\end{pmatrix}}{\sqrt{\frac{5}{9}}}
+=\frac1{\sqrt{45}}\begin{pmatrix}2\\-5\\4\end{pmatrix}
 \end{align*}
-Aus dieser Rechnung kann man auch ablesen, dass 
+Daraus findet man zun"achst die Matrix 
 \[
-R=\begin{pmatrix}
-3&2\\
-0&\sqrt{2}\\
-0&0
+Q
+=
+\begin{pmatrix}
+\frac13&\frac{ 2}{\sqrt{45}}\\
+\frac23&\frac{-4}{\sqrt{45}}\\
+\frac23&\frac{ 5}{\sqrt{45}}
+\end{pmatrix}
+\]
+Man kann aus dem Ausdruck auch ablesen, dass
+\[
+\frac{16}{3}b_1'+\sqrt{\frac{5}{9}}b_2'=b_2,
+\]
+also ist die $R$-Matrix
+\[
+R
+=
+\begin{pmatrix}
+3&\frac{16}{3}\\
+0&\sqrt{\frac{5}{9}}
 \end{pmatrix}.
 \]
 Dies deckt sich bis auf die Wahl des Vorzeichens von $b_1'$ mit der
 maschinell gefundenen L"osung.
+Wir berechnen zur Kontrolle das Produkt $QR$:
+\[
+QR=
+\begin{pmatrix}
+\frac13&\frac{ 2}{\sqrt{45}}\\
+\frac23&\frac{-4}{\sqrt{45}}\\
+\frac23&\frac{ 5}{\sqrt{45}}
+\end{pmatrix}
+\begin{pmatrix}
+3&\frac{16}{3}\\
+0&\sqrt{\frac{5}{9}}
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&\frac13\cdot \frac{16}{3}+\frac{2}{\sqrt{45}}\cdot\sqrt{\frac{5}{9}}\\
+2&\frac23\cdot \frac{16}{3}-\frac{5}{\sqrt{45}}\cdot\sqrt{\frac{5}{9}}\\
+2&\frac23\cdot \frac{16}{3}+\frac{4}{\sqrt{45}}\cdot\sqrt{\frac{5}{9}}
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&\frac{16}{9}+\frac{2}{9}\\
+2&\frac{32}{9}-\frac{5}{9}\\
+2&\frac{32}{9}+\frac{3}{9}
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&\frac{18}{9}\\
+2&\frac{27}{9}\\
+2&\frac{36}{9}
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&2\\
+2&3\\
+2&4
+\end{pmatrix}
+=A.
+\]
+Damit ist best"atigt, dass die Matrizen $Q$ und $R$ die QR-Zerlegung der
+Matrix $A$ bilden.
 \end{loesung}
 
