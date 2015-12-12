@@ -1,0 +1,288 @@
+Finden Sie eine Formel f"ur die Zahlen $x_n$, die durch die Rekursionsformel
+\[
+x_{n+1}=2x_n+x_{n-1}-2x_{n-2}
+\]
+und die Anfangswerte
+\[
+\begin{aligned}
+x_0&=-2,& x_1&=1,& x_2=1
+\end{aligned}
+\]
+definiert sind.
+
+\begin{loesung}
+Mit der Matrix 
+\[
+A=\begin{pmatrix}
+2&1&-2\\
+1&0& 0\\
+0&1& 0
+\end{pmatrix}
+\]
+kann die Rekursionsgleichung als
+\[
+\begin{pmatrix}
+x_{n+1}\\
+x_{n}\\
+x_{n-1}
+\end{pmatrix}
+=
+A
+\begin{pmatrix}
+x_{n}\\
+x_{n-1}\\
+x_{n-2}
+\end{pmatrix}
+\]
+Wir bestimmen Eigenwerte und Eigenvektoren von $A$, dazu muss zun"achst
+das charakteristische Polynom ermittelt werden.
+Es gilt
+\begin{align*}
+\chi_A(\lambda)
+&=
+\left|\begin{matrix}
+2-\lambda&1&-2\\
+1&-\lambda&0\\
+0&1&-\lambda
+\end{matrix}\right|
+=
+(2-\lambda)\left|\begin{matrix}-\lambda&0\\1&-\lambda\end{matrix}\right|
+-\left|\begin{matrix}1&-2\\1&-\lambda\end{matrix}\right|
+=
+\lambda^2(2-\lambda)-(-\lambda+2)
+\\
+&=
+-\lambda^3+2\lambda^2+\lambda-2
+=
+(\lambda^2-1)(2-\lambda)
+=
+(\lambda+1)(\lambda -1)(2-\lambda)
+\end{align*}
+Daraus liest man ab, dass die Eigenwerte $\lambda_1=-1$, $\lambda_2=1$ und
+$\lambda_3=2$ sind.
+
+Wir m"ussen jetzt f"ur jeden Eigenwert einen Eigenvektor finden.
+F"ur $\lambda=\lambda_1=-1$ gilt
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+2-\lambda_1&1         &-2        \\
+1          &-\lambda_1& 0        \\
+0          &1         &-\lambda_1\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+3&1&-2\\
+1&1& 0\\
+0&1& 1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac13&-\frac23\\
+0&\frac23& \frac23\\
+0&      1&       1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac13&-\frac23\\
+0&      1&       1\\
+0&      0&       0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 0&-1\\
+0& 1& 1\\
+0& 0& 0\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus kann man die Eigenvektor $v_1$ zum Eigenwert $\lambda_1=-1$ ablesen:
+\[
+v_1=\begin{pmatrix}1\\-1\\1\end{pmatrix}.
+\]
+F"ur $\lambda=\lambda_2=1$ wenden wir den Gauss-Algorithmus auf das
+Tableau
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+2-\lambda_2&1         &-2        \\
+1          &-\lambda_2& 0        \\
+0          &1         &-\lambda_2\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1 & 1&-2\\
+1 &-1& 0\\
+0 & 1&-1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1 & 1&-2\\
+0 &-2& 2\\
+0 & 1&-1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1 & 1&-2\\
+0 & 1&-1\\
+0 & 0& 0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1 & 0&-1\\
+0 & 1&-1\\
+0 & 0& 0\\
+\hline
+\end{tabular}
+\end{align*}
+an. Der Eigenvektor $v_2$ ist daher
+\[
+v_2=\begin{pmatrix}
+1\\1\\1
+\end{pmatrix}.
+\]
+Schliesslich f"ur $\lambda=\lambda_3=2$:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+2-\lambda_3&1         &-2        \\
+1          &-\lambda_3& 0        \\
+0          &1         &-\lambda_3\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+0 & 1&-2\\
+1 &-2& 0\\
+0 & 1&-2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1 &-2& 0\\
+0 & 1&-2\\
+0 & 0& 0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1 & 0&-4\\
+0 & 1&-2\\
+0 & 0& 0\\
+\hline
+\end{tabular}
+\end{align*}
+Der zugeh"orige Eigenvektor ist
+\[
+v_3=\begin{pmatrix}4\\2\\1 \end{pmatrix}.
+\]
+
+Um die Rekursionsgleichung zu l"osen, muss jetzt der Startvektor als
+Linearkombination der Basisvektoren ausgedr"uckt werden:
+\[
+\begin{pmatrix}1\\1\\-2\end{pmatrix}
+=
+\alpha_1v_1
++
+\alpha_2v_2
++
+\alpha_3v_3,
+\]
+die $\alpha_i$ k"onnen als L"osung eines linearen Gleichungssystems
+gefunden werden:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&1&4& 1\\
+-1&1&2& 1\\
+ 1&1&1&-2\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&1&4& 1\\
+ 0&2&6& 2\\
+ 0&0&-3&-3\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&1& 4& 1\\
+ 0&1& 3& 1\\
+ 0&0&-3&-3\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&1& 0&-3\\
+ 0&1& 0&-2\\
+ 0&0& 1& 1\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&0& 0&-1\\
+ 0&1& 0&-2\\
+ 0&0& 1& 1\\
+\hline
+\end{tabular}
+\end{align*}
+Also ist der Startvektor $ -v_1-2v_2+v_3$.
+Damit kann man jetzt einen Ausdruck f"ur die Zahlen $x_n$
+\[
+x_n
+=
+f(n)
+=
+-\lambda_1^n
+-2 \lambda_2^n
++\lambda_3^n
+=-(-1)^n-2+2^n.
+\]
+Wir kontrollieren die Formel durch die Berechnung der ersten paar Werte
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|}
+\hline
+ n& x_n&f(n)\\
+\hline
+ 0&  -2&   2\\
+ 1&   1&   1\\
+ 2&   1&   1\\
+ 3&   7&   7\\
+ 4&  13&  13\\
+ 5&  31&  31\\
+ 6&  61&  61\\
+ 7& 127& 127\\
+ 8& 253& 253\\
+ 9& 511& 511\\
+10&1021&1021\\
+\hline
+\end{tabular}
+\end{center}
+\end{loesung}
