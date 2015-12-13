@@ -78,20 +78,20 @@ punkt(z10);
 punkt(z11);
 punkt(z12);
 
-label.lft(btex $A$ etex, z0);
-label.rt(btex $B$ etex, z1);
-label.top(btex $C$ etex, z2);
+label.lft(btex $A\mathstrut$ etex, z0);
+label.rt(btex $B\mathstrut$ etex, z1);
+label.top(btex $C\mathstrut$ etex, z2);
 
-label.urt(btex $E$ etex, z11);
-label.ulft(btex $F$ etex, z12);
-label.bot(btex $G$ etex, z10);
+label.urt(btex $E\mathstrut$ etex, z11);
+label.ulft(btex $F\mathstrut$ etex, z12);
+label.bot(btex $G\mathstrut$ etex, z10);
 
-label.ulft(btex $\delta_1$ etex, z11) shifted (-1,-1);
-label.urt(btex $\delta_2$ etex, z12) shifted (0.5,1);
-label.bot(btex $\delta_3$ etex, z12) shifted (0,-1);
-label.lft(btex $\delta_4$ etex, z10) shifted (-1.5,2.5);
-label.urt(btex $\delta_5$ etex, z10) shifted (1.5,-2.5);
-label.bot(btex $\delta_6$ etex, z11) shifted (3,0);
+label.ulft(btex $\delta_1\mathstrut$ etex, z11) shifted (-1,-1);
+label.urt(btex $\delta_2\mathstrut$ etex, z12) shifted (0.5,1);
+label.bot(btex $\delta_3\mathstrut$ etex, z12) shifted (0,-1);
+label.lft(btex $\delta_4\mathstrut$ etex, z10) shifted (-1.5,2.5);
+label.urt(btex $\delta_5\mathstrut$ etex, z10) shifted (1.5,-2.5);
+label.bot(btex $\delta_6\mathstrut$ etex, z11) shifted (3,0);
 
 label(btex $\triangle_A$ etex, (z0 + z10 + z12)/3);
 label(btex $\triangle_B$ etex, (z1 + z11 + z10)/3);

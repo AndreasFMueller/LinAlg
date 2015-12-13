@@ -18,9 +18,9 @@ cubic.png:	cubic.pov
 	fi
 
 cubic.jpg:	cubic.png
-	if test 0 -eq `wc --bytes cubic.png` \
+	if test 0 -eq `wc -c < cubic.png`; \
 	then \
-		:; \
+		echo "leaving cubic.jpg alone"; \
 	else \
 		convert -extract 2136x1824+1008+102 cubic.png -resize 50% \
 			-density 300 -units PixelsPerInch cubic.jpg; \

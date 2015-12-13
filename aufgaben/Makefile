@@ -12,7 +12,7 @@ TEXFILES = aufgabensammlung.tex uebungen.tex \
 aufgabensammlung.pdf:	$(TEXFILES) aufgabensammlung.ind
 	pdflatex aufgabensammlung.tex uebungen.tex
 
-aufgabensammlung.ind:	$(TEXFILES)
+aufgabensammlung.ind:	$(TEXFILES) images
 	touch aufgabensammlung.ind
 	pdflatex aufgabensammlung.tex
 	makeindex aufgabensammlung.idx
@@ -40,3 +40,18 @@ clean:
 
 o.tex:	buildchapter.sh o/*.tex
 	./buildchapter.sh o > o.tex
+
+images:
+	for d in ?/*; \
+	do \
+		if test -d $${d}; \
+		then \
+			echo $${d}; \
+			cd $${d}; \
+			if [ -r Makefile ]; \
+			then \
+				make; \
+			fi; \
+			cd ../..; \
+		fi; \
+	done
