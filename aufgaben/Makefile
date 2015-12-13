@@ -44,14 +44,11 @@ o.tex:	buildchapter.sh o/*.tex
 images:
 	for d in ?/*; \
 	do \
-		if test -d $${d}; \
+		if [ -d $${d} -a -r $${d}/Makefile ]; \
 		then \
 			echo $${d}; \
 			cd $${d}; \
-			if [ -r Makefile ]; \
-			then \
-				make; \
-			fi; \
+			make || exit 1; \
 			cd ../..; \
 		fi; \
 	done
