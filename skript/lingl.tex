@@ -140,7 +140,9 @@ ax=b
 \]
 mit $a,b\in\mathbb R$ und suchen eine L"osung $x\in\mathbb R$.
 Offenbar kann man die L"osung finden, indem man durch $a$ teilt:
-$$x=\frac{b}{a},$$
+\[
+x=\frac{b}{a},
+\]
 dies ist aber nur dann m"oglich, wenn $a\ne 0$ ist. Dies scheint
 der ``regul"are'' Fall zu sein, in dem es genau eine L"osung gibt. 
 
@@ -226,12 +228,12 @@ hat die L"osung $(1,1)$, wie man durch Einsetzen nachpr"ufen kann.
 \end{beispiel}
 \begin{beispiel}[Beispiel f"ur den Fall 2. (a)]
 Das Gleichungssystem
-$$
+\[
 \begin{linsys}{2}
 x&+&y&=&1\\
 2x&+&2y&=&0
 \end{linsys}
-$$
+\]
 kann keine L"osung haben. Multipliziert man die erste Gleichung mit $2$
 und subtrahiert die zweite Gleichung erh"alt man $0=2$, dies kann nat"urlich
 nie erf"ullt werden, insbesondere gibt es kein Zahlenpaar $(x,y)$, f"ur
@@ -239,12 +241,12 @@ welches die beiden Gleichungen wahr w"urden.
 \end{beispiel}
 \begin{beispiel}[Beispiel f"ur den Fall 2. (b)]
 Das Gleichungssystem
-$$
+\[
 \begin{linsys}{2}
 x&+&y&=&1\\
 2x&+&2y&=&2
 \end{linsys}
-$$
+\]
 hat alle Punkte der Geraden $y=1-x$ als L"osung.
 \end{beispiel}
 
@@ -753,13 +755,13 @@ einer zus"atzlichen Zeile die Bedeutung der Spalten mitschreibt.
 
 \begin{beispiel}[\bf Beispiel]
 Wir versuchen, das Gleichungssystem
-$$
+\[
 \begin{linsys}{3}
    &   & y & - & z & = & 2\\
    &   & y & + & z & = & 4\\
 -x &   &   & + & z & = & 2
 \end{linsys}
-$$
+\]
 zu l"osen. Zweimal w"ahrend der Durchf"uhrung des Gauss-Algorithmus,
 gekennzeichnet durch {\color{red}!},
 sind wir gezwungen%
@@ -908,7 +910,9 @@ ist die zweite Gleichung das Doppelte der ersten. Sie ist
 also immer genau dann erf"ullt, wenn die erste erf"ullt ist.
 Insbesondere schr"ankt sie die Menge der m"oglichen L"osungen
 nicht weiter ein, die L"osungsmenge ist
-$$\mathbb L=\{(x,y)\,|\, x+2y=5\}.$$
+\[
+\mathbb L=\{(x,y)\,|\, x+2y=5\}.
+\]
 Auch kompliziertere Beziehungen zwischen Gleichungen sind
 m"oglich. Im Gleichungssystem
 \begin{align*}
@@ -986,9 +990,13 @@ aus Nullen, somit sind die Gleichungen linear abh"angig.
 
 Ist zum Beispiel $l_i(x_1,\dots,x_n)=0$, dann ergibt sich mit den
 Koeffizienten
-$$\lambda_1=0,\dots,\lambda_i=1,\dots \lambda_m=0$$
+\[
+\lambda_1=0,\dots,\lambda_i=1,\dots \lambda_m=0
+\]
 eine lineare Beziehung
-$$\lambda_1l_1+\dots+\lambda_il_i+\dots+\lambda_ml_m=l_i=0,$$
+\[
+\lambda_1l_1+\dots+\lambda_il_i+\dots+\lambda_ml_m=l_i=0,
+\]
 in der nicht alle Koeffizienten verschwinden.
 \end{proof}
 
@@ -1060,13 +1068,13 @@ die Null-Zeile ergeben:
 \end{tabular}
 \]
 F"ur die $\lambda_i$ finden wir daraus ein lineares Gleichungssystem:
-$$
+\[
 \begin{linsys}{3}
 1\lambda_1&+&6\lambda_2&+&7\lambda_3&=&0\\
 2\lambda_1&+&5\lambda_2&+&8\lambda_3&=&0\\
 3\lambda_1&+&4\lambda_2&+&9\lambda_3&=&0
 \end{linsys}.
-$$
+\]
 Man beachte, dass das Koeffizienten-Schema gegen"uber dem
 gegen"uber dem urspr"unglichen an der Diagonalen
 gespiegelt worden ist.
@@ -1142,7 +1150,7 @@ $\lambda_2$ aus $\lambda_3$ berechnet werden k"onnen:
 \end{align*}
 Eine ganzzahlige L"osung ergibt sich zum Beispiel f"ur $\lambda_3=7$,
 also
-$$
+\[
 (
 \lambda_1,
 \lambda_2,
@@ -1151,7 +1159,7 @@ $$
 =(
 -13,-6,7
 ),
-$$
+\]
 was man durch nachrechnen auch best"atigen kann. Da in diesem Gleichungssystem
 die auf der rechten Seite nur Nullen stehen, k"onnen wir schliessen,
 dass eine L"osung mit $\lambda_i\ne 0$ nur im singul"aren Fall gefunden
@@ -1229,7 +1237,7 @@ x_n
 \]
 Man spricht von einem $n-m$-dimensionalen L"osungsraum. Die
 L"osungsmenge kann also als
-$$
+\[
 \mathbb L
 =
 \left\{
@@ -1245,7 +1253,7 @@ x_n
 \right|
 x_{m+1},\dots,x_n\in\mathbb R
 \right\}
-$$
+\]
 geschrieben werden.
 \subsubsection{Vektorform der L"osungsmenge}
 Wir k"onnen allerdings auch die Parameter $x_{m+1}$ bis $x_n$ noch
@@ -1413,7 +1421,7 @@ x_4,x_5\in\mathbb R
 \subsection{Mehr Gleichungen als Unbekannte}
 Sind weniger Unbekannte als Gleichungen gegeben, dann wird das Gauss-Verfahren
 das Gleichungssystem bestenfalls in die Form
-$$
+\[
 \begin{array}{|ccc|c|}
 \hline
 1&\dots&0&*\\
@@ -1425,7 +1433,7 @@ $$
 0&\dots&0&\color{red}*\\
 \hline
 \end{array}
-$$
+\]
 bringen. Die letzten $m-n$ Zeilen entsprechen Gleichungen, die auf
 der linken Seite $0$ stehen haben. Sie sind nur dann erf"ullbar, wenn
 auch auf der rechten Seite, an Stelle der Sterne, nur Nullen vorkommen.
@@ -1843,7 +1851,9 @@ Seite die Zahlen $b_1$ und $b_2$ stehen sollen, dann
 bedeutet dies offenbar, dass wir $b_1$ mal die erste L"osung
 und $b_2$ mal die zweite L"osung zusammennehmen m"ussen, um
 die verlangten rechten Seiten zu finden. Also
-$$x=\frac12b_1-\frac{\sqrt{3}}2b_2,\qquad y=\frac{\sqrt{3}}2b_1+\frac12b_2.$$
+\[
+x=\frac12b_1-\frac{\sqrt{3}}2b_2,\qquad y=\frac{\sqrt{3}}2b_1+\frac12b_2.
+\]
 Durch Einsetzen in die urspr"ungliche Gleichung kann man die
 L"osung "uberpr"ufen.
 
@@ -1926,18 +1936,18 @@ mathematische Objekte zu definieren.
 
 \begin{definition}
 Das Zahlenschema
-$$
+\[
 \begin{pmatrix}
 a_1&a_2&\dots&a_n
 \end{pmatrix}
-$$
+\]
 mit $a_i\in\mathbb R$ heisst ein $n$-dimensionaler Zeilenvektor.
 Das Zahlenschema
-$$
+\[
 \begin{pmatrix}
 b_1\\b_2\\\vdots\\b_m
 \end{pmatrix}
-$$
+\]
 heisst $m$-dimensionaler Spaltenvektor.
 \end{definition}
 Die Linearformen entsprechen also Zeilenvektoren, die rechte
@@ -1945,7 +1955,16 @@ Seite des Gleichungssystems ist ein Spaltenvektor.
 
 Zeilen oder Spaltenvektoren k"urzen wir ab als ein einzelnes
 Zeichen, zum Beispiel
-$$a=\begin{pmatrix}a_1&a_2&\dots&a_n\end{pmatrix},\qquad b=\begin{pmatrix}1\\2\\3\end{pmatrix}.$$
+\[
+a
+=
+\begin{pmatrix}
+a_1&a_2&\dots&a_n
+\end{pmatrix},\qquad
+b=\begin{pmatrix}
+1\\2\\3
+\end{pmatrix}.
+\]
 
 \subsubsection{Rechenoperationen mit Vektoren}
 F"ur Zeilen- oder Spaltenvektoren k"onnen wir die Addition von
@@ -1995,28 +2014,35 @@ b_m+b'_m\\
 Die Operationen {\bf E} und {\bf I} k"onnen wir jetzt mit Vektoren
 beschreiben. Die Zeile mit der Nummer $i$ ist offenbar ein
 $n+1$-dimensionaler Zeilenvektoren $z_i$
-$$z_i=\begin{pmatrix}a_{i1}&a_{i2}&\dots&a_{im}&b_i\end{pmatrix}.$$
+\[
+z_i=\begin{pmatrix}a_{i1}&a_{i2}&\dots&a_{im}&b_i\end{pmatrix}.
+\]
 Die Operation {\bf I} f"ur die $i$-te Zeile bedeutet jetzt, dass man
 den Zeilenvektor $z_i$ ersetzt durch den neuen Zeilenvektor
-$$\frac1{a_{ii}}z_i
+\[
+\frac1{a_{ii}}z_i
 =
 \frac1{a_{ii}}
 \begin{pmatrix}a_{i1}&a_{i2}&\dots&a_{im}&b_i\end{pmatrix}
 =
 \begin{pmatrix}\frac{a_{i1}}{a_{ii}}&\frac{a_{i2}}{a_{ii}}&\dots&\frac{a_{im}}{a_{ii}}&\frac{b_i}{a_{ii}}\end{pmatrix}
-$$
+\]
 Bei der Operation {\bf E} wird der Zeilevektor $z_j$
 verringert um das $a_{ji}$-fache des Zeilenvektors $z_i$, also
-$$z_j \leftarrow z_j-a_{ji}z_i.$$
+\[
+z_j \leftarrow z_j-a_{ji}z_i.
+\]
 
 \subsubsection{Gleichungssystem in Vektorschreibweise}
 Auch das Gleichungssystem selbst k"onnen wir mit Hilfe von Spaltenvektoren
 schreiben. Betrachten wir die Spalten mit der Nummer $k$ als Spaltenvektor $a_k$,
 also
-$$a_k=\begin{pmatrix}a_{1k}\\a_{2k}\\\dots\\a_{mk}\end{pmatrix},$$
+\[
+a_k=\begin{pmatrix}a_{1k}\\a_{2k}\\\dots\\a_{mk}\end{pmatrix},
+\]
 und die rechten Seiten des Gleichungssystems wie fr"uher als Spaltenvektor $b$,
 dann k"onnen wir das Gleichungssystem schreiben als
-$$
+\[
 x_1\begin{pmatrix}a_{11}\\a_{21}\\\vdots\\a_{m1}\end{pmatrix}
 +
 x_2\begin{pmatrix}a_{12}\\a_{22}\\\vdots\\a_{m2}\end{pmatrix}
@@ -2026,25 +2052,28 @@ x_2\begin{pmatrix}a_{12}\\a_{22}\\\vdots\\a_{m2}\end{pmatrix}
 x_n\begin{pmatrix}a_{1n}\\a_{2n}\\\vdots\\a_{mn}\end{pmatrix}
 =
 \begin{pmatrix}b_1\\b_2\\\vdots\\b_m\end{pmatrix}
-$$
+\]
 oder kurz
-$$
+\[
 a_1x_1+a_2x_2+\dots+a_nx_n=b.
-$$
+\]
 
 \subsubsection{Spezielle Vektoren\label{speziellevektoren}}
 Die folgenden speziellen Vektoren sind oft n"utzlich. Der Nullvektor besteht
 aus lauter Nullen, wir schreiben daf"ur
-$$0=\begin{pmatrix}0\\\vdots\\0\end{pmatrix}.$$
+\[
+0=\begin{pmatrix}0\\\vdots\\0\end{pmatrix}.
+\]
 Im Verfahren f"ur die simultane L"osung von Gleichungssystemen haben
 wir spezielle rechte Seiten verwendet, welche bis auf eine Stelle aus lauter
 Nullen bestehen. Diese Vektoren bezeichnen wir in Zukunft mit
-$$e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix},
+\[
+e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix},
 \qquad
 e_2=\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix},
 \qquad
 e_n=\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}.
-$$
+\]
 
 \subsection{Matrizen}
 \subsubsection{Definition einer Matrix}
@@ -2055,7 +2084,7 @@ Gang des L"osungsverfahrens vollst"andig.
 
 \begin{definition}
 Das rechteckige Zahlenschema
-$$
+\[
 A=
 \begin{pmatrix}
 a_{11}&a_{12}&\dots&a_{1n}\\
@@ -2063,7 +2092,7 @@ a_{21}&a_{22}&\dots&a_{2n}\\
 \vdots&\vdots&\ddots&\vdots\\
 a_{m1}&a_{m2}&\dots&a_{mn}\\
 \end{pmatrix}
-$$
+\]
 heisst $m\times n$-Matrix.
 \end{definition}
 
@@ -2075,16 +2104,18 @@ Vektoren. Die folgende Definition tut, was wir uns w"unschen.
 Ist $A$ eine $m\times n$-Matrix und $x$ ein $n$-dimensionaler Spaltenvektor,
 dann definieren wir das Produkt $Ax$ also den $m$-dimensionalen
 Spaltenvektor
-$$
+\[
 \begin{pmatrix}
 a_{11}x_1+a_{12}x_2+\dots+a_{1n}x_n\\
 a_{21}x_1+a_{22}x_2+\dots+a_{2n}x_n\\
 \vdots\\
 a_{m1}x_1+a_{m2}x_2+\dots+a_{mn}x_n\\
 \end{pmatrix}
-$$
+\]
 Das Element $b_i$ in der $i$-ten Zeile dieses Spaltenvektors ist
-$$b_i=\sum_{j=1}^na_{ij}x_j.$$
+\[
+b_i=\sum_{j=1}^na_{ij}x_j.
+\]
 \end{definition}
 Die Multiplikation $Ax$ erfolgt also, indem die Zeilen von $A$
 elementweise mit der Spalte $x$ multipliziert, und dann alle Produkte
@@ -2137,15 +2168,17 @@ Av&=
 Mit diesen Definitionen ist das Gleichungssystem mit Koeffizientenmatrix $A$,
 dem L"osungs-Spaltenvektor $x$ und der rechten Seite $b$, ebenfalls einem
 Spaltenvektor, zu
-$$Ax=b$$
+\[
+Ax=b
+\]
 geworden. Diese Schreibweise suggeriert, dass wir einfach auf beiden
 Seiten ``durch $A$ teilen'' k"onnten, um die L"osung zu finden. Auf dieses
 Ziel werden wir hinarbeiten, und eine Multiplikation und ``Division''
 von Matrizen definieren, so dass wir tats"achlich die L"osung des Gleichungssystems
 mit Hilfe einer Formel
-$$
+\[
 x=A^{-1}b
-$$
+\]
 finden k"onnen.
 
 \subsubsection{Rechenregeln f"ur das Produkt Matrix $\times$ Vektor}
@@ -2277,35 +2310,37 @@ Die beiden Produkte sind offensichtlich verschieden.
 \subsubsection{Transponierte Matrix}
 Hat eine Matrix linear abh"angige Zeilen, lassen sich die Zeilen
 linear zu einer Null-Zeile kombinieren. Die Zeilen der Matrix
-$$A=
+\[
+A=
 \begin{pmatrix}
 a_{11}&\dots&a_{1n}\\
 \vdots&\ddots&\vdots\\
 a_{m1}&\dots&a_{mn}
 \end{pmatrix}
-$$
+\]
 sind also genau dann linear abh"angig, wenn das Gleichungssystem
-$$
+\[
 \begin{linsys}{4}
 a_{11}\lambda_1&+&a_{21}\lambda_2&+&\dots&+&a_{m1}\lambda_m&=&0\\
 a_{12}\lambda_1&+&a_{22}\lambda_2&+&\dots&+&a_{m2}\lambda_m&=&0\\
 \vdots         & &\vdots         & &\ddots&&\vdots         & &\vdots\\
 a_{1n}\lambda_1&+&a_{2n}\lambda_2&+&\dots&+&a_{mn}\lambda_m&=&0\\
 \end{linsys}
-$$
+\]
 eine L"osung hat, die nicht aus lauter Nullen besteht. Die Koeffizientenmatrix
 dieses Gleichungssystems entsteht dadurch, dass $A$ an der
 Diagonalen $a_{11}\dots a_{22}\dots a_{33}\dots$ gespiegelt wird.
 \begin{definition} Ist $A$ eine $m\times n$-Matrix mit Eintr"agen
 $a_{ij}$ in der $i$-ten Zeile und $j$-ten Spalte, dann heisst die
 gespiegelte Matrix
-$$A^t=\begin{pmatrix}
+\[
+A^t=\begin{pmatrix}
 a_{11}&a_{21}&\dots&a_{m1}\\
 a_{12}&a_{22}&\dots&a_{m2}\\
 \vdots&\vdots&\ddots&\vdots\\
 a_{1n}&a_{2n}&\dots&a_{mn}
 \end{pmatrix}
-$$
+\]
 die transponierte Matrix von $A$. $A^t$ ist eine $n\times m$-Matrix.
 Eine Matrix heisst symmetrisch, wenn $A^t=A$.
 \index{Matrix!symmetrische}
@@ -2404,13 +2439,13 @@ L"osung mehrere Gleichungssysteme aus Abschnitt \ref{simultan} etwas
 "ubersichtlicher schreiben. Dazu brauchen wir die spezielle Matrix, die auf
 der Diagonalen Einsen hat und sonst nur Nullen. Diese Matrix heisst die
 Einheitsmatrix, wir bezeichnen sie mit
-$$
+\[
 I=
 \begin{pmatrix}1&\dots&0\\
 \vdots&\ddots&\vdots\\
 0&\dots&1
 \end{pmatrix},
-$$
+\]
 unabh"angig von der Anzahl Zeilen und Spalten, diese ist aus dem Zusammenhang
 zu entnehmen.
 
@@ -2436,14 +2471,15 @@ und einer Eins bestehen.
 
 Eine beliebige rechte Seite $b$ l"asst sich jetzt aus den speziellen rechten
 Seiten zusammensetzen:
-$$b=\begin{pmatrix}b_1\\b_2\\\vdots\\b_n\end{pmatrix}
+\[
+b=\begin{pmatrix}b_1\\b_2\\\vdots\\b_n\end{pmatrix}
 =
 b_1\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}
 +
 b_2\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix}
 +\dots+
 b_n\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}
-$$
+\]
 wir versuchen daher, auch die L"osung aus den entsprechenden Spalten von $C$
 aufzubauen:
 \begin{equation}
@@ -2458,7 +2494,7 @@ b_n\begin{pmatrix}c_{1n}\\c_{2n}\\\vdots\\c_{nn}\end{pmatrix}.
 \end{equation}
 Tats"achlich ergibt sich, wenn wir die Matrix $A$ auf diesen Vektor
 anwenden
-$$
+\[
 Ax
 =
 b_1A\begin{pmatrix}c_{11}\\c_{21}\\\vdots\\c_{n1}\end{pmatrix}
@@ -2472,18 +2508,20 @@ b_1\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}
 b_2\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix}
 +\dots+
 b_n\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}=b,
-$$
+\]
 dieses $x$ ist also tats"achlich die gesuchte L"osung.
 
 Das Element auf Zeile $i$ in 
 \ref{zusammensetzen} ist
-$$
+\[
 x_i=c_{i1}b_1+c_{i2}b_2+\dots+c_{in}b_n,
-$$
+\]
 dies ist aber nichts anderes als die $i$-te Komponente des Produktes
 $Cb$, die L"osung $x$ kann als mit Hilfe eines Matrizenproduktes gefunden
 werden:
-$$ x = Cb.$$
+\[
+x = Cb.
+\]
 Die Matrix $C$ hat also offenbar eine ganz besondere Bedeutung f"ur die
 L"osung linearer Gleichungssysteme, ist sie einmal bestimmt, kann man das
 Gleichungssystem f"ur jede beliebige rechte Seite l"osen. Daher definieren
@@ -2648,9 +2686,13 @@ wollen.
 Sei $A$ eine $m\times n$-Matrix, und $b\ne 0$ ein $m$-dimensionaler
 Spaltenvektor. Das Gleichungssystem mit nicht verschwindender
 rechten Seite
-$$Ax=b\qquad\text{heisst inhomogen,}$$
+\[
+Ax=b\qquad\text{heisst inhomogen,}
+\]
 das Gleichungssystem mit Nullen auf der rechten Seite 
-$$Ax=0\qquad\text{heisst homogen.}$$
+\[
+Ax=0\qquad\text{heisst homogen.}
+\]
 \end{definition}
 \subsection{Regul"are Koeffizientenmatrix}
 Ist $A$ regul"ar, dann hat das Gleichungssystem $Ax=b$ f"ur jede beliebige
@@ -2676,18 +2718,22 @@ Ax&=0&\qquad&\begin{cases}
 Ein homogenes Gleichungssystem mit singul"arer Koeffizientenmatrix hat also
 immer unendlich viele L"osungen. Wir bezeichnen die L"osungsmenge des
 Systems $Ax=0$ mit $\mathbb L_h$:
-$$
+\[
 \mathbb L_h=\{x|Ax=0\}.
-$$
+\]
 
 Ist jetzt $x_p$ eine beliebige L"osung des inhomogenen Systems $Ax=b$, dann
 k"onnen wir weiter L"osungen finden, indem wir L"osungen $x_h\in\mathbb L_h$
 dazuaddieren:
-$$A(x_p+x_h)=Ax_p+Ax_h=b+0=b,$$
+\[
+A(x_p+x_h)=Ax_p+Ax_h=b+0=b,
+\]
 also ist $x_p+x_h$ auch wieder eine L"osung. Umgekehrt ist die Differenz
 zwischen zwei L"osungen $x_p$ und $x_p'$ der inhomogenen Gleichung in
 $\mathbb L_h$:
-$$A(x_p-x_p')=Ax_p-Ax_p'=b-b=0\quad\Rightarrow\quad (x_p-x_p')\in\mathbb L_h.$$
+\[
+A(x_p-x_p')=Ax_p-Ax_p'=b-b=0\quad\Rightarrow\quad (x_p-x_p')\in\mathbb L_h.
+\]
 Damit haben wir folgendes Rezept zur Bestimmung der L"osungsmenge des
 inhomogenen Gleichungssystems gefunden
 \begin{satz}
@@ -2695,7 +2741,9 @@ inhomogenen Gleichungssystems gefunden
 Ist $x_p$ eine spezielle L"osung des inhomogenen Gleichungssystems $Ax=b$,
 auch partikul"are L"osung genannt,
 dann ist die L"osungsmenge dieses Gleichungssystems 
-$$\mathbb L=\{x_p+x_h|x_h\in\mathbb L_h\},$$
+\[
+\mathbb L=\{x_p+x_h|x_h\in\mathbb L_h\},
+\]
 wobei $\mathbb L_h$ die L"osungsmenge des homogenen Gleichungssystems ist.
 \end{satz}
 Der Satz leistet eine Aufteilung des Problems, alle L"osungen zu finden,
@@ -2740,10 +2788,10 @@ es also n"otig sein, von einen schnelleren Prozessor zu verwenden.
 F"ur den $k$-ten Schritt beim Vorw"artsreduzieren muss die $k$-te
 Zeile mit einer Zahl multipliziert werden ($n$ Operationen) und dann
 von $n-k$ Zeilen subtrahiert werden ($(n-k)n$ Operationen). Es sind also
-$$
+\[
 \sum_{k=1}^n n(n-k+1) = n^3 - n \sum_{k=1}^n k + n^2
 =n^3+n^2-n\frac{n(n+1)}2=\frac{n^2(n+1)}2 =O(n^3)
-$$
+\]
 Operationen n"otig. Bei $n=12$ Unbekannten braucht man also bereits
 $936$ Operationen, mehr als ungef"ahr sieben mal pro Sekunde kann man das mit
 einem 8bit AVR also nicht machen. Mit einem ARM7 dagegen k"onnte
