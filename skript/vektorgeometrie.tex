@@ -1,15 +1,16 @@
 \chapter{Vektorgeometrie\label{chapter-vektorgeometrie}}
 \rhead{Vektorgeometrie}
-Die in den ersten zwei Kapiteln entwickelte Algebra der Vektoren 
-hat als eine ihrer grossen Anwendungen die Vektorgeometrie. Die
+Die in den ersten zwei Kapiteln entwickelte Algebra der Vektoren
+hat als eine ihrer grossen Anwendungen die Vektorgeometrie.
+Die
 Idee der analytischen Geometrie, Punkt mittels Koordinaten als Zahlenpaare
 oder Zahlentripel zu codieren und damit der Behandlung mittels
 Gleichungssystemen zug"anglich zu machen, wird durch eine
 vektorielle Beschreibung noch verallgemeinert und deutlich leistungsf"ahiger.
 
 Andererseits steuert die Geometrie auch viele Konzepte bei, die auf
-Vektoren beliebiger Dimension verallgemeinert werden k"onnen. Dazu
-geh"ort vor allem das Skalarprodukt, welches sich sogar auf
+Vektoren beliebiger Dimension verallgemeinert werden k"onnen.
+Dazu geh"ort vor allem das Skalarprodukt, welches sich sogar auf
 Funktionen, Polynome und weitere Objekte verallgemeinern l"asst.
 In der h"oheren Mathematik entsteht daraus die Theorie der Fourier-Reihen,
 der Fourier-Transformation, aber auch Approximationspolynome.
@@ -17,14 +18,16 @@ der Fourier-Transformation, aber auch Approximationspolynome.
 Nicht ganz so erfolgreich wie das Skalarprodukt ist das Vektorprodukt,
 welches Fl"acheninhalte von Parallelogrammen und Volumina von Spaten
 berechnen helfen kann, aber auch immer dann n"utzlich ist, wenn
-zu zwei Vektoren ein senkrecht stehender Vektor gesucht ist. Das
-Vektorprodukt ist spezifisch f"ur den dreidimensionalen Raum.
+zu zwei Vektoren ein senkrecht stehender Vektor gesucht ist.
+Das Vektorprodukt ist spezifisch f"ur den dreidimensionalen Raum.
 
 In diesem Kapitel wird zun"achst gezeigt, wie Punkte, Geraden und
 Ebenen mit Vektoren beschrieben werden k"onnen, und wie sich damit
 bereits einige interessante geometrische Probleme rechnerisch l"osen
-lassen. In Abschnitt 3.4 wird das Skalarprodukt eingef"uhrt, welches
-f"ur L"angen- und Winkelmessung gebraucht wird. Spiegelungen, orthogonale
+lassen.
+In Abschnitt 3.4 wird das Skalarprodukt eingef"uhrt, welches
+f"ur L"angen- und Winkelmessung gebraucht wird.
+Spiegelungen, orthogonale
 Vektoren sowie Kreis und Kugel sind wichtige Anwendungen davon.
 Der letzte Abschnitt ist dem Vektorprodukt gewidmet.
 
@@ -34,7 +37,8 @@ Der letzte Abschnitt ist dem Vektorprodukt gewidmet.
 Punkte der Ebene k"onnen mit Hilfe eines Koordinatensystems festgelegt
 werden: von einem Ausgangspunkt $O$, dem Nullpunkt des Koordinatensystems
 aus, werden die Koordinaten entlang zweier aufeinander senkrecht stehender
-Richtungen, den Achsrichtungen abgetragen. Die Geraden durch den Ursprung
+Richtungen, den Achsrichtungen abgetragen.
+Die Geraden durch den Ursprung
 des Koordinatensystems in Achsrichtung heissen die Koordinatenachsen.
 
 \begin{figure}
@@ -47,8 +51,8 @@ des Koordinatensystems in Achsrichtung heissen die Koordinatenachsen.
 Ein Punkt $P$ wird durch die L"ange der Projektionen der Strecke $OP$
 auf die Achsrichtungen festgelegt, also durch ein Zahlenpaar $(x,y)$.
 Der Punkt $(1,0)$ liegt auf der $x$-Achse, eine Einheit vom Punkt $O$
-entfernt. Der Punkt $(0,1)$ liegt gleich weit entfernt von $O$ auf der
-$y$-Achse.
+entfernt.
+Der Punkt $(0,1)$ liegt gleich weit entfernt von $O$ auf der $y$-Achse.
 
 \subsubsection{Ortsvektoren}
 Die Einf"uhrung eines Koordinatensystems erm"oglicht zwar, Punktmengen
@@ -56,9 +60,10 @@ in der Ebene durch algebraische Beziehungen zwischen den Koordinaten
 zu beschreiben, zum Beispiel ist der Einheitskreis die Menge der
 Punkte
 \[
-\{(x,y)|x^2+y^2=1\}.
+\{(x,y)\;|\;x^2+y^2=1\}.
 \]
-``Rechnen'' kann man mit den Punkten aber noch nicht. Dazu bilden wir
+``Rechnen'' kann man mit den Punkten aber noch nicht.
+Dazu bilden wir
 die Spaltenvektoren, mit denen wir ja bereits zu rechnen gelernt haben,
 wie folgt auf die Punkte der Ebene ab:
 \[
@@ -121,8 +126,8 @@ der Strecken.
 \label{image-vektorab}}
 \end{figure}
 Besonders im Falle der Addition spielt die ``Richtung'' der Strecken eine
-Rolle, wir symbolisieren diese Richtung durch einen Pfeil. Der Pfeil
-vom Punkt $A$ zum Punkt $B$ ist die Differenz der Vektoren die von
+Rolle, wir symbolisieren diese Richtung durch einen Pfeil.
+Der Pfeil vom Punkt $A$ zum Punkt $B$ ist die Differenz der Vektoren die von
 $O$ zum Punkt $B$ bzw.~zu $A$ f"uhren:
 \[
 \overset{\rightarrow}{AB}=\overset{\rightarrow}{OB}-\overset{\rightarrow}{OA}
@@ -145,10 +150,11 @@ zu allen Ortsvektoren.
 
 \subsubsection{Bemerkungen zur Notation}
 In diesem geometrischen Zusammenhang werden wir oft Vektoren als
-kleine Buchstaben mit einem Pfeil schreiben: $\vec v$. Um jedoch interessante
+kleine Buchstaben mit einem Pfeil schreiben: $\vec v$.
+Um jedoch interessante
 Geometrie zu treiben, m"ussen wir die "ublichen geometrischen Begriffe in
-Vektorschreibweise "ubersetzen: Geraden, Ebenen, Kreise, Kugeln. Ausserdem
-m"ussen wir lernen, wie "ubliche geometrische Konstruktionen in 
+Vektorschreibweise "ubersetzen: Geraden, Ebenen, Kreise, Kugeln.
+Ausserdem m"ussen wir lernen, wie "ubliche geometrische Konstruktionen in
 Rechenoperationen mit Vektoren "ubersetzt werden k"onnen.
 
 \subsection{Basis}
@@ -160,7 +166,8 @@ Rechenoperationen mit Vektoren "ubersetzt werden k"onnen.
 \caption{Koordinatensystem und Basis\label{imagebasis}}
 \end{figure}
 Im Abschnitt \ref{speziellevektoren} haben wir die Vektoren $e_i$
-kennengelernt. Im aktuellen Zusammenhang schreiben wir daf"ur oft auch
+kennengelernt.
+Im aktuellen Zusammenhang schreiben wir daf"ur oft auch
 \[
 \vec e_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad
 \vec e_2=\begin{pmatrix}0\\1\\0\end{pmatrix},\qquad
@@ -176,9 +183,11 @@ v_3\vec e_3.
 \]
 Die speziellen Vektoren $e_1,\dots,e_n$ sind nicht die einzig m"oglichen,
 mit denen man die Position eines Punktes auf vektorielle Weise
-beschreiben k"onnte. Jeder andere Satz von $n$ Vektoren kann
+beschreiben k"onnte.
+Jeder andere Satz von $n$ Vektoren kann
 dazu verwendet werden, sofern sich damit jeder beliebige Vektor
-linear kombinieren l"asst.  In Kapitel~1 haben wir gelernt, dass dies
+linear kombinieren l"asst.
+In Kapitel~1 haben wir gelernt, dass dies
 gleichbedeutend damit ist, dass die Vektoren linear unabh"angig sein
 m"ussen.
 \begin{definition}
@@ -200,8 +209,8 @@ b_{n1}\xi_1&+&\dots &+&b_{nn}\xi_n&=&x_n\\
 \end{linsys}
 \]
 Sind die Vektoren linear unabh"angig, dann ist die Koeffizientenmatrix
-regul"ar, das Gleichungssystem hat also genau eine L"osung. Die
-behauptete Darstellung ist also immer m"oglich.
+regul"ar, das Gleichungssystem hat also genau eine L"osung.
+Die behauptete Darstellung ist also immer m"oglich.
 
 Somit haben wir eine weitere Interpretation einer regul"aren Matrix:
 die Spalten einer regul"aren Matrix sind Vektoren, die man dazu verwenden
@@ -277,10 +286,12 @@ Die Gleichung hat als L"osungsmenge die Punkte
 $(x,y)$, die auf einer Geraden der Steigung $a$ durch den Punkt $(0,b)$
 liegen.
 Der Nachteil dieser Darstellung ist, dass sich Geraden parallel zur $y$-Achse
-damit nicht abbilden lassen. Solche Geraden haben die Gleichung $x=c$, sie haben
+damit nicht abbilden lassen.
+Solche Geraden haben die Gleichung $x=c$, sie haben
 ``unendlich'' grosse Steigung.
 Eine weitere Schwierigkeit besteht im Raum, wo noch eine weiter Koordinate
-festzulegen ist. Auch diese ist mit einer einzigen Gleichung nicht m"oglich.
+festzulegen ist.
+Auch diese ist mit einer einzigen Gleichung nicht m"oglich.
 Wir ben"otigen daher eine neue Form der Geradengleichung, welche f"ur beliebige
 Geraden in beliebigen Richtungen durch beliebige Punkte in beliebigen R"aumen
 unabh"angig von der Dimension funktionieren.
@@ -288,11 +299,12 @@ unabh"angig von der Dimension funktionieren.
 \subsection{Parameterdarstellung}
 \index{Parameterdarstellung!einer Gerade}
 Die Punkte einer Geraden enstehen dadurch, dass ein Ausgangspunkt um
-variable L"angen in immer die gleiche Richtung verschoben wird. Dies "ubersetzen
-wird jetzt in die Vektorsprache. Eine Gerade wird also beschrieben durch
+variable L"angen in immer die gleiche Richtung verschoben wird.
+Dies "ubersetzen wird jetzt in die Vektorsprache.
+Eine Gerade wird also beschrieben durch
 \begin{itemize}
-\item einen Ausgangspunkt, oder seinen Ortsvektor $\vec p$. Dieser Vektor
-heisst oft auch {\em St"utzvektor}.
+\item einen Ausgangspunkt, oder seinen Ortsvektor $\vec p$.
+Dieser Vektor heisst oft auch {\em St"utzvektor}.
 \index{Stutzvektor@St\"utzvektor}
 \item Von diesem Ausgangspunkt aus m"ussen Strecken in eine bestimmte
 Richtung angesetzt werden, dazu brauchen wir einen Vektor, wir nennen ihn
@@ -319,8 +331,8 @@ $A=(3,1,4)$ und $B=(1,5,9)$.
 {\parindent 0pt
 Dazu} braucht man einen Vektor, der die Funktion von $\vec p$ "ubernehmen
 kann, wir verwenden $\overrightarrow{OA}$ daf"ur, und als
-Richtungsvektor k"onnen wir $\overrightarrow{AB}$ verwenden. Damit wird
-die Geradengleichung
+Richtungsvektor k"onnen wir $\overrightarrow{AB}$ verwenden.
+Damit wird die Geradengleichung
 \begin{equation}
 \vec r(t) =
 \begin{pmatrix}3\\1\\4 \end{pmatrix}
@@ -331,7 +343,8 @@ die Geradengleichung
 \end{beispiel}
 
 \subsubsection{Geht eine Gerade durch einen Punkt?}
-Gegeben ist die Gerade durch $\vec p$ mit Richtungsvektor $\vec v$. Geht die
+Gegeben ist die Gerade durch $\vec p$ mit Richtungsvektor $\vec v$.
+Geht die
 Gerade durch den Punkt $\vec s$? Offenbar m"ussen wir herausfinden, ob es
 einen Wert des Parameters $t$ gibt, f"ur den der Geradenpunkt mit $\vec s$
 identisch ist, also
@@ -362,13 +375,15 @@ s_3&=p_3+tv_3
 \end{aligned}
 \]
 Dieses Gleichungssystem mit drei Gleichungen aber nur einer Unbekannten wird
-meistens nicht l"osbar sein. Aber es gilt nat"urlich die "ubliche Alternative
+meistens nicht l"osbar sein.
+Aber es gilt nat"urlich die "ubliche Alternative
 f"ur lineare Gleichungssysteme:
 \begin{itemize}
 \item Es kann keine L"osungen geben: Dieser Fall tritt ein, wenn die Gerade
 an dem Punkt vorbei geht.
 \item Es kann unendlich viele L"osungen geben: Dieser Fall tritt ein, wenn
-$\vec v=0$ ist und $\vec p=\vec s$. Dann ``bleibt'' der Punkt $\vec r(t)$
+$\vec v=0$ ist und $\vec p=\vec s$.
+Dann ``bleibt'' der Punkt $\vec r(t)$
 immer am Ort $\vec p$, welcher identisch ist mit dem gesuchten Punkt $\vec s$.
 \item Es kann genau eine L"osung geben: falls $\vec v\ne 0$ und der Punkt auf der
 Geraden liegt, gibt es genau einen Parameterwert, f"ur den der Punkt
@@ -376,7 +391,8 @@ getroffen wird.
 \end{itemize}
 Den Parameterwert im Fall 3 kann man zum Beispiel finden, indem man eine
 der Gleichungen ausw"ahlt, in der der $v_i$-Koeffizient nicht $0$ ist
-Diese Gleichung l"ost man nach $t$ auf. Falls $v_1\ne 0$ heisst das
+Diese Gleichung l"ost man nach $t$ auf.
+Falls $v_1\ne 0$ heisst das
 \[
 t=\frac{s_1-p_1}{v_1}.
 \]
@@ -397,7 +413,8 @@ geht, muss man versuchen, die Gleichung
 \begin{pmatrix}-2\\4\\5\end{pmatrix}
 =\vec u
 \]
-zu l"osen. F"ur die beiden Ortsvektoren $\vec u$ und $\vec v$
+zu l"osen.
+F"ur die beiden Ortsvektoren $\vec u$ und $\vec v$
 bedeutet das
 \begin{align*}
 t_1
@@ -443,7 +460,8 @@ Es folgt, dass $U$ auf der Geraden liegt, $V$ aber nicht.
 \index{Geschwindigkeitsvektor}
 Interpretiert man $t$ als die Zeit, dann bewegt sich ein Punkt auf der Geraden in
 einer Sekunde um $\vec v$, dieser Vektor stellt also die Geschwindigkeit
-des Punktes dar. Die Parameterdarstellung der Geraden ist also auch eine
+des Punktes dar.
+Die Parameterdarstellung der Geraden ist also auch eine
 Beschreibung einer gleichf"ormigen Bewegung.
 
 \subsubsection{Spezialfall Dimension 2}
@@ -486,8 +504,8 @@ y_0-mx_0 +mx
 mx+(y_0-mx_0)=mx+b
 \]
 Es entsteht also eine Geradengleichung der Art, wie sie uns schon fr"uher
-bekannt war. Der Quotient
-$m=\frac{v_y}{v_x}$
+bekannt war.
+Der Quotient $m=\frac{v_y}{v_x}$
 ist offenbar die Steigung der Geraden, $y_0-mx_0$ ist der Achsabschnitt.
 Die Vektorschreibweise ist jedoch vorteilhaft, weil sie keine der
 Koordinaten besonders hervorhebt, und damit auch Spezialf"alle wie
@@ -497,14 +515,16 @@ $v_x=0$, also ist die Steigung $m=\frac{v_y}{v_x}$ nicht definiert.}.
 \subsection{Schnittpunkt von zwei Geraden}
 \index{Schnittpunkt zweier Geraden}
 Seien jetzt zwei Geraden gegeben, also zwei Ausgangspunkte $\vec p_1$ und
-$\vec p_2$ und zwei Richtungsvektoren $\vec v_1$ und $\vec v_2$. Haben die
-beiden Geraden einen Schnittpunkt?
+$\vec p_2$ und zwei Richtungsvektoren $\vec v_1$ und $\vec v_2$.
+Haben die beiden Geraden einen Schnittpunkt?
 Jede der Geraden ist durch die Parameterdarstellung
 $\vec r=\vec p_1+t\vec v_1$
 bzw.~$\vec r=\vec p_2+t\vec v_2$
-gegeben. Wir k"onnen nat"urlich nicht annehmen, dass der Schnittpunkt,
+gegeben.
+Wir k"onnen nat"urlich nicht annehmen, dass der Schnittpunkt,
 wenn es ihn "uberhaupt gibt, von beiden Geraden mit dem gleichen Parameterwert
-$t$ erreicht wird. Wir m"ussen also zwei verschiedene Parameterwerte $t$
+$t$ erreicht wird.
+Wir m"ussen also zwei verschiedene Parameterwerte $t$
 und $s$ finden, die eingesetzt in die beiden Geradengleichungen zum gleichen
 Punkt f"uhren, also:
 \[
@@ -517,11 +537,11 @@ t\vec v_1-s\vec v_2=\vec p_2-\vec p_1.
 Dies ist ein Gleichungssystem mit zwei Unbekannten, f"ur die Anzahl der L"osungen
 gilt wieder die bekannte Alternative:
 \begin{itemize}
-\item Keine L"osungen: Die Geraden haben keinen Schnittpunkt, in der Ebene 
+\item Keine L"osungen: Die Geraden haben keinen Schnittpunkt, in der Ebene
 kann dies zum Beispiel dadurch geschehen, dass die Geraden parallel sind.
-Im Raum k"onnen die Geraden auch windschief sein. In drei Dimensionen
-erhalten wir drei Gleichungen mit nur einer Unbekannten, dieses System wir
-normalerweise nicht l"osbar sein.
+Im Raum k"onnen die Geraden auch windschief sein.
+In drei Dimensionen erhalten wir drei Gleichungen mit nur einer Unbekannten,
+dieses System wir normalerweise nicht l"osbar sein.
 \item Unendlich viele L"osungen: die Geraden sind deckungsgleich
 \item Genau eine L"osung: es gibt einen wohldefinierten Schnittpunkt.
 \end{itemize}
@@ -622,8 +642,9 @@ Der Schnittpunkt ist $S=(-5,-2,1)$.
 \end{figure}%
 Ebenen zeichnen sich gegen"uber Geraden dadurch aus, dass sich auf ihnen
 ein Punkt nicht nur in einer Richtung, sondern unabh"angig zwei Richtungen
-bewegen kann. Wir brauchen also einen zweiten Richtungsvektor und einen
-zweiten Parameter. Die Punkte einer Ebene $\sigma$ werden also beschrieben durch
+bewegen kann.
+Wir brauchen also einen zweiten Richtungsvektor und einen zweiten Parameter.
+Die Punkte einer Ebene $\sigma$ werden also beschrieben durch
 \[
 \vec r=\vec p+t\vec v_1+s\vec v_2,
 \]
@@ -690,8 +711,8 @@ sie entspricht drei linearen Gleichungen f"ur diese Unbekannten.
 Im Allgemeinen wird dieses Gleichungssystem genau eine L"osung haben,
 n"amlich den Durchstosspunkt.
 Ist die Gerade parallel zur Ebene, hat das Gleichungssystem jedoch keine
-L"osung, es gibt also auch keinen Durchstosspunkt. Liegt die Gerade
-dagegen in der Ebene, gibt es unendlich viele L"osungen.
+L"osung, es gibt also auch keinen Durchstosspunkt.
+Liegt die Gerade dagegen in der Ebene, gibt es unendlich viele L"osungen.
 
 In den singul"aren F"allen ist es offenbar m"oglich, die Richtung $\vec r$
 der Gerade durch die beiden Vektoren $\vec u$ und $\vec v$ in der Ebene
@@ -706,11 +727,11 @@ Finde den Durchstosspunkt der Geraden
 +
 l\begin{pmatrix} 1\\0\\1 \end{pmatrix}
 \]
-durch die Ebene (\ref{beispielebene}). 
+durch die Ebene (\ref{beispielebene}).
 
 \smallskip
 
-{\parindent0pt Zusammen} mit der Gleichung (\ref{beispielebene}) bekommen wir die 
+{\parindent0pt Zusammen} mit der Gleichung (\ref{beispielebene}) bekommen wir die
 Vektorgleichung
 \[
 \begin{pmatrix}1\\2\\1 \end{pmatrix}
@@ -832,9 +853,9 @@ Im dreidimensionalen Raum sind zwei Ebenen
 \{\vec p_1+s_1\vec u_1+t_1\vec v_1\;|\;s_1, t_1\in\mathbb R\}
 \end{align*}
 gegeben, gesucht ist deren Schnittgerade $g$
-(Abbildung~\ref{image-schnittgerade}). Diese besteht offenbar aus
-den Punkten, die sich f"ur geeignete Parameterwerte $s_0,t_0,s_1,t_1$
-mit der Eigenschaft
+(Abbildung~\ref{image-schnittgerade}).
+Diese besteht offenbar aus den Punkten, die sich f"ur geeignete Parameterwerte
+$s_0,t_0,s_1,t_1$ mit der Eigenschaft
 \begin{align*}
 p_0+s_0\vec u_0+t_0\vec v_0
 &=
@@ -846,16 +867,17 @@ s_0\vec u_0+t_0\vec v_0
 -p_0+
 p_1
 \end{align*}
-finden lassen. Dies ist ein Gleichungssystem mit drei Gleichungen f"ur
+finden lassen.
+Dies ist ein Gleichungssystem mit drei Gleichungen f"ur
 vier Unbekannte, im Allgemeinen wird sich also eine der Unbekannten
 nicht bestimmen lassen, sondern die anderen Unbekannten werden sich
-durch die vierte ausdr"ucken lassen. Die Punkte der Schnittmenge sind
-also von der Form
+durch die vierte ausdr"ucken lassen.
+Die Punkte der Schnittmenge sind also von der Form
 \[
 p_1+s_1(t_1)\vec u_1+t_1\vec v_1,
 \]
-wobei von der Form $s_1(t_1)=a+bt_1$ sein muss. Setzt man dies ein,
-ergibt sich wieder eine Geradengleichung:
+wobei von der Form $s_1(t_1)=a+bt_1$ sein muss.
+Setzt man dies ein, ergibt sich wieder eine Geradengleichung:
 \[
 p_1+s_1(t_1)\vec u_1+t_1\vec v_1
 =
@@ -962,7 +984,7 @@ dies ist eine h"ubsche Kontrolle f"ur die Richtigkeit des Resultates.
 \end{beispiel}
 
 \subsection{Vereinheitlichtes L"osungsverfahren\label{section-vereinheitlichtes-verfahren}}
-Alle in den bisherigen Abschnitten vorgestellten L"osungsverfahren 
+Alle in den bisherigen Abschnitten vorgestellten L"osungsverfahren
 laufen darauf hinaus, dass man f"ur die Parameter der Parameterdarstellungen
 Gleichungen dadurch aufstellt, dass man wo n"otig Gleichungen herstellt.
 Dies ist aber eigentlich ein unn"otiger Schritt, den man auch dem
@@ -970,7 +992,8 @@ Gauss-Algorithmus "uberlassen k"onnte.
 
 Traditionell wird das so gemacht, weil fr"uher eine grosse Angst
 davor bestand, auf grosse Gleichungssysteme zu stossen, deren L"osung
-m"uhsam ist. Diese Angst ist heute mit modernen Taschenrechnern und
+m"uhsam ist.
+Diese Angst ist heute mit modernen Taschenrechnern und
 Computer nicht mehr gerechtfertigt.
 
 \subsubsection{Durchstosspunkt}
@@ -1004,7 +1027,7 @@ $({\color{red}x}, {\color{red}y}, {\color{red}z})$ explizit hin:
 Darin haben wir alle unbekannten Gr"ossen {\color{red}rot} markiert.
 Wir haben jetzt sechs Gleichungen mit sechs Unbekannten.
 Der Gauss-Algorithmus liefert direkt die L"osung, sofern es eine gibt,
-ohne dass man wie in Abschnitt \ref{subsection-durchstosspunkt} 
+ohne dass man wie in Abschnitt \ref{subsection-durchstosspunkt}
 die gefundenen Parameterwerte nochmals einsetzen m"usste:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
@@ -1071,9 +1094,10 @@ Ortsvektor eines beliebigen Punktes $(x,y,z)$ der Ebenen entsteht:
 +{\color{red}s_1}\begin{pmatrix}6\\6\\7\end{pmatrix}
 +{\color{red}t_1}\begin{pmatrix}5\\4\\4\end{pmatrix}
 \]
-Hier hat man pl"otzlich 6 Gleichungen f"ur 7 Unbekannte. Wir erwarten
-also eine frei w"ahlbare Variable, die dann als Parameter f"ur die
-Schnittgerade dienen kann. Das Gausstableau ist
+Hier hat man pl"otzlich 6 Gleichungen f"ur 7 Unbekannte.
+Wir erwarten also eine frei w"ahlbare Variable, die dann als Parameter
+f"ur die Schnittgerade dienen kann.
+Das Gausstableau ist
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -1115,7 +1139,8 @@ Schnittgerade dienen kann. Das Gausstableau ist
 \]
 Daraus liest man ab, dass es unendlich viele Punkte gibt, die auf beiden
 Ebenen liegen, und dass $t_1$ als Parameter f"ur die Geradengleichung
-dienen kann. Ausserdem kann man die Parameterdarstellung der Gerade ablesen:
+dienen kann.
+Ausserdem kann man die Parameterdarstellung der Gerade ablesen:
 \[
 \begin{pmatrix}-67\\-68\\-80\end{pmatrix}
 +t_1
@@ -1125,8 +1150,8 @@ dienen kann. Ausserdem kann man die Parameterdarstellung der Gerade ablesen:
 \index{Skalarprodukt}
 Abstand und Winkel spielen in der euklidischen Geometrie eine fundamentale
 Rolle, die bisher eingef"uhrten Elemente der Vektorgeometrie erlauben
-jedoch noch nicht, Abst"ande oder Winkel zu berechnen. Dazu ist ein neues
-Konstrukt erforderlich, das Skalarprodukt.
+jedoch noch nicht, Abst"ande oder Winkel zu berechnen.
+Dazu ist ein neues Konstrukt erforderlich, das Skalarprodukt.
 
 \subsection{Orthogonale Projektion}
 \index{orthogonale Projektion}
@@ -1144,7 +1169,7 @@ eines Vektors auf jeden beliebigen anderen Vektor zu berechnen.
 Seien also $\vec u$, $\vec v$ zwei beliebige Vektoren wie in Abbildung~\ref{orthproj}, und $p_{\vec u}(\vec v)$
 die L"ange der Projektion des Vektors $\vec v$ auf $\vec u$.
 Wir versehen diese L"ange mit einem Vorzeichen, zeigt der auf $\vec u$
-projizierte Vektor $\vec v$ in die gleiche Richtung wie $\vec u$ 
+projizierte Vektor $\vec v$ in die gleiche Richtung wie $\vec u$
 nehmen wir die L"ange positiv, zeigt der projizierte Vektor in die
 Gegenrichtung, ist $p_{\vec u}(\vec v)$ negativ.
 
@@ -1155,11 +1180,11 @@ $\alpha$ zwischen den beiden Vektoren ist
 \label{zwischenwinkel}
 \end{equation}
 Offenbar ist die L"ange der Projektion die grundlegendere Gr"osse,
-aus der man die anderen Konzepte ableiten kann. Etwas ung"unstig
-ist an dieser Projektion nur, dass die beiden Vektoren nicht
+aus der man die anderen Konzepte ableiten kann.
+Etwas ung"unstig ist an dieser Projektion nur, dass die beiden Vektoren nicht
 symmetrisch eingehen.
 Immerhin ist $p_{\vec u}(\vec v)$ linear in $\vec v$, wie man
-sich mit einer 
+sich mit einer
 Zeichnung sofort "uberzeugen kann, es ist also
 \begin{align*}
 p_{\vec u}(\vec v_1+\vec v_2)&=p_{\vec u}(\vec v_1)+p_{\vec u}(\vec v_2)\\
@@ -1179,7 +1204,8 @@ $\alpha$.\label{image-skalarprodukt}}
 Gesucht ist daher eine Konstruktion, welche immer noch linear ist,
 aber auch symmetrisch in $\vec u$ und $\vec v$.
 Die Formel (\ref{zwischenwinkel}) deutet auch an, wie dies erreicht
-werden kann. Der Zwischenwinkel kann nat"urlich auch berechnet werden,
+werden kann.
+Der Zwischenwinkel kann nat"urlich auch berechnet werden,
 indem die beiden Vektoren vertauscht werden:
 \[
 \cos \alpha
@@ -1188,7 +1214,7 @@ indem die beiden Vektoren vertauscht werden:
 =
 \frac{p_{\vec v}(\vec u)}{p_{\vec u}(\vec u)}
 \]
-Multipliziert man diese Gleichung mit 
+Multipliziert man diese Gleichung mit
 $
 p_{\vec u}(\vec u)
 p_{\vec v}(\vec v)
@@ -1248,8 +1274,9 @@ Ist $\vec u$ ein Einheitsvektor, dann ist $\vec v_{\|}=(\vec v\cdot \vec u)\vec 
 \index{Zwischenwinkel}
 
 Zur praktischen Berechnung des Skalarproduktes ben"otigen wir
-eine Formel, die das Skalarprodukt aus den Vektorkomponenten 
-berechnet. Schreibt man
+eine Formel, die das Skalarprodukt aus den Vektorkomponenten
+berechnet.
+Schreibt man
 \[
 \vec u=\begin{pmatrix}u_1\\u_2\\u_3\end{pmatrix}
 =u_1\vec e_1+u_2\vec e_2+u_3\vec e_3
@@ -1284,7 +1311,7 @@ das Skalarprodukt eines Vektors mit sich selbst ist das Quadrat
 der L"ange, also $\vec e_i\cdot \vec e_i=1$ und so erhalten wir den
 Satz
 \begin{satz}
-Das Skalarprodukt zweier Vektoren 
+Das Skalarprodukt zweier Vektoren
 \[
 \vec u=\begin{pmatrix}u_1\\u_2\\u_3\end{pmatrix},
 \qquad
@@ -1349,7 +1376,8 @@ beschreiben.
 Eine Ebene durch den Punkt $P$ senkrecht auf den Vektor
 $\vec n$ besteht genau aus jenen Punkten $Q$, f"ur die der Vektor
 $\overset{\rightarrow}{PQ}$ auf $\vec n$ senkrecht steht
-(Abbildung~\ref{image-normalenform}). Mit dem Skalarprodukt
+(Abbildung~\ref{image-normalenform}).
+Mit dem Skalarprodukt
 ausgedr"uckt: Die Menge der Ortsvektoren der Punkte einer Ebene durch $P$ mit
 \index{Normale}
 Normale $\vec n$ ist
@@ -1378,7 +1406,8 @@ Ist $\vec n$ ein Einheitsvektor, dann ist
 d=(\vec r-\vec p_0)\cdot \vec n
 \]
 der Abstand des Punktes mit dem Ortsvektor $\vec r$ von der Ebene durch
-den Punkt mit Ortsvektor $\vec p_0$ und Normalen $\vec n$. In Koordinaten:
+den Punkt mit Ortsvektor $\vec p_0$ und Normalen $\vec n$.
+In Koordinaten:
 \[
 d=n_xx+n_yy+n_zz-\vec p_0\cdot\vec n
 \]
@@ -1496,15 +1525,17 @@ Damit ist die Normalenform der Ebenegleichung
 \end{align}
 Diese Form ist zwar eine Normalenform, aber noch nicht die Hessesche
 Normalform, da man f"ur diesen Zweck einen Einheitsvektor als
-Normalenvektor verwenden muss. Unser Normalenvektor hat aber die
-L"ange $|\vec n|=\sqrt{14}$. Dividieren wir die Gleichung (\ref{normalenform})
+Normalenvektor verwenden muss.
+Unser Normalenvektor hat aber die L"ange $|\vec n|=\sqrt{14}$.
+Dividieren wir die Gleichung (\ref{normalenform})
 durch $\sqrt{14}$, erhalten wir die Hessesche Normalform:
 \begin{equation}
 d=\frac{2}{\sqrt{14}}x+\frac{1}{\sqrt{14}}y+\frac{3}{\sqrt{14}}z-\frac{7}{\sqrt{14}}.
 \label{hnf}
 \end{equation}
 Die Hessesche Normalform berechnet den Abstand eines Punktes von der
-Ebene. Man muss jetzt also nur noch den Punkt $(1,1,1)$ in die  Gleichung
+Ebene.
+Man muss jetzt also nur noch den Punkt $(1,1,1)$ in die  Gleichung
 (\ref{hnf}) einsetzen:
 \[
 d = (2+1+3-7)/\sqrt{14}=-1/\sqrt{14}=-0.26726,
@@ -1526,7 +1557,7 @@ an einer Ebene mit Normale $\vec n$ zu berechnen ($|\vec n|=1$).
 Dazu zerlegt man den Vektor $\vec v$ in eine Komponente $\vec v_{\|}$
 parallel zur Ebene und eine Komponenten $\vec v_{\perp}$ senkrecht dazu,
 also $\vec v=\vec v_{\|}+\vec v_{\perp}$ (Abbildung~\ref{image-spiegelung}).
-Die senkrechte Komponente 
+Die senkrechte Komponente
 ist im wesentlichen die Projektion von $\vec v$ auf $\vec n$:
 \[
 \vec v_{\perp}=
@@ -1564,7 +1595,8 @@ Man spiegle den Vektor $\vec a$ an der Ebene mit der Normalen $\vec n$,
 
 {\parindent 0pt Zun"achst stellen wir fest,} dass $\vec n$ noch
 kein Einheitsvektor ist, dass wir stattdessen $\vec n_0=\vec n/\sqrt{3}$
-verwenden m"ussen. Damit kann $\vec a$ jetzt die parallelen und orthogonalen
+verwenden m"ussen.
+Damit kann $\vec a$ jetzt die parallelen und orthogonalen
 Komponenten zerlegt werden:
 \[
 \vec a_{\perp}=(\vec a\cdot\vec n_0)\vec n_0
@@ -1585,7 +1617,8 @@ der gespiegelt Vektor.
 
 \subsection{Orthonormalbasis}
 Die Vektoren $\vec e_i$ stehen senkrecht aufeinander und haben
-L"ange $1$. Der Vektor
+L"ange $1$.
+Der Vektor
 \[
 \vec v
 =
@@ -1613,15 +1646,16 @@ v_3\vec e_3
 \]
 Dies funktioniert aber nicht nur f"ur die Vektoren $\vec e_i$.
 Seien $\vec b_1$, $\vec b_2$ und $\vec b_3$ drei aufeinander senkrecht
-stehende Vektoren der L"ange $1$. Mit dem Skalarprodukt kann man
-dies durch
+stehende Vektoren der L"ange $1$.
+Mit dem Skalarprodukt kann man dies durch
 \[
 \vec b_i\cdot\vec b_j=\begin{cases}
 0&\qquad i\ne j\\
 1&\qquad i=j
 \end{cases}
 \]
-ausdr"ucken. Versucht man den den Vektor $\vec v$ als Linearkombination
+ausdr"ucken.
+Versucht man den den Vektor $\vec v$ als Linearkombination
 der Vektoren $\vec b_i$ zu schreiben, also
 \[
 \vec v
@@ -1687,12 +1721,14 @@ Vektor $\vec v$ als Linearkombination der Vektoren $\vec b_i$
 +
 (\vec v\cdot\vec b_3)\vec b_3
 \]
-schreiben. Diese Darstellung ist eindeutig.
+schreiben.
+Diese Darstellung ist eindeutig.
 \end{satz}
 
 \begin{proof}[Beweis]
 Es ist nur noch zu beweisen, dass es nur eine solche Darstellung als
-Linearkombination gibt. G"abe es zwei Darstellungen, also
+Linearkombination gibt.
+G"abe es zwei Darstellungen, also
 \begin{align*}
 \vec v
 &=
@@ -1724,9 +1760,9 @@ Koeffizienten $v_i'$ und $v_i''$ "ubereinstimmen.
 %\subsection{Verallgemeinertes Skalarprodukt}
 
 %\begin{definition}
-%Ein symmetrische Matrix $g_{ij}$ definiert ein allgemeines Skalarprodukt 
+%Ein symmetrische Matrix $g_{ij}$ definiert ein allgemeines Skalarprodukt
 %$$g(x,y)=\sum_{i,j=1}^ng_{ij}x_iy_i$$
-%der Vektoren 
+%der Vektoren
 %$$x=\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\qquad\text{und}
 %\qquad y=\begin{pmatrix}y_1\\\vdots\\y_n\end{pmatrix}.$$
 %\end{definition}
@@ -1735,9 +1771,9 @@ Koeffizienten $v_i'$ und $v_i''$ "ubereinstimmen.
 
 \subsection{Orthonormalisierung}
 F"ur orthonormierte Vektoren ist es besonders einfach, eine Darstellung
-eines beliebigen Vektors als Linearkombination zu finden. Es ist daher
-sicher n"utzlich, aus einer Menge von Vektoren
-$\{\vec a_1,\vec a_2,\vec a_3\}$ 
+eines beliebigen Vektors als Linearkombination zu finden.
+Es ist daher sicher n"utzlich, aus einer Menge von Vektoren
+$\{\vec a_1,\vec a_2,\vec a_3\}$
 eine neue Menge von Vektoren zu konstruieren, die sich von der gegeben
 m"oglichst wenig
 unterscheidet, aber dennoch aus orthonormierten Vektoren besteht.
@@ -1774,14 +1810,14 @@ Das Verfahren l"asst sich offenbar auf eine beliebige Zahl linear
 unabh"angiger $n$-dimensionaler Vektoren verallgemeinern.
 \end{satz}
 
-Auf die Reihenfolge der Vektoren kommt es entscheidend an, wie die 
+Auf die Reihenfolge der Vektoren kommt es entscheidend an, wie die
 folgenden zwei Beispiele zeigen
 \begin{beispiel}
-Die Vektoren 
+Die Vektoren
 \[
 \vec a_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad
 \vec a_2=\begin{pmatrix}1\\1\\0\end{pmatrix},\qquad
-\vec a_3=\begin{pmatrix}1\\1\\1\end{pmatrix} 
+\vec a_3=\begin{pmatrix}1\\1\\1\end{pmatrix}
 \]
 sind zu orthonormieren.
 
@@ -1808,17 +1844,17 @@ Man findet also genau die Vektoren der Standardbasis.
 \end{beispiel}
 
 \begin{beispiel}
-Die Vektoren 
+Die Vektoren
 \[
 \vec a_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad
 \vec a_2=\begin{pmatrix}1\\1\\1\end{pmatrix},\qquad
-\vec a_3=\begin{pmatrix}1\\1\\0\end{pmatrix} 
+\vec a_3=\begin{pmatrix}1\\1\\0\end{pmatrix}
 \]
 sind zu orthonormieren.
 
 Dieses Beispiel unterscheidet sich vom vorangegangenen nur
-durch die Reihenfolge der Vektoren. Wieder k"onnen die 
-Formeln von Satz~\ref{satz-gram-schmidt} angewandt werden:
+durch die Reihenfolge der Vektoren.
+Wieder k"onnen die Formeln von Satz~\ref{satz-gram-schmidt} angewandt werden:
 \begin{align*}
 \vec b_1&=\frac{\vec a_1}{|\vec a_1|}=\begin{pmatrix}1\\0\\0\end{pmatrix}
 \\
@@ -1841,26 +1877,28 @@ im vorangegagenen Beispiel.
 \subsection{"Uberbestimmte Gleichungssysteme -- ``Least Squares''\label{section-least-squares}}
 Bei einem "uberbestimmten Gleichungssystem, als einem Gleichungssystem
 mit mehr Gleichungen als Unbekannten, kann man im allgemeinen nicht davon
-ausgehen, dass es "uberhaupt eine L"osung gibt. Ein solches Gleichungssystem
-hat die Form
+ausgehen, dass es "uberhaupt eine L"osung gibt.
+Ein solches Gleichungssystem hat die Form
 \[
 A v= b,
 \]
 wobei $A$ eine Matrix ist, die mehr Zeilen als Spalten hat.
 In drei Dimensionen hat $v$ also zwei oder sogar nur eine Komponenten,
 die Menge aller m"oglichen Vektoren $Av$ ist also eine Ebene oder
-Gerade. 
+Gerade.
 
 \subsubsection{L"osung im Sinne kleinsten Abstandes}
 Das beste, was man erwarten kann, ist ein Vektor $v_0$ so, dass
 der Abstand des Punktes $ b$ von der Ebene (Gerade) bestehende
-aus allen $Av$ f"ur $v=v_0$ am kleinsten wird. Dies geschieht
+aus allen $Av$ f"ur $v=v_0$ am kleinsten wird.
+Dies geschieht
 nat"urlich genau dann, wenn der Differenzvektor $b-Av_0$ auf
-allen Vektoren von $Av$ senkrecht steht. 
+allen Vektoren von $Av$ senkrecht steht.
 
 Die Menge der Vektoren der Form $Av$ wird von den Spalten von $A$
 aufgespannt, es gen"ugt also zu testen, ob $b-Av_0$ auf diesen
-Vektoren senkrecht steht. Dazu m"ussen die Skalarprodukte von
+Vektoren senkrecht steht.
+Dazu m"ussen die Skalarprodukte von
 Spalten von $A$ mit dem Vektor $b-Av_0$ verschwinden, oder
 \[
 A^t(b-Av_0)=0
@@ -1871,13 +1909,15 @@ A^tAv_0=A^tb
 \]
 wir haben also ein Gleichungssystem gefunden mit Matrix $A^tA$ und
 rechter Seite $A^tb$, welches als L"osung den gesuchten Vektor
-$v_0$ hat. $A^t$ hat so viele Zeilen wie $v$ Komponenten hat, also
+$v_0$ hat.
+$A^t$ hat so viele Zeilen wie $v$ Komponenten hat, also
 handelt es sich um ein Gleichungssystem mit gleich vielen Gleichungen
 wie Unbekannten, es wird im Allgemeinen eine eindeutig bestimmte
 L"osung haben.
 
 \begin{satz} Sei $A$ eine $n\times m$ Matrix und $b$ ein $n$-dimensionaler
-Vektor. Eine L"osung im Sinne minimaler quadrierter Abst"ande 
+Vektor.
+Eine L"osung im Sinne minimaler quadrierter Abst"ande
 $
 (Av-b)\cdot(Av-b)
 $
@@ -1893,7 +1933,8 @@ Man finden den Fusspunkt des Lotes vom Punkt $P=(9,10,7)$ auf die Ebene
 durch $O$, $A=(8,10,10)$ und $B=(9,13,12)$.
 
 Der Fusspunkt des Lotes ist der Punkt der Ebene, der den geringsten
-Abstand zu $P$ hat. Die Ebenengleichung ist
+Abstand zu $P$ hat.
+Die Ebenengleichung ist
 \[
 A\begin{pmatrix}s\\t\end{pmatrix}=
 \begin{pmatrix}
@@ -1951,14 +1992,17 @@ den Richtungsvektoren senkrecht.
 \subsubsection{``Alles in einem Schritt''}
 In Abschnitt \ref{section-vereinheitlichtes-verfahren} wurde gezeigt,
 wie man Schnittproblem mit nur einer Durchf"uhrung des Gaussalgorithmus
-l"osen konnte. Im soeben gel"osten Problem musste man aber wieder
-in mehrere Schritten vorgehen. Zuerst wurden $s$ und $t$ bestimmt,
+l"osen konnte.
+Im soeben gel"osten Problem musste man aber wieder
+in mehrere Schritten vorgehen.
+Zuerst wurden $s$ und $t$ bestimmt,
 und erst in einem zweiten Schritt konnte der Fusspunkt des Lotes
 berechnet werden.
 
 Nat"urlich ist das auch f"ur dieses Problem m"oglich, man behandelt
 $x$, $y$ und $z$ einfach als zus"atzliche Variablen, die als Koordinaten
-von $Av$ berechnet werden. Das Gauss-Tableau dazu ist
+von $Av$ berechnet werden.
+Das Gauss-Tableau dazu ist
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -2013,28 +2057,30 @@ l"osen.
 \index{Kreis}
 \index{Kugel}
 Die Kugel $K(M,r)$ ist die Menge aller Punkte, die von einem festen Punkt, dem
-Mittelpunkt oder Zentrum, alle den gleichen Abstand $r$ haben. In vektorieller
+Mittelpunkt oder Zentrum, alle den gleichen Abstand $r$ haben.
+In vektorieller
 Form heisst dies, dass die Ortsvektoren von Punkten mit dem Ortsvektor des
-Mittelpunktes eine Differenz konstanter L"ange haben. Schreiben wir $\vec m$
+Mittelpunktes eine Differenz konstanter L"ange haben.
+Schreiben wir $\vec m$
 f"ur den Ortsvektor des Mittelpunktes, dann besteht die Kugel aus den
-Punkten mit den
-Ortsvektoren 
+Punkten mit den Ortsvektoren
 \[
 K(M,r)
 =
-\{\vec p| \;|\vec p-\vec m|=r\}
+\{\vec p\;| \;|\vec p-\vec m|=r\}
 =
-\{\vec p| \;(\vec p-\vec m)\cdot(\vec p-\vec m)=r^2\}.
+\{\vec p\;| \;(\vec p-\vec m)\cdot(\vec p-\vec m)=r^2\}.
 \]
 Die zweite Form ist f"ur die L"osung konkreter Problem oft n"utzlicher.
-\subsection{Durchstosspunkt einer Gerade mit einer Kugel\label{durchstosspunktkugel}}
-Gesucht ist der Durchstosspunkt der Geraden 
+\subsection{Durchstosspunkt einer Geraden mit einer Kugel
+\label{durchstosspunktkugel}}
+Gesucht ist der Durchstosspunkt der Geraden
 \[
 \vec p=\vec p_0+t\vec r
 \]
 durch die Kugel, also die Menge
 \[
-\{\vec p| \;|(\vec p_0+t\vec r)-\vec m|=r\}
+\{\vec p\;| \;|(\vec p_0+t\vec r)-\vec m|=r\}
 \]
 In der zweiten Form der Kugelgleichung haben wir
 \begin{align*}
@@ -2068,8 +2114,10 @@ des Durchstosspunktes:
 +|\vec p_0-\vec m|^2-r^2 =0.
 \]
 Indem wir die Diskriminante berechnen,  k"onnen wir eine Kriterium
-daf"ur ableiten, ob die Gerade die Kugel ber"uhrt. Die Diskriminante
-der quadratischen Gleichung $at^2+bt+c=0$ ist $\Delta = b^2-4ac$. In unserem
+daf"ur ableiten, ob die Gerade die Kugel ber"uhrt.
+Die Diskriminante
+der quadratischen Gleichung $at^2+bt+c=0$ ist $\Delta = b^2-4ac$.
+In unserem
 Fall wird daraus
 \[
 \Delta
@@ -2121,10 +2169,12 @@ Ausmultiplizieren und quadratisch erg"anzen ergibt
 \left(\frac{\vec a-\vec b}{2}\right)^2
 \end{align*}
 Diese Gleichung beschreibt einen Kreis um den Punkt $(\vec a+\vec b)/2$
-mit dem Radius $|\vec a-\vec b|/2$. Dies ist der Thaleskreis.
+mit dem Radius $|\vec a-\vec b|/2$.
+Dies ist der Thaleskreis.
 
 \subsection{Tangentialebene in einem Punkt}
-Die Normale auf eine Kugel ist immer parallel zum Radiusvektor. Daher kann
+Die Normale auf eine Kugel ist immer parallel zum Radiusvektor.
+Daher kann
 man die Gleichung der Tangentialebene in einem Punkt $\vec p_0$ der Kugel
 sofort angeben:
 \begin{satz}\label{kugeltangentialebene}
@@ -2138,7 +2188,8 @@ $\vec m$ und Radius  $r$ im Punkt mit Ortsektor $\vec p_0$ ist
 \end{equation}
 \end{satz}
 Diese Form (\ref{eqn-kugeltangente}) ist noch nicht optimal, man kann den
-Radius nicht direkt ablesen. Addieren wir jedoch noch die Gleichung
+Radius nicht direkt ablesen.
+Addieren wir jedoch noch die Gleichung
 der Kugel f"ur den Vektor $\vec p_0$, erhalten wir
 \begin{align*}
 (\vec p-\vec p_0)\cdot(\vec p_0-\vec m)&=0\\
@@ -2152,16 +2203,19 @@ hat.
 
 \subsection{Tangente von einem Punkt an einen Kreis}
 Es sind die Gleichungen der Tangenten an einen Kreis $K(M,r)$ zu finden,
-welche durchd den Punkt $P$ gehen. Die klassische Konstruktion der
+welche durchd den Punkt $P$ gehen.
+Die klassische Konstruktion der
 Elementargeometrie verlangt, dass "uber der Strecke $MP$ der
 Thaleskreis gezeichnet wird, die Schnittpunkte des Thaleskreis mit
 $K(M,r)$ sind die Ber"uhrpunkte der Tangenten.
 
 Die Tangenten sollen jetzt aber auf rein algebraische Art gefunden
-werden. Das Problem w"are im wesentlich gel"ost, wenn der Ber"uhrpunkt $P_0$
+werden.
+Das Problem w"are im wesentlich gel"ost, wenn der Ber"uhrpunkt $P_0$
 mit Ortsvektor
-$\vec p_0$ bekannt w"are. Dieser muss nat"urlich auf dem Kreis liegen,
-also 
+$\vec p_0$ bekannt w"are.
+Dieser muss nat"urlich auf dem Kreis liegen,
+also
 \[
 (\vec p_0-\vec m)^2=r^2.
 \]
@@ -2198,8 +2252,8 @@ Zur L"osung multiplizieren wir die zweite Gleichung noch aus
 \left(\frac{\vec m-\vec p}2\right)^2
 \end{align*}
 Dies ist wieder ein Kreis mit Mittelpunkt $(\vec m+\vec p)/2$ und
-Radius $|\vec m-\vec p|/2$, also wieder ein Thaleskreis. Das ist
-nat"urlich nicht "uberraschend, die Bedingung (\ref{thalesbedingung})
+Radius $|\vec m-\vec p|/2$, also wieder ein Thaleskreis.
+Das ist nat"urlich nicht "uberraschend, die Bedingung (\ref{thalesbedingung})
 ist ja nichts anderes als die Definition des Thaleskreises.
 Die algebraische Rechnung macht also nichts anderes als die klassische
 Konstruktion.
@@ -2215,15 +2269,19 @@ Ganze Spielfilme wurden schon vollst"andig im Computer erzeugt.
 Wie k"onnen die Bilder so realistisch wirken?
 
 In Abschnitt \ref{spiegelung} haben wir gelernt, wie ein Vektor
-gespiegelt wird. Wir k"onnen also den Lichtstrahl, der in das Auge
+gespiegelt wird.
+Wir k"onnen also den Lichtstrahl, der in das Auge
 des Beobachters einer Szene f"allt, zur"uckverfolgen und seine Reflektion
 an jeder beliebigen reflektierenden Fl"ache der Szene berechnen, bis wir bei
-einer Lichtquelle oder einem nicht reflektierenden Objekt ankommen. Die
-an diesem Punkt abgestrahlte Farbe ist dan jene, die der Beobachter
-wahrnimmt. Dieses Verfahren nennt man Ray Tracing. Offenbar ist es sehr
+einer Lichtquelle oder einem nicht reflektierenden Objekt ankommen.
+Die an diesem Punkt abgestrahlte Farbe ist dan jene, die der Beobachter
+wahrnimmt.
+Dieses Verfahren nennt man Ray Tracing.
+Offenbar ist es sehr
 aufwendig, denn Lichtstrahlen k"onnen nicht nur reflektiert, sondern auch
 gestreut werden, und sie k"onnen zum Beispiel durch Nebel abgeschw"acht
-werden. Die Berechnung hochaufl"osender Szenen ist daher sehr aufwendig,
+werden.
+Die Berechnung hochaufl"osender Szenen ist daher sehr aufwendig,
 die Herstellung von CG-Filmen in Spielfilm-L"ange, wie Pixar sie beispielsweise
 produziert, ben"otigt die Rechenleistung grosser Computer-Cluster.
 
@@ -2231,18 +2289,20 @@ Die Berechnung der Reflexion an einer Kugel wie in Abbildung \ref{raytracing}
 erfolgt nach folgendem Algorithmus:
 \begin{enumerate}
 \item Berechne den Durchstosspunkt des Lichtstrahles mit der reflektierenden
-Kugeloberfl"ache wie in \ref{durchstosspunktkugel} beschrieben.  
+Kugeloberfl"ache wie in \ref{durchstosspunktkugel} beschrieben.
 \item Berechnet die Normale im Durchstosspunkt gem"ass Satz \ref{kugeltangentialebene}.
 \item Berechne die gespiegelte Gerade gem"ass Abschnitt \ref{spiegelung}.
 \end{enumerate}
 Dieses Verfahren wird jedoch nicht nur f"ur die Computergraphik verwendet,
-sondern auch in der Optik. Spiegelteleskope bestehen aus gekr"ummten Spiegeln,
+sondern auch in der Optik.
+Spiegelteleskope bestehen aus gekr"ummten Spiegeln,
 durch Berechnung der Strahlen kann man erfahren, welche Abbildungsqualit"at
 man von dem Teleskop erwarten kann.
 
 \section{Vektorprodukt}
 Mit dem Skalarprodukt haben wir ein Werkzeug, L"angen und Winkel zu berechnen,
-es fehlt jedoch noch ein Werkzeugt, Volumina einfach zu berechnen. Orthonormierte
+es fehlt jedoch noch ein Werkzeugt, Volumina einfach zu berechnen.
+Orthonormierte
 Vektorsysteme haben wir als sehr n"utzlich erkannt, aber die Bestimmung eines
 Vektors, der auf zwei gegebenen Vektoren senkrecht steht, ist eher kompliziert.
 Uns stand bislang entweder das
@@ -2250,37 +2310,42 @@ aufwendige Orthogonalisierungsverfahren zur Verf"ugung, oder die L"osung
 eines Gleichungssystems mit dem Gauss-Algorithmus.
 
 Dabei haben wir im Kapitel \ref{chapter-determinanten} bereits alles
-bereitgestellt,
-was wir f"ur die Volumenberechnung ben"otigen. Wir werden auf diesem
-Weg eine neue Vektoroperation kennenlernen, das Vektorprodukt.
+bereitgestellt, was wir f"ur die Volumenberechnung ben"otigen.
+Wir werden auf diesem Weg eine neue Vektoroperation kennenlernen,
+das Vektorprodukt.
 
 \subsection{Fl"acheninhalt eines Parallelogramms}
 \begin{figure}
 \begin{center}
 \includegraphics{images/d-1}
 \end{center}
-\caption{Addition von Fl"acheninhalten von Parallelogrammen 
+\caption{Addition von Fl"acheninhalten von Parallelogrammen
 \label{image-flaeche-addition}}
 \end{figure}
 Zwei Vektoren $\vec u$ und $\vec v$ spannen in der Ebene ein Parallelogramm
-auf. Gesucht ist der Fl"acheninhalt des Parallelogramms. Statt daf"ur eine
+auf.
+Gesucht ist der Fl"acheninhalt des Parallelogramms.
+Statt daf"ur eine
 Formel abzuleiten, untersuchen wir zun"achst die Eigenschaften dieses
 Fl"acheninhaltes in der Hoffnung, dass wir bereits ein Objekt mit den
 gleichen Eigenschaften kennen.
 
 Wir bezeichnen den Fl"acheninhalt des von $\vec u$ und $\vec v$ aufgespannten
-Parallelogramms mit $A(\vec u,\vec v)$. Der Fl"acheninhalt im landl"aufigen
+Parallelogramms mit $A(\vec u,\vec v)$.
+Der Fl"acheninhalt im landl"aufigen
 Sinne ist nat"urlich immer positiv, es stellt sich jedoch als
-zweckm"assig heraus, wenn wir den Fl"acheninhalt hier mit einem 
-Vorzeichen versehen. Und zwar soll $A(\vec u,\vec v)$ positiv sein, wenn
+zweckm"assig heraus, wenn wir den Fl"acheninhalt hier mit einem
+Vorzeichen versehen.
+Und zwar soll $A(\vec u,\vec v)$ positiv sein, wenn
 sich $\vec u$ mit einer Drehung von weniger als $180^\circ$ in den Vektor
-$\vec v$ drehen l"asst. Wir nennen $A(\vec u, \vec v)$ den orientierten
+$\vec v$ drehen l"asst.
+Wir nennen $A(\vec u, \vec v)$ den orientierten
 Fl"acheninhalt.
 
 Die Funktion $A(\vec u,\vec v)$ hat folgende Eigenschaften
 \begin{itemize}
 \item $A$ "andert das Vorzeichen bei Vertauschung der beiden Vektoren.
-\item $A$ ist linear im ersten Argument: 
+\item $A$ ist linear im ersten Argument:
 \begin{align*}
 A(\vec u'+\vec u'',\vec v)&=A(\vec u',\vec v)+A(\vec v'',\vec u)
 \\
@@ -2288,8 +2353,9 @@ A(\lambda \vec u,\vec v)&=\lambda A(\vec u,\vec v)
 \end{align*}
 \item Der Fl"acheninhalt eines Einheitsquadrates ist $A(\vec e_1,\vec e_2)=1$.
 \end{itemize}
-Die beiden Eigenschaften zusammen ergeben, dass $A$ auch linear im 
-zweiten Argument ist. Im Kapitel~2 haben wir gelernt, dass es nur eine
+Die beiden Eigenschaften zusammen ergeben, dass $A$ auch linear im
+zweiten Argument ist.
+Im Kapitel~2 haben wir gelernt, dass es nur eine
 Funktion mit diesen Eigenschaften gibt, n"amlich die Determinate:
 \begin{satz}
 Der orientierte Fl"acheninhalt des von den Vektoren $\vec u$ und $\vec v$
@@ -2320,7 +2386,7 @@ $A=(1,6)$, $B=(7,5)$ und $C=(5,3)$.
 
 \smallskip
 
-{\parindent 0pt Die Kantenvektoren} des Dreiecks $ABC$ sind 
+{\parindent 0pt Die Kantenvektoren} des Dreiecks $ABC$ sind
 \[
 \overrightarrow{AB}=\begin{pmatrix}6\\-1\end{pmatrix}
 ,\qquad
@@ -2347,10 +2413,11 @@ Der Fl"acheninhalt ist also $7$.
 \end{figure}
 Ganz "ahnlich kann man das Volumen eines Parallelepipeds in drei Dimensionen
 berechnen, welches von drei Vektoren $\vec a$, $\vec b$ und $\vec c$
-aufgespannt wird. Auch hier stellt es sich als n"utzlich heraus, 
+aufgespannt wird.
+Auch hier stellt es sich als n"utzlich heraus,
 das Volumen mit einem Vorzeichen zu versehen:
 \begin{definition}
-Das orientierte Volumen 
+Das orientierte Volumen
 $V(\vec a,\vec b,\vec c)$
 eines Parallelepipeds aufgespannt von den drei
 Vektoren
@@ -2362,7 +2429,7 @@ $V(\vec a,\vec b,\vec c)$ negativ.
 Dieses orientierte Volumen hat die folgenden Eigenschaften:
 \begin{enumerate}
 \item Vertauscht man zwei der drei Vektoren, "andert das Volumen das Vorzeichen.
-\item $V(\vec a,\vec b,\vec c)$ ist linear im ersten Argument, wie man 
+\item $V(\vec a,\vec b,\vec c)$ ist linear im ersten Argument, wie man
 der Abbildung~\ref{image-volumina} entnehmen kann:
 \begin{align*}
 V(\lambda\vec a,\vec b,\vec c)
@@ -2397,10 +2464,10 @@ a_3&b_3&c_3\\
 \begin{beispiel}
 Man finde alle Parallelepipeds mit folgenden Eigenschaften:
 \begin{compactenum}
-\item Zwei Kanten sind $\vec a=\overrightarrow{OA}$ und $\vec b=\overrightarrow{OB}$ 
+\item Zwei Kanten sind $\vec a=\overrightarrow{OA}$ und $\vec b=\overrightarrow{OB}$
 mit $A=(4,1,3)$ und $B=(5,1,2)$.
 \item Die dritte Kante ist $\overrightarrow{OC}$, wobei $C$ auf der
-Ebene durch $O$ mit der Normalen 
+Ebene durch $O$ mit der Normalen
 \[
 \vec n=\begin{pmatrix}1\\1\\1\end{pmatrix}
 \]
@@ -2415,8 +2482,9 @@ liegt.
 \[
 \vec c=\begin{pmatrix}x\\y\\z\end{pmatrix},
 \]
-der die Bedingungen der Aufgabe erf"ullt. Zun"achst muss $\vec c$ auf
-$\vec n$ senkrecht stehen, also $\vec c\cdot\vec n=0$ oder
+der die Bedingungen der Aufgabe erf"ullt.
+Zun"achst muss $\vec c$ auf $\vec n$ senkrecht stehen,
+also $\vec c\cdot\vec n=0$ oder
 \[
 x+y+z=0.
 \]
@@ -2514,7 +2582,8 @@ Jetzt kann der Vektor $\vec c$ mit dem Gauss-Algorithmus bestimmt werden
 \hline
 \end{tabular}
 \end{align*}
-Es folgt $C=(\pm 2,\pm1,\mp3)$. Zwei weitere L"osungen findet
+Es folgt $C=(\pm 2,\pm1,\mp3)$.
+Zwei weitere L"osungen findet
 man auf die gleiche Weise, indem man statt der Bedingung $\vec a\cdot\vec c=0$
 verlangt, dass $\vec b\cdot\vec c=0$, man findet dann
 \begin{align*}
@@ -2625,7 +2694,8 @@ a_3b_1-a_1b_3\\
 a_1b_2-a_2b_1
 \end{pmatrix}
 \]
-heisst das Vektorprodukt von $\vec a$ und $\vec b$. Die Komponenten $p_i$
+heisst das Vektorprodukt von $\vec a$ und $\vec b$.
+Die Komponenten $p_i$
 des Vektorproduktes $\vec p=\vec a\times \vec b$ sind
 \[
 p_1
@@ -2648,7 +2718,7 @@ Das Vektorprodukt hat die folgenden Eigenschaften.
 Sind $\vec a$ und $\vec b$ zwei dreidimensionale Vektoren, dann gilt
 \begin{itemize}
 \item $\vec a\times\vec b$ steht senkrecht auf $\vec a$ und $\vec b$.
-\item $|\vec a\times\vec b|$ ist der Fl"acheninhalt des von 
+\item $|\vec a\times\vec b|$ ist der Fl"acheninhalt des von
 $\vec a$ und $\vec b$ aufgespannten Parallelogrammes im Raum
 \item Ist $\alpha$ der Winkel zwischen $\vec a$ und $\vec b$, dann
 ist
@@ -2659,19 +2729,23 @@ ist
 \end{satz}
 \begin{proof}[Beweis]
 Sei $\vec c$ ein Vektor in der von $\vec a$ und $\vec b$ aufgespannten
-Ebene. In diesem Fall degeneriert das Parallelepiped, es hat Volumen $0$,
+Ebene.
+In diesem Fall degeneriert das Parallelepiped, es hat Volumen $0$,
 also $V(\vec a,\vec b,\vec c)= 0$.
 Da also
 \[
 V(\vec a,\vec b,\vec c)=(\vec a\times \vec b)\cdot \vec c=0,
 \]
-steht $\vec c$ senkrecht auf $\vec a\times\vec b$. Da dies f"ur jeden
+steht $\vec c$ senkrecht auf $\vec a\times\vec b$.
+Da dies f"ur jeden
 Vektor $\vec c$ in der von $\vec a$ und $\vec b$ aufgespannten Ebene
 gilt, steht $\vec a\times\vec b$ senkrecht auf dieser Ebene, und insbesondere
-auf $\vec a$ und $\vec b$. Dies beweist die Aussage a).
+auf $\vec a$ und $\vec b$.
+Dies beweist die Aussage a).
 
 Sei $\vec n$ der Normalenvektor mit L"ange $1$ auf der von $\vec a$ und
-$\vec b$ aufgespannten Ebene. Das Volumen $V(\vec a,\vec b,\vec n)$ ist
+$\vec b$ aufgespannten Ebene.
+Das Volumen $V(\vec a,\vec b,\vec n)$ ist
 dasjenige eines geraden Prismas mit dem von $\vec a$ und $\vec b$
 aufgespannten Prisma mit H"ohe $1$, also gleich gross wie der
 Fl"acheninhalt des von $\vec a$ und $\vec b$ aufgespannten Parallelogramms.
@@ -2679,13 +2753,15 @@ Andererseits ist
 \[
 V(\vec a,\vec b,\vec n)=(\vec a\times\vec b)\cdot \vec n
 \]
-die Projektion des Vektors $\vec a\times\vec b$ auf $\vec n$. Die beiden
+die Projektion des Vektors $\vec a\times\vec b$ auf $\vec n$.
+Die beiden
 Vektoren haben aber die gleiche Richtung, weil sie beide senkrecht stehen
-auf der von $\vec a$ und $\vec b$ aufgespannten Ebene. Also ist die Projektion
+auf der von $\vec a$ und $\vec b$ aufgespannten Ebene.
+Also ist die Projektion
 gerade die L"ange des Vektors, also ist
 $|\vec a\times\vec b|$ der Fl"acheninhalt des Parallelogramms.
 
-Die H"ohe des von $\vec a$ und $\vec b$ aufgespannten Parallelogramms 
+Die H"ohe des von $\vec a$ und $\vec b$ aufgespannten Parallelogramms
 ist $|\vec b|\sin \alpha$, der Fl"acheninhalt also
 $|\vec a\times\vec b|=|\vec a|\,|\vec b|\sin\alpha.$
 \end{proof}
@@ -2693,7 +2769,7 @@ $|\vec a\times\vec b|=|\vec a|\,|\vec b|\sin\alpha.$
 \begin{beispiel}
 Man bestimme das Vektorprodukt von
 \[
-\vec a=\begin{pmatrix}1\\2\\3\end{pmatrix} 
+\vec a=\begin{pmatrix}1\\2\\3\end{pmatrix}
 \quad\text{und}\quad
 \vec b=\begin{pmatrix}8\\5\\13\end{pmatrix}.
 \]
@@ -2702,7 +2778,7 @@ Man bestimme das Vektorprodukt von
 {\parindent 0pt Wir verwenden direkt die Definition}
 \[
 \vec a\times \vec b=
-\begin{pmatrix}1\\2\\3\end{pmatrix} 
+\begin{pmatrix}1\\2\\3\end{pmatrix}
 \times
 \begin{pmatrix}8\\5\\13\end{pmatrix}
 =
@@ -2722,7 +2798,8 @@ Man bestimme das Vektorprodukt von
 
 \subsection{Normale}
 Das Vektorprodukt erlaubt uns jetzt auf einfache Weise die Normale einer
-Ebene zu finden. Sei 
+Ebene zu finden.
+Sei
 \[
 \vec r=\vec p+t\vec u+s\vec v
 \]
@@ -2764,7 +2841,8 @@ mit Hilfe des vereinfacht werden:}
 \label{beispielvektorprodukt}
 \end{equation}
 also ein Vielfaches des mit den Gleichungen (\ref{gleichungen-fuer-normale})
-gefundenen Normale. Damit wird die Ebenengleichung
+gefundenen Normale.
+Damit wird die Ebenengleichung
 \begin{align*}
 0=
 \begin{pmatrix} -8\\ -4\\ -12 \end{pmatrix}\cdot
@@ -2829,8 +2907,9 @@ also mit der Parameterdarstellung
 zu bestimmen.
 Der gesuchte Abstand $d$ ist die H"ohe des Parallelogramms,
 welches von $\vec a-\vec p$
-und $\vec r$ aufgespannt wird, wobei $\vec r$ als Grundseite zu betrachten ist. Der
-Fl"acheninhalt $A$ des Parallelogramms kann mit dem Vektorprodukt berechnet werden:
+und $\vec r$ aufgespannt wird, wobei $\vec r$ als Grundseite zu betrachten ist.
+Der Fl"acheninhalt $A$ des Parallelogramms kann mit dem Vektorprodukt
+berechnet werden:
 \begin{align*}
 A&=|(\vec a-\vec p)\times\vec r|\\
 d&=\frac{|(\vec a-\vec p)\times\vec r|}{|\vec r|}.
@@ -2844,7 +2923,7 @@ d&=\frac{|(\vec a-\vec p)\times\vec r|}{|\vec r|}.
 \end{figure}
 Zwei nicht parallele Geraden $g_0$ und $g_1$ im Raum,
 die sich nicht schneiden, heissen
-{\em windschief}. 
+{\em windschief}.
 \index{windschief}
 Sie haben
 einen k"urzesten Abstand $d$, der auf beiden Geraden senkrecht steht.
@@ -2856,11 +2935,12 @@ g_1:
 \vec p&=\vec p_1+t\vec r_1
 \end{align*}
 Parameterdarstellungen der Geraden, dann ist die Richtung des k"urzesten
-Abstandes die Richtung des Vektorproduktes $\vec n = \vec r_0\times\vec r_1$. 
+Abstandes die Richtung des Vektorproduktes $\vec n = \vec r_0\times\vec r_1$.
 Ein Vektor zwischen zwei beliebigen Punkten auf den beiden Geraden,
 zum Beispiel zwischen $P_0$ und $P_1$, also der Vektor $\vec p_1-\vec p_0$,
 wird als Projektion auf die Richtung des k"urzesten Abstandes immer die
-L"ange dieses k"urzesten Abstandes haben. Die Projektion kann mit dem
+L"ange dieses k"urzesten Abstandes haben.
+Die Projektion kann mit dem
 Skalarprodukt berechnet werden, der k"urzeste Abstand $d$ ist
 \[
 d=(\vec p_0-\vec p_1)\cdot\frac{\vec r_0\times\vec r_1}{|\vec r_0\times\vec r_1|}.

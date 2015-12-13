@@ -13,13 +13,15 @@ Probleme der dreidimensionalen Geometrie mit algebraischen Mitteln.
 Die Beschr"ankung auf drei Dimensionen ist aber nur durch die unmittelbare
 Anwendung gegeben, die daraus ableitbare Intuition kann durchaus 
 auch in R"aumen beliebig hoher Dimension als Leitlinie zur L"osung
-abstrakter Probleme dienen. Nachgerade kann es auch f"ur dreidimensionale
+abstrakter Probleme dienen.
+Nachgerade kann es auch f"ur dreidimensionale
 Probleme von Vorteil sein, den dreidimensionalen Raum zu verlassen,
 und das Problem in einem h"oherdimensionalen Raum zu l"osen.
 
 \index{Schnittgerade}
 Als Beispiel betrachten wir das Problem, die Schnittgerade von
-zwei Ebenen zu bestimmen. Wir wollen illustrieren, dass die
+zwei Ebenen zu bestimmen.
+Wir wollen illustrieren, dass die
 Berechnung in einem 7-dimensionalen Raum schneller und
 ``computergerechter'' zu einer L"osung f"uhrt als die klassische
 Methode, die zum Beispiel das Vektorprodukt verwendet.
@@ -42,19 +44,23 @@ Seien
 \begin{pmatrix}-1\\1\\3\end{pmatrix}
 \label{zweiebenen}
 \end{equation}
-die Parameterdarstellungen der beiden Ebenen. Gesucht ist die
+die Parameterdarstellungen der beiden Ebenen.
+Gesucht ist die
 Schnittgerade, auch wieder in Parameterdarstellung, also
 zwei Vektoren $\vec p_0$ und $\vec r$ so, dass $\vec p_0+v\vec r$
 f"ur alle Werte von $v$ den Ortsvektor eines Punktes der
 Schnittgeraden ergibt.
 Die klassische Methode setzt diese beiden Vektorgleichungen
 gleich, und findet somit ein Gleichungssystem mit vier unbekannten
-$t$, $s$, $u$ und $v$. Die L"osung erlaubt $u$ durch $v$ auszudr"ucken,
+$t$, $s$, $u$ und $v$.
+Die L"osung erlaubt $u$ durch $v$ auszudr"ucken,
 was man dann in die zweite Gleichung einsetzen muss, um die Parameterdarstellung
-der Schnittgeraden zu finden. Oder man verwendet das Vektorprodukt
+der Schnittgeraden zu finden.
+Oder man verwendet das Vektorprodukt
 um die Normalen $\vec n_1$ und $\vec n_2$ der beiden Ebenen zu finden, und daraus
 erneut mit dem Vektorprodukt den Richtungsvektor
-$\vec r=\vec n_1\times\vec n_2$ zu berechnen. Dann braucht man nur noch einen
+$\vec r=\vec n_1\times\vec n_2$ zu berechnen.
+Dann braucht man nur noch einen
 einzelnen Punkt der Schnittgeraden, den man zum Beispiel dadurch finden kann,
 dass man $v=0$ setzt und damit das Gleichungssystem eindeutig l"osbar
 macht.
@@ -128,9 +134,11 @@ zu "ubertragen.
 \index{Vektorraum@Vektorraum $\mathbb R^n$}
 Die Menge $V$ der $n$-dimensionalen Spaltenvektoren bildet was man
 einen Vektorraum nennt: Spaltenvektoren k"onnen addiert und mit
-einem Skalar multipliziert werden. Die beiden Operationen sind
+einem Skalar multipliziert werden.
+Die beiden Operationen sind
 miteinander vertr"aglich, was durch die Distributivgesetze ausgedr"uckt
-wird. Intuitiv sagen diese, dass die ``"ubliche Algebra funktioniert'',
+wird.
+Intuitiv sagen diese, dass die ``"ubliche Algebra funktioniert'',
 man kann mit diesen Vektoren genau so rechnen, wie man sich das von
 der Algebra mit gew"ohnlichen Zahlen gewohnt ist, wenigstens solange
 man nicht versucht, Vektoren miteinander zu multiplizieren oder zu
@@ -139,15 +147,17 @@ Es gibt auch einen Nullvektor, der bei Addition nichts "andert,
 also die Funktion der Null "ubernimmt.
 
 Es gibt aber auch Teilmengen von $\mathbb R^n$, die vergleichbare
-Eigenschaften haben. Typischerweise k"onnen diese durch lineare
-Gleichungen definiert werden. Die Menge
+Eigenschaften haben.
+Typischerweise k"onnen diese durch lineare Gleichungen definiert werden.
+Die Menge
 \[
 V=\left\{\left.\begin{pmatrix}x\\y\end{pmatrix}\,\right|\,x=y\right\}
 \subset\mathbb R^2
 \]
 besteht aus Vektoren der Form $\begin{pmatrix}x\\x\end{pmatrix}$,
 es ist also ziemlich offensichlich, dass die Summe und die skalaren
-Vielfachen von  Vektoren aus $V$ wieder in $V$ liegen. $V$ ist
+Vielfachen von  Vektoren aus $V$ wieder in $V$ liegen.
+$V$ ist
 bez"uglich der Rechenoperationen abgeschlossen, und auch der Nullvektor
 $0\in V$.
 
@@ -161,18 +171,21 @@ $\lambda u+\mu v\in V$ ist.
 \end{definition}
 
 Der kleinste m"ogliche Unterraum ist $\{0\}$, also der Vektorraum, der nur aus
-dem Nullvektor besteht. F"ur diesen Raum schreibt man manchmal auch nur $0$.
+dem Nullvektor besteht.
+F"ur diesen Raum schreibt man manchmal auch nur $0$.
 
 \subsubsection{Beispiel: Nullraum}
 \index{Nullraum}
 \index{Kern|see{Nullraum}}
 \index{ker|see{Nullraum}}
-Sei $A$ eine $m\times n$-Matrix. Die Menge
+Sei $A$ eine $m\times n$-Matrix.
+Die Menge
 \[
 U=\{v\in\mathbb R^n\,|\,Av=0\}
 \]
 ist ein Unterraum, der Nullraum oder Kern von $A$, geschrieben
-$\operatorname{ker}A$. Tats"achlich gilt f"ur $u,v\in\operatorname{ker}A$
+$\operatorname{ker}A$.
+Tats"achlich gilt f"ur $u,v\in\operatorname{ker}A$
 \[
 A(\lambda v+\mu u)=\lambda Av+\mu Au=0,
 \]
@@ -185,10 +198,11 @@ U+V=\{u+v\,|\,u\in U,v\in V\}.
 \end{satz}
 
 Sind $U$ und $V$ Unterr"aume von $\mathbb R^n$, dann ist auch
-$U\cap V$ ein Unterraum. Dazu ist zu pr"ufen, dass die Linearkombinationen
-von zwei Vektoren $u,v\in U\cap V$ wieder in $U\cap V$ sind. Da beide
-Vektoren aus $U$ sind, muss auch jede Linearkombination in $U$ sein. Dasselbe
-gilt f"ur $V$, also ist jede Linearkombination in $U\cap V$.
+$U\cap V$ ein Unterraum.
+Dazu ist zu pr"ufen, dass die Linearkombinationen
+von zwei Vektoren $u,v\in U\cap V$ wieder in $U\cap V$ sind.
+Da beide Vektoren aus $U$ sind, muss auch jede Linearkombination in $U$ sein.
+Dasselbe gilt f"ur $V$, also ist jede Linearkombination in $U\cap V$.
 
 \begin{satz}
 Sei $A$ eine $m\times n$-Matrix und $V$ ein Unterraum von $\mathbb R^n$.
@@ -200,7 +214,8 @@ ein Unterraum von $\mathbb R^m$.
 \end{satz}
 \begin{proof}[Beweis]
 Sind zwei Vektoren $u_1$ und $u_2$ in $AV$, dann gibt es $v_1,v_2\in V$ mit
-$u_1=Av_1$ und $u_2=Av_2$. Also ist
+$u_1=Av_1$ und $u_2=Av_2$.
+Also ist
 \[
 \lambda_1u_1+\lambda_2u_2
 =
@@ -220,12 +235,15 @@ Die Sprache der linearen R"aume erlaubt uns, die Erkenntnisse "uber
 lineare Gleichungssysteme jetzt etwas geometrischer zu formulieren.
 
 Sei $A$ eine $m\times n$-Matrix, $b$ ein $m$-dimensionaler Vektor und $x$
-ein Vektor von $n$ Unbekannten. Dann ist $Ax=b$ ein lineares Gleichungssystem
-mit $m$ Gleichungen f"ur $n$ Unbekannte. Nat"urlich ist das Gleichungssystem
+ein Vektor von $n$ Unbekannten.
+Dann ist $Ax=b$ ein lineares Gleichungssystem
+mit $m$ Gleichungen f"ur $n$ Unbekannte.
+Nat"urlich ist das Gleichungssystem
 nur dann l"osbar, wenn der Vektor $b$ im Bild der Matrix $A$ drin liegt.
 
 Falls also $b\in\operatorname{im}A$ ist, gibt es auf jeden Fall mindestens
-eine L"osung $x\in\mathbb R^n$ mit $Ax=b$. Kann es auch mehrere geben? Nehmen
+eine L"osung $x\in\mathbb R^n$ mit $Ax=b$.
+Kann es auch mehrere geben? Nehmen
 wir an, $x$ und $y$ seien beides solche L"osungen, dann ist
 \[
 \left.
@@ -242,7 +260,8 @@ x-y\in\operatorname{ker}A.
 Der Nullraum von $A$ gibt also dar"uber Auskunft, ob ein Gleichungssystem
 eine oder mehrere L"osungen hat:
 \begin{satz}
-Sei $A$ eine $m\times n$-Matrix und $b\in\mathbb R^m$. Dann gilt.
+Sei $A$ eine $m\times n$-Matrix und $b\in\mathbb R^m$.
+Dann gilt:
 \begin{enumerate}
 \item Das Gleichungssystem hat keine L"osung, wenn $b\not\in \operatorname{im}A$.
 \item Falls $b\in\operatorname{im}A$, und $x_p$ eine L"osung des Gleichungssystems
@@ -254,8 +273,9 @@ $x_h\in\operatorname{ker}A$ ist.
 Das Gleichungssystem $Ax=0$ heisst das zu $Ax=b$ geh"orige homogene System.
 Der Satz sagt also, dass man eine einzige L"osung von $Ax=b$ finden muss,
 dies ist das $x_p$, und die L"osungen von $Ax=0$, dass sind die Elemente
-des Kerns von $A$, die im Satz mit $x_h$ bezeichnet werden. Eine L"osung
-von $Ax=b$ ist dann immer von der Form $x_p+x_h$. In der Tat bekommt
+des Kerns von $A$, die im Satz mit $x_h$ bezeichnet werden.
+Eine L"osung von $Ax=b$ ist dann immer von der Form $x_p+x_h$.
+In der Tat bekommt
 man 
 \[
 Ax=A(x_p+x_h)=Ax_p+Ax_h=b+0=b,
@@ -264,14 +284,16 @@ also ist jedes solche $x$ tats"achlich eine L"osung.
 
 Wie entscheidet man, ob $b\not\in\operatorname{im}A$? Nat"urlich mit
 Hilfe des Gauss-Algorithmus, der ja kl"art, ob das Gleichungssystem
-$Ax=b$ eine L"osung hat. Wie findet man die Vektoren in $ker A$?
+$Ax=b$ eine L"osung hat.
+Wie findet man die Vektoren in $ker A$?
 Nat"urlich auch mit dem Gauss-Algorithmus, der ja auch die L"osungsmenge
 von $Ax=0$ berechnen kann.
 
 \section{Basis}
 \index{Basis}
 In den bisherigen Beispielen sind Vektorr"aume entweder als Nullr"aume oder
-als Bildr"aume einer Matrix entstanden. Der Test, ob ein Vektor in einem
+als Bildr"aume einer Matrix entstanden.
+Der Test, ob ein Vektor in einem
 Vektorraum drin ist, muss entsprechend auf verschiedene Art erfolgen:
 \begin{enumerate}
 \item Ist $V=\operatorname{ker}A$, berechnet man einfach $Av$, falls $Av=0$
@@ -279,7 +301,8 @@ kann man schliessen, dass $v\in V$.
 \item Ist $V=\operatorname{im}A$, dann muss man einen Vektor $u\in\mathbb R^n$
 finden mit $v=Au$, man muss also ein lineares Gleichungssystem l"osen.
 \end{enumerate}
-Der zweite Fall ist also deutlich aufwendiger. Schreibt man die Bedingung
+Der zweite Fall ist also deutlich aufwendiger.
+Schreibt man die Bedingung
 $v=Au$ als Gleichung von Spaltenvektoren von $A$, bekommt man
 \[
 \begin{pmatrix}v_1\\\vdots\\v_m\end{pmatrix}
@@ -288,18 +311,22 @@ $v=Au$ als Gleichung von Spaltenvektoren von $A$, bekommt man
 \begin{pmatrix}a_{1n}\\\vdots\\a_{mn}\end{pmatrix}u_n.
 \]
 Man muss also entscheiden, ob sich $v$ durch die Spaltenvektoren von
-$A$ ausdr"ucken l"asst. Selbst wenn $\operatorname{im}A$ nur ein
+$A$ ausdr"ucken l"asst.
+Selbst wenn $\operatorname{im}A$ nur ein
 relativ kleiner Raum ist, zum Beispiel weil alle Spalten von $A$
 Vielfache eines
-einzigen Vektors sind, gibt dies ziemlich viel Arbeit. Wir m"ochten
+einzigen Vektors sind, gibt dies ziemlich viel Arbeit.
+Wir m"ochten
 daher einen Vektorraum als Bildraum einer m"oglichst kleinen Matrix
-schreiben k"onnen. Gleichbedeutend damit ist, dass wir die Vektoren
+schreiben k"onnen.
+Gleichbedeutend damit ist, dass wir die Vektoren
 des Raumes aus einer m"oglichst kleinen Zahl von Vektoren linear
 kombinieren k"onnen m"ochten.
 
 Diese Art von Darstellung beliebiger Vektoren mit Hilfe einer
 ausgew"ahlten Familie von Vektoren liegt dem Koordinaten-Systemen
-zu Grunde. Um die Koordinaten eines Punktes zu finden, zerlegt
+zu Grunde.
+Um die Koordinaten eines Punktes zu finden, zerlegt
 man seinen Ortsvektor in die Vektoren entlang der Koordinatenachsen:
 \[
 \begin{pmatrix}2\\3\\5\end{pmatrix}
@@ -310,11 +337,13 @@ man seinen Ortsvektor in die Vektoren entlang der Koordinatenachsen:
 \]
 Es m"ussen aber zwei Dinge sichergestellt werden:
 \begin{enumerate}
-\item Jeder Vektor muss in dieser Form darstellbar sein. F"ur die
+\item Jeder Vektor muss in dieser Form darstellbar sein.
+F"ur die
 Standardbasisvektoren ist dies offensichtlich, aber wie findet man
 dies bei einer beliebigen Menge von Vektoren heraus?
 \item Die Darstellung muss eindeutig sein, sonst hat man offensichtlich
-mehrere Beschreibungen des gleichen Punktes. Wie kann man entscheiden,
+mehrere Beschreibungen des gleichen Punktes.
+Wie kann man entscheiden,
 ob ein Vektor nur auf eine Art aus den Vektoren kombiniert werden kann?
 \end{enumerate}
 Die n"achsten zwei Abschnitte adressieren diese Fragen.
@@ -372,7 +401,8 @@ linear kombinieren?
 
 Dies w"are m"oglich, wenn die offensichtlich ganz $\mathbb R^3$
 aufspannenden Vektoren $e_1,e_2,e_3$ durch $a_i$ ausgedr"uckt werden
-k"onnen. Also testen wir, ob $e_i\in \operatorname{im}A$, wobei
+k"onnen.
+Also testen wir, ob $e_i\in \operatorname{im}A$, wobei
 \[
 A=\begin{pmatrix}
 1&2&3\\
@@ -380,7 +410,8 @@ A=\begin{pmatrix}
 7&8&9
 \end{pmatrix}
 \]
-ist. Der Gauss-Algorithmus gibt folgende Tableaux:
+ist.
+Der Gauss-Algorithmus gibt folgende Tableaux:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -431,9 +462,10 @@ $\mathbb R^3$ aufspannen.
 \subsection{Basis}
 \index{Basis}
 Eine Menge von Vektoren, mit denen man alle Vektoren eines Unterraums
-linear kombinieren kann, muss linear unabh"angig sein. Sonst k"onnte
+linear kombinieren kann, muss linear unabh"angig sein.
+Sonst k"onnte
 man n"amlich einen der Vektoren durch die anderen ausdr"ucken, damit
-wird er selbst unn"otig. 
+wird er selbst unn"otig.
 
 \begin{definition}
 \index{Basis}
@@ -463,15 +495,18 @@ $\tilde B$, m"ussen wir offenbar zwei Dinge testen:
 \item $V = \operatorname{im}\tilde B$: das Gleichungssystem $\tilde Bx=b$
 muss f"ur jeden Vektor $b\in V$ l"osbar sein.
 \item Die Vektoren von $B$ sind linear unabh"angig: die Spalten sind
-linear unabh"angig. Dies kann auf zwei Arten geschehen:
+linear unabh"angig.
+Dies kann auf zwei Arten geschehen:
 \begin{enumerate}
 \item Der Gauss-Algorithmus, angewendet auf $\tilde B^t$, liefert eine
 Nullzeile genau dann, wenn die Zeilen von $\tilde B^t$ linear abh"angig sind,
-das sind aber genau die Spalten von $\tilde B$. Wenn also keine Nullzeile
+das sind aber genau die Spalten von $\tilde B$.
+Wenn also keine Nullzeile
 auftritt, sind die Vektoren linear unabh"angig.
 \item Falls der Gauss-Algorithmus f"ur das homogene Gleichungssystem
 $\tilde B x=0$ nur die L"osung $x=0$ findet, sind die Spalten linear
-unabh"angig. Anders ausgedr"uckt: wenn das Gleichungssystem $\tilde Bx=b$
+unabh"angig.
+Anders ausgedr"uckt: wenn das Gleichungssystem $\tilde Bx=b$
 f"ur jedes in Frage kommende $b$ genau eine L"osung hat, sind die
 Spalten von $\tilde B$ linear unabh"angig.
 \end{enumerate}
@@ -507,8 +542,10 @@ durch
 \[
 e_1=b_1,\qquad e_2=b_2-b_1,\qquad\text{und}\qquad e_3=b_3-b_2-b_1,
 \]
-ist jeder Vektor durch die $b_i$ ausdr"uckbar. Lineare Abh"angigkeit kann
-man mit dem Gauss-Algorithmus testen. Wir schreiben dazu die Vektoren
+ist jeder Vektor durch die $b_i$ ausdr"uckbar.
+Lineare Abh"angigkeit kann
+man mit dem Gauss-Algorithmus testen.
+Wir schreiben dazu die Vektoren
 als Zeilen in ein Gausstableau:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
@@ -527,8 +564,9 @@ als Zeilen in ein Gausstableau:
 \hline
 \end{tabular}
 \]
-Da keine Nullzeile entstanden ist, sind die Zeilen linear unabh"angig. 
-Die Zeilen waren aber genau die Vektoren $b_i$. Damit ist klar, dass
+Da keine Nullzeile entstanden ist, sind die Zeilen linear unabh"angig.
+Die Zeilen waren aber genau die Vektoren $b_i$.
+Damit ist klar, dass
 die Vektoren $b_i$ eine Basis bilden.
 \end{beispiel}
 
@@ -621,16 +659,19 @@ aufgespannt.
 
 \begin{beispiel}
 Man finde eine Basis des Bildraumes $\operatorname{im}A$ mit der gleichen
-Matrix wie im vorangegangenen Beispiel. 
+Matrix wie im vorangegangenen Beispiel.
 
 Die Basis besteht aus so wenigen linear unabh"angigen Vektoren wie
 m"oglich, aber alle Spaltenvektoren von $A$ m"ussen damit erzeugt
-werden k"onnen. Dazu nehmen wir einfach einen Vektor um den anderen
+werden k"onnen.
+Dazu nehmen wir einfach einen Vektor um den anderen
 hinzu, solange die Menge der Vektoren linear unabh"angig bleibt.
 
 Der erste Spaltenvektor ist nicht der Nullvektor, also k"onnen wir
-den in die Basis hineinnehmen. Der zweite ist nicht proportional,
-also sind die ersten beiden Spalten linear unabh"angig. Als
+den in die Basis hineinnehmen.
+Der zweite ist nicht proportional,
+also sind die ersten beiden Spalten linear unabh"angig.
+Als
 Basis k"onnten wir daher
 \[
 \left\{
@@ -639,16 +680,19 @@ Basis k"onnten wir daher
 \begin{pmatrix}2\\5\\8\end{pmatrix}
 \right\}
 \]
-nehmen. Den dritten Spaltenvektor d"urfen wir nicht hinzunehmen.
+nehmen.
+Den dritten Spaltenvektor d"urfen wir nicht hinzunehmen.
 Aus dem letzten Beispiel wissen wir ja, dass die Matrix singul"ar
-ist. Es kann also h"ochstens zwei linear unabh"angige Vektoren haben.
+ist.
+Es kann also h"ochstens zwei linear unabh"angige Vektoren haben.
 \end{beispiel}
 
 \subsection{Koordinaten}
 \index{Koordinaten}
 Gibt man eine Basis $B=\{b_1,\dots,b_k\}$ von $V$ vor,
 dann kann man die Vektoren
-in $V$ in der Basis $B$ ausdr"ucken. Dazu muss man zu einem 
+in $V$ in der Basis $B$ ausdr"ucken.
+Dazu muss man zu einem 
 Vektor $v\in V$ Zahlen $\xi_i$ finden mit
 \[
 v=\xi_1 b_1+\dots +\xi_k b_k.
@@ -660,7 +704,8 @@ v=\tilde B\begin{pmatrix}\xi_1\\\vdots\\\xi_n\end{pmatrix}.
 \]
 Eine Basis eines $k$-dimensionalen Raumes $V$ erm"oglicht also,
 die Vektoren von $V$ mit Hilfe von $k$-Tupeln, bestehend
-aus den Zahlen $\xi_i$, darzustellen. Die $\xi_i$ heissen
+aus den Zahlen $\xi_i$, darzustellen.
+Die $\xi_i$ heissen
 Koordinanten eines Vektors $v$ in der Basis $B$, wir schreiben
 oft auch einfach $\xi$ f"ur den Vektor mit Komponenten $\xi_i$.
 Das Finden der Koordinaten eines Vektors $v$ l"auft immer auf die L"osung
@@ -673,7 +718,8 @@ B=\left\{
 \begin{pmatrix}3\\2\\1\end{pmatrix}
 \right\}
 \]
-spannt einen zweidimensionalen Unterraum von $\mathbb R^3$ auf. Man finde
+spannt einen zweidimensionalen Unterraum von $\mathbb R^3$ auf.
+Man finde
 die Koordinaten des Vektors 
 \[
 v=
@@ -757,16 +803,18 @@ Kontrolle:
 \subsection{Basiswechsel}
 \index{Basiswechsel}
 Jede beliebige linear unabh"angige Teilmenge von $V$, welche ganz $V$
-aufspannt, kann als Basis verwendet werden. Oft ist es praktischer,
+aufspannt, kann als Basis verwendet werden.
+Oft ist es praktischer,
 statt der Standardbasis eine andere Basis zu verwenden, zum Beispiel
 um die Koordinatenachsen parallel zu den Kanten eines Werkst"ucks zu
 bekommen, oder um eine spezielle Symmetrie des Problems einfacher
-ausdr"ucken zu k"onnen. Wie sind die Koordinaten zwischen zwei Basen
-$B$ und $B'$ umzurechnen?
+ausdr"ucken zu k"onnen.
+Wie sind die Koordinaten zwischen zwei Basen $B$ und $B'$ umzurechnen?
 
 Zu jeder Basis $B$ gibt es die Matrix $\tilde B$, die aus den
 Koordinaten $\xi$ eines Vektors $v$ den Vektor mittels $v=\tilde B\xi$
-berechnet. Hat man zwei Basen $B$ und $B'$, hat auch jeder Vektor
+berechnet.
+Hat man zwei Basen $B$ und $B'$, hat auch jeder Vektor
 in $V$ zwei verschiedene Koordinaten-Vektoren $\xi$ und $\xi'$:
 \[
 v=\tilde B\xi =\tilde B'\xi'.
@@ -775,7 +823,8 @@ Wie kann man $\xi'$ aus $\xi$ berechnen?
 
 \subsubsection{Spezialfall $\mathbb R^n$}
 In diesem Fall sind die beiden Matrizen $\tilde B$ und $\tilde B'$
-regul"are $n\times n$-Matrizen. Die Gleichung
+regul"are $n\times n$-Matrizen.
+Die Gleichung
 \[
 v=\tilde B\xi =\tilde B'\xi'.
 \]
@@ -794,9 +843,10 @@ T=\tilde B^{\prime-1}B \quad\Rightarrow\quad
 
 \subsubsection{Allgemeiner Fall}
 Im allgemeinen Fall eines beliebigen Unterraumes funktioniert diese
-Methode nicht. $\tilde B$ und $\tilde B'$ sind keine quadratischen
-Matrizen, also k"onnen Sie auch nicht invertiert werden. Vielmehr
-sind sie jetzt $n\times m$-Matrizen mit $m<n$.
+Methode nicht.
+$\tilde B$ und $\tilde B'$ sind keine quadratischen
+Matrizen, also k"onnen Sie auch nicht invertiert werden.
+Vielmehr sind sie jetzt $n\times m$-Matrizen mit $m<n$.
 
 Wenn $B$ und $B'$ Basen sind, dann l"asst sich jeder Vektor $v\in
 \operatorname{im}\tilde B=\operatorname{im}\tilde B'$ 
@@ -808,7 +858,8 @@ v=\tilde B\xi=\tilde B'\xi'.
 Darin sind die $\xi$- und $\xi'$-Vektoren sind Vektoren in $\mathbb R^m$.
 
 Speziell k"onnte man f"ur die $\xi$-Vektoren die Standardbasisvektoren
-in $R^m$ w"ahlen. Mit dem ersten Standardbasisvektor bek"ame man
+in $R^m$ w"ahlen.
+Mit dem ersten Standardbasisvektor bek"ame man
 das Gleichungssystem
 \begin{equation}
 \tilde B\begin{pmatrix} 1\\0\\\vdots\\0\end{pmatrix}
@@ -816,7 +867,8 @@ das Gleichungssystem
 \label{t-gleichung}
 \end{equation}
 Dieses Gleichungssystem kann man mit dem Gauss-Algorithmus aufl"osen,
-und $\xi'$ finden. Dasselbe kann man nat"urlich auch f"ur den
+und $\xi'$ finden.
+Dasselbe kann man nat"urlich auch f"ur den
 zweiten Standardbasis-Vektor machen, und auch f"ur alle folgenden.
 
 Wir k"onnen alle diese Gleichungen zusammen in eine einzige
@@ -840,7 +892,8 @@ die L"osungen der Gleichungen (\ref{t-gleichung}).
 
 Da die Spalten von $T$ L"osungen eines linearen Gleichungssystems
 mit Koeffizienten $\tilde B'$ und rechten Seiten $B$ ist, k"onnen
-wir das Verfahren zur simultanen L"osung anwenden. Das zugeh"orige
+wir das Verfahren zur simultanen L"osung anwenden.
+Das zugeh"orige
 Gauss-Tableau ist:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
@@ -887,7 +940,8 @@ b_2'=\begin{pmatrix}1\\0\\-1\end{pmatrix}
 Finden Sie die Koordinatentransformationsmatrix $T$, mit der
 man von den Parameter $t$ $s$ in der Parameterdarstellung
 mit Richtungsvektoren $b_1$ und $b_2$ auf die Koordinaten in
-der Basis $B'$ umrechnen kann. Man finde ausserdem die 
+der Basis $B'$ umrechnen kann.
+Man finde ausserdem die 
 Koordinaten in der Basis $B'$ des Vektors, der in der Basis $B$
 die Koordinaten $(2,-1)$ hat.
 
@@ -968,8 +1022,8 @@ beide stimmen "uberein.
 \subsection{Definition}
 Eine $m\times n$-Matrix $A$ berechnet aus einem gegeben Vektor
 $v\in\mathbb R^n$ mit Hilfe des
-Matrizenproduktes einen neuen Vektor $Av\in\mathbb R^m$. $A$ definiert also
-auch eine Abbildung
+Matrizenproduktes einen neuen Vektor $Av\in\mathbb R^m$.
+$A$ definiert also auch eine Abbildung
 \[
 A\colon\mathbb R^n\to\mathbb R^m:v\mapsto Av
 \]
@@ -988,9 +1042,11 @@ Eine solche Abbildung heisst linear.
 
 \subsection{Matrix einer linearen Abbildung}
 Umgekehrt definiert jede lineare Abbildung $V\to V$ mit Hilfe einer
-Basis auch eine Matrix. Sei $\varphi\colon V\to V$ eine Abbildung
+Basis auch eine Matrix.
+Sei $\varphi\colon V\to V$ eine Abbildung
 mit $\varphi(\lambda u+\mu v)=\lambda \varphi(u)+\mu\varphi(v)$,
-und $B=\{b_1,\dots,b_n\}$ eine Basis. Dann gen"ugt die Kenntnis
+und $B=\{b_1,\dots,b_n\}$ eine Basis.
+Dann gen"ugt die Kenntnis
 von $\varphi(b_i)$ f"ur alle $i$, um die lineare Abbildung f"ur
 jeden beliebigen Vektor berechnen zu k"onnen.
 
@@ -1005,7 +1061,8 @@ den Basisvektoren linear kombinieren, also gilt auch
 \]
 Ausserdem kann man die Koordinaten von $\varphi(b_i)$ in der Basis
 $B$ ermitteln, und diese Koordinatenvektoren in eine Matrix $A$
-schreiben. Dann ist $A\xi$ der Koordinatenvektor von $\varphi(v)$.
+schreiben.
+Dann ist $A\xi$ der Koordinatenvektor von $\varphi(v)$.
 Die Matrix $A$ enth"alt also in den Spalten die Bilder der Basisvektoren.
 
 \subsection{Basiswechsel}
@@ -1037,7 +1094,8 @@ A'=TAT^{-1}.
 \index{Skalarprodukt}
 \subsection{Skalarprodukte und symmetrische Matrizen}
 Das in der Vektorgeometrie definiert Skalarprodukt kann in beliebig
-vielen Dimensionen definiert werden. Zwei Vektoren $v$ und $u$ haben
+vielen Dimensionen definiert werden.
+Zwei Vektoren $v$ und $u$ haben
 das Skalarprodukt
 \[
 u\cdot v=
@@ -1084,16 +1142,19 @@ ist also unvermeidlich, wenn man die Basis wechseln will.
 \subsection{Orthogonale Matrizen}
 \index{Matrix!orthognale}
 \subsubsection{Definition}
-Das Skalarprodukt erlaubt, L"angen und Winkel zu berechnen. 
+Das Skalarprodukt erlaubt, L"angen und Winkel zu berechnen.
 Lineare Abbildungen, welche L"angen und Winkel nicht "andern, beschreiben
-Bewegungen des Raumes. Damit zwei Vektoren $u$ und $v$ sollen nach Abbildung
+Bewegungen des Raumes.
+Damit zwei Vektoren $u$ und $v$ sollen nach Abbildung
 mit der Matrix $A$ immer noch das gleiche Skalarprodukt haben, muss
 \[
 u^tv=(Au)^tAv=u^tA^tAv
 \]
-gelten. Dies ist jedoch nur dann f"ur alle Vektoren $u$ und $v$ m"oglich,
-wenn $A^tA$ die Einheitsmatrix ist, also $A^tA=E$. Das ist aber gleichbedeutend
-damit, dass $A^t=A^{-1}$. Lineare Abbildungen, die L"angen und
+gelten.
+Dies ist jedoch nur dann f"ur alle Vektoren $u$ und $v$ m"oglich,
+wenn $A^tA$ die Einheitsmatrix ist, also $A^tA=E$.
+Das ist aber gleichbedeutend damit, dass $A^t=A^{-1}$.
+Lineare Abbildungen, die L"angen und
 Winkel erhalten, haben also besonders einfach zu invertieren Matrizen.
 
 \begin{definition}
@@ -1169,15 +1230,18 @@ Die Matrix einer Spiegelung an einer Geraden ist orthogonal.
 \smallskip
 
 {\parindent 0pt
-Sei} $v$ ein zweidimensionaler Vektor der L"ange $1$. Dann ist
-die Abbildung 
+Sei} $v$ ein zweidimensionaler Vektor der L"ange $1$.
+Dann ist die Abbildung 
 \[
 u\mapsto u-2v(v\cdot u)
 \]
-die Spiegelung an der Geraden mit der Normalen $u$. Ist n"amlich
+die Spiegelung an der Geraden mit der Normalen $u$.
+Ist n"amlich
 ein Vektor $u\perp v$, ist das Skalarprodukt $0$, und $u\mapsto u$
-bleibt unver"andert. Andererseits wird der Vektor $v$ auf
-$v-2v(v\cdot v)=v-2v=-v$ abgebildet. Vektoren senkrecht auf $v$
+bleibt unver"andert.
+Andererseits wird der Vektor $v$ auf
+$v-2v(v\cdot v)=v-2v=-v$ abgebildet.
+Vektoren senkrecht auf $v$
 werden also belassen, solche parallel zu $v$ werden umgekehrt.
 
 Die Matrix dieser linearen Abbildung ist
@@ -1192,7 +1256,8 @@ S_v=\begin{pmatrix}1&0\\0&1\end{pmatrix}
 -2v_1v_2&1-2v_2^2
 \end{pmatrix},
 \]
-wir wollen nachrechnen, dass sie orthogonal ist. Dabei beachten
+wir wollen nachrechnen, dass sie orthogonal ist.
+Dabei beachten
 wir, dass $1-v_1^2=v_2^2$ ist, weil ja $|v|=1$, also kann man $S_v$
 auch schreiben
 \[
@@ -1251,27 +1316,31 @@ beschreibt.
 
 \begin{satz}
 Die Spalten einer orthogonale Matrix $A$ sind orthonormiert, sie sind
-orthogonale Vektoren der L"ange 1. Ausserdem ist $A^{-1}=A^t$.
+orthogonale Vektoren der L"ange 1.
+Ausserdem ist $A^{-1}=A^t$.
 \end{satz}
 
 \begin{proof}[Beweis]
 Multipliziert man $A^tA=E$ von rechts mit $A^{-1}$, bekommt man
 $A^tAA^{-1}=A^t=A^{-1}$.
 
-Wir interpretieren die Bedingung $A^tA=E$. F"ur ein beliebiges $i$
+Wir interpretieren die Bedingung $A^tA=E$.
+F"ur ein beliebiges $i$
 bedeutet sie, dass Zeile $i$ von $A^t$ mal Spalte $i$ von $A$ $1$ ergibt.
 Dies ist aber das Skalarprodukt von Spalte $i$ von $A$ mit Spalte $i$
 von $A$, also die L"ange vom Spaltenvektor mit der Nummer $i$.
 
-Seien jetzt $i\ne j$ zwei verschiedene Indizes. Dann bedeutet $A^tA=E$,
-dass Zeile $i$ von $A^t$ mal Spalte $j$ von $A$ $0$ ergibt. Oder das
+Seien jetzt $i\ne j$ zwei verschiedene Indizes.
+Dann bedeutet $A^tA=E$,
+dass Zeile $i$ von $A^t$ mal Spalte $j$ von $A$ $0$ ergibt.
+Oder das
 Skalarprodukt von Spalte $i$ von $A$ mit Spalte $j$ von $A$ ist $0$.
 Dies wiederum heisst, dass die Spaltenvektoren senkrecht stehen.
 \end{proof}
 
 \subsubsection{Vertauschung der Koordinatenachsen}
 F"ur Transformation, die die Koordinatenachsen vertauscht, ist
-die Transformationsmatrix ebenfalls leicht zu ermitteln. 
+die Transformationsmatrix ebenfalls leicht zu ermitteln.
 In der Basis
 \[
 \left\{
@@ -1280,7 +1349,7 @@ b_2'=\begin{pmatrix}0\\1\\0\end{pmatrix},
 b_3'=\begin{pmatrix}1\\0\\0\end{pmatrix},
 \right\}
 \]
-sind die $x$- und die $z$-Achse vertauscht worden. 
+sind die $x$- und die $z$-Achse vertauscht worden.
 die zugeh"orige Transformationsmatrix ist
 \begin{equation}
 T=\begin{pmatrix}
@@ -1300,7 +1369,8 @@ T=\begin{pmatrix}
 \subsection{Drehungen des dreidimensionalen Raumes}
 \subsubsection{Drehungen um die Koordinatenachsen}
 Drehungen um die Koordinatenachsen k"onnen mit Hilfe der zweidmensionalen
-Drehmatrix $D_\alpha$ gefunden werden. Die Drehung um die $x$-Achse um den
+Drehmatrix $D_\alpha$ gefunden werden.
+Die Drehung um die $x$-Achse um den
 Winkel $\alpha$ "andert die $x$-Koordinate nicht, hat also die
 Matrix
 \[
@@ -1326,7 +1396,8 @@ D_{z,\alpha}=\begin{pmatrix}
 \end{pmatrix}
 \]
 Man kann diese Matrizen aus $D_{x,\alpha}$ aber auch mit Hilfe einer
-Koordinatentransformation bekommen. Die Transformationsmatrix
+Koordinatentransformation bekommen.
+Die Transformationsmatrix
 haben wir in (\ref{transformation-vertauschung}) gefunden:
 \[
 T=
@@ -1379,7 +1450,8 @@ D_{z,-\alpha}=TD_{x,\alpha}T^{-1}
 \end{align*}
 \subsubsection{Drehwinkel ermitteln}
 F"ur die Standard-Drehmatrizen $D_{x,\alpha}$ ist der Drehwinkel 
-leicht mit Hilfe der Spur zu ermitteln. Die Spur ist die Summe der
+leicht mit Hilfe der Spur zu ermitteln.
+Die Spur ist die Summe der
 Diagonalelemente einer Matrix:
 \[
 \operatorname{Spur}
@@ -1399,17 +1471,18 @@ die Berechnung des Drehwinkels auch f"ur beliebige Drehmatrizen
 erlauben:
 \begin{satz}
 \label{spursatz}
-Seinen $A$, $B$ und $C$ beliebige $n\times n$-Matrizen. Dann gilt
+Seinen $A$, $B$ und $C$ beliebige $n\times n$-Matrizen.
+Dann gilt
 \begin{compactenum}
 \item $\operatorname{Spur}(ABC)=\operatorname{Spur}(BCA)=\operatorname{Spur}(CAB)$
 \item $\operatorname{Spur}(AB)=\operatorname{Spur}(BA)$
 \end{compactenum}
 \end{satz}
 Wir zeigen zun"achst, wie man damit den Drehwinkel einer beliebigen
-Drehung $D$ des dreidimensionalen Raumes bestimmen kann. Sei $T$ eine
-Koordinatentransformation, welche die Drehachse der Drehung in die
-$x$-Achse transformiert. Dann hat die transformierte Drehmatrix die
-Form $D_{x,\alpha}$:
+Drehung $D$ des dreidimensionalen Raumes bestimmen kann.
+Sei $T$ eine Koordinatentransformation, welche die Drehachse der Drehung in die
+$x$-Achse transformiert.
+Dann hat die transformierte Drehmatrix die Form $D_{x,\alpha}$:
 \[
 TDT^{-1}= D_{x,\alpha}
 \]
@@ -1440,7 +1513,8 @@ Die zweite Aussage folgt aus der ersten, indem man $C=E$ setzt:
 \operatorname{Spur}(BA).
 \]
 Die zyklische Vertauschung der Faktoren folgt aus den Formeln f"ur die
-Matrix-Multiplikation. Das Element $ik$ der Matrix $AB$ ist
+Matrix-Multiplikation.
+Das Element $ik$ der Matrix $AB$ ist
 \[
 \sum_{j=1}^na_{ij}b_{jk}
 \]
@@ -1462,7 +1536,8 @@ Die Diagonalelemente sind jene mit $i=l$, die Spur ist deren Summe:
 Um die Lage eines K"orpers im Raum festzulegen wurde schon fr"uh
 die folgende nach Euler benannte  Parametrisierung verwendet.
 Die Lage wird durch drei aufeinanderfolgende Drehungen um die $z$-,
-die $x$- und dann nochmals die $z$-Achse herbeigef"uhrt. Die drei
+die $x$- und dann nochmals die $z$-Achse herbeigef"uhrt.
+Die drei
 Drehungen sind
 \begin{compactenum}
 \item eine Drehung um die $z$-Achse um den Winkel $\alpha$
@@ -1470,7 +1545,8 @@ Drehungen sind
 \item eine Drehung um die $z$-Achse um den Winkel $\gamma$
 \end{compactenum}
 Mit der Matrizen-Darstellung der einzelnen Drehungen kann auch
-die Matrix der gesamten Drehung berechnet werden. Wir schreiben
+die Matrix der gesamten Drehung berechnet werden.
+Wir schreiben
 $D_{x,\alpha}$ f"ur eine Drehung um die $x$-Achse um den Winkel
 $\alpha$, und sinngem"ass f"ur die anderen Achsen.
 Es ist
@@ -1542,12 +1618,14 @@ sich dann das Skalarprodukt am einfachsten ausdr"ucken l"asst.
 Dies ist der eigentliche Inhalt des Satzes von Pythagoras: wenn
 \index{Pythagoras}
 man die Achsen orthogonal w"ahlt, kann man die L"ange mit Hilfe
-einer Quadratsumme der Koordinaten ausrechnen. Daher stellt sich 
+einer Quadratsumme der Koordinaten ausrechnen.
+Daher stellt sich 
 das Problem, aus einer gegebenen Menge von Vektoren eine Menge
 von orthogonalen Vektoren zu machen.
 
 Sei also $V=\{b_1,\dots,b_n\}$ eine linear unabh"angige Menge von
-Vektoren. Gesucht ist eine ebenfalls linear unabh"angige Menge 
+Vektoren.
+Gesucht ist eine ebenfalls linear unabh"angige Menge 
 von Vektoren $B'=\{b_1',\dots,b_n'\}$, die den gleichen Unterraum
 aufspannen.
 Ausserdem soll gelten:
@@ -1558,7 +1636,7 @@ Ausserdem soll gelten:
 Eine Menge von Vektoren $B'$ mit diesen Eigenschaften heisst
 {\it orthonormiert}.
 Man beachte, dass $B$ keine Basis sein muss, die Vektoren sind zwar
-linear unabh"angig, m"ussen aber nicht den ganzen Vektorraum erzeugen. 
+linear unabh"angig, m"ussen aber nicht den ganzen Vektorraum erzeugen.
 Falls $B$ eine Basis ist, dann wird auch $B'$ eine Basis sein, beide
 Vektormengen erzeugen den ganzen Raum.
 
@@ -1570,9 +1648,11 @@ b_1' = \frac{b_1}{|b_1|}.
 \]
 Der zweite Vektor $b_2$ hat m"oglicherweise nicht die richtige L"ange,
 aber noch viel schwerer wiegt, dass er nicht senkrecht auf $b_1'$
-steht. Man kann jedoch die zu $b_1'$ parallele Komponente mit Hilfe
+steht.
+Man kann jedoch die zu $b_1'$ parallele Komponente mit Hilfe
 des Skalarproduktes finden: $(b_1'\cdot b_2)b_1'$ ist ein Vektor
-parallel zu $b_1'$. Subtrahieren wir dieses St"uck von $b_2$ bekommen
+parallel zu $b_1'$.
+Subtrahieren wir dieses St"uck von $b_2$ bekommen
 wir einen Vektor, der senkrecht auf $b_1'$ steht:
 \[
 b_1'\cdot(b_2-(b_1'\cdot b_2)b_1')=
@@ -1612,7 +1692,8 @@ der das gestellt Problem l"ost:
 
 \begin{satz}[Gram-Schmidt] Ist $B$ eine linear unabh"angige Menge von Vektoren,
 dann gibt es eine orthonormierte Menge von Vektoren $B'$ so, dass
-$\langle b_1,\dots,b_k\rangle=\langle b_1',\dots,b_k'\rangle$. Die
+$\langle b_1,\dots,b_k\rangle=\langle b_1',\dots,b_k'\rangle$.
+Die
 Vektoren $b_i'$ sind
 \begin{align*}
 b_1'&=\frac{b_1}{|b_1|}\\
@@ -1705,19 +1786,23 @@ alle die L"ange $1$ und sie sind paarweise senkrecht.
 \index{Gleichungssystem!ueberbestimmtes@\"uberbestimmtes}
 "Uberbestimmte Gleichungssysteme sind Gleichungssysteme der Form
 $Ax=b$ mit einer $m\times n$-Matrix mit $m>n$, also mehr Gleichungen
-als Unbekannten. Im allgemeinen sind sie nicht l"osbar, weil $b$ nicht
+als Unbekannten.
+Im allgemeinen sind sie nicht l"osbar, weil $b$ nicht
 im Bild von $A$ enthalten ist: $b\not\in \operatorname{im}A$.
 
 Statt einer exakten L"osung k"onnte man daher eine approximative
 L"osung suchen, welche die Gleichung m"oglichst gut erf"ullt,
-der Vektor $Ax-b$ sollte also m"oglichst kurz sein. Geometrisch
+der Vektor $Ax-b$ sollte also m"oglichst kurz sein.
+Geometrisch
 geht es also darum, das Lot vom Punkt $b$ auf den von den Spaltenvektoren
-von $A$ aufgespannten Unterraum zu f"allen. Wir suchen also
+von $A$ aufgespannten Unterraum zu f"allen.
+Wir suchen also
 einen Vektor, der auf allen Spaltenvektoren von $A$ senkrecht steht.
 Das Skalarprodukt von Spaltenvektoren von $A$ mit $Ax-b$ ist aber
 $A^t(Ax-b)$, wir m"ussen also das Gleichungssystem
 \[A^t(Ax-b)=0\]
-l"osen. Nach Ausmultiplizieren bekommen wir
+l"osen.
+Nach Ausmultiplizieren bekommen wir
 \begin{equation}
 A^tAx-A^tb=0\quad\Rightarrow\quad A^tAx=A^tb\quad\Rightarrow\quad
 x=(A^tA)^{-1}A^tb.
@@ -1732,8 +1817,8 @@ Sei
 \[
 A=\begin{pmatrix}1\\1\\1\\\end{pmatrix},\quad b=\begin{pmatrix}1\\2\\3\end{pmatrix}.
 \]
-Offenbar ist $b\not\in\operatorname{im}A$.  Nach der Formel (\ref{uberbestimmt})
-muss man zun"achst $A^tA$ ausrechnen:
+Offenbar ist $b\not\in\operatorname{im}A$.
+Nach der Formel (\ref{uberbestimmt}) muss man zun"achst $A^tA$ ausrechnen:
 \[
 A^tA=\begin{pmatrix}1&1&1\end{pmatrix}\begin{pmatrix}1\\1\\1\end{pmatrix}=3.
 \]

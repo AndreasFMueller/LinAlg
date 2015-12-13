@@ -6,7 +6,8 @@
 \chapter{Matrixzerlegungen\label{chapter-zerlegung}}
 \rhead{Matrixzerlegungen}
 Der Gauss-Algorithmus l"ost nicht nur Gleichungssysteme, er berechnet
-auch die inverse Matrix oder die Determinante. F"ur viele Zwecke ist
+auch die inverse Matrix oder die Determinante.
+F"ur viele Zwecke ist
 aber die Berechnung der Inversen nicht unbedingt notwendig, es reicht,
 wenn eine gegebenen Matrix $A$ in Faktoren $A=BC$ zerlegt werden kann,
 wobei die Faktoren $B$ und $C$ besondere Eigenschaften haben sollen.
@@ -31,8 +32,8 @@ zu berechnende Determinanten haben.
 \section{Zerlegung von Dreiecksmatrizen}
 \index{Dreiecksmatrix}
 Als Vorbereitung untersuchen wir einige Beispiele von m"oglichen
-Zerlegungen von Dreiecksmatrizen. In diesem Abschnitt ist $L$ immer
-eine untere Dreiecksmatrix
+Zerlegungen von Dreiecksmatrizen.
+In diesem Abschnitt ist $L$ immer eine untere Dreiecksmatrix
 \[
 L=\begin{pmatrix}
 l_{11}&0     &\dots &0     \\
@@ -88,7 +89,7 @@ Diagonalelement teilt, "ahnlich wie man das im Laufe des Gauss-Algorithmus
 macht.
 
 \begin{hilfssatz}
-Sei $L$ eine unter Dreicksmatrix mit $n$ Zeilen und Spalten, und $k<n$. 
+Sei $L$ eine unter Dreicksmatrix mit $n$ Zeilen und Spalten, und $k<n$.
 Dann kann man $L$ in zwei untere Dreiecksmatrizen aufteilen:
 \begin{align*}
 L&=
@@ -126,7 +127,8 @@ Durch Nachrechnen.
 \end{proof}
 
 Diese Zerlegung kann man nat"urlich iterieren, bis in jeder Teilmatrix
-nur noch eine Spalte "ubrig bleibt. Schreiben wir
+nur noch eine Spalte "ubrig bleibt.
+Schreiben wir
 \[
 L_i=\begin{pmatrix}
 1      &\dots &0     &\dots &0     \\
@@ -147,16 +149,21 @@ L=L_1L_2\dots L_{n-1}L_n.
 \index{Zerlegung!LU}
 Der Gauss-Algorithmus produziert mit bei der Vorw"artsreduktion eine
 obere Dreiecksmatrix, die noch dazu lauter Einsen auf der Diagonalen
-hat. Es liegt also nahe, eine Zerlegung von $A$ mit dieser Dreiecksmatrix
+hat.
+Es liegt also nahe, eine Zerlegung von $A$ mit dieser Dreiecksmatrix
 als Faktor $U$ zu versuchen.
 
 Um den zweiten Faktor zu finden, studieren wir nochmals den
-Gauss-Algorithmus. Im $k$-ten Schritt wird das Diagonalelement
+Gauss-Algorithmus.
+Im $k$-ten Schritt wird das Diagonalelement
 $a_{kk}$ zu $1$ gemacht, und damit werden alle Elemente sp"ateren
-Elemente in der Spalte eleminiert. Man weiss also bereits, was an
+Elemente in der Spalte eleminiert.
+Man weiss also bereits, was an
 diesen Stellen in der Matrix stehen wird, es ist nicht n"otig, diese
-Eintr"age zu berechnen oder zu speichern. Wir lassen daher diese
-Eintr"age stehen. Das Gauss-Tableau sieht dann nach der Vorw"artsreduktion
+Eintr"age zu berechnen oder zu speichern.
+Wir lassen daher diese
+Eintr"age stehen.
+Das Gauss-Tableau sieht dann nach der Vorw"artsreduktion
 so aus:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
@@ -207,11 +214,13 @@ die $i$-te Spalte von $L$ enthalten, im "ubrigen aber wie eine Einheitsmatrix
 aussehen.
 
 Wir behaupten jetzt, dass $L_i$ den $i$-ten Gauss-Vorw"artsredutionsschritt
-r"uck\-g"angig macht. Da $U$ das Resultat der Vorw"artsreduktion ist, 
-muss $LU$ die urspr"ungliche Matrix $A$ sein. 
+r"uck\-g"angig macht.
+Da $U$ das Resultat der Vorw"artsreduktion ist, 
+muss $LU$ die urspr"ungliche Matrix $A$ sein.
 
 Um den $i$-ten Gauss-Schritt r"uckg"angig zu machen, muss die
-$i$-Zeile mit dem Pivot-Element multipliziert werden. Die Multiplikation
+$i$-Zeile mit dem Pivot-Element multipliziert werden.
+Die Multiplikation
 der Matrix $L_k$ mit einer Matrix $B$ liefert in Zeile $i$ aber genau das Produkt
 von
 \[
@@ -282,7 +291,8 @@ b_{kn}
 \end{pmatrix}
 \end{align*}
 Zur Zeile $k$ wird also das $l_{ki}$-fache der Zeile
-$i$ hinzuaddiert. Das ist genau die Umkehrung dessen, was
+$i$ hinzuaddiert.
+Das ist genau die Umkehrung dessen, was
 die Gausselimination macht: da wurde von der Zeile $k$
 das $l_{ki}$-fache der $i$-ten Zeile subtrahiert.
 
@@ -295,7 +305,8 @@ Satz bewiesen.
 \label{ludecomposition}
 Sei $A$ eine $m\times n$ Matrix mit Rang $r$.
 Dann gibt es eine $m\times r$-Matrix $L$ und eine $r\times n$-Matrix
-$U$ mit $A=LU$. Ausserdem haben $L$ und $U$ die folgende Form:
+$U$ mit $A=LU$.
+Ausserdem haben $L$ und $U$ die folgende Form:
 \[
 L=\begin{pmatrix}
 l_{11}&0&\dots&0\\
@@ -316,7 +327,8 @@ U=\begin{pmatrix}
 
 F"ur quadratische $n\times n$-Matrizen mit Rang $n$ folgt insbesondere,
 dass $L$ eine untere Dreiecksmatrix und $U$ eine obere Dreiecksmatrix
-mit lauter $1$ auf der Diagonalen ist. Damit wird die Berechnug der
+mit lauter $1$ auf der Diagonalen ist.
+Damit wird die Berechnug der
 Determinanten besonders einfach:
 
 \begin{satz}
@@ -339,10 +351,11 @@ Dreiecksmatrix und einer Diagonalmatrix zerlegen:
 \index{LDU-Zerlegung}
 \index{Zerlegung!LDU}
 \label{ldrdecomposition}
-Sei $A$ eine $m\times n$ Matrix mit Rang $r$. Dann gibt es eine $m\times r$
-Matrix $L_0$, eine $r\times n$-Matrix $R$ und eine $r\times r$-Diagonalmatrix $D$
-so, dass $A=L_0DR$. Ausserdem hat $L_0$ die Form
-mit folgender Form:
+Sei $A$ eine $m\times n$ Matrix mit Rang $r$.
+Dann gibt es eine $m\times r$ Matrix $L_0$, eine $r\times n$-Matrix $R$
+und eine $r\times r$-Diagonalmatrix $D$
+so, dass $A=L_0DR$.
+Ausserdem hat $L_0$ die Form mit folgender Form:
 \[
 L_0=\begin{pmatrix}
 1     &0&\dots&0\\
@@ -362,7 +375,8 @@ Man verwendet
 D=\operatorname{diag}(l_{11},\dots,l_{rr}),
 \]
 und berechnet $L_0$ aus dem $L$ gem"ass Satz \ref{ludecomposition} durch
-Multiplikation mit $D^{-1}$, also $L_0=LD^{-1}$. Es ist klar, dass
+Multiplikation mit $D^{-1}$, also $L_0=LD^{-1}$.
+Es ist klar, dass
 $L_0DR=LR=A$.
 \end{proof}
 
@@ -565,13 +579,14 @@ L_0R=
 \index{QR-Zerlegung}
 \index{Zerlegung!QR}
 Die Zerlegung in zwei Dreiecksmatrizen mag f"ur das Problem, Gleichungen
-zu l"osen, ad"aquat sein. F"ur viele andere Problem w"unscht man
+zu l"osen, ad"aquat sein.
+F"ur viele andere Problem w"unscht man
 sich von den Faktoren weitere oder andere Eigenschaften, zum Beispiel
-Orthogonalit"at. Die QR-Zerlegung liefert eine Matrix mit orthonormierten
-Spalten.
+Orthogonalit"at.
+Die QR-Zerlegung liefert eine Matrix mit orthonormierten Spalten.
 
-Betrachten wir nochmals den Orthonormalisierungsprozess. Im $k$-ten
-Schritt erzeugt er den Vektor $b_k'$ aus $b_1',\dots,b_{k-1}'$
+Betrachten wir nochmals den Orthonormalisierungsprozess.
+Im $k$-ten Schritt erzeugt er den Vektor $b_k'$ aus $b_1',\dots,b_{k-1}'$
 und $b_k$ nach der Formel
 \[
 b_k'=\frac{
@@ -632,7 +647,8 @@ und eine $n\times n$-Dreicksmatrix $R$ so, dass $A=QR$.
 
 Im Spezialfall $n=m$, also f"ur quadratische Matrizen, liefert der
 Algorithmus eine orthogonale Matrix $Q$ und obere Dreiecksmatrix eine $R$
-so, dass $A=QR$. Da $Q^{-1}=Q^t$ ist, kann man $R=AQ^t$ bestimmen,
+so, dass $A=QR$.
+Da $Q^{-1}=Q^t$ ist, kann man $R=AQ^t$ bestimmen,
 was die Berechnung von $R$ vereinfacht.
 Wieder ist $\det(A)=\det(Q)\det(R)=\pm\det(R)$.
 
@@ -672,16 +688,20 @@ R=
 
 \subsection{QR-Zerlegung und Least-Squares}
 Die QR-Zerlegung kann dazu verwendet werden, das Least-Squares-Problem
-zu l"osen. Dabei wird f"ur ein "uberbestimmtes Gleichungssystem mit
+zu l"osen.
+Dabei wird f"ur ein "uberbestimmtes Gleichungssystem mit
 $m\times n$-Koeffizienten\-matrix $A$ und rechter Seite $b$ ein Vektor $v$
 so gesucht,
-dass $Ax-b$ minimal wird. Die in Abschnitt~\ref{section:ueberbestimmt}
+dass $Ax-b$ minimal wird.
+Die in Abschnitt~\ref{section:ueberbestimmt}
 gefundene L"osung ben"otigt die Matrizenprodukte $A^tA$ und $A^tb$, welche
-f"ur grosses $m$ aufwendig zu berechnen sind. Es besteht also die Hoffnung,
+f"ur grosses $m$ aufwendig zu berechnen sind.
+Es besteht also die Hoffnung,
 dass eine alternative Methode diesen Aufwand reduzieren k"onnte.
 
 Die geometrische L"osung des Problems aus Abschnitt~\ref{section:ueberbestimmt}
-verwendet, dass $Av-b$ senkrecht steht auf $Av$. Die QR-Zerlegung ist
+verwendet, dass $Av-b$ senkrecht steht auf $Av$.
+Die QR-Zerlegung ist
 im Wesentlichen eine Umformulierung des Orthogonalisierungsverfahrens, in den
 Matrizen $Q$ und $R$ ist also die Information "uber Orthogonalit"at ebenfalls
 enthalten.
@@ -689,7 +709,8 @@ enthalten.
 Genauer: wenn $A=QR$ ist, wobei $Q$ eine orthogonale $m\times m$-Matrix
 ist und $R$ eine obere $m\times n$-Dreiecksmatrix, dann bilden die
 ersten $n$ Spaltenvektoren von $Q$ eine orthonormierte Basis des
-von den Spalten von $A$ aufgespannten Raumes. Wir nennen diese Vektoren
+von den Spalten von $A$ aufgespannten Raumes.
+Wir nennen diese Vektoren
 $Q_{\|}$.
 Die nachfolgenden Spaltenvektoren
 in $Q$ stehen alle senkrecht auf $Av$, wir nennen sie $Q_{\perp}$.
@@ -713,20 +734,24 @@ aufgespannten Raum liegt, oder so, dass $Av-b$ verschwindende Koordinaten
 f"ur die Basisvektoren $Q_{\|}$ hat.
 
 Daf"ur m"ussen wir die Koordinaten eines Vektors in der Basis $Q$
-berechnen k"onnen. Sind $\xi$ diese Koordinaten des Vektors $v$,
-dann gilt offenbar $Q\xi = v$. Da $Q$ orthogonal ist, ist $Q^{-1}=Q^t$,
-es ist also $\xi=Q^tv$. Insbesondere sind die Koordinaten von $b$ in der
-Matrix $Q$ gegeben durch $\xi_b=Q^tb$. 
+berechnen k"onnen.
+Sind $\xi$ diese Koordinaten des Vektors $v$,
+dann gilt offenbar $Q\xi = v$.
+Da $Q$ orthogonal ist, ist $Q^{-1}=Q^t$, es ist also $\xi=Q^tv$.
+Insbesondere sind die Koordinaten von $b$ in der
+Matrix $Q$ gegeben durch $\xi_b=Q^tb$.
 
 Wir suchen immer noch einen Vektor $v$, so dass $Av-b$ im $Q$-Koordinatensystem
-verschwindende $Q_{\|}$-Koordinaten hat. In $Q$-Koordinaten hat dieser
+verschwindende $Q_{\|}$-Koordinaten hat.
+In $Q$-Koordinaten hat dieser
 Vektor die Koordinaten
 \[
 Q^t(Av-b)=Q^t(QRv-b)=Rv-Q^tb.
 \]
 Dass die $Q_{\|}$-Koordinaten dieses Vektors verschwinden sollen ist
 gleichbedeutend damit, dass die ersten $n$ Komponenten von 
-$Rv$ und $Q^tb$ "ubereinstimmen m"ussen. Die ersten $n$ Komponenten
+$Rv$ und $Q^tb$ "ubereinstimmen m"ussen.
+Die ersten $n$ Komponenten
 von $Q^tb$ sind aber $Q_{\|}^tb$, wir erhalten so ein Gleichungssystem
 der Form
 \begin{equation}
@@ -739,14 +764,15 @@ Q_{\|}^tb\\
 Die letzten $m-n$ Gleichungen (mit $0$ auf der rechten Seite) sind dabei
 wegen der Dreiecksform von $R$ automatisch erf"ullt, man muss also nur
 noch das $n\times n$-Gleichungssystem bestehend aus den ersten $n$
-Gleichungen l"osen. 
+Gleichungen l"osen.
 
 Wir haben also wiederum nur eine $n\times n$-Gleichungssystem
 zu l"osen, wie beim Verfahren aus Abschnitt~\ref{section:ueberbestimmt}.
 Trotzdem haben wir eine Vereinfachung erreicht:
 \begin{itemize}
 \item Wir m"ussen das Produkt $A^tA$ nicht mehr berechnen.
-\item Es ist nur noch das Produkt $Q_{\|}^tb$ zu berechnen. Da $Q_{\|}^t$
+\item Es ist nur noch das Produkt $Q_{\|}^tb$ zu berechnen.
+Da $Q_{\|}^t$
 eine $n\times m$-Matrix ist, ist dies der gleiche Aufwand wie $A^tb$.
 \item Das Gleichungssystem (\ref{qr-leastsquares}) ist bereits in Dreiecksform,
 es kann also allein durch R"uckw"artseinsetzen gel"ost werden.
@@ -768,8 +794,9 @@ nur in den ersten $n$-Zeilen von $0$ verschiedene Elemente.
 Kann man aus einer Matrix die Wurzel ziehen? Was w"are das "uberhaupt?
 Aus einer Diagonalmatrix mit positiven Diagonalelementen kann man offenbar
 die Wurzel ziehen, in dem man die Wurzel aus den Diagonalelementen zieht.
-Negative Diagonalelemente machen dies unm"oglich. Man muss also auf jeden
-Fall fordern, dass die Matrix in einem gewissen Sinn positiv ist. 
+Negative Diagonalelemente machen dies unm"oglich.
+Man muss also auf jeden
+Fall fordern, dass die Matrix in einem gewissen Sinn positiv ist.
 
 \begin{definition}
 Eine symmetrische Matrix $A$ heisst positiv definit, falls $v^tAv>0$ f"ur
@@ -781,8 +808,10 @@ kennengelernt, in der ein Gleichungssystem der Form
 \[
 A^tAx=A^t b
 \]
-gel"ost werden musste. Die Matrix $A^tA$ ist genau von der hier
-beschriebenen Art: symmetrisch und positiv definit. Es ist n"amlich
+gel"ost werden musste.
+Die Matrix $A^tA$ ist genau von der hier
+beschriebenen Art: symmetrisch und positiv definit.
+Es ist n"amlich
 \[
 v^tA^tAv=(Av)^tAv=(Av)\cdot (Av)=|Av|^2> 0
 \]
@@ -798,8 +827,10 @@ untere Dreiecksmatrix $L$ mit $A=LL^t$.
 \end{satz}
 
 Anstelle eines Beweises zeigen wir einen Algorithmus, mit dem man die Matrix
-$L$ konstruieren kann. Das Verfahren startet mit einer positiv definiten
-symmetrischen $n\times n$-Matrix $A$. Gesucht wird eine untere Dreiecksmatrix $L$
+$L$ konstruieren kann.
+Das Verfahren startet mit einer positiv definiten
+symmetrischen $n\times n$-Matrix $A$.
+Gesucht wird eine untere Dreiecksmatrix $L$
 mit $A=LL^t$.
 Die Matrix $L$ kann man symbolisch in der Form 
 \[
@@ -867,8 +898,10 @@ a_{11}&=l_{11}^2   &\Rightarrow&&l_{11}&=\sqrt{a_{11}}\\
     A'&=ll^t+L'L'^t&\Rightarrow&&L'L'^t&=A'-ll^t
 \end{align*}
 Um $L$ zu finden, muss also nur noch eine Zerlegung von $A'-ll^t$
-finden. Damit wurde das $n$-dimensionale Problem auf ein $n-1$-dimensionales
-Problem reduziert. Durch Wiederholung dieses Schrittes gelangt man am Schluss
+finden.
+Damit wurde das $n$-dimensionale Problem auf ein $n-1$-dimensionales
+Problem reduziert.
+Durch Wiederholung dieses Schrittes gelangt man am Schluss
 zu einem eindimensionalen Problem, also dem Problem, die Wurzel aus einer
 positiven Zahl zu ziehen.
 
@@ -917,7 +950,8 @@ L=\begin{pmatrix}
 \]
 F"ur das fehlende Element muss jetzt nur noch die Cholesky-Zerlegung
 einer $1\times 1$-Matrix bestimmt werden, dies ist aber die 
-Quadratwurzel. Somit ist
+Quadratwurzel.
+Somit ist
 \[
 L=
 \begin{pmatrix}
@@ -946,12 +980,13 @@ L=
 
 {\small
 Unsere Beschreibung des Algorithmus f"ur die Cholesky-Zerlegung ist in
-einem Punkt unvollst"andig. Woher wissen wir, dass $A'-ll^t$ positiv
+einem Punkt unvollst"andig.
+Woher wissen wir, dass $A'-ll^t$ positiv
 definit ist? Dies ist ja die Voraussetzung, dass der Algorithmus
 "uberhaupt angewendet werden kann.
 
-Wir wissen, dass $A$ und $A'$ positiv definit sind. F"ur jeden $n-1$-dimensionalen
-Vektor $v$ k"onnen wir einen Vektor
+Wir wissen, dass $A$ und $A'$ positiv definit sind.
+F"ur jeden $n-1$-dimensionalen Vektor $v$ k"onnen wir einen Vektor
 \[
 \tilde v=\left(
 \begin{tabular}{c}
@@ -963,7 +998,8 @@ $\mathstrut$
 \end{tabular}
 \right)
 \]
-bilden. Nach Voraussetzung ist $v^tA'v>0$ und $\tilde v^tA\tilde v>0$.
+bilden.
+Nach Voraussetzung ist $v^tA'v>0$ und $\tilde v^tA\tilde v>0$.
 Wir m"ochten nachrechnen, dass $v^t(A'-ll^t)v>0$ gilt, das w"urde bedeuten,
 dass $A'-ll^t$ positiv definit ist.
 Es ist
@@ -1062,10 +1098,10 @@ mit $s_1\ge s_2\ge\dots \ge s_r$ und $A=USV^t$.
 \end{satz}
 
 Die Berechnung der Singul"arwertzerlegung kann in Octave/Matlab
-mit der Funktion {\tt svd} erfolgen. Sie liefert einen Vektor
-mit den Singul"arwerten $s_1,\dots,s_n$ zur"uck. Will man auch die
-Matrizen $U$ und $V$ bekommen, muss man als R"uckgabewert eine
-Matrix von R"uckgabewerten spezifizieren
+mit der Funktion {\tt svd} erfolgen.
+Sie liefert einen Vektor mit den Singul"arwerten $s_1,\dots,s_n$ zur"uck.
+Will man auch die Matrizen $U$ und $V$ bekommen, muss man als R"uckgabewert
+eine Matrix von R"uckgabewerten spezifizieren
 \begin{verbatim}
 [U, S, V] = svd(A)
 \end{verbatim}
@@ -1119,7 +1155,7 @@ P=
  &      & & &      &0\\
 \end{pmatrix}
 \]
-mit genau $r$ Einsen in der linken oberen Ecke hat. 
+mit genau $r$ Einsen in der linken oberen Ecke hat.
 Man nennt $P$ eine {\em Projektionsmatrix}, sie hat die Eigenschaft $P^2=P$.
 \index{Projektion}
 \index{Projektionsmatrix}
@@ -1202,7 +1238,8 @@ A=\begin{pmatrix}
 0&0&0
 \end{pmatrix}
 \]
-ist nicht invertierbar, weil sie nicht vollen Rang hat. Aber die Matrix
+ist nicht invertierbar, weil sie nicht vollen Rang hat.
+Aber die Matrix
 \[
 A^\dagger=\begin{pmatrix}
 \frac12&0&0\\
@@ -1241,7 +1278,8 @@ S^\dagger=\left(
 \right)
 \end{equation}
 denn die Produkte $S^\dagger S$ und $SS^\dagger$ sind beide Projektionsmatrizen
-mit Rang $r$. $S^\dagger S$ ist eine $n\times n$-Matrix, $SS^\dagger$ ist eine
+mit Rang $r$.
+$S^\dagger S$ ist eine $n\times n$-Matrix, $SS^\dagger$ ist eine
 $m\times m$-Matrix.
 
 Mit Hilfe der Singul"arwertzerlegung l"asst sich diese Konstruktion
@@ -1249,7 +1287,8 @@ auf beliebige Matrizen verallgemeinern.
 Sei $A$ eine $m\times n$-Matrix mit Singul"artwertzerlegung
 $A=USV^t$, wobei $U$ eine orthogonale $m\times m$-Matrix, $V$ eine orthogonale
 $n\times n$-Matrix und $S$ eine $m\times n$-Diagonalmatrix wie in (\ref{s-matrix})
-von Satz~\ref{satz-svd} ist. Wir setzen
+von Satz~\ref{satz-svd} ist.
+Wir setzen
 \begin{equation}
 A^\dagger = VS^\dagger U^t,
 \label{definition-pseudoinverse}
@@ -1259,7 +1298,7 @@ $A^\dagger$ heisst die {\em Pseudoinverse} von $A$.
 Wir "uberzeugen uns zun"achst, dass $A^\dagger$ f"ur invertierbare Matrizen
 mit der gew"ohnlichen Inversen $A^{-1}$ "ubereinstimmt.
 F"ur invertierbares $A$ ist $n=m$ und $S$ ist eine Diagonalmatrix ohne Nullen
-auf der Diagonalen. 
+auf der Diagonalen.
 Insbesondere gilt $S^\dagger=S^{-1}$, oder $S^\dagger S=SS^\dagger=E$.
 Daher gilt auch
 \begin{align*}
