@@ -387,7 +387,7 @@ h"ochste Eigenfrequenz: $\lambda=\lambda_2$:\\
 \end{figure}%
 Diesmal gibt es drei Schwingungsmodi, von denen in Abbildung~\ref{n3modi}
 wieder jeweils die Extremlagen dargestellt sind. Zur geringsten Frequenz
-$\omega_3=\sqrt{\lambda_3}=\sqrt{2-\sqrt{2}}\simeq 0.7654$
+$\omega_3=\sqrt{\mathstrut\lambda_3}=\sqrt{2-\sqrt{2\mathstrut}}\simeq 0.7654$
 geh"ort eine Schwingung, bei der alle drei Massen in Phase
 hin- und herschwingen, wobei die mittlere Masse eine 41\% 
 gr"ossere Amplitude hat (Abbildung~\ref{n3modi} unten).
@@ -511,7 +511,7 @@ auf den Fibonacci-Zahlen.
 Um die Fibonacci-Zahlen zu berechnen, muss man sich nur jeweils die letzten zwei
 Zahlen merken, wir schreiben diese in eine Spaltenvektor
 \[
-\begin{pmatrix}x_n\\x_{n-1}\end{pmatrix}
+\begin{pmatrix}x_n\\x_{n-1}\end{pmatrix}.
 \]
 Beim "Ubergang zur Fibonacci-Zahl $x_{n+1}$ muss man sich auch $x_n$ merken,
 man muss also den neuen Spaltenvektor berechnen:
@@ -527,7 +527,7 @@ man muss also den neuen Spaltenvektor berechnen:
 \begin{pmatrix}x_n\\x_{n-1}\end{pmatrix}
 =
 A
-\begin{pmatrix}x_n\\x_{n-1}\end{pmatrix}
+\begin{pmatrix}x_n\\x_{n-1}\end{pmatrix}.
 \label{fibonaccirekursion}
 \end{equation}
 \subsubsection{L"osung als Eigenwertproblem}
@@ -542,7 +542,7 @@ f(n)=a\lambda^n
 zu finden. Eingesetzt in (\ref{fibonaccirekursion}) ergibt sich
 \[
 \begin{pmatrix}a\lambda^{n+1}\\a\lambda^n\end{pmatrix}
-=A\begin{pmatrix}a\lambda^n\\a\lambda^{n-1}\end{pmatrix}
+=A\begin{pmatrix}a\lambda^n\\a\lambda^{n-1}\end{pmatrix}.
 \]
 Der Vektor auf der linken Seite ist das $\lambda$-fache des Vektors
 auf der rechten Seite, wenn es also "uberhaupt eine L"osung in der
