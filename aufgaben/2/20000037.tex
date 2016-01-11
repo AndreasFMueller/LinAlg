@@ -1,0 +1,113 @@
+Berechnen Sie die Determinante der Matrix
+\[
+A=\begin{pmatrix}
+-6&-1& 9&-9\\
+-6&-4& 9&-9\\
+-2&-8& 2&-7\\
+ 2& 3&-4&-1
+\end{pmatrix}
+\]
+
+\begin{loesung}
+Die Determinante kann mit dem Entwicklungssatz berechnet werden, doch
+ist dies etwas m"uhsam, weil in der Matrix keine Nullen vorkommen.
+Daher subtrahieren wir erst die die zweite Zeile von der ersten, denn
+so entstehen in dieser Zeile drei Nullen:
+\begin{align*}
+\det(A)
+&=
+\left|\,\begin{matrix}
+-6&-1& 9&-9\\
+-6&-4& 9&-9\\
+-2&-8& 2&-7\\
+ 2& 3&-4&-1
+\end{matrix}\,\right|
+=
+\left|\,\begin{matrix}
+ 0& 3& 0& 0\\
+-6&-4& 9&-9\\
+-2&-8& 2&-7\\
+ 2& 3&-4&-1
+\end{matrix}\,\right|
+=
+-3\cdot\left|\,\begin{matrix}
+-6& 9&-9\\
+-2& 2&-7\\
+ 2&-4&-1
+\end{matrix}\,\right|
+\end{align*}
+Die $3\times 3$-Determinante k"onnte ma zwar direkt mit der
+Sarrus-Formel berechnen, aber wir ziehen vorher noch einen gemeinsamen
+Faktor 3 aus der ersten Zeile und einen gemeinsamen Faktor 2 aus der
+ersten Spalte:
+\begin{align}
+\det(A)
+&=
+-3\cdot 3\cdot 2\cdot\left|\,\begin{matrix}
+-1& 3&-3\\
+-1& 2&-7\\
+ 1&-4&-1
+\end{matrix}\,\right|
+\label{20000037:3det}
+\end{align}
+Durch ``Anstarren'' kann man jetzt finden, dass das Doppelte der ersten
+Zeile zusammen mit der dritten Zeile die zweite Zeile ergibt, die Determinante
+muss also verschwinden.
+
+Alternativ k"onnte den Gaussalgorithmus anwenden:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+-1& 3&-3\\
+-1& 2&-7\\
+ 1&-4&-1\\
+\hline
+\end{tabular}
+&\Rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1&-3& 3\\
+ 0&-1&-4\\
+  &-1&-4\\
+\hline
+\end{tabular}
+\Rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1&-3& 3\\
+ 0& 1& 4\\
+ 0& 0& 0\\
+\hline
+\end{tabular}\,,
+\end{align*}
+was auch wieder zeigt, dass die Matrix singul"ar ist, dass also die
+Determinante verschwinden muss.
+
+Nat"urlich kann man die Determinante (\ref{20000037:3det}) auch mit de
+Sarrus-Formel berechnen:
+\begin{align*}
+\left|\,\begin{matrix}
+-1& 3&-3\\
+-1& 2&-7\\
+ 1&-4&-1
+\end{matrix}\,\right|
+&=
+2
++
+3\cdot(-7)
++
+(-3)\cdot(-1)\cdot(-4)
+-
+2\cdot(-3)
+-
+(-4)\cdot(-7)\cdot(-1)
+-
+3
+\\
+&=2-21-12+6+28-3=0.
+\end{align*}
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+

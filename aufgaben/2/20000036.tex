@@ -1,0 +1,61 @@
+F"ur welche Werte von $a$ ist die Matrix 
+\[
+A=\begin{pmatrix}
+0&a&\sqrt{2}\\
+a&\sqrt{2}&a\\
+\sqrt{2}&a&0
+\end{pmatrix}
+\]
+singul"ar?
+Berechnen Sie ausserdem die inverse Matrix f"ur alle anderen Werte von $a$.
+
+\begin{loesung}
+Ob die Matrix singul"ar ist, kann man am leichtesten mit der Determinanten
+entscheiden. 
+Diese ist nach der Sarrus-Formel
+\begin{align*}
+\det(A)
+&=
+0\cdot \sqrt{2}\cdot 0+a^2\sqrt{2}+a^2\sqrt{2}-2-a^2\cdot 0 - 0\cdot a^2
+\\
+&=2a^2\sqrt{2}-2\sqrt{2}=2\sqrt{2}(a^2-1).
+\end{align*}
+Dieser Ausdruck verschwindet genau dann, wenn $a^2=1$,
+also sind $a=\pm1$ die beiden Werte, f"ur die die Matrix singul"ar wird.
+
+Die inverse Matrix kann man jetzt, da man die Determinante ja schon berechnet
+hat, mit Hilfe von Minoren bestimmen.
+\begin{align*}
+A^{-1}
+&=
+\frac1{2\sqrt{2}(a^2-1)}
+\begin{pmatrix}
+  \left|\begin{matrix}\sqrt{2}&       a\\       a&       0\end{matrix}\right|
+&-\left|\begin{matrix}       a&\sqrt{2}\\       a&       0\end{matrix}\right|
+& \left|\begin{matrix}       a&\sqrt{2}\\\sqrt{2}&       a\end{matrix}\right|
+\\
+ -\left|\begin{matrix}       a&       a\\\sqrt{2}&       0\end{matrix}\right|
+& \left|\begin{matrix}       0&\sqrt{2}\\\sqrt{2}&       0\end{matrix}\right|
+&-\left|\begin{matrix}       0&\sqrt{2}\\       a&       a\end{matrix}\right|
+\\
+  \left|\begin{matrix}       a&\sqrt{2}\\\sqrt{2}&       a\end{matrix}\right|
+&-\left|\begin{matrix}       0&       a\\\sqrt{2}&       a\end{matrix}\right|
+& \left|\begin{matrix}       0&       a\\       a&\sqrt{2}\end{matrix}\right|
+\end{pmatrix}
+=
+\frac1{2\sqrt{2}(a^2-1)}
+\begin{pmatrix}
+-a^2&a\sqrt{2}&a^2-2\\
+a\sqrt{2}&-2&a\sqrt{2}\\
+a^2-2&a\sqrt{2}&-a^2
+\end{pmatrix}.
+\end{align*}
+\end{loesung}
+
+\begin{bewertung}
+Anwendung der Sarrus-Formel ({\bf S}) 1 Punkt,
+Berechnung der Determinante ({\bf D}) 1 Punkt,
+Werte von $a$, f"ur die die Matrix singul"ar wird ({\bf A}) 1 Punkt,
+Minor-Formel f"ur die Inverse ({\bf M}) 1 Punkt,
+Berechnung der Inversen ({\bf I}) 2 Punkte.
+\end{bewertung}
