@@ -1,0 +1,169 @@
+Gegeben sind die Punkte $A=(1,2)$, $B=(11,2)$ und $C=(7,10)$
+in der Ebene.
+Sie bilden ein Dreieck $\triangle ABC$.
+\begin{teilaufgaben}
+\item Berechnen Sie die Mittelpunkte $M_{AB}$, $M_{BC}$ und $M_{CA}$ aller drei
+Seiten.
+\item Bestimmen Sie f"ur jede Seite einen Vektor $\vec{v}_{AB}$, $\vec{v}_{BC}$
+und $\vec{v}_{CA}$, der auf der Seite senkrecht steht.
+\item Berechnen Sie den Schnittpunkt $M$ der Mittelsenkrechten auf
+$BC$ und $AC$.
+\item Berechnen Sie die Entfernung von $M$ von allen drei Ecken des Dreiecks.
+\end{teilaufgaben}
+
+\begin{loesung}
+$M$ ist nat"urlich der Umkreismittelpunkt, der von allen drei Ecken gleich
+weit entfernt ist.
+Wir verwenden die "ubliche Konvention, dass Ortsvektoren eines Punktes
+mit dem zugeh"origen Kleinbuchstaben bezeichnet werden, also
+\[
+\begin{aligned}
+\vec{a}&=\begin{pmatrix} 1\\ 2\end{pmatrix},&
+\vec{b}&=\begin{pmatrix}11\\ 2\end{pmatrix}&
+&\text{und}&
+\vec{c}&=\begin{pmatrix} 7\\10\end{pmatrix}.
+\end{aligned}
+\]
+Die Punkte sind in Abbildung~\ref{30000044:dreieck} dargestellt.
+\begin{teilaufgaben}
+\item Die Mittelpunkte haben die Ortsvektoren
+\[
+\begin{aligned}
+\vec{m}_{AB}&=\frac{\vec{a}+\vec{b}}2=\begin{pmatrix}6\\2\end{pmatrix},
+&
+\vec{m}_{BC}&=\frac{\vec{b}+\vec{c}}2=\begin{pmatrix}9\\6\end{pmatrix}
+&
+&\text{und}&
+\vec{m}_{CA}&=\frac{\vec{c}+\vec{a}}2=\begin{pmatrix}4\\6\end{pmatrix}.
+\end{aligned}
+\]
+\item Einen Vektor, der orthogonal zu einer Kante des Dreiecks k"onnen
+wir dadurch finden, dass wir die zwei Komponenten vertauschen und eine
+mit einem negativen Vorzeichen versehen:
+\[
+\begin{aligned}
+\vec{b}-\vec{a}&=\begin{pmatrix}10\\ 0\end{pmatrix}&
+\vec{c}-\vec{b}&=\begin{pmatrix}-4\\ 8\end{pmatrix}&
+&\text{und}&
+\vec{a}-\vec{c}&=\begin{pmatrix}-3\\-4\end{pmatrix}
+\\
+   \vec{v}_{AB}&=\begin{pmatrix} 0\\ 1\end{pmatrix}&
+   \vec{v}_{BC}&=\begin{pmatrix} 2\\ 1\end{pmatrix}&
+&&
+   \vec{v}_{CA}&=\begin{pmatrix} 4\\-3\end{pmatrix}
+\end{aligned}
+\]
+\item
+Die Mittelsenkrechten auf $BC$ und $AC$ haben die Parameterdarstellung
+\[
+\begin{aligned}
+\begin{pmatrix}x\\y\end{pmatrix}
+&=
+\begin{pmatrix}9\\6\end{pmatrix}+t\begin{pmatrix}2\\ 1\end{pmatrix}
+&&\text{und}&
+\begin{pmatrix}x\\y\end{pmatrix}
+&=
+\begin{pmatrix}4\\6\end{pmatrix}+s\begin{pmatrix}4\\-3\end{pmatrix}.
+\end{aligned}
+\]
+Um einen Schnittpunkt zu finden, muss ein Gleichungssystem mit vier
+Unbekannten $x$, $y$, $t$ und $s$ gel"ost werden:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&t&s&\\
+\hline
+1&0&-2& 0&9\\
+0&1&-1& 0&6\\
+1&0& 0&-4&4\\
+0&1& 0& 3&6\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&t&s&\\
+\hline
+1&0&-2& 0& 9\\
+0&1&-1& 0& 6\\
+0&0& 2&-4&-5\\
+0&0& 1& 3& 0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&t&s&\\
+\hline
+1&0&-2& 0& 9\\
+0&1&-1& 0& 6\\
+0&0& 1&-2&-\frac52\\
+0&0& 0& 5& \frac52\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&t&s&\\
+\hline
+1&0&-2& 0& 9\\
+0&1&-1& 0& 6\\
+0&0& 1& 0&-\frac32\\
+0&0& 0& 1& \frac12\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&t&s&\\
+\hline
+1&0& 0& 0& 6\\
+0&1& 0& 0& \frac92\\
+0&0& 1& 0&-\frac32\\
+0&0& 0& 1& \frac12\\
+\hline
+\end{tabular}
+\end{align*}
+also ist $M=(6,\frac92)$.
+\item
+Der Abstand ist
+\begin{align*}
+|\vec{m}-\vec{a}|
+&=
+\left|\begin{pmatrix}6\\\frac92\end{pmatrix}-\begin{pmatrix}1\\2\end{pmatrix}\right|
+=
+\frac12\left|\begin{pmatrix}10\\5\end{pmatrix}\right|
+=
+\frac{\sqrt{125}}2=\frac52\sqrt{5},
+\\
+|\vec{m}-\vec{b}|
+&=
+\left|\begin{pmatrix}6\\\frac92\end{pmatrix}-\begin{pmatrix}11\\2\end{pmatrix}\right|
+=
+\frac12\left|\begin{pmatrix}-10\\5\end{pmatrix}\right|
+=
+\frac{\sqrt{125}}2=\frac52\sqrt{5},
+\\
+|\vec{m}-\vec{c}|
+&=
+\left|\begin{pmatrix}6\\\frac92\end{pmatrix}-\begin{pmatrix}7\\10\end{pmatrix}\right|
+=
+\frac12\left|\begin{pmatrix}-2\\-11\end{pmatrix}\right|
+=
+\frac{\sqrt{125}}2=\frac52\sqrt{5}.
+\end{align*}
+Der Punkt $M$ hat also von allen drei Ecken den gleichen Abstand.
+\end{teilaufgaben}
+\begin{figure}
+\centering
+\includeagraphics[]{graph-1.pdf}
+\caption{Dreieck und Mittelsenkrechten zu Aufgabe~\ref{30000044}
+\label{30000044:dreieck}}
+\end{figure}
+\end{loesung}
+
+
+
