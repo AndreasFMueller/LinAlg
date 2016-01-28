@@ -1,0 +1,136 @@
+Ist die Matrix
+\[
+A=\begin{pmatrix}
+4&-24\\
+8& 32
+\end{pmatrix}
+\]
+diagonalisierbar?
+Wenn ja, geben Sie eine Basis an, in der $A$ diagonal ist.
+
+\begin{loesung}
+Wir suchen eine Basis aus Eigenvektoren, dazu berechnen wir als erstes
+die 
+\[
+\chi_A(\lambda)
+=
+\det(A-\lambda E)
+=
+\left|\,\begin{matrix}
+4-\lambda&-24\\
+8&32-\lambda
+\end{matrix}\,\right|
+=(4-\lambda)(32-\lambda)+8\cdot 24=\lambda^2-36\lambda+320
+\]
+Die Nullstellen finden wir mit der L"osungs-Formel f"ur die quadratishe
+Gleichung
+\[
+\lambda_{\pm}
+=
+\frac{36}{2}\pm\sqrt{\biggl(\frac{36}{2}\biggr)^2-320}
+=
+18 \pm\sqrt{18^2-320}
+=
+18 \pm\sqrt{324-320}
+=
+18\pm 2
+=\begin{cases}20\\16\end{cases}
+\]
+F"ur jeden Eigenwert m"ussen wir jetzt einen Eigenvektor finden. 
+F"ur $\lambda=\lambda_+=20$ finden wir mit dem Gauss-Algorithmus
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-16&-24\\
+  8& 12\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+  1&\frac32\\
+  0& 0\\
+\hline
+\end{tabular}
+\qquad
+\Rightarrow
+\qquad
+v_+=\begin{pmatrix}-3\\2 \end{pmatrix}
+\end{align*}
+dabei haben wir aus rein kosmetischen Gr"unden $2$ f"ur den Wert der
+frei w"ahlbaren Variable gew"ahlt, um Br"uche im Resultat zu vermeiden.
+
+F"ur $\lambda=\lambda_-=16$ folgt analog
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-12&-24\\
+  8& 16\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+  1& 2\\
+  0& 0\\
+\hline
+\end{tabular}
+\qquad
+\Rightarrow
+\qquad
+v_-=\begin{pmatrix}-2\\1 \end{pmatrix}
+\end{align*}
+Hier haben wir $1$ f"ur den Wert der frei w"ahlbaren Variable genommen.
+
+Zur Kontrolle berechnen wir $Av$:
+\begin{align*}
+Av_+
+&=
+\begin{pmatrix}4&-24\\8&32 \end{pmatrix}
+\begin{pmatrix}-3\\2 \end{pmatrix}
+=
+\begin{pmatrix}
+-60\\40
+\end{pmatrix}
+=
+20
+\begin{pmatrix}-3\\2 \end{pmatrix}
+=
+\lambda_+v_+,
+\\
+Av_-
+&=
+\begin{pmatrix}4&-24\\8&32 \end{pmatrix}
+\begin{pmatrix}-2\\1 \end{pmatrix}
+=
+\begin{pmatrix}
+-32\\16
+\end{pmatrix}
+=
+16\begin{pmatrix}-2\\1\end{pmatrix}
+=
+\lambda_-v_-.
+\end{align*}
+
+In der Basis 
+\[
+B=\{v_+,v_-\}
+=
+\biggl\{
+\begin{pmatrix}-3\\2 \end{pmatrix},
+\begin{pmatrix}-2\\1 \end{pmatrix}
+\biggr\}
+\]
+wird die Matrix $A$ diagonal.
+\end{loesung}
+
+
+
+\begin{bewertung}
+Ansatz charakteristisches Polynom ({\bf X}) 1 Punkt,
+ausmultipiziertes Polynome ({\bf P}) 1 Punkt,
+Nullstellen ({\bf N}) 1 Punkt,
+Berechnung der Eigenvektoren ($\textbf{E}_1$ und $\textbf{E}_2$) je 1 Punkt,
+Basis ({\bf B}) 1 Punkt.
+\end{bewertung}
+
