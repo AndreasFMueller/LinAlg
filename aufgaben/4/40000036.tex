@@ -1,0 +1,118 @@
+Die Zeitschrift {\em The Economist} hat 1986 den Big Mac Index geschaffen,
+um die Theorie der Wechselkurse ebenso leicht verdaulich zu machen wie
+das namensgebende Produkt.
+Unter anderem wird regelm"assig die Abh"angigkeit des Big Mac Preises
+vom Bruttoinlandprodukt (BIP) pro Person ermittelt und publiziert.
+\begin{center}
+\begin{tabular}{|l|r|r|}
+\hline
+Land&BIP pro Person USD&Big Mac Preis USD\\
+\hline
+Norwegen&96930&5.21\\
+USA&54370&4.93\\
+%Euro Raum&40001&4.00\\
+Indien&1608&1.90\\
+\hline
+\end{tabular}
+\end{center}
+Es wird postuliert, dass es einen linearen Zusammenhang zwischen 
+BIP pro Person und Big Mac Preis g"abe.
+
+\begin{teilaufgaben}
+\item Stellen Sie ein Gleichungssystem auf, mit dem Sie die Koeffizienten
+einer Funktion berechnen k"onnen, die den postulierten linearen Zusammenhang
+wiedergibt.
+\item L"osen das Gleichungssystem (mit dem Taschenrechner)
+\item Die Schweiz hat eine BIP pro Kopf von 86468USD, ein Big Mac kostet
+in der Schweiz 6.44USD.
+Zahlt man in der Schweiz zu viel f"ur einen Big Mac?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+Es wird behauptet, es g"abe einen Zusammenhang zwischen BIP pro Person $x$
+und Big Mac Preis $y$ in der Form
+\[
+y={\color{red}a}x+{\color{red}b}
+\]
+Aus den angegebenen Daten k"onnen wir das Gleichungssystem
+\[
+\begin{linsys}{2}
+96930\color{red}a&+&\color{red}b&=&5.21\\
+54370\color{red}a&+&\color{red}b&=&4.93\\
+ 1608\color{red}a&+&\color{red}b&=&1.90
+\end{linsys}
+\]
+aufstellen.
+Es ist ein "uberbestimmtes Gleichungssstem mit
+\[
+A=\begin{pmatrix}
+96930&1\\
+54270&1\\
+\phantom{0}1608&1
+\end{pmatrix}
+\qquad
+\text{und}
+\qquad
+b=\begin{pmatrix}
+5.21\\
+4.93\\
+1.90
+\end{pmatrix}
+\]
+Das L"osungsverfahren f"ur "uberbestimmte Gleichungssysteme besagt,
+dass man stattdessen das Gleichungssystem 
+\[
+A^tA\begin{pmatrix}\color{red}a\\\color{red}b\end{pmatrix}
+=
+A^tb
+\]
+l"osen muss.
+Die Berechnung liefert 
+\[
+A^tA=\begin{pmatrix}
+          12354107464&          152908\\
+\phantom{00000}152908&\phantom{00000}3
+\end{pmatrix}
+\qquad
+\text{und}
+\qquad
+A^tb=\begin{pmatrix}
+          77610.46\\
+\phantom{000}12.04
+\end{pmatrix}.
+\]
+\item
+Die L"osung mit dem Computer liefert
+\[
+{\color{red}a}=0.000035618
+\qquad
+\text{und}
+\qquad
+{\color{red}b}=2.1979
+\]
+\item
+Setzt man das BIP pro Person der Schweiz in den linearen Zusammenhang
+ein, erh"alt man f"ur den gesch"atzten Big Mac Preis 
+\[
+86468
+{\color{red}a}
++
+{\color{red}b}
+=
+5.2777,
+\]
+der Big Mac Preis in der Schweiz ist also deutlich h"oher, also die
+Theorie vermuten l"asst.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+"Uberbstimmtes Gleichungssystem ({\bf "U}) 1 Punkt (es muss darauf hingewiesen
+worden sein, dass dies ein "uberbestimmtes Gleichungssystem ist),
+L"osungsverfahren f"ur "uberbestimmte Gleichungssysteme ({\bf L}),
+Matrix $A$ und Vektor $b$ ({\bf M}) 1 Punkt,
+Matrix $A^tA$ und Vektor $A^tb$ ({\bf A}) je 1 Punkt,
+L"osung ({\bf X}) 1 Punkt.
+\end{bewertung}
+
