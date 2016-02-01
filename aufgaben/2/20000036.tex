@@ -7,7 +7,8 @@ a&\sqrt{2}&a\\
 \end{pmatrix}
 \]
 singul"ar?
-Berechnen Sie ausserdem die inverse Matrix f"ur alle anderen Werte von $a$.
+Berechnen Sie ausserdem die inverse Matrix von $A$ f"ur alle anderen
+Werte von $a$.
 
 \begin{loesung}
 Ob die Matrix singul"ar ist, kann man am leichtesten mit der Determinanten
@@ -16,7 +17,7 @@ Diese ist nach der Sarrus-Formel
 \begin{align*}
 \det(A)
 &=
-0\cdot \sqrt{2}\cdot 0+a^2\sqrt{2}+a^2\sqrt{2}-2-a^2\cdot 0 - 0\cdot a^2
+0\cdot \sqrt{2}\cdot 0+a^2\sqrt{2}+a^2\sqrt{2}-2\sqrt{2}-a^2\cdot 0 - 0\cdot a^2
 \\
 &=2a^2\sqrt{2}-2\sqrt{2}=2\sqrt{2}(a^2-1).
 \end{align*}
@@ -29,19 +30,29 @@ hat, mit Hilfe von Minoren bestimmen.
 A^{-1}
 &=
 \frac1{2\sqrt{2}(a^2-1)}
+{\def\arraystretch{2.4}
 \begin{pmatrix}
-  \left|\begin{matrix}\sqrt{2}&       a\\       a&       0\end{matrix}\right|
-&-\left|\begin{matrix}       a&\sqrt{2}\\       a&       0\end{matrix}\right|
-& \left|\begin{matrix}       a&\sqrt{2}\\\sqrt{2}&       a\end{matrix}\right|
+{\def\arraystretch{1}
+  \left|\begin{matrix}\sqrt{2}&       a\\       a&       0\end{matrix}\right|}
+&{\def\arraystretch{1}
+ -\left|\begin{matrix}       a&\sqrt{2}\\       a&       0\end{matrix}\right|}
+&{\def\arraystretch{1}
+  \left|\begin{matrix}       a&\sqrt{2}\\\sqrt{2}&       a\end{matrix}\right|}
 \\
- -\left|\begin{matrix}       a&       a\\\sqrt{2}&       0\end{matrix}\right|
-& \left|\begin{matrix}       0&\sqrt{2}\\\sqrt{2}&       0\end{matrix}\right|
-&-\left|\begin{matrix}       0&\sqrt{2}\\       a&       a\end{matrix}\right|
+{\def\arraystretch{1}
+ -\left|\begin{matrix}       a&       a\\\sqrt{2}&       0\end{matrix}\right|}
+&{\def\arraystretch{1}
+  \left|\begin{matrix}       0&\sqrt{2}\\\sqrt{2}&       0\end{matrix}\right|}
+&{\def\arraystretch{1}
+ -\left|\begin{matrix}       0&\sqrt{2}\\       a&       a\end{matrix}\right|}
 \\
-  \left|\begin{matrix}       a&\sqrt{2}\\\sqrt{2}&       a\end{matrix}\right|
-&-\left|\begin{matrix}       0&       a\\\sqrt{2}&       a\end{matrix}\right|
-& \left|\begin{matrix}       0&       a\\       a&\sqrt{2}\end{matrix}\right|
-\end{pmatrix}
+{\def\arraystretch{1}
+  \left|\begin{matrix}       a&\sqrt{2}\\\sqrt{2}&       a\end{matrix}\right|}
+&{\def\arraystretch{1}
+ -\left|\begin{matrix}       0&       a\\\sqrt{2}&       a\end{matrix}\right|}
+&{\def\arraystretch{1}
+  \left|\begin{matrix}       0&       a\\       a&\sqrt{2}\end{matrix}\right|}
+\end{pmatrix}}
 =
 \frac1{2\sqrt{2}(a^2-1)}
 \begin{pmatrix}

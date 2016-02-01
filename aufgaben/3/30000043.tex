@@ -1,21 +1,21 @@
 In einem Raum ist zwischen den Punkten $A=(1,2,9)$ und $B=(5,5,1)$
 ein gerades Rohr mit Durchmesser $1$ installiert.
 Jetzt sollen weitere solche Rohre installiert werden:
-\begin{teilaufgaben}
-\item
+%\begin{teilaufgaben}
+%\item
 Ist es m"oglich, zwischen den Punkten zwischen $C=(3,0,0)$ und $D=(9,10,4)$
 ein zweites gerades Rohr mit Durchmesser $1$ zu installieren, so dass sich
-diese nicht gegenseitig in den Weg kommen?
-\item
-Zwischen den Punkt $E=(4,0,3)$ und $F=(2,10,7)$ soll ein drittes
-solches gerades Rohr mit Durchmesser $1$ installiert werden.
-Es ist bekannt dass sich die Rohre schneiden, ja dies ist sogar 
-beabsichtigt, die Rohre sollen sich genau zentral durchstossen.
-Geht das?
+die Rohre nicht gegenseitig in den Weg kommen?
+%\item
+%Zwischen den Punkt $E=(4,0,3)$ und $F=(2,10,7)$ soll ein drittes
+%solches gerades Rohr mit Durchmesser $1$ installiert werden.
+%Es ist bekannt dass sich die Rohre schneiden, ja dies ist sogar 
+%beabsichtigt, die Rohre sollen sich genau zentral durchstossen.
+%Geht das?
 %\item
 %Wenn sich die beiden Rohre in b) genau zentral treffen: in welchem Winkel
 %schneiden sie sich?
-\end{teilaufgaben}
+%\end{teilaufgaben}
 
 \begin{loesung}
 \begin{figure}
@@ -25,8 +25,8 @@ Geht das?
 Rechts die beiden Schnittstellen im Detail.
 \label{30000043:tubes}}
 \end{figure}
-\begin{teilaufgaben}
-\item
+%\begin{teilaufgaben}
+%\item
 Das ist genau dann m"oglich, wenn der windschiefe Abstand der beiden
 Geraden $AB$ und $CD$ gr"osser als $1$ ist.
 Wir brauchen die Parameterdarstellungen der beiden Geraden:
@@ -91,85 +91,93 @@ d
 \end{align*}
 Der windschiefe Abstand ist also ein kleines bisschen zu klein, die Rohre
 werden sich in die Quere kommen.
-\item
-Wir m"ussen herausfinden, ob sich die Geraden $AB$ und $EF$ schneiden.
-Die Parameterdarstellung der Gerade $EF$ ist
-\[
-\begin{aligned}
-&EF:&\vec{p}=\vec{p}_3+t\vec{r}_3
-&=
-\begin{pmatrix}4\\0\\3\end{pmatrix} + s\begin{pmatrix}-2\\10\\4\end{pmatrix}.
-\end{aligned}
-\]
-Das kombinierte Tableau zur Bestimmung des Schnittpunktes lautet
-\begin{align*}
-\begin{tabular}{|>{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$}|>{$}r<{$}|}
-\hline
-x&y&z&t&s&\\
-\hline
-1&0&0&-4&  0&1\\
-0&1&0&-3&  0&2\\
-0&0&1& 8&  0&9\\
-1&0&0& 0&  2&4\\
-0&1&0& 0&-10&0\\
-0&0&1& 0& -4&3\\
-\hline
-\end{tabular}
-&
-\rightarrow
-\begin{tabular}{|>{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$}|>{$}r<{$}|}
-\hline
-x&y&z&t&s&\\
-\hline
-1&0&0&-4&  0& 1\\
-0&1&0&-3&  0& 2\\
-0&0&1& 8&  0& 9\\
-0&0&0& 4&  2& 3\\
-0&0&0& 3&-10&-2\\
-0&0&0&-8& -4&-6\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$}|>{$}r<{$}|}
-\hline
-x&y&z&t&s&\\
-\hline
-1&0&0&-4&            0&          1\\
-0&1&0&-3&            0&          2\\
-0&0&1& 8&            0&          9\\
-0&0&0& 1&      \frac12&    \frac34\\
-0&0&0& 0&-\frac{23}{2}&-\frac{17}4\\
-0&0&0& 0&            0&          0\\
-\hline
-\end{tabular}
-\end{align*}
-Weiter muss man nicht rechnen, die Nullzeile zeigt bereits an, dass eine
-L"osung existiert, die Geraden schneiden sich also.
-%rref(A)
-%ans =
-%
-%   1.00000   0.00000   0.00000   0.00000   0.00000   3.26087
-%   0.00000   1.00000   0.00000   0.00000   0.00000   3.69565
-%   0.00000   0.00000   1.00000   0.00000   0.00000   4.47826
-%   0.00000   0.00000   0.00000   1.00000   0.00000   0.56522
-%   0.00000   0.00000   0.00000   0.00000   1.00000   0.36957
-%   0.00000   0.00000   0.00000   0.00000   0.00000   0.00000
-%\item
-%Der Schnittwinkel kann aus den Richtungsvektoren $\vec{r}_1$ und
-%$\vec{r}_2$ der Geraden $AB$ und $EF$ berechnet werden:
-%\begin{align*}
-%\cos\alpha
-%&=
-%\frac{\vec{r}_1\cdot\vec{r}_2}{|\vec{r}_1|\cdot|\vec{r}_2|}
-%=
-%\frac{4\cdot(-2)+3\cdot 10+(-8)\cdot4}{\sqrt{16+9+64}\sqrt{4+100+16}}
-%=
-%\frac{-10}{\sqrt{89\cdot 120}}
-%=-0.096764\\
-%\Rightarrow\qquad
-%\alpha&=95.553^\circ
-%\end{align*}
-%Nat"urlich ist auch $\alpha=84.447^\circ$ eine korrekte Antwort.
-\end{teilaufgaben}
-
+% \item
+% Wir m"ussen herausfinden, ob sich die Geraden $AB$ und $EF$ schneiden.
+% Die Parameterdarstellung der Gerade $EF$ ist
+% \[
+% \begin{aligned}
+% &EF:&\vec{p}=\vec{p}_3+t\vec{r}_3
+% &=
+% \begin{pmatrix}4\\0\\3\end{pmatrix} + s\begin{pmatrix}-2\\10\\4\end{pmatrix}.
+% \end{aligned}
+% \]
+% Das kombinierte Tableau zur Bestimmung des Schnittpunktes lautet
+% \begin{align*}
+% \begin{tabular}{|>{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$}|>{$}r<{$}|}
+% \hline
+% x&y&z&t&s&\\
+% \hline
+% 1&0&0&-4&  0&1\\
+% 0&1&0&-3&  0&2\\
+% 0&0&1& 8&  0&9\\
+% 1&0&0& 0&  2&4\\
+% 0&1&0& 0&-10&0\\
+% 0&0&1& 0& -4&3\\
+% \hline
+% \end{tabular}
+% &
+% \rightarrow
+% \begin{tabular}{|>{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$}|>{$}r<{$}|}
+% \hline
+% x&y&z&t&s&\\
+% \hline
+% 1&0&0&-4&  0& 1\\
+% 0&1&0&-3&  0& 2\\
+% 0&0&1& 8&  0& 9\\
+% 0&0&0& 4&  2& 3\\
+% 0&0&0& 3&-10&-2\\
+% 0&0&0&-8& -4&-6\\
+% \hline
+% \end{tabular}
+% \rightarrow
+% \begin{tabular}{|>{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$}|>{$}r<{$}|}
+% \hline
+% x&y&z&t&s&\\
+% \hline
+% 1&0&0&-4&            0&          1\\
+% 0&1&0&-3&            0&          2\\
+% 0&0&1& 8&            0&          9\\
+% 0&0&0& 1&      \frac12&    \frac34\\
+% 0&0&0& 0&-\frac{23}{2}&-\frac{17}4\\
+% 0&0&0& 0&            0&          0\\
+% \hline
+% \end{tabular}
+% \end{align*}
+% Weiter muss man nicht rechnen, die Nullzeile zeigt bereits an, dass eine
+% L"osung existiert, die Geraden schneiden sich also.
+% %rref(A)
+% %ans =
+% %
+% %   1.00000   0.00000   0.00000   0.00000   0.00000   3.26087
+% %   0.00000   1.00000   0.00000   0.00000   0.00000   3.69565
+% %   0.00000   0.00000   1.00000   0.00000   0.00000   4.47826
+% %   0.00000   0.00000   0.00000   1.00000   0.00000   0.56522
+% %   0.00000   0.00000   0.00000   0.00000   1.00000   0.36957
+% %   0.00000   0.00000   0.00000   0.00000   0.00000   0.00000
+% %\item
+% %Der Schnittwinkel kann aus den Richtungsvektoren $\vec{r}_1$ und
+% %$\vec{r}_2$ der Geraden $AB$ und $EF$ berechnet werden:
+% %\begin{align*}
+% %\cos\alpha
+% %&=
+% %\frac{\vec{r}_1\cdot\vec{r}_2}{|\vec{r}_1|\cdot|\vec{r}_2|}
+% %=
+% %\frac{4\cdot(-2)+3\cdot 10+(-8)\cdot4}{\sqrt{16+9+64}\sqrt{4+100+16}}
+% %=
+% %\frac{-10}{\sqrt{89\cdot 120}}
+% %=-0.096764\\
+% %\Rightarrow\qquad
+% %\alpha&=95.553^\circ
+% %\end{align*}
+% %Nat"urlich ist auch $\alpha=84.447^\circ$ eine korrekte Antwort.
+% \end{teilaufgaben}
 \end{loesung}
+
+\begin{bewertung}
+Parameterdarstellungen der Geraden ({\bf P}) 2 Punkt,
+Abstand windschiefer Geraden ({\bf W}) 1 Punkt,
+Vektorprodukt ({\bf v}) 1 Punkt,
+Berechnung des Abstandes ({\bf A}) 1 Punkt,
+Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+

@@ -1,18 +1,19 @@
 Die Erde f"uhrt wie jeder Kreisel unter Einfluss der Schwerkraft von
 Sonne und Mond eine Pr"azessionsbewegung aus.
 Die unregelm"assige Gestalt der Erde sowie die komplizierten Prozesse
-im Erdinneren f"uhren zu einer noch komplizerten Bewegung.
+im Erdinneren verkomplizieren die Bewegung weiter.
 Eine pr"azise Bestimmung dieser Bewegung ist zum Beispiel n"otig, um
 die Genauigkeit des GPS aufrecht zu erhalten.
-Dazu wird zum Beispiel von der Website \texttt{maia.usno.navy.mil}
-ein Formular angeboten, mit dem man die aktuelle Verdrehung eines
+
+Die Website \texttt{maia.usno.navy.mil} bietet
+ein Formular an, mit dem man die aktuelle Verdrehung eines
 mit der Erde verbundenen Koordinatensystems gegen"uber einem als
 ruhend angenommenen, mit Hilfe von fernen Radiogalaxien definierten
 Koordinatensystem berechnen lassen kann.
 Die genaue Definition des Koordinatensystems ignorieren wir.
 Der Output hat die Form einer Drehmatrix.
 F"ur den 14.~September 2015 um 08:10 (erste Lektion des Herbstsemsters 2015)
-und den 5.~Februar 2016 um 14:30 bekommt man die Matrizen
+und den 5.~Februar 2016 um 14:30 (Pr"ufungsende) bekommt man die Matrizen
 \begin{align*}
 R_1 &= \begin{pmatrix}
 \phantom{-}0.999992660750488&0.351397718674194&\phantom{-}0.001526567879330\\
@@ -38,8 +39,10 @@ zwischen Semesterbeginn und LinAlg-Pr"ufung gedreht?
 \end{teilaufgaben}
 
 \begin{hinweis}
-Eventuell Matrizenoperationen mit dem Taschenrechner mit mindestens
-zehn Stellen Genauigkeit ausf"uhren.
+F"urhen Sie eventuelle Matrizenoperationen mit dem Taschenrechner
+mit mindestens zehn Stellen Genauigkeit aus.
+Sie m"ussen die "Uberpr"ufung in a) nicht durchf"uhren, sondern nur
+beschreiben, was gemacht werden muss.
 \end{hinweis}
 
 \begin{loesung}
@@ -60,7 +63,7 @@ R = \begin{pmatrix}
           -0.000036136991146& 0.000002990973152&\phantom{-}0.999999999342587
 \end{pmatrix}
 \]
-Den Drehwinkel k"onnen wir mit der Formel f"ur den Drehwinkel ermitteln:
+Den Drehwinkel k"onnen wir mit der Spurformel f"ur den Drehwinkel ermitteln:
 \begin{align*}
 \cos\alpha
 &=
@@ -76,12 +79,20 @@ Den Drehwinkel k"onnen wir mit der Formel f"ur den Drehwinkel ermitteln:
 \begin{diskussion}
 Richtet man eine Spiegelreflexkamera mit einem Normalobjektiv gegen den
 Himmel, dann entspricht dieser Winkel ungef"ahr dem Durchmesser eines Pixel.
-Messungen dieser Genauigkeit sind heutzutage standard in der Astronomie.
+Messungen dieser Genauigkeit sind heutzutage Standard in der Astronomie.
 Der 1989 gestartete Hipparcos Satellit hat im Laufe seiner dreij"ahrigen
 Mission 118000 Sterne mit einer Genauigkeit $0.001''$ vermessen.
 Die aktuell laufende Gaia-Mission der ESA soll von etwa einer Milliarde
 Sternen die Position mit einer Genauigkeit von ewa $0.000025''$ messen.
 \end{diskussion}
 
-
+\begin{bewertung}
+Charakterisierung einer Drehmatrix durch Orthogonalit"at ({\bf O}) 1 Punkt
+und Determinante ({\bf D}) 1 Punkt,
+Matrix $R$ f"ur die zwischen den zwei Zeitpunkten erfolgte Drehung ({\bf Z})
+1 Punkt,
+Berechnung von $R$ ({\bf R}) 1 Punkt,
+Spurformel ({\bf S}) 1 Punkt,
+Drehwinkel $\alpha$ ({\bf A}) 1 Punkt.
+\end{bewertung}
 
