@@ -61,11 +61,217 @@ a\sqrt{2}&-2&a\sqrt{2}\\
 a^2-2&a\sqrt{2}&-a^2
 \end{pmatrix}.
 \end{align*}
+Man kann die Inverse Matrix nat"urlich auch mit dem Gauss-Algorithmus
+ausrechnen, das ist in diesem Fall aber ziemlich schmerzhaft.
+Wie man den Gaussalgorithmus schrittweise mit Maxima durchf"uhren kann,
+zeigt das folgende Maxima-Programm:
+\verbatimainput{20000036/gauss.maxima}
+Es liefert schrittweise die folgenden Tableau:
+\begin{align*}
+%                    [    0        a     sqrt(2)  1  0  0 ]
+%                    [                                    ]
+%(%o1)               [    a     sqrt(2)     a     0  1  0 ]
+%                    [                                    ]
+%                    [ sqrt(2)     a        0     0  0  1 ]
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+       0&       a&\sqrt{2}& 1& 0& 0\\
+       a&\sqrt{2}&       a& 0& 1& 0\\
+\sqrt{2}&       a&       0& 0& 0& 1\\
+\hline
+\end{tabular}
+&\rightarrow
+%                    [ sqrt(2)     a        0     0  0  1 ]
+%                    [                                    ]
+%(%o2)               [    a     sqrt(2)     a     0  1  0 ]
+%                    [                                    ]
+%                    [    0        a     sqrt(2)  1  0  0 ]
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+\sqrt{2}&       a&       0& 0& 0& 1\\
+       a&\sqrt{2}&       a& 0& 1& 0\\
+       0&       a&\sqrt{2}& 1& 0& 0\\
+\hline
+\end{tabular}
+\\
+%
+%                    [       a                       1    ]
+%                    [ 1  -------     0     0  0  ------- ]
+%                    [    sqrt(2)                 sqrt(2) ]
+%(%o4)               [                                    ]
+%                    [ a  sqrt(2)     a     0  1     0    ]
+%                    [                                    ]
+%                    [ 0     a     sqrt(2)  1  0     0    ]
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{a}{\sqrt{2}}&       0& 0& 0&\frac{1}{\sqrt{2}}\\
+a&         \sqrt{2} &       a& 0& 1&                 0\\
+0&                 a&\sqrt{2}& 1& 0&                 0\\
+\hline
+\end{tabular}
+\\
+%
+%                  [        a                         1     ]
+%                  [ 1   -------      0     0  0   -------  ]
+%                  [     sqrt(2)                   sqrt(2)  ]
+%                  [                                        ]
+%(%o5)             [       2                                ]
+%                  [      a  - 2                       a    ]
+%                  [ 0  - -------     a     0  1  - ------- ]
+%                  [      sqrt(2)                   sqrt(2) ]
+%                  [                                        ]
+%                  [ 0      a      sqrt(2)  1  0      0     ]
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&     \frac{a}{\sqrt{2}}&       0& 0& 0& \frac{1}{\sqrt{2}}\\
+a&-\frac{a^2-2}{\sqrt{2}}&       a& 0& 1&-\frac{a}{\sqrt{2}}\\
+0&                      a&\sqrt{2}& 1& 0&                  0\\
+\hline
+\end{tabular}
+\\
+%
+%            [       a                                      1     ]
+%            [ 1  -------        0         0      0      -------  ]
+%            [    sqrt(2)                                sqrt(2)  ]
+%            [                                                    ]
+%            [                sqrt(2) a         sqrt(2)     a     ]
+%            [ 0     1      - ---------    0  - -------   ------  ]
+%(%o9)       [                  2                2         2      ]
+%            [                 a  - 2           a  - 2    a  - 2  ]
+%            [                                                    ]
+%            [              3/2  2    3/2                     2   ]
+%            [             2    a  - 2        sqrt(2) a      a    ]
+%            [ 0     0     --------------  1  ---------  - ------ ]
+%            [                  2               2           2     ]
+%            [                 a  - 2          a  - 2      a  - 2 ]
+%
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{a}{\sqrt{2}}&                           0&
+	0&                       0&\frac{1}{\sqrt{2}}\\
+0&                 1&    -\frac{a\sqrt{2}}{a^2-2}&
+	0& -\frac{\sqrt{2}}{a^2-2}&     \frac{a}{a^2}\\
+0&                 0&2\sqrt{2}\frac{a^2-1}{a^2-2}&
+	1& \frac{a\sqrt{2}}{a^2-2}&-\frac{a^2}{a^2-2}\\
+\hline
+\end{tabular}
+\\
+%
+%       [       a                                                    1         ]
+%       [ 1  -------       0             0             0          -------      ]
+%       [    sqrt(2)                                              sqrt(2)      ]
+%       [                                                                      ]
+%       [               sqrt(2) a                    sqrt(2)         a         ]
+%       [ 0     1     - ---------        0         - -------       ------      ]
+%(%o11) [                 2                           2             2          ]
+%       [                a  - 2                      a  - 2        a  - 2      ]
+%       [                                                                      ]
+%       [                               2                              2       ]
+%       [                              a  - 2         a               a        ]
+%       [ 0     0          1       --------------  --------   - -------------- ]
+%       [                           3/2  2    3/2     2          3/2  2    3/2 ]
+%       [                          2    a  - 2     2 a  - 2     2    a  - 2    ]
+%
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{a}{\sqrt{2}}&                           0&
+	0&                       0&\frac{1}{\sqrt{2}}\\
+0&                 1&    -\frac{a\sqrt{2}}{a^2-2}&
+	0& -\frac{\sqrt{2}}{a^2-2}&     \frac{a}{a^2}\\
+0&                 0&                           1&
+	\frac{a^2-2}{2\sqrt{2}(a^2-1)}&\frac{a}{2(a^2-1)}&-\frac{a^2}{2\sqrt{2}(a^2-1)}\\
+\hline
+\end{tabular}
+\\
+%        [       a                                           1         ]
+%        [ 1  -------  0        0             0           -------      ]
+%        [    sqrt(2)                                     sqrt(2)      ]
+%        [                                                             ]
+%        [                      a           sqrt(2)          a         ]
+%        [ 0     1     0     --------     - --------      --------     ]
+%(%o13)  [                      2              2             2         ]
+%        [                   2 a  - 2       2 a  - 2      2 a  - 2     ]
+%        [                                                             ]
+%        [                     2                               2       ]
+%        [                    a  - 2          a               a        ]
+%        [ 0     0     1  --------------   --------   - -------------- ]
+%        [                 3/2  2    3/2      2          3/2  2    3/2 ]
+%        [                2    a  - 2      2 a  - 2     2    a  - 2    ]
+%
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{a}{\sqrt{2}}&                           0&
+	0&                       0&\frac{1}{\sqrt{2}}\\
+0&                 1&                           0&
+	\frac{a}{2(a^2-1)}&-\frac{\sqrt{2}}{2(a^2-1)}&\frac{a}{2(a^2-1)}\\
+0&                 0&                           1&
+	\frac{a^2-2}{2\sqrt{2}(a^2-1)}&\frac{a}{2(a^2-1)}&-\frac{a^2}{2\sqrt{2}(a^2-1)}\\
+\hline
+\end{tabular}
+\\
+%         [                   2                             2    3/2 ]
+%         [                  a             a       sqrt(2) a  - 2    ]
+%         [ 1  0  0  - --------------   --------   ----------------- ]
+%         [             3/2  2    3/2      2              2          ]
+%         [            2    a  - 2      2 a  - 2       4 a  - 4      ]
+%         [                                                          ]
+%         [                 a            sqrt(2)          a          ]
+%(%o14)   [ 0  1  0      --------      - --------      --------      ]
+%         [                 2               2             2          ]
+%         [              2 a  - 2        2 a  - 2      2 a  - 2      ]
+%         [                                                          ]
+%         [                2                                2        ]
+%         [               a  - 2           a               a         ]
+%         [ 0  0  1   --------------    --------   - --------------  ]
+%         [            3/2  2    3/2       2          3/2  2    3/2  ]
+%         [           2    a  - 2       2 a  - 2     2    a  - 2     ]
+%
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&0&
+	-\frac{a^2}{2\sqrt{2}(a^2-2)}&\frac{a}{2(a^2-2)}&\frac{a^2-2}{2\sqrt{2}(a^2-1)}\\
+0&1&0&
+	\frac{a}{2(a^2-1)}&-\frac{\sqrt{2}}{2(a^2-1)}&\frac{a}{2(a^2-1)}\\
+0&0&1&
+	\frac{a^2-2}{2\sqrt{2}(a^2-1)}&\frac{a}{2(a^2-1)}&-\frac{a^2}{2\sqrt{2}(a^2-1)}\\
+\hline
+\end{tabular}
+\end{align*}
+Nimmt man im rechten Teil des Tableau den gemeinsamen Nenner $2\sqrt{2}(a^2-1)$
+heraus, kann man wie vorhin die Inverse Matrix ablesen:
+\[
+A^{-1}
+=
+\frac1{2\sqrt{2}(a^2-1)}
+\begin{pmatrix}
+     -a^2&a\sqrt{2}&    a^2-2\\
+a\sqrt{2}&       -2&a\sqrt{2}\\
+    a^2-2&a\sqrt{2}&     -a^2
+\end{pmatrix}.
+\]
 \end{loesung}
 
+\begin{diskussion}
+Man kann die Determinante nat"urlich auch mit dem Gauss-Algorithmus
+berechnen, die Pivots sind
+\[
+a,\quad a\quad \text{und}\quad 2\sqrt{2}\frac{1-a^2}{a^2},
+\]
+man erh"alt als Produkt $\det(A)=2\sqrt(2)(1-a^2)$, das verkehrte Vorzeichen
+r"uhrt daher, dass man f"ur die Durchf"uhrung des Gauss-Algorithmus zwei
+Zeilen vertauschen musste, was das Vorzeichen der Determinante umkehrt.
+\end{diskussion}
+
 \begin{bewertung}
-Anwendung der Sarrus-Formel ({\bf S}) 1 Punkt,
-Berechnung der Determinante ({\bf D}) 1 Punkt,
+Determinantenkriterum ({\bf D}) 1 Punkt,
+Berechnung der Determinante zum Beispiel mit der Sarrus-Formel ({\bf S})
+1 Punkt,
 Werte von $a$, f"ur die die Matrix singul"ar wird ({\bf A}) 1 Punkt,
 Minor-Formel f"ur die Inverse ({\bf M}) 1 Punkt,
 Berechnung der Inversen ({\bf I}) 2 Punkte.
