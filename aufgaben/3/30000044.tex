@@ -26,6 +26,9 @@ mit dem zugeh"origen Kleinbuchstaben bezeichnet werden, also
 \]
 Die Punkte sind in Abbildung~\ref{30000044:dreieck} dargestellt.
 \begin{teilaufgaben}
+%
+% a)
+%
 \item Die Mittelpunkte haben die Ortsvektoren
 \[
 \begin{aligned}
@@ -37,6 +40,9 @@ Die Punkte sind in Abbildung~\ref{30000044:dreieck} dargestellt.
 \vec{m}_{CA}&=\frac{\vec{c}+\vec{a}}2=\begin{pmatrix}4\\6\end{pmatrix}.
 \end{aligned}
 \]
+%
+% b)
+%
 \item Einen Vektor, der orthogonal zu einer Kante des Dreiecks k"onnen
 wir dadurch finden, dass wir die zwei Komponenten vertauschen und eine
 mit einem negativen Vorzeichen versehen:
@@ -45,7 +51,7 @@ mit einem negativen Vorzeichen versehen:
 \vec{b}-\vec{a}&=\begin{pmatrix}10\\ 0\end{pmatrix}&
 \vec{c}-\vec{b}&=\begin{pmatrix}-4\\ 8\end{pmatrix}&
 &\text{und}&
-\vec{a}-\vec{c}&=\begin{pmatrix}-3\\-4\end{pmatrix}
+\vec{a}-\vec{c}&=\begin{pmatrix}-6\\-8\end{pmatrix}
 \\
    \vec{v}_{AB}&=\begin{pmatrix} 0\\ 1\end{pmatrix}&
    \vec{v}_{BC}&=\begin{pmatrix} 2\\ 1\end{pmatrix}&
@@ -53,6 +59,11 @@ mit einem negativen Vorzeichen versehen:
    \vec{v}_{CA}&=\begin{pmatrix} 4\\-3\end{pmatrix}
 \end{aligned}
 \]
+Beliebige Vielfache dieser Vektoren sind nat"urlich auch korrekte 
+Antworten.
+%
+% c)
+%
 \item
 Die Mittelsenkrechten auf $BC$ und $AC$ haben die Parameterdarstellung
 \[
@@ -128,6 +139,9 @@ x&y&t&s&\\
 \end{tabular}
 \end{align*}
 also ist $M=(6,\frac92)$.
+%
+% d)
+%
 \item
 Der Abstand ist
 \begin{align*}
@@ -137,7 +151,8 @@ Der Abstand ist
 =
 \frac12\left|\begin{pmatrix}10\\5\end{pmatrix}\right|
 =
-\frac{\sqrt{125}}2=\frac52\sqrt{5},
+\frac{\sqrt{125}}2=\frac52\sqrt{5}
+= 5.59016994374947,
 \\
 |\vec{m}-\vec{b}|
 &=
@@ -145,7 +160,8 @@ Der Abstand ist
 =
 \frac12\left|\begin{pmatrix}-10\\5\end{pmatrix}\right|
 =
-\frac{\sqrt{125}}2=\frac52\sqrt{5},
+\frac{\sqrt{125}}2=\frac52\sqrt{5}
+= 5.59016994374947,
 \\
 |\vec{m}-\vec{c}|
 &=
@@ -153,7 +169,8 @@ Der Abstand ist
 =
 \frac12\left|\begin{pmatrix}-2\\-11\end{pmatrix}\right|
 =
-\frac{\sqrt{125}}2=\frac52\sqrt{5}.
+\frac{\sqrt{125}}2=\frac52\sqrt{5}
+= 5.59016994374947.
 \end{align*}
 Der Punkt $M$ hat also von allen drei Ecken den gleichen Abstand.
 Nat"urlich ist es nicht n"otig, alle drei Abst"ande auszurechnen, denn
@@ -167,6 +184,26 @@ und dass daher alle drei Abst"ande gleich gross sind.
 \label{30000044:dreieck}}
 \end{figure}
 \end{loesung}
+
+\begin{diskussion}
+Zuf"alligerweise ist das Dreieck gleichschenklig, denn
+\begin{align*}
+\overline{AB}
+&=
+10
+\\
+\overline{AC}
+&=
+\sqrt{(7-1)^2 + (10-2)^2}=\sqrt{36 + 64}=\sqrt{100}=10.
+\end{align*}
+Das bedeutet zum Beispiel, dass die Mittelsenkrechte auf $BC$ auch
+Winkelhalbierende ist.
+Man kann also insbesondere die Geraden ziemlich falsch parametrisieren,
+oder sogar die falschen Ausgangspunkte (Ecken statt Seitenmittelpunkte)
+nehmen, und trotzdem einen Punkt bekommen, der von $B$ und $C$ gleich
+weit weg ist. Typischerweise ist er dann von $A$ doch nicht gleich weit
+entfernt.
+\end{diskussion}
 
 \begin{bewertung}
 Mittelpunkte ({\bf M}) 1 Punkt, Orthogonaltrick (Komponenten tauschen, 
