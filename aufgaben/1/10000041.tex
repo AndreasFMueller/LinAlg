@@ -17,6 +17,9 @@ Ist dies m"oglich?
 \item
 Kann man eine Bedingung angeben, die die angegebenen Zahlen erf"ullen
 m"ussen, damit das R"atsel l"osbar wird?
+\item
+Finden Sie die allgemeine L"osung des Problems f"ur alle Quadrupel
+$b_1,\dots,b_4$ von Zahlen, die die in b) gefundene Bedingung erf"ullen.
 \end{teilaufgaben}
 
 \begin{loesung}
@@ -184,6 +187,74 @@ x&=6-t\\
 y&=5-t\\
 z&=3+t
 \end{align*}
+\item
+Wir l"osen das Gleichungssystem mit den rechten Seiten $b_i$:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-1& 0& 0&b_1\\
+0& 0& 1&-1&b_2\\
+1& 0& 1& 0&b_3\\
+0& 1& 0& 1&b_4\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-1& 0& 0&b_1\\
+0& 0& 1&-1&b_2\\
+0& 1& 1& 0&b_3-b_1\\
+0& 1& 0& 1&b_4\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-1& 0& 0&b_1\\
+0& 1& 1& 0&b_3-b_1\\
+0& 0& 1&-1&b_2\\
+0& 0&-1& 1&b_4-b_3+b_1\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-1& 0& 0&b_1\\
+0& 1& 1& 0&b_3-b_1\\
+0& 0& 1&-1&b_2\\
+0& 0& 0& 0&b_1+b_2-b_3+b_4=0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-1& 0& 0&b_1\\
+0& 1& 0& 1&b_3-b_1-b_2=b_4\\
+0& 0& 1&-1&b_2\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1& 0& 0& 1&b_1+b_4\\
+0& 1& 0& 1&b_3-b_1-b_2=b_4\\
+0& 0& 1&-1&b_2\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus liest man ab:
+\begin{align*}
+x&=b_1+b_4-t\\
+y&=b_4-t\\
+z&=b_2+t,
+\end{align*}
+wobei $t$ frei w"ahlbar ist.
+Das Beispiel aus Teilaufgabe b) ergibt sich daraus als Spezialfall.
 \end{teilaufgaben}
 \end{loesung}
 
