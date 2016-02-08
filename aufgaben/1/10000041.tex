@@ -1,0 +1,189 @@
+Der Youtuber MindYourDecisions stellt in seinem Video
+\url{https://www.youtube.com/watch?v=xVL9qbnHYrc} die folgende Aufgabe,
+im folgenden Diagramm die Fragezeichen durch Zahlen so zu ersetzen, dass
+alle Gleichungen stimmen:
+\begin{center}
+\begin{tabular}{>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+ ?&-&?&=& 9\\
+ +& &+& & \\
+ ?&-&?&=&14\\
+ =& &=& &  \\
+12& &2& &
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Ist dies m"oglich?
+\item
+Kann man eine Bedingung angeben, die die angegebenen Zahlen erf"ullen
+m"ussen, damit das R"atsel l"osbar wird?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir schreiben $x$, $y$, $z$ und $t$ f"ur die Fragezeichen, und erhalten
+\begin{center}
+\begin{tabular}{>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+ x&-&y&=& 9\\
+ +& &+& & \\
+ z&-&t&=&14\\
+ =& &=& &  \\
+12& &2& &
+\end{tabular}
+\end{center}
+Als Gleichungssystem geschrieben
+\[
+\begin{linsys}{5}
+x&-&y& & & & &=& 9\\
+ & & & &z&-&t&=&14\\
+x& & &+&z& & &=&12\\
+ & &y& & &+&t&=& 2
+\end{linsys}
+\]
+l"asst sich die Aufgabe mit dem Gauss-Algorithmus l"osen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-1& 0& 0& 9\\
+0& 0& 1&-1&14\\
+1& 0& 1& 0&12\\
+0& 1& 0& 1& 2\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-1& 0& 0& 9\\
+0& 0& 1&-1&14\\
+0& 1& 1& 0& 3\\
+0& 1& 0& 1& 2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-1& 0& 0& 9\\
+0& 1& 1& 0& 3\\
+0& 0& 1&-1&14\\
+0& 0&-1& 1&-1\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-1& 0& 0& 9\\
+0& 1& 1& 0& 3\\
+0& 0& 1&-1&14\\
+0& 0& 0& 0&13\\
+\hline
+\end{tabular}
+\end{align*}
+Da in der letzten Zeile auf der rechten Seite eine von $0$ verschiedene
+Zahl steht, hat das Gleichungssystem keine L"osung.
+\item
+Das Gleichungssystem hat genau dann eine L"osung, wenn beim ``Gaussen''
+auf der rechten Seite in der letzten Zeile ebenfalls eine 0 entsteht.
+Da die Zeilen der Matrix linear abh"angig sind, erf"ullen die Zeilen
+$z_1,\dots,z_4$ eine Gleichung der Form
+\[
+\lambda_1z_1+ \lambda_2z_2+ \lambda_3z_3+ \lambda_4z_4=0.
+\]
+Das Gleichungssytem kann nur dann l"osbar sein, wenn auch die rechten
+Seiten diese Bedingung erf"ullen.
+Wir m"ussen also die Koeffizienten $\lambda_i$ finden, auch dies
+kann man mit dem Gauss-Algorithmus
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 0& 1& 0\\
+-1& 0& 0& 1\\
+ 0& 1& 1& 0\\
+ 0&-1& 0& 1\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 0& 1& 0\\
+ 0& 0& 1& 1\\
+ 0& 1& 1& 0\\
+ 0&-1& 0& 1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 0& 1& 0\\
+ 0& 1& 1& 0\\
+ 0& 0& 1& 1\\
+ 0& 0& 1& 1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 0& 1& 0\\
+ 0& 1& 1& 0\\
+ 0& 0& 1& 1\\
+ 0& 0& 0& 0\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 0& 0&-1\\
+ 0& 1& 0&-1\\
+ 0& 0& 1& 1\\
+ 0& 0& 0& 0\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus k"onnen wir ablesen
+\[
+\begin{aligned}
+\lambda_1&= 1,&
+\lambda_2&= 1,&
+\lambda_3&=-1,&
+\lambda_4&= 1
+\end{aligned}
+\]
+Die rechten Seiten $b_1,\dots,b_4$ m"ussen also die Gleichung
+\[
+b_1+b_2-b_3+b_4=0
+\]
+erf"ullen, damit die Gleichung l"osbar ist.
+Die Zahlen aus der Aufgabe haben dagegen
+\[
+9+14-12+2=13\ne 0,
+\]
+was erneut zeigt, dass die urspr"ungliche Aufgabe nicht l"osbar ist.
+Dagegen m"usste das Gleichungssystem f"ur die rechten Seiten
+\[
+\begin{aligned}
+b_1&=1
+&
+b_2&=3
+&
+b_3&=9
+&
+b_4&=5
+\end{aligned}
+\]
+l"osbar sein.
+Tats"achlich liefert der Gauss-Algorithmus die unendlich vielen
+L"osungen des Gleichungssystems mit der frei w"ahlbaren Variable $t$:
+\begin{align*}
+x&=6-t\\
+y&=5-t\\
+z&=3+t
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
