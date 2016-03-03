@@ -45,7 +45,7 @@ l_{n1}&l_{n2}&\dots &l_{nn}
 \begin{hilfssatz}
 Eine untere Dreiecksmatrix $L$ kann als Produkt einer Diagonalmatrix
 mit einer unteren Dreiecksmatrix $L_0$ mit Einsen auf der Diagonalen
-ggeschrieben werden, $L=\operatorname{diag}(l_{11},\dots,l_{nn}) L_0$.
+geschrieben werden, $L=\operatorname{diag}(l_{11},\dots,l_{nn}) L_0$.
 \end{hilfssatz}
 
 \begin{proof}[Beweis]
@@ -89,7 +89,7 @@ Diagonalelement teilt, "ahnlich wie man das im Laufe des Gauss-Algorithmus
 macht.
 
 \begin{hilfssatz}
-Sei $L$ eine unter Dreicksmatrix mit $n$ Zeilen und Spalten, und $k<n$.
+Sei $L$ eine unter Dreiecksmatrix mit $n$ Zeilen und Spalten, und $k<n$.
 Dann kann man $L$ in zwei untere Dreiecksmatrizen aufteilen:
 \begin{align*}
 L&=
@@ -157,12 +157,11 @@ Um den zweiten Faktor zu finden, studieren wir nochmals den
 Gauss-Algorithmus.
 Im $k$-ten Schritt wird das Diagonalelement
 $a_{kk}$ zu $1$ gemacht, und damit werden alle Elemente sp"ateren
-Elemente in der Spalte eleminiert.
+Elemente in der Spalte eliminiert.
 Man weiss also bereits, was an
 diesen Stellen in der Matrix stehen wird, es ist nicht n"otig, diese
 Eintr"age zu berechnen oder zu speichern.
-Wir lassen daher diese
-Eintr"age stehen.
+Wir lassen daher diese Eintr"age stehen.
 Das Gauss-Tableau sieht dann nach der Vorw"artsreduktion
 so aus:
 \[
@@ -293,7 +292,7 @@ b_{kn}
 Zur Zeile $k$ wird also das $l_{ki}$-fache der Zeile
 $i$ hinzuaddiert.
 Das ist genau die Umkehrung dessen, was
-die Gausselimination macht: da wurde von der Zeile $k$
+die Gauss-Elimination macht: da wurde von der Zeile $k$
 das $l_{ki}$-fache der $i$-ten Zeile subtrahiert.
 
 Damit ist gezeigt, dass das $A=LU$, wir haben also den folgenden
@@ -328,7 +327,7 @@ U=\begin{pmatrix}
 F"ur quadratische $n\times n$-Matrizen mit Rang $n$ folgt insbesondere,
 dass $L$ eine untere Dreiecksmatrix und $U$ eine obere Dreiecksmatrix
 mit lauter $1$ auf der Diagonalen ist.
-Damit wird die Berechnug der
+Damit wird die Berechnung der
 Determinanten besonders einfach:
 
 \begin{satz}
@@ -642,7 +641,7 @@ Spalten und eine obere Dreiecksmatrix erreicht.
 \index{Zerlegung!QR}
 Ist $A$ eine $m\times n$-Matrix mit linear unabh"angigen Spalten,
 dann gibt es eine $m\times n$-Matrix $Q$ mit orthonormalen Spalten
-und eine $n\times n$-Dreicksmatrix $R$ so, dass $A=QR$.
+und eine $n\times n$-Dreiecksmatrix $R$ so, dass $A=QR$.
 \end{satz}
 
 Im Spezialfall $n=m$, also f"ur quadratische Matrizen, liefert der
@@ -803,7 +802,7 @@ Eine symmetrische Matrix $A$ heisst positiv definit, falls $v^tAv>0$ f"ur
 alle Vektoren $v\ne 0$.
 \end{definition}
 
-Im Abschnit \ref{section-least-squares} haben wir eine Anwendung
+Im Abschnitt \ref{section-least-squares} haben wir eine Anwendung
 kennengelernt, in der ein Gleichungssystem der Form
 \[
 A^tAx=A^t b
@@ -845,7 +844,7 @@ l&&L'&\\
 \right)
 \]
 Darin ist $l'$ ein $n-1$-dimensionaler Spaltenvektor und $L'$ eine
-untere Dreicksmatrix mit $n-1$ Zeilen und Spalten.
+untere Dreiecksmatrix mit $n-1$ Zeilen und Spalten.
 Wir wollen $LL^t$ mit $A$ vergleichen, und unterteilen deshalb auch die
 Matrix $A$ nach dem gleichen Muster
 \[
@@ -1159,7 +1158,7 @@ mit genau $r$ Einsen in der linken oberen Ecke hat.
 Man nennt $P$ eine {\em Projektionsmatrix}, sie hat die Eigenschaft $P^2=P$.
 \index{Projektion}
 \index{Projektionsmatrix}
-Dies ist aber zuviel verlangt, "andert man n"amlich das Koordinatensystem,
+Dies ist aber zu viel verlangt, "andert man n"amlich das Koordinatensystem,
 dann geht die spezielle Form der Matrix $P$ verloren.
 Die Projektionseigenschaft $P^2=P$ ist jedoch unabh"angig vom Koordinatensystem.
 Ist n"amlich $T$ eine Transformationsmatrix und $P'=TPT^{-1}$, dann gilt
@@ -1284,7 +1283,7 @@ $m\times m$-Matrix.
 
 Mit Hilfe der Singul"arwertzerlegung l"asst sich diese Konstruktion
 auf beliebige Matrizen verallgemeinern.
-Sei $A$ eine $m\times n$-Matrix mit Singul"artwertzerlegung
+Sei $A$ eine $m\times n$-Matrix mit Singul"arwertzerlegung
 $A=USV^t$, wobei $U$ eine orthogonale $m\times m$-Matrix, $V$ eine orthogonale
 $n\times n$-Matrix und $S$ eine $m\times n$-Diagonalmatrix wie in (\ref{s-matrix})
 von Satz~\ref{satz-svd} ist.
