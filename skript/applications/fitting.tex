@@ -8,7 +8,7 @@
 \begin{center}
 \includegraphics[width=0.6\hsize]{graphics/stummel}
 \end{center}
-\caption{Bildsequenz Raketenstart, Interval zwischen den Bildern: $\frac1{30}$s.
+\caption{Bildsequenz Raketenstart, Intervall zwischen den Bildern: $\frac1{30}$s.
 \label{stummel}}
 \end{figure}
 In der Praxis hat man h"aufig mit Messdaten zu tun, die mit einem
@@ -27,7 +27,7 @@ und $s_0$ miteinander bestimmt werden.
 
 \subsubsection{Lineare Regression}
 Zur Einf"uhrung behandeln wir den Fall einer Geraden. Wir gehen also
-davon aus, dass zwischen den Gr"ossen $x$ aund $y$ ein linearer
+davon aus, dass zwischen den Gr"ossen $x$ und $y$ ein linearer
 Zusammenhang
 \[
 y=a_1x+a_0
@@ -124,7 +124,7 @@ a_0+a_1x+a_2x^2+\dots+a_mx^m
 an die Daten angepasst werden. Gesucht ist der Vektor der Koeffizienten
 $a_k$, welcher am besten an die Messdaten $(x_i,x_i)$, $1\le i\le n$
 angepasst ist. Wie im vorangegangen Abschnitt m"ussen wir also eine
-optimale L"osung f"ur das "Uberbestimmte Gleichungsystem
+optimale L"osung f"ur das "Uberbestimmte Gleichungssystem
 \[
 \begin{linsys}{6}
 a_0&+&a_1x_1&+&a_2x_1^2&+&\dots &+&a_mx_1^m&=&y_1\\
@@ -301,7 +301,7 @@ linear eingehen. So kann man zum Beispiel die Funktion
 f(x)=a_0e^{a_1x}
 \]
 nicht direkt anpassen, weil der Koeffizient $a_1$ nicht linear eingeht.
-Wenn man aber von den $y$-Werten den Logarthimus nimmt, bekommt man
+Wenn man aber von den $y$-Werten den Logarithmus nimmt, bekommt man
 \[
 \log f(x)=\log a_0+a_1 x
 \]
@@ -309,7 +309,7 @@ Linear Regression f"ur die Daten $(x_i,\log y_i)$ liefert die Koeffizienten
 $\log a_0$ und $a_1$. Die folgende Tabelle zeigt, welche Funktionen durch
 diese einfach Modifikation behandelt werden k"onnen. Die Spalte 
 ``Daten'' enth"alt zeigt, auf welche Daten der Algorithmus angewendet
-werden muss, um die Koeffizieten in der Spalte ``Koeffizienten''
+werden muss, um die Koeffizienten in der Spalte ``Koeffizienten''
 zu liefern.
 \begin{center}
 \begin{tabular}{>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}}

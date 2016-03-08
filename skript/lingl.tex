@@ -10,7 +10,7 @@ Gleichungen l"osen zu k"onnen.
 Daher beginnen wir in diesem Kapitel
 damit, Verfahren f"ur die L"osung linearer Gleichungssysteme
 zusammenzustellen.
-Dabei interessiert uns nicht nur die die L"osung
+Dabei interessiert uns nicht nur die L"osung
 eines solchen Gleichungssystems, sondern auch die Frage, ob es
 "uberhaupt l"osbar ist, oder ob es vielleicht sogar mehr als eine
 L"osung hat.
@@ -21,7 +21,7 @@ gleichen Alternativen auftreten:
 \item Genau eine L"osung
 \item Unendlich viele L"osungen
 \end{compactenum}
-Genaugenommen sind dies nicht drei gleichberechtigte F"alle,
+Genau genommen sind dies nicht drei gleichberechtigte F"alle,
 sondern
 \index{regulaer@regul\"ar}
 \index{singulaer@singul\"ar}
@@ -109,7 +109,7 @@ als Unbekannte gegeben sind.
 Sp"ater werden wir diskutieren, unter
 welchen Bedingungen diese Gleichungssysteme L"osungen haben.
 
-Vollst"andig ausgeschrieben lauten die Gleichungssyteme
+Vollst"andig ausgeschrieben lauten die Gleichungssysteme
 \begin{align*}
 a_{11}x_1+a_{12}x_2+\dots a_{1n}x_n&=b_1\\
 a_{21}x_1+a_{22}x_2+\dots a_{2n}x_n&=b_2\\
@@ -192,7 +192,7 @@ g_1=\{(x,y)\,|\,ax+by=c\}
 \]
 ist eine Gerade.
 
-F"ugt man jetzt eine zweite Gleichun hinzu, erh"alt man
+F"ugt man jetzt eine zweite Gleichung hinzu, erh"alt man
 ein Gleichungssystem
 \[
 \begin{linsys}{2}
@@ -213,7 +213,7 @@ der Geraden $g$ und $h$.
 
 \index{Gerade}
 Ohne dass wir bereits ein Verfahren zur Berechnung einer
-L"osung haben, k"onnen wir bereits herausfinden, wieviele
+L"osung haben, k"onnen wir bereits herausfinden, wie viele
 L"osungen das Gleichungssystem hat.
 Zwei Geraden in der Ebene
 k"onnen h"ochstens in den drei folgenden Lagen angeordnet sein:
@@ -230,7 +230,7 @@ also unendlich viele L"osungen.
 \end{enumerate}
 \end{enumerate}
 Hier drei Beispiele von Gleichungssystemen, die diese drei Situationen
-wiederspiegeln:
+widerspiegeln:
 \begin{beispiel}[Beispiel f"ur den Fall 1]
 Das folgende Gleichungssystem hat genau eine L"osung.
 \begin{align*}
@@ -317,7 +317,7 @@ x%
 Es wird damit einfacher, nach $x$ aufzul"osen,
 und das gefundene Resultat dazu zu verwenden, die anderen $x$ zu
 eliminieren
-\subsubsection{Schritt F: $x$ aus Folgegleichungen elminieren}
+\subsubsection{Schritt F: $x$ aus Folgegleichungen eliminieren}
 Mit Hilfe der ersten Gleichung k"onnen wir jetzt auch das $x$ in
 der zweiten Gleichung eliminieren.
 Dazu subtrahieren wir das Doppelte der ersten Gleichung von der zweiten.
@@ -371,7 +371,7 @@ x&-&2\;y &=&3\\
 
 \subsubsection{Schritt R: $y$ aus Vorg"angergleichungen eliminieren}
 Mit der zweiten Gleichung k"onnen wir jetzt auch das $y$ aus der ersten
-Gleichung eleminieren.
+Gleichung eliminieren.
 Wir addieren dazu das Doppelte der zweiten
 Gleichung zur ersten:
 \[
@@ -476,7 +476,7 @@ x&+&2y&+&3z&=&10\\
 x&-&y&+&z&=&2
 \end{linsys}
 \end{equation}
-Die zugeh"orige Folge von Tableaux ist
+Die zugeh"orige Folge von Tableaus ist
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -608,7 +608,7 @@ In der ersten Phase muss man also alle Elemente unterhalb der
 Diagonalen zu Null machen.
 Mit Operationen {\bf I} und {\bf E} geht man dazu zeilenweise vor.
 In jeder Zeile macht man mit {\bf I}
-zun"achst den vordersten nicht verschwindenen Koeffizienten, das sogenannte
+zun"achst den vordersten nicht verschwindenden Koeffizienten, das sogenannte
 Pivot-Element zu $1$.
 \index{Pivot-Element}
 Die Zeile und Spalte dieses Elements heisst deshalb
@@ -683,7 +683,7 @@ wiederholt werden.
 Das R"uckw"artseinsetzen kommt ohne die {\bf I}-Operationen aus.
 Es eliminiert die nicht verschwinden Element oberhalb der Diagonalen
 Spaltenweise, beginnend bei der letzten.
-F"ur die dritte Spalte bespielsweise bedeutet dies bildlich:
+F"ur die dritte Spalte beispielsweise bedeutet dies bildlich:
 \begin{gather*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -1006,7 +1006,7 @@ zu ermitteln, wird er eine Zeile voller Nullen hervorbringen.
 
 \begin{hilfssatz}
 Die Linearformen $l_1,\dots,l_m$ sind genau dann linear abh"angig, wenn
-die Anwendung des Gaussalgorithmus auf das Koeffizientenschema dieser
+die Anwendung des Gauss-Algorithmus auf das Koeffizientenschema dieser
 Linearformen eine Zeile voller Nullen hervorbringt.
 Insbesondere sind mehr als $n$ Linearformen immer linear abh"angig.
 Ist eine der Linearformen
@@ -1108,7 +1108,7 @@ F"ur die $\lambda_i$ finden wir daraus ein lineares Gleichungssystem:
 3\lambda_1&+&4\lambda_2&+&9\lambda_3&=&0
 \end{linsys}.
 \]
-Man beachte, dass das Koeffizienten-Schema gegen"uber dem
+Man beachte, dass das Koeffizientenschema gegen"uber dem
 gegen"uber dem urspr"unglichen an der Diagonalen
 gespiegelt worden ist.
 
@@ -1219,7 +1219,7 @@ der sogenannte Rang.
 In diesem Fall kommt das Vorw"artsreduzieren bereits zu einem Ende,
 wenn noch gar nicht alle Unbekannten verwendet wurden.
 Das R"uckw"artseinsetzen kann dann auch nicht alle Spalten ``reinigen'',
-so dasss rechts einige Spalten stehen bleiben:
+so dass rechts einige Spalten stehen bleiben:
 \begin{gather}
 \begin{array}{|ccccccc|c|}
 \hline
@@ -1483,7 +1483,7 @@ auf der rechten Seite der $m-n$ letzten Gleichungen verschwinden,
 also wenn Zusatzbedingungen erf"ullt sind.
 
 \subsection{Mischformen}
-Es kann auch passieren, dass das Gaussverfahren abbricht, bevor alle
+Es kann auch passieren, dass das Gauss-Verfahren abbricht, bevor alle
 Gleichungen aufgebraucht sind, das Schema sieht dann wie folgt aus:
 \begin{equation}
 \begin{array}{|cccccc|c|}
@@ -1608,7 +1608,7 @@ Der Rang einer Matrix $A$ ist die maximale Anzahl linear unabh"angiger Zeilen.
 Die maximale Anzahl linear unabh"angiger Spalten einer Matrix $A$ ist
 $\operatorname{Rang}A$.
 \end{satz}
-Aus dem Rang l"asst sich also auch ermitteln, wieviele frei w"ahlbare
+Aus dem Rang l"asst sich also auch ermitteln, wie viele frei w"ahlbare
 Parameter in die L"osungsmenge eingehen.
 \begin{satz}
 Ist $A$ eine $m\times n$-Matrix mit $r=\operatorname{Rang}A$ 
@@ -1809,7 +1809,7 @@ die {\em reduzierte Zeilenstufenform}, englisch auch {\em reduced row echelon fo
 \index{rref}
 \index{reduced row echelon form}
 Leistungsf"ahige Taschenrechner und Programme zur Matrizenrechnung stellen
-eine "ublicherweise \texttt{rref} genannte Funktion zur Verf"ugung, die die 
+eine "ublicherweise \texttt{rref} genannte Funktion zur Verf"ugung, welche die 
 Zeilenstufenform einer beliebigen Matrix berechnen kann.
 
 \section{Mehrere Gleichungssysteme simultan l"osen\label{simultan}}
@@ -2072,7 +2072,7 @@ den Zeilenvektor $z_i$ ersetzt durch den neuen Zeilenvektor
 =
 \begin{pmatrix}\frac{a_{i1}}{a_{ii}}&\frac{a_{i2}}{a_{ii}}&\dots&\frac{a_{im}}{a_{ii}}&\frac{b_i}{a_{ii}}\end{pmatrix}
 \]
-Bei der Operation {\bf E} wird der Zeilevektor $z_j$
+Bei der Operation {\bf E} wird der Zeilenvektor $z_j$
 verringert um das $a_{ji}$-fache des Zeilenvektors $z_i$, also
 \[
 z_j \leftarrow z_j-a_{ji}z_i.
@@ -2146,7 +2146,7 @@ heisst $m\times n$-Matrix.
 
 \subsubsection{Produkt einer Matrix mit einem Vektor}
 Um das Gleichungssystem mit der Koeffizientenmatrix $A$ zu beschreiben
-fehlt uns jetzt noch eine Verkn"ufpung zwischen Matrizen und
+fehlt uns jetzt noch eine Verkn"upfung zwischen Matrizen und
 Vektoren.
 Die folgende Definition tut, was wir uns w"unschen.
 \begin{definition}
@@ -2508,7 +2508,7 @@ zu entnehmen.
 
 Das Verfahren begann damit, an die gegebene Koeffizientenmatrix die Matrix $I$
 anzuh"angen.
-Anschliessend wurde der Gaussalgorithmus verwendet, bis in
+Anschliessend wurde der Gauss-Algorithmus verwendet, bis in
 der linken H"alfte der Tabelle eine Einheitsmatrix stand.
 Symbolisch k"onnen wir dies durch
 \begin{equation}

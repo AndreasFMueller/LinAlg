@@ -22,7 +22,7 @@ einer Winkelsekunde werden, da sonst das Bild unscharf w"urde.
 
 Astronomische Teleskop werden daher oft auf einer sogenannten
 "aquatorialen Montierung eingesetzt, welche eine Achse parallel
-zur Erdeachse hat. Dreht man diese Achse mit genau der gleichen
+zur Erdachse hat. Dreht man diese Achse mit genau der gleichen
 Geschwindigkeit wie die Erde, aber in entgegengesetzter Richtung,
 sollte sich die Drehung aufheben. In der Praxis verbleibt durch
 Aufstellungsfehler und Atmosph"areneinfl"usse trotzdem ein Restfehler,
@@ -31,7 +31,7 @@ der gemessen und korrigiert werden muss.
 \subsubsection{Guiding}
 Nachf"uhrung oder Guiding beschreibt den Prozess, durch geeignete
 Korrektursignale an die Montierung des Teleskops, ein Objekt, meist
-einen einzelnen, leicht zu identifizerenden Stern, st"andig an der
+einen einzelnen, leicht zu identifizierenden Stern, st"andig an der
 gleichen Stelle auf dem CCD-Chip der Kamera zu halten. Dazu wird
 eine Hilfskamera-verwendet, die entweder mit einem eigenen kleinen
 Teleskop, dem Leitfernrohr, ausgestattet ist, oder die das Licht
@@ -43,7 +43,7 @@ Die Montierung kann typischerweise in zwei senkrechten Richtungen
 bewegt werden, zus"atzlich zu der konstanten Drehung um die
 Achse parallel zur Erdachse.
 Wir nehmen an, dass wir die Geschwindigkeit
-dieser zus"atzlichen Bewegung im Interval $[-1,1]$ angeben k"onnen.
+dieser zus"atzlichen Bewegung im Intervall $[-1,1]$ angeben k"onnen.
 In der Praxis kann man jedoch meistens die Extremgeschwindigkeiten
 $\pm 1$ aktivieren. Um die mittlere Geschwindigkeit $0.2$ zu erhalten,
 muss man also die Geschwindigkeit $+1$ w"ahrend 200ms aktivieren.
@@ -58,7 +58,7 @@ Es ist klar, dass eine Bewegung in Deklination immer die gleiche Auswirkung
 auf ein Sternbild in der Kamera hat.
 Die Auswirkung einer Bewegung um Erdachse h"angt jedoch
 davon ab, ob ein Objekt nahe des "Aquators oder nahe des Pols
-betrachtet wird. Wird das Teleskop parallel zur Erdachse ausgereichtet
+betrachtet wird. Wird das Teleskop parallel zur Erdachse ausgerichtet
 ($\delta=90^\circ$), dann bewegt sich ein Stern im Zentrum des Bildfeldes
 bei Drehung um die Erdachse "uberhaupt nicht.
 Je nach Position des Objektes auf der Himmelskugel sind also andere
@@ -95,7 +95,7 @@ Wir m"ussen die Matrix $A$ und den Vektor $v$ ermitteln.
 Um Daten f"ur die Bestimmung von $A$ und $v$ zu bekommen, kann man wie
 folgt vorgehen. Man f"ahrt mit dem Teleskop nacheinander alle Gitterpunkte
 eines $2\times 2$ Quadrates mit den Ecken
-$(-1,-1)$ und $(1,1)$ im $(\alpha,\delta)$-Koodinatensystem an.
+$(-1,-1)$ und $(1,1)$ im $(\alpha,\delta)$-Koordinatensystem an.
 \begin{figure}
 \begin{center}
 \includegraphics[width=\hsize]{graphics/calibration.jpg}

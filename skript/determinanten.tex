@@ -12,7 +12,7 @@ Ziel dieses Kapitels ist, diese Kennzahlen zu finden.
 
 Es stellt sich heraus, dass es zu einer Matrix
 im wesentlichen nur eine solche Kennzahl gibt, die Determinante,
-die sich mit dem Gaussverfahren einfach berechnen l"asst.
+die sich mit dem Gauss-Verfahren einfach berechnen l"asst.
 Sie erweist sich auch in anderen Anwendungen als praktisch.
 In sp"ateren Kapiteln
 wird sie zum Beispiel f"ur folgendes verwendet:
@@ -31,7 +31,7 @@ Die Determinante soll eine Kennzahl liefern, an der sich ablesen
 l"asst, ob eine Matrix regul"ar oder singul"ar ist.
 Zur Definition kann man sich dabei auf den Gauss-Algorithmus st"utzen.
 F"ur das
-Arbeiten mit Determinaten ist das nicht praktisch, dazu werden
+Arbeiten mit Determinanten ist das nicht praktisch, dazu werden
 Rechenregeln (Formeln) ben"otigt.
 Daraus ergibt sich dann mit
 dem Entwicklungssatz ein praktisch durchf"uhrbarer Algorithmus.
@@ -121,7 +121,7 @@ c%
 \end{align*}
 Die Eigenschaften sind also offenbar bereits stark genug, um die
 Determinante festzulegen.
-F"ur die Determinate hat sich auch die
+F"ur die Determinante hat sich auch die
 Bezeichnung mit zwei vertikalen Linien links und rechts des
 Koeffizientenschemas eingeb"urgert:
 \[
@@ -162,7 +162,7 @@ gleich, dann ist $\det A=0$.
 \end{hilfssatz}
 \begin{proof}[Beweis]
 Subtrahiert man die erste der beiden gleichen Zeilen von der
-zweiten, "andert sich die Determinate nicht, denn dies ist eine
+zweiten, "andert sich die Determinante nicht, denn dies ist eine
 {\bf E}-Operation.
 In der zweiten Zeile stehen nach dieser Operation
 aber lauter Nullen, die Determinante muss nach Hilfssatz \ref{nullzeile}
@@ -335,7 +335,7 @@ Aus diesen Eigenschaften lassen sich die Eigenschaften \ref{invarianzE}.~und
 \begin{proof}[Beweis]
 Setzt man 
 $a'_{ki}=a_{ki}$, $a''_{ki}=a_{li}$, $\lambda=1$ entsteht auf der linken Seite
-die Determinante nach dem hinzuadieren des $\mu$-fachen der $l$-ten Zeile
+die Determinante nach dem hinzuaddieren des $\mu$-fachen der $l$-ten Zeile
 zur $k$-ten Zeile, also das Resultat einer {\bf E}-Operation.
 Auf der rechten Seite steht als erster Term die urspr"ungliche Determinante,
 der zweite Term ist aber eine Determinante, in der die $k$-te und die
@@ -345,7 +345,7 @@ Damit ist die Eigenschaft \ref{invarianzE}.~bewiesen.
 Setzt man $a'_{ki}=a_{ki}$ und $\mu=0$, steht auf der linken Seite
 die Determinante, in der die $k$-te Zeile mit $\lambda$ multipliziert
 wurde.
-Auf der rechten Seite steht die mit $\lambda$ multilizierte
+Auf der rechten Seite steht die mit $\lambda$ multiplizierte
 Determinante, wegen $\mu=0$ f"allt der zweite Term weg.
 Somit ist auch die Eigenschaft \ref{skalarI}.~bewiesen.
 \end{proof}
@@ -362,7 +362,7 @@ werden k"onnen.
 Man kann zeigen, dass die Eigenschaften der Determinante diese
 eindeutig bestimmen.
 Es kann also nicht passieren, dass eine andere
-Reihenfolge der Pivotelemente zu einem anderen Resultat f"uhrt.
+Reihenfolge der Pivot-Elemente zu einem anderen Resultat f"uhrt.
 Da diese Eigenschaft auf eine Art beweisen wird, die uns keine
 anderen n"utzlichen Resultate liefert, verbannen wir den Beweis
 in den letzten Abschnitt \ref{deteindeutig} dieses Kapitels.
@@ -392,7 +392,7 @@ Das vorgehen zur Berechnung der Determinante ist genau das selbe.
 Man wendet die Operationen an, bis nur noch die Einheitsmatrix stehen bleibt.
 
 Analog zum Vorgehen in Abschnitt \ref{detlinfun} k"onnen wir auch
-fordern, dass die Deterninte eine lineare Funktion der Spalten
+fordern, dass die Determinante eine lineare Funktion der Spalten
 (statt der Zeilen) sein soll, und w"urden dieselbe Determinante
 erhalten wie mit der Definition durch die Operationen 
 {\bf I$\mathstrut^t$}
@@ -421,8 +421,8 @@ l"asst sich auch f"ur beliebig grosse Determinanten verallgemeinern,
 woraus sich ein effizientes Berechnungsverfahren f"ur die Determinante
 ergibt.
 
-Im Laufe des Gauss-Verfahrens "andert sich die Determinate offenbar
-imer dann, wenn eine {\bf I}-Operation ausgef"uhrt wird.
+Im Laufe des Gauss-Verfahrens "andert sich die Determinante offenbar
+immer dann, wenn eine {\bf I}-Operation ausgef"uhrt wird.
 In solchen Schritten wird durch das Pivot-Element dividiert.
 Am Ende des 
 Verfahrens bleibt die Einheitsmatrix stehen, welche die Determinante
@@ -884,7 +884,7 @@ ersetzt hat, und der Determinanten von $A$.
 \end{satz}
 \begin{proof}[Beweis]
 Schreiben wir $a_1,\dots,a_n$ f"ur die Spalten von $A$ und $b$ f"ur die 
-Spalte der rechten Seite, dann bedeutet das Glechungssystem, dass die
+Spalte der rechten Seite, dann bedeutet das Gleichungssystem, dass die
 Spalte $b$ geschrieben werden kann als eine Linearkombination der
 Spalten von $A$:
 \begin{equation}
@@ -940,9 +940,9 @@ Dieser Satz stellt zwar eine h"ubsche Formel zur Berechnung der L"osung
 bereit, praktisch n"utzlich ist diese jedoch kaum.
 Die Berechnung der
 $n+1$ Determinanten ist bereits aufwendiger als die Durchf"uhrung des
-Gaussverfahrens, welches die L"osung auch schon liefert.
+Gauss-Verfahrens, welches die L"osung auch schon liefert.
 
-\begin{beispiel}Man finde die L"osung des Gleichungssytems
+\begin{beispiel}Man finde die L"osung des Gleichungssystems
 \[
 \begin{linsys}{4}
 -x&-&3y&&&=&\color[rgb]{0,0.5,0}-7\\
@@ -1176,7 +1176,7 @@ Zur Kontrolle rechnen wir das Produkt nach:
 0&0&1
 \end{pmatrix}.
 \end{align*}
-Da wir in diesem Produkt die Determinaten $-3$ noch nicht ber"ucksichtig
+Da wir in diesem Produkt die Determinanten $-3$ noch nicht ber"ucksichtigt
 haben, ist das das zu erwartende Resultat.
 \end{beispiel}
 
@@ -1235,8 +1235,8 @@ eine Spalte ersetzt worden ist durch eine Spalte aus Nullen und genau
 einer Eins.
 
 Diese Zerlegung kann man jetzt noch $(n-1)$-mal wiederholen,
-jedesmal kommt ein anderer Faktor $a_{ik}$ vor die Determinante.
-Dabei werden auch Determinanten ensteht die die gleichen Spalten
+jedes mal kommt ein anderer Faktor $a_{ik}$ vor die Determinante.
+Dabei werden auch Determinanten entsteht die die gleichen Spalten
 haben, die also die Eins an der selben Stelle haben.
 Diese Determinanten verschwinden alle, man kann sie ignorieren.
 Der Vorfaktor ist
@@ -1244,7 +1244,7 @@ jeweils $a_{ik}$, wobei $i$ die Zeile der Eins bezeichnet, und $k$
 die Nummer der Spalte, die man ersetzt hat.
 Die Indizes des
 Vorfaktors $a_{ik}$ sind gerade die Koordinaten der Eins, die durch
-die Ersetzung in der Determinate stehen bleibt.
+die Ersetzung in der Determinante stehen bleibt.
 
 Am Ende bleibt eine Summe von Termen stehen, in der alle Determinanten
 in jeder Zeile und Spalte genau eine $1$ und sonst lauter Nullen

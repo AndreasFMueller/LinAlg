@@ -10,7 +10,7 @@ In der Praxis kennt man von einer Funktion, die zum Beispiel in
 Oszilloskop misst, die Funktionswerte nur zu diskreten Zeitpunkten,
 Abbildung~\ref{signal:vector}.
 Auch von solchen Funktionen kann man das Frequenz-Spektrum bestimmen.
-Die theorie hat jedoch ein paar Nachteile:
+Die Theorie hat jedoch ein paar Nachteile:
 \begin{compactenum}
 \item Um die hochfrequenten Komponenten, also die ``Detailinformation''
 "uber das Signal zu bekommen, muss man das gesamte Signal analysieren.
@@ -49,7 +49,7 @@ ist also im wesentlichen ein Vektor
 $$
 x=\begin{pmatrix}x_1\\x_2\\\vdots\\x_N\end{pmatrix}
 $$
-Die Menge $\mathbb R^N$ dieser Vektoren bezeichen wir in diesem
+Die Menge $\mathbb R^N$ dieser Vektoren bezeichnen wir in diesem
 Kapitel mit $V$. 
 
 Die "ublichen Operationen mit Vektoren haben eine naheliegende
@@ -76,7 +76,7 @@ Ingenieur das Signal studiert. Der Standardbasis-Vektor $e_i$
 entspricht einem Peak zur Zeit $i$, zu allen anderen Zeiten
 ist der Signalwert $0$.
 Ein Ingenieur wird sich das Signal
-typischwerweise bei verschiedenen zeitlichen Aufl"osungen
+typischerweise bei verschiedenen zeitlichen Aufl"osungen
 ansehen, indem er die Zeitbasis am Oszilloskop ver"andert.
 Bei geringer Aufl"osung sind nur die niederfrequenten
 Anteile des Signales sichtbar, bei hoher zeitlicher Aufl"osung
@@ -138,7 +138,7 @@ Diese Konstruktion l"asst sich fortsetzen:
 \end{cases}
 \end{align*}
 Das Signal $\varphi_{i,j}$ ist also nur auf einem Abschnitt der
-L"ange $2^{k-i}$ von $0$ verschieden, der Index $j$ numeriert
+L"ange $2^{k-i}$ von $0$ verschieden, der Index $j$ nummeriert
 diese Abschnitte innerhalb der Ganzzahlen $1,\dots,2^k$.
 \begin{figure}
 \begin{center}
@@ -320,11 +320,11 @@ a_{i,j}&=\psi_{i,j}\cdot v
 Die Berechnung der Koeffizienten ist sehr effizient m"oglich, weil die
 verschiedenen Funktionen $\psi_{i,j}$ f"ur das selbe $i$ nicht gleichzeitig
 von Null verschieden sind, Abbildung~\ref{coefhierarchy}.
-Der Koeffizient $a_{0,0}$ ist massgebend f"ur das ganze Zeitinterval,
-doch $a_{1,0}$ und $a_{1,1}$ sind je nur f"ur die H"alfte des Intervals
+Der Koeffizient $a_{0,0}$ ist massgebend f"ur das ganze Zeitintervall,
+doch $a_{1,0}$ und $a_{1,1}$ sind je nur f"ur die H"alfte des Intervalls
 relevant, und brauchen auch nur Daten aus jeweils der H"alfte
-des Intervals. $a_{i,j}$ wird aus Daten aus einem $2^i$-tel des
-Intervals berechnet.
+des Intervalls. $a_{i,j}$ wird aus Daten aus einem $2^i$-tel des
+Intervalls berechnet.
 Die Anforderung, dass die Analyse ``lokale Detailinformation''
 liefern soll, ist damit erf"ullt.
 
@@ -477,7 +477,7 @@ mit grossem Absolutwert dagegen hell.\label{wavelet-sin}}
 \includegraphics[width=\hsize]{graphics/wavelet-normal}
 \end{center}
 \caption{Haar-Wavelet-Transformation eines Gauss-Signals. Siehe 
-auch Bildlegend zu Abbildung~\ref{wavelet-sin}\label{wavelet-normal}}
+auch Bildlegende zu Abbildung~\ref{wavelet-sin}\label{wavelet-normal}}
 \end{figure}
 Die Abbildungen \ref{wavelet-sin} und \ref{wavelet-normal} zeigen
 die Koeffizienten $a_{i,j}$ f"ur ein Sinus-Signal und f"ur ein
