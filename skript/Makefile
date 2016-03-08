@@ -32,7 +32,8 @@ images-subdir:
 	cd images; make
 
 clean:
-	rm -f skript.dvi skript.pdf
+	rm -f *.synctex.gz *.aux *.idx *.ilg *.ind *.log *.out *.toc *.dvi \
+		skript.pdf checklist.pdf
 
 checklist.pdf:	checklist.tex
 	pdflatex checklist.tex
