@@ -1,0 +1,72 @@
+Berechnen Sie die Determinante der folgenden
+\[
+A=\left|\,\begin{matrix}
+ 1& 0&-1&0\\
+ 2&-2& 0&4\\
+ 0&-3& 3&0\\
+-2& 0&-1&3
+\end{matrix}\,\right|
+\]
+
+\begin{loesung}
+Zun"achst kann man die gemeinsamen Faktoren $2$ und $3$ in den Zeilen 2 und 3
+herausziehen:
+\begin{align*}
+\det(A)
+&=
+2\cdot 3\cdot
+\left|\,\begin{matrix}
+ 1& 0&-1&0\\
+ 1&-1& 0&2\\
+ 0&-1& 1&0\\
+-2& 0&-1&3
+\end{matrix}\,\right|
+\end{align*}
+Indem man die zweite Zeile zur dritten addiert und das resultate fon der zweiten
+zweiten subtrahiert,
+kann man die Zahl der Nullen in der zweiten Zeile weiter reduzieren und
+nochmals einen Faktor 2 herausziehen:
+\begin{align*}
+\det(A)
+&=
+2\cdot 3\cdot
+\left|\,\begin{matrix}
+ 1& 0&-1&0\\
+ 0& 0& 0&2\\
+ 1&-1& 0&0\\
+-2& 0&-1&3
+\end{matrix}\,\right|
+=
+2\cdot 3\cdot2\cdot
+\left|\,\begin{matrix}
+ 1& 0&-1&0\\
+ 0& 0& 0&1\\
+ 1&-1& 0&0\\
+-2& 0&-1&3
+\end{matrix}\,\right|
+\end{align*}
+Entwicklung nach der zweiten Zeile gibt
+\begin{align*}
+\det(A)
+&=
+2\cdot 3\cdot2\cdot
+\left|\,\begin{matrix}
+ 1& 0&-1\\
+ 1&-1& 0\\
+-2& 0&-1
+\end{matrix}\,\right|
+=
+12\cdot \biggl(
+1\cdot
+\left|\,\begin{matrix}-1& 0\\ 0&-1\end{matrix}\,\right|
++
+(-1)\cdot
+\left|\,\begin{matrix} 1&-1\\-2& 0\end{matrix}\,\right|
+\biggr)
+\\
+&=12\cdot(1-(-2))=3\cdot 12=36.
+\qedhere
+\end{align*}
+\end{loesung}
+
+
