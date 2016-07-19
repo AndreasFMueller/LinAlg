@@ -1,0 +1,283 @@
+Betrachten Sie die Matrix
+\[
+A=\begin{pmatrix}
+2&  4&   2\\
+1&c+1&3c-2\\
+1&  4& c+5
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item F"ur welche Werte von $c$ ist die Matrix $A$ regul"ar?
+\item L"osen Sie f"ur jeden der in Teilaufgabe a) gefundene Werte von $c$ 
+das Gleichungssystem $Ax=b$ mit
+\[
+b=\begin{pmatrix}2\\2\\3\end{pmatrix}.
+\]
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Der Gaussalgorithmus kann dazu verwendet werden, die Regularit"at von $A$
+zu ermitteln:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+2&  4&   2\\
+1&c+1&3c-2\\
+1&  4& c+5\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  2&   1\\
+0&c-1&3c-3\\
+0&  2& c+4\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  2&   1\\
+0&  1&   3\\
+0&  0& c-2\\
+\hline
+\end{tabular}.
+\end{align*}
+Im zweiten Schritt ist das Pivot-Element $c-1$, der zweite Schritt
+kann also nur durchgef"uhrt werden, wenn $c\ne 1$ ist.
+Analog erfordert der n"achst Gauss-Schritt, dass $c\ne 2$ ist.
+Die Werte $c\in\{1,2\}$ sind also die gesuchten Werte, f"ur die die Matrix
+nicht regul"ar ist.
+\item
+Da wir wiederholt ein Gleichungssystem mit der nicht
+regul"aren Matrix $A$ l"osen m"ussen, ist die LR-Zerlegung
+n"utzlich, damit wir die Arbeit des Gauss-Algorithmus nicht immer wieder
+neu durchf"uhren m"ussen.
+Wir k"onnen die LR-Zerlegung der Matrix $A$ aus der Rechnung von Teilaufgabe a) 
+ablesen:
+\[
+A=
+\underbrace{
+\begin{pmatrix}
+2&  0&  0\\
+1&c-1&  0\\
+1&  2&c-2
+\end{pmatrix}}_{\displaystyle =L}
+\underbrace{
+\begin{pmatrix}
+1&2&1\\
+0&1&3\\
+0&0&1
+\end{pmatrix}}_{\displaystyle =R}
+.
+\]
+Die Matrix $R$ ist regul"ar.
+Damit das Gleichungssystem $Ax=b$ gel"ost werden kann, muss zun"achst mal
+das Gleichungssystem $Ly=b$ gel"ost werden, danach kann man $x$ in einem
+zweiten Schritt durch L"osung des Gleichungssystems $Rx=y$ bekommen.
+
+F"ur $c\in\{1,2\}$ ist die Matrix $L$ nicht regul"ar, das Gleichungssystem
+muss mit dem Gauss-Algorithmus gel"ost werden.
+Wir betrachten jeden Fall einzeln:
+
+F"ur $c=1$ erhalten wir die Rechnung
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2&  0&  0&2\\
+1&c-1&  0&2\\
+1&  2&c-2&3\\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2&  0&  0&2\\
+1&  0&  0&2\\
+1&  2& -1&3\\
+\hline
+\end{tabular}.
+\]
+Da die ersten beiden Gleichungen widersprechen sich, das Gleichungssystem
+ist daher gar nicht l"osbar.
+
+F"ur $c=2$ erhalten wir die Rechnung
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2&  0&  0&2\\
+1&c-1&  0&2\\
+1&  2&c-2&3\\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2&  0&  0&2\\
+1&  1&  0&2\\
+1&  2&  0&3\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&  0&  0&1\\
+0&  1&  0&1\\
+0&  2&  0&2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&  0&  0&1\\
+0&  1&  0&1\\
+0&  0&  0&0\\
+\hline
+\end{tabular}.
+\]
+Daraus kann man die allgemeine L"osung
+\[
+y=\begin{pmatrix} 1\\1\\z \end{pmatrix}
+\]
+ablesen.
+Jetzt muss man noch $Rx=y$ l"osen, das kann man zum Beispiel mit der
+Inversen von $R$ machen.
+Man kann sie ebenfalls mit dem Gauss-Algorithmus finden, der hier
+besonders einfach ist, weil die Vorw"artsreduktion ja schon gemacht
+ist, man muss nur noch R"uckw"artseinsetzen:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&1&1&0&0\\
+0&1&3&0&1&0\\
+0&0&1&0&0&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&0&1&0&-1\\
+0&1&0&0&1&-3\\
+0&0&1&0&0& 1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&0&1&-2& 5\\
+0&1&0&0& 1&-3\\
+0&0&1&0& 0& 1\\
+\hline
+\end{tabular}.
+\]
+Die allgemeine L"osung $x$ finden wir jetzt durch Matrixmultiplikation
+\[
+R^{-1}y
+=
+\begin{pmatrix}
+1&-2& 5\\
+0& 1&-3\\
+0& 0& 1\\
+\end{pmatrix}
+\begin{pmatrix} 1\\1\\z \end{pmatrix}
+=
+\begin{pmatrix} -1+5z\\1-3z\\z \end{pmatrix}.
+\]
+Zur Kontrolle rechnen wir $Ax$ nach f"ur $c=2$:
+\[
+Ax
+=
+\begin{pmatrix}
+2&  4&   2\\
+1&c+1&3c-2\\
+1&  4& c+5
+\end{pmatrix}
+\begin{pmatrix} -1+5z\\1-3z\\z \end{pmatrix}
+=
+\begin{pmatrix}
+2&4&2\\
+1&3&4\\
+1&4&7
+\end{pmatrix}
+\begin{pmatrix} -1+5z\\1-3z\\z \end{pmatrix}.
+\]
+
+Statt die LR-Zerlegung zu bem"uhen kann man in den beiden F"allen das
+Gleichungssystem nat"urlich auch direkt l"osen.
+\begin{align*}
+c&=1:&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2&  4&   2&2\\
+1&c+1&3c-2&2\\
+1&  4& c+5&3\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2&  4&   2&2\\
+1&  2&   1&2\\
+1&  4&   6&3\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&  2&   1&1\\
+0&  0&   0&\color{red}1\\
+0&  2&   5&2\\
+\hline
+\end{tabular},
+\\
+c&=2:&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2&  4&   2&2\\
+1&c+1&3c-2&2\\
+1&  4& c+5&3\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2&  4&   2&2\\
+1&  3&   4&2\\
+1&  4&   7&3\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&  2&   1&1\\
+0&  1&   3&1\\
+0&  2&   6&2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&  0&  -5&-1\\
+0&  1&   3& 1\\
+0&  0&   0& 0\\
+\hline
+\end{tabular}.
+\end{align*}
+Im Fall $c=1$ zeigt die {\color{red}rote} 1, dass das Gleichungssystem
+keine L"osung hat, im Fall $c=2$ kann man f"ur die allgemeine L"osung
+\[
+x=
+\begin{pmatrix}
+-1+5z\\
+ 1-3z\\
+    z
+\end{pmatrix}
+\]
+ablesen.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+
