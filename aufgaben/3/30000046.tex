@@ -1,0 +1,78 @@
+Die drei Ebenen $\sigma_1$, $\sigma_2$ und $\sigma_3$ durch den Nullpunkt
+haben die Normalen
+\[
+\vec n_1=
+\begin{pmatrix}1\\2\\1\end{pmatrix},
+\qquad
+\vec n_2=
+\begin{pmatrix}3\\0\\4\end{pmatrix}
+\qquad\text{und}\qquad
+\vec n_3=
+\begin{pmatrix}5\\1\\0\end{pmatrix}.
+\]
+Sei $g_{ij}$ die Schnittgerade der Ebenen $\sigma_i$ und $\sigma_j$.
+Finden Sie die Gleichung der Ebene, die die Schnittgeraden $g_{12}$
+und $g_{23}$ enth"alt.
+
+\begin{loesung}
+Da die Ebene durch den Nullpunkt geht, gen"ugt es, deren Normale $\vec n$
+zu bestimmen.
+Sind
+$\vec n_{12}$
+und
+$\vec n_{23}$
+die Richtungsvektoren der beiden Geraden, dann ist die gesuchte Normale
+$\vec n=\vec n_{12}\times\vec n_{23}$.
+Die Richtungsvektoren stehen aber auch auf den beiden Normalen senkrecht,
+daher gilt auch
+\begin{align*}
+\vec n_{12}
+&=
+\vec n_1\times\vec n_2
+&
+&\wedge&
+\vec n_{23}
+&=
+\vec n_2\times\vec n_3
+&
+&\Rightarrow&
+\vec n
+&=
+(\vec n_1\times\vec n_2)
+\times
+(\vec n_2\times\vec n_3).
+\\
+\vec n_{12}&=
+\begin{pmatrix}1\\2\\1\end{pmatrix}
+\times
+\begin{pmatrix}3\\0\\4\end{pmatrix}
+=
+\begin{pmatrix}8\\-1\\-6\end{pmatrix}
+&&\wedge&
+\vec n_{23}
+&=
+\begin{pmatrix}3\\0\\4\end{pmatrix}
+\times
+\begin{pmatrix}5\\1\\0\end{pmatrix}
+=
+\begin{pmatrix}-4\\30\\3\end{pmatrix}
+&
+&\Rightarrow&
+\vec n_{12}\times\vec n_{23}
+&=
+\begin{pmatrix}8\\-1\\-6\end{pmatrix}
+\times
+\begin{pmatrix}-4\\30\\3\end{pmatrix}
+=
+\begin{pmatrix}117\\0\\156\end{pmatrix}=39\begin{pmatrix}3\\0\\4\end{pmatrix}
+\end{align*}
+Die Ebenengleichung ist daher
+\[
+3x+4z=0.
+\qedhere
+\]
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+
