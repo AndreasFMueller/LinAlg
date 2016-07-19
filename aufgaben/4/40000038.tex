@@ -1,0 +1,125 @@
+Jedes Jahr im Oktober findet in Morton, Illinois, das ``Punkin Chuckin' ''
+Festival steht.
+In diesem Rahmen findet auch ein Wettbwerb statt, bei dem die Teilnehmer
+ausmarchen, wer mit seiner oft abenteurlichen Konstruktion einen K"urbis
+am weitesten schiessen kann.
+Ein Teilnehmer versucht den optimalen Abschusswinkel experimentell zu
+bestimmen, und misst daher die Schussweite in Abh"angigkeit vom
+Abschusswinkel.
+Er erh"alt die folgenden Daten:
+\begin{center}
+\def\c{\phantom{\mathstrut^\circ}}
+\begin{tabular}{l|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}}
+Winkel          & 20^\circ& 30^\circ& 40^\circ& 50^\circ& 60^\circ& 70^\circ\\
+\hline
+Schussweite (ft)&372\c    &462\c    &509\c    &501\c    &437\c    &323\c
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Die Daten lassen einen Zusammenhang zwischen Winkel und Schussdistanz
+in Form eines quadratischen Polynoms
+\begin{equation}
+d = aw^2 + bw + c
+\label{40000038:q}
+\end{equation}
+im Winkel $w$ vermuten.
+Stellen Sie ein Gleichungssystem zur Bestimmung der Koeffizienten $a$, $b$
+und $c$ auf.
+\item
+Finden Sie den Abschusswinkel, mit dem sich die maximale Schussweite erziehlen
+l"asst.
+\end{teilaufgaben}
+
+\begin{hinweis}
+L"osen Sie das Gleichungssystem mit dem Taschenrechner.
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Setzt man die gegebenen Werte aus der Tabelle in den Ansatz~(\ref{40000038:q})
+ein, erh"alt man das Gleichungssystem
+\[
+\underbrace{
+\begin{pmatrix}
+ 400&20&1\\
+ 900&30&1\\
+1600&40&1\\
+2500&50&1\\
+3600&60&1\\
+4900&70&1
+\end{pmatrix}}_{\displaystyle = A}
+\begin{pmatrix}
+a\\
+b\\
+c
+\end{pmatrix}
+=
+\underbrace{
+\begin{pmatrix}
+372\\
+462\\
+509\\
+501\\
+437\\
+323
+\end{pmatrix}}_{\displaystyle = b}
+\]
+Dieses "uberbestimmte Gleichungssystem kann mit Hilfe der
+Least-Squares-Methode gel"ost werden, dazu ist das Gleichungssystem
+mit Matrix $A^tA$ und rechter Seite $A^tb$ zu l"osen:
+\[
+A^tA
+=
+\begin{pmatrix}
+46750000&783000&13900\\
+  783000& 13900&  270\\
+   13900&   270&    6
+\end{pmatrix},
+\qquad
+A^tb
+=
+\begin{pmatrix}
+5787800\\
+ 115560\\
+   2605
+\end{pmatrix}.
+\]
+Die L"osung mit dem Taschenrechner liefert
+\[
+\begin{pmatrix}
+a\\b\\c
+\end{pmatrix}
+=
+\begin{pmatrix}
+-0.26054\\
+22.49679\\
+25.38571
+\end{pmatrix}.
+\]
+\item
+Der Scheitel der Parabel mit der Gleichung $d=aw^2 + bw+c$
+und damit das gesuchte Maximum liegt bei
+\[
+w_S=-\frac{-b}{2a}=\frac{22.49679}{2\cdot 0.26054}=43.174^\circ.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Die vermutete quadratische Abh"angigkeit zwischen Winkel und Distanz
+ist nur eine heuristische Vermutung.
+Und f"ur die Extremwerte $w=0$ und $w=90^\circ$ ergeben sich offensichtlich
+falsche Werte.
+
+Eine von der Kinematik bessere gest"utzte Hypothese w"are, dass
+die Schussdistanz eine Funktion von $\sin \frac{w}2$ ist.
+In einer Umgebung des Maximums l"asst sich die Sinus-Funktion jedoch
+sehr gut durch eine quadratische Funktion approximieren.
+%Die Aufgabe stammt von
+%\url{http://www.houstonisd.org/cms/lib2/TX01001591/Centricity/Domain/26026/quadratic\%20regression\%20worksheet.pdf}
+\end{diskussion}
+
+
