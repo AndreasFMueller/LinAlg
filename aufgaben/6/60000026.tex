@@ -1,0 +1,165 @@
+Ist die Matrix
+\[
+A
+=
+\begin{pmatrix}
+5&1\\
+2&6
+\end{pmatrix}
+\]
+diagonalisierbar?
+Wenn ja, geben Sie eine BAsis an, in der $A$ diagonal ist.
+
+\begin{loesung}
+Da die Matrix nicht symmetrisch ist, k"onnen wir die Frage nur durch direktes
+Ausrechnen der Eigenwerte und Eigenvektoren entscheiden.
+
+Das charakteristische Polynom ist
+\[
+\chi_A(\lambda)
+=
+\left|\,\begin{matrix}5&1\\2&6\end{matrix}\,\right|
+=
+(5-\lambda)(6-\lambda)-2
+=
+\lambda^2-11\lambda+28.
+\]
+Es hat die Nullstellen
+\[
+\lambda_{\pm}
+=
+\frac{11}{2}\pm\sqrt{\frac{121}{4}-28}
+=
+\frac{11}{2}\pm\sqrt{\frac{121-112}{4}}
+=
+\frac{11}{2}\pm\frac{3}{2}
+=
+\begin{cases}7\\4\end{cases}
+\]
+Da die Eigenwerte verschieden sind, gibt es auch zwei linear unabh"angige
+Eigenvektoren, die wir finden k"onnen, indem wir das Gleichungssystem
+$(A-\lambda)v=0$ mit dem Gauss-Algorithmus l"osen.
+
+F"ur $\lambda_+=7$ finden wir:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+5-\lambda_+&1          \\
+2          &6-\lambda_+\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+5-7&1  \\
+2  &6-7\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-2& 1\\
+ 2&-1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1&-\frac12\\
+ 0&0       \\
+\hline
+\end{tabular}
+\end{align*}
+Daraus kann man ablesen, dass
+\[
+v_+=\begin{pmatrix}1\\2\end{pmatrix}
+\]
+ein Eigenvektor ist.
+
+F"ur $\lambda_-=4$ finden wir:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+5-\lambda_-&1          \\
+2          &6-\lambda_-\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+5-4&1  \\
+2  &6-4\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&1\\
+2&2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&1\\
+0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Als zweiten Eigenvektor $v_-$ k"onnen wir also
+\[
+v_-=\begin{pmatrix}1\\-1\end{pmatrix}
+\]
+verwenden.
+Die gesuchte Eigenbasis ist daher
+\[
+B
+=
+\{
+v_+,
+v_-
+\}
+=
+\biggl\{
+\begin{pmatrix}1\\2\end{pmatrix},
+\begin{pmatrix}1\\-1\end{pmatrix}
+\biggr\}.
+\]
+Wir kontrollieren die L"osung durch nachrechnen:
+\begin{align*}
+Av_+
+&=
+\begin{pmatrix}
+5&1\\
+2&6
+\end{pmatrix}
+\begin{pmatrix}1\\2\end{pmatrix},
+=
+\begin{pmatrix} 7\\14 \end{pmatrix}
+=
+7
+\begin{pmatrix}1\\2\end{pmatrix}
+=
+\lambda_+v_+,
+\\
+Av_-
+&=
+\begin{pmatrix}
+5&1\\
+2&6
+\end{pmatrix}
+\begin{pmatrix}1\\-1\end{pmatrix}
+=
+\begin{pmatrix}4\\-4\end{pmatrix}
+=
+4\begin{pmatrix}1\\-1\end{pmatrix}
+=
+\lambda_-v_-.
+\qedhere
+\end{align*}
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+
