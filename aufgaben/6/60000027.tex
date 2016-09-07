@@ -1,0 +1,137 @@
+Betrachten Sie die Matrix
+\[
+A(a)
+=
+\begin{pmatrix}
+ 3& a& 1\\
+ a&-3& a\\
+ 1& a& 0
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item
+Berechnen Sie Spur und Determinante von $A(a)$.
+\item 
+F"ur welche Werte von $a$ ist $A(a)$ regul"ar?
+\item
+F"ur welche Werte des Parameters $a$ hat $A(a)^{-1}$
+genau einen negativen Eigenwert?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Spur und Determinante sind
+\begin{align}
+\operatorname{Spur} A(a)
+&=
+0,
+\label{60000027:tr}
+\\
+\det A(a)
+&=
+0 + a^2 + a^2 + 3 - 3 a^2 + 0
+=
+-a^2+3.
+\label{60000027:det}
+\end{align}
+\item
+Damit $A(a)$ regul"ar ist, muss $\det A(a)$
+von $0$ verschieden sein.
+Die Determinante verschwindet f"ur
+\[
+\det A(a)
+=
+-a^2+3
+=
+0
+\qquad
+\Rightarrow
+\qquad
+a=\pm\sqrt{3}.
+\]
+Die Matrix $A(a)$ ist also f"ur $a\ne\pm\sqrt{3}$ regul"ar.
+\item
+Die Matrix $A(a)^{-1}$ existiert "uberhaupt nur dann, wenn $A(a)$
+regul"ar ist, und wir haben bereits in Teilaufgabe b) gesehen, dass
+das f"ur $a\ne\pm\sqrt{3}$ der Fall ist.
+
+Da die Matrix symmetrisch und damit diagonalisierbar ist, sind alle
+Eigenwerte rell, und die Eigenwerte von $A(a)^{-1}$ sind die
+Kehrwerte der Eigenwerte von $A(a)$, haben also insbesondere
+das gleiche Vorzeichen.
+Statt der Eigenwerte von $A(a)^{-1}$ k"onnen wir also die Eigenwerte
+von $A(a)$ diskutieren.
+
+Die Determinante von $A(a)$ ist das Produkt der Eigenwerte, die Spur
+von $A(a)$ ist deren Summe.
+Da die Determinante nicht verschwindet, sind alle Eigenwerte von $0$
+verschieden.
+
+W"aren alle Eigenwerte positiv, m"usste die Spur positiv sein,
+w"aren sie negativ, m"ussten die Spur negativ sein.
+Beides widerspricht der Beobachtung in Teilaufgabe a), dass 
+$\operatorname{Spur}A(a)=0$ ist.
+Die Eigenwerte haben also nicht alle das gleiche Vorzeichen.
+Damit bleiben nur zwei Situation: zwei positive und ein negativer
+Eigenwert oder umgekehrt.
+
+Zwei negative Eigenwerte f"uhren auf eine positive Determinante,
+zwei positive Eigenwerte und ein negativer Eigenwert f"uhren auf
+eine negative Determinaten.
+Der gesuchte Fall genau eines negativen Eigenwertes ist also derjenige,
+wo $\det A(a) <0$ ist.
+Die Formel \eqref{60000027:det} f"ur die Determinante zeigt aber:
+\[
+\det A(a) = -a^2 + 3 < 0
+\qquad\Rightarrow\qquad
+3 < a^2
+\qquad\Rightarrow\qquad
+a >\sqrt{3}\quad\vee\quad a < -\sqrt{3}.
+\]
+Wir finden, dass $A(a)^{-1}$ genau zwei negative Eigenwerte f"ur $a$ im Interval
+$(-\sqrt{3},\sqrt{3})$ hat, und genau einen negativen Eigenwert f"ur
+$a$ ausserhalb des Intervals $[-\sqrt{3},\sqrt{3}]$.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Im Grenzfall verschwindender Determinante ist noch nicht vollst"andig
+gekl"art, was mit den Vorzeichen der Eigenwerte passiert.
+Wenn wir davon ausgehen, dass die Eigenwerte stetig mit $a$ varieren,
+dann "andert beim "Ubergang genau eine der Eigenwerte das Vorzeichen,
+so dass wir an den Stellen $a=\pm\sqrt{3}$ genau eine positive und
+eine negative Eigenwerte haben.
+Die einzige Alternative w"are, dass alle Eigenwerte verschwinden,
+dann w"are die Matrix aber die Nullmatrix, und das ist offensichtlich
+nicht der Fall.
+
+Man kann f"ur den Fall $a=\pm\sqrt{3}$ auch das charakteristische Polynom
+zum Beispiel mit einem CAS berechnen, man bekommt
+\[
+\chi_{A(a)}(\lambda)
+=
+-\lambda^3+(2a^2+10)\lambda-a^2+3.
+\]
+Setzt man darin $a^2=3$, vereinfacht sich die Eigenwertgleichung auf
+\[
+-\lambda^3 +16\lambda
+=
+-\lambda(\lambda^2 -16)=0
+\qquad\Rightarrow\qquad \lambda = 0,\pm 4,
+\]
+was die obige Diskussion best"atigt.
+\end{diskussion}
+
+\begin{bewertung}
+Spur ({\bf T}) 1 Punkt,
+Determinante ({\bf D}) 1 Punkt,
+Berechnung der kritischen Werte $a=\pm\sqrt{3}$ ({\bf K}) 1 Punkt,
+Diagonalisierbarkeit wegen Symmetrie ({\bf S}) 1 Punkt,
+Spur $0$ bedeutet, dass nicht alle Eigenwerte das gleiche Vorzeichen
+haben k"onnen ({\bf V}) 1 Punkt,
+negative Determinante bedeute genau ein negativer Eigenwert ({\bf N}) 1 Punkt,
+Bestimmung der zul"assigen Werte $a$ f"ur negative Determinante ({\bf A})
+1 Punkt, jedoch maximal 6 Punkte.
+\end{bewertung}
+
