@@ -40,7 +40,7 @@ Abbildung~\ref{kirchhoff-netzwerk}.
 In der zitierten Arbeit wird das erste Gesetz wie folgt formuliert:
 \bigskip
 \begin{center}
-\includegraphics[width=\hsize]{graphics/kh1}
+\includegraphics[width=0.7\hsize]{graphics/kh1}
 \end{center}
 \bigskip
 In unserer moderneren Schreibweise bezeichnen wir den Widerstand des
@@ -169,33 +169,42 @@ Der Gauss-Algorithmus gibt uns aber auch ein Verfahren, die
 L"osungsmenge von $\partial z=0$ zu bestimmen, das Gauss-Tableau
 ist:
 \[
-\begin{tabular}{|cccccccccccc|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
    1&  2&  3&  4&  5&  6&  7&  8&  9& 10& 11& 12\\
 \hline
-   1&  0&  0&  0&  0&  1&  0&  0&$-1$&  0&  0&  1\\
-   0&  1&  0&  0&  0&  0&  1&  0&  0&  0&$-1$&  0\\
-   0&  0&  1&  0&  0&$-1$&  0&  0&  1&  0&  0&$-1$\\
-   0&  0&  0&  1&  0&  1&$-1$&  0&$-1$&  0&  1&  1\\
-   0&  0&  0&  0&  1&  0&  1&  0&  0&  0&$-1$&  0\\
-   0&  0&  0&  0&  0&  0&  0&  1&  1&  0&  0&$-1$\\
+   1&  0&  0&  0&  0&  1&  0&  0& -1&  0&  0&  1\\
+   0&  1&  0&  0&  0&  0&  1&  0&  0&  0& -1&  0\\
+   0&  0&  1&  0&  0& -1&  0&  0&  1&  0&  0& -1\\
+   0&  0&  0&  1&  0&  1& -1&  0& -1&  0&  1&  1\\
+   0&  0&  0&  0&  1&  0&  1&  0&  0&  0& -1&  0\\
+   0&  0&  0&  0&  0&  0&  0&  1&  1&  0&  0& -1\\
    0&  0&  0&  0&  0&  0&  0&  0&  0&  1&  1&  1\\
    0&  0&  0&  0&  0&  0&  0&  0&  0&  0&  0&  0\\
+\hline
+    &   &   &   &   &\color{green}  *&\color{green}  *&   &\color{green}  *&   &\color{green}  *&\color{green}  *\\
 \hline
 \end{tabular}
 \]
 Daraus kann man ablesen, dass wir frei w"ahlen
 k"onnen, ob wir die Kanten $6$, $7$, $9$, $11$ und $12$
-hinzunehmen wollen. W"ahlen wir jeweils genau
-eine dieser Kanten (aber mit Faktor $-1$, damit wir das Resultat
+hinzunehmen wollen.
+W"ahlen wir $0$ f"ur die frei w"ahlbare Variable, bedeutet dies,
+dass diese Kante nicht vorkommen soll.
+Ein Wert von $1$ oder $-1$ gibt an, dass die Kante zum gesuchten Zyklus
+geh"oren soll.
+
+W"ahlen wir jeweils genau
+eine der frei w"ahlbaren Kanten (aber mit Faktor $-1$, damit wir das Resultat
 mit m"oglichst wenigen Vorzeichenwechseln bekommen k"onnen),
 die anderen aber nicht, bekommen wir die f"unf Zyklen
 \[
-z_1=\begin{pmatrix} 1\\0\\-1\\1\\0\\-1\\0\\0\\0\\0\\0\\0\end{pmatrix},\qquad
-z_2=\begin{pmatrix} 0\\1\\ 0\\-1\\1\\0\\-1\\0\\0\\0\\0\\0\end{pmatrix},\qquad
-z_3=\begin{pmatrix} -1\\0\\1\\-1\\0\\0\\0\\1\\-1\\0\\0\\0\end{pmatrix},\qquad
-z_4=\begin{pmatrix} 0\\-1\\0\\1\\-1\\0\\0\\0\\0\\1\\-1\\0\end{pmatrix},\qquad
-z_5=\begin{pmatrix} 1\\0\\-1\\1\\0\\0\\0\\-1\\0\\1\\0\\-1\end{pmatrix},\qquad
+%                    1   2   3   4   5   6   7   8   9  10  11  12
+z_1=\begin{pmatrix}  1\\ 0\\-1\\ 1\\ 0\\\color{green}-1\\\color{green} 0\\ 0\\\color{green} 0\\ 0\\\color{green} 0\\\color{green} 0\end{pmatrix},\qquad
+z_2=\begin{pmatrix}  0\\ 1\\ 0\\-1\\ 1\\\color{green} 0\\\color{green}-1\\ 0\\\color{green} 0\\ 0\\\color{green} 0\\\color{green} 0\end{pmatrix},\qquad
+z_3=\begin{pmatrix} -1\\ 0\\ 1\\-1\\ 0\\\color{green} 0\\\color{green} 0\\ 1\\\color{green}-1\\ 0\\\color{green} 0\\\color{green} 0\end{pmatrix},\qquad
+z_4=\begin{pmatrix}  0\\-1\\ 0\\ 1\\-1\\\color{green} 0\\\color{green} 0\\ 0\\\color{green} 0\\ 1\\\color{green}-1\\\color{green} 0\end{pmatrix},\qquad
+z_5=\begin{pmatrix}  1\\ 0\\-1\\ 1\\ 0\\\color{green} 0\\\color{green} 0\\-1\\\color{green} 0\\ 1\\\color{green} 0\\\color{green}-1\end{pmatrix},\qquad
 \]
 Der Zyklus $z_1$ ist $f_1$, Abbildung \ref{basiszyklen} zeigt all
 f"unf Zyklen. Man kann gut erkennen, dass die frei w"ahlbaren Kanten
@@ -250,7 +259,7 @@ Kirchhoffschen Gesetzes eine Gleichung bilden.
 Seien $z_1,\dots,z_s$ die Basiszyklen.
 Auf der linken Seite der Gleichungen muss jeder unbekannte Strom
 auch noch mit dem Widerstand multipliziert werden.
-Wir schreiben wir daf"ur die Diagonalmatrix
+Wir schreiben daf"ur die Diagonalmatrix
 mit den Widerst"anden
 \[
 R=
@@ -418,7 +427,7 @@ muss.
 Das zweite Gesetz wird so formuliert:
 \bigskip
 \begin{center}
-\includegraphics[width=\hsize]{graphics/kh2}
+\includegraphics[width=0.7\hsize]{graphics/kh2}
 \end{center}
 \bigskip
 Im letzten Abschnitt haben wir jeder Kante eine Richtung gegeben,
@@ -477,7 +486,7 @@ Z^t\partial^t U=Z^te
 \]
 Nun ist aber $Z^t\partial^t=(\partial Z)^t=0$, da $Z$ ja lauter
 Zyklen als Spalten hat. Das Potential kann also genau dann verwendet
-werden, wenn die elektromotorischen Kr"afte ich "uber jeden Zyklus zu $0$
+werden, wenn die elektromotorischen Kr"afte sich "uber jeden Zyklus zu $0$
 summieren, und die
 Maschengleichungen sind in diesem Fall automatisch erf"ullt.
 Die Knotengleichungen werden zu
