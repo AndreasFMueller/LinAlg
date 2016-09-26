@@ -11,7 +11,7 @@ W_FILES = w-1.pdf w-2.pdf w-3.pdf w-4.pdf w-5.pdf w-6.pdf w-7.pdf w-8.pdf \
 E_FILES = e-1.pdf e-2.pdf e-3.pdf e-4.pdf e-5.pdf e-6.pdf e-7.pdf \
 	e-8.pdf e-9.pdf e-10.pdf e-11.pdf e-12.pdf e-13.pdf e-14.pdf
 V_FILES = v-1.pdf v-2.pdf v-3.pdf v-4.pdf v-5.pdf v-6.pdf v-7.pdf \
-	v-8.pdf v-9.pdf v-10.pdf
+	v-8.pdf v-9.pdf v-10.pdf v-11.pdf
 D_FILES = d-1.pdf d-2.pdf d-3.pdf d-4.pdf
 S_FILES = s-1.pdf s-2.pdf s-3.pdf s-4.pdf
 KIRCHHOFF_FILES = kirchhoff-1.pdf kirchhoff-2.pdf kirchhoff-3.pdf \
@@ -46,9 +46,9 @@ $(E_FILES):	e.mp
 
 $(V_FILES):	v.mp
 	TEX=latex mpost v.mp
-	for n in 1 2 3 4 5 6 7 8 9 10; \
+	for f in v.*; \
 	do \
-		mptopdf v.$${n}; \
+		mptopdf $${f}; \
 	done
 
 $(S_FILES):	s.mp

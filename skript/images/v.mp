@@ -441,4 +441,78 @@ label.llft(btex $\sigma_1$ etex, z21 shifted (-10,-10));
 
 endfig;
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Linearität der Projektion
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+beginfig(11)
+
+numeric u;
+u := 50;
+
+z0 = (0,0);
+z1 = (3 * u, 0);
+z2 = (2 * u, 1 * u);
+z3 = (1 * u, 1 * u);
+z4 = z2 + z3;
+z5 = (xpart z2, 0);
+z6 = (xpart z4, 0);
+z7 = (3.8 * u, 0);
+
+z10 = z0 shifted (0,-10);
+z11 = z5 shifted (0,-10);
+z12 = z6 shifted (0,-10);
+
+pickup pencircle scaled 0.3pt;
+
+draw z2--z11;
+draw z4--z12;
+draw z0--z10;
+
+draw (z10--z12) shifted (0,3);
+
+pickup pencircle scaled 1pt;
+
+drawarrow z0--z2;
+drawarrow z2--z4;
+drawarrow z0--z7;
+
+label.ulft(btex $\vec{v}_1$ etex, 0.5 * z2);
+label.ulft(btex $\vec{v}_2$ etex, 0.5[z2,z4]);
+label.rt(btex $\vec{u}$ etex, z7);
+label.bot(btex $p_{\vec{u}}(\vec{v}_1)$ etex, 0.5[z10,z11]);
+label.bot(btex $p_{\vec{u}}(\vec{v}_2)$ etex, 0.5[z11,z12]);
+
+z20 = (4.5 * u, 0);
+z21 = (1.4 * u, 1.1 * u);
+z22 = z21 shifted z20;
+numeric lambda;
+lambda = 1.7;
+z23 = z21 scaled lambda shifted z20;
+z24 = (2.7 * u, 0) shifted z20;
+z25 = (xpart z22, 0);
+z26 = (xpart z23, 0);
+z27 = z20 shifted (0,-10);
+z28 = z26 shifted (0,-10);
+
+drawarrow z20--z22;
+drawarrow z20--z23;
+drawarrow z20--z24;
+
+pickup pencircle scaled 0.3pt;
+
+draw z22--z25;
+draw z23--z28;
+draw z20--z27;
+draw (z27--z28) shifted (0,3);
+
+label.ulft(btex $\vec{v}$ etex, z22);
+label.ulft(btex $\lambda\vec{v}$ etex, z23);
+label.rt(btex $\vec{u}$ etex, z24);
+label.top(btex $p_{\vec{u}}(\vec v)$ etex, 0.5[z20,z25]);
+label.bot(btex $p_{\vec{u}}(\lambda\vec{v})=\lambda p_{\vec{u}}(\vec{v})$ etex,
+	0.5[z27,z28]);
+
+endfig;
+
+
 end

@@ -1128,12 +1128,12 @@ Das Gausstableau ist
 {\color{red}s_1}&
 {\color{red}t_1}&\\
 \hline
-1&0&0&0&0&0&-14 &-67\\
-0&1&0&0&0&0&-13 &-68\\
-0&0&1&0&0&0&-14.5&-80\\
-0&0&0&1&0&0&-5.5&-26\\
-0&0&0&0&1&0& 4& 16\\
-0&0&0&0&0&1&-1.5&-12\\
+1&0&0&0&0&0&         - 14\phantom{.0}&-67\\
+0&1&0&0&0&0&         - 13\phantom{.0}&-68\\
+0&0&1&0&0&0&         - 14.5          &-80\\
+0&0&0&1&0&0&-\phantom{0}5.5          &-26\\
+0&0&0&0&1&0&\phantom{-0}4\phantom{.0}&\phantom{-}16\\
+0&0&0&0&0&1&-\phantom{0}1.5          &-12\\
 \hline
 \end{tabular}
 \]
@@ -1183,9 +1183,22 @@ Offenbar ist die L"ange der Projektion die grundlegendere Gr"osse,
 aus der man die anderen Konzepte ableiten kann.
 Etwas ung"unstig ist an dieser Projektion nur, dass die beiden Vektoren nicht
 symmetrisch eingehen.
+\begin{figure}
+\centering
+\includegraphics{images/v-11.pdf}
+\caption{Die Projektionsabbilung
+$\vec{v}\mapsto p_{\vec{u}}(\vec{v})$
+ist linear. Die linke Graphik zeigt
+$p_{\vec{u}}(\vec{v}_1+\vec{v}_2)
+=
+p_{\vec{u}}(\vec{v}_1)+p_{\vec{u}}(\vec{v}_2)$,
+die rechte ist der Strahlensatz und zeigt
+$p_{\vec{u}}(\lambda\vec{v})=\lambda p_{\vec{u}}(\vec{v})$.
+\label{projektionlinearitaet}}
+\end{figure}
 Immerhin ist $p_{\vec u}(\vec v)$ linear in $\vec v$, wie man
-sich mit einer
-Zeichnung sofort "uberzeugen kann, es ist also
+sich mit der Abbildung~\ref{projektionlinearitaet}
+sofort "uberzeugen kann, es ist also
 \begin{align*}
 p_{\vec u}(\vec v_1+\vec v_2)&=p_{\vec u}(\vec v_1)+p_{\vec u}(\vec v_2)\\
 p_{\vec u}(\lambda \vec v)&=\lambda p_{\vec u}(\vec v).
@@ -1363,6 +1376,13 @@ Damit kann man jetzt auch den Zwischenwinkel berechnen
 \alpha&=43.51^\circ
 \end{align*}
 \end{beispiel}
+H"aufig braucht man zu einem Vektor einen Vektor mit gleicher Richtung,
+aber Einheitsl"ange.
+Wir verwenden die Schreibweise
+\[
+\vec{v}^0 = \frac{\vec{v}}{|\vec{v}|}
+\]
+f"ur den zum Vektor $\vec{v}$ geh"origen Einheitsvektor.
 
 \subsection{Ebenen}
 \begin{figure}
