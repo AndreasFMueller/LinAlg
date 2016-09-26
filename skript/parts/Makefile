@@ -37,3 +37,4 @@ skript-06-chapter6.pdf:	../skript.pdf Makefile
 
 skript-07-index.pdf:	../skript.pdf Makefile
 	pdfjam --outfile skript-07-index.pdf ../skript.pdf 211-213
+
