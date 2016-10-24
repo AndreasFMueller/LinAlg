@@ -1,0 +1,111 @@
+Die L"osungsmenge des Gleichungssystems 
+\[
+\begin{linsys}{3}
+4x&+& 8y&-&12z&=&16\\
+7x&+&17y&-&15z&=&7
+\end{linsys}
+\]
+ist eine Gerade.
+\begin{teilaufgaben}
+\item
+Verwenden Sie den Gauss-Algorithmus, um daf"ur eine Parameterdarstellung
+zu finden.
+\item
+Schneidet diese Gerade die Gerade mit der Parameterdarstellung
+\[
+\begin{pmatrix}
+-18\\
+ 19\\
+  7
+\end{pmatrix}
++t
+\begin{pmatrix}
+-3\\
+ 4\\
+ 2
+\end{pmatrix}
+\]
+und wenn ja, in welchem Punkt?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir L"osen das Gleichungssystem mit dem Gauss-Algorithmus:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+4& 8&-12&16\\
+7&17&-15& 7\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1& 2&- 3&  4\\
+0& 3&  6&-21\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1& 0&- 7& 18\\
+0& 1&  2&- 7\\
+\hline
+\end{tabular}
+\end{align*}
+Die dritte Variable ist offenbar frei w"ahlbar, wir nenne Sie $s$, obwohl
+sie nat"urlich mit der Variablen $z$ "ubereinstimmt.
+Die L"osungsmenge ist
+\[
+\mathbb L
+=
+\left\{
+\left.
+\begin{pmatrix}18\\-7\\0\end{pmatrix}
++s
+\begin{pmatrix}7\\-2\\1\end{pmatrix}
+\;
+\right|
+t\in\mathbb R
+\right\},
+\]
+also genau eine Parameterdarstellung einer Geraden.
+\item
+Um den Schnittpunkt zu finden, verwenden wir das Gausstableau
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&0&-7& 0& 18\\
+0&1&0& 2& 0& -7\\
+0&0&1&-1& 0&  0\\
+1&0&0& 0& 3&-18\\
+0&1&0& 0&-4& 19\\
+0&0&1& 0&-2&  7\\
+\hline
+\end{tabular}
+\rightarrow\cdots\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&0& 0& 0& -3\\
+0&1&0& 0& 0& -1\\
+0&0&1& 0& 0& -3\\
+0&0&0& 1& 0& -3\\
+0&0&0& 0& 1& -5\\
+0&0&0& 0& 0&  0\\
+\hline
+\end{tabular},
+\]
+in dem die vierte Spalte f"ur die Variable $s$ steht und die f"unfte
+Spalte f"ur $t$.
+Aus diesem Tableau kann man ablesen, dass ein Schnittpunkt existiert,
+dass er f"ur $s=-3$ und $t=-5$ erfolgt, und dass der Schnittpunkt
+$S=(-3,-1,-3)$ ist.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+
+
+
