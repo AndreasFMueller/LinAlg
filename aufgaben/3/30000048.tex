@@ -1,0 +1,61 @@
+Finden Sie die Ebenengleichung in der Form
+\[
+ax+by+cz=d
+\]
+f"ur die Ebene mit Parameterdarstellung
+\[
+{\vec{p}}_0 +s{\vec{r}}_1 +t{\vec{r}}_2
+=
+\begin{pmatrix} 1\\-3\\-3\end{pmatrix}
++s
+\begin{pmatrix} 2\\-5\\-2\end{pmatrix}
++t
+\begin{pmatrix}-3\\12\\22\end{pmatrix}.
+\]
+
+\begin{loesung}
+Die Punkte $\vec{p}_0$,
+$\vec{p}_0+\vec{r}_1$ und 
+$\vec{p}_0+\vec{r}_2$ m"ussen sich auf der Ebene befinden, daher muss das
+Gleichungssystem
+\[
+\begin{linsys}{4}
+  a&-&3b&-& 3c&-&d&=&0\\
+ 3a&-&8b&-& 5c&-&d&=&0\\
+-2a&+&9b&+&19c&-&d&=&0
+\end{linsys}
+\]
+f"ur die Koeffizienten $a$ bis $d$ erf"ullt sein.
+Mit dem Gaussalgorithmus findet man
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+  1& -3& -3& -1& 0\\
+  3& -8& -5& -1& 0\\
+ -2&  9& 19& -1& 0\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+  1&  0&  0& 86& 0\\
+  0&  1&  0& 38& 0\\
+  0&  0&  1& -9& 0\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus liest man ab, dass $d$ frei w"ahlbar ist, und mit der Wahl
+$d=-1$ die Koeffizienten 
+\[
+a=86,\qquad
+b=38,\qquad
+c=-9
+\]
+sind.
+Also ist die gesuchte Geradengleichung
+\[
+86x + 38y -9z=-1.
+\qedhere
+\]
+\end{loesung}
+
