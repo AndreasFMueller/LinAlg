@@ -240,7 +240,13 @@ z5 = z1 shifted 1.5 z2 shifted -0.5 z3;
 z6 = z1 shifted 1.5 z2 shifted 1.5 z3; 
 z7 = z1 shifted -0.5 z2 shifted 1.5 z3;
 
-fill z4--z5--z6--z7--cycle withcolor (0.95,0.95,0.95);
+pickup pencircle scaled 0.1pt;
+
+path plane;
+plane := z4--z5--z6--z7--cycle;
+
+fill plane withcolor (0.9,0.9,0.9);
+draw plane;
 
 label.ulft(btex $P$ etex, z1);
 label.lft(btex $\vec p$ etex, 0.5[z0,z1]);
@@ -284,7 +290,12 @@ z5 = z1 shifted 1.5 z2 shifted -0.5 z3;
 z6 = z1 shifted 1.5 z2 shifted 1.5 z3; 
 z7 = z1 shifted -0.5 z2 shifted 1.5 z3;
 
-fill z4--z5--z6--z7--cycle withcolor (0.95,0.95,0.95);
+pickup pencircle scaled 0.1pt;
+
+path plane;
+plane := z4--z5--z6--z7--cycle;
+fill plane withcolor (0.9,0.9,0.9);
+draw plane;
 
 label.ulft(btex $P_0$ etex, z1);
 label.lft(btex $\vec p_0$ etex, 0.5[z0,z1]);
@@ -310,11 +321,11 @@ label.urt(btex $S$ etex, z10);
 
 z11 = whatever[z9,z10] = whatever[z4, z5];
 
-pickup pencircle scaled 0.2pt;
+pickup pencircle scaled 0.5pt;
 draw (-0.1)[z9,z10]--1.6[z9,z10];
 label.urt(btex $g$ etex, 1.5[z9,z10]);
 
-pickup pencircle scaled 0.21pt;
+pickup pencircle scaled 0.51pt;
 draw z11--z10 withcolor (0.8,0.8,0.8);
 
 pickup pencircle scaled 1pt;
@@ -414,7 +425,7 @@ pickup pencircle scaled 0.1pt;
 draw z5--z4--z11--z10--cycle;
 
 % Schnittgerade
-pickup pencircle scaled 0.2pt;
+pickup pencircle scaled 0.5pt;
 draw (-0.2)[z4,z5]--(1.2)[z4,z5];
 
 pickup pencircle scaled 1pt;
