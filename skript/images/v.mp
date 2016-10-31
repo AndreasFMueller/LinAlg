@@ -290,12 +290,10 @@ z5 = z1 shifted 1.5 z2 shifted -0.5 z3;
 z6 = z1 shifted 1.5 z2 shifted 1.5 z3; 
 z7 = z1 shifted -0.5 z2 shifted 1.5 z3;
 
-pickup pencircle scaled 0.1pt;
 
 path plane;
 plane := z4--z5--z6--z7--cycle;
 fill plane withcolor (0.9,0.9,0.9);
-draw plane;
 
 label.ulft(btex $P_0$ etex, z1);
 label.lft(btex $\vec p_0$ etex, 0.5[z0,z1]);
@@ -325,12 +323,15 @@ pickup pencircle scaled 0.5pt;
 draw (-0.1)[z9,z10]--1.6[z9,z10];
 label.urt(btex $g$ etex, 1.5[z9,z10]);
 
-pickup pencircle scaled 0.51pt;
+pickup pencircle scaled 0.55pt;
 draw z11--z10 withcolor (0.8,0.8,0.8);
 
 pickup pencircle scaled 1pt;
 drawarrow z9--0.8[z9,z11];
 label.rt(btex $\vec r$ etex, 0.75[z9,z11]);
+
+pickup pencircle scaled 0.1pt;
+draw plane;
 
 z12 = whatever[z1,z1 shifted z2] = whatever[z10, z10 shifted z3];
 z13 = whatever[z1,z1 shifted z3] = whatever[z10, z10 shifted z2];
