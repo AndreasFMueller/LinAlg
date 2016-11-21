@@ -1,0 +1,95 @@
+Die Vektoren
+\[
+\vec u=\begin{pmatrix}1\\1\\1\end{pmatrix}
+\qquad\text{und}\qquad
+\vec v=\begin{pmatrix}1\\-1\\1\end{pmatrix}
+\]
+liegen in einer Ebene $\sigma$. Der Punkt $P$ hat die Koordinaten $(1,2,3)$.
+\begin{teilaufgaben}
+\item Wie weit ist $P$ von der Ebene $\sigma$ entfernt?
+\item Wie weit ist $P$ von jeder der Geraden durch $0$ mit Richtungsvektor
+$\vec{u}$ bzw.~$\vec{v}$ entfernt?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Wir verwenden die hessesche Normalform, um den Abstand zu bestimmen.
+Dazu brauchen wir die Normale, sie ist
+\[
+\vec n=\vec u\times \vec v=
+\begin{pmatrix}1\\1\\1\end{pmatrix}
+\times
+\begin{pmatrix}1\\-1\\1\end{pmatrix}
+=
+\begin{pmatrix}
+1\cdot 1-(-1)\cdot 1\\
+1\cdot 1-1\cdot 1\\
+1\cdot (-1)-1\cdot 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2\\0\\-2
+\end{pmatrix}
+\quad\Rightarrow\quad
+\vec{n}^0
+=
+\frac{\sqrt{2}}2
+\begin{pmatrix}1\\0\\-1\end{pmatrix}.
+\]
+Der Abstand wird mit Hilfe des Skalarproduktes gefunden:
+\[
+d
+=
+\vec{n}^0\cdot \vec{p}
+=
+\frac{\sqrt{2}}2
+\begin{pmatrix}1\\0\\-1\end{pmatrix}
+\begin{pmatrix}1\\2\\3\end{pmatrix}
+=
+\frac{\sqrt{2}}2(1-3)=-\sqrt{2}.
+\]
+\item
+Die Abstandsformel Punkt-Gerade l"ost dieses Problem:
+\begin{align*}
+d_{\vec{u}}
+&=
+\frac{|\vec{p}\times \vec{u}|}{|\vec{u}|}
+&
+d_{\vec{v}}
+&=
+\frac{|\vec{p}\times \vec{v}|}{|\vec{v}|}
+\\
+&=
+\frac{1}{\sqrt{3}}
+\left|
+\begin{pmatrix}1\\2\\3\end{pmatrix}
+\times
+\begin{pmatrix}1\\1\\1\end{pmatrix}
+\right|
+=
+\frac{1}{\sqrt{3}}
+\left|\begin{pmatrix}-1\\2\\-1\end{pmatrix}\right|
+&
+&=
+\frac{1}{\sqrt{3}}
+\left|
+\begin{pmatrix}1\\2\\3\end{pmatrix}
+\times
+\begin{pmatrix}1\\-1\\1\end{pmatrix}
+\right|
+=
+\frac{1}{\sqrt{3}}
+\left|\begin{pmatrix}5\\2\\-3\end{pmatrix}\right|
+\\
+&=
+\frac{\sqrt{6}}{\sqrt{3}}=\sqrt{2},
+&
+&=
+\frac{\sqrt{25+4+9}}{\sqrt{3}}
+=
+\frac{\sqrt{38}}{\sqrt{3}}.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
