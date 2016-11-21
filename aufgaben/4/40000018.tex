@@ -14,7 +14,44 @@ die neuen Koordinaten in der Form
 gefunden werden. Bestimmen Sie die Matrix $T$.
 
 \begin{loesung}
-F"ur die Basisvektoren gilt
+F"ur die Transformation von $B$-Koordinaten in $B'$-Koordinaten verwendet
+man das Gauss-Tableau:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 1& 1& 0\\
+-1& 2& 0& 1\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 1& 1& 0\\
+ 0& 3& 1& 1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 0& \frac23&-\frac13\\
+ 0& 1& \frac13& \frac13\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus liest man die Transformationsmatrix
+\[
+T=\begin{pmatrix}
+\frac23&-\frac13\\
+\frac13& \frac13
+\end{pmatrix}
+\]
+ab.
+\end{loesung}
+
+\begin{diskussion}
+Die etwas konventionellere Methode, die Transformationsmatrix zu bestimmen,
+dr"uckt zun"achst die Vektoren $b_i'$ durch die Standardbasisvektoren aus:
 \begin{align*}
 b'_1&=e_1-e_2\\
 b'_2&=e_1+2e_2
@@ -41,5 +78,5 @@ T=
 \end{pmatrix},
 \]
 wie man zum Beispiel mit dem Gauss-Algorithmus finden kann.
-\end{loesung}
+\end{diskussion}
 
