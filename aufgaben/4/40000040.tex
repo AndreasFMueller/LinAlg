@@ -1,0 +1,81 @@
+Bestimmen Sie die Matrix $D$ einer Drehung um die Achse mit Richtungsvektor
+\[
+v=\begin{pmatrix}1\\1\\0\end{pmatrix}
+\]
+um den Winkel $\alpha=180^\circ$.
+\begin{teilaufgaben}
+\item Ist $D\in\text{SO}(3)$?
+\item "Uberpr"ufen Sie mit der Drehwinkel-Formel, dass der Drehwinkel
+tats"achlich $180^\circ$ ist.
+\end{teilaufgaben}
+
+\begin{loesung}
+Diese Drehung bildet die Standardbasis-Vektoren wie folgt ab:
+\[
+\begin{aligned}
+e_1&\mapsto e_2
+&
+e_2&\mapsto e_1
+&
+e_3&\mapsto -e_3.
+\end{aligned}
+\]
+Sie hat daher die Matrix
+\[
+D
+=
+\begin{pmatrix}
+0&1& 0\\
+1&0& 0\\
+0&0&-1
+\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item Die Spalten von $D$ sind offensichtlich orthonormiert, also ist $D$
+orthogonal, $D\in\textrm{O}(3)$.
+Alternativ kann man auch nachrechnen, dass
+\[
+D^tD
+=
+\begin{pmatrix}
+0&1& 0\\
+1&0& 0\\
+0&0&-1
+\end{pmatrix}
+\begin{pmatrix}
+0&1& 0\\
+1&0& 0\\
+0&0&-1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}
+=E,
+\]
+was auch zeigt, dass die Matrix orthogonal ist.
+
+Damit $D\in\textrm{SO}(3)$ muss aber auch $\det(D)=1$ sein:
+\[
+\left|
+\begin{matrix}
+0&1& 0\\
+1&0& 0\\
+0&0&-1
+\end{matrix}\right|
+=
+\left|\begin{matrix}0&1\\1&0\end{matrix}\right|\cdot (-1)
+=(-1)\cdot(-1)=1.
+\]
+Also folgt $D\in\textrm{SO}(3)$.
+\item
+Die Drehwinkelformel liefert
+\[
+\cos\alpha = \frac{\operatorname{Spur}(D)-1}2=\frac{-1-1}2=-1,
+\]
+oder $\alpha=180^\circ$.
+\end{teilaufgaben}
+\end{loesung}
+
