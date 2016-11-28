@@ -893,8 +893,7 @@ die L"osungen der Gleichungen (\ref{t-gleichung}).
 Da die Spalten von $T$ L"osungen eines linearen Gleichungssystems
 mit Koeffizienten $\tilde B'$ und rechten Seiten $B$ ist, k"onnen
 wir das Verfahren zur simultanen L"osung anwenden.
-Das zugeh"orige
-Gauss-Tableau ist:
+Das zugeh"orige Gauss-Tableau ist:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -910,13 +909,13 @@ Gauss-Tableau ist:
 \rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-1     &     0&\dots   &0      & &        & \\
-0     &     1&\dots   &0      & &        & \\
-\vdots&\vdots&\ddots  &\vdots & &   T    & \\
-0     &     0&\dots   &1      & &        & \\
+1     &     0&\dots   &0      & &                   & \\
+0     &     1&\dots   &0      & &                   & \\
+\vdots&\vdots&\ddots  &\vdots & &\raisebox{7pt}{$T$}& \\
+0     &     0&\dots   &1      & &                   & \\
 \hline
-0     &     0&\dots   &0      &*&        &*\\
-0     &     0&\dots   &0      &*&        &*\\
+0     &     0&\dots   &0      &*&                   &*\\
+0     &     0&\dots   &0      &*&                   &*\\
 \hline
 \end{tabular}
 \]
@@ -1197,8 +1196,8 @@ Die Matrix
 D_\alpha
 =
 \begin{pmatrix}
-\cos\alpha&\sin\alpha\\
--\sin\alpha&\cos\alpha
+\cos\alpha&-\sin\alpha\\
+\sin\alpha& \cos\alpha
 \end{pmatrix}
 \]
 ist orthogonal:
@@ -1206,12 +1205,12 @@ ist orthogonal:
 D_\alpha^tD_\alpha
 =
 \begin{pmatrix}
-\cos\alpha&-\sin\alpha\\
-\sin\alpha&\cos\alpha
+ \cos\alpha&\sin\alpha\\
+-\sin\alpha&\cos\alpha
 \end{pmatrix}
 \begin{pmatrix}
-\cos\alpha&\sin\alpha\\
--\sin\alpha&\cos\alpha
+\cos\alpha&-\sin\alpha\\
+\sin\alpha& \cos\alpha
 \end{pmatrix}
 =
 \begin{pmatrix}
@@ -1301,8 +1300,8 @@ v_1^4+2v_1^2v_2^2+v_2^4&0\\
 \\
 &=
 \begin{pmatrix}
-(v_1^2+v_2)^2&0\\
-0&(v_1^2+v_2)^2
+(v_1^2+v_2^2)^2&0\\
+0&(v_1^2+v_2^2)^2
 \end{pmatrix}=E
 \end{align*}
 Die Matrix $S_v$ ist also tats"achlich immer orthogonal.
