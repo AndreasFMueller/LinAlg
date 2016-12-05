@@ -59,23 +59,23 @@ In der LR-Zerlegung m"ochte man die Diagonal-Elemente, die jetzt in
 der Matrix $L$ stehen, in die Matrix $U$ verschieben. Die Diagonalelemente
 sind
 \[
-L_0=\begin{pmatrix}2&0\\0&\frac52\end{pmatrix}.
+D=\begin{pmatrix}2&0\\0&\frac52\end{pmatrix}.
 \]
 Die neue Zerlegung ist damit:
 \begin{align*}
-L'&=LL_0^{-1}=
+L_0&=LD^{-1}=
 \begin{pmatrix}
 1&0\\
 \frac32&1
 \end{pmatrix}
 \\
-R&=L_0U=
+R&=DU=
 \begin{pmatrix}
 2&1\\
 0&\frac52
 \end{pmatrix}
 \\
-L'R&=
+L_0R&=
 \begin{pmatrix}
 1&0\\
 \frac32&1
