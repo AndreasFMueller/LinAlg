@@ -19,18 +19,19 @@ R&G&B&r&g&b\\
 \hline
 \end{tabular}
 \end{center}
-Gesucht ist jetzt eine $3\times 3$-Matrix $S$, die das gemessene
-Verhalten des Sensors m"oglichst gut wiedergeben kann, alle Werte
-ber"ucksichtigt und ausserdem erweitert werden kann, wenn mehr
-Daten bekannt werden.
-Stellen Sie Gleichungen f"ur $S$ auf.
+Gesucht ist jetzt eine $3 \times 3$-Matrix $S$, die den Zusammenhang
+zwischen den wahren Werten $(R,G,B)$ und den gemessenen Werten $(r,g,b)$
+möglichst gut wiedergeben kann. Stellen Sie dazu ein Gleichungssystem auf,
+mit welchem die Matrixelemente von $S$ berechnet werden k"onnen.
+Im Gleichungssystem m"ussen alle Messwerte ber"ucksichtigt werden.
+Zudem soll es erweitert werden k"onnen, wenn mehr Daten bekannt werden.
 
 \begin{hinweis}
 Es wird nicht verlangt, die Matrix $S$ zu berechnen
 \end{hinweis}
 
 \begin{loesung}
-Wir sichen eine Matrix, die Farb-Vektoren gem"ass
+Wir suchen eine Matrix, die Farb-Vektoren gem"ass
 \[
 \begin{pmatrix}r\\g\\b\end{pmatrix}
 =
@@ -43,9 +44,18 @@ Im Idealfall lassen sich die Messwerte exakt wiedergeben, dann
 gelten die Gleichungen:
 \[
 \begin{linsys}{12}
-{\color{red}s_{11}}R&+&{\color{red}s_{12}}G&+&{\color{red}s_{13}}B& &       & &       & &       &       & &       & &       &=&r\\
-       & &       & &       & &{\color{red}s_{21}}R&+&{\color{red}s_{22}}G&+&{\color{red}s_{23}}B&       & &       & &       &=&g\\
-       & &       & &       & &       & &       & &       &{\color{red}s_{31}}R&+&{\color{red}s_{32}}G&+&{\color{red}s_{33}}B&=&b\\
+{\color{red}s_{11}}R&+&{\color{red}s_{12}}G&+&{\color{red}s_{13}}B
+	& &       & &       & &
+	& &       & &       & &
+	&=&r\\
+       & &       & &       
+	& &{\color{red}s_{21}}R&+&{\color{red}s_{22}}G&+&{\color{red}s_{23}}B
+	& &       & &       & &
+	&=&g\\
+       & &       & &       
+	& &       & &       & &
+	& &{\color{red}s_{31}}R&+&{\color{red}s_{32}}G&+&{\color{red}s_{33}}B
+	&=&b\\
 \end{linsys}
 \]
 Setzt man die vier Messungen ein, erh"alt man daraus zw"olf Gleichungen
