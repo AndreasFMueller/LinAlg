@@ -1,0 +1,205 @@
+%
+% endlichekoerper.tex
+%
+% (c) 2017 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\chapter{Lineare Algebra in endlichen K"orpern}
+\rhead{Endliche K"orper}
+
+Die Konstruktionen in Kapitel~1 und 2 des Skripts verlangen nicht mehr
+als die Grundoperationen.
+Die vorgestellten Algorithmen sollten daher in jeder Zahlenmenge
+durchf"uhrbar sein, sobald die arithmetischen Operationen zur
+Verf"ugung stehen.
+Zum Beispiel wird die Theorie zwar fast ausschliesslich f"ur reelle
+Zahlen entwickelt, doch funktioniert sie genau gleich f"ur rationale
+oder komplexe Zahlen.
+Alle drei Zahlenmengen sind sogenannte K"orper, sie enthalten
+unendlich viele Elemente.
+Es zeigt sich, dass es auch K"orper gibt, die nur endliche viele
+Elemente enthalten.
+Die K"orper werden jeweils durch eine Primzahl $p$ charakterisiert.
+In der Kryptographie haben vor allem die K"orper zur Primzahl $p=2$
+eine besondere Bedeutung.
+In diesem Kapitel wird gezeigt, wie man in diesen K"orpern rechnet
+und es wird an Beispielen illustriert, wie die wohlbekannten Algorithmen
+der linearen Algebra sich auf diese K"orper "ubertragen.
+
+\section{Endliche K"orper}
+\subsection{K"orper}
+Der Begriff des K"orpers fasst die Eigenschaften zusammen, die f"ur
+die Skalare in der linearen Algebra ben"otigt werden.
+
+Eine {\em Gruppe} ist eine Menge $G$ mit einer Verkn"upfung, die zwei Elementen
+$a,b\in G$ das Element $ab\in G$ zuordnet.
+Ausserdem m"ussen folgen Axiome erf"ullt sein:
+\begin{enumerate}[label={\bf G.\arabic*},itemsep=0mm]
+\item
+Die Verkn"upfung ist assoziativ, d.~h.~$(ab)c=a(bc)$ f"ur alle $a,b,c\in G$.
+\item
+Es gibt ein Element $e\in G$ mit der Eigenschaft $eg=ge=g$ f"ur alle $g\in G$,
+genant das Neutralelement.
+\item
+F"ur jedes Element $g\in G$ gibt es ein Element $g^{-1}\in G$ welches
+$gg^{-1}=g^{-1}g=e$.
+\end{enumerate}
+Eine Gruppe heisst {\em abelsch} wenn $ab=ba$ f"ur alle $a,b\in G$.
+
+Ein {\em Ring} ist eine Menge $R$ mit zwei Verkn"upfungen, der Addition
+und der Multiplikation, mit folgenden Eigenschaften:
+\begin{enumerate}[label={\bf R.\arabic*},itemsep=0mm]
+\item $R$ ist bez"uglich der Addition eine abelsche Gruppe.
+\item Die Multiplikation in $R$ ist assoziativ und hat ein Einselement.
+\item F"ur drei Element $x,y,z\in R$ gilt $(x+y)z=xz+yz$ und
+$z(x+y)=zx+zy$.
+\end{enumerate}
+
+Die Menge $\mathbb Z$ der ganzen Zahlen tr"agt die Struktur eines Ringes.
+Die Menge der $n\times n$-Matrizen mit Eintr"agen in $\mathbb Z$ ist ebenfalls
+ein Ring.
+Ist $R$ ein Ring, dann ist die Menge 
+\[
+R[X]=\{ a_0+a_1X +a_2X^2+\dots +a_nX^n\,|\,a_i\in R\}
+\]
+der Polynome in der Variablen $X$ ein Ring.
+
+Ein {\em K"orper}  ist ein Ring, so dass die Menge der von $0$ verschiedenen
+Elemente eine abelsche Gruppe bez"uglich der Multiplikation bilden.
+
+Die Menge $\mathbb Q$ der rationalen Zahlen tr"agt die Struktur eines
+K"orpers.
+
+\subsection{Reste}
+
+\subsection{Charakteristik}
+
+\section{Gauss-Algorithmus in $\mathbb F_p$}
+
+\subsection{Ein Beispiel "uber $\mathbb F_2$}
+Besonders einfach ist die Arithmetik im K"orper $\mathbb F_2$,
+da es nur ein einziges Element gibt, welches von $0$ verschieden ist,
+n"amlich $1$.
+Ausserdem ist die Addition nichts anderes als die XOR-Verkn"upfung.
+
+Man kann also das folgende Gleichungssystem "uber $\mathbb F_2$
+\begin{equation}
+\begin{linsys}{3}
+x_1& &   &+&x_3&=&1\\
+x_1&+&x_2& &   &=&1\\
+   & &x_2& &   &=&1\\
+\end{linsys}
+\label{ffield:gleichung}
+\end{equation}
+mit dem Gauss-Algorithmus wie folgt l"osen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&1&1\\
+1&1&0&1\\
+0&1&0&1\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&1&1\\
+0&1&1&0\\
+0&1&0&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&1&1\\
+0&1&1&0\\
+0&0&1&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&0&0\\
+0&1&0&1\\
+0&0&1&1\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus kann man die L"osung
+\[
+\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
+=
+\begin{pmatrix}0\\1\\1\end{pmatrix}
+\]
+ablesen.
+
+Nat"urlich kann man auch die inverse Matrix bestimmen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&1&1&0&0\\
+1&1&0&0&1&0\\
+0&1&0&0&0&1\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&1&1&0&0\\
+0&1&1&1&1&0\\
+0&1&0&0&0&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&1&1&0&0\\
+0&1&1&1&1&0\\
+0&0&1&1&1&1\\
+\hline
+\end{tabular}
+\\
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&0&0&1&1\\
+0&1&0&0&0&1\\
+0&0&1&1&1&1\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus liest man ab
+\[
+\begin{pmatrix}
+1&0&1\\
+1&1&0\\
+0&1&0
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+0&1&1\\
+0&0&1\\
+1&1&1\\
+\end{pmatrix}.
+\]
+Auch die eben gefundene L"osung des Gleichungssystems~\eqref{ffield:gleichung}
+kann jetzt mit der inversen Matrix bestimmt werden:
+\[
+\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
+=
+\begin{pmatrix}
+0&1&1\\
+0&0&1\\
+1&1&1\\
+\end{pmatrix}
+\begin{pmatrix}1\\1\\1\end{pmatrix}
+=
+\begin{pmatrix}0\\1\\1\end{pmatrix}.
+\]
+
+\section{Matrizengruppen in $\mathbb F_p$}
+
+\section{Eigenwerte und Eigenvektoren}
+
