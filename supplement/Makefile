@@ -5,7 +5,8 @@
 #
 all:	supplement.pdf
 
-TEXFILES = einleitung.tex endlichekoerper.tex homologie.tex lie.tex
+TEXFILES = einleitung.tex endlichekoerper.tex homologie.tex lie.tex	\
+	nichtstandardanalysis.tex
 
 images:
 	cd images; make
