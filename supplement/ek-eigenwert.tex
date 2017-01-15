@@ -1,0 +1,291 @@
+%
+% ek-eigenwert.tex -- Eigenwertproblem in endlichen Körpern
+%
+% (c) 2017 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\section{Eigenwerte und Eigenvektoren}
+Auch die Theorie der Eigenwerte und Eigenvektoren kann auf endliche K"orper
+ausgedehnt werden.
+Der erste Schritt bei der Bestimmung der Eigenvektoren verlangt, dass
+die Nullstellen des charakteristischen Polynoms bestimmt werden.
+Wie schon bei Polynomen "uber $\mathbb Q$ ist die Bestimmung der Nullstellen
+von Polynomen "uber $\mathbb F_p$ alles andere als einfach.
+Sie wird aber noch kompliziert dadurch, dass "uber $\mathbb F_p$
+zus"atzlich der Frobenius-Automorphismus bei $p$-ten Potenzen zu
+neuen, unintuitiven Effekten f"uhrt.
+
+\subsection{Eigenvektoren "uber $\mathbb F_7$}
+Wir suchen Eigenwerte und Eigenvektoren der Matrix
+\[
+A
+=
+\begin{pmatrix}
+0&1&4\\
+3&5&6\\
+3&4&4
+\end{pmatrix}
+\]
+"uber $\mathbb F_7$.
+
+Wir berechnen zuerst das charakteristische Polynom:
+\begin{align*}
+\det(A-\lambda E)
+&
+=
+\left|\begin{matrix}
+-\lambda&1        &4\\
+3       &5-\lambda&6\\
+3       &4        &4-\lambda
+\end{matrix}\right|
+\\
+&=
+-\lambda(5-\lambda)(4-\lambda)
++1\cdot6\cdot3
++4\cdot3\cdot 4
+-3\cdot(5-\lambda)\cdot 4
++4\cdot6\cdot\lambda
+-(4-\lambda)\cdot3\cdot 1
+\\
+&=
+-\lambda(6-2\lambda+\lambda^2)
+\\
+&=
+-6\lambda+2\lambda^2-\lambda^3
++4
++6
+-4+5\lambda
++3\lambda
+-5+3\lambda
+\\
+&=
+-\lambda^3+2\lambda^2+5\lambda+1.
+\end{align*}
+Um die Eigenwerte zu finden, m"ussen wir also die L"osungen der
+Gleichung
+\[
+-\chi_A(\lambda)
+=
+\lambda^3
+-2\lambda^2
+-5\lambda
+-1
+=
+\lambda^3
++5\lambda^2
++2\lambda
++6
+=
+0
+\]
+finden.
+Da $\mathbb F_7$ nur $7$ Elemente hat, kann man alle Werte durchprobieren,
+und findet $1$, $3$ und $5$ als Nullstellen.
+Zur Kontrolle berechnen wir das Produkt
+\begin{align*}
+(\lambda -1)(\lambda-3)(\lambda-5)
+&
+=
+(\lambda^2-4\lambda+3)(\lambda-5)
+\\
+&=
+\lambda^3-4\lambda^2+3\lambda
+-5\lambda^2+6\lambda-1
+\\
+&=
+\lambda^3+5\lambda^2+2\lambda+6
+\\
+&=
+-\chi_A(\lambda),
+\end{align*}
+wir haben also alle Eigenwerte gefunden.
+
+Zu jedem Eigenwert m"ussen jetzt noch ein Eigenvektor gefunden werde.
+F"ur $\lambda=1$ verwenden wir 
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+0-1&1&4\\
+3&5-1&6\\
+3&4&4-1\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+6&1&4\\
+3&4&6\\
+3&4&3\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&6&3\\
+0&0&4\\
+0&0&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&6&3\\
+0&0&1\\
+0&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&6&0\\
+0&0&1\\
+0&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus liest man ab, dass die dritte Komponente verschwinden muss, und dass
+die zweite Variable frei w"ahlbar ist.
+W"ahlen wir sie als $1$, dann ist der Eigenvektor zum Eigenwert $\lambda=1$
+\[
+v_1
+=
+\begin{pmatrix}1\\1\\0\end{pmatrix}
+\qquad\text{Kontrolle:}\qquad
+Av_1
+=
+\begin{pmatrix}
+0&1&4\\
+3&5&6\\
+3&4&4
+\end{pmatrix}
+\begin{pmatrix}1\\1\\0\end{pmatrix}
+=
+\begin{pmatrix}1\\1\\0\end{pmatrix}
+\]
+
+F"ur $\lambda = 3$ bestimmen wir einen Eigenvektor mit dem folgenden
+Gauss-Tableau:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+0-3&1&4\\
+3&5-3&6\\
+3&4&4-3\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+4&1&4\\
+3&2&6\\
+3&4&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&1\\
+0&3&3\\
+0&5&5\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&1\\
+0&1&1\\
+0&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&6\\
+0&1&1\\
+0&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Diesmal ist die dritte Komponente frei w"ahlbar, wir w"ahlen sie wieder als
+$1$ und erhalten den Eigenvektor zum Eigenwert $\lambda=3$
+\[
+v_3=\begin{pmatrix}1\\6\\1\end{pmatrix}
+\qquad\text{Kontrolle:}\qquad
+Av_3
+=
+\begin{pmatrix}
+0&1&4\\
+3&5&6\\
+3&4&4
+\end{pmatrix}
+\begin{pmatrix}1\\6\\1\end{pmatrix}
+=
+\begin{pmatrix}3\\4\\3\end{pmatrix}
+=
+3\begin{pmatrix}1\\6\\1\end{pmatrix}
+=
+3v_3.
+\]
+
+Schliesslich untersuchen wir den Eigenwert $\lambda=5$.
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+0-3&1&4\\
+3&5-3&6\\
+3&4&4-3\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+2&1&4\\
+3&0&6\\
+3&4&6\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&4&2\\
+0&2&0\\
+0&6&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&2\\
+0&1&0\\
+0&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Die zweite Komponente ist $0$, die dritte frei w"ahlber.
+\[
+v_5
+=
+\begin{pmatrix}5\\0\\1\end{pmatrix}
+\qquad\text{Kontrolle:}\qquad
+Av_5
+=
+\begin{pmatrix}
+0&1&4\\
+3&5&6\\
+3&4&4
+\end{pmatrix}
+\begin{pmatrix}5\\0\\1\end{pmatrix}
+=
+\begin{pmatrix}4\\0\\5\end{pmatrix}
+=
+5\begin{pmatrix}5\\0\\1\end{pmatrix}
+=
+5v_5.
+\]
+
+
+
+
+
+
+
+

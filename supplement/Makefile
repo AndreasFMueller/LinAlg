@@ -5,7 +5,10 @@
 #
 all:	supplement.pdf
 
-TEXFILES = einleitung.tex endlichekoerper.tex homologie.tex lie.tex	\
+TEXFILES = einleitung.tex \
+	endlichekoerper.tex \
+	ek-grundlagen.tex ek-gauss.tex ek-gruppen.tex ek-eigenwert.tex \
+	homologie.tex lie.tex	\
 	nichtstandardanalysis.tex
 
 images:
