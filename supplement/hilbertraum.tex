@@ -1,0 +1,254 @@
+%
+% hilbertraum.tex -- Theorie der Hilbertr"aume
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\chapter{Hilbertr"aume
+\label{chapter:hilbertspaces}}
+Die Theorie der Vektorr"aume mit einem Skalarprodukt wird im Unterricht
+"ublicherweise nur am Beispiel des Vektorraums $\mathbb R^n$ dargestellt.
+Dabei werden die Studierenden kurze Zeit sp"ater mit der Theorie
+der Fourier-Reihen konfrontiert, die in nat"urlicher Weise in einem
+unendlichdimensionalen Vektorraum mit einem Skalarprodukt situiert ist.
+
+\section{Skalarprodukt und Norm}
+Da die Theorie eines Vektorraumes mit Skalarprodukt formuliert werden
+soll unabh"angig von der konkreten Darstellung der Vektoren als 
+Spaltenvektoren, muss das Skalaprodukt ebenfalls unabh"angig von einer
+solchen Darstellung definiert werden.
+Die axiomatische Methode bietet sich hierf"ur an.
+
+\begin{definition}
+\label{hilbert:hermitescheform}
+Sei $V$ ein komplexer Vektorraum.
+Eine Funktion $\langle\;,\;\rangle\colon V\times V\to\mathbb C$ heisst
+{\em hermitesch}, wenn sie folgende Eigenschaften hat
+\begin{enumerate}[label={\bf HF.\arabic*},itemsep=0mm]
+\item $\langle\;,\;\rangle$ ist linear im ersten und konjugiert-linear
+im zweiten Argument:
+\begin{align*}
+\langle x+x',y\rangle &=\langle x,y\rangle + \langle x',y\rangle
+&
+\langle x,y+y'\rangle &=\langle x,y\rangle + \langle x,y'\rangle
+\\
+\langle\lambda x,y\rangle&=\lambda\langle x,y\rangle
+&
+\langle x,\lambda y\rangle&=\overline\lambda\langle x,y\rangle
+\end{align*}
+f"ur alle $x,x',y,y'\in V$.
+\item F"ur alle $x,y\in V$ gilt
+$\langle x,y\rangle=\overline{\langle y,x\rangle}$.
+\end{enumerate}
+\end{definition}
+Eine hermitsche Form ist noch nicht geeignet, die Rolle eines
+Skalarproduktes zu "ubernehmen, denn wir m"ochten ja $\langle x,x\rangle$
+als Quadrat der L"ange eines Vektors $x$ interpretieren.
+Dazu muss zun"achst mal sichergestellt sein, dass $\langle x,x\rangle$
+eine reelle Zahl ist.
+Doch dies folgt aus Axiom (HF.2) einer hermiteschen Form.
+Vertauscht man die beiden Argument in $\langle x,x\rangle$, "andert
+sich nat"urlich nichts, und daher folgt
+\[
+\langle x,x\rangle = \overline{\langle x,x\rangle}
+\qquad\Rightarrow\qquad
+\langle x,x\rangle\in\mathbb R.
+\]
+
+Damit $\langle x,x\rangle$ das Quadrat der L"ange sein kann, darf
+$\langle x,x\rangle$ nicht negativ wird, was
+durch die Axiome nicht sichergestellt wird.
+Ist n"amlich $\langle\;,\;\rangle$ eine hermitesche Form, dann ist
+auch $-\langle\;,\;\rangle$ eine hermitesche Form.
+Die Definition muss daher verfeinert werden:
+
+\begin{definition}
+\label{hilbert:postiveform}
+Eine hermitesche Form heisst {\em positiv}, wenn gilt
+$\langle x,x\rangle \ge 0$ f"ur alle $x\in V$.
+\end{definition}
+
+Positive hermitesche Formen haben bereits eine wichtige Eigenschaft,
+die f"ur die Definition der L"ange erforderlich.
+
+\begin{satz} Ist $\langle\;,\;\rangle$ eine positive hermitesche
+Form, dann gilt die Cauchy-Schwarz-Ungleichung
+\[
+|\langle x,y\rangle|^2 \le \langle x,x\rangle\langle y,y\rangle
+\]
+f"ur beliebige Vektoren $x,y\in V$.
+\end{satz}
+
+\begin{proof}[Beweis]
+Wir betrachten den Vektor $x+\lambda y$.
+Da $\langle\;,\;\rangle$ positiv ist, gilt 
+$\langle x+\lambda y,x+\lambda y\rangle \ge 0$.
+Mit der Linearit"at von $\langle\;,\;\rangle$ k"onnen wir dies
+aber auch ausrechnen:
+\begin{align*}
+0&\le
+\langle x+\lambda y,x+\lambda y\rangle
+\\
+&=
+\langle x,x\rangle
++
+\langle \lambda y,x\rangle
++
+\langle x,\lambda y\rangle
++
+\langle \lambda y,\lambda y\rangle
+\\
+&=
+\langle x,x\rangle
++
+\lambda\langle y,x\rangle
++
+\overline{\lambda}\langle x,y\rangle
++
+\lambda\overline{\lambda}\langle y,y\rangle
+\\
+&=
+\langle x,x\rangle
++
+\lambda\langle y,x\rangle
++
+\overline{\lambda}\langle y,x\rangle
++
+|\lambda|^2\langle y,y\rangle
+\end{align*}
+Falls $\langle y,y\rangle >0$
+setzt man $\lambda = - \langle x,y\rangle/\langle y,y\rangle$.
+Dann folgt
+\begin{align*}
+0
+&\le
+\langle x,x\rangle
+-
+2\frac{\langle x,y\rangle}{\langle y,y\rangle}\langle y,x\rangle
++
+\frac{|\langle y,x\rangle|^2}{\langle y,y\rangle^2}\langle y,y\rangle
+\\
+&=
+\langle x,x\rangle
+-2
+\frac{|\langle x,y\rangle|^2}{\langle y,y\rangle}
++
+\frac{|\langle y,x\rangle|^2}{\langle y,y\rangle^2}\langle y,y\rangle
+\\
+&=
+\langle x,x\rangle
+-
+\frac{|\langle x,y\rangle|^2}{\langle y,y\rangle}.
+\end{align*}
+Durch Multiplizieren mit $\langle y,y\rangle$ erh"alt man daraus
+\begin{align*}
+0&\le
+\langle x,x\rangle\langle y,y\rangle
+-
+|\langle x,y\rangle|^2
+\\
+\Rightarrow\qquad
+|\langle x,y\rangle|^2
+&\le
+\langle x,x\rangle\langle y,y\rangle.
+\end{align*}
+
+"Ahnlich kann vorgegangen werden, wenn $\langle x,x\rangle > 0$ ist und
+$\langle y,y\rangle =0$.
+
+Im Fall $\langle x,x\rangle=\langle y,y\rangle=0$ verwendet man 
+$\lambda = -\langle x,y\rangle$ und erh"alt
+\begin{align*}
+0
+&\le
+\langle x,x\rangle
++
+\lambda\langle y,x\rangle
++
+\overline{\lambda}\langle y,x\rangle
++
+|\lambda|^2\langle y,y\rangle
+\\
+&=
+-\langle x,y\rangle\langle y,x\rangle
+-\langle y,x\rangle\langle x,y\rangle
+=
+-2|\langle x,y\rangle|^2
+\\
+\Rightarrow\qquad
+2|\langle x,y\rangle|^2
+&\le 0.
+\end{align*}
+Daraus folgt $\langle x,y\rangle = 0$, ein Spezialfall der
+Cauchy-Schwarz-Ungleichung.
+\end{proof}
+
+Auch mit dieser Definition ist es immer noch m"oglich, dass Vektoren,
+die von $0$ verschieden sind, Skalarprodukt $0$ haben.
+Dies verhindert die folgend Erweiterung der Definition
+
+\begin{definition}
+\label{hilbert:postivdefiniteform}
+Eine hermitesche Form $\langle\;,\;\rangle$ heisst {\em positiv definit},
+wenn $\langle x,x\rangle > 0$ f"ur alle Vektoren $x\ne 0$ in $V$.
+\end{definition}
+
+Eine positiv definite hermitesche Form erlaubt nun die Norm
+eines Vektors zu definieren
+
+\begin{definition}
+Ist $\langle \;,\;\rangle$ eine positiv definite hermitesche Form
+auf $V$, dann heisst $\|x\| = \sqrt{\langle x,x\rangle}$ die {\em Norm}
+des Vektors $x\in V$.
+\end{definition}
+
+Diese Norm erf"ullt die Dreiecksungleichung, wie man mit folgender
+Rechnung einsehen kann:
+\begin{align*}
+\|x+y\|^2
+&=
+\langle x+y,x+y\rangle
+\\
+&=
+\langle x,x\rangle
++
+\langle x,y\rangle
++
+\langle y,x\rangle
++
+\langle y,y\rangle
+\\
+&=
+\|x\|^2 + \|y\|^2
++ 2\operatorname{Re}\langle x,y\rangle
+\\
+&\le
+\|x\|^2 + 2\|x\|\cdot \|y\| + \|y\|^2 = (\|x\| + \|y\|)^2
+\\
+\Rightarrow\qquad
+\|x+y\|
+&\le
+\|x\| + \|y\|
+\end{align*}
+Damit ist die Dreiecksungleichung bewiesen.
+
+\begin{definition}
+Ein (komplexer) Pr"ahilbertraum ist ein komplexer Vektorraum mit
+einer positiv definiten hermiteschen Form $\langle\;,\;\rangle$
+auch genannt das {\em Skalarprodukt} des Pr"ahlibertraumes.
+\end{definition}
+
+\section{Hilbertraum}
+
+\section{Orthonormalbasis}
+
+\section{Operatoren auf einem Hilbert-Raum}
+
+\section{Unit"are Operatoren}
+
+\section{Fourier-Transformation}
+
+\section{Spektral-Theorie}
+
+
+
+
