@@ -238,6 +238,61 @@ auch genannt das {\em Skalarprodukt} des Pr"ahlibertraumes.
 \end{definition}
 
 \section{Hilbertraum}
+Die rationalen komplexen Zahlen $\mathbb Q(i)=\{a+bi\,|\,a,b\in\mathbb Q\}$
+k"onnen als komplexer Hilbertraum mit dem Skalarprodukt
+$\langle x,y\rangle = \overline{x}y$ betrachtet werden.
+Die Norm von $x=a+bi$ ist $\|x\|^2=a^2+b^2$.
+Auf den rationalen Zahlen ist die Norm genau der Betrag, Cauchy-Folgen
+in $\mathbb Q$ sind also automatisch auch Cauchy-Folgen im
+Pr"ahilbertraum $\mathbb Q(i)$.
+Es ist aber auch wohlbekannt dass, eine Cauchy-Folge in $\mathbb Q$
+nicht konvergent sein muss.
+
+Wir m"ochten den Begriff des Hilbertraums als die nat"urlich B"uhne zum
+Beispiel f"ur die Fourier-Theorie etablieren, in der das Summieren von
+Reihen wie einer Fourier-Reihe
+\[
+f(x) = \frac{a_0}2+\sum_{k=1}^\infty (a_k\cos kx+b_k\sin kx)
+\]
+wohldefiniert sein soll.
+Wir m"ussen daher fordern, dass Cauchy-Folgen einen Grenzwert haben,
+und definieren daher eine Hilbertraum wie folgt.
+
+\begin{definition}
+Ein Pr"ahilbertraum $H$ heisst ein {\em Hilbertraum}, wenn jede er 
+vollst"andig ist, d.~h.~wenn jede Cauchy-Folge einen Grenzwert in $H$ hat.
+\end{definition}
+
+\begin{beispiel}[Endlichdimensionale komplexe Vektorr"aume]
+Der Vektorraum $\mathbb C^n$ ist in nat"urlicher Weise ein Pr"ahilbertraum
+mit dem Skalarprodukt $\langle u,v\rangle = \overline{u}^t v$.
+Da $\mathbb C$ vollst"andig ist, ist $\mathbb C^n$ aber auch ein
+Hilbertraum.
+\end{beispiel}
+
+\begin{beispiel}[Periodische Funktionen]
+Sei $C(S^1, \mathbb C)$ die Menge der stetigen, komplexwertigen Funktionen 
+von $S^1 = \mathbb R/2\pi\mathbb Z$.
+Das Skalarprodukt
+\[
+\langle f,g\rangle = \frac1{\sqrt{2\pi}}\int_0^{2\pi} \overline{f(x)} g(x)\,dx
+\]
+macht $C(S^1,\mathbb C)$ zu einem Pr"ahlibertraum.
+Er kann aber kein Hilbertraum sein, denn die Funktionenfolge
+\[
+f_n(x)=\root{n}\of{\sin x},\qquad n\in\mathbb N
+\]
+konvergiert gegen die Rechteckfunktion
+\[
+f(x)=\begin{cases}
+1&\qquad 0<x<\pi\\
+-1&\qquad \pi<x<2\pi\\
+0&\qquad\text{sonst}
+\end{cases}
+\]
+Diese Funktion ist nicht stetig, also nicht in $C(S^1,\mathbb C)$, es existiert
+also zwar ein Grenzwert, aber er liegt nicht im Raum $H$ drin.
+\end{beispiel}
 
 \section{Orthonormalbasis}
 
