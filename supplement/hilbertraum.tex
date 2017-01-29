@@ -234,7 +234,7 @@ Damit ist die Dreiecksungleichung bewiesen.
 \begin{definition}
 Ein (komplexer) Pr"ahilbertraum ist ein komplexer Vektorraum mit
 einer positiv definiten hermiteschen Form $\langle\;,\;\rangle$
-auch genannt das {\em Skalarprodukt} des Pr"ahlibertraumes.
+auch genannt das {\em Skalarprodukt} des Pr"ahilbertraumes.
 \end{definition}
 
 \section{Hilbertraum}
@@ -277,7 +277,7 @@ Das Skalarprodukt
 \[
 \langle f,g\rangle = \frac1{\sqrt{2\pi}}\int_0^{2\pi} \overline{f(x)} g(x)\,dx
 \]
-macht $C(S^1,\mathbb C)$ zu einem Pr"ahlibertraum.
+macht $C(S^1,\mathbb C)$ zu einem Pr"ahilbertraum.
 Er kann aber kein Hilbertraum sein, denn die Funktionenfolge
 \[
 f_n(x)=\root{2n+1}\of{\sin x},\qquad n\in\mathbb N
@@ -294,7 +294,117 @@ Diese Funktion ist nicht stetig, also nicht in $C(S^1,\mathbb C)$, es existiert
 also zwar ein Grenzwert, aber er liegt nicht im Raum $H$ drin.
 \end{beispiel}
 
+\begin{beispiel}[Der Hilbertraum $l^2$]
+Betrachte den Vektorraum $l^2$ der Folgen komplexer Zahlen
+$(a_n)_{n\in\mathbb N}$ so, dass 
+\[
+\sum_{n=0}^\infty |a_n|^2 <\infty.
+\]
+Wir definieren das Skalarprodukt von zwei Folgen $a,b\in l^2$ als
+\[
+\langle a,b\rangle
+=
+\sum_{n=0}^\infty a_n \overline b_n.
+\]
+Diese Skalarprodukt ist tatsächlich eine hermitesche Form:
+\begin{align*}
+\langle \lambda a,b\rangle
+&=
+\sum_{n=0}^\infty \overline{\lambda a_n} b_n
+=
+\overline\lambda\sum_{n=0}^\infty \overline a_nb_n
+=
+\overline\lambda \langle a,b\rangle
+\\
+\langle a,\lambda b\rangle
+&=
+\sum_{n=0}^\infty \overline{a_n} \lambda b_n
+=
+\lambda\sum_{n=0}^\infty \overline a_nb_n
+=
+\lambda \langle a,b\rangle
+\\
+\langle a+b,c\rangle
+&=
+\sum_{n=0}^\infty (\overline{a_n+b_n})c_n
+=
+\sum_{n=0}^\infty \overline a_n c_n + \sum_{n=0}^\infty \overline b_n c_n
+=
+\langle a,c\rangle + \langle b,c\rangle
+\end{align*}
+Um zu zeigen, dass $l^2$ ein Hilbertraum ist, müssen wir zeigen, dass 
+Cauchy-Folgen in $l^2$ konvergieren.
+Sei also $a^(k)$  eine Cauchy-Folge von Vektoren in $l^2$.
+Es folgt, dass auch jede Komponente $a^{(k)}_n$ eine Cauchy-Folge in
+$\mathbb C$ ist, und damit konvergent.
+Insbesondere ist die Folge
+\[
+a_n = \lim_{k\to\infty} a_n^{(k)}
+\]
+der Kandidat für den Grenzwert der Folge von $a^{(k)}$.
+Wir müssen zunächst zeigen, dass $a\in l^2$, dass also die
+Komponenten von $a$ quadratsummierbar sind.
+
+TODO
+\end{beispiel}
+
 \section{Orthonormalbasis}
+In einem endlich dimensionalen Vektorraum kann immer eine Basis aus
+orthonormierten Vektoren gefunden werden.
+In einem Hilbertraum ist Orthogonalität dank des Skalarproduktes definierbar,
+und damit stellt sich die Frage, ob es auch in einem Hilbert-Raum
+immer eine Orthonormalbasis gibt.
+
+\begin{proposition}
+\label{supplement:hilbertraum:orthogonalkomplement}
+Sei $H$ ein Hilbertraum und $V\subset H$ ein Unterraum.
+Dann ist
+\[
+V^\perp = \{u\in H\,|\, \langle u,v\rangle=0\forall v\in V\}
+\]
+ein Hilbertraum.
+\end{proposition}
+
+\begin{proof}[Beweis]
+Zunächst ist klar, dass $V^\perp$ ein Pr"ahilbertraum ist, es muss
+also nur noch gezeigt werden, dass $V^\perp$ vollständig ist.
+Sei also $x_n\in V^\perp$ eine Cauchy-Folge.
+Weil $H$ ein Vektorraum ist, gibt es einen Grenzwert $x\in H$, mit
+\[
+\lim_{n\to\infty} x_n=x.
+\]
+Es ist zu zeigen, dass $x\in V^\perp$.
+Für jedes $v\in V$ ist die Abbildung $u\mapsto \langle u,v\rangle$ eine
+stetige Abbildung, daher gilt
+\[
+0=\lim_{n\to\infty} \langle x_n,v\rangle = \langle x,v\rangle,
+\]
+für alle $v\in V$.
+Es folgt $x\in V^\perp$, womit die Proposition bewiesen ist.
+\end{proof}
+
+\begin{proposition}
+Sie $V\subset H$ ein Unterraum des Hilbertraumes $H$, dann ist
+$(V^\perp)^\perp=\overline V$.
+\end{proposition}
+
+\begin{proof}[Beweis]
+Aus Proposition~\ref{supplement:hilbertraum:orthogonalkomplement}
+schliessen wir, dass $(V^\perp)^\perp)$ ein Hilbertraum und damit
+abgeschlossen ist.
+Ausserdem ist
+\[
+v\in V
+\quad\Rightarrow\quad
+\langle v,u\rangle = 0\forall u\in V^\perp
+\quad\Rightarrow\quad
+v\in (V^\perp)^\perp,
+\]
+also ist $V\subset (V^\perp)^\perp$.
+Insbesondere schliessen wir, dass $\overline V\subset (V^\perp)^\perp$.
+
+TODO
+\end{proof}
 
 \section{Operatoren auf einem Hilbert-Raum}
 
