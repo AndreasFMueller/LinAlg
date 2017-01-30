@@ -21,7 +21,7 @@ R&G&B&r&g&b\\
 \end{center}
 Gesucht ist jetzt eine $3 \times 3$-Matrix $S$, die den Zusammenhang
 zwischen den wahren Werten $(R,G,B)$ und den gemessenen Werten $(r,g,b)$
-möglichst gut wiedergeben kann. Stellen Sie dazu ein Gleichungssystem auf,
+m"oglichst gut wiedergeben kann. Stellen Sie dazu ein Gleichungssystem auf,
 mit welchem die Matrixelemente von $S$ berechnet werden k"onnen.
 Im Gleichungssystem m"ussen alle Messwerte ber"ucksichtigt werden.
 Zudem soll es erweitert werden k"onnen, wenn mehr Daten bekannt werden.
@@ -32,12 +32,13 @@ Es wird nicht verlangt, die Matrix $S$ zu berechnen
 
 \begin{loesung}
 Wir suchen eine Matrix, die Farb-Vektoren gem"ass
-\[
+\begin{equation}
 \begin{pmatrix}r\\g\\b\end{pmatrix}
 =
 S
 \begin{pmatrix}R\\G\\B\end{pmatrix}
-\]
+\label{40000042:basis}
+\end{equation}
 umrechnet.
 Die Eintr"age in $S$ sind die Unbekannten.
 Im Idealfall lassen sich die Messwerte exakt wiedergeben, dann
@@ -127,6 +128,14 @@ S=\begin{pmatrix}
 \]
 \end{diskussion}
 
+\begin{bewertung}
+Gleichung \eqref{40000042:basis} f"ur ein Paar von Messtripeln ({\bf B})
+1 Punkt,
+4-fache Anwendung von \eqref{40000042:basis} auf die gegebenen Daten ({\bf A})
+2 Punkte,
+Berechnung der Matrix $A^tA$ ($\textbf{A}^t\textbf{A}$) 2 Punkte,
+Berechnung der Matrix $A^tb$ ($\textbf{A}^t\textbf{b}$) 1 Punkt.
 
+\end{bewertung}
 
 
