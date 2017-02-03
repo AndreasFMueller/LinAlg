@@ -16,8 +16,155 @@ eines K"orpers beschreiben lassen.
 Der Begriff der Homologie-Gruppen verallgemeinert eine grundlegende
 Beobachtung, die schon Euler "uber Polyeder gemacht hat.
 
-\section{Kern, Bild und Quotientenr"aume}
+\section{Kern und Bild}
+Seien $U$ und $V$ Vektorr"aume "uber $\mathbb R$ und sei $\varphi\colon U\to V$
+eine lineare Abbildung.
+Dann sind die Mengen
+\begin{align*}
+\operatorname{ker}\varphi&=\{u\in U\,|\, \varphi(u) = 0\}
+\\
+\operatorname{im}\varphi&=\{\varphi(u)\,|\, u\in U\}
+\end{align*}
+Vektorr"aume.
+In der Tat folgt aus $u_1,u_2\in\operatorname{ker}\varphi$
+und $\lambda\in\mathbb R$
+\begin{align*}
+\varphi(u_1+u_2)&=\varphi(u_1)+\varphi(u_2) = 0
+&
+&\Rightarrow&
+u_1+u_2&\in\operatorname{ker}\varphi
+\\
+\varphi(\lambda u_1)&=\lambda\varphi(u_1)
+&
+&\Rightarrow&
+\lambda u_1&\in\operatorname{ker}\varphi
+\end{align*}
+was beweist das $\operatorname{ker}\varphi$ ein Vektorraum ist.
+F"ur $\operatorname{im}\varphi$ nehmen wir zun"achst
+$v_1,v_2\in\operatorname{im}\varphi$.
+Dann gibt es Vektoren $u_1,u_2\in U$ derart, dass
+$\varphi(u_1)=v_1$ und $\varphi(u_2)=v_2$.
+Dann folgt
+\begin{align*}
+v_1+v_2&=\varphi(u_1)+\varphi(u_2)=\varphi(u_1+u_2)
+&
+&\Rightarrow&
+v_1+v_w&\in\operatorname{im}\varphi
+\\
+\lambda v_1&=\lambda\varphi(u_1)=\varphi(\lambda u_1)
+&
+&\Rightarrow&
+\lambda v_1&\in\operatorname{im}\varphi,
+\end{align*}
+was wieder beweist, dass $\operatorname{im}\varphi$ ein Vektor ist.
+Es ist klar dass $\operatorname{ker}\varphi\subset U$ und
+$\operatorname{im}\varphi\subset V$.
+
+\section{Quotientenraum}
+Sei jetzt $V$ ein reeller Vekor und $U\subset V$ ein Unterraum.
+Dann k"onnen wir einen neuen Vektorraum $V/U$ wie folgt definieren.
+Die Element von $V/U$ sind Teilmengen der Form
+\[
+\tilde v = \{v+u\,|\, u\in U\}.
+\]
+Offenbar ist $\tilde v_1=\tilde v_2$ wenn $v_1-v_2\in U$.
+Wir m"ussen ausserdem die Vektorraum-Operationen definieren.
+Es ist naheliegend
+\begin{align*}
+\tilde v_1+\tilde v_2
+&=
+\{ v_1+v_2+u\,|\, u\in U\}
+\\
+\lambda \tilde v_1
+&=
+\{\lambda v_1+u\,|\, u\in U\}.
+\end{align*}
+zu setzen, doch wir m"ussen sicherstellen dass eine andere Wahl
+der Repr"asentanten $v_i$ auf die gleichen Mengen f"uhrt.
+Seien also $v_1'$ und $v_2'$ andere Repr"asentanten, es gilt also
+$v_1'-v_1\in U$ and $v_2'-v_2\in U$.
+Dann gilt
+\begin{align*}
+\{v_1 + v_2 + u\,|\, u\in U\}
+&=
+\{v_1' + \underbrace{v_1-v_1'}_{\displaystyle\in U}
++ v_2' + \underbrace{v_2-v_2'}_{\displaystyle\in U}
++ u\,|\, u\in U\} = \{v_1'+v_2'+u\,|\, u\in U\}
+\\
+\{\lambda v_1 + u\,|\, u\in U\}
+&=
+\{\lambda v_1' + \underbrace{\lambda(v_1-v_1')}_{\displaystyle \in U}+u
+\,|\, u\in U\}
+=
+\{\lambda v_1' + u\,|\, u\in U\}
+\end{align*}
+Damit ist gezeigt, dass die Vektorraumoperationen in $V/U$ wohldefiniert
+sind.
+
+Jetzt muss aber auch noch gezeigt werden, dass die Axiome f"ur einen
+Vektorraum erf"ullt sind.
+Die Rechenregeln wie das Assoziativgesetz oder das Distributivgesetz
+folgen jetzt unmittelbar daraus, dass die Rechenoperationen mit Hilfe
+von Repr"asentationen definiert sind, und f"ur diese gelten die
+genannten Gesetze.
+Das gilt auch f"ur den Nullvektor, der Repr"asentant von $U$ ist.
+
+Die Darstellung von Elementen von $V/U$ mit Hilfe von Repr"asentanten
+bedeutet auch, dass es eine Abbildung $V\to U$ gibt, die definiert
+ist durch
+\[
+\pi \colon V\to U: v\mapsto \tilde v=\{v+u\,|\, u\in U\}\in V/U.
+\]
+Auch hier folgt aus den Eigenschaften des Rechnens mit Repr"asentaten,
+dass $\pi$ eine lineare Abbildung von Vektorr"aumen ist.
+Ausserdem ist das Bild von $\pi$ die ganzge Menge,
+$\operatorname{im}\pi = V/U$.
+
+\begin{definition}
+Der Vektorraum $V/U$ heisst der Quotient von $V$ nach dem Unterraum $U$,
+$\pi$ heisst die (kanonische) Projektion.
+\end{definition}
+
+Geometrisch kann man sich den Quotientenraum so vorstellen:
+Die Mengen $v+U$ mit $v\in V$ sind parallel verschobene Kopien des
+Unterraumes $U$.
+Im Quotienten werden alle $v$ miteinander identifiziert, die sich nur
+durch ein Element in $U$ unterschieden.
+Der Quotient besteht also aus den Richtungen ``quer'' zu $U$, w"ahrend 
+$U$ zu einem einzigen Punkt kollabiert.
+
 \section{Homologie}
+Ein Komplex ist eine Folge von Vektorräumen $C_k$ und linearen Abbildungen
+$\partial_k$
+\[
+\xymatrix{
+*+\txt{} \ar[r]^{\partial}
+	&C_{n+2} \ar[r]^{\partial_{n+2}}
+		&C_{n+1} \ar[r]^{\partial_{n+1}}
+			&C_{n} \ar[r]^{\partial_n}
+				&C_{n-1} \ar[r]^{\partial_{n-1}}
+					&C_{n-2} \ar[r]^{\partial_{n-2}}
+						&*+\txt{}
+}
+\]
+Ausserdem wird verlangt, dass $\partial_{k} \circ \partial_{k+1}=0$ ist.
+Dies bedeutet, dass
+$\operatorname{im}\partial_{k+1}\subset \operatorname{ker}\partial_{k}$.
+Wir k"onnen daher die Vektorräume
+\[
+H_k = \operatorname{ker}\partial_k/\operatorname{im}\partial_{k+1}
+\]
+definieren.
+$H_k$ heisst die $k$-te Homologiegruppe des Komplexes $(C_k,\partial_k)$.
+
+Zu einem Polyeder kann man in natürlicher Weise einen Komplex konstruieren.
+Der Vektorraum $C_0$ hat einen Basis-Vektor für jede Ecke eines Polyeders.
+Für jede orientierte Kante des Polyeders fügen wir dem Vektorraum $C_1$
+einen Basisvektor hinzu. 
+Weiter enthält $C_2$ für jede orientiert Seitenfläche des Polyeders
+einen Basisvektor, dem ganzen Polyeder selbst wird der eindimensionale
+Vektorraum $C_3$ zugeordnet.
+
 \section{Der Eulersche Polyedersatz}
 
 
