@@ -1,0 +1,94 @@
+F"ur welche ganzzahligen Werte der beiden Parameter $c$ und $u$ hat
+das Gleichungssytem
+\[
+\begin{linsys}{3}
+2x&+& 8y&+&2cz&=&2u\\
+  & & 3y&+&12z&=&6\\
+cx&+&2cy&-&15z&=&5
+\end{linsys}
+\]
+%\[
+%A=\begin{pmatrix}
+%2& 8 &  2c\\
+%0& 3 & 12 \\
+%c& 2c&-15
+%\end{pmatrix}
+%\]
+unendlich viele L"osungen?
+
+\begin{loesung}
+Man k"onnte versuchen herauszufinden, ob die Matrix
+\[
+A=\begin{pmatrix}
+2& 8 &  2c\\
+0& 3 & 12 \\
+c& 2c&-15
+\end{pmatrix}
+\]
+regul"ar ist, und dazu die Determinante verwenden.
+Da man das Gleichungssytem aber auch l"osen muss, ist effizienter,
+gleich von Anfang an den Gauss-Algorithmus anzuwenden.
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 2&8 &  2c&2u\\
+ 0&3 & 12 & 6\\
+ c&2c&-15 & 5\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&4 &  c     & u\\
+ 0&3 & 12     & 6\\
+ 0&-2c&-15-c^2&5-uc\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&4 &  c           & u\\
+ 0&1 &  4           & 2\\
+ 0&0 &-15-c^2-4(-2c)& 5-uc+4c\\
+\hline
+\end{tabular}
+\end{align*}
+Unendlich viele L"osungen sind m"oglich, wenn einerseits im
+Gauss-Algorithmus Nullzeilen auftreten, und andereseits die zugeh"origen
+Eintr"age der rechten Seite verschwinden.
+Eine Nullzeile kann genau dann auftreten, wenn
+\begin{align*}
+-15-c^2+8c&=0\\
+c^2-8c+15&=0\\
+(c-3)(c-5)&=0
+\end{align*}
+F"ur $c$ kommen also nur die Werte $3$ und $5$ in Frage.
+
+Damit auch die rechte Seite verschwindet, muss
+\[
+5-uc+4c=5-(u-4)c=0
+\]
+sein.
+L"ost man nach $u$ auf, findet man
+\[
+u=4+\frac{5}{c}
+\qquad\Rightarrow\qquad
+u=\begin{cases}
+5&\qquad\text{f"ur $c=5$}\\
+\frac{17}{3}&\qquad\text{f"ur $c=3$}
+\end{cases}
+\]
+Da ganzzahlige Parameterwerte verlangt wurden, kommt nur $c=5$ und $u=5$
+in Frage.
+\end{loesung}
+
+\begin{bewertung}
+Gauss-Tableau ({\bf T}) 1 Punkt,
+Durchf"uhrung des Gauss-Algorithmus ({\bf G}) 2 Punkt,
+Bedingung f"ur unendlich viele L"osungen ({\bf B}) 1 Punkt,
+Bestimmung der zwei m"oglichen Werte f"ur $c$ ({\bf C}) 1 Punkt,
+Bestimmung von $u$ ({\bf U}) 1 Punkt.
+\end{bewertung}
+
+
