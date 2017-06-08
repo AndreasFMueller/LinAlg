@@ -1,0 +1,91 @@
+Betrachten Sie die Matrix
+\[
+A=\begin{pmatrix}
+ 2&1\\
+-1&t
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item Berechnen Sie das charakteristische Polynom von $A$.
+\item Wie muss man $t$ w"ahlen, damit $A$ nur den einen Eigenwert $3$ hat?
+\item Finden Sie einen Eigenvektor zu diesem Eigenwert.
+\item Ist $A$ in diesem Fall diagonalisierbar?
+\end{teilaufgaben}
+
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Das charakteristische Polynom ist 
+\begin{align}
+\chi_A(\lambda)
+&=
+\det(A-\lambda E)
+=
+\left|\begin{matrix}
+2-\lambda &    1     \\
+-1        &t-\lambda
+\end{matrix}\right|
+=
+(2-\lambda)(t-\lambda)+1=\lambda^2-(2+t)\lambda +2t+1.
+\label{60000028:charpoly}
+\end{align}
+\item
+Setzt man $\lambda=3$ in das charakteristische Polynom \eqref{60000028:charpoly}
+ein, erh"alt man
+\[
+0=\chi_A(3)=9-(2+t)3+2t+1=-t+4\qquad\Rightarrow\qquad t=4.
+\]
+\item
+Einen Eigenvektor kann man mit dem Gauss-Algorithmus finden:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+ 2-3&1\\
+-1&4-3\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-1&1\\
+-1&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1&-1\\
+ 0& 0\\
+\hline
+\end{tabular}
+\end{align*}
+Die zweite Variable ist frei w"ahlbar.
+Die erste Zeile besagt, dass die beiden Komponenten des Vektors gleich
+sein m"ussen.
+Ein m"oglicher Eigenvektor ist damit
+\[
+v=
+\begin{pmatrix}
+1\\1
+\end{pmatrix}
+\]
+\item
+Es gibt keinen zweiten linear unabh"angigen Eigenvektor zum Eigenwert $3$, 
+somit ist $A$ nicht diagonalisierbar.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Charakteristisches Polynome ({\bf X}) 1 Punkt,
+$\lambda$ einsetzen ({\bf L}) 1 Punkt,
+Wert von $t$ ({\bf T}) 1 Punkt,
+Gauss Algorithmus f"ur diese Werte von $\lambda$ und $t$ durchf"uhren
+({\bf G}) 1 Punkt,
+Eigenvektor ({\bf E}) 1 Punkt,
+nicht Diagonalisierbarkeit mit Begr"undung ({\bf D}) 1 Punkt.
+\end{bewertung}
+
+
+

@@ -1,0 +1,163 @@
+In der Verfassung Nepals wird die Konstruktion des roten Teils der
+Flagge Nepals wie folgt beschrieben:
+\begin{enumerate}
+\item Am unteren Rand eines karmesinroten Tuches zeichne man die Strecke
+$AB$ von links nach rechts, deren L"ange die Breite der Flagge wird.
+\item Von $A$ aus zeichne man die Strecke $AC$ senkrecht auf $AB$ nach
+oben derart, dass die L"ange von $AC$ gleich lang ist wie $AB$ plus
+ein Drittel der L"ange von $AB$.
+Auf der Strecke $AC$ trage man von $A$ aus die Strecke $AD$ ab, die
+gleich lang sein soll wie $AB$.
+Zeichne die Strecke $BD$.
+\item Auf der Strecke $BD$ trage von $B$ aus die L"ange der Strecke $AB$ ab,
+der neue Punkt heisst $E$.
+\item Von $E$ aus schneidet eine horizontale Gerade die Strecke $AC$ im
+Punkt $F$.
+Die Strecke $FG$ ist parallel zu und gleich lang wie $AB$
+\item Verbinde $C$ mit $G$.
+\end{enumerate}
+\begin{center}
+\includeagraphics[width=0.2\hsize]{NepalFlagPicture2.png}
+\qquad
+\qquad
+\qquad
+\includeagraphics[]{plan-1.pdf}
+\end{center}
+Verwenden Sie $A$ als Nullpunkt eines Koordinatensystems und
+$\vec{e}_1=\overrightarrow{AB}$
+als ersten Basisvektor.
+\begin{teilaufgaben}
+\item
+Dr"ucken Sie die Konstruktionsschritte 3 bis 5 mit Hilfe von Vektoren aus
+und berechnen Sie die Koordinaten der Punkte $E$, $F$ und $G$.
+\item
+Berechnen Sie den Umfang der Nepalesischen Flagge in Einheiten der Strecke
+$AB$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+\renewcommand{\labelenumii}{\arabic{enumii}.}
+\begin{enumerate}
+\item Der erste Basisvektor ist gerade $\vec{e}_1=\overrightarrow{AB}$.
+\item $\overrightarrow{AC}=\frac43 \vec{e}_2$.
+Da $AD$ die L"ange von $AB$ hat, ist $\overrightarrow{AD}=\vec{e}_2$.
+\item Der Punkt $E$ liegt auf der Geraden $BD$, also gibt es eine
+Zahl  $t$ so, dass
+\[
+\overrightarrow{BE}
+=
+\vec{e}_1+t\overrightarrow{BD}
+=
+\vec{e}_1+t(\vec{e}_2-\vec{e}_1)
+=
+\begin{pmatrix}1\\0\end{pmatrix}+t\begin{pmatrix}-1\\1\end{pmatrix}
+\]
+ist.
+Ausserdem muss die L"ange stimmen.
+Da die L"ange von $BE$ gleich ist wie die von $AB$, kann man f"ur $t$
+\[
+t=\frac{\overline{AB}}{\overline{BD}}
+\]
+verwenden, also $1/\sqrt{2}$.
+Der Ortsvektor von $E$ ist daher
+\[
+\overrightarrow{AE}
+=
+\vec{e}_1+\frac1{\sqrt{2}}\overrightarrow{BD}
+=
+\vec{e}_1+\frac1{\sqrt{2}}(\vec{e}_2-\vec{e}_1)
+=
+\begin{pmatrix}1\\0\end{pmatrix}+\frac1{\sqrt{2}}\begin{pmatrix}-1\\1\end{pmatrix}
+\]
+\item Der Punkt $F$ entsteht als Schnittpunkt der horizontalen Geraden von
+$E$ aus mit der vertikalen Achse:
+\[
+\overrightarrow{AE}+t\vec{e}_1 = s\vec{e}_2
+\]
+oder als Gleichungssytem geschrieben:
+\[
+\left.
+\begin{linsys}{2}
+1-\frac1{\sqrt{2}}&+&t&=&0\\
+                  &-&t&=&s
+\end{linsys}
+\right\}
+\quad\Rightarrow\quad
+t=\frac{1-\sqrt{2}}{\sqrt{2}},
+\;
+s=\frac{\sqrt{2}-1}{\sqrt{2}}.
+\]
+Daraus erh"alt man durch Einsetzen den Ortsvektor von $F$:
+\[
+\overrightarrow{AF}
+=
+\begin{pmatrix}
+0\\\frac1{\sqrt{2}}
+\end{pmatrix}
+\]
+Der Ortsvektor von $G$ ist
+\[
+\overrightarrow{AG}
+=
+\overrightarrow{AF}+\vec{e}_1
+=
+\begin{pmatrix}1\\\frac1{\sqrt{2}}\end{pmatrix}.
+\]
+Alternativ kann man $F$ auch finden als Projektion von $\overrightarrow{AE}$
+auf den Einheitsvektor $\vec e^2$, also als
+\[
+\overrightarrow{AF} = \vec{e}_2 (\vec{e}_2\cdot \overrightarrow{AE}).
+\]
+\item Es ist die Gerade von $G$ nach $C$ zu konstruieren, also
+\[
+\vec p = \overrightarrow{AG}+t\overrightarrow{GC}.
+\]
+\end{enumerate}
+\item
+Der Umfang $U$ ist
+\begin{align*}
+U
+&=
+\overline{AB} + \overline{BE} + \overline{EG} + \overline{GC} +\overline{AC}
+\\
+&=
+1 + 1 + \frac1{\sqrt{2}}+\overline{GC} + \frac43.
+\end{align*}
+wobei f"ur den dritten Term verwendet wurde, dass $E$ die Strecke
+$FG$ im gleichen Verh"altnis teilt wie $F$ die Strecke $DA$.
+Die L"ange der Strecke kann mit dem Satz des Pythagoras berechnet
+werden:
+\[
+\overline{GC}
+=
+\sqrt{1+\left(\frac43-\frac1{\sqrt{2}}\right)^2}
+\]
+und damit f"ur den Umfang
+\begin{align*}
+U
+&=
+ 2
++ \frac1{\sqrt{2}}
++ \sqrt{1+\left(\frac43-\frac1{\sqrt{2}}\right)^2}
++ \frac43
+\\
+&=
+\frac{10}{3}
++ \frac1{\sqrt{2}}
++ \sqrt{1+\left(\frac43-\frac1{\sqrt{2}}\right)^2}
+\\
+&=
+5.22033828580995072213
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Jeder der drei Konstruktionssschritte ($\textbf{S}_i$, $1\le i\le 3$) ein Punkt,
+Koordinaten von $E$ ({\bf K}) 1 Punkt,
+Umfang ({\bf U}) 2 Punkte.
+\end{bewertung}
+

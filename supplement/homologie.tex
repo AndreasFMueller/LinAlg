@@ -134,6 +134,36 @@ Der Quotient besteht also aus den Richtungen ``quer'' zu $U$, w"ahrend
 $U$ zu einem einzigen Punkt kollabiert.
 
 \section{Homologie}
+Ein Komplex ist eine Folge von Vektorräumen $C_k$ und linearen Abbildungen
+$\partial_k$
+\[
+\xymatrix{
+*+\txt{} \ar[r]^{\partial}
+	&C_{n+2} \ar[r]^{\partial_{n+2}}
+		&C_{n+1} \ar[r]^{\partial_{n+1}}
+			&C_{n} \ar[r]^{\partial_n}
+				&C_{n-1} \ar[r]^{\partial_{n-1}}
+					&C_{n-2} \ar[r]^{\partial_{n-2}}
+						&*+\txt{}
+}
+\]
+Ausserdem wird verlangt, dass $\partial_{k} \circ \partial_{k+1}=0$ ist.
+Dies bedeutet, dass
+$\operatorname{im}\partial_{k+1}\subset \operatorname{ker}\partial_{k}$.
+Wir k"onnen daher die Vektorräume
+\[
+H_k = \operatorname{ker}\partial_k/\operatorname{im}\partial_{k+1}
+\]
+definieren.
+$H_k$ heisst die $k$-te Homologiegruppe des Komplexes $(C_k,\partial_k)$.
+
+Zu einem Polyeder kann man in natürlicher Weise einen Komplex konstruieren.
+Der Vektorraum $C_0$ hat einen Basis-Vektor für jede Ecke eines Polyeders.
+Für jede orientierte Kante des Polyeders fügen wir dem Vektorraum $C_1$
+einen Basisvektor hinzu. 
+Weiter enthält $C_2$ für jede orientiert Seitenfläche des Polyeders
+einen Basisvektor, dem ganzen Polyeder selbst wird der eindimensionale
+Vektorraum $C_3$ zugeordnet.
 
 \section{Der Eulersche Polyedersatz}
 
