@@ -52,6 +52,9 @@ Da die endlichen K"orper keine Ordnungsrelation haben, und damit auch
 keinen (offensichtlichen) Abstandsbegriff, finden wir bereits die
 notwendigen Quadratwurzeln ``weit ausserhalb'' des Ausgangsk"orpers.
 
+%
+% Definition eines Körpers und Beispiele
+%
 \subsection{K"orper}
 Der Begriff des K"orpers fasst die Eigenschaften zusammen, die f"ur
 die Skalare in der linearen Algebra ben"otigt werden.
@@ -95,10 +98,73 @@ Elemente eine abelsche Gruppe bez"uglich der Multiplikation bilden.
 Die Menge $\mathbb Q$ der rationalen Zahlen tr"agt die Struktur eines
 K"orpers.
 
+%
+% Körper gebildet mit Restklassen
+%
 \subsection{Reste}
+Die ganzen Zahlen $\mathbb Z$ bilden einen Ring.
+Dies bleibt auch wahr für die Menge der Reste $\mathbb Z/n\mathbb Z$.
+Die Restklasse $\llbracket r\rrbracket$ von $r$ ist die Menge
+\[
+\llbracket
+r
+\rrbracket
+=
+\{ z\in\mathbb Z\,|\, z\equiv r\mod n\}
+\]
+der ganzen Zahlen, die den gleichen Rest bei Teilung durch $n$ haben
+wie $r$.
+Mit Resten kann man wie gewohnt rechnen:
+\begin{align*}
+\llbracket a \rrbracket
+\pm
+\llbracket b \rrbracket
+&=
+\llbracket a\pm b \rrbracket
+\\
+\llbracket a \rrbracket
+\llbracket b \rrbracket
+&=
+\llbracket ab \rrbracket
+\end{align*}
+Im allgemeinen ist die Menge der Reste kein Ring.
+Ist nämlich $n=pq$ ein Produkt von Zahlen, dann ist das Produkt der
+Restklassen
+$\llbracket p\rrbracket$
+und
+$\llbracket q\rrbracket$
+\[
+\llbracket p\rrbracket
+\llbracket q\rrbracket
+=
+\llbracket pq\rrbracket
+=
+\llbracket n\rrbracket
+=
+\llbracket 0\rrbracket.
+\]
+Insbesondere ist das Produkt der Restklassen von $p$ und $q$ die
+Restklasse von $0$, es ist daher nicht möglich, ein multiplikativ
+inverses Element für $\llbracket p \rrbracket$ zu finden.
+Ursache für dieses pathologische Verhalten ist natürlich, dass $n=pq$
+faktorisierbar ist.
+Diese Möglichkeit entfällt, wenn $n$ eine Primzahl ist.
+Tatsächlich gilt
 
+\begin{satz}
+Wenn $p$ eine Primzahl ist, dann ist der Restklassenring
+$\mathbb Z/p\mathbb Z=\mathbb F_p$ ein Körper.
+\end{satz}
+
+%
+% Charakteristik eines Körpers
+%
 \subsection{Charakteristik}
 
+%
+% Der Frobenius-Automorphismus ist eine zusätzliche Struktur, die nur die
+% Körper mit Charaketeristik != 0 haben
+%
 \subsection{Frobenius-Automorphismus}
 F"ur K"orper mit Charakteristik $0$ ist das Potenzieren zwar bez"uglich der
 Multiplikation ein Homomorphismus:
