@@ -1,0 +1,141 @@
+K"onnen Sie die symmetrische Matrix
+\[
+A=\begin{pmatrix}
+ 4& 6&10\\
+ 6&18&39\\
+10&39&q^2 + 89
+\end{pmatrix}
+\]
+mit $q>0$ als Produkt $A=BB^t$ schreiben?
+Geben Sie eine m"ogliche Matrix $B$ an.
+
+\begin{loesung}
+Man kann sogar eine untere Dreiecksmatrix $L$ mit dieser Eigenschaft finden,
+dies ist die Cholesky-Zerlegung von $A$.
+
+Im ersten Schritt sucht man die erste Spalte von $L$ zu bestimmen.
+Es muss gelten
+\[
+LL^t=
+\begin{pmatrix}
+l_{11}&  0&  0\\
+l_{21}&  ?&  0\\
+l_{31}&  ?&  ?
+\end{pmatrix}
+\begin{pmatrix}
+l_{11}&l_{21}&l_{31}\\
+     0&     ?&     ?\\
+     0&     0&     ?
+\end{pmatrix}
+=
+\begin{pmatrix}
+    l_{11}^2&l_{11}l_{21}&l_{11}l_{31}\\
+l_{21}l_{11}&           *&           *\\
+l_{31}l_{11}&           *&           *
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 4& 6&10\\
+ 6&18&39\\
+10&39&q^2 + 89
+\end{pmatrix}
+\]
+Daraus kann man ablesen, dass $l_{11}=2$ sein muss, und weiter,
+dass
+$l_{21}=3$ und $l_{31}=5$. Damit ist die erste Spalte bestimmt.
+
+Im zweiten Schritt versucht man, die zweite Spalte zu bestimmen.
+Dazu schreibt man wieder
+\[
+LL^t
+=
+\begin{pmatrix}
+2&     0&0\\
+3&l_{22}&0\\
+5&l_{32}&?
+\end{pmatrix}
+\begin{pmatrix}
+2&     3&     5\\
+0&l_{22}&l_{32}\\
+0&     0&?
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 4&              6&            10\\
+ 6& 9+l_{22}^2    &15+l_{22}l_{32}\\
+10&15+l_{32}l_{22}&             *
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 4& 6&10\\
+ 6&18&39\\
+10&39& q^2 + 89
+\end{pmatrix}
+\]
+Daraus liest man ab $9+l_{22}^2=9$ und damit $l_{22}=3$, und weiter
+$l_{32}=8$.
+
+Im dritten Schritt ist jetzt nur noch das Element unten rechts zu bestimmen:
+\[
+LL^t=
+\begin{pmatrix}
+2&0&     0\\
+3&3&     0\\
+5&8&l_{33}
+\end{pmatrix}
+\begin{pmatrix}
+2&3&     5\\
+0&3&     8\\
+0&0&l_{33}
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 4& 6& 10\\
+ 6&18& 39\\
+10&39& 25+64+l_{33}^2
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 4& 6&10\\
+ 6&18&39\\
+10&39& q^2 + 89
+\end{pmatrix}
+\]
+woraus man ablesen kann: $13+l_{33}^2=13+q^2$ oder $l_{33}^2=q^2$, $l_{33}=q$.
+Die gesuchte Matrix $L$ ist also
+\[
+L=
+\begin{pmatrix}
+2&0&0\\
+3&3&0\\
+5&8&q
+\end{pmatrix}.
+\]
+Kontrolle:
+\[
+\begin{pmatrix}
+2&0&0\\
+3&3&0\\
+5&8&q
+\end{pmatrix}
+\begin{pmatrix}
+2&3&5\\
+0&3&8\\
+0&0&q
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 4& 6&10\\
+ 6&18&39\\
+10&39&q^2 + 89
+\end{pmatrix}.
+\qedhere
+\]
+\end{loesung}
+
+\begin{bewertung}
+Cholesky-Zerlegung ({\bf C}) 1 Punkt,
+Pro richtigem nicht verschwindendem Matrix-Element in $B$ ein Punkt,
+maximal 6 Punkte.
+\end{bewertung}
+
