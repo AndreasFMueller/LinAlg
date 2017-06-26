@@ -1,0 +1,79 @@
+Der Mittelpunkt des Würfels mit Kantenlänge $2$ befindet sich im
+Koordinatenursprung.
+Eine Drehung des Raumes führt die Punkte $A$, $B$ und $C$ in
+die Punkte $A'$, $B'=C$ bzw. $C'=B$ über.
+
+\begin{center}
+\includeagraphics[]{wuerfel.pdf}
+\end{center}
+
+\begin{teilaufgaben}
+\item
+Man finde die Drehmatrix $R$.
+\item
+Man berechne den Drehwinkel dieser Drehmatrix.
+\end{teilaufgaben}
+
+\begin{loesung}
+Die Punkte haben die Koordinaten
+\begin{align*}
+   A&=(1,\phantom{-}1,1) &   A'&=(-1,-1,-1)          \\
+B=C'&=(1,-1,1)           & C=B'&=(\phantom{-}1,-1,-1)
+\end{align*}
+\begin{teilaufgaben}
+\item
+Gesucht wird eine Matrix $R$, welche die Vektoren $\overrightarrow{OX}$
+in die Vektoren $\overrightarrow{OX'}$ überführt für $X\in\{A,B,C\}$,
+also $R\overrightarrow{OX}=\overrightarrow{OX'}$.
+Schreibt man die Vektoren in eine Matrix, muss gelten
+\[
+R
+\underbrace{
+\begin{pmatrix}
+1& 1& 1\\
+1&-1&-1\\
+1& 1&-1
+\end{pmatrix}}_{\displaystyle =B_1}
+=
+\underbrace{
+\begin{pmatrix}
+-1& 1& 1\\
+-1&-1&-1\\
+-1&-1& 1
+\end{pmatrix}}_{\displaystyle =B_2}
+\qquad \Rightarrow\qquad
+R=B_2B_1^{-1}.
+\]
+Für die Inverse von $B_1$ findet man
+\[
+B_1^{-1}
+=
+\frac12
+\begin{pmatrix}
+0&-1& 1\\
+1& 0&-1\\
+1& 1& 0
+\end{pmatrix}.
+\]
+Daraus berechnet man die Drehmatrix als
+\[
+R=B_2B_1^{-1}
+=
+\begin{pmatrix}
+ 0&-1& 0\\
+-1& 0& 0\\
+ 0& 0&-1
+\end{pmatrix}.
+\]
+\item
+Die Drehwinkelformel gibt für die Matrix $R$
+\begin{align*}
+\cos \alpha 
+&=
+\frac{\operatorname{Spur}R-1}2=-1
+\qquad\Rightarrow\qquad\alpha=\pi.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
