@@ -1,0 +1,50 @@
+Berechnen Sie die Determinante der Matrix
+\[
+A=\begin{pmatrix}
+    4 &  0 &  7 &  0 \\
+    5 &  8 &  5 &  1 \\
+    4 &  7 &  4 &  1 \\
+    8 &  8 & 10 &  1 
+\end{pmatrix}.
+\]
+
+\begin{loesung}
+Subtrahiert man das achtfache der letzten Spalte in der zweiten Spalte,
+entsteht eine Determinante, die sich mit dem Entwicklungssatz leicht
+ausrechnen lässt:
+\begin{align*}
+\det A
+&=
+\left|\begin{matrix}
+    4 &  0 &  7 &  0 \\
+    5 &  0 &  5 &  1 \\
+    4 & -1 &  4 &  1 \\
+    8 &  0 & 10 &  1 
+\end{matrix}\right|
+=
+-(-1)\left|\begin{matrix}
+    4 &  7 &  0 \\
+    5 &  5 &  1 \\
+    8 & 10 &  1 
+\end{matrix}\right|
+\\
+&=
+-\left|\begin{matrix}
+    4 &  7\\
+    8 & 10
+\end{matrix}\right|
++\left|\begin{matrix}
+    4 &  7\\
+    5 &  5
+\end{matrix}\right|
+=
+-(4\cdot 10-7\cdot 8)+(4\cdot 5-5\cdot 7)
+=
+16-15=1.
+\end{align*}
+Dabei wurde die $3\times 3$-Determinante durch Entwicklung nach der letzten
+Spalte berechnet.
+\end{loesung}
+
+
+
