@@ -1,11 +1,16 @@
-
-
+%
+% e.mp
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+%
 \verbatimtex
 \documentclass{article}
 \usepackage{times}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{txfonts}
 \begin{document}
 etex;
 
