@@ -1,0 +1,146 @@
+Betrachten Sie die Matrix
+\[
+A=\begin{pmatrix}
+1&3&1\\
+1&4&c\\
+2&8&5
+\end{pmatrix}.
+\]
+Für welche Werte des Parameters $c$ sind alle Einträge der inversen
+Matrix ganzzahlig?
+Bestimmen Sie die inverse Matrix in all diesen Fällen.
+
+%A =
+%
+%   1   3   1
+%   1   4   2
+%   2   8   5
+%
+%ans =
+%
+%   4  -7   2
+%  -1   3  -1
+%   0  -2   1
+
+\begin{loesung}
+Wir berechnen die inverse Matrix mit dem Gaussalgorithmus.
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&3&1&1&0&0\\
+1&4&c&0&1&0\\
+2&8&5&0&0&1\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&3&  1& 1&0&0\\
+0&1&c-1&-1&1&0\\
+0&2&  3&-2&0&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&3&  1 & 1& 0&0\\
+0&1&c-1 &-1& 1&0\\
+0&0&5-2c& 0&-2&1\\
+\hline
+\end{tabular}
+\end{align*}
+Im nächsten Schritt muss durch das Pivot-Element $5-2c$ geteilt werden.
+Das Element in der rechten unteren Ecke wird danach nicht mehr ändern,
+$c$ muss also so gewählt werden, dass $1/(5-2c)$ ganzzahlig ist.
+Dies ist nur mögliche, wenn
+\[
+5-2c=\pm 1
+\qquad\Rightarrow\qquad
+c= \frac{5 \mp 1}{2}=\begin{cases}2\\3\end{cases}
+\]
+ist.
+Wir berechnen daher die weiteren Schritt des Gauss-Algorithmus für diese
+beiden konkreten Werte.
+
+Für $c=2$ erhalten wir
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&3&  1 & 1& 0&0\\
+0&1&  1 &-1& 1&0\\
+0&0&  1 & 0&-2&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&3&  0 & 1& 2&-1\\
+0&1&  0 &-1& 3&-1\\
+0&0&  1 & 0&-2& 1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&  0 & 4&-7& 2\\
+0&1&  0 &-1& 3&-1\\
+0&0&  1 & 0&-2& 1\\
+\hline
+\end{tabular}
+\end{align*}
+
+Für $c=3$ bekommt man
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&3&  1 & 1& 0&0\\
+0&1&  2 &-1& 1&0\\
+0&0& -1 & 0&-2&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&3&  0 & 1&-2& 1\\
+0&1&  0 &-1&-3& 2\\
+0&0&  1 & 0& 2&-1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&  0 & 4& 7&-5\\
+0&1&  0 &-1&-3& 2\\
+0&0&  1 & 0& 2&-1\\
+\hline
+\end{tabular}
+\end{align*}
+Wir haben also zwei Werte $c$ gefunden, für die die inverse Matrix
+ganzzahlig ist
+\[
+\begin{aligned}
+c&=2
+&&\Rightarrow
+&
+A^{-1}
+&=\begin{pmatrix}
+ 4&-7& 2\\
+-1& 3&-1\\
+ 0&-2& 1
+\end{pmatrix}
+\\
+c&=3
+&&\Rightarrow
+&
+A^{-1}
+&=\begin{pmatrix}
+ 4& 7&-5\\
+-1&-3& 2\\
+ 0& 2&-1
+\end{pmatrix}
+\end{aligned}
+\]
+\end{loesung}
+
+

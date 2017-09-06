@@ -64,4 +64,7 @@ clippedrgb.png:	clippedrgbsingle.pov $(includes)
 rgbcube.png:	rgbcube.pov $(includes)
 	sh ../../povray $(povrayoptions) -Orgbcube.png rgbcube.pov
 
-
+cube-new.eps:	cube-new.ps Makefile
+	ps2eps --force cube-new.ps
+cube-new.pdf:	cube-new.ps Makefile
+	gs -o cube-new.pdf -sDEVICE=pdfwrite -dEPSCrop cube-new.ps

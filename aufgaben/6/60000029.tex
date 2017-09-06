@@ -1,0 +1,101 @@
+Betrachten Sie die Matrix
+\[
+A=\begin{pmatrix}3&s\\-2&7\end{pmatrix}.
+\]
+
+\begin{teilaufgaben}
+\item
+Berechnen Sie das charakteristische Polynom von $A$.
+\item
+Wie muss man $s$ wählen, damit $A$ nur einen Eigenwert hat?
+\item
+Finden Sie einen Eigenvektor zu diesem Eigenwert.
+\item
+Ist $A$ in diesem Fall diagonalisierbar?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Das charakteristische Polynom ist
+\begin{align*}
+\chi_A(\lambda)
+&=
+\left|\begin{matrix}3-\lambda&s\\-2&7-\lambda\end{matrix}\right|
+=
+(3-\lambda)(7-\lambda)+2s
+=
+\lambda^2 - 10\lambda + 21 + 2s
+\end{align*}
+Das charakteristische Polynom hat genau dann nur eine einzige Nullstelle,
+wenn die Diskriminante verschwindet, also
+\[
+b^2-4ac
+=
+(-10)^2 -4(21+2s)
+=
+100-84-8s
+=
+16-8s
+=
+0
+\qquad
+\qquad
+\Rightarrow
+s=2.
+\]
+\item
+Der Eigenwert ist Nullstelle des charakteristischen Polynoms,
+aber weil nur eine einzige Nullstelle existiert, muss $\lambda=-b/2a=-5$
+sein.
+\item
+Den Eigenvektor zum Eigenwert $5$ finden wir mit Hilfe des Gaussalgorithmus
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+3-\lambda&2        \\
+    -2   &7-\lambda\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-2&2\\
+-2&2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1\\
+0& 0\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus liest man ab, dass 
+\[
+v=\begin{pmatrix}1\\1\end{pmatrix}
+\]
+ein Eigenvektor ist.
+Zur Kontrolle berechnen wir
+\[
+Av
+=
+\begin{pmatrix}
+3&s\\
+-2&7
+\end{pmatrix}
+\begin{pmatrix}1\\1\end{pmatrix}
+=
+\begin{pmatrix}3+s\\5\end{pmatrix}.
+\]
+Für $s=2$ ist die rechte Seite $5v$, wie das für einen Eigenvektor zum
+Eigenwert $\lambda=5$ sein muss.
+\item
+Da es keinen weiteren linear unabhängigen Eigenvektor zum Eigenwert $\lambda=5$
+gibt, ist die Matrix $A$ nicht diagonalisierbar.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+

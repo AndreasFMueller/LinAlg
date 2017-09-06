@@ -1,0 +1,88 @@
+Die Ebene $\sigma_1$ sei die Ebene durch die Punkte $(1,0,0)$,
+$(0,1,0)$ und $(0,0,1)$.
+Die Ebene $\sigma_2$ hat die Gleichung
+\[
+x+2y+3z=4.
+\]
+Die Ebene $\sigma_3$ steht auf beiden Ebenen senkrecht und geht
+durch den Nullpunkt des Koordinatensystems.
+\begin{teilaufgaben}
+\item
+Finden Sie den Fusspunkt $F$ des Lotes vom Punkt $P=(10,-1,6)$ auf die
+Ebene $\sigma_3$.
+\item
+Bestimmen Sie ausserdem die Länge des Lotes von $P$ auf die Ebene $\sigma_3$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Normale $\vec n_3$ von $\sigma_3$ steht auf den Normalen
+$\vec n_1$ von $\sigma_1$ und $\vec n_2$ von $\sigma_2$.
+Sie kann mit dem Vektorprodukt gefunden werden:
+\begin{align*}
+\vec n_3
+&=
+\vec n_1 \times \vec n_2
+=
+\begin{pmatrix}1\\1\\1\end{pmatrix}
+\times
+\begin{pmatrix}1\\2\\3\end{pmatrix}
+=
+\begin{pmatrix}
+1\\-2\\1
+\end{pmatrix},
+\\
+|\vec n_3|^2
+&=
+1+2^2 + 1=6.
+\end{align*}
+Da die Ebene $\sigma_3$ durch den Nullpunkt geht, ist ihre Gleichung
+$\vec n_3\cdot\vec r=0$.
+Der Fusspunkt $F$ des Lotes liegt auf der Ebene $\sigma_3$, es gilt
+daher $\vec f\cdot \vec n_3 = 0$.
+Ausserdem muss $\overrightarrow{PF}$ parallel zu $\vec n_3$ sein,
+oder 
+\[
+\vec f = \vec p + t\vec n_3
+\]
+mit noch zu bestimmendem  Parameter $t$.
+Multiplizieren wir diese Gleichung skalar mit $\vec n_3$ erhält man
+\begin{align*}
+\vec f\cdot \vec n_3
+&=
+\vec p\cdot\vec n_3 + t\vec n_3\cdot\vec n_3
+\\
+0
+&=
+\vec p\cdot\vec n_3 + t|\vec n_3|^2
+\\
+t
+&=
+-\frac{\vec p\cdot\vec n_3}{|\vec n_3|^2}
+=
+-\frac{10+2+6}{6}=-3
+\end{align*}
+Somit ist
+\begin{align*}
+\vec f
+&=
+\vec p -3\vec n_3
+=
+\begin{pmatrix}10\\-1\\6\end{pmatrix}
+-3
+\begin{pmatrix}1\\-2\\1\end{pmatrix}
+=
+\begin{pmatrix}7\\5\\3\end{pmatrix}
+\end{align*}
+\item
+Die Strecke $PF$ ist dreimal so lang wie der Vektor $\vec n_3$, also ist
+\[
+\overline{PF}=3|\vec n_3|=3\sqrt{6}.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+
+
