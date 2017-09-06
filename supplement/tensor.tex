@@ -12,20 +12,553 @@ Kann dieses Konzept verallgemeinert werden auf Operationen, die
 auf mehreren Vektoren oder sogar Matrizen wirken?
 Tensoren beantworten diese Frage.
 
-
 \section{Vektor, Matrix, Tensor}
+Ein Vektor kann dazu dienen, eine mehrdimensionale physikalische
+Grösse wie Geschwindigkeit, Kraft oder magnetisches Feld beschreiben.
+Eine vollständige Beschreibung des elektromagnetischen Feldes erfordert
+jedoch, dass man magnetisches Feld und elektrisches Feld in einer
+Matrix zusammenfasst.
+Linearformen beschreiben skalare Grössen, die linear von einem 
+Vektor abhängen.
+Es stellt sich heraus, dass Linearformen wieder als VEktoren beschrieben
+werden  können.
+Matrizen dienen aber auch der beschreibung linearer Abbildung.
+Hier hängen die Komponenten des Bildvektors linear von Komponenten
+des Urbildvektors ab.
+Der Wert eines Skalarproduktes hängt linear von den beiden Vektorfaktoren ab.
+In all diesen Fällen kann der Formalismus der Matrizenrechnung erfolgreich
+angewendet werden.
+
+Der Formalismus scheitert jedoch, wenn eine skalare Grösse beschrieben
+werden soll, die von mehr als zwei Vektoren auf lineare Weise abhängt,
+oder wenn ein Vektor von mehr als einem anderen Vektor linear abhängt.
+Diese Situation tritt zum Beispiel bei der Beschreibung des
+Paralleltransportes auf, wo man beschreiben will, wie sich ein Vektor 
+$u$ dreht, wenn man ihn in Richtung $v$ transportiert.
+Der neue Vektor $u'$ hängt sowohl von $u$ als auch von $v$ ab.
+Sind $u_i$, $u'_i$ und $v_i$ die Komponenten der Vektoren, dann
+braucht man für die Beschreibung der linearen Abhängigkeit der $u'_i$
+von den anderen Komponenten eine Grösse mit drei Indizes $a_{ijk}$,
+damit kann man dann
+\begin{equation}
+u'_i = \sum_{k=1}^n\sum_{j=1}^n a_{ijk}u_jv_k
+\label{tensor:beispiel:summe}
+\end{equation}
+schreiben.
+Man könnte $a_{ijk}$ als ``dreidimensionale Matrix'' auffassen und
+damit vielleicht der Vorstellung für dieses Objekt etwas auf die Sprünge
+helfen.
+Besonders hilfreich wäre dies allerdings nicht, denn sobald ein weiterer
+Vektor dazukommt, müssten wir uns eine ``vierdimensionale Matrix''
+vorstellen, damit sind wir definitiv am Ende der Vorstellungskraft
+angelangt.
+
+Dieses Szenario ist auch nicht abwegig, denn schon die Beschreibung
+der Drehung eines Vektors $u$ beim Paralleltransport entlang des
+Randes eines Parallelogramms welches von den Vektore $v$ und $w$ 
+aufgespannt wird, liefert uns eine Vektorgrösse, die von drei Vektoren
+linear abhängt.
+Der Riemann-Tensor der Differentialgeometrie beschreibt diese Drehung
+und ist die Basis unseres Verständnisses der inneren Geometrie eines
+Raumes und damit auch der allgemeinen Relativitätstheorie.
+
+Es wird also ein Kalkül benötigt, der die Einschränkungen des Matrizenkalküls
+auf maximal zwei Dimensionen aufhebt.
+Er soll auch ein bisher nicht angesprochenes Problem des Matrizenkalküls
+lösen.
+Wechselt man in einem Vektorraum die Basis, transformieren sich die 
+Matrizen von Skalaprodukten und von linearen Abbildungen nach
+unterschiedlichen Regeln.
+Welche das sind ist jeweils nur dem Kontext zu entnehmen, die Matrixformeln
+selbst enthalten keinen Hinweis darauf, Fehler sind vorprogrammiert.
+Ein guter Kalkül müsste uns von dieser Schwierigkeit bewahren.
+
 \subsection{Operationen --- Summationskonvention}
+Der Ausdruck~\eqref{tensor:beispiel:summe} für die Komponenten einer
+vektoriellen Grösse, die von mehr als zwei Vektoren abhängt zeigt 
+auch schon, warum der Matrizenkalkül hier bereits an seine Grenzen
+stösst.
+Zur Berechnung der $u'_i$ müssen zwei Summen gebildet werden.
+Das Matrizenprodukt $Aw$ beinhaltet nur eine einzige Summe, die bei
+der Rechnung $\text{Zeile}\times\text{Spalte}$ gebildet wird.
+Eine weitere Summe kann man zum Beispiel in $v^tAw$ bekommen, wo 
+$v^t$ eine weitere Zeile liefert, mit der sich die Summe
+$\text{Zeile}\times\text{Spalte}$ bilden lässt.
+Der Fall, wo eine vektorielle Grösse entstehen soll, lässt sich damit
+jedoch nur dann abdecken, wenn für jede Komponente des Resultatvektors
+eine eigene Matrix $A_i$ zur Verfügung steht, dann könnte man schreiben
+\begin{equation}
+u_i = v^tA_iw
+\label{tensor:beispiel:summe2}
+\end{equation}
+Das Unschöne daran ist, dass wir einen Teil der Eleganz des Matrizenkalküls,
+nämlich die Tatsache, dass wir keine Indizes und Summen brauchen, wieder
+verloren haben.
+Ohne Indizes scheint es aber nicht zu gehen.
+
+Im Matrizen-Kalkül werden immer nur Produkte $\text{Zeile}\times\text{Spalte}$
+gebildet.
+Zeilen dürfen nicht mit Zeilen multipliziert werden, Spalten nicht mit Spalten.
+Offenbar haben Zeilen und Spalten verschiedene Bedeutungen, es braucht
+eine spezielle Operation, um aus Zeilen Spalten zu machen, die Transposition.
+Zwei Summen wie in \eqref{tensor:beispiel:summe} sind daher nur möglich,
+wenn in der Formel in zwei Objekten Zeilen vorkommen.
+In~\eqref{tensor:beispiel:summe2} wird dies mit der Transposition
+erzwungen. 
+
+\subsubsection{Hoch- und tiefgestellte Indizes}
+Wir beginnen daher Zeilen- und Spalten-Indizes durch ihre Position zu
+unterschieden.
+Wir schreiben Zeilenindizes immer tiefgestellt, Spaltenindizes dafür
+hochgestellt.
+Ein Spalten-Vektor $u$ hat daher neu die Komponenten $u^i$, der
+transponierte Vektor $u^t$ dagegen die Komponenten $u_i$ (wir werden
+später die Verallgemeinerung der Transposition, das Herunterziehen eines
+Index kennenlernen, welche dies auch formal klärt).
+Eine Matrix hat sowohl einen Zeilen- wie auch einen Spalten-Index.
+Die Matrix $A$ wurde früher mit Komponenten $a_{ij}$ geschrieben,
+mit der neuen Konvention müssen wir sie als $a_j^i$ schreiben.
+
+\begin{definition}
+\label{tensor:definition1}
+Ein {\em Tensor} ist eine indiziert Grösse
+$a_{ij}^{klm}$
+mit hoch- und tiefgestellten Indizes.
+\index{Tensor}
+tieffgestellte Indizes heissen {\em kovariant}, hochgestellte dagegen
+{\em kontravariant}
+\index{kovariant}
+\index{kontravariant}
+\index{Index!kovariant}
+\index{Index!kontravariant}
+Die Indizes laufen jeweils von $1$ bis zu einem maximalen Wert, der jedoch
+für unterschiedliche Indizes verschieden sein kann.
+\end{definition}
+
+Ein Spaltenvektor ist also ein Tensor mit einem kontravarianten Index,
+ein Zeilenvektor ist ein Tensor mit einem kovarianten Index.
+Eine Matrix $A$ ist ein Tensor mit einem kovarianten und einem kontravarianten
+Index.
+
+\subsubsection{Summationskonvention}
+In einem Matrizenprodukt $\text{Zeile}\times\text{Spalte}$ kommt 
+genau eine Summe mit einem tiefgestellten Index für die ``Zeile'' und
+einem hochgestellten Index für die ``Spalte'' vor.
+Summen können im Matrixkalkül überhaupt nur auf diese Art sinnvoll
+gebildet werden.
+Dies führt uns auf die folgende Einsteinsche Summationskonvention
+\begin{definition}
+\label{tensor:summationskonvention}
+Kommt in einem Tensorterm ein Index sowohl hochgestellt wie auch tiefgestellt
+vor, dann ist über diesen Index automatisch zu summieren.
+\end{definition}
+
+Da einzelne Vektor-Komponenten aber normalerweise ohnehin nicht interessant
+sind, sonndern immer nur Vektoren als ganzes, ist ein Ausdruck mit gleichem
+hochgestelltem und tiefgestelltem Index für sich allein genommen eigentlich
+nie sinnvoll.
+Indizes, über die nicht summiert wird, sind für sich genommen normalerweise
+auch nicht interessant.
+Sie zeigen nur an, über welche Indizes noch summiert werden könnte, sie
+sind also eigentlich nur Platzhalter ohne individuelle Bedeutung.
+
+Mit dieser Konvention können wir das Matrizenprodukt jetzt neu mit
+Tensoren als
+\begin{equation}
+u=Av
+\qquad\Rightarrow\qquad
+u^i = a^i_jv^j
+\end{equation}
+schreiben.
+Offenbar ist diese Notation nur unbedeutend komplizierter.
+Sie ermöglicht nun aber auch die lineare Abhängigkeit eines
+Vektors von drei anderen Vektoren wie beim Riemannschen Krümmungstensor
+in kompakter Weise
+\[
+u'^i
+=
+R^i\mathstrut_{jkl}u^jv^kw^l
+\]
+auszudrücken.
+Man beachte, dass mit dieser Formel implizit drei Summationen der Indizes
+$j$, $k$ und $l$ ausgedrückt sind.
+
+\subsubsection{Verjüngung und Spur}
+Setzt man bei einer Matrix den oberen und unteren Index gleich, bedeutet
+dies nach der Einsteinschen Summationskonvention, dass man die Summe
+der Diagonalelemente bildet.
+Man hat also
+\[
+\operatorname{Spur}A=a_i^i.
+\]
+Der Unterschied zum Spuroperator ist aber, dass wir diese Operation
+jetzt für jedes beliebige Paar von Indizes eines Tensors anwenden können.
+\begin{definition}
+\label{tensor:definition:verjuengung}
+Sei der Tensor $a^{ij}_{klm}$ gegeben
+Setzt man zwei Indizes gleich und summiert gemäss der Einsteinschen
+Summationskonvention, entsteht ein neuer Tensor mit je einem hoch-
+und einem tiefgestellten Index weniger.
+Setzt man im Tensor $a^{ij}_{klm}$ die Indizes $j$ und $l$ gleich,
+nennt man $a^{ij}_{kjm}$ die Verjüngung von $a^{ij}_{klm}$ über die
+Indizes $j$ und $l$.
+\end{definition}
+
+\subsubsection{Kronecker-Symbol, Index hoch- und herunterziehen}
+Die Transposition, die Vertauschung von Zeilen und Spalten,
+macht aus einem Spaltenvektor einen Zeilenvektor und aus einem
+Zeilenvektor einen Spaltenvektor.
+Im erweiterten Tensorkalkül bedeutet dies, dass wir eine Operation
+brauchen, die aus einem hochgestellten Index einen tiefgestellten
+Index macht und umgekehrt.
+Die Transposition ist auch eine lineare Operation, denn es gilt
+\[
+(u+v)^t = u^t + v^t
+\qquad
+\text{und}
+\qquad
+(\lambda u)^t = \lambda u^t.
+\]
+Es muss also einen Tensor geben, so dass Multiplikation des Vektors $v^i$
+damit die Transposition ergibt.
+Der Tensor braucht einen tiefgestellten Index für die Summenbildung
+über den Vektorindex $i$.
+Das Resultat soll hat einen tiefgestellten Index, der gesuchte Tensor
+braucht also einen weiteren tiefgestellten Index.
+Wir bezeichnen diesen Tensor mit $\delta_{ik}$.
+Wir möchten zudem erreichen, dass $u_i=\delta_{ik}v^k=u^i$ gilt.
+Offenbar ist das nur möglich, wenn
+\[
+\delta_{ik}
+=
+\begin{cases}
+1&\qquad i=k   \\
+0&\qquad i\ne k.
+\end{cases}
+\]
+Dieses Symbol $\delta_{ik}$ heisst Kronecker-Symbol.
+Analog können wir mit
+\[
+\delta^{ik}
+=
+\begin{cases}
+1&\qquad i=k   \\
+0&\qquad i\ne k
+\end{cases}
+\]
+einen Index hochziehen, indem wir
+\[
+u^i=\delta^{ik}v_k = v_i
+\]
+bilden.
+Das Symbol
+\[
+\delta_i^k
+=
+\begin{cases}
+1&\qquad i=k   \\
+0&\qquad i\ne k
+\end{cases}
+\]
+verändert dagegen einen Vektor nicht, denn es ist
+\[
+\delta_i^k v_k = v_k
+\qquad\text{und}\qquad
+\delta_i^k v^i = v^k.
+\]
+Da $\delta_i^k$ einen hoch- und einen tiefgestellten Index hat,
+kann es auch als Matrix betrachtet werden, es ist die Einheitsmatrix.
+
+Die $\delta_{ik}$, $\delta^{ik}$ und $\delta_i^k$ können natürlich auch
+auf beleibige Tensoren angewendet werden, um aus einem beliebigen
+hochgestellten Index einen tiefgestellten Index zu machen und umgekehrt.
+Da es aber in einem Tensor wie $a_{ijk}$ auf die Reihenfolge der Indizes
+ankommt, müssen wir beim hoch- und herunterziehen von Indizes sicherstellen,
+dass die Position innerhalb der Liste der Indizes erhalten bleibt.
+Dies wird in der folgenden Definition erreicht.
+
+\begin{definition}
+Die Operation
+\[
+a_{imkl}\delta^{mj}=a_i\mathstrut^j\mathstrut_{kl}
+\]
+heisst {\em Hochziehen des Index $j$} im Tensor $a_{ijkl}$.
+Die Operation
+\[
+a^{ijkl}\delta_{mj}=a^i\mathstrut_j\mathstrut^{kl}
+\]
+heisst {\em Herunterziehen des Index $j$} im Tensor $a^{ijkl}$.
+\end{definition}
+
+Wir werden später an einen Tensor zusätzliche Anforderungen stellen,
+die zeigen werden, dass $\delta_{ik}$, $\delta^{ik}$ und $\delta_i^k$
+keine Tensoren sind.
+Deshalb haben wir oben jeweils nur von einem Symbol gesprochen.
+
+\subsubsection{Inverse Matrix}
+Eine $n\times n$-Matrix $A$ bildet einen Vektor $v$ auf einen
+neuen Vektor $u=Av$ ab.
+In Tensornotation schreiben wir die Matrix als $a_i^k$ und die Vektoren
+als $v^i$ bzw.~$v^k$, und den Zusammenhang zwischen $u$ und $v$ als
+$u^k=a_i^kv^i$.
+Es ist wohlbekannt, dass die inverse Matrix $A^{-1}$ diese Abbildung
+rückgängig machen kann kann, es ist $A^{-1}Av=v$ für jeden Vektor $v$.
+Schreiben wir  $\bar a_i^k$ für die Komponenten der Matrix $A^{-1}$,
+dann bedeutet dies, dass
+\[
+v^i = \bar a^i_ka_j^kv^j.
+\]
+Wir lesen daraus ab, dass
+\[
+\bar a_k^i a_j^k = \delta^i_j,
+\]
+oder in Matrixnotation $A^{-1}A=E$.
+
+Dies funktioniert, weil die Räume der Vektoren $v$ und $u$ die gleiche
+Dimension haben.
+Für kompliziertere Tensoren ist dies nicht mehr möglich.
+Ein Tensor der Form $a^k\mathstrut_{ij}$ erzeugt bei der Anwendung
+auf einen Vektor $v^i$ das Objekt $b^k_j=a^k\mathstrut{ij}v^i$, welches
+zwei freie Indizes hat, also eine Matrix darstellt.
+Der Raum der $n\times n$-Matrizen ist aber $n^2$-dimensional, während
+der Raum der Vektoren $v$ nur $n$-dimensional ist.
+Insbesondere kann die Abbildung $v^i\mapsto b^k_j$ nicht invertiert
+werden.
+Die Inverse Matrix ist also nicht direkt auf beliebige Tensoren 
+verallgemeinerungsfähig.
+
 \subsection{Tensoren beliebiger Stufe}
+Man nennt 
+
 \subsection{Symmetrische und Antisymmetrische Tensoren}
+
 \subsection{Skalarprodukt und Metrik}
 
 \section{Kovarianz und Kontravarianz}
+Bisher sind wir davon ausgegangen, dass die Stellung eines Index die
+einzige wesentliche Eigenschaft ist wenn es darum geht zu beschreiben,
+was für ein Objekt $u^i$ oder $v_j$ ist.
+Dies ist jedoch nicht ganz zutreffend.
+Die Zahlen $u^i$ und $v_j$ beschreiben einen Vektor, doch dafür ist
+die Wahl einer Basis Voraussetzung.
+Dies bedeutet auch, dass die Wahl einer anderen Basis zu anderen
+Koeffizienten $u^i$ oder $v_j$ führt, die immer noch den gleichen
+Vektor beschreibt.
+Wir müssen daher bei jedem Tensor auch beschreiben, wie die Komponenten
+sich ändern, wenn man eine andere Basis wählt.
+
 \subsection{Basistransformation}
+Wir betrachten jetzt zwei verschiedenen Basen
+\[
+B=\{b_1,\dots,b_n\}
+\qquad\text{und}\qquad
+B'=\{b'_1,\dots,b_n'\}.
+\]
+eins Vektorraumes $V$.
+Da beide Mengen $B$ und $B'$ jeden beliebigen Vektor $v\in V$ auszudrücken
+gestatten, gibt es Zahlen $v^i$ und $v^{\prime i}$, mit denen sich der Vektor
+$v$ beschreiben lässt:
+\begin{equation}
+v = v^ib_i = v^{\prime i}b'_i,
+\label{tensor:basistransformation1}
+\end{equation}
+wir stellen uns die Frage, wie $v^{\prime i}$ aus $v^i$ berechnet
+werden kann.
+
+Da die Vektoren $b_i\in V$ sind, können wir auch diese Vektoren durch
+die Vektoren $b'_i$ beschreiben.
+Es muss Zahlen $t^k_i$ geben, so dass
+\begin{equation}
+b_i = t_i^k b'_k
+\label{tensor:basistransformation2}
+\end{equation}
+gilt.
+Daraus können wir aber auch ablesen, wie die Koeffizienten $v^{\prime i}$
+zu berechnen sind.
+Setzen wir \eqref{tensor:basistransformation2} in
+\eqref{tensor:basistransformation1} ein, erhalten wir
+\begin{equation}
+v = v^i b_i = v^i t_i^kb'_k.
+\end{equation}
+Durch Vergleich mit dem zweiten Teil von \eqref{tensor:basistransformation1}
+erkennen wir, dass 
+\begin{equation}
+v^i t_i^k
+=
+t_i^k v^i
+=
+v^{\prime k}.
+\label{tensor:basistransformation3}
+\end{equation}
+Die Matrix $t_i^k$ beschreibt also auch die Transformation der Koordinaten
+$v^{\prime k}$.
+
+Die inverse Matrix $\bar t_j^i$ erfüllt die Bedingung
+$\bar t_j^i t_i^k=\delta_i^k$.
+Multiplizieren wir \eqref{tensor:basistransformation1} mit $\bar t_j^i$,
+erhalten wir
+\begin{equation}
+\bar t_j^i b_i
+=
+\bar t_j^i t_i^k b'_k
+=
+\delta_j^k b'_k
+=
+b'_j,
+\end{equation}
+die inverse Matrix vermittelt also die Transformation in der umgekehrten
+Richtung.
+Wendet man die inverse Matrix auf \eqref{tensor:basistransformation3} an,
+erhält man eine entsprechende Formel für die Umrechnung 
+\[
+\bar t_k^j
+t_i^k v^i
+=
+\bar t_k^j
+v^{\prime k}
+=
+v^j.
+\]
+Die Formel \eqref{tensor:basistransformation3} liefert als in jedem Fall
+die Transformation zwischen Komponenten eines Vektors ausgedrückt
+in verschiedenen Basen.
+
 \subsection{Kovarianz und Kontravarianz}
+Die Formel \eqref{tensor:basistransformation3} beschreibt die Transformation
+zwischen kontravarianten Vektorkomponenten, es fehlt uns eine entsprechende
+Formel für kovariante Komponenten.
+Wir verwenden dazu, dass ein kovarianter Index den Zweck hat, mit einem
+kontravarianten Index zusammen summiert zu werden.
+Ist $u_i$ ein kovarianter Vektor und $v^i$ ein kontravarianter Vektor,
+dann ist $u_iv^i$ eine Zahl.
+Wenn $u_iv^i$ ein Objekt beschreiben soll, welches von der Wahl der
+Basis unabhängig ist, dann darf es sich nicht ändern, wenn wir zu einer
+anderen Basis übergehen.
+Wir fordern daher, dass 
+\[
+\begin{aligned}
+u_iv^i
+=
+u_i \bar t^i_k v^{\prime k}
+=
+u'_k v^{\prime k}
+\qquad\Rightarrow\qquad
+u'_k
+&=
+u_i \bar t^i_k
+\\
+t^k_i
+u'_k
+&=
+u_i
+\end{aligned}
+\]
+gilt.
+Dies ist eine Transformationsformel für die kovarianten Komponenten
+$u_i$ eines Vektors.
+Stellt man die Transformationsformeln für $v^i$ und $u_i$ gegenüber
+\[
+v^{\prime k}
+=
+t_i^k v^i
+\qquad\text{und}\qquad
+u_i
+=
+t^k_i
+u'_k,
+\]
+erkennt man, dass die Transformation für die kovarianten Komponenten
+vom gestrichenen Koordinatensystem zum ungestrichenen die gleiche Matrix
+verwendet wie \eqref{tensor:basistransformation1}, wenn die 
+ungestrichenen Basisvektoren durch gestrichene ausgedrückt werden sollen.
+Die Transformation der kontravarianten Komponten dagegen verwendet ebenfalls
+die gleiche Matrix aber für die Transformation von ungestrichenen
+zu gestrichenen Koordinaten, also in der umgekehrten Richtung.
+Dies erklärt auch die Namen kovariant und kontravariant.
+
+Wie soll ein Tensor höherer Stufe transformiert werden?
+Die einfachsten Tensoren höherer Stufe sind Produkte von
+ko- oder kontravarianten Tensoren erster Stufe.
+Der Tensor $a^{ij}=u^iv^j$ hat offensichtlich das Transformationsgesetz
+\[
+a^{\prime ij}
+=
+u^{\prime i}v^{\prime j}
+=
+t^i_k u^k
+t^j_l v^l
+=
+t^i_k
+t^j_l
+a^{kl}.
+\]
+Dir können daraus ablesen, dass jeder kovariante Index
+vom ungestrichenen zum gestrichenen Koordinatensystem mit der Matrix
+$t^i_k$ transformiert werden muss.
+Analog zeigt der Tensor $a_{ij}=u_iv_j$ und die Rechnung
+\[
+a_{ij}
+=
+u_iv_j
+=
+t_i^k u'_k
+t_j^l v'_l
+=
+t_i^k
+t_j^l a'_{kl},
+\]
+dass die Matrix $t_i^k$ für die Transformation jedes kontravarianten 
+Index vom gestrichenen zum ungestrichenen verwendet werden muss.
+
+\begin{definition}
+Eine $p$-fach kovarianter und $q$-fach kontravarianter Tensor ist
+eine Grösse
+\[
+a_{i_1\dots i_p}^{j_1\dots j_q},
+\]
+die bei Basiswechsel zur gestrichenen Basis gemäss den äquivalenten Formeln
+\begin{align*}
+a_{i_1\cdots i_p}^{j_1\cdots j_q}
+\,
+t_{j_1}^{k_1}
+\cdots
+t_{j_p}^{k_q}
+&=
+a_{i_1\cdots i_p}^{\prime l_1\cdots l_q}
+\,
+t_{l_1}^{k_1}
+\cdots
+t_{l_q}^{k_q}
+\\
+a_{i_1\cdots i_p}^{j_1\cdots j_q}
+&=
+a_{k_1\cdots k_p}^{\prime l_1\cdots l_q}
+\,
+t_{l_1}^{j_1}\cdots t_{l_q}^{j_q}
+\,
+\bar t_{i_1}^{k_1}\cdots \bar t_{i_p}^{k_p}
+\\
+a_{i_1\cdots i_p}^{j_1\cdots j_q}
+\,
+\bar t_{k_1}^{i_1}\cdots \bar t_{k_p}^{i_p}
+\,
+t_{j_1}^{l_1}\cdots t_{j_q}^{l_q}
+&=
+a_{k_1\cdots k_p}^{\prime l_1\cdots l_q}
+\end{align*}
+transformiert wird.
+\end{definition}
+
+Ein den meisten Fällen sind die Transformationsregeln eine automatische
+Folge der Definition der Objekte und müssen nicht weiter verifiziert werden.
+
+\subsection{Koordinatenfreie Darstellung}
 
 \section{Anwendungen}
+
 \subsection{Tangentialvektoren einer Mannigfaltigkeit}
 \subsection{Metrik auf einer Mannigfaltigkeit}
 \subsection{Kovariante Ableitung, Geodäten und Krümmung}
+\subsection{Äussere Ableitung und Maxwell-Gleichungen}
 \subsection{Symbol eines Differentialoperators als Tensor}
 
