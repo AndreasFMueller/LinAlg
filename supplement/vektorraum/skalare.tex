@@ -1,0 +1,593 @@
+%
+% skalare.tex
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Skalare -- Körper}
+In der elementaren lineare Algebra können Vektoren mit reellen
+Zahlen multipliziert werden, Zahlen können mit Zahlen multiplizert
+werden, Vektoren mit Vektoren, aber es gibt keine Multiplikation
+von Vektoren.
+Ausserdem kann man natürlich durch beliebige reelle Zahlen teilen,
+eine wesentliche Voraussetzung für die Lösung von linearen Gleichungssysteme.
+Die lineare Algebra unterscheidet also Objekte, die nicht miteinander
+multipliziert werden können und solche, für die alle arithmetischen
+Operationen möglich sind.
+
+Die reellen Zahlen haben aber noch viel mehr Struktur, welche in
+der linearen Algebra nicht benötigt werden.
+Zum Beispiel können positive und negative reelle Zahlen unterschieden
+werden, eine Eigenschaft, die für die Lösung linearer Gleichungssyteme
+irrelevant zu sein scheint.
+Jede Cauchy-Folge reeller Zahlen hat einen Grenzwert, doch das Konzept
+des Grenzwertes spielt in der elementaren linearen Algebra ebenfalls
+keine Rolle.
+
+Ziel dieses Kapitel ist daher, die tatsächlich nötigen, minimalen
+Anforderungen an die Skalare in der linearen Algebra zu formulieren.
+Dabei wird die Struktur des Zahlkörpers in den Vordergrund gerückt
+und weitere Beispiele von Zahlkörpern werden besprochen.
+Der Fall der endlichen Körper wird im Kapitel~\ref{chapter:endlichekoerper}
+im Detail untersucht.
+
+\subsection{Skalare}
+Welche Operation nötig sind, um lineare Gleichungssysteme zu lösen
+verraten schon das einfachsten lineare Gleichungsysteme.
+Aus dem $1\times 1$-Gleichungssystem 
+\[
+ax=b\qquad\Rightarrow\qquad x=\frac{b}{a}
+\]
+folgt, dass man durch beliebige von $0$ verschiedene Elemente dividieren
+können muss.
+Das Gleichungssystem
+\[
+\left.
+\begin{linsys}{3}
+ax&+&by&=&c\\
+  & &dy&=&e
+\end{linsys},
+\right\}
+\qquad\Rightarrow\qquad
+y=\frac{e}{d},\quad
+x=\frac1{a}\biggl(c-b\frac{e}{d}\biggr)
+\]
+kann nur gelöst werden, wenn auch die Subtraktion zur Verfügung steht.
+Eine im Sinne des Ziels der Lösung linearer Gleichungen sinnvolle 
+Theorie kann also nur aufgebaut werden, wenn alle arithmetischen
+Grundoperationen zur Verfügung stehen.
+
+Mehr als die arithmetischen Grundoperationen ist erst dann nötig, 
+wenn man Eigenwerte bestimmen will. 
+Dann müssen zum Beispiel Nullstellen des charakteristischen Polynoms
+bestimmt werden.
+Doch einfache Bespiele zeigen, dass dies nicht einmal in den reellen
+Zahlen immer möglich ist.
+Das Ziel muss daher sein, Zahlenmengen zu charakterisieren, die die
+Rolle der Skalare in der linearen Algebra übernehmen können.
+Eine solche Menge muss die Lösung beliebiger lineare Gleichungssysteme
+ermöglichen, wir verlangen aber nicht, dass auch beliebige Eigenwertprobleme
+gelöst werden können.
+
+\subsection{Körper}
+Die folgende Definition beschreibt eine Zahlenmenge, in der alle
+Grundoperationen zur Verfügung stehen, eine solche Menge heisst
+ein {\em Körper}.
+\index{Körper}%
+
+\begin{definition}
+Sei $K$ eine Menge mit zwei Operationen, der Addition, geschrieben $+$,
+und der Multiplikation, geschrieben $\cdot$, die die folgenden
+Eigenschaften hat:
+\begin{compactenum}
+\item Die Addition ist assoziativ und kommutativ.
+\item Es gibt ein neutrales Element $0\in K$ für die Addition,
+d.~h.~$a+0=a$ für alle $a\in K$.a
+\item Jede Gleichung $x+a=b$ mit $a,b\in K$ kann eindeutig nach $x$ aufgelöst
+werden.
+\item Die Multiplikation ist assoziativ und kommutativ.
+\item Es gibt ein neutrales Element $1$ für die Multiplikation,
+d.~h.~$1\cdot a=a$ für alle $a\in K$.
+\item Jede Gleichung $ax=b$ mit $a,b\in K$ und $a\ne 0$ kann eindeutig 
+nach $x$ aufgelöst werden, die Lösung wird $x=b/a=ba^{-1}$ geschrieben.
+\item Für beliebige $a,b,c\in K$ gilt
+$a(b+c)=ab+ac$.
+\end{compactenum}
+$K$ heisst ein {\em Körper}.
+\end{definition}
+
+Die Forderung nach Assoziativität stellt sicher, dass Summen oder
+Produkte mit mehr als zwei Summanden bzw.~Faktoren in beliebiger
+Reihenfolge berechnet werden können.
+
+Die Forderung nach Kommutativität sieht im Moment vor allem nach
+Bequemlichkeit aus.
+Eine genauere Analyse des Gauss-Algorithmus zeigt jedoch, dass er 
+nur für kommutative Skalare funktioniert.
+
+Die Bedingung 3 definiert die Subtraktion während Bedingung 6
+besagt, dass man auf eindeutige Art durch von $0$ verschiedene
+Zahlen teilen kann.
+
+Die Bedingung~7, das Distributivgesetz, stellt sicher,
+dass die algebraischen Operationen
+sich so verhalten, wie man es sich aus der Schule kennt.
+Zum Beispiel kann die Gleichug $ax+b=c$ auf zwei Arten gelöst werden
+\begin{align*}
+\xymatrix{
+\txt{}	&{ay+b=c}\ar[dr]\ar[dl]
+\\
+ay=c-b \ar[d]	&\txt{}	&y+ba^{-1}=ca^{-1}\ar[d]
+\\
+y=(c-b)a^{-1}&\txt{}&	y=ca^{-1}-ba^{-1}
+}
+\end{align*}
+Auf dem linken Ast wir erst die Konstante $b$ auf die rechte Seite
+gebracht, auf dem rechten wird erst durch $a$ dividiert.
+Natürlich sollten beide Lösungen übereinstimmen, dies ist nur möglich,
+wenn das Distributivgesetz gilt.
+
+\subsection{Beispiele}
+Die reellen Zahlen bilden ganz offensichtlich einen Körper.
+Andererseits bilden die ganzen Zahlen ganz bestimmt keinen Körper,
+denn die Gleichung $2x=1$ hat keine ganzzahlige Lösung, im Widerspruch
+zu Eigenschaft~6 eines Körpers.
+Auch die natürlichen Zahlen bilden keinen Körper, denn die Gleichung
+$x+1=0$ hat keine Lösung in $\mathbb N$, im Widerspruch zur Eigenschaft~3
+eines Körpers.
+In diesem Kapitel sollen daher ein paar Beispiele von Köpern
+zusammengestellt werden.
+
+\subsubsection{Rationale Zahlen}
+Die rationalen Zahlen $\mathbb Q$ erweitern die ganzen Zahlen $\mathbb Z$
+so, dass beliebige Divisionen durchführen kann.
+Die rationalen Zahlen bilden den kleinsten Körper, der die ganzen
+Zahlen enthält.
+Die ganze lineare Algebra liesse sich also auch ausschliesslich in
+den rationalen Zahlen entwickeln.
+
+\subsubsection{Quotientenkörper eines Ringes}
+Die rationalen Zahlen enstanden dadurch, dass aus ganzen Zahlen $\mathbb Z$
+Brüche konstruiert wurden.
+Wenn wir die Elemente der Menge
+\[
+\{ (z,n)\,| z,n\in\mathbb Z\wedge n\ne 0\}
+\]
+als Brüche betrachten wollen, dann müssen wir zwei Brüche
+$(z_1,n_1)$ und $(z_2,n_2)$ als gleich betrachten, wenn sie
+übereinstimmen, sobald man sie gleichnamig gemacht hat.
+Multipliziert man $(z_1,n_1)$ mit $n_2$ und $(z_2,n_2)$ mit $n_1$, dann
+beschreiben die erweiterten Brüche
+$(z_1n_2,n_1n_2)$ und $(z_2n_1,n_1n_2)$ die gleiche Zahl, wenn
+$z_1n_2=z_2n_1$.
+Eine rationale Zahl $q=z/n$ kann also betrachtet werden als die
+Teilmenge
+\[
+q
+=
+M(q)
+=
+\{(z',n')\,|\, z',n'\in\mathbb Z\wedge n'\ne 0 \wedge zn'=z'n\}
+\subset
+\{(z',n')\,|\, z',n'\in\mathbb Z\wedge n'\ne 0\}.
+\]
+Die Menge der $M(q)$ kann betrachtet werden als die Menge der rationalen
+Zahlen.
+
+Diese Konstruktion kann verallgemeinert werden, wie wir an einem
+Beispiel illustrieren wollen.
+Sei $R=\mathbb R[X]$ die Menge der Polynome in der Variablen $X$
+mit reellen Koeffizienten.
+Die Axiome eines Körpers sind für $R$ nicht alle erfüllt.
+Bedingung~6 ist nicht erfüllt, da man im Allgemeinen nicht durch Polynome
+dividieren kann.
+
+Motiviert durch die Konstruktion der Brüche kann man jedoch die Menge
+der Brüche von Polynomen konstruieren.
+Dazu betrachtet man zunächst die Menge
+\[
+\{ (p,q)\,|\, p,q\in \mathbb R[X]\wedge q\ne 0\}
+\]
+von Paaren von Polynomen.
+Dann bildet man für ein vorgegebenens Paar von Polynomen $r=(p,q)$ die
+Teilmenge
+\[
+M(r)
+=
+\{ (p',q')\,|\, p',q'\in \mathbb R[X]\wedge q'\ne 0\wedge pq'=p'q\}.
+\]
+Die Menge $M(r)$ besteht aus allen Polynombrüchen, die nach 
+Gleichnamigmachen mit $q$ übereinstimmen.
+Wir nennen die Menge 
+\[
+\mathbb R(X)
+=
+\{ M(r)\, |\, r=(p,q)\wedge p,q\in\mathbb R[X]\wedge q\ne 0\}
+\]
+die Menge der rationalen Funktionen in der Variablen $X$, sie ist
+ein Körper.
+Wir verwenden im Folgenden wieder die üblichere Schreibweise $p(X)/q(X)$
+für $r\in\mathbb R(X)$.
+
+Die Konstruktion der Brüche funktioniert, solange die Operation des
+Gleichnamigmachens wohldefiniert ist.
+Dazu ist zunächst notwendig, dass bleibige Multiplikationen ausführbar
+sind.
+Eine Menge $R$, die alle Axiome eines Körpers ausser 5 und 6 erfüllt,
+heisst ein kommutativer Ring.
+
+Dann ist notwendig, dass die Multiplikation der Nenner nie auf $0$ führt.
+Man nennt $R$ einen {\em Integritätsbereich},
+wenn $n_1n_2\ne 0$ für beliebige $n_1,n_2\ne 0$.
+\index{Integritätsbereich}%
+Die Konstruktion der Brüche ist also möglich für beliebige
+Integritätsbereiche.
+
+\subsubsection{Komplexe Zahlen}
+Die Menge $\mathbb C$ der komplexen Zahlen entstehen aus der Menge $\mathbb R$
+der reellen Zahlen dadurch, dass man ein neues Element $i$ mit der Eigenschaft
+$i^2=-1$ hinzufügt, dabei aber alle anderen Rechenregeln beibehält.
+Da das Quadrat von $i$ wieder eine reelle Zahl ist, kann man jede beliebige
+komplexe Zahl in der Form $a+bi$ schreiben.
+Es stellt sich heraus, dass man in der Menge der komlexen Zahlen beliebig
+divideren kann:
+\[
+\frac{a+bi}{c+di}
+=
+\frac{a+bi}{c+di}
+\cdot
+\frac{c-di}{c-di}
+=
+\frac{ac-bd + i(ad+bc)}{c^2 + d^2},
+\]
+natürlich nur, wenn $c^2+d^2\ne 0$ oder $c+di\ne 0$.
+Die Menge $\mathbb C$ ist also ein Körper.
+
+Die besondere Bedeutung der komplexen Zahlen für die lineare Algebra ist, 
+dass darin nicht nur Gleichungssyteme gelöst werden können.
+In $\mathbb C$ kann auch jede Polynomgleichung gelöst werden, so dass
+sich das Eigenwertproblem immer lösen lässt.
+
+\subsubsection{Endliche Körper}
+In der Menge $\mathbb F_p=\mathbb F_5$ der Reste bezüglich der Primzahl
+$p=5$ sind die Addition und die Multiplikation wohldefiniert.
+Die Additions- und Multiplikationstabellen sind
+\[
+\begin{tabular}{|c|ccccc|}
+\hline
+$+$&0&1&2&3&4\\
+\hline
+0&0&1&2&3&4\\
+1&1&2&3&4&0\\
+2&2&3&4&0&1\\
+3&3&4&0&1&2\\
+4&4&0&1&2&3\\
+\hline
+\end{tabular}
+\qquad
+\begin{tabular}{|c|ccccc|}
+\hline
+$\cdot$&0&1&2&3&4\\
+\hline
+0&0&0&0&0&0\\
+1&0&1&2&3&4\\
+2&0&2&4&1&3\\
+3&0&3&1&4&2\\
+4&0&4&3&2&1\\
+\hline
+\end{tabular}
+\]
+Da in jeder Zeile jede Zahl genau einmal vorkommt (ausser in den ersten
+Zeilen und Spalte in der Multiplikationstabelle) kann man schliessen, dass
+die Menge $\mathbb F_5$ die Bedingungen 3 und 6 eines Körpers erfüllt.
+Somit ist $\mathbb F_5$ ein Körper.
+Es gilt sogar allgemein für jede beliebige Primzahl, dass die Menge
+$\mathbb F_p$ ein Körper ist.
+Im Gegensatz zu den bereits untersuchten Körpern ist $\mathbb F_p$ endlich.
+Die lineare Algebra in endlichen Körpern wird in
+Kapitel~\ref{chapter:endlichekoerper} genauer untersucht.
+
+Allerdings lassen sich nicht alle Polynomgleichungen mit Koeffizienten
+in $\mathbb F_5$ lösen.
+Die Gleichung
+\[
+x^2-2=0
+\]
+hat keine Lösung in $\mathbb F_5$, wie man durch Inspektion der
+Multiplikationstabelle einsehen kann.
+
+
+\subsection{Körpererweiterungen}
+Die Körper der rationalen Zahlen und der reellen Zahlen sind insofern
+nicht optimal für die lineare Algebra, dass sich das Eigenwertproblem
+nicht immer lösen lässt.
+Dabei wäre es nur nötig, dass der Körper die Nullstellen des
+charakteristischen Polynoms enthält. 
+Die Matrix
+\[
+J=\begin{pmatrix}0&-1\\1&0\end{pmatrix}
+\]
+hat das charakteristishe Polynom
+\[
+\varphi_{J}(\lambda)
+=
+\left|\begin{matrix}-\lambda&-1\\1&-\lambda\end{matrix}\right|
+=
+\lambda^2+1 = 0
+\qquad\Rightarrow\qquad
+\lambda=\pm i.
+\]
+Die Eigenwerte von $J$ sind also nicht im Körper enthalten,
+und damit können auch die Eigenvektoren nicht reell sein.
+
+Betrachtet man $J$ dagegen als komplexe Matrix, lassen sich sofort
+Eigenvektoren für die Eigenwerte $\pm i$ angeben.
+Dazu verwendet man den Gauss-Algorithmus auf die Matrix $J\pm iI$ an:
+\[
+\begin{aligned}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-i&-1&0\\
+ 1&-i&0\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&-i&0\\
+ 0& 0&0\\
+\hline
+\end{tabular}
+&&\Rightarrow
+&
+v_+&=\begin{pmatrix}i\\1\end{pmatrix}
+&
+Jv_+&=\begin{pmatrix}-1\\i\end{pmatrix}
+=
+i\begin{pmatrix}i\\1\end{pmatrix}
+=
+iv_+,
+\\
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ i&-1&0\\
+ 1& i&0\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& i&0\\
+ 0& 0&0\\
+\hline
+\end{tabular}
+&&\Rightarrow
+&
+v_-&=\begin{pmatrix}-i\\1\end{pmatrix}
+&
+Jv_-&=\begin{pmatrix}1\\i\end{pmatrix}
+=
+-i\begin{pmatrix}-i\\1\end{pmatrix}
+=
+-iv_-.
+\end{aligned}
+\]
+Das Eigenwertproblem ist also vollständig lösbar geworden, indem
+man dem ursprünglichen Körper genau die fehlenden Elemente, in diesem
+Fall $i$ und $-i$ hinzugefügt hat, und wieder dafür gesorgt hat, dass
+man einen Körper hat.
+So ist der Körper $\mathbb C$ entstanden.
+
+Man kann die Matrix $J$ aber auch als rationale Matrix betrachten.
+Nach den eben gezeigten Lösung des Eigenwertproblems müsste es also
+reichen, den rationalen Zahlen $\mathbb Q$ nur die imaginäre Einheit $i$
+hinzuzufügen.
+So erhält man eine Teilmenge
+\[
+\mathbb Q(i) = \{a+bi\,|\, a,b\in\mathbb Q\} \subset \mathbb C
+\]
+der komplexen Zahlen mit rationalen Komponenten.
+Damit haben wir einen neuen Körper zwischen $\mathbb Q$ und $\mathbb C$
+gefunden, der gross genug ist, das Eigenwertproblem für $J$ zu lösen.
+
+\subsubsection{Körpererweiterung von $\mathbb Q$}
+Wir versuchen dasselbe Vorgehen für das Eigenwertproblem für die Matrix
+\[
+A
+=
+\begin{pmatrix}
+3&1\\
+1&1
+\end{pmatrix}.
+\]
+Die rationale Matrix $A$ hat das charakteristische Polynom
+\[
+\chi_{A}(\lambda)
+=
+\left|\begin{matrix}3-\lambda&1\\1&1-\lambda\end{matrix}\right|
+=
+(3-\lambda)(1-\lambda)-1
+=
+\lambda^2-4\lambda+2
+\]
+mit den Nullstellen
+\[
+\lambda_{\pm} = 2\pm\sqrt{4-2}=2\pm\sqrt{2} \not\in \mathbb Q.
+\]
+Zwischen den Zahlen $\lambda_+$ und $\lambda_-$ besehen die Beziehungen
+\begin{align*}
+\lambda_+ + \lambda_-=4
+\quad&\Rightarrow\quad \lambda_-=4-\lambda_+
+\\
+\lambda_+\lambda_- = 2
+\quad&\Rightarrow\quad \lambda_-=\frac{2}{\lambda_+}.
+\end{align*}
+Fügen wir die Zahl $\lambda_+$ den rationalen Zahlen hinzu sowie alle
+Zahlen, die sich mit Hilfe der Körperoperationen daraus bilden lassen,
+dann erhalten wir einen Körper, den wir
+\[
+\mathbb Q(2+\sqrt{2})
+=
+\{ a+b(2+\sqrt{2})\,|\, a,b\in\mathbb Q\}
+=
+\{ a + b\sqrt{2}\,|\,a,b\in\mathbb Q\}
+=
+\mathbb Q(\!\sqrt{2})
+\]
+bezeichnen.
+In diesem Körper können wir jetzt das Eigenwertproblem für die Matrix $A$
+lösen:
+\[
+\begin{aligned}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+3-\lambda_+&1          \\
+1          &1-\lambda_+\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1-\sqrt{2}& 1         \\
+1         &-1-\sqrt{2}\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1-\sqrt{2}\\
+0&0          \\
+\hline
+\end{tabular}
+&&\Rightarrow&v_+=\begin{pmatrix}1+\sqrt{2}\\1\end{pmatrix}
+\\
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+3-\lambda_-&1          \\
+1          &1-\lambda_-\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1+\sqrt{2}& 1         \\
+1         &-1+\sqrt{2}\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1+\sqrt{2}\\
+0&0          \\
+\hline
+\end{tabular}
+&&\Rightarrow&v_-=\begin{pmatrix}-1+\sqrt{2}\\1\end{pmatrix}
+\end{aligned}
+\]
+Die Vektoren $v_+$ und $v_-$ haben Komponenten in $\mathbb Q(\!\sqrt{2})$.
+
+Damit haben wir ein allgemeines Prinzip gefunden
+für die Lösung von Eigenwertproblemen in Körpern $K$,
+welche die Nullstellen des charakteristischen Polynoms noch
+nicht enthalten. 
+Wir erweitern den Körper um die Nullstellen $\lambda_1,\dots,\lambda_n$
+und erhalten einen neuen Körper
+\[
+K(\lambda_1,\dots,\lambda_n),
+\]
+der alle $\lambda_i$ enthält und alle Zahlen, die sich daraus durch
+arithmetische Operationen bilden lassen.
+In diesem Körper lässt sich das Eigenwertproblem lösen.
+Man nennt $K(\lambda_1,\dots,\lambda_n)$ eine Körpererweiterung von $K$.
+\index{Körpererweiterung}%
+
+Im Lichte dieser Prozedur erklärt sich die besondere Bedeutung
+von $\mathbb C$ wie folgt. 
+Man muss dem Körper $\mathbb R$ nur die Zahl $i$ hinzufügen um
+den Körper $\mathbb R(i)=\mathbb C$ zu erhalten, in dem sich alle Nullstellen
+von beliebigen reellen Polynomen befinden.
+Die komplexen Zahlen bilden also einen universellen Körper, in dem
+sich jede Polynomgleichung lösen lässt.
+Man nennt $\mathbb C$ {\em algebraisch abgeschlossen}.
+\index{algebraisch abgeschlossen}%
+In einem algebraisch abgeschlossenen Körper lässt sich jedes Eigenwertproblem
+lösen.
+
+\subsubsection{Körpererweiterung eines endlichen Körpers}
+Auch bei endlichen Körpern funktioniert die Körpererweiterungsidee.
+Wir versuchen das Eigenwertproblem für die Matrix $A$ in $\mathbb F_5$ 
+zu lösen.
+Das charakteristische Polynom ist
+\[
+\chi_{A}(\lambda) = \lambda^2 + \lambda + 2,
+\]
+es hat keine Nullstellen in $\mathbb F_5$.
+Sei $\alpha$ eine Zahl, welche Nullstelle des charakteristishen Polynoms ist,
+der erste Eigenwert ist daher $\lambda_1=\alpha$.
+Aus dem charakteristischen Polynom folgt, dass $\alpha^2=-\alpha-2$.
+Dann ist die zweite Nullstelle $\lambda_2=-(\alpha+1)=4(\alpha+1)$,
+wie man durch Ausmultiplizieren 
+\begin{align*}
+(\lambda-\alpha)(\lambda + (\alpha+1))
+&=
+\lambda^2 -\alpha\lambda +(\alpha+1)\lambda -\alpha(\alpha+1)
+=
+\lambda^2 + \lambda-\alpha^2-\alpha
+\\
+&=
+\lambda^2 + \lambda + \alpha + 2 - \alpha
+=
+\lambda^2 + \lambda + 2
+=
+\chi_{A}(\lambda)
+\end{align*}
+nachprüfen kann.
+Dann kann man Eigenvektoren wieder mit dem Gaussalgorithmus ermitteln
+\[
+\begin{aligned}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+3-\alpha &1       \\
+1        &1-\alpha\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1        &1-\alpha\\
+0        &0       \\
+\hline
+\end{tabular}
+&&\Rightarrow
+&v_1&=\begin{pmatrix}-1+\alpha\\ 1 \end{pmatrix},
+\\
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+3+\alpha+1 &1       \\
+1        &1+\alpha+1\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+\alpha-1 &1       \\
+1        &2+\alpha\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1        &2+\alpha\\
+0        &0       \\
+\hline
+\end{tabular}
+&&\Rightarrow
+&v_2&=\begin{pmatrix}3+4\alpha\\ 1 \end{pmatrix}.
+\end{aligned}
+\]
+Ebenfalls durch Ausmultiplizieren kann man nachprüfen, dass dies tatsächlich
+Eigenvektoren sind.
+Damit haben wir gezeigt, dass im Erweiterungskörper $\mathbb F_5(\alpha)$
+das Eigenwertproblem für die Matrix $A$ gelöst werden kann.
+$\mathbb F_5(\alpha)$ spielt also die gleiche Rolle für $\mathbb F_5$, wie
+sie $\mathbb Q(\!\sqrt{2})$ für $\mathbb Q$ spielt.
+

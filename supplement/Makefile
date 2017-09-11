@@ -6,6 +6,7 @@
 all:	supplement.pdf
 
 TEXFILES = einleitung.tex 						\
+	vektorraum/vektorraum.tex					\
 	endlichekoerper/endlichekoerper.tex 				\
 	endlichekoerper/ek-grundlagen.tex 				\
 	endlichekoerper/ek-gauss.tex 					\
