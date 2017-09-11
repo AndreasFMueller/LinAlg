@@ -5,9 +5,12 @@
 #
 all:	supplement.pdf
 
-TEXFILES = einleitung.tex \
-	endlichekoerper.tex \
-	ek-grundlagen.tex ek-gauss.tex ek-gruppen.tex ek-eigenwert.tex \
+TEXFILES = einleitung.tex 						\
+	endlichekoerper/endlichekoerper.tex 				\
+	endlichekoerper/ek-grundlagen.tex 				\
+	endlichekoerper/ek-gauss.tex 					\
+	endlichekoerper/ek-gruppen.tex 					\
+	endlichekoerper/ek-eigenwert.tex 				\
 	hilbertraum.tex \
 	homologie.tex \
 	lie.tex	\
