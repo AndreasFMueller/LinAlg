@@ -45,13 +45,156 @@ Das offensichtliche Beispiel der Zeilen- oder Spalten-Vektoren wollen wir
 hier nicht erneut besprechen.
 
 \subsubsection{Polynome}
+Ist $K$ ein Körper, dann sei
+\[
+K[X]
+=
+\{t
+a_0+a_1X+\dots a_nX^n\,|\, a_0,\dots,a_n\in K\}
+\}h
+\]
+die Menge aller Polynome mit Koeffizienten in $K$.
+$K[X]$ ist ein Vektorraum, denn man kann offenbar Polynome addieren und
+mit Skalaren aus $K$ multiplizieren.
+Die Addition ist kommutativ und das Polynom $0\in K[X]$ ist ihr neutrales
+Element.
+Die Vektorraumaxiome sind nichts anders als die üblichen Rechenregeln
+für Polynome.
+
+Man bemerkt, dass $K[X]$ sogar eine kommutative Multiplikation hat
+mit dem neutralen Element $1$.
+$K[X]$ ist also ein Ring und sogar ein Integritätsbereich, es lässt sich
+also der Quotientenkörper $K(X)$ der rationalen Funktionen mit Koeffizienten
+in $K$ konstruieren.
 
 \subsubsection{Stetige Funktionen}
+Die Menge
+\[
+C([a,b])
+=
+\{ f\colon [a,b]\to \mathbb R\;|\; \text{$f$ ist stetig}\},
+\]
+ist ein $\mathbb R$-Vektorraum.
+Funktionen können punktweise addiert und mit reellen Skalaren multipliziert
+werden, wenn man definiert
+\[
+\begin{aligned}
+(f+g)(x)&=f(x)+g(x)
+&&\text{und}
+&
+(\lambda f)(x)&=\lambda f(x)
+\end{aligned}
+\]
+für $f,g\in C([a,b])$ und $\lambda\in\mathbb R$.
+
+Auch in diesem Fall ist $C([a,b])$ ein Ring mit der konstanten Funktion $1$
+als neutrales Element der Multiplikation.
+Allerdings ist dieser Ring nicht ein Integritätsbereich, da das Produkt der
+beiden stetigen Funktionen
+\[
+f(x)
+=
+\begin{cases}
+0&\qquad x<\frac{a+b}2\\
+x-\frac{a+b}2&\qquad x\ge \frac{a+b}2
+\end{cases}
+\qquad\text{und}\qquad
+g(x)
+=
+\begin{cases}
+\frac{a+b}2-x&\qquad x<\frac{a+b}2\\
+0&\qquad x\ge \frac{a+b}2
+\end{cases}
+\]
+verschwindget: $(fg)(x)=f(x)g(x)=0$.
+Damit ist die Konstruktion des Quotientenkörpers nicht möglich.
+Dies illustriert, dass die algebraische Struktur der Polynome viel
+rigider ist als die der stetigen Funktionen.
+
+Die Menge $C([a,b])$ trägt aber noch zusätzliche Struktur, welche
+wir erst später untersuchen können.
+Es ist möglich, auf $C([a,b])$ eine Norm zu definieren, und damit
+Cauchy-Folgen und Grenzwerte zu definieren.
+Dies ist möglich auf eine Art, dass Grenzwerte von stetigen Funtionen
+existieren und wieder stetige Funktionen sind.
+So etwas ist für Polynome nicht möglich, da man jede beliebige stetige
+Funktion beliebig genau mit Polynomen approximieren kann.
+Wir können den Polynomring daher als einen Teilvektorraunm
+$\mathbb R[X]\subset C([a,b])$ betrachten.
 
 \subsection{Lineare Abhängigkeit}
+Sind $v_i,b\in V$ Vektoren, dann ist
+\begin{equation}
+x_1 v_1 + \dots + x_n v_n = b
+\label{vektorraum:lingl}
+\end{equation}
+ein lineares Gleichungssystem für die Zahlen $x_1,\dots,x_n\in K$.
+Die linke Seite von \eqref{vektorraum:lingl} heisst eine
+{\em Linearkombination} der Vektoren $v_1,\dots,v_n$.
+In diesem Moment interessiert uns nicht die Frage, wie man dieses
+Gleichungsssystem löst, sondern die Frage, ob das Gleichungssystem
+übrerhaupt lösbar ist.
 
+Je nach rechter Seite $b$ könnte es gar keine Lösung der Gleichung
+\eqref{vektorraum:lingl} geben.
+Dieses Phänomen ist bekannt aus der elementaren Theorie, nur wenn
+\[
+b\in \{ x_1v_1+\dots+ x_nv_n\,|x_i\in K\}
+=
+\operatorname{span}(v_1,\dots,v_n)
+=
+\langle v_1,\dots,v_n\rangle,
+\]
+gilt, wird das Gleichungssystem eine Lösung haben.
+Die Menge auf der rechten Seite ist ein Unterraum von $V$ und
+heisst das {\em Erzeugnis} der Vektoren $v_1,\dots,v_n$ oder
+\index{Erzeugnis}%
+der von $v_1,\dots,v_n$ {\em aufgespannte} Vektorraum.
+\index{aufgespannter Vektorraum}%
+Die Bedingung ist aber auf jeden Fall erfüllt für $b=0$, 
+eine Lösung kann man dann auch unmittelbar angeben:
+$(x_1,\dots,x_n)=(0,\dots,0)$.
 
+Es bleibt die Frage, ob die Lösung eindeutig bestimmt ist.
+Nehmen wir an, dass es zwei Lösungen $(x_1,\dots,x_n)$ und
+$(x_1',\dots,x_n')$ des Gleichungssystems \eqref{vektorraum:lingl}
+gibt.
+Für beide Lösung gilt die Gleichung:
+\begin{align*}
+x_1v_1+\dots+x_nv_n&=b\\
+x_1'v_1+\dots+x_n'v_n&=b
+\end{align*}
+Die Differenz ist dann
+\begin{equation}
+(x_1-x_1')v_1+\dots + (x_n-x_h') v_n = 0
+\label{vektorraum:diffgl}
+\end{equation}
+Die Gleichung
+\eqref{vektorraum:lingl} ist also genau dann eindeutig lösbar
+wenn die Gleichung \eqref{vektorraum:diffgl} nur mit den Werten
+\[
+\begin{aligned}
+x_1-x_1'&=0,&&\dots,&
+x_n-x_n'&=0
+\end{aligned}
+\]
+befriedigt werden kann.
+Wir fassen dies zusammen im Begriff der linearen Unabhängigkeit.
 
+\begin{definition}
+Die Vektoren $v_1,\dots,v_n$ heissen {\em linear unabhängig}, wenn die
+Gleichung
+\[
+\lambda_1v_1 + \dots + \lambda_nv_n=0
+\]
+nur die Lösung $\lambda_1=\dots=\lambda_n=0$ hat.
+\end{definition}
+\index{linear abhängig}
 
+Ein lineares Gleichungssystem der Form \eqref{vektorraum:lingl}
+kann als nur dann eindeutig lösbar sein, wenn die Vektoren
+$v_1,\dots,v_n$ linear unabhängig sind.
+Eine Lösung wird nur existieren, wenn die Vektoren
+$v_1,\dots,v_n,b$ linear abhängig sind.
 
 

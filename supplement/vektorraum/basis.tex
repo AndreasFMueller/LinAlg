@@ -1,0 +1,170 @@
+%
+% basis.tex
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Basis}
+Der $K$-Vektorraum $K[X]$ hat die Eigenschaft, dass jeder Vektor darin,
+also jedes Polynom mit Koeffizienten $K$ als Linearkombination einer
+kleinen Menge von Vektoren geschrieben werden kann.
+Die Monome
+\[
+\begin{aligned}
+p_0(X)&=1,
+&
+p_1(X)&=X,
+&
+p_2(X)&=X^2,
+&&\dots&
+p_n(X)&=X^n,
+&&\dots
+\end{aligned}
+\]
+Das Polynom $p(X)=a_0+a_1X+a_2X^2+\dots+a_nX^n$ ist die Linearkombination
+\[
+p(X)
+=
+a_0p_0(X)
++
+a_1p_1(X)
++
+a_2p_2(X)
++\dots
++
+a_np_n(X).
+\]
+Nach dem Prinzip des Koeffizientenvergleichs
+ist ausserdem die Darstellung von $p(X)$ als Linearkombination
+der Polynome $p_0,p_1,\dots,p_n,\dots$ eindeutig.
+Die Menge
+\[
+B=\{p_0,p_1,\dots,p_n,\dots\}
+\]
+hat eine spezielle Bedeutung für den Vektorraum $K[X]$, jeder Vektor
+von $K[X]$ lässt sich auf genau eine Weise als Linearkombination der
+Vektoren aus $B$ darstellen.
+Da die Darstellung immer eindeutig ist, sind die Vektoren in $B$
+linear unabhängig.
+Da sich jeder Vektor als Linearkombination darstellen lässt, ist
+$K[X]=\langle B\rangle$.
+
+\begin{definition}
+Eine Teilmenge $B\subset V$ von Vektoren eines $K$-Vektorraums heisst
+eine {\em Basis} von $V$, wenn jeder Vektor $v\in V$ auf genau eine Art
+als Linearkombination
+\[
+v=\lambda_1b_1+\dots+\lambda_nb_n
+\]
+von Vektoren $b_1,\dots,b_n\in B$ dargestellt werden kann.
+\end{definition}
+
+Man beachte, dass nicht gefordert wurde, dass die Menge $B$ endlich sein
+muss.
+Es ist aber aus der Definition klar, dass die Vektoren in $B$ linear
+unabhängig sind und zusammen den ganzen Vektorraum erzeugen,
+also $V=\langle B\rangle$.
+
+\begin{definition}
+Ein Vektorraum $V$ heisst {\em endlichdimensional}, wenn er eine Basis $B$
+mit endlich vielen Vektoren besteht.
+Die {\em Dimension} eines endlichdimensionalen Vektorraums $V$ ist
+die Anzahl der Basisvektoren $\operatorname{dim} V = |B|$.
+\end{definition}
+
+Diese Definition ist nur sinnvoll, wenn alle möglichen Basen von $V$ die
+gleiche Anzahl Basisvektoren haben, dies ist aber nicht unmittelbar klar.
+Wir fassen das in die Form eines Lemmas und formulieren einen abstrakten
+formalen Beweis.
+
+\begin{lemma}
+Sei $V$ ein endlichdimensionaler $K$-Vektorraum, dann hat jede Basis
+von $V$ die gleiche Anzahl Basisvektoren.
+\end{lemma}
+
+\begin{proof}[Beweis]
+Seien $B$ und $\tilde B$ zwei verschiedenen Basen mit Basisvektoren
+$b_1,\dots,b_n\in B$ und $\tilde b_1,\dots,\tilde b_m\in \tilde B$,
+wobei wir ohne Einschränkung der Allgmeinheit annehmen dürfen, dass $n>m$
+ist.
+Da sowohl $B$ als auch $\tilde B$ Basen sind, lässt sich jeder Basisvektor
+aus den jeweils anderen Basisvektoren linear kombinieren.
+Es gibt also eindeutig bestimmte Zahlen $a_{ij}\in K$ und
+$\tilde a_{ij}\in K$ mit
+\[
+\tilde b_j = \sum_{i=1}^n a_{ji} b_i
+\qquad\text{und}\qquad
+b_i = \sum_{j=1}^m \tilde a_{ij}\tilde b_j.
+\]
+Wir behaupten, dass die Vektoren $b_1,\dots,b_n$ linear abhängig sein 
+müssen, dass also $B$ gar keine Basis sein kann.
+
+Wir behaupten also, dass es Zahlen $\lambda_1,\dots,\lambda_n\in K$
+gibt mit der Eigenschaft
+\[
+\lambda_1 b_1+\dots+\lambda_n b_n = 0,
+\]
+wir müssen zeigen, wie man die Zahlen $\lambda_i$ finden kann.
+Setzt man die Darstellung durch die Vektoren $\tilde b_j$ ein, erhält man
+\[
+\sum_{i=1}^n
+\lambda_i
+\sum_{j=1}^m
+\tilde a_{ij}\tilde b_j
+=
+\sum_{j=1}^m
+\biggl(
+\sum_{i=1}^n
+\lambda_i
+\tilde a_{ij}
+\biggr)
+\tilde b_j
+=
+0.
+\]
+Da die Vektoren $\tilde b_j$ linear unabhängig sind, muss in dieser
+Summe jede Klammer verschwinden:
+\[
+\sum_{i=1}^n \tilde a_{ij}\lambda_i =0 
+\]
+Dies ist ein lineares Gleichungssystem mit $m$ Gleichungen ($j=1,\dots,m$)
+für $n$ Unbekannte ($i=1,\dots,n$).
+Aus der elementaren Theorie wissen wir, dass ein solches Gleichungssystem
+eine nichttriviale Lösung haben muss.
+Damit ist gezeigt, dass die Vektoren $b\in B$ nicht linear unabhängig sein
+können, $B$ kann also gar keine Basis sein.
+Folglich müssen zwei Basen eines endlichdimensionalen Vektorraums
+die gleiche Anzahl.
+\end{proof}
+
+Wir haben diesen formalen Beweis noch aus einem anderen Grund im
+Detail durchgeführt.
+Mit Hilfe der Basis haben wir das Problem auf eine Frage über ein
+Gleichungssystem reduziert.
+Dies ist ein allgemeines Prinzip.
+Sei $B=\{b_1,\dots,b_n\}$ eine Basis des Vektorraums $V$.
+dann lässt sich jeder Vektor $v\in V$  auf eindeutige Art als
+Linearkombination von Vektoren von $B$ darstellen, es gibt
+also Zahlen $v_i\in K$ mit der Eigenschaft
+\[
+v=v_1b_1+\dots+v_nb_n.
+\]
+Zu jedem Vektor $v\in K$ gibt es also einen Spaltenvektor mit Komponenten
+$v_i$, die Abbildung
+\[
+\varphi\colon
+V\to K^n
+:
+v\mapsto \begin{pmatrix}v_1\\\vdots\\v_n\end{pmatrix}
+\]
+ist eine lineare Abbildung.
+Da jeder Vektor als Linearkombination von Vektoren aus $B$ geschrieben
+werden kann, ist $\varphi$ surjektiv.
+Weil die Darstellung als Linearkombination eindeutig ist, ist $\varphi$
+auch injektiv.
+$\varphi$ ist also ein bijektive lineare Abbildung $V\to K^n$.
+Eine Basis ermöglich also, jeden beliebigen Vektorraum $V$ mit einem
+Vektorraum $K^n$ von Spaltenvektoren zu identifizieren.
+
+
+
+
