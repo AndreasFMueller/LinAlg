@@ -4,3 +4,325 @@
 % (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
 \chapter{Kategorie}
+Im vorangegangenen Kapitel haben wir gezeigt, wie die aus der
+elementaren Theorie bekannte Struktur der Spaltenvektoren und
+Matrizen in eine allgemeiner Form zu fassen.
+
+\section{Beispiele von Strukturen}
+In diesem Abschnitt wollen wir ein paar andere bereits bekannte
+Arten von Strukturen zusammenstellen und auf eine Art beschreiben,
+die die Gemeinsamkeit mit den Vektorräumen.
+
+\subsection{Mengen und Abbildungen}
+Mengen für sich genommen haben keine Struktur.
+Das einzige, was uns ermöglich, sie miteinander zu verbinden, sind die
+Abbildungen zwischen Mengen.
+Zum Beispiel können wir mit Hilfe von bijektiven Abbildungen zwischen
+endlichen Mengen herausfinden, welche Mengen gleich viele Elemente haben.
+
+Zu zwei Mengen $A$ und $B$ können wir also die Menge 
+\[
+\operatorname{Hom}(A,B)
+=
+\{ f\colon A\to B\;|\; \text{$f$ ein Abbildung}\}
+\]
+der Abbildungen von $A$ nach $B$ bilden.
+Falls $A=B$ ist, finden wir immer die identische Abbildung
+$1_{A}\in \operatorname{Hom}(A,A)$, welche definiert ist durch
+$1_A(x)=x$
+für jedes $x\in A$.
+
+Ausserdem kann man die Abbildungen
+$\operatorname{Hom}(A,B)$
+mit
+$\operatorname{Hom}(B,C)$
+zusammensetzen, man hat also eine Abbildung
+\[
+\circ
+\colon
+\operatorname{Hom}(B,C)
+\times
+\operatorname{Hom}(A,B)
+:
+(f,g)
+\mapsto
+f\circ g.
+\]
+Die identische Abbildung $1_A$ spielt dabei die spezielle Rolle eines
+neutralen Elements,
+es ist nämlich
+\[
+f\circ 1_A
+=
+f
+\qquad\text{und}\qquad
+1_B \circ f = f
+\]
+für $f\in\operatorname{Hom}(A,B)$.
+
+Auf den ersten Blick sieht es so aus, als hätten wir mit dieser Fokusierung
+auf Mengen und Abbildungen die ganze Information über die Elemente einer Menge
+verloren.
+Dem ist jedoch nicht so.
+Dazu braucht man nur eine Menge mit einem einzigen Element, wir bezeichnen
+sie mit $E=\{*\}$.
+Eine Abbildung $f\colon E\to A$ ist festgelegt durch das Bild $f(*)$
+des einzigen Elements von $E$.
+Daher ist die Menge der Abbildungen von $E$ in die Menge $A$ g
+\[
+\operatorname{Hom}(E,A)
+=
+A,
+\]
+wir finden daher die Menge der Punkte $A$ wieder als eine Menge von
+Abbildungen $\operatorname{Hom}(E,A)$.
+
+\subsection{Körper und Homomorphismen}
+Im Kapitel~\ref{chapter:vektorraum} haben wir den Begriff des Körpers
+kennengelernt.
+Wenn wir Körper miteinander vergleichen wollen, brauchen wir Abbildungen
+zwischen zwei Körpern, die mit der Struktur des Körpers verträglich ist.
+Seien also $K$ und $L$ Körper und $f\colon K\to L$ ein Abbildung.
+Die Abbildung $f$ muss die Struktur erhalten, also muss gelten
+\[
+\begin{aligned}
+f(0)&=0&f(1)&=1\\
+f(a+b)&=f(a)+f(b)&f(ab)&=f(a)f(b)\\
+f(-a)&=-f(a)&f(a^{-1})&=f(a)^{-1}
+\end{aligned}
+\]
+Eine solche Abbildung heisst ein Körper-Homomorphismus.
+Die identisch Abbildung $1_K\colon K\to K$ ist ein Körper-Homomorphismus.
+Die Menge
+\[
+\operatorname{Hom}_{\text{Körper}}(K,L)
+=
+\{f\colon K\to L\;|\;\text{$f$ ist ein Körper-Homomorphismus}\}
+\]
+mit der Verkettung von Abbildungen
+bildet daher eine Menge mit ähnlichen Eigenschaften wie die
+Mengen $\operatorname{Hom}(A,B)$ für Mengen $A$ und $B$ im
+vorangegangenen Abschnitt.
+
+\subsection{Gruppen und Homomorphismen}
+Eine Gruppe ist eine etwas einfachere Struktur als ein Körper.
+
+\begin{definition}
+Eine Menge $G$ mit einer multiplikativ geschriebenen Verknüpfung heisst
+eine Gruppe, wenn gilt:
+\begin{compactenum}
+\item Die Verknüpfung ist assoziativ.
+\item Es gibt ein neutrales Element $e$, also $ge=g$ und $eg=g$ für alle 
+$g\in G$.
+\item Zu jedem Element $g\in G$ gibt es das sogenannte inverse
+Element $g^{-1}\in G$ mit der Eigenschaft $gg^{-1}=g^{-1}g=e$.
+\end{compactenum}
+Ein Homomorphismus ist eine Abbildung $\varphi\colon G\to H$ zwischen
+Gruppen mit der Eigenschaft
+$\varphi(g_1g_2)=\varphi(g_1)\varphi(g_2).$
+\end{definition}
+
+Beispiel von Gruppen sind die Mengen 
+\[
+C_n = \{ k\;|\; \text{$k$ ist Rest bezüglich $n$}\}
+\]
+mit dem neutralen Element $e=0$.
+Das Element $1\in C_n$ hat eine spezielle Bedeutung, denn durch
+wiederholte Verknüpfung mit sich selbst entstehen alle Elemente von $C_n$.
+$C_n$ heisst die zyklische Gruppe der Ordnung $n$.
+
+Wie bei den Mengen verliert man kaum Information über die Gruppen.
+Aus der Definition eines Homomorphismus folgt zunächst $\varphi(e)=e$.
+Da alle Elemente von $C_n$ aus $1$ erzeugt werden können, ist 
+ein Homomorphismus $\varphi\colon C_n\to G$ gegeben durch das 
+Element $\varphi(1)\in G$.
+Die Homomorphismen von $C_n$ nach $G$ charakterisieren also diejenigen
+Elemente $g\in G$, die die Eigenschaft $g^n=e$ haben.
+
+\section{Kategorien}
+In allen genannten Beispielen haben wir mit Objekten und den Abbildungen
+zwischen diesen Objekten zu tun.
+Wir haben auch gesehen, dass wir durch Einschränkung der Perspektive auf
+Objekte und Abbildungen nichts an Information über den ``Inhalt'' der
+Objekte verlieren.
+Wir können daher noch eine Schritt weiter gehen und den Begriff einer
+Kategorie definieren.
+
+\begin{definition}
+Eine {\em Kategorie} $\cal C$ besteht aus einer Menge von {\em Objekten},
+bezeichnet mit $\operatorname{obj}(\cal C)$, und einer Menge von
+{\em Morphismen} für jedes Paar von $A,B\in\operatorname{obj}(\cal C)$ von
+Objekten, bezeichnet mit
+$\operatorname{Hom}_{\cal C}(A,B)$.
+Die Menge der Morphismen $\operatorname{Hom}_{\cal C}(A,A)$
+enthält den speziellen Morphismus $1_A$ und es gilt
+\[
+f\circ 1_A = f
+\qquad\text{und}\qquad
+1_A\circ g = g
+\]
+für
+$f\in\operatorname{Hom}_{\cal C}(A,B)$
+und
+$g\in\operatorname{Hom}_{\cal C}(B,A)$.
+\end{definition}
+
+Eine Kategorie fokussiert sich also auf die Objekte und die Abbildungen 
+zwischen den Objekten.
+Damit ist es möglich, viele Strukturen in der Mathematik auf ähnliche
+Weise zu behandeln.
+Die nachfolgenden Beispiele sollen dies illustrieren.
+
+\subsection{Beispiele von Kategorien}
+\subsubsection{Mengen}
+Die Objekte der Kategorie der Mengen sind die Mengen, die Morphismen
+sind die Abbildungen zwischen Mengen.
+
+\subsubsection{Endliche Mengen}
+Beschränkt man sich in der Kategorie der Mengen auf Objekte mit
+endlich vielen Elementen, erhält man die Kategorie der endlichen Mengen.
+Dabei muss man nicht einmal wissen, was eine endliche Menge ist,
+denn man kann unendliche Mengen allein mit Hilfe von Begriffen einer
+Kategorie beschreiben.
+Eine Menge ist endlich, wenn jede injektive Selbstabbildung von $A$ auch
+surjektiv ist.
+Wir müssen also die Begriffe injektiv und surjektiv von Abbildungen
+durch Eigenschaften von Morphismen ausdrücken, die sich für jede beliebige
+Kategorie definieren lassen.
+
+\begin{definition}
+Ein Morphismus $f\colon A\to B$ heisst {\em Monomorphismus}, wenn 
+für zwei beliebige Morphismen $g_1,g_2\colon C\to A$ mit
+$f\circ g_1=f\circ g_2$ folgt, dass $g_1=g_2$ ist.
+Ein Morphismus $f\colon A\to B$ heisst {\em Epimorphismus}, wenn
+für zwei beliebige Morphismen $g_1,g_2\colon B\to D$ mit
+$g_1\circ f=g_2\circ f$ folgt, dass $g_1=g_2$ ist.
+\end{definition}
+\index{Monomorphismus}%
+\index{Epimorphismus}%
+In der Kategorie der Mengen sind die Monomorphismen die injektiven
+Abbildungen und die Epimorphismen sind die surjektiven Abbildungen.
+Eine Menge $A$ ist also endlich, wenn jeder Monomorphismus in
+$\operatorname{Hom}_{\text{Mengen}}(A,A)$ auch ein Epimorphismus ist.
+
+\subsubsection{Körper}
+
+\subsubsection{Gruppen}
+Die Kategorie der Gruppen hat als Objekte die Gruppen und als
+Morphismen die Homomorphismen.
+
+\subsubsection{Vektorräume}
+Die Kategorie der $K$-Vektorräume hat als Morphismenmengen die linearen
+Abbildungen zwischen Vektorräumen.
+
+\section{Funktoren}
+Die Kategorie der endlichen Mengen ist in der Kategorie der Mengen enthalten.
+Es gibt also eine Zuordnung, die jeder endlichen Menge eine Menge in
+der ganzen Mengenkategorie zuordnet (das ist natürlich immer noch die
+gleiche Menge), und jedem Morphismus einen Morphisums in der ganzen
+Kategorie.
+Wir können diese Zuordnung aber auch allgemeiner definieren:
+
+\begin{definition}
+Sind $\cal C$ und $\cal D$ zwei Kategorien, dann heisst eine Abbildung
+$F\colon\cal C\to \cal D$, einem Objekt $A\in \operatorname{obj}(\cal C)$
+ein Objekt $F(A)\in\operatorname{obj}(\cal D)$ zuordnet und einem
+Morphismus $f\in\operatorname{Hom}_{\cal C}(A,B)$ einen Morphismus
+$F(f)\in\operatorname{Hom}_{\cal D}(F(A),F(B))$, ein {\em kovarianter Funktor},
+wenn
+\[
+F(f\circ g)=F(f)\circ F(g)
+\qquad\text{und}\qquad
+F(1_A)=1_{F(A)}
+\]
+gilt.
+\end{definition}
+
+Die Einbettung der Kategorie der endlichen Mengen in die Kategorie der
+Mengen ist ein Funktor.
+
+\subsubsection{Vergissfunktor}
+Wir können auch einen Funktor von der Kategorie der Vektorräume in die
+Kategorie der Mengen konstruieren.
+Dazu ordnen wir einem Vektorraum $V$ die Menge der Vektoren zu, 
+wir vergessena lso einfach die Tatsache, dass die Vektoren addiert und
+mit Skalaren multipliziert werden können.
+Lineare Abbildungen zwischen Vektorräumen sind natürlich auch Abbildungen
+zwischen den Mengen von Vektoren, wir vergessen einfach die Tatsache,
+dass die Abbildungen linear sind.
+Allerdings gibt es viel mehr Abbildungen, die nicht linear sind.
+Der Funktor $V$ ist also definiert durch
+\begin{align*}
+V
+&\colon
+\operatorname{obj}(\text{Vektorraum})
+\to
+\operatorname{obj}(\text{Menge})
+:
+U\mapsto V(U)=U\\
+&\colon
+\operatorname{Hom}_{\text{Vektorraum}}(U,W)
+\to
+\operatorname{Hom}_{\text{Menge}}(U,W)
+:
+f\mapsto V(f)=f
+\end{align*}
+Der Funktor $V$ heisst der Vergissfunktor.
+Analog zur Kategorie der Vektorräume kann für jede Kategorie von Objekten,
+die Mengen sind, ein Vergissfunktor definiert werden, also zum Beispiel
+für die Kategorie der Gruppen.
+
+\subsubsection{Vektorraumkonstruktion}
+Viele Konstruktionen in der Mathematik lassen sich als Funktoren
+beschreiben.
+Als Beispiel betrachten wir eine Konstruktion, die endlichen Mengen
+einen $K$-Vektorraum zuordnet, und einer Abbildung von endlichen Mengen
+eine lineare Abbildung zwischen Vektorräumen.
+
+Sei also $A$ eine endliche Menge.
+Wir konstruieren den Vektorraum der Funktionen
+\[
+S(A) = \{v\colon A\to K\;|\;\text{$v$ eine Abbildung von $A$ nach $K$}\}.
+\]
+Funktionen können addiert und mit Skalaren in $K$ multipliziert werden,
+bilden also auf natürliche Weise einen Vektorraum.
+
+Eine Abbildung $f\colon A\to B$ macht aus einer Funktion $v\colon B\to K$
+durch Zusammensetzung eine Funktion $S(f)(v)=v\circ f\colon A\to K$.
+Aus einem Morphismus $f\in\operatorname{Hom}_{\text{Menge}}$ wird also 
+ein Morphismus
+$S(f)\in\operatorname{Hom}_{\text{Vektorraum}}(S(B),S(A))$
+Dies sieht genauso aus wie die Definition wie eines kovarianten Funktors,
+ausser dass $S(f)$ die falsche Richtung hat.
+Wir definieren daher:
+
+\begin{definition}
+Sind $\cal C$ und $\cal D$ zwei Kategorien, dann heisst eine Abbildung
+$F\colon\cal C\to \cal D$, einem Objekt $A\in \operatorname{obj}(\cal C)$
+ein Objekt $F(A)\in\operatorname{obj}(\cal D)$ zuordnet und einem
+Morphismus $f\in\operatorname{Hom}_{\cal C}(A,B)$ einen Morphismus
+$F(f)\in\operatorname{Hom}_{\cal D}(F(B),F(A))$, ein
+{\em kontravarianter Funktor},
+wenn
+\[
+F(f\circ g)=F(g)\circ F(f)
+\qquad\text{und}\qquad
+F(1_A)=1_{F(A)}
+\]
+gilt.
+\end{definition}
+
+Zu jeder endlichen Menge $A$ kann man also einen Vektorraum $S(A)$
+konstruieren, so dass die Elemente $a\in A$ zu Basisvektoren von $S(A)$
+werden.
+
+\subsubsection{Weitere Beispiele von Funktoren}
+Wir werden weitere Beispiele von Funktoren im Kapitel~\ref{chapter:homologie}
+kennenlernen.
+Dort wird ein Funktor von der Kategorie der Polyeder oder
+genauer von simplizialen Komplexen in die Kategorie der Vektorräume 
+konstruiert.
+Es wird sich zeigen, dass der eulersche Polyedersatz in diesem Rahmen
+ganz allgemein verstanden werden kann.
+Dieser Funktor hat auch Anwendungen bei der Analyse neuronaler Netzwerke.
+
