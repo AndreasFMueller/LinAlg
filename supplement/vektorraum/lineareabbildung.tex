@@ -1,0 +1,82 @@
+%
+% lineareabbildung.tex
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Linear Abbildungen}
+In diesem Abschnitt betrachten wir zwei Vektorräume $U$ und $V$ und
+eine Abbildungen $f\colon U\to V$, welche mit der Vektorraumstruktur
+verträglich sein soll. 
+Dazu muss für zwei Vektoren $u_1,u_2\in U$ und für $\lambda\in K$ gelten
+\begin{equation}
+f(u_1+u_2)=f(u_1)+f(u_2)
+\qquad\text{und}\qquad
+f(\lambda u_1)=\lambda f(u_1).
+\label{vektorraum:linear}
+\end{equation}
+Wir können diese Eigenschaft in einer einzigen Formel zusammenfassen:
+
+\begin{definition}
+Eine Abbildung $f\colon U\to V$ heisst linear, wenn gilt
+\[
+f(\lambda_1 u_1+\lambda_2 u_2)=\lambda_1 f(u_1) + \lambda_2 f(u_2)
+\]
+für alle $u_1,u_2\in U$ und $\lambda_1,\lambda_2\in K$.
+\end{definition}
+
+Die Formeln~\eqref{vektorraum:linear} sind Spezialfälle der Definition.
+Die Menge der linearen Abbildungen ist selbst wieder ein Vektorraum.
+
+\begin{definition}
+Seien $U$ und $V$ Vektorräume über $K$, dann ist
+\[
+L(U,V)
+=
+\operatorname{Hom}(U,V)
+=
+\{f\colon U\to V\;|\; \text{$f$ ist linear}\}
+\]
+der Vektorraum der linearen Abbildungen von $U$ nach $V$.
+\end{definition}
+
+Wir müssen nachprüfen, dass lineare Abbildungen tatsächlich einen
+Vektorraum bilden. 
+Dazu muss zunächst überprüft werden, ob die Summe linearer Abbildungen
+wieder linear ist.
+Tatsächlich ist
+\begin{align*}
+(f_1+f_2)(\lambda_1u_1+\lambda_2 u_2)
+&=
+f_1(\lambda_1u_1+\lambda_2 u_2)
++
+f_2(\lambda_1u_1+\lambda_2 u_2)
+\\
+&=
+\lambda_1f_1(u_1)+\lambda_2f_1(u_2)
++
+\lambda_1f_2(u_1)+\lambda_2 f_2(u_2)
+\\
+&=
+\lambda_1(f_1 + f_2)(u_1)+\lambda_2(f_1+f_2)(u_2),
+\\
+(\lambda f)(\lambda_1 u_1 + \lambda_2 u_2)
+&=
+\lambda (f(\lambda_1 u_1 + \lambda_2 u_2))
+\\
+&=
+\lambda\lambda_1 f(u_1)
++
+\lambda\lambda_2 f(u_2)
+\\
+&=
+\lambda_1 (\lambda f)(u_1)
++
+\lambda_2 (\lambda f)(u_2)
+\end{align*}
+also sind $f_1+f_2$ und $\lambda f$ wieder lineare Abbildungen.
+Neutrales Element ist die lineare Abbildung $0:\colon U\to V:v\mapsto 0$,
+die jeden Vektor auf den Nullvektor $0$ abbildet.
+Ausserdem gelten natürlich die üblichen Rechenregeln, die sich als
+Distributivgesetz äussern.
+
+

@@ -136,6 +136,7 @@ Folglich müssen zwei Basen eines endlichdimensionalen Vektorraums
 die gleiche Anzahl.
 \end{proof}
 
+\subsubsection{Spaltenvektoren}
 Wir haben diesen formalen Beweis noch aus einem anderen Grund im
 Detail durchgeführt.
 Mit Hilfe der Basis haben wir das Problem auf eine Frage über ein
@@ -165,6 +166,91 @@ $\varphi$ ist also ein bijektive lineare Abbildung $V\to K^n$.
 Eine Basis ermöglich also, jeden beliebigen Vektorraum $V$ mit einem
 Vektorraum $K^n$ von Spaltenvektoren zu identifizieren.
 
+\subsubsection{Matrizen}
+Seien jetzt $U$ und $V$ endlichdimensionale Vektorräume über dem Körper $K$ 
+mit Basen $B=\{b_1,\dots,b_n\}$ bzw.~$C=\{c_1,\dots,c_m\}$.
+Ausserdem sie $f\colon U\to V$ eine lineare Abbildung.
+Dann kann jeder Vektor $f(b_i)\in V$ auf genau eine Weise als
+Linearkombination von Vektoren aus $C$ dargestellt werden.
+Es gibt also Zahlen $a_{ji}\in K$ derart, dass
+\[
+f(b_i) = \sum_{j=1}^m a_{ji}c_j.
+\]
+Sobald die $a_{ji}$ bekannt sind, lässt sich auch das Bild jedes
+anderen Vektors $u\in U$ damit berechnen.
+Der Vektor $u$ kann wie im vorangegangenen Abschnitt auf genau eine
+Weise als Linearkombination der $b_i$ beschreiben, also
+\[
+u= u_1b_1+\dots+u_nb_n.
+\]
+Daraus ergibt sich jetzt
+\[
+f(u)
+=
+u_1f(b_1)+\dots+u_nf(b_n)
+=
+\sum_{i=1}^n  u_i \sum_{j=1}^m a_{ji}c_j
+=
+\sum_{j=1}^m \biggl(
+\sum_{i=1}^n
+a_{ji} u_i
+\biggr) c_j
+=
+\sum_{j=1}^m v_jc_j.
+\]
+In der grossen Klammer stehen also die Komponenten $v_j$ von $f(u)$ in der
+Basis $C$.
+Wir haben also etabliert, dass die lineare Abbildung $f$ durch das
+Matrizenprodukt
+\[
+\begin{pmatrix}
+v_1\\\vdots\\v_m
+\end{pmatrix}
+=
+\begin{pmatrix}
+a_{11}&\dots&a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{m1}&\dots&a_{mn}
+\end{pmatrix}
+\begin{pmatrix}
+u_1\\\vdots\\u_n
+\end{pmatrix}
+\]
+wiedergeben wird.
+Der Vektorraum der linearen Abbildungen von $U$ nach $V$ wird also
+beschrieben durch den Vektorraum der $m\times n$-Matrizen mit
+Einträgen in $K$.
+
+Basen ermöglichen also nicht nur den Übergang von einem beliebigen
+endlichdimensionalen Vektorraum zu einem Vektorraum von Spaltenvektoren,
+sondern auch den Übergang vom Vektorraum der linearen Abbildungen 
+zum Vektorraum der Matrizen.
+Die Matrizen bilden also ein universelles Modell, auf das beliebige 
+endlichdimensionale Vektorräume reduziert werden können.
+
+Natürlich kann man aus Basen von $U$ und $V$ auch eine Basis von
+$\operatorname{Hom}(U,V)$ konstruieren.
+Die lineare Abbildung
+\[
+e_{ji}\colon U\to V:
+b_k\mapsto \begin{cases}
+c_j&\qquad i=k\\
+0&\qquad i\ne k
+\end{cases}
+\]
+hat die Matrix
+\[
+E_{ji}
+=
+\begin{pmatrix}
+0     &\dots &0     &\dots &0     \\
+\vdots&\ddots&\vdots&\ddots&\vdots\\
+0     &\dots &1     &\dots &0     \\
+\vdots&\ddots&\vdots&\ddots&\vdots\\
+0     &\dots &0     &\dots &0     \\
+\end{pmatrix}
+\]
+mit einer $1$ genau in Zeile $j$ und Spalte $i$ der Matrix.
 
 
 
