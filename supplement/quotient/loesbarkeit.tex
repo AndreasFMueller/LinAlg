@@ -1,0 +1,34 @@
+%
+% loesbarkeit.tex -- Loesbarkeit von Gleichungssystemen als Motivation
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Lösbarkeit von Gleichungssystemen}
+Ein lineares $n\times m$-Gleichungssystem der Form $Ax=b$
+ist genau dann lösbar, wenn der Vektor $b$ im Bildraum von $A$ ist,
+der definiert ist als
+\[
+\operatorname{im} A = \{ Ax\;|\; x\in K^n\}.
+\]
+Wenn $x_1$ und $x_2$ Lösungen der Gleichung sind, dann folgt
+\[
+Ax_1=b\;\wedge\; Ax_2=b
+\quad\Rightarrow\quad
+A(x_1-x_2)=0,
+\]
+oder
+\[
+x_1-x_2\in\operatorname{ker} A = \{ x\in K^n\;|\; Ax=0\}.
+\]
+Die Lösung eines Gleichungssystem ist also genau dann lösbar, wenn
+$b\in \operatorname{im}A$, sie ist eindeutig, wenn $\operatorname{ker}A=0$.
+
+Die Frage nach der Lösbarkeit von Gleichungssystemen hat uns also die
+Mengen $\operatorname{im}A$ und $\operatorname{ker} A$ geführt.
+Deren Definition ist aber unabhängig von der Tatsache, dass die
+Vektorräume endlichdimensional sind.
+In diesem Kapitel sollen die Begriffe Kern und Bild verallgemeinert
+werden zu den Begriffen Unterraum und Quotientenraum.
+
+
+

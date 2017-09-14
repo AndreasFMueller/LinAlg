@@ -1,0 +1,242 @@
+%
+% unterraum.tex -- Konzept unterraum und quotient
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Unterraum und Quotiententraum}
+Sei $V$ ein $K$-Vektorraum und $U\subset V$ ein in $V$ enthaltener
+Vektorraum.
+Man nennt $U$ einen Unterraum von $V$.
+Ist $V$ endlichdimensional, dann kann man $V$ mit Spaltenvektoren $K^n$
+identifizieren.
+Offensichtliche Unterräume sind dann die Vektorräume
+\[
+V_I
+=
+\{ v\in K^n\;|\; v_i = 0\;\forall i\in I\},
+\]
+die man für jede Teilmenge $I$ der ganzen Zahlen zwischen 0 und $n$ 
+bilden kann.
+
+\subsection{Unterraum als Bildraum}
+Wie kann man einen Unterraum $U$ von $V$ beschreiben?
+Eine Basis von $V$ wird im Allgemeinen nicht so beschaffen sein,
+dass ein Teil der Basisvektoren eine Basis des Unterraums bildet.
+Wenn wir also den Unterraum $U$ mit Hilfe einer Basis beschreiben
+wollen, dann müssen wir darin erst eine Basis finden.
+Für einen endlichdimensionalen Vektorraum ist dies immer möglich,
+wie der folgende Satz zeigt:
+
+\begin{satz}
+\label{quotient:basiserweiterung}
+Sei $U$ ein Unterraum eines endlichdimensionalen $K$-Vektorraumes $V$
+der Dimension $n$,
+dann gibt es eine Basis $B=\{b_1,\dots,b_n\}$ von $V$ derart, dass
+die ersten $m$ Vektoren $B_m=\{b_1,\dots,b_m\}$ eine Basis des Unterraums
+$U$ bilden.
+\end{satz}
+
+\begin{proof}[Beweis]
+Wir konstruieren die Basis iterativ.
+Zunächst konstruieren wir eine Basis von $U$ und erweitern diese dann
+zu einer Basis von $V$.
+Dabei dürfen wir nicht einfach annehmen, wir hätten eine Basis von $U$,
+denn die Voraussetzungen versprechen nicht, dass der Unterraum $U$
+endlichdimensional ist.
+Dieses Resultat müssen wir im Laufe der Konstruktion gewinnen.
+
+Falls $U=0$ ist, dann gibt es keine linear unabhängigen Vektoren in $U$,
+der Unterraum $U$ ist $0$-dimensional.
+Wir setzen $m=0$ und $B_m=\emptyset$ und müssen daraus nur noch eine Basis
+von $V$ konstruieren.
+
+Falls $U\ne 0$ ist, dann gibt es einen Vektor $b_1\in U\setminus\{0\}$,
+wir konstruieren also $B_1=\{b_1\}$.
+Falls der von $B_1$ aufgespannte Unterraum von $U$ nicht ganz $U$ ist, gibt
+es einen weiteren Vektor $b_2\in U\setminus\langle B_1\rangle$.
+Notwendigerweise sind die Vektoren $B_2=\{b_1,b_2\}$ linear unabhängig.
+Diese Prozedur wiederholen wir, solange $U\ne \langle B_m\rangle$ ist.
+Da die Vektoren in $B_m$ eine linear unabhängig Menge von Vektoren in $V$
+sind, muss $m\le n$ sein, der Prozess muss also irgendwann abbrechen,
+womit $m=\operatorname{dim}U$ und $B_m$ betimmt sind.
+
+Die Basis $B_m$ muss jetzt noch zu einer Basis von $V$ erweitert werden.
+Falls $\langle B_k\rangle\ne V$ gibt es einen weiteren
+Vektor $b_{k+1} in V\setminus\langle B_k\rangle$ so, dass 
+$B_{k+1}=B_k\cup\{b_{k+1}\}$.
+Da $V$ endlichdimensional ist, muss auch dieser Prozess terminieren,
+d.~h.~wir werden eine Basis $B_n\subset V$ finden.
+\end{proof}
+
+Eine Ebene durch den Nullpunkt ist ein zweidimensionaler Unterraum 
+des dreidimensionalen Raumes.
+Der Satz~\ref{quotient:basiserweiterung} besagt dann, dass es eine
+Basis $B=\{b_1,b_2,b_3\}$ gibt, so dass die Ebene von den Vektoren
+$b_1$ und $b_2$ aufgespannt wird,
+dass also der Unterraum $U$ als
+\[
+U=\{s_1b_1+s_2b_2\;|\; s_1,s_2\in K\} \subset V
+\]
+geschrieben werden kann.
+
+Satz~\ref{quotient:basiserweiterung} zeigt, dass immer eine Basis eines
+Unterraums gefunden werden kann.
+Betrachten wir $V$ wieder als Raum von $n$-dimensionalen Spaltenvektoren,
+dann können wir die Vektoren der Basis $B$ mit einer Matrix beschreiben.
+Der Unterraum $U$ ist der Raum aufgespannt von den ersten $m$ Spalten
+der Matrix.
+
+Wir können diese Eigenschaft auch mit Hilfe einer linearen Abbildung
+$f\colon K^n\to V$
+mit dem Diagramm
+\[
+ \begin{tikzcd} {K^m} \arrow[r,"f"] \arrow[d,hook] & U \arrow[d,hook] \\
+  {K^n} \arrow[r,"f"]              & V \\
+ \end{tikzcd}
+\]
+beschreiben.
+Die Matrix der Abbildung $K^m \to K^n$ besteht aus den Spalten aus den
+Vektoren $e_1,\dots,e_m$.
+
+\subsection{Kern}
+Ein Unterraum kann aber auch als Lösungsmenge eines Gleichungssystems
+beschrieben.
+Eine Ebene im dreidimensionalen Raum kann als Lösungsmenge einer einzigen
+linearen Gleichung mit drei Unbekannten beschrieben werden.
+Im allgemeinen Fall brauchen wir eine lineare Abbildung $f\colon V\to W$,
+wobei ziemlich egal ist, was $W$ für ein Vektorraum ist.
+Die Menge
+\[
+U=\operatorname{ker}f = \{ v\in V\;|\; f(v)=0\}
+\]
+heisst der {\em Kern} der Abbildung $f$.
+Er ist ein Vektorraum, denn es gilt
+\begin{align*}
+u_1,u_2\in\operatorname{ker} f,\quad \lambda_1,\lambda_2\in K
+\quad
+&\Rightarrow
+\quad
+f(u_1)=0\wedge f(u_2)=0
+\\
+&\Rightarrow
+\quad
+f(\lambda_1u_1+\lambda_2u_2)
+=
+\lambda_1 f(u_1) + \lambda_2 f(u_2)
+=
+0
+\\
+&\Rightarrow
+\quad
+\lambda_1 u_1 + \lambda_2 u_2\in \operatorname{ker}f.
+\end{align*}
+
+\subsection{Quotientenraum}
+Sei jetzt wieder $U\subset V$ ein Unterraum des endlichdimensionalen
+Vektorraumes.
+Gemäss Satz~\ref{quotient:basiserweiterung} können wir eine Basis so
+wählen, dass die ersten $m$ Basisvektoren eine Basis von $U$ sind.
+Die nachfolgenden Basisvektoren $b_{m+1},\dots,b_n$ sind linear unabhängig
+von $U$.
+Wir können also die Vektoren von $V$ aufteilen in solche, die in $U$
+sind, und solche, die ``quer'' zu $U$ verlaufen.
+Natürlich ist dies keine eindeutige Charakterisierung, denn wenn ein
+Vektor $v\in V\setminus U$ ist, dann ist auch $v+u\in V\setminus U$
+für jeden beliebigen Vektor $u\in U$.
+Die Vektoren ``quer'' zu $U$ also nur bis auf einen Summanden in $U$
+bestimmt.
+Die folgende Definition entfernt diesen Einfluss
+
+\begin{definition}
+Für jeden Vektor $v\in V$ definieren wir 
+\[
+M(v) = \{ w\in V\;|\; v-w\in U\}.
+\]
+Die $M(v)$ können addiert und mit skalaren multipliziert werden
+\[
+\begin{aligned}
+M(v_1+v_2)&=M(v_1) + M(v_2),&
+M(\lambda v)&=\lambda M(v)
+\end{aligned}
+\]
+und bilden daher einen Vektorraum $V/U$ genannt der Quotientenraum.
+Die lineare Abbildung
+\[
+\pi \colon V \to V/U : v \mapsto M(v)
+\]
+heisst die {\em kanonische Projektion}.
+\end{definition}
+
+Aus der Definition ist klar, dass die kanonische Projektion als
+Kern die Vektoren $U$ hat.
+Man kann die drei Vektorräume in dem einzigen Diagramm
+\[
+\begin{tikzcd}
+U\ar[r,hook] & V \ar[r,two heads,"\pi"] & V/U
+\end{tikzcd}
+\]
+zusammenfassen.
+Unter Verwendung einer Basis wie vorhin finden wir, dass $V/U$ die
+Vektoren $M(v_{m+1}),\dots,M(v_n)$ als Basis hat.
+Daraus können wir ableiten, dass
+\[
+\operatorname{dim} V
+=
+\operatorname{dim} U
++
+\operatorname{dim} V/U
+=
+\operatorname{ker}\pi
++
+\operatorname{coker}\pi,
+\]
+wobei $\operatorname{coker}\pi=V/U$ einfach nur ein anderer Name für
+den Quotientenraum ist.
+
+\subsection{Universelle Eigenschaft des Quotienten}
+Der Quotientenraum kann auch wie folgt beschrieben werden.
+Sei $f\colon V\to W$ eine lineare Abbildung mit der Eigenschaft
+dass $f(u)=0$ für $u\in U$.
+Unterscheiden sich die Vektoren $v_1$ und $v_2$ nur um einen Vektor
+in $U$, dann ist $v_1-v_2\in U$ und daher $f(v_1-v_2)=0$, also
+$f(u_1)=f(u_2)$.
+Damit können wir eine lineare Abbildung $f^*\colon V/U\to W$
+mittels
+\[
+f^*(M(v)) = f(v)
+\]
+definieren.
+Dies ist wohldefiniert, weil sich verschiedene Vektoren von $M(v)$ nur
+um einen Vektor in $U$ unterscheiden.
+Ausserdem ist
+$f^*$ auf diese Art eindeutig bestimmt derart, das Diagramm
+\[
+\begin{tikzcd}
+U \ar[r,hook] \ar[d,"0"]
+		& V \ar[d, "f"] \ar[r,two heads,"\pi"]
+				& V/U \ar[dl,dashed,"f^*"]
+\\
+0 \ar[r,hook]
+		& W
+\end{tikzcd}
+\]
+kommutativ ist, d.~h.~zwei verschiedene Pfade durch das Diagramm
+bilden Elemente auf die gleichen Bilder ab.
+
+Umgekehrt könnte man den Quotientenraum auch mit Hilfe der folgenden 
+universellen Eigenschaft definiert werden.
+Der Quotientenraum ist derjenige lineare Vektorraum $Q$ für den
+das Diagramm
+\[
+\begin{tikzcd}
+U \ar[r,hook] \ar[d,"0"]
+		& V \ar[d, "f"] \ar[r,two heads,"\pi"]
+				& Q \ar[dl,dashed,"g"]
+\\
+0 \ar[r,hook]
+		& W
+\end{tikzcd}
+\]
+auf genau eine Art durch die lineare Abbildung $g$ zu einem 
+kommutativen Diagramm ergänzt werden kann.
+

@@ -1,0 +1,44 @@
+%
+% dualitaet.tex -- bildraum und quotientenraum
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Dualität}
+Wir betrachten wieder einen endlichdimensionalen Unterraum $U\subset V$
+und die kanonische Projektion $\pi\colon V\to V/U$.
+Die dualen Abbildungen führt auf die Abbildungen
+\[
+\begin{tikzcd}
+(V/U)^* \ar[r,"\pi^*"] & V^* \ar[r, "i^*"] & U^*.
+\end{tikzcd}
+\]
+Wir wollen zeigen, dass $(V/U)^*$ als Unterraum von $V^*$
+betrachtet werden kann, und $U^*$ als der zugehörige Quotientenraum.
+
+Sei zunächst $l$ eine Linearform $V/U$.
+Dies bedeutet, dass $l$ eine Linearform auf $V$ ist mit der Eigenschaft,
+dass $l(u)=0$ für alle $u\in U$.
+Zwei verschiedene Linearformen $l_1$ und $l_2$ auf $V/U$ haben 
+beide diese Eigenschaft, sie müssen sich also auf irgend einem
+Vektor von $V$ unterschieden, unterscheiden sich daher auch wenn
+betrachtet als Linearformen auf $V$.
+Damit ist gezeigt, dass $(V/U)^*$ ein Unterraum von $V^*$ ist.
+
+Die Abbildung $i^*\colon V^* \to U^*$ bildet eine Linearform $l$
+auf die Linearform $l\circ i$ auf $U$ ab.
+Eine Linearform auf $(V/U)^*$ ist eine Linearform, welche auf $U$
+verschwindet, also ist $i^*\circ \pi^*$.
+Aber es gilt auch umgekehrt: Wenn die Linearformo $l$ durch $i^*$ auf
+die Nullform abgebildet wird, dann bedeutet dies genau, dass $l(u)=0$
+für alle $u\in U$, d.~h.~die Linearform war eigentlich eine Linearform
+auf $V/U$.
+
+Die Dualität macht also aus einer Einbettung $U\hookrightarrow V$ und der
+kanonischen Projektion $\pi\colon V\twoheadrightarrow U/V$ eine Einbettung
+$(V/U)^* \hookrightarrow V^*$ und eine Projektion $V^* \twoheadrightarrow U^*$.
+
+Für endlichdimensionale Vektorräume folgt
+\[
+\dim V^* = \dim U^* + \dim (V/U)^*.
+\]
+

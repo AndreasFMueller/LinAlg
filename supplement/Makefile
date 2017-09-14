@@ -12,9 +12,19 @@ TEXFILES = einleitung.tex 						\
 	endlichekoerper/ek-gauss.tex 					\
 	endlichekoerper/ek-gruppen.tex 					\
 	endlichekoerper/ek-eigenwert.tex 				\
-	hilbertraum.tex \
-	homologie.tex \
-	lie.tex	\
+	dualraum/dualbasis.tex						\
+	dualraum/dualraum.tex						\
+	dualraum/linearform.tex						\
+	dualraum/skalarprodukt.tex					\
+	dualraum/transposition.tex					\
+	dualraum/unendlich.tex						\
+	quotient/dualitaet.tex						\
+	quotient/loesbarkeit.tex					\
+	quotient/quotient.tex						\
+	quotient/unterraum.tex						\
+	hilbertraum.tex 						\
+	homologie.tex 							\
+	lie.tex								\
 	nichtstandardanalysis.tex
 
 images:
