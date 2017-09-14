@@ -1,0 +1,57 @@
+%
+% skalarprodukt.tex -- Abschnitt über Skalarprodukte
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Dualität und Skalarprodukt}
+In der elementaren Vektorgeometrie verwendet man als Skalarprodukt
+zweier $n$-dimensionaler Spaltenvektoren $u,v\in K^n$ die Grösse
+\[
+u\cdot v
+=
+u^t v
+=
+u_1v_1+\dots+u_nv_n.
+\]
+Im Lichte der Betrachtungen von Abschnitt~\ref{dualraum:section:transposition}
+erzeugt die Transposition zu jedem Vektor $u\in K^n$ eine Linearform
+$u^t\in K^{n*}$.
+Jede Linearform ensteht durch Transposition aus einem Vektor.
+Das Skalarprodukt in einem endlichdimensionalen Vektorraum kann 
+daher verstanden werden als der Ausdruck der Tatsache, dass die
+Transposition den Vektorraum mit seinem Dualraum identifizieren kann.
+
+In Abschnitt~\ref{section:dualraum:unendlich} wird gezeigt, dass
+eine solche Identifikation bei unendlichdimensionalen Vektorräumen
+nicht mehr möglich ist.
+Unendlichdimensionale Vektorräume haben einen sehr viel grösseren Dualraum.
+
+Um diesen Unterschied zwischen Skalarprodukt und Auswertung von Linearformen
+deutlicher zu machen, lohnt es sich, eine Notation zu verwenden, welche
+die Gemeinsamkeiten und Unterschiede deutlicher macht.
+Für einen Vektor $u\in V$ und eine Linearform $v\in  V^*$ schreiben
+wir für die Auswertung der Linearform $v$ auf $u$
+\[
+\langle v,u\rangle = v(u).
+\]
+Für das Skalarprodukt zweier Vektoren $v$ und $u$ in $V$  schreiben wir
+\[
+(v,u) = u\cdot v.
+\]
+Damit kann man für $v,u\in K^n$ schreiben
+\[
+\langle v^t,u\rangle = (v,u),
+\]
+bzw.~für $v\in K^{n*}$ und $u\in K^n$
+\[
+\langle v, u\rangle
+=
+(v^t,u).
+\]
+In dieser Form wird es in Kapitel~\ref{chapter:hilbertspaces}
+möglich sein, den Übergang zwischen Dualraum
+und Skalarprodukt auch in einem geeignet angereicherten,
+unendlichdimensionalen Vektorraum
+zu ermöglichen, selbst wenn die Darstellung der Vektoren als
+Spaltenvektoren nicht möglich ist.
+

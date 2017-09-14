@@ -1,0 +1,116 @@
+%
+% transposition.tex -- Abschnitt über die Transposition
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Transposition -- das oberflächliche Markenzeichen der Dualität%
+\label{dualraum:section:transposition}}
+Einen $n$-dimensionalen Vektorraum $V$ können wir mit Hilfe einer
+Basis immer sofort in den Vektorraum der $n$-dimensionalen
+Spaltenvektoren $K^n$ umwandeln.
+Als Basisvektoren können wir die Standardbasisvektoren $e_i$ verwenden,
+die genau in Zeile $i$ eine $1$ haben und sonst überall $0$.
+
+In Abschnitt~\ref{section:vektorraum:linabb} wurde gezeigt, wie zu
+einer linearen Abbildung eine Matrix gehört.
+Im Falle einer Linearform ist der Bildraum eindimensional, sie muss
+also als $1\times n$-Matrix dargestellt werden können.
+Es stellt sich daher die Frage, welche $1\times n$-Matrizen die
+dualen Linearformen $e_i^*$ darstellen.
+
+Nach Definition \eqref{dualraum:dualeform} der dualen Linearform
+muss gelten
+\[
+e_i^* e_j
+=
+\delta_{ij}
+=
+\begin{cases}
+1&\qquad i=j\\
+0&\qquad \text{sonst.}
+\end{cases}
+\]
+Dies ist nur möglich, wenn $e_i^*$ die Matrix
+\[
+e_i^*
+=
+\begin{pmatrix}
+0&\dots&1&\dots&0
+\end{pmatrix}
+\]
+mit einer $1$ an der $i$-ten Stelle und $0$ sonst.
+Man kann also schreiben $e_i^*=e_i^t$.
+
+Wir betrachten jetzt eine lineare Abbildung $f\colon U=K^n\to V=K^m$.
+Aus Abschnitt~\ref{section:vektorraum:linabb} ist bekannt, dass
+$f$ durch eine $m\times n$-Matrix $A$ beschreiben werden kann:
+\[
+\begin{pmatrix}
+v_1\\\vdots\\v_m
+\end{pmatrix}
+=
+\begin{pmatrix}
+a_{11}&\dots &a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{m1}&\dots &a_{mn}
+\end{pmatrix}
+\begin{pmatrix}
+u_1\\\vdots\\u_n
+\end{pmatrix}.
+\]
+Aus einer Linearform $l$ in $V^*$ mit der Matrix
+\[
+\begin{pmatrix}l_1&\dots&l_n\end{pmatrix}
+\]
+wird durch Anwendung von $f^*$ die Linearform $f^*(l)=l\circ f$, wir
+wollen die Matrix von $f^*(l)$ ermitteln.
+Dazu genügt es, die Werte von $f^*(l)$ auf einem Vektor $u\in K^n$
+zu bestimmen.
+Wir berechnen also
+\[
+f^*(l)(u)
+=
+l(f(u))
+=
+\begin{pmatrix}l_1&\dots&l_n\end{pmatrix}
+\begin{pmatrix}
+a_{11}&\dots &a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{m1}&\dots &a_{mn}
+\end{pmatrix}
+\begin{pmatrix}
+u_1\\\vdots\\u_n
+\end{pmatrix}
+=
+\sum_{j=1}^nl_j \sum_{i=1}^m a_{ji}u_i
+=
+\sum_{i=1}^m
+\biggl(
+\sum_{j=1}^nl_j a_{ji}
+\biggr)
+u_i.
+\]
+Die Linearform $f^*(l)$ hat daher die $1\times m$-Matrix
+\begin{equation}
+\begin{pmatrix}
+\sum_{j=1}^nl_j a_{j1}
+&\dots&
+\sum_{j=1}^nl_j a_{jm}
+\end{pmatrix}
+=
+lA.
+\label{dualraum:transp}
+\end{equation}
+Die duale Abbildung $f^*$ wird also durch Rechtsmultiplikation der
+Zeilenvektoren mit $A$ vermittelt.
+
+Verwendet man die duale Basis dazu, den Dualraum $V^*$ von $V$
+mit Spaltenvektoren $K^n$ zu identifizieren dann ist der 
+zu $l$ gehörende Spaltenvektor $l^t$.
+Die duale Abbildung $f^*\colon V^*\to U^*$ kann mit Hilfe der
+Dualbasis ebenfalls als $n\times m$-Matrix beschrieben werden.
+Aus \eqref{dualraum:transp} kann man ablesen, dass diese Matrix
+$A^t$ sein muss.
+Die Transposition ist also nichts anderes als ein Ausdruck des Übergangs
+zu einer Darstellung in der dualen Basis.
+

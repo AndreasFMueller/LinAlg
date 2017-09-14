@@ -1,0 +1,118 @@
+%
+% unendlich.tex -- Abschnitt über Dualraum unendlichdimensionaler Vektorräume
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Dualität und unendlichdimensionale Vektorräume%
+\label{section:dualraum:unendlich}}
+Für endlichdimensionale Vektorräume haben wir herausgefunden, dass
+der Dualraum die gleiche Dimension hat, indem wir zu einer Basis die
+duale Basis konstruiert haben.
+Ein endlichdimensionaler Vektorraum und sein Dualraum haben daher die
+gleiche Dimension.
+
+Für unendlichdimensionale Vektorräume ist die Situation komplizierter.
+Wir betrachten dazu einen Vektorraum $V$ mit einer Basis $B$, die jedoch
+unendlich viele Elemente enthält.
+Um die Situation nicht zu kompliziert werden zu lassen, nehmen wir an,
+dass die Basis abzählbar ist, dass heisst dass die Basisvektoren 
+numeriert werden können.
+Wir schreiben sie
+\[
+B= \{ b_1,b_2,b_e,\dots\}.
+\]
+Natürlich können wir weiterhin die Linearformen $b_i^*$ konstruieren.
+Das Lemma~\ref{dualraum:lemmaunabh} hat nicht vorausgesetzt, dass der
+Vektorraum endlichdimensional muss, daher sind die dualen Linearformen
+$b_i^*$ sicher linear unabhängig.
+
+Trotzdem ist die Menge $B^*=\{b_i^*\;|\; i=\mathbb N\}$ keine Basis.
+Wir können nämlich eine Linearform $l$ konstruieren, die sich nicht als 
+Linearkombination der $b_i^*$ schreiben lässt.
+Um den Wert von $l$ auf einem Vektor $v$ festzulegen, schreiben wir
+zunächst
+\[
+v=v_0b_0+v_1b_1+v_2b_2+v_3b_3+\dots,
+\]
+wobei nur endlich viele der Koeffizienten $v_i$ von $0$ verschieden sind.
+Als Wert von $l$ auf $v$ legen wir daher fest
+\begin{equation}
+l(v) = \sum_{i\in\mathbb N} v_i.
+\label{dualraum:linf}
+\end{equation}
+Da nur endlich viele der $v_i$ von Null verschieden sind, ist die Summe
+in \eqref{dualraum:linf} wohldefiniert.
+In einem beliebigen Körper $K$ gibt es nämlich im Gegensatz zu den
+Körpern $\mathbb R$ und $\mathbb C$ kein Konzept des Grenzwertes und
+damit auch keine Möglichkeit, eine unendliche Summe zu berechnen.
+
+Wir müssen jetzt noch einsehen, dass sich $l$ nicht als Linearkombination
+von Linearformen $b_i^*$ geschreiben werden kann.
+Wir zeigen dies dadurch, dass wir die Annahme, $l$ lasse sich als
+Linearkombination der $b_i^*$ schreiben, zu einem Widerspruch führen.
+Nehmen wir also an, dass 
+\begin{equation}
+l=l_0b_0^* + l_1b_1^*+l_2b_2^*+\dots+l_nb_n^*.
+\label{dualraum:linf2}
+\end{equation}
+Wir haben eine endliche Summe geschrieben, weil in einem $K$-Vektorraum
+unendliche Summen nicht definiert sind.
+Eine Linearkombination kann daher immer nur endlich viele Summanden
+enhalten.
+
+Wir werten jetzt $l$ auf dem Basisvektor $b_{n+1}$ aus.
+Aus der Definition wissen wir, dass $l(b_{n+1})=1$.
+Setzen wir $b_{n+1}$ in die Darstellung 
+\eqref{dualraum:linf2} von $l$ ein, erhalten wir
+\[
+1
+=
+l(b_{n+1})
+=
+l_0\underbrace{b_0^*(b_{n+1})}_{\displaystyle=0}
++
+l_1\underbrace{b_1^*(b_{n+1})}_{\displaystyle=0}
++
+l_2\underbrace{b_2^*(b_{n+1})}_{\displaystyle=0}
++\dots+
+l_n\underbrace{b_n^*(b_{n+1})}_{\displaystyle=0}
+=
+0.
+\]
+Damit haben wir einen Widerspruch erhalten.
+Es ist also nicht möglich, die Linearform $l$ als Linearkombination
+von $b_i^*$ zu schreiben.
+
+Dieses Beispiel zeigt, dass der Dualraum eines unendlichdimensionalen
+Vektorraumes viele weitere Linearformen enthält, die sich nicht
+als Linearkombinationen von $b_i^*$ schreiben lassen.
+Man kann sogar zeigen, dass die es überabzählbar viele weitere, linear
+unabhängige Linearformen gibt.
+Ist nämlich $I\subset\mathbb N$ eine beliebige Teilmenge der natürlichen
+Zahlen, dann können wir die Linearform $l_I$ definieren, die auf dem
+Vektor $v$ den Wert
+\[
+l_I(v) = \sum_{i\in I}v_i
+\]
+haben soll.
+Da nur endlich viele der Komponenten $v_i$ von $0$ verschieden sind, 
+ist die Summe wohldefiniert.
+Die oben beschriebene Linearform $l$ ist nichts anderers als $l_{\mathbb N}$.
+Für jede unendliche Teilmenge $I$ ist $l_I$ eine Linearform, die nicht
+durch die $b_i^*$ dargestellt werden kann.
+Man kann sogar zeigen, dass es unter den $l_I$ überabzählbar viele 
+linear unabhängige Linearformen gefunden werden können.
+Eine Basis des Dualraumes $V^*$ ist daher viel grösser als eine Basis
+von $V$.
+
+Man kann diese Beobachtung auch als Indiz darauf betrachten, dass die
+der Begriff des Vektorraumes für unendlichdimensionale Anwendungen noch
+etwas zu wenig restriktiv ist.
+Tatsächlich zeigt es sich, dass durch Hinzufügen eines Skalarproduktes
+und von Grenzwerten eine sehr viel geeignetere Struktur entsteht,
+der Hilbert-Raum.
+Mehr dazu im Kapitel~\ref{chapter:hilbertspaces}.
+
+
+
+

@@ -1,0 +1,74 @@
+%
+% linearform.tex -- Abschnitt über Linearformen
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+
+\section{Linearformen}
+Sei $V$ ein Vektorraum über $K$, wobei wir zunächst einschränkend
+annehmen, dass $V$ endlichdimensional ist.
+Für die nachfolgende Diskussion kännen wir uns vorstellen, in $V$ eine Basis
+$(b_i)_{1\le i\le n}$ gewählt zu haben, so dass wir $V$ mit $K^n$
+identifizieren können.
+Ein Vektor in $V$ kann als Spaltenvektor geschrieben werden.
+Die Basisvektoren werden dann mit den Standardbasisvektoren $e_i$
+identifiziert.
+
+Wir versuchen jetzt die Bedeutung der Zeilenvektoren zu ergründen.
+Die Matrizenrechnung lehrt uns, dass wir einen $n$-dimensionalen
+Zeilenvektor $l$ mit einem $n$-dimensionalne Spaltenvektor $v\in K^n$
+nach der Regel
+\[
+l\cdot v
+=
+\begin{pmatrix}
+l_1&l_2&\dots&l_n
+\end{pmatrix}
+\begin{pmatrix}v_1\\v_2\\\vdots\\v_n\end{pmatrix}
+=
+l_1v_1+l_2v_2+\dots+l_nv_n
+\]
+multiplizieren können.
+Linearformen in einem $n$-dimensionalen Raum können also selbst
+als den $n$-dimensionalen Vektorraum Zeilenvektoren der Länge $n$
+betrachtet werden.
+
+Dass die Linearformen selbst einen Vektorraum bilden, wussten wir
+natürlich schon länger.
+In Kapitel~\ref{chapter:vektorraum} haben wir bereits gezeigt,
+dass die Menge lineare Abbildungen ein Vektorraum ist.
+Da $K$ selbst auch ein eindimensionaler Vektorraum ist, ist
+$V^*=\operatorname{Hom}(V,K)$ ebenfalls ein Vektorraum, er heisst
+der {\em Dualraum}.
+\index{Dualraum}%
+
+Seien jetzt $U,V$ zwei $K$-Vektorräume und $f\colon U\to V$ eine lineare
+Abbildung zwischen den beiden Vektorräumen.
+Aus $f$ können wir eine lineare Abbildung zwischen den Dulräumen
+$U^*$ und $V^*$ wie folgt konstruieren.
+Ist $l\in V^*$ eine Linearform, dann ist die Abbildung
+\[
+f^*(l)\colon U\to K:u\mapsto f^*(l)(u)=l(f(u)) = l\circ f(u)
+\]
+linear, also eine Linearform in $U^*$.
+Die Abbildung $f^*$ ist also eine lineare Abbildung $f^*\colon V^*\to U^*$
+zwischen den Dualräumen.
+
+Es wird etwas klarer, was hier vorgeht, wenn wir die Konstruktion
+des Dualraum etwas umständlicher als $\operatorname{Dual}(U)=U^*$
+schreiben.
+Die von $f$ induzierte Abbildung der Dualräume wird dann mit
+\[
+f^*
+=
+\operatorname{Dual}(f)
+\colon 
+\operatorname{Dual}(V)
+\to
+\operatorname{Dual}(U)
+\]
+bezeichnet.
+In der Terminologie von Kapitel~\ref{chapter:kategorien} ist
+$\operatorname{Dual}$ ein kontravarianter Funktor in der Kategorie
+der $K$-Vektorräume.
+

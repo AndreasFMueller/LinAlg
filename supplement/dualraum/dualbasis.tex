@@ -1,0 +1,127 @@
+%
+% dualbasis.tex -- Abschnitt über die Dualbasis
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Dualbasis}
+Bei endlichdimensionalen Vektorräumen konnten wir mit Hilfe einer Basis
+die abstrakte Struktur des Vektorraumes auf die viel einfachere und
+übersichtlichere Situation der $n$-dimensionalen Spaltenvektoren 
+reduzieren.
+Wir sind also bestrebt, aus einer Basis des Vektorraums eine passende
+Basis des Dualraumes zu konstruieren, und damit auch den
+Dualraum auf einen Raum von Spaltenvektoren zu reduzieren.
+
+Sei daher jetzt $V$ ein $K$-Vektorraum und $B$ eine Basis von $V$.
+Wir suchen eine Basis des Dualraumes $V^*$.
+Da sich jeder Vektor in $V$ als Linearkombination von Basisvektoren
+schreiben lässt, ist eine Linearform in $V^*$ festgelegt durch die Werte
+auf den Basisvektoren.
+Wir konstruieren daher zu jedem Vektor $b\in B$ die {\em duale Linearform}
+mittels der Definition
+\begin{equation}
+b^*\colon V\to K:b'\mapsto
+\begin{cases}
+1&\qquad b'=b\\
+0&\qquad b'\ne b,\; b'\in B
+\end{cases}
+\label{dualraum:dualeform}
+\end{equation}
+Die duale Linearform $b^*$ hat also den Wert $1$ auf dem Basisvektor $b$
+und den Wert $0$ auf allen anderen Basisvektoren.
+Ist $v=v_1b_1+\dots+v_nb_n$, dann ist
+$b_i^*(v)=v_i$, d.~h.~die dualen Lineareformen der Basisvektoren können
+dazu verwendet werden, die Komponenten eines Vektors in der Basis $B$
+zu berechnen.
+
+Sei jetzt zusätzlich $V$ ein $n$-dimensionaler Vektorraum sein mit
+der Basis $B=\{b_1,\dots,b_n\}$.
+Vektoren in $V$ können dann als Linearkombinationen 
+\[
+v=v_1b_1+\dots+v_nb_n
+\]
+von Basisvektoren schreiben.
+Die zu $b_i$ duale Linearform $b_i^*$ hat auf $v$ den Wert
+\[
+b_i^*(v)
+=
+v_1\underbrace{b_i^*(b_1)}_{\displaystyle=0}
++
+\dots
++
+v_i\underbrace{b_i^*(b_i)}_{\displaystyle=1}
++
+\dots
++
+v_n\underbrace{b_i^*(b_n)}_{\displaystyle=0}
+=
+v_i
+\]
+Sei weiter $l$ eine Linearform auf $V$.
+Wir wollen $l$ als Linearkombination von dualen Linearformen $b^*$
+mit $b\in B$ schreiben.
+Wir suchen also Zahlen $l_1,\dots,l_n$ derart, dass
+\[
+l = l_1b_1^* + \dots + l_nb_n^*.
+\]
+Durch Einsetzen der Basisvektoren folgt
+\[
+l(b_i)
+=
+l_1b_1^*(b_i) + \dots + l_nb_n^*(b_i)
+=
+l_i,
+\]
+damit habe wir die $l_i$ bereits gefunden.
+Damit ist nachgewiesen, dass die $b_i^*$ den Dualraum $V^*$ erzeugt.
+
+Wir möchten jetzt auch noch zeigen, dass die dualen Linearformen linear
+unabhängig sind.
+Wir formulieren dies wieder etwas abstrakter und geben einen formalen
+Beweis.
+
+\begin{lemma}
+\label{dualraum:lemmaunabh}
+Sie $V$ ein $K$-Vektorraum mit Basis $B$, dann ist die
+Menge der dualen Linearformen $B^* = \{b^*\;|\;b\in B\}$ linear
+unabhängig im $K$-Vektorraum $V^*$.
+\end{lemma}
+
+\begin{proof}[Beweis]
+Wir müssen zeigen, dass eine verschwindende Linearkombination 
+\[
+l
+=
+\lambda_1 b_1^* + \dots +\lambda_n b_n^* = 0
+\]
+nur für $\lambda_1=\dots=\lambda_n=0$ möglich ist.
+Dazu wenden wir $l$ auf die Basisvektoren $b_i$ an und erhalten
+\[
+0
+=
+l(b_i)
+=
+\lambda_1b_1^*(b_i) + \dots + \lambda_nb_n^*(b_i)
+=
+\lambda_i.
+\]
+Damit haben wir nachgerechnet, dass $\lambda_i=0$ gilt, die einzige
+verschwindende Linearkombiantion von Basisformen $b^*\in B^*$ ist
+daher die Nullform.
+\end{proof}
+
+Damit haben wir insgesamt den folgenden Satz bewiesen.
+
+\begin{satz}
+Ist $V$ ein $n$-dimensionaler $K$-Vektorraum mit Basis $B=\{b_1,\dots,b_n\}$,
+dann ist $V^*$ ein $n$-dimensionaler $K$-Vektorraum mit 
+Basis $B^*=\{b_1^*,\dots,b_n^*\}$.
+\end{satz}
+
+Die Basis $B^*$ von $V^*$ heisst die Dualbasis.
+In den folgenden Abschnitten betrachten wir nur endlichdimensionale
+Vektorräume und ihre Dualräume, die ebenfalls endlichdimensional sind,
+und kehren erst in
+Abschnitt~\ref{section:dualraum:unendlich} zu den unendlichdimensionalen
+und der speziellen Struktur ihrer Dualräume zurück.
+
