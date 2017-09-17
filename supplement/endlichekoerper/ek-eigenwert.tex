@@ -4,17 +4,17 @@
 % (c) 2017 Prof Dr Andreas Mueller, Hochschule Rapperswil
 %
 \section{Eigenwerte und Eigenvektoren}
-Auch die Theorie der Eigenwerte und Eigenvektoren kann auf endliche K"orper
+Auch die Theorie der Eigenwerte und Eigenvektoren kann auf endliche Körper
 ausgedehnt werden.
 Der erste Schritt bei der Bestimmung der Eigenvektoren verlangt, dass
 die Nullstellen des charakteristischen Polynoms bestimmt werden.
-Wie schon bei Polynomen "uber $\mathbb Q$ ist die Bestimmung der Nullstellen
-von Polynomen "uber $\mathbb F_p$ alles andere als einfach.
-Sie wird aber noch kompliziert dadurch, dass "uber $\mathbb F_p$
-zus"atzlich der Frobenius-Automorphismus bei $p$-ten Potenzen zu
-neuen, unintuitiven Effekten f"uhrt.
+Wie schon bei Polynomen über $\mathbb Q$ ist die Bestimmung der Nullstellen
+von Polynomen über $\mathbb F_p$ alles andere als einfach.
+Sie wird aber noch kompliziert dadurch, dass über $\mathbb F_p$
+zusätzlich der Frobenius-Automorphismus bei $p$-ten Potenzen zu
+neuen, unintuitiven Effekten führt.
 
-\subsection{Eigenvektoren "uber $\mathbb F_7$}
+\subsection{Eigenvektoren über $\mathbb F_7$}
 Wir suchen Eigenwerte und Eigenvektoren der Matrix
 \[
 A
@@ -25,7 +25,7 @@ A
 3&4&4
 \end{pmatrix}
 \]
-"uber $\mathbb F_7$.
+über $\mathbb F_7$.
 
 Wir berechnen zuerst das charakteristische Polynom:
 \begin{align*}
@@ -60,7 +60,7 @@ Wir berechnen zuerst das charakteristische Polynom:
 &=
 -\lambda^3+2\lambda^2+5\lambda+1.
 \end{align*}
-Um die Eigenwerte zu finden, m"ussen wir also die L"osungen der
+Um die Eigenwerte zu finden, müssen wir also die Lösungen der
 Gleichung
 \[
 -\chi_A(\lambda)
@@ -99,8 +99,8 @@ Zur Kontrolle berechnen wir das Produkt
 \end{align*}
 wir haben also alle Eigenwerte gefunden.
 
-Zu jedem Eigenwert m"ussen jetzt noch ein Eigenvektor gefunden werde.
-F"ur $\lambda=1$ verwenden wir 
+Zu jedem Eigenwert müssen jetzt noch ein Eigenvektor gefunden werde.
+Für $\lambda=1$ verwenden wir 
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -143,8 +143,8 @@ F"ur $\lambda=1$ verwenden wir
 \end{tabular}
 \end{align*}
 Daraus liest man ab, dass die dritte Komponente verschwinden muss, und dass
-die zweite Variable frei w"ahlbar ist.
-W"ahlen wir sie als $1$, dann ist der Eigenvektor zum Eigenwert $\lambda=1$
+die zweite Variable frei wählbar ist.
+Wählen wir sie als $1$, dann ist der Eigenvektor zum Eigenwert $\lambda=1$
 \[
 v_1
 =
@@ -162,7 +162,7 @@ Av_1
 \begin{pmatrix}1\\1\\0\end{pmatrix}
 \]
 
-F"ur $\lambda = 3$ bestimmen wir einen Eigenvektor mit dem folgenden
+Für $\lambda = 3$ bestimmen wir einen Eigenvektor mit dem folgenden
 Gauss-Tableau:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
@@ -205,7 +205,7 @@ Gauss-Tableau:
 \hline
 \end{tabular}
 \end{align*}
-Diesmal ist die dritte Komponente frei w"ahlbar, wir w"ahlen sie wieder als
+Diesmal ist die dritte Komponente frei wählbar, wir wählen sie wieder als
 $1$ und erhalten den Eigenvektor zum Eigenwert $\lambda=3$
 \[
 v_3=\begin{pmatrix}1\\6\\1\end{pmatrix}
@@ -260,7 +260,7 @@ Schliesslich untersuchen wir den Eigenwert $\lambda=5$.
 \hline
 \end{tabular}
 \end{align*}
-Die zweite Komponente ist $0$, die dritte frei w"ahlber.
+Die zweite Komponente ist $0$, die dritte frei wählber.
 \[
 v_5
 =

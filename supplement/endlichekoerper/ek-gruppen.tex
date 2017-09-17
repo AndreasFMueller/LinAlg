@@ -5,8 +5,8 @@
 %
 \section{Matrizengruppen in $\mathbb F_p$}
 Die Gruppen $\textrm{GL}_n(\mathbb R)$ und $\textrm{SL}_n(\mathbb R)$
-sind Beispiele algebraischer Gruppen "uber den reellen Zahlen.
-In diesem Abschnitt sollen diese Gruppen auf den Fall endlicher K"orper
+sind Beispiele algebraischer Gruppen über den reellen Zahlen.
+In diesem Abschnitt sollen diese Gruppen auf den Fall endlicher Körper
 verallgemeinert werden.
 
 \subsection{$\textrm{GL}_n(\mathbb F_p)$ und $\textrm{SL}_n(\mathbb F_p)$}
@@ -22,7 +22,7 @@ daher
 \]
 
 \begin{beispiel}[Die Gruppe $\textrm{GL}_2(\mathbb F_2)$]
-Da $\mathbb F_2$ nur zwei Element hat, k"onnen wir alle $2\times 2$-Matrizen
+Da $\mathbb F_2$ nur zwei Element hat, können wir alle $2\times 2$-Matrizen
 auflisten und die Determinanten bestimmen:
 \begin{equation}
 \begin{aligned}
@@ -63,7 +63,7 @@ A_{14}& A_{14} & A_{13} &   E    &  A_6   & A_{11} &  A_7   \\
 \hline
 \end{tabular}
 \end{center}
-Es gibt nur zwei Gruppen mit sechs Elementen, n"amlich die zyklische
+Es gibt nur zwei Gruppen mit sechs Elementen, nämlich die zyklische
 Gruppe $\mathbb Z/6\mathbb Z$, die auch abelsch ist, und die
 Permutationsgruppe $S_3$ auf $3$ Objekten, die nicht abelsch ist.
 Wegen $A_6A_7=A_{13}\ne A_{11}=A_7A_6$ ist $\textrm{GL}_2(\mathbb F_2)$
@@ -72,9 +72,9 @@ nicht abelsch, also muss $\textrm{GL}_2(\mathbb F_2)\cong S_3$ sein.
 In der Tat gibt es in $\textrm{GL}_2(\mathbb F_2)$ drei Matrizen,
 $A_6$, $A_{11}$ und $A_{13}$,
 deren Quadrat die Einheitsmatrix ist, genauso wie es drei solche
-Permutationen gibt, n"amlich jene, die genau zwei Elemente vertauschen,
+Permutationen gibt, nämlich jene, die genau zwei Elemente vertauschen,
 die Transpositionen.
-Indem wir diesen Matrizen Transpositionen zuordnen, k"onnen wir einen
+Indem wir diesen Matrizen Transpositionen zuordnen, können wir einen
 Isomorphismus $\textrm{GL}_2(\mathbb F_2)\cong S_3$ konstruieren:
 \[
 \left.
@@ -104,7 +104,7 @@ A_{14}&=A_6A_{11}\mapsto
 \right.
 \]
 Wir kontrollieren diese Zuordnung, indem wir $A_7A_{14}$ ausrechnen,
-wir m"ussten die identische Permutation erhalten:
+wir müssten die identische Permutation erhalten:
 \[
 \begin{pmatrix}1&2&3\\3&1&2\end{pmatrix}
 \begin{pmatrix}1&2&3\\2&3&1\end{pmatrix}
@@ -118,15 +118,15 @@ $\textrm{GL}_2(\mathbb F_2)$.
 
 
 \subsection{Orthogonale Gruppen}
-Auch die Bedingung der Orthogonalit"at l"asst sich direkt auf lineare
-Gruppen "uber endlichen K"orpern ausdehnen.
+Auch die Bedingung der Orthogonalität lässt sich direkt auf lineare
+Gruppen über endlichen Körpern ausdehnen.
 Die Gruppe
 \[
 \textrm{O}(n,\mathbb F_p)
 =
 \{
 A\,|\,
-\text{$A$ ist eine $n\times n$-Matrix "uber $\mathbb F_p$ und $A^tA=E$}
+\text{$A$ ist eine $n\times n$-Matrix über $\mathbb F_p$ und $A^tA=E$}
 \}
 \]
 besteht aus Matrizen $A$, die die quadratische Form
@@ -135,7 +135,7 @@ $
 =
 u^tv
 $
-erh"alt, denn es gilt
+erhält, denn es gilt
 \[
 \langle Au,Av\rangle
 =
@@ -148,11 +148,11 @@ u^tv
 \langle u,v\rangle.
 \]
 
-Nicht "ubertragbar sind dagegen die Ideen, die aus der Interpretation
-von $\langle u,u\rangle=u^tu$ als L"ange eines Vektors hervorgehen.
-F"ur diese Ideen ist wesentlich, dass $u^tu=0$ gleichbedeutend ist
-mit $u=0$, eine Eigenschaft, die in endlichen K"orpern nicht mehr gilt.
-"Uber dem K"orper $\mathbb F_p$ betrachten wir den $p$-dimensionalen
+Nicht übertragbar sind dagegen die Ideen, die aus der Interpretation
+von $\langle u,u\rangle=u^tu$ als Länge eines Vektors hervorgehen.
+Für diese Ideen ist wesentlich, dass $u^tu=0$ gleichbedeutend ist
+mit $u=0$, eine Eigenschaft, die in endlichen Körpern nicht mehr gilt.
+"Uber dem Körper $\mathbb F_p$ betrachten wir den $p$-dimensionalen
 Vektor $u\in\mathbb F_p^p$ bestehend aus lauter Einsen, dann gilt
 \[
 u^tu
@@ -163,11 +163,11 @@ u^tu
 \underbrace{1+\dots+1}_{\text{$p$ Summanden}}=0\quad\text{in $\mathbb F_p$}
 \]
 Damit sind Orthonormalisierungsalgorithmen wie der Gram-Schmidt-Algorithmus
-nicht auf den Fall endlicher K"orper $\mathbb F_p$.
+nicht auf den Fall endlicher Körper $\mathbb F_p$.
 
 \begin{beispiel}[Die Gruppe $\textrm{O}(2,\mathbb F_2)$]
-Orthogonale Matrizen sind solche, die $A^tA=E$ erf"ullen.
-Da jede orthogonale Matrix auch invertierbar ist, k"onnen
+Orthogonale Matrizen sind solche, die $A^tA=E$ erfüllen.
+Da jede orthogonale Matrix auch invertierbar ist, können
 wir die Liste der invertierbaren Matrizen von
 Seite~\eqref{ff-f2matrizen} verwenden, um diejenigen Matrizen zu finden,
 die auch orthogonal sind.
