@@ -25,6 +25,7 @@ TEXFILES = einleitung.tex 						\
 	hilbertraum.tex 						\
 	homologie/homologie.tex 					\
 	homologie/tetraeder.tex 					\
+	homologie/beispiele.tex 					\
 	lie.tex								\
 	nichtstandardanalysis.tex
 

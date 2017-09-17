@@ -1,0 +1,122 @@
+%
+% beispiele.tex -- Weitere Beispiele für die Randoperator-Idee
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Randoperatoren}
+Eine von Faradays überraschendsten Beobachtungen in seinen
+Studien der Elektrodynamik, die später von Maxwell formalisiert
+worden ist, ist die Tatsache, dass die Spannung in einer Drahtschleife
+berechnet werden kann, indem man den Fluss des Magnetfelds durch die
+von der Drahtschleife berandete Fläche berechnet.
+Offenbar gibt es einen Zusammenhang zwischen dem, was auf dem Rand
+passiert und dem Fluss durch die Fläche.
+
+\subsection{Integration}
+Schon bei der einfachen Integrationsformel mit Hilfe der Stammfunktion
+können wir ein Beispiel eines Randoperators kennenlernen.
+Sei $f(x)$ eine auf dem Interval $[a,b]$ definierte stetige Funktion,
+und sei $F(x)$ eine Stammfunktion von $f(x)$.
+Dann gilt nach dem Hauptsatz der Analysis
+\begin{equation}
+\int_a^b f(x)\,dx = F(b)-F(a).
+\label{homologie:hauptsatz}
+\end{equation}
+Wir führen jetzt eine Notation ein, die etwas offensichtlicher werden
+lässt, was diese Formel bedeutet.
+Wir schreiben das Interval $I=[a,b]$, der Rand des Intervals 
+$\partial I$ besteht nur aus zwei Punkten $a$ und $b$.
+Wir müssen aber etwas genauer sein, denn die beiden Punkte haben
+ja verschiedene, Bedeutung, $a$ ist der Anfangspunkt, $b$ der Endpunkt
+des Intervals.
+Um dies anzudeuten markieren wir $a$ mit $\mu(a)=-1$ (dort wo des Interval
+``weggeht'') und $b$ mit $\mu(b)=1$.
+$\mu$ beschreib das Gewicht, mit dem wir die Punkte $a$ und $b$
+berücksichtigen müssen.
+Damit können wir die rechte Seite von \eqref{homologie:hauptsatz}
+jetzt schreiben als
+\[
+F(b)-F(a)
+=
+\sum_{x\in \partial I} F(x)\,\mu(x).
+\]
+Wir könnten diese noch etwas intuitiver als eine Art Integral über
+den Rand von $I$ mit den Gewichten $\mu$ schreiben
+\[
+F(b)-F(a) = \int_{\partial I} F(x)\,d\mu(x).
+\]
+Die linke Seite von \eqref{homologie:hauptsatz} ist ein Integral von
+$f(x)$ über das ganze Interval, aber es ist $f(x)=F'(x)$, 
+so dass die Formel~\eqref{chapter:quotient} zu
+\[
+\int_I F'(x)\,dx = \int_{\partial I} F(x)\,d\mu(x)
+\]
+wird.
+Auf der linken Seite steht ein Integral über einer Ableitung 
+über das ganze Interval, auf der rechten das Integral der
+ursprünglichen Funktion über den Rand.
+Der Übergang von der Funktion zu ihrer Ableitung kann kompensiert
+werden durch den Übergang vom Rand zum Inneren des Intervals.
+
+\subsection{Integralsätze der mehrdimensionalen Analysis}
+Der Satz von Gauss besagt, dass der Fluss eines Vektorfeldes $\vec v$
+durch eine geschlossene Fläche gleich gross ist wie das Integral
+der Divergenz des Vektorfeldes über das innere der Fläche.
+Etwas formaler: sei $V$ ein dreidimensionales Volumen und $\partial V$
+der Rand mit nach aussen orientierter Normale.
+Dann gilt
+\begin{equation}
+\int_V\operatorname{div} \vec v\,dx
+=
+\int_{\partial V} \vec v\cdot d\vec n.
+\label{homologie:gauss}
+\end{equation}
+Auf der linken Seite steht ein Integral über ganz $V$, auf der rechten
+Seite nur über den Rand.
+Dafür steht auf der linken Seite eine Art von Ableitung von $\vec v$,
+auf der rechten Seite steht das unveränderte Vektorfeld.
+
+Der Satz von Stokes zeigt ein ähnliches Phänomen.
+Ist $S$ ein Flächenstück im dreidimensionalen Raum mit Flächennormale
+$\vec n$.
+Dann gilt
+\[
+\oint_{\partial S} \vec v\cdot d\vec s
+=
+\int_{S} \operatorname{rot}\vec v\cdot d\vec n.
+\label{homologie:stokes}
+\]
+Auf der linken Seite steht das Wegintegral des Vektorveldes $\vec v$
+entlang der Randkurve $\partial S$.
+Auf der rechten Seite steht der Fluss des Vektorfeldes
+$\operatorname{rot}\vec v$ durch die Fläche $S$.
+Wieder muss beim Übergang vom Rand zum Inneren der Fläche ein
+Differentialoperator (die Rotation) auf das Vektorfeld angewendet
+werden.
+
+Diese Beispiele zeigen, dass hier wohl ein grundsätzlicheres Phänomen
+am Werk ist.
+Tatsächlich gibt es für beliebige Mannigfaltigkeiten eine Theorie
+der Differentialformen, welche Vektorfelder und Funktionen verallgemeinern.
+Eine Differentialform $\omega$ kann über eine Untermannigfaltigkeit $S$
+passender Dimension integriert werden.
+Eine Differentialform kann auch abgeleitet werden, die sogenannte
+äussere Ableitung von $\omega$ ist $d\omega$. 
+Der verallgemeinerte Satz von Stokes besagt, dass das Integral von
+$d\omega$ über die Untermannigfaltigkeit $S$ das gleiche gibt wie
+das Integral von $\omega$ über den Rand:
+\begin{equation}
+\int_{\partial S}\omega = \int_{S}d\omega.
+\label{homologie:stokesallg}
+\end{equation}
+Ist $S$ eine zweidimensionale Fläche in einem dreidimensionalen Raum,
+dann brauchen wir eine eindimensionale Differentialform $\omega$,
+also ein Vektorfeld.
+Ihre äussere Ableitung ist exakt die Rotation des Vektorfeldes,
+der verallgemeinerte Satz von Stokes \eqref{homologie:stokesallg}
+enthält also die bekannte Formel \eqref{homologie:stokes} von Stokes
+als Spezialfall.
+
+
+\subsection{Simpliziale Komplexe}
+
