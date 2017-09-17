@@ -6,19 +6,19 @@
 \section{Gauss-Algorithmus in $\mathbb F_p$}
 Der Gauss-Algorithmus ist die Basis sehr vieler Untersuchungen in der
 linearen Algebra.
-Man kann damit Gleichungssysteme l"osen, Determinanten bestimmen oder
+Man kann damit Gleichungssysteme lösen, Determinanten bestimmen oder
 Matrizen in einfachere Faktoren zerlegen.
-Er verwendet nur K"orper-Operationen, und ist daher unmittelbar
-auf endliche K"orper "ubertragbar.
+Er verwendet nur Körper-Operationen, und ist daher unmittelbar
+auf endliche Körper übertragbar.
 Wir illustrieren dies an Hand einiger Beispiele.
 
-\subsection{Ein Gleichungssystem "uber $\mathbb F_2$}
-Besonders einfach ist die Arithmetik im K"orper $\mathbb F_2$,
+\subsection{Ein Gleichungssystem über $\mathbb F_2$}
+Besonders einfach ist die Arithmetik im Körper $\mathbb F_2$,
 da es nur ein einziges Element gibt, welches von $0$ verschieden ist,
-n"amlich $1$.
-Ausserdem ist die Addition nichts anderes als die XOR-Verkn"upfung.
+nämlich $1$.
+Ausserdem ist die Addition nichts anderes als die XOR-Verknüpfung.
 
-Man kann also das folgende Gleichungssystem "uber $\mathbb F_2$
+Man kann also das folgende Gleichungssystem über $\mathbb F_2$
 \begin{equation}
 \begin{linsys}{3}
 x_1& &   &+&x_3&=&1\\
@@ -27,7 +27,7 @@ x_1&+&x_2& &   &=&1\\
 \end{linsys}
 \label{ffield:gleichung}
 \end{equation}
-mit dem Gauss-Algorithmus wie folgt l"osen:
+mit dem Gauss-Algorithmus wie folgt lösen:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -62,7 +62,7 @@ mit dem Gauss-Algorithmus wie folgt l"osen:
 \hline
 \end{tabular}
 \end{align*}
-Daraus kann man die L"osung
+Daraus kann man die Lösung
 \[
 \begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
 =
@@ -70,7 +70,7 @@ Daraus kann man die L"osung
 \]
 ablesen.
 
-Nat"urlich kann man auch die inverse Matrix bestimmen:
+Natürlich kann man auch die inverse Matrix bestimmen:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -121,7 +121,7 @@ Daraus liest man ab
 1&1&1\\
 \end{pmatrix}.
 \]
-Auch die eben gefundene L"osung des Gleichungssystems~\eqref{ffield:gleichung}
+Auch die eben gefundene Lösung des Gleichungssystems~\eqref{ffield:gleichung}
 kann jetzt mit der inversen Matrix bestimmt werden:
 \[
 \begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
@@ -165,7 +165,7 @@ bzw.~Multiplikationstabellen beschrieben.
 \end{tabular}
 \end{center}
 Damit ist es jetzt einfach, den Algorithmus zur Bestimmung der LU- und
-LR-Zerlegung durchzuf"uhren.
+LR-Zerlegung durchzuführen.
 Wir suchen die LU- und die LR-Zerlegung der Matrix
 \[
 A=\begin{pmatrix}
@@ -239,7 +239,7 @@ LU=
 0&3&3
 \end{pmatrix}
 \]
-F"ur die LR-Zerlegung muss $U$ mit $\operatorname{diag}(2,1,4)$
+Für die LR-Zerlegung muss $U$ mit $\operatorname{diag}(2,1,4)$
 multipliziert werden und $L$ mit der Inversen:
 \begin{align*}
 L'
@@ -312,7 +312,7 @@ L'R'
 \]
 
 \subsection{Inverse Matrix in $\mathbb F_7$}
-Die Additions- und Multiplikationstabellen f"ur $\mathbb F_7$ sind
+Die Additions- und Multiplikationstabellen für $\mathbb F_7$ sind
 \begin{center}
 \begin{tabular}{|>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -342,7 +342,7 @@ Die Additions- und Multiplikationstabellen f"ur $\mathbb F_7$ sind
 \hline
 \end{tabular}
 \end{center}
-Damit k"onnen wir die inverse Matrix von
+Damit können wir die inverse Matrix von
 \[
 A
 =
@@ -434,9 +434,9 @@ AA^{-1}
 0&0&1
 \end{pmatrix}.
 \]
-Alternativ k"onnen wir daf"ur auch Minoren verwenden.
-Dazu brauchen wir zun"achst die Determinante, die wir mit der Sarrus-Formel
-berechnen k"onnen:
+Alternativ können wir dafür auch Minoren verwenden.
+Dazu brauchen wir zunächst die Determinante, die wir mit der Sarrus-Formel
+berechnen können:
 \begin{align*}
 \det(A)
 &

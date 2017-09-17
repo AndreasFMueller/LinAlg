@@ -3,88 +3,88 @@
 %
 % (c) 2017 Prof Dr Andreas Mueller, Hochschule Rapperswil
 %
-\section{Endliche K"orper}
+\section{Endliche Körper}
 Im Unterricht in linearer Algebra werden die Eigenschaften der reellen
 Zahlen als Grundlage ohne weitere Diskussion akzeptiert.
-Im Analysis-Unterricht wird etwas sorgf"altiger analyisiert, was denn
-genau f"ur Eigenschaften notwendig sind.
+Im Analysis-Unterricht wird etwas sorgfältiger analyisiert, was denn
+genau für Eigenschaften notwendig sind.
 Dabei werden erst die rationalen Zahlen $\mathbb Q$ als die Menge der
-Br"uche der ganzen Zahlen konstruiert.
+Brüche der ganzen Zahlen konstruiert.
 In einem zweiten Schritt werden diese unter Verwendung der Ordnungsrelation
 (Dedekindsche Schnitte)
 oder des Abstandsbegriffs (Topologie, metrischer Raum) zu den reellen
-Zahlen $\mathbb R$ vervollst"andigt.
-Der zweite Schritt ist aus der Sicht der linearen Algebra nicht n"otig.
-Die lineare Algebra k"onnte auch g"anzlich "uber den rationalen Zahlen
+Zahlen $\mathbb R$ vervollständigt.
+Der zweite Schritt ist aus der Sicht der linearen Algebra nicht nötig.
+Die lineare Algebra könnte auch gänzlich über den rationalen Zahlen
 entwickelt werden.
 Erst bei der Cholesky-Zerlegung oder beim Eigenwertproblem wird es
-n"otig, die rationalen Zahlen so zu erweitern, dass Quadratwurzeln
-(Cholesky-Zerlegung) oder Nullstellen von Polynomen h"oheren Grades
-gefunden werden k"onnen.
+nötig, die rationalen Zahlen so zu erweitern, dass Quadratwurzeln
+(Cholesky-Zerlegung) oder Nullstellen von Polynomen höheren Grades
+gefunden werden können.
 
 Die Analysis nutzt aus, dass die rationalen Zahlen nicht nur eine algebraische
 Struktur haben, sondern auch eine Ordnungsstruktur.
-Insbesondere ist es f"ur zwei beliebige positive rationale Zahlen
-$a$ und $b$ m"oglich, eine Zahl $N$ anzugeben, so dass $Na>b$.
-Man sagt, die rationalen Zahlen bilden einen archimedischen K"orper.
-Die Ordnungsrelation ist also vertr"aglich mit den Rechenoperationen.
-In der Analysis "aussert sich das dadurch, dass die Multiplikation mit
+Insbesondere ist es für zwei beliebige positive rationale Zahlen
+$a$ und $b$ möglich, eine Zahl $N$ anzugeben, so dass $Na>b$.
+Man sagt, die rationalen Zahlen bilden einen archimedischen Körper.
+Die Ordnungsrelation ist also verträglich mit den Rechenoperationen.
+In der Analysis äussert sich das dadurch, dass die Multiplikation mit
 einer Zahl eine stetige Abbildung ist.
-F"ur die lineare Algebra ist diese Eigenschaft jedoch bedeutungslos:
+Für die lineare Algebra ist diese Eigenschaft jedoch bedeutungslos:
 in den beiden ersten Kapiteln des Skriptes wird die Ordnungsrelation
 kein einziges Mal gebraucht!
 
 In diesem Kapitel soll gezeigt werde, wie man ausgehend von den
-ganzen Zahlen $\mathbb Z$ auch andere K"orper konstruieren kann,
-f"ur die die archimedische Eigenschaft nicht erf"ullt ist.
+ganzen Zahlen $\mathbb Z$ auch andere Körper konstruieren kann,
+für die die archimedische Eigenschaft nicht erfüllt ist.
 Wir verwenden hier einen axiomatischen Zugang um ganz sicher zu sein,
-dass wir die konstruierten Zahlk"orper nicht versehentlich mit weiteren
-Eigenschaften ausstatten, die nicht ben"otigt werden.
-Erst im letzten Abschnitt "uber das Eigenwert-Problem werden wir
-feststellen, dass hierf"ur die einfachen K"orper erweitert werden
-m"ussen.
-Dies geschieht durch hinzuf"ugen von geeigneten neuen Zahlen, den
+dass wir die konstruierten Zahlkörper nicht versehentlich mit weiteren
+Eigenschaften ausstatten, die nicht benötigt werden.
+Erst im letzten Abschnitt über das Eigenwert-Problem werden wir
+feststellen, dass hierfür die einfachen Körper erweitert werden
+müssen.
+Dies geschieht durch hinzufügen von geeigneten neuen Zahlen, den
 Quadratwurzeln oder anderen Nullstellen.
 Im Falle von $\mathbb R$ waren in $\mathbb R$ bereits alle denkbaren
 Quadratwurzeln von positiven Zahlen vorhanden, und sie waren beliebig
 nahe an rationalen Zahlen.
-Da die endlichen K"orper keine Ordnungsrelation haben, und damit auch
+Da die endlichen Körper keine Ordnungsrelation haben, und damit auch
 keinen (offensichtlichen) Abstandsbegriff, finden wir bereits die
-notwendigen Quadratwurzeln ``weit ausserhalb'' des Ausgangsk"orpers.
+notwendigen Quadratwurzeln ``weit ausserhalb'' des Ausgangskörpers.
 
 %
 % Definition eines Körpers und Beispiele
 %
-\subsection{K"orper}
-Der Begriff des K"orpers fasst die Eigenschaften zusammen, die f"ur
-die Skalare in der linearen Algebra ben"otigt werden.
+\subsection{Körper}
+Der Begriff des Körpers fasst die Eigenschaften zusammen, die für
+die Skalare in der linearen Algebra benötigt werden.
 
-Eine {\em Gruppe} ist eine Menge $G$ mit einer Verkn"upfung, die zwei Elementen
+Eine {\em Gruppe} ist eine Menge $G$ mit einer Verknüpfung, die zwei Elementen
 $a,b\in G$ das Element $ab\in G$ zuordnet.
-Ausserdem m"ussen folgen Axiome erf"ullt sein:
+Ausserdem müssen folgen Axiome erfüllt sein:
 \begin{enumerate}[label={\bf G.\arabic*},itemsep=0mm]
 \item
-Die Verkn"upfung ist assoziativ, d.~h.~$(ab)c=a(bc)$ f"ur alle $a,b,c\in G$.
+Die Verknüpfung ist assoziativ, d.~h.~$(ab)c=a(bc)$ für alle $a,b,c\in G$.
 \item
-Es gibt ein Element $e\in G$ mit der Eigenschaft $eg=ge=g$ f"ur alle $g\in G$,
+Es gibt ein Element $e\in G$ mit der Eigenschaft $eg=ge=g$ für alle $g\in G$,
 genant das Neutralelement.
 \item
-F"ur jedes Element $g\in G$ gibt es ein Element $g^{-1}\in G$ welches
+Für jedes Element $g\in G$ gibt es ein Element $g^{-1}\in G$ welches
 $gg^{-1}=g^{-1}g=e$.
 \end{enumerate}
-Eine Gruppe heisst {\em abelsch} wenn $ab=ba$ f"ur alle $a,b\in G$.
+Eine Gruppe heisst {\em abelsch} wenn $ab=ba$ für alle $a,b\in G$.
 
-Ein {\em Ring} ist eine Menge $R$ mit zwei Verkn"upfungen, der Addition
+Ein {\em Ring} ist eine Menge $R$ mit zwei Verknüpfungen, der Addition
 und der Multiplikation, mit folgenden Eigenschaften:
 \begin{enumerate}[label={\bf R.\arabic*},itemsep=0mm]
-\item $R$ ist bez"uglich der Addition eine abelsche Gruppe.
+\item $R$ ist bezüglich der Addition eine abelsche Gruppe.
 \item Die Multiplikation in $R$ ist assoziativ und hat ein Einselement.
-\item F"ur drei Element $x,y,z\in R$ gilt $(x+y)z=xz+yz$ und
+\item Für drei Element $x,y,z\in R$ gilt $(x+y)z=xz+yz$ und
 $z(x+y)=zx+zy$.
 \end{enumerate}
 
-Die Menge $\mathbb Z$ der ganzen Zahlen tr"agt die Struktur eines Ringes.
-Die Menge der $n\times n$-Matrizen mit Eintr"agen in $\mathbb Z$ ist ebenfalls
+Die Menge $\mathbb Z$ der ganzen Zahlen trägt die Struktur eines Ringes.
+Die Menge der $n\times n$-Matrizen mit Einträgen in $\mathbb Z$ ist ebenfalls
 ein Ring.
 Ist $R$ ein Ring, dann ist die Menge 
 \[
@@ -93,10 +93,10 @@ R[X]=\{ a_0+a_1X +a_2X^2+\dots +a_nX^n\,|\,a_i\in R\}
 der Polynome in der Variablen $X$ ein Ring.
 
 Ein {\em Körper} ist ein Ring, so dass die Menge der von $0$ verschiedenen
-Elemente eine abelsche Gruppe bez"uglich der Multiplikation bilden.
+Elemente eine abelsche Gruppe bezüglich der Multiplikation bilden.
 
-Die Menge $\mathbb Q$ der rationalen Zahlen tr"agt die Struktur eines
-K"orpers.
+Die Menge $\mathbb Q$ der rationalen Zahlen trägt die Struktur eines
+Körpers.
 
 %
 % Körper gebildet mit Restklassen
@@ -166,12 +166,12 @@ $\mathbb Z/p\mathbb Z=\mathbb F_p$ ein Körper.
 % Körper mit Charaketeristik != 0 haben
 %
 \subsection{Frobenius-Automorphismus}
-F"ur K"orper mit Charakteristik $0$ ist das Potenzieren zwar bez"uglich der
+Für Körper mit Charakteristik $0$ ist das Potenzieren zwar bezüglich der
 Multiplikation ein Homomorphismus:
 $
 (ab)^k = a^kb^k
 $
-aber nicht bez"uglich der Addition, wo die binomische Formel
+aber nicht bezüglich der Addition, wo die binomische Formel
 \begin{equation}
 (a+b)^k
 = 
@@ -198,8 +198,8 @@ a^p + 0\cdot a^{p-1}b + 0\cdot a^{p-1}b^2
 &=
 a^p + b^p.
 \end{align*}
-Im K"orper $\mathbb F_p$ ist daher die Abbildung $a\mapsto a^p$
-ein Homomorphismus von K"orpern.
+Im Körper $\mathbb F_p$ ist daher die Abbildung $a\mapsto a^p$
+ein Homomorphismus von Körpern.
 Er heisst der {\em Frobenius-Automorphismus}.
 
 Speziell gilt auch, dass mehrfache Anwendung des Frobenius-Automorphismus
@@ -221,22 +221,22 @@ Da $0^2=0$ und $1^2=1$ ist, ist der Frobenius-Automorphismus in $\mathbb F_2$
 die identische Abbildung.
 \end{beispiel}
 
-Der kleine Satz von Euler besagt, dass f"ur eine Primzahl $p$ und jede
+Der kleine Satz von Euler besagt, dass für eine Primzahl $p$ und jede
 beliebige ganze Zahl $a$ gilt
 \[
 a^{p-1}\cong 1\mod p
 \qquad\Rightarrow\qquad
 a^p\cong a\mod p.
 \]
-Dies bedeutet, dass der Frobenius-Automorphismus auf dem K"orper $\mathbb F_p$
-immer wie die Identit"at wirkt.
-Seine Wirkung wird also erst sichtbar, wenn man zu K"orpererweiterungen
-von $\mathbb F_p$ "ubergeht.
-Im Lichte der Galois-Theorie ist $\mathbb F_p$ ein Fix-K"orper
+Dies bedeutet, dass der Frobenius-Automorphismus auf dem Körper $\mathbb F_p$
+immer wie die Identität wirkt.
+Seine Wirkung wird also erst sichtbar, wenn man zu Körpererweiterungen
+von $\mathbb F_p$ übergeht.
+Im Lichte der Galois-Theorie ist $\mathbb F_p$ ein Fix-Körper
 unter der Wirkung des Frobenius-Automorphismus.
 
 \begin{beispiel}[Beispiel: Frobenius-Automorphismus in $\mathbb F_2(\alpha)$]
-Wir konstruieren eine K"orper-Erweiterung vom Grad zwei "uber dem K"orper
+Wir konstruieren eine Körper-Erweiterung vom Grad zwei über dem Körper
 $\mathbb F_2$.
 Dazu verwenden betrachten wir das Polynom $m(x)=x^2 + x + 1$.
 Wir suchen nach Nullstellen des Polynoms.
@@ -249,14 +249,14 @@ Da es nur zwei Polynome ersten Grades gibt, kann man durch durchprobieren
 aller Polynome ersten Grades herausfinden, ob $m(x)$ irreduzibel ist.
 $m(x)$ ist offensichtlich nicht durch $x$ teilbar.
 Andererseits ist $m(x)$ auch nicht durch $x+1$ teilbar, denn da $x$ kein
-Faktor sein kann, m"usste dann $m(x)=(x+1)^2=x^2 +  2x + 1=x^2+x$ sein,
+Faktor sein kann, müsste dann $m(x)=(x+1)^2=x^2 +  2x + 1=x^2+x$ sein,
 was offensichtlich nicht zutrifft.
-Somit ist $m(x)$ irreduzibel "uber $\mathbb F_2$.
+Somit ist $m(x)$ irreduzibel über $\mathbb F_2$.
 
 Wir postulieren jetzt zwei neue ``Zahlen'' $\alpha$ und $\beta$, die
-zu $\mathbb F_2$ hinzugef"ugt werden sollen, und die Nullstellen von 
+zu $\mathbb F_2$ hinzugefügt werden sollen, und die Nullstellen von 
 $m(x)$ sein sollen.
-Sie m"ussen daher die Gleichungen
+Sie müssen daher die Gleichungen
 \[
 \left.
 \begin{aligned}
@@ -284,7 +284,7 @@ m(\alpha+1)
 \underbrace{\alpha+1}_{\alpha^2} + 1+ (\alpha + 1) + 1=0.
 \]
 Da $\alpha+1\ne \alpha$ ist, aber auch eine Nullstelle, gibt es nur
-noch die eine M"oglichkeit, dass $\alpha+1=\beta$ ist.
+noch die eine Möglichkeit, dass $\alpha+1=\beta$ ist.
 Dann ist aber auch
 \[
 \beta^2
@@ -303,8 +303,8 @@ von $i\mapsto -i$ indizierten Automorphismus von
 $\mathbb C = \mathbb R(i)$.
 
 Man beachte, dass das hier betrachtet Polynom $m(x)=x^2+x+1$ auch
-als Polynom "uber $\mathbb Q$ irreduzibel ist.
-Seine Nullstellen in $\mathbb R$ sind n"amlich
+als Polynom über $\mathbb Q$ irreduzibel ist.
+Seine Nullstellen in $\mathbb R$ sind nämlich
 \[
 x_{\pm}=-\frac12 \pm\frac{\sqrt{3}}{2}i\not\in\mathbb Q.
 \]
@@ -332,19 +332,19 @@ x_-^2
 \end{align*}
 gilt.
 
-Wir h"atten $m(x)=x^2+x+1$ als Polynom "uber $\mathbb F_2$ aber auch
-als die Reduktion $\mod 2$ des Polynoms $q(x)=x^2-x-1$ "uber $\mathbb Z$
-betrachten k"onnen, Vorzeichenwechsel sind in $\mathbb F_2$ ja nicht
-m"oglich.
+Wir hätten $m(x)=x^2+x+1$ als Polynom über $\mathbb F_2$ aber auch
+als die Reduktion $\mod 2$ des Polynoms $q(x)=x^2-x-1$ über $\mathbb Z$
+betrachten können, Vorzeichenwechsel sind in $\mathbb F_2$ ja nicht
+möglich.
 Die Nullstellen von $q(x)$ sind aber
 \[
 x_{\pm}
 =
 \frac12\pm\frac{\sqrt{5}}2.
 \]
-Hier haben wir also ein Polynom, welches "uber $\mathbb R$ reduzibel ist.
+Hier haben wir also ein Polynom, welches über $\mathbb R$ reduzibel ist.
 Dies illustriert, dass verschiedene Polynome mit ganzlich unterschiedlicher
-Nullstellen das gleiche algebraische Verhalten als Polynome "uber $\mathbb F_2$
+Nullstellen das gleiche algebraische Verhalten als Polynome über $\mathbb F_2$
 zeigen.
 Die Zahlen
 \[
@@ -353,7 +353,7 @@ Die Zahlen
 \frac12\pm\frac{\sqrt{5}}{2}
 \]
 haben also die gleichen algebraischen Eigenschaften wie die beiden Zahlen
-$\alpha$ und $\beta$ als Nullstellen von $m(x)$ "uber $\mathbb F_2$.
+$\alpha$ und $\beta$ als Nullstellen von $m(x)$ über $\mathbb F_2$.
 \end{beispiel}
 
 
