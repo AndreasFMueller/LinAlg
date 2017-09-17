@@ -1,22 +1,22 @@
 %
-% hilbertraum.tex -- Theorie der Hilbertr"aume
+% hilbertraum.tex -- Theorie der Hilberträume
 %
 % (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
 \chapter{Hilberträume
 \label{chapter:hilbertspaces}}
-Die Theorie der Vektorr"aume mit einem Skalarprodukt wird im Unterricht
-"ublicherweise nur am Beispiel des Vektorraums $\mathbb R^n$ dargestellt.
-Dabei werden die Studierenden kurze Zeit sp"ater mit der Theorie
-der Fourier-Reihen konfrontiert, die in nat"urlicher Weise in einem
+Die Theorie der Vektorräume mit einem Skalarprodukt wird im Unterricht
+üblicherweise nur am Beispiel des Vektorraums $\mathbb R^n$ dargestellt.
+Dabei werden die Studierenden kurze Zeit später mit der Theorie
+der Fourier-Reihen konfrontiert, die in natürlicher Weise in einem
 unendlichdimensionalen Vektorraum mit einem Skalarprodukt situiert ist.
 
 \section{Skalarprodukt und Norm}
 Da die Theorie eines Vektorraumes mit Skalarprodukt formuliert werden
-soll unabh"angig von der konkreten Darstellung der Vektoren als 
-Spaltenvektoren, muss das Skalaprodukt ebenfalls unabh"angig von einer
+soll unabhängig von der konkreten Darstellung der Vektoren als 
+Spaltenvektoren, muss das Skalaprodukt ebenfalls unabhängig von einer
 solchen Darstellung definiert werden.
-Die axiomatische Methode bietet sich hierf"ur an.
+Die axiomatische Methode bietet sich hierfür an.
 
 \begin{definition}
 \label{hilbert:hermitescheform}
@@ -35,54 +35,54 @@ im zweiten Argument:
 &
 \langle x,\lambda y\rangle&=\overline\lambda\langle x,y\rangle
 \end{align*}
-f"ur alle $x,x',y,y'\in V$.
-\item F"ur alle $x,y\in V$ gilt
+für alle $x,x',y,y'\in V$.
+\item Für alle $x,y\in V$ gilt
 $\langle x,y\rangle=\overline{\langle y,x\rangle}$.
 \end{enumerate}
 \end{definition}
 Eine hermitsche Form ist noch nicht geeignet, die Rolle eines
-Skalarproduktes zu "ubernehmen, denn wir m"ochten ja $\langle x,x\rangle$
-als Quadrat der L"ange eines Vektors $x$ interpretieren.
-Dazu muss zun"achst mal sichergestellt sein, dass $\langle x,x\rangle$
+Skalarproduktes zu übernehmen, denn wir möchten ja $\langle x,x\rangle$
+als Quadrat der Länge eines Vektors $x$ interpretieren.
+Dazu muss zunächst mal sichergestellt sein, dass $\langle x,x\rangle$
 eine reelle Zahl ist.
 Doch dies folgt aus Axiom (HF.2) einer hermiteschen Form.
-Vertauscht man die beiden Argument in $\langle x,x\rangle$, "andert
-sich nat"urlich nichts, und daher folgt
+Vertauscht man die beiden Argument in $\langle x,x\rangle$, ändert
+sich natürlich nichts, und daher folgt
 \[
 \langle x,x\rangle = \overline{\langle x,x\rangle}
 \qquad\Rightarrow\qquad
 \langle x,x\rangle\in\mathbb R.
 \]
 
-Damit $\langle x,x\rangle$ das Quadrat der L"ange sein kann, darf
+Damit $\langle x,x\rangle$ das Quadrat der Länge sein kann, darf
 $\langle x,x\rangle$ nicht negativ wird, was
 durch die Axiome nicht sichergestellt wird.
-Ist n"amlich $\langle\;,\;\rangle$ eine hermitesche Form, dann ist
+Ist nämlich $\langle\;,\;\rangle$ eine hermitesche Form, dann ist
 auch $-\langle\;,\;\rangle$ eine hermitesche Form.
 Die Definition muss daher verfeinert werden:
 
 \begin{definition}
 \label{hilbert:postiveform}
 Eine hermitesche Form heisst {\em positiv}, wenn gilt
-$\langle x,x\rangle \ge 0$ f"ur alle $x\in V$.
+$\langle x,x\rangle \ge 0$ für alle $x\in V$.
 \end{definition}
 
 Positive hermitesche Formen haben bereits eine wichtige Eigenschaft,
-die f"ur die Definition der L"ange erforderlich.
+die für die Definition der Länge erforderlich.
 
 \begin{satz} Ist $\langle\;,\;\rangle$ eine positive hermitesche
 Form, dann gilt die Cauchy-Schwarz-Ungleichung
 \[
 |\langle x,y\rangle|^2 \le \langle x,x\rangle\langle y,y\rangle
 \]
-f"ur beliebige Vektoren $x,y\in V$.
+für beliebige Vektoren $x,y\in V$.
 \end{satz}
 
 \begin{proof}[Beweis]
 Wir betrachten den Vektor $x+\lambda y$.
 Da $\langle\;,\;\rangle$ positiv ist, gilt 
 $\langle x+\lambda y,x+\lambda y\rangle \ge 0$.
-Mit der Linearit"at von $\langle\;,\;\rangle$ k"onnen wir dies
+Mit der Linearität von $\langle\;,\;\rangle$ können wir dies
 aber auch ausrechnen:
 \begin{align*}
 0&\le
@@ -139,7 +139,7 @@ Dann folgt
 -
 \frac{|\langle x,y\rangle|^2}{\langle y,y\rangle}.
 \end{align*}
-Durch Multiplizieren mit $\langle y,y\rangle$ erh"alt man daraus
+Durch Multiplizieren mit $\langle y,y\rangle$ erhält man daraus
 \begin{align*}
 0&\le
 \langle x,x\rangle\langle y,y\rangle
@@ -156,7 +156,7 @@ Durch Multiplizieren mit $\langle y,y\rangle$ erh"alt man daraus
 $\langle y,y\rangle =0$.
 
 Im Fall $\langle x,x\rangle=\langle y,y\rangle=0$ verwendet man 
-$\lambda = -\langle x,y\rangle$ und erh"alt
+$\lambda = -\langle x,y\rangle$ und erhält
 \begin{align*}
 0
 &\le
@@ -182,14 +182,14 @@ Daraus folgt $\langle x,y\rangle = 0$, ein Spezialfall der
 Cauchy-Schwarz-Ungleichung.
 \end{proof}
 
-Auch mit dieser Definition ist es immer noch m"oglich, dass Vektoren,
+Auch mit dieser Definition ist es immer noch möglich, dass Vektoren,
 die von $0$ verschieden sind, Skalarprodukt $0$ haben.
 Dies verhindert die folgend Erweiterung der Definition
 
 \begin{definition}
 \label{hilbert:postivdefiniteform}
 Eine hermitesche Form $\langle\;,\;\rangle$ heisst {\em positiv definit},
-wenn $\langle x,x\rangle > 0$ f"ur alle Vektoren $x\ne 0$ in $V$.
+wenn $\langle x,x\rangle > 0$ für alle Vektoren $x\ne 0$ in $V$.
 \end{definition}
 
 Eine positiv definite hermitesche Form erlaubt nun die Norm
@@ -201,7 +201,7 @@ auf $V$, dann heisst $\|x\| = \sqrt{\langle x,x\rangle}$ die {\em Norm}
 des Vektors $x\in V$.
 \end{definition}
 
-Diese Norm erf"ullt die Dreiecksungleichung, wie man mit folgender
+Diese Norm erfüllt die Dreiecksungleichung, wie man mit folgender
 Rechnung einsehen kann:
 \begin{align*}
 \|x+y\|^2
@@ -232,41 +232,41 @@ Rechnung einsehen kann:
 Damit ist die Dreiecksungleichung bewiesen.
 
 \begin{definition}
-Ein (komplexer) Pr"ahilbertraum ist ein komplexer Vektorraum mit
+Ein (komplexer) Prähilbertraum ist ein komplexer Vektorraum mit
 einer positiv definiten hermiteschen Form $\langle\;,\;\rangle$
-auch genannt das {\em Skalarprodukt} des Pr"ahilbertraumes.
+auch genannt das {\em Skalarprodukt} des Prähilbertraumes.
 \end{definition}
 
 \section{Hilbertraum}
 Die rationalen komplexen Zahlen $\mathbb Q(i)=\{a+bi\,|\,a,b\in\mathbb Q\}$
-k"onnen als komplexer Hilbertraum mit dem Skalarprodukt
+können als komplexer Hilbertraum mit dem Skalarprodukt
 $\langle x,y\rangle = \overline{x}y$ betrachtet werden.
 Die Norm von $x=a+bi$ ist $\|x\|^2=a^2+b^2$.
 Auf den rationalen Zahlen ist die Norm genau der Betrag, Cauchy-Folgen
 in $\mathbb Q$ sind also automatisch auch Cauchy-Folgen im
-Pr"ahilbertraum $\mathbb Q(i)$.
+Prähilbertraum $\mathbb Q(i)$.
 Es ist aber auch wohlbekannt dass, eine Cauchy-Folge in $\mathbb Q$
 nicht konvergent sein muss.
 
-Wir m"ochten den Begriff des Hilbertraums als die nat"urlich B"uhne zum
-Beispiel f"ur die Fourier-Theorie etablieren, in der das Summieren von
+Wir möchten den Begriff des Hilbertraums als die natürlich Bühne zum
+Beispiel für die Fourier-Theorie etablieren, in der das Summieren von
 Reihen wie einer Fourier-Reihe
 \[
 f(x) = \frac{a_0}2+\sum_{k=1}^\infty (a_k\cos kx+b_k\sin kx)
 \]
 wohldefiniert sein soll.
-Wir m"ussen daher fordern, dass Cauchy-Folgen einen Grenzwert haben,
+Wir müssen daher fordern, dass Cauchy-Folgen einen Grenzwert haben,
 und definieren daher eine Hilbertraum wie folgt.
 
 \begin{definition}
-Ein Pr"ahilbertraum $H$ heisst ein {\em Hilbertraum}, wenn jede er 
-vollst"andig ist, d.~h.~wenn jede Cauchy-Folge einen Grenzwert in $H$ hat.
+Ein Prähilbertraum $H$ heisst ein {\em Hilbertraum}, wenn jede er 
+vollständig ist, d.~h.~wenn jede Cauchy-Folge einen Grenzwert in $H$ hat.
 \end{definition}
 
-\begin{beispiel}[Endlichdimensionale komplexe Vektorr"aume]
-Der Vektorraum $\mathbb C^n$ ist in nat"urlicher Weise ein Pr"ahilbertraum
+\begin{beispiel}[Endlichdimensionale komplexe Vektorräume]
+Der Vektorraum $\mathbb C^n$ ist in natürlicher Weise ein Prähilbertraum
 mit dem Skalarprodukt $\langle u,v\rangle = \overline{u}^t v$.
-Da $\mathbb C$ vollst"andig ist, ist $\mathbb C^n$ aber auch ein
+Da $\mathbb C$ vollständig ist, ist $\mathbb C^n$ aber auch ein
 Hilbertraum.
 \end{beispiel}
 
@@ -277,7 +277,7 @@ Das Skalarprodukt
 \[
 \langle f,g\rangle = \frac1{\sqrt{2\pi}}\int_0^{2\pi} \overline{f(x)} g(x)\,dx
 \]
-macht $C(S^1,\mathbb C)$ zu einem Pr"ahilbertraum.
+macht $C(S^1,\mathbb C)$ zu einem Prähilbertraum.
 Er kann aber kein Hilbertraum sein, denn die Funktionenfolge
 \[
 f_n(x)=\root{2n+1}\of{\sin x},\qquad n\in\mathbb N
@@ -366,7 +366,7 @@ ein Hilbertraum.
 \end{proposition}
 
 \begin{proof}[Beweis]
-Zunächst ist klar, dass $V^\perp$ ein Pr"ahilbertraum ist, es muss
+Zunächst ist klar, dass $V^\perp$ ein Prähilbertraum ist, es muss
 also nur noch gezeigt werden, dass $V^\perp$ vollständig ist.
 Sei also $x_n\in V^\perp$ eine Cauchy-Folge.
 Weil $H$ ein Vektorraum ist, gibt es einen Grenzwert $x\in H$, mit
@@ -408,7 +408,7 @@ TODO
 
 \section{Operatoren auf einem Hilbert-Raum}
 
-\section{Unit"are Operatoren}
+\section{Unitäre Operatoren}
 
 \section{Fourier-Transformation}
 

@@ -8,17 +8,17 @@
 \rhead{Homologie}
 Im Skript wird gezeigt, wie man zu jedem Graphen die Menge der Zyklen
 finden kann.
-In den Anwendungen wird dies daf"ur gebraucht, eine linear unabh"angige
-Menge von Maschen f"ur die Gleichungen von Kirchhoff zu bestimmen.
+In den Anwendungen wird dies dafür gebraucht, eine linear unabhängige
+Menge von Maschen für die Gleichungen von Kirchhoff zu bestimmen.
 Es zeigt sich jedoch auch, dass der Begriff des Zyklus sehr viel
 allgemeiner formuliert werden kann, und dass sich damit ein algebraisches
-Objekt konstruieren l"asst, mit welchem sich topologische Eigenschaften
-eines K"orpers beschreiben lassen.
+Objekt konstruieren lässt, mit welchem sich topologische Eigenschaften
+eines Körpers beschreiben lassen.
 Der Begriff der Homologie-Gruppen verallgemeinert eine grundlegende
-Beobachtung, die schon Euler "uber Polyeder gemacht hat.
+Beobachtung, die schon Euler über Polyeder gemacht hat.
 
 \section{Kern und Bild}
-Seien $U$ und $V$ Vektorr"aume "uber $\mathbb R$ und sei $\varphi\colon U\to V$
+Seien $U$ und $V$ Vektorräume über $\mathbb R$ und sei $\varphi\colon U\to V$
 eine lineare Abbildung.
 Dann sind die Mengen
 \begin{align*}
@@ -26,7 +26,7 @@ Dann sind die Mengen
 \\
 \operatorname{im}\varphi&=\{\varphi(u)\,|\, u\in U\}
 \end{align*}
-Vektorr"aume.
+Vektorräume.
 In der Tat folgt aus $u_1,u_2\in\operatorname{ker}\varphi$
 und $\lambda\in\mathbb R$
 \begin{align*}
@@ -41,7 +41,7 @@ u_1+u_2&\in\operatorname{ker}\varphi
 \lambda u_1&\in\operatorname{ker}\varphi
 \end{align*}
 was beweist das $\operatorname{ker}\varphi$ ein Vektorraum ist.
-F"ur $\operatorname{im}\varphi$ nehmen wir zun"achst
+Für $\operatorname{im}\varphi$ nehmen wir zunächst
 $v_1,v_2\in\operatorname{im}\varphi$.
 Dann gibt es Vektoren $u_1,u_2\in U$ derart, dass
 $\varphi(u_1)=v_1$ und $\varphi(u_2)=v_2$.
@@ -63,13 +63,13 @@ $\operatorname{im}\varphi\subset V$.
 
 \section{Quotientenraum}
 Sei jetzt $V$ ein reeller Vekor und $U\subset V$ ein Unterraum.
-Dann k"onnen wir einen neuen Vektorraum $V/U$ wie folgt definieren.
+Dann können wir einen neuen Vektorraum $V/U$ wie folgt definieren.
 Die Element von $V/U$ sind Teilmengen der Form
 \[
 \tilde v = \{v+u\,|\, u\in U\}.
 \]
 Offenbar ist $\tilde v_1=\tilde v_2$ wenn $v_1-v_2\in U$.
-Wir m"ussen ausserdem die Vektorraum-Operationen definieren.
+Wir müssen ausserdem die Vektorraum-Operationen definieren.
 Es ist naheliegend
 \begin{align*}
 \tilde v_1+\tilde v_2
@@ -80,9 +80,9 @@ Es ist naheliegend
 &=
 \{\lambda v_1+u\,|\, u\in U\}.
 \end{align*}
-zu setzen, doch wir m"ussen sicherstellen dass eine andere Wahl
-der Repr"asentanten $v_i$ auf die gleichen Mengen f"uhrt.
-Seien also $v_1'$ und $v_2'$ andere Repr"asentanten, es gilt also
+zu setzen, doch wir müssen sicherstellen dass eine andere Wahl
+der Repräsentanten $v_i$ auf die gleichen Mengen führt.
+Seien also $v_1'$ und $v_2'$ andere Repräsentanten, es gilt also
 $v_1'-v_1\in U$ and $v_2'-v_2\in U$.
 Dann gilt
 \begin{align*}
@@ -102,22 +102,22 @@ Dann gilt
 Damit ist gezeigt, dass die Vektorraumoperationen in $V/U$ wohldefiniert
 sind.
 
-Jetzt muss aber auch noch gezeigt werden, dass die Axiome f"ur einen
-Vektorraum erf"ullt sind.
+Jetzt muss aber auch noch gezeigt werden, dass die Axiome für einen
+Vektorraum erfüllt sind.
 Die Rechenregeln wie das Assoziativgesetz oder das Distributivgesetz
 folgen jetzt unmittelbar daraus, dass die Rechenoperationen mit Hilfe
-von Repr"asentationen definiert sind, und f"ur diese gelten die
+von Repräsentationen definiert sind, und für diese gelten die
 genannten Gesetze.
-Das gilt auch f"ur den Nullvektor, der Repr"asentant von $U$ ist.
+Das gilt auch für den Nullvektor, der Repräsentant von $U$ ist.
 
-Die Darstellung von Elementen von $V/U$ mit Hilfe von Repr"asentanten
+Die Darstellung von Elementen von $V/U$ mit Hilfe von Repräsentanten
 bedeutet auch, dass es eine Abbildung $V\to U$ gibt, die definiert
 ist durch
 \[
 \pi \colon V\to U: v\mapsto \tilde v=\{v+u\,|\, u\in U\}\in V/U.
 \]
-Auch hier folgt aus den Eigenschaften des Rechnens mit Repr"asentaten,
-dass $\pi$ eine lineare Abbildung von Vektorr"aumen ist.
+Auch hier folgt aus den Eigenschaften des Rechnens mit Repräsentaten,
+dass $\pi$ eine lineare Abbildung von Vektorräumen ist.
 Ausserdem ist das Bild von $\pi$ die ganzge Menge,
 $\operatorname{im}\pi = V/U$.
 
@@ -131,7 +131,7 @@ Die Mengen $v+U$ mit $v\in V$ sind parallel verschobene Kopien des
 Unterraumes $U$.
 Im Quotienten werden alle $v$ miteinander identifiziert, die sich nur
 durch ein Element in $U$ unterschieden.
-Der Quotient besteht also aus den Richtungen ``quer'' zu $U$, w"ahrend 
+Der Quotient besteht also aus den Richtungen ``quer'' zu $U$, während 
 $U$ zu einem einzigen Punkt kollabiert.
 
 \section{Homologie}
@@ -151,7 +151,7 @@ $\partial_k$
 Ausserdem wird verlangt, dass $\partial_{k} \circ \partial_{k+1}=0$ ist.
 Dies bedeutet, dass
 $\operatorname{im}\partial_{k+1}\subset \operatorname{ker}\partial_{k}$.
-Wir k"onnen daher die Vektorräume
+Wir können daher die Vektorräume
 \[
 H_k = \operatorname{ker}\partial_k/\operatorname{im}\partial_{k+1}
 \]
@@ -172,3 +172,7 @@ Vektorraum $C_3$ zugeordnet.
 
 
 https://www.youtube.com/watch?v=rlI1KOo1gp4
+
+
+\input{homologie/tetraeder.tex}
+\input{homologie/projektiv.tex}

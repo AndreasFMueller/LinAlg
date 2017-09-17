@@ -23,7 +23,8 @@ TEXFILES = einleitung.tex 						\
 	quotient/quotient.tex						\
 	quotient/unterraum.tex						\
 	hilbertraum.tex 						\
-	homologie.tex 							\
+	homologie/homologie.tex 					\
+	homologie/tetraeder.tex 					\
 	lie.tex								\
 	nichtstandardanalysis.tex
 
