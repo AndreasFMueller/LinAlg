@@ -81,6 +81,63 @@ Die Greensche Funktion, mit welcher elliptische Randwertprobleme
 gelöst werden können, ist ein Beispiel eines solchen Integraloperators.
 
 \subsection{Integrierbare Funktionen}
+Wir betrachten die integrierbaren Funktionen auf $\mathbb R$, und bezeichnen
+diese Menge als $L^1(\mathbb R)$.
+Eine Funktion $f$ ist integrierbare, wenn auch der Betrag von $f$
+integrierbar ist.
+$L^1(\mathbb R)$ ist ein Vektorraum, denn auch die Summe von integrierbaren
+Funktionen ist wieder integrierbar, wie die Rechnung
+\[
+\int_{\mathbb R} |f+g|(x)\,dx
+\le
+\int_{\mathbb R} (|f| +|g|)(x)\,dx
+=
+\int_{\mathbb R} |f(x)|\,dx \int_{\mathbb R} |g(x)|\,dx
+\]
+zeigt, die Integrale auf der rechten Seite existieren, weil $f$ und $g$
+integrierbar sind.
+
+Eine beschränkte Funktion $g$ hat die Eigenschaft, dass es eine Zahl $M$ 
+gibt derart, dass $|g(x)|\le M$ für alle $x\in\mathbb R$.
+Dies hat zur Folge, dass das Integral
+\[
+\int_{\mathbb R} |g(x)f(x)|\,dx
+\le
+M\int_{\mathbb R} |f(x)|\,dx
+\]
+existiert, also ist $g(x)f(x)$ ebenfalls integrierbar.
+Damit ist die Abbildung
+\[
+l_g\colon L^1(\mathbb R)\to \mathbb R: f \mapsto l_g(f)=\int_{\mathbb R} g(x)f(x)\,dx
+\]
+eine Linearform  auf dem Vektorraum $L^1(\mathbb R)$. 
+Die Menge der beschränkten Funktionen enthält aber auch Funktionen, die
+nicht integrierbar sind, zum Beispiel die konstanten Funktionen.
+Hier haben wir ein Beispiel eines Vektorraums, bei dem der Vektorraum
+der Linearformen völlig anders aussieht als der Vektorraum selbst.
+
+In der vorangegangenen Diskussion haben wir uns nicht weiter darüber
+Gedanken gemacht, wie des Integral zu definieren ist.
+Das übliche Riemannsche Integral ist leider nicht geeignet, da es
+sich nicht gut mit der Bildung von Grenzwerten veträgt.
+Das Lebesgue-Integral dagegen hat diesen Mangel nicht.
+Der Vektorraum $L^1(\mathbb R)$ besteht also aus denjenigen
+Funktionen, die bezüglich des Lebesgue-Masses integrierbar sind.
+Funktionen, die sich nur auf einer Menge vom Inhalt $0$ unterscheiden,
+werden als gleich betrachtet.
+
+Für Linearformen können dann konstruiert werden mit Hilfe von 
+Funktionen, die wesentlich beschränkt sind, d.~h.~für eine solche
+Funktion $g$ es gibt eine Zahl $M$ mit $|g(x)|\le M$ für alle
+$x\in\mathbb R$ bis auf eine Menge vom Mass $0$.
+Die Menge solcher Funktionen wird als $L^\infty(\mathbb R)$ 
+bezeichnet.
+Beide Vektorräume $L^1(\mathbb R)$ und $L^\infty(\mathbb R)$
+haben eine Norm, man kann also die Menge der stetigen Linearformen
+betrachten.
+Es lässt sich zeigen, dass der Vektorraum der stetigen Linearformen
+auf $L^1(\mathbb R)$ der Vektorraum $L^\infty(\mathbb R)$ ist.
+
 
 \subsection{Differenzierbare Funktionen}
 Sei $I$ ein Interval und 
@@ -205,6 +262,21 @@ also
 =
 f(x)-f(a).
 \]
+Mit Hilfe der Linearform $\varepsilon_a$ und der Konstanten Funktion $1$ kann
+man diese Abbildung auch als
+\[
+S\circ \frac{d}{dx} f
+=
+f - \varepsilon_a(f) \cdot 1
+=
+(E-1\cdot\varepsilon_a)(f)
+\qquad\Rightarrow\qquad
+S\circ \frac{d}{dx}f
+=
+(E-1\cdot \varepsilon_a)
+\]
+schreiben.
+
 Integriert man zuerst, und leitet erst dann ab, dann lässt die Ableitung
 die Integrationskonstante wieder verschwinden, d.~h.~man findet
 \[
