@@ -1,0 +1,259 @@
+%
+% funktionenraum.tex -- Funktionenraum als Beispiel 
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Funktionenräume}
+Funktionenräume sind die einfachsten Beispiele reichhaltiger
+unendlichdimensionaler Vektorräume.
+In diesem Abschnitt soll daher ein paar Beispiele von solchen
+Funktionenräumen etwas genauer unter die Lupe genommen werden.
+
+\subsection{Der Vektorraum der stetigen Funktionen}
+Für ein Interval $I=[a,b]$ betrachten wir die Menge
+\[
+C(I) = \{f\colon I\to\mathbb R\;|\; \text{$f$ ist stetig}\}
+\]
+der stetigen Funktionen.
+
+\subsubsection{Linearformen auf $C(I)$}
+Für jeden Punkt $x\in I$ kann man die Abbildung
+\[
+\varepsilon_x\colon C(I)\to\mathbb R: f\mapsto f(x)
+\]
+definieren.
+Offenbar ist $\varepsilon_x$ linear, denn es gilt
+\[
+\varepsilon(f+g) = (f+g)(x) = f(x) + g(x) = \varepsilon_x f + \varepsilon_x g
+\qquad\text{und}\qquad
+\varepsilon_x (\lambda f) = (\lambda f)(x)= \lambda f(x)
+=\lambda\varepsilon_x(f).
+\]
+Eine weitere Möglichkeit, eine Linearform zu definieren, ergibt sich mit
+Hilfe einer stetigen Funktion $g$.
+Dazu setzen wir
+\[
+I_g(f) =  \int_I g(x)f(x)\,dx.
+\]
+Da auf einem abgeschlossenen und beschränkten Interval stetige Funktionen
+beschränkt sein müssen, ist dieses Integral immer definiert.
+Die Abbildung ist tatsächlich linear, denn die Rechenregeln für das
+Integral besagen
+\begin{align*}
+I_g(f+h)
+&=
+\int_Ig(x)(f(x)+h(x))\,dx
+=
+\int_Ig(x)f(x)\,dx \int_I g(x)h(x))\,dx
+=
+I_g(f) + I_g(h)
+\\
+I_g(\lambda f)
+&=
+\int_Ig(x)\lambda f(x)\,dx
+=
+\lambda\int_Ig(x)f(x)\,dx
+=
+\lambda I_g(f),
+\end{align*}
+was gleichbedeutend mit Linearität ist.
+
+Es stellt sich heraus, dass die beiden vorgestellten Arten von Linearformen
+nicht disjunkt sind.
+Die Linearform $\varepsilon_x$ kann nämlich nicht in der Form $I_g$ dargestellt
+werden.
+Dazu würde eine Funktion $\delta_x$ benötigt mit der Eigenschaft
+\[
+I_{\delta_x}(f)= \int_I\delta_x(\xi)f(\xi)\,d\xi = f(x),
+\]
+also die Dirac-$\delta$-``Funktion''.
+Keine stetige Funktion hat diese Eigenschaft, also ist $\varepsilon_x$
+nicht in der Form $I_g$ darstellbar.
+
+\subsubsection{Integraloperatoren}
+Ist $K(x,y)$ eine stetige Funktion auf $I\times I$, dann definiert $K$
+eine lineare Abbildung $C(I)\to C(I)$ durch die Formel
+\[
+(Kf)(x) = \int_I K(x,\xi)f(\xi)\,d\xi.
+\]
+Man nennt $K$ einen Integral-Operator mit Kernfunktion $K(x,y)$.
+Die Greensche Funktion, mit welcher elliptische Randwertprobleme
+gelöst werden können, ist ein Beispiel eines solchen Integraloperators.
+
+\subsection{Integrierbare Funktionen}
+
+\subsection{Differenzierbare Funktionen}
+Sei $I$ ein Interval und 
+\[
+C^k(I)
+=
+\{
+f\colon I\to\mathbb B\;|\;
+\text{$f$ ist $k$-mal stetig differenzierbar}
+\}
+\]
+die Menge der $k$-fach stetig differenzierbaren Funktionen.
+Die bekannten Rechenregeln für die Ableitung besagen, dass
+dass $C^k(I)$ ein Vektorraum ist.
+
+\subsubsection{Ableitungen}
+Für die Ableitung von Funktionen einer Variablen gelten die
+Rechenregeln
+\[
+(f+g)'=f'+g'
+\qquad\text{und}\qquad
+(\lambda f)' = \lambda f',
+\]
+daraus schliessen wir, dass die Ableitung eine lineare Abbildung
+\[
+\frac{d}{dx} \colon C^k(I)\to C^{k-1}(I)
+\]
+ist.
+Da $f'$ eventuell nur noch $(k-1)$-mal stetig differenzierbar ist, wenn
+$f\in C^k(I)$ war, ist klar, dass die Ableitung nicht in den gleichen
+Vektorraum zurückführt.
+Dasselbe gilt für Ableitungen beliebiger Ordnung.
+
+Die verschiedenen Vektorräume $C^k(I)$ sind eineinander
+geschachtelt:
+\[
+C(I) \supset C^1(I) \supset C^2(I)\supset \dots \supset
+C^k(I) \supset \dots \supset C^\infty(I)
+\]
+Darin ist $C^\infty(I)$ der Vektorraum der beleibig oft stetig
+differenzierbaren Funktionen, die auch {\em glatt} heissen.
+\index{glatte Funktion}%
+Nur in diesem letzten Vektorraum sind Ableitungen beliebiger Ordnung
+definiert, und die Ableitungen führen in den gleichen Vektorraum zurück,
+also
+\[
+\begin{tikzcd}
+C^k(I) \ar[r,"\displaystyle\frac{d^s}{dx^s}"]
+	& C^{k-s}(I)
+\\
+C^\infty(I) \ar[r,"\displaystyle\frac{d^s}{dx^s}"] \ar[u,hook]
+	&C^\infty(I) \ar[u,hook]
+\end{tikzcd}
+\]
+Man kann auch den Kern dieser linearen Ableitungen verstehen.
+Verschwindet die Ableitung einer Funktion, muss sie auf dem Interval
+$I$ konstant sein.
+Der Kern von $d/dx$ ist also der Unterraum der konstanten Funktionen.
+Verschwindet die $s$-te Ableitung, muss die Funktion ein Polynom
+vom Grade $s-1$ sein.
+Der Kern von $d^s/dx^s$ besteht also aus den Polynomen vom Grad $s-1$,
+oder etwas formeller
+\[
+\operatorname{ker}\frac{d^s}{dx^s} = \{ p\in \mathbb R[X]\;|\; \deg p < s\}.
+\]
+Das Zeichen $\deg p$ bedeutet den Grad des Polynoms $p$.
+
+\subsubsection{Stammfunktion}
+In der Analysis lernt man auch, zu jeder stetigen Funktion auf dem
+Interval $I$ die Stammfunktion zu finden. 
+Nach dem Hauptsatz ist die Stammfunktion immer einmal mehr stetig
+differenzierbar als die ursprüngliche Funktion es war.
+Das finden der Stammfunktion ist aber nicht eindeutig, die Stammfunktion
+ist nur bis auf eine Konstante festgelegt.
+Man kann diese zum Beispiel dadurch tun, dass man für $I=[a,b]$ die
+Stammfunktion als
+\[
+Sf(x) = \int_a^x f(\xi)\,d\xi
+\]
+definiert.
+Man kann als untere Grenze aber auch jeden beliebigen anderen Punkt
+des Intervals nehmen.
+
+Die Abbildung $S$ ist linear, denn es gilt nach den bekannten
+Rechenregeln für das Integral
+\begin{align*}
+S(f+g)(x)
+&=
+\int_a^x f(\xi) + g(\xi)\,d\xi
+=
+\int_a^x f(\xi)\,d\xi + \int_a^xg(\xi)\,d\xi
+=
+(Sf)(x) + (Sg)(x)
+\\
+S(\lambda f)(x)
+&=
+\int_a^x \lambda f(\xi)\,d\xi
+=
+\lambda \int_a^x f(\xi)\,d\xi
+=
+\lambda (Sf)(x)
+\end{align*}
+oder
+\begin{align*}
+S(f+g)&=Sf+Sg
+\\
+S(\lambda f)&=\lambda Sf,
+\end{align*}
+die Abbildung $S$ ist also eine lineare Abbildung
+\[
+C^k(I)\to C^{k+1}(I).
+\]
+
+Der Hauptsatz besagt, dass  die Verkettung der Ableitung und der Integration
+$S$ aus einer Funktion $f$ bis auf eine Konstante die gleiche Funktion
+macht, allerdings muss die neue Funktion im Punkt $a$ den Wert $0$ annehmen.
+Es gilt also $ (S(f'))(a) = 0 $.
+Die Funktion $f(x)-f(a)$ ist eine Funktion mit dieser Eigenschaft, man findet
+also
+\[
+\biggl(S\circ \frac{d}{dx} f\biggr) (x)
+=
+f(x)-f(a).
+\]
+Integriert man zuerst, und leitet erst dann ab, dann lässt die Ableitung
+die Integrationskonstante wieder verschwinden, d.~h.~man findet
+\[
+\frac{d}{dx}\circ S f = f.
+\]
+Schreibt man die Ableitung etwas kompakter als $D=d/dx$, dann findet man
+also, dass
+$DS=E$ und $SD$ zwei verschiedene lineare Abbildungen sind.
+Man kann sogar noch etwas mehr herausholen.
+Führt man $SD$ zweimal aus, erhält man
+\[
+SDSD = S(DS)D=SED=SD.
+\]
+Man nennt die Operation $SD$ idempotent, sie zweimal auszuführend ändert
+nichts mehr am Resultat.
+Dies ist auch anschaulich klar: die Operation $SD$ subtrahiert von einer
+Funktion den Wert im Punkt $a$, danach ist der Wert in $a$ gleich Null,
+nochmals dieselbe Operation ändert die Funktion nicht mehr.
+
+Eine itempotente lineare Abbildung in einem Vektorraum heisst auch
+{\em Projektion},
+\index{Projektion}%
+die orthogonalprojektion in einem dreidimensionalen Vektorraum hat
+ebenfalls diese Eigenschaft.
+
+\subsubsection{Grenzwerte}
+Die lineare Algebra ist nicht in der Lage, die analytischen Eigenschaften
+dieses Funktionenraums abzubilden.
+Man weiss zum Beispiel, dass Grenzwerte von differenzierbaren Funktionen
+nicht mehr differenzierbar sein müssen.
+Die Funktionen 
+\[
+f_k(x) = \sqrt[2k+1]{\sin x}
+\]
+bilden eine Folge von stetigen Funktionen auf $\mathbb R$, welche
+punkteweise gegen die ``Rechteck''-Funktion
+\[
+f(x)=\begin{cases}
+ 0&\qquad x\in \pi\mathbb Z \\
+ 1&\qquad x\in (2l\pi, (2l+1)\pi), l\in\mathbb Z\\
+-1&\qquad x\in ((2l-1)\pi, 2l\pi), l\in\mathbb Z
+\end{cases}
+\]
+konvergiert.
+Letztere ist aber nicht einmal stetig, geschweige denn differenzierbar.
+
+In den Vektorräumen $C^k(I)$ wie bisher defiert ist aber noch nicht
+einmal der Begriff des Grenzwertes wohldefiniert, dazu muss der
+Vektorraum erst mit einer analytischen Struktur ausgestattet werden,
+zum Beispiel mit einer Norm.
+Dies soll im Kapitel~XXX untersucht werden.
+
