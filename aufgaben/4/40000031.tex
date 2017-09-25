@@ -1,17 +1,17 @@
 Ein 3D-Drucker erzeugt dreidimensionale Objekte, in dem er sie schichtweise
 aus Kunststoff auf eine Arbeitsplatte extrudiert.
 Dabei ist entscheidend, dass die Druckplatte genau horizontal ist, damit
-die geheizte D"use, aus der der fl"ussige Kunststoff austritt, in konstantem
-Abstand "uber die Platte gef"uhrt werden kann.
-Die meisten 3D-Drucker stellen dem Benutzer f"ur diesen Zweck einige
-mechanische Einstellschrauben zur Verf"ugung.
-Der Kossel-3D-Drucker hingegen verf"ugt "uber einen Sensor, mit er den
-Abstand der Druckplatte von der D"use messen kann.
+die geheizte Düse, aus der der flüssige Kunststoff austritt, in konstantem
+Abstand über die Platte geführt werden kann.
+Die meisten 3D-Drucker stellen dem Benutzer für diesen Zweck einige
+mechanische Einstellschrauben zur Verfügung.
+Der Kossel-3D-Drucker hingegen verfügt über einen Sensor, mit er den
+Abstand der Druckplatte von der Düse messen kann.
 Die Firmware steuert daher zu Beginn eines Druckes eine vorgegebene Menge von
 Positionen auf der Druckplatte an, und misst den Abstand.
-Sie kann dann eine eventuelle Schr"aglage der Druckplatte berechnen
+Sie kann dann eine eventuelle Schräglage der Druckplatte berechnen
 und kompensieren.
-Nehmen Sie an, das beim Anfahren der Messpunkte folgende H"ohen
+Nehmen Sie an, das beim Anfahren der Messpunkte folgende Höhen
 gemessen wurden:
 \begin{center}
 \begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
@@ -29,8 +29,8 @@ z\,\text{[mm]}\\
 \end{center}
 \begin{teilaufgaben}
 \item
-Stellen Sie ein Gleichungssystem auf, mit dem man die bestm"ogliche
-Sch"atzung von $z$ als lineare Funktion von $x$ und $y$ finden kann.
+Stellen Sie ein Gleichungssystem auf, mit dem man die bestmögliche
+Schätzung von $z$ als lineare Funktion von $x$ und $y$ finden kann.
 \item
 Bestimmen Sie den Neigungswinkel der Platte zur Horizontalen.
 \end{teilaufgaben}
@@ -43,7 +43,7 @@ Gesucht ist eine Formel der Form
 z=ax+by+c,
 \]
 die Koeffizienten $a$, $b$ und $c$ sind zu bestimmen. Einsetzen der Messdaten
-f"uhrt auf das Gleichungssystem
+führt auf das Gleichungssystem
 \[
 \begin{linsys}{3}
  10a&+&10b&+&c&=&0.015\\
@@ -52,7 +52,7 @@ f"uhrt auf das Gleichungssystem
 -10a&-&10b&+&c&=&0.022
 \end{linsys}
 \]
-Dieses Gleichungssystem ist "uberbestimmt, es hat die Matrix $A$
+Dieses Gleichungssystem ist überbestimmt, es hat die Matrix $A$
 \[
 A
 =
@@ -63,9 +63,9 @@ A
 -10&-10&1
 \end{pmatrix}.
 \]
-Die Theorie besagt, dass sich die bestm"ogliche L"osung finden l"asst,
+Die Theorie besagt, dass sich die bestmögliche Lösung finden lässt,
 indem man das Gleichungssystem mit der Matrix $A^tA$ und rechter Seite
-$A^tb$ l"ost:
+$A^tb$ löst:
 \begin{align*}
 A^tA
 &=
@@ -105,7 +105,7 @@ A^tb
 \end{pmatrix}
 \end{align*}
 Das Gleichungssystem kann dank der Diagonalform von $A^tA$
-sofort gel"ost werden:
+sofort gelöst werden:
 \[
 a=-0.00005,\qquad b=-0.00030,\qquad c=0.019.
 \]
@@ -133,9 +133,9 @@ also
 \begin{bewertung}
 \begin{teilaufgaben}
 \item
-Ansatz f"ur die Gleichung der Plattenebene (\textbf{A}) 1 Punkt,
-"uberbestimmtes Gleichungssystem f"ur die Plattenbene (\textbf{G}) 1 Punkt,
-L"osungsverfahren f"ur "uberbestimmte Gleichungssysteme (\textbf{L}) 1 Punkt,
+Ansatz für die Gleichung der Plattenebene (\textbf{A}) 1 Punkt,
+überbestimmtes Gleichungssystem für die Plattenbene (\textbf{G}) 1 Punkt,
+Lösungsverfahren für überbestimmte Gleichungssysteme (\textbf{L}) 1 Punkt,
 Berechnung der Koeffizienten $a$, $b$ und $c$ (\textbf{K}) 1 Punkt,
 \item
 Gleichung der Plattenebene oder Normale (\textbf{N}) 1 Punkt,

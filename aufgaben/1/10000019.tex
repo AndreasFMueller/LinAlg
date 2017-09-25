@@ -1,4 +1,4 @@
-Bestimmen Sie die Werte f"ur $a$ und $b$, f"ur die das Gleichungssystem
+Bestimmen Sie die Werte für $a$ und $b$, für die das Gleichungssystem
 \[
 \begin{linsys}{3}
 x&+&2y&+&3z&=&1\\
@@ -7,10 +7,10 @@ x& &  &+& z&=&0\\
 \end{linsys}
 \]
 in den drei Unbekannten $x$, $y$ und $z$ keine, genau eine bzw.~unendlich
-viele L"osungen hat. Bestimmen Sie jeweils die L"osungsmenge.
+viele Lösungen hat. Bestimmen Sie jeweils die Lösungsmenge.
 
 \begin{loesung}
-Wir f"uhren den Gauss-Algorithmus so weit wie m"oglich durch:
+Wir führen den Gauss-Algorithmus so weit wie möglich durch:
 \begin{align*}
 \begin{tabular}{|ccc|c|}
 \hline
@@ -37,12 +37,12 @@ Wir f"uhren den Gauss-Algorithmus so weit wie m"oglich durch:
 \hline
 \end{tabular}
 \end{align*}
-An dieser Stelle k"onnen wir entscheiden, wieviele L"osungen das Gleichungssystem
+An dieser Stelle können wir entscheiden, wieviele Lösungen das Gleichungssystem
 hat.
 \begin{enumerate}
 \item[Fall 1:]
-Das Gleichungssystem ist regul"ar, wenn $a\ne 0$. In diesem Fall l"asst sich der
-Gauss-Algorithmus zu Ende f"uhren:
+Das Gleichungssystem ist regulär, wenn $a\ne 0$. In diesem Fall lässt sich der
+Gauss-Algorithmus zu Ende führen:
 \[
 \rightarrow
 \begin{tabular}{|ccc|c|}
@@ -61,7 +61,7 @@ Gauss-Algorithmus zu Ende f"uhren:
 \hline
 \end{tabular}
 \]
-Die einzige L"osung ist also $(-\frac{b}a,\frac12-\frac{b}a,\frac{b}a)$, wie man auch durch
+Die einzige Lösung ist also $(-\frac{b}a,\frac12-\frac{b}a,\frac{b}a)$, wie man auch durch
 Einsetzen kontrollieren kann:
 \[
 \begin{linsys}{3}
@@ -70,14 +70,14 @@ Einsetzen kontrollieren kann:
  & &2(\frac12-\frac{b}a)&+&(a+2)\frac{b}a&=&b+1\\
 \end{linsys}
 \]
-\item[Fall 2:] Falls $a=0$ ist das Gleichungssystem singul"ar.
+\item[Fall 2:] Falls $a=0$ ist das Gleichungssystem singulär.
 Ist ausserdem $b\ne 0$
 ist die letzte Gleichung gleichbedeuten mit $0=b$, ein Widerspruch.
-In diesem Fall gibt es also keine L"osung.
+In diesem Fall gibt es also keine Lösung.
 \item[Fall 3:] Falls $a=0$ und $b=0$ entsteht im Gauss-Tableau eine Nullzeile,
 die letzte
-Gleichung ist also redundant, es gibt unendlich viele L"osungen.
-Der Gauss-Algorithmus kann wie folgt zu Ende gef"uhrt werden:
+Gleichung ist also redundant, es gibt unendlich viele Lösungen.
+Der Gauss-Algorithmus kann wie folgt zu Ende geführt werden:
 \[
 \rightarrow
 \begin{tabular}{|ccc|c|}
@@ -96,7 +96,7 @@ Der Gauss-Algorithmus kann wie folgt zu Ende gef"uhrt werden:
 \hline
 \end{tabular}
 \]
-Daraus kann man die L"osungsmenge
+Daraus kann man die Lösungsmenge
 \[
 \mathbb L=\left\{
 \left.\begin{pmatrix}-z\\-z+\frac12\\z\end{pmatrix}\;\right|\;z\in\mathbb R

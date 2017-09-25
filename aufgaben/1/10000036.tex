@@ -7,26 +7,26 @@ schneiden sich diese Geraden in den Ecken eines gleichseitigen Dreiecks
 \begin{center}
 \includeagraphics[]{morley-1.pdf}
 \end{center}
-Beim Timestamp 3:30 erkl"art Mathologer, dass man f"ur die Winkel
+Beim Timestamp 3:30 erklärt Mathologer, dass man für die Winkel
 $\delta_i,1\le i\le 6$, er nennt sie $a$, $b$, $c$, $d$, $e$, $f$, ein
 lineares Gleichungssystem aufstellen kann. 
 Dazu verwendet er einerseits die Winkelsumme in den Dreiecken
 $\triangle_A=\triangle AGF$,
 $\triangle_B=\triangle BEG$ und $\triangle_C=\triangle CFE$
 und andererseits die Tatsache, dass sich die
-Winkel an den Punkten $E$, $F$ und $G$ zu $180^\circ$ summieren m"ussen.
+Winkel an den Punkten $E$, $F$ und $G$ zu $180^\circ$ summieren müssen.
 die Winkel $\angle AGB$, $\angle BEC$ und $\angle CFA$ kann man aus
-der Winkelsumme der zugeh"origen Dreiecke bestimmen.
+der Winkelsumme der zugehörigen Dreiecke bestimmen.
 \begin{teilaufgaben}
 \item
-Ist das so gefundene Gleichungssystem regul"ar?
+Ist das so gefundene Gleichungssystem regulär?
 \item
 Bestimmen Sie den Rang der Koeffizientenmatrix
 \end{teilaufgaben}
 
 \begin{loesung}
 Der Winkel $\angle AGB$ ist $180^\circ-\frac{\alpha}3-\frac{\beta}3$, und
-entsprechend f"ur die Winkel bei $E$ und $F$.
+entsprechend für die Winkel bei $E$ und $F$.
 Das Gleichungssystem wird damit
 \[
 \begin{linsys}{9}
@@ -38,8 +38,8 @@ F:& &        & &\delta_2&+&\delta_3& &        & &        & &        &=&180^\circ
 G:& &        & &        & &        & &\delta_4&+&\delta_5& &        &=&180^\circ -\frac{\alpha}3-\frac{\beta}3\phantom{-\frac{\gamma}3}\\
 \end{linsys}
 \]
-Die rechten Seiten sind nicht weiter wichtig, da wir ja nur die L"osbarkeit
-des Gleichungssystems untersuchen m"ussen.
+Die rechten Seiten sind nicht weiter wichtig, da wir ja nur die Lösbarkeit
+des Gleichungssystems untersuchen müssen.
 Die Koeffizientenmatrix des Gleichungssystems ist
 \[
 \begin{pmatrix}
@@ -173,6 +173,6 @@ Wir verwenden daher den Gauss-Algorithmus, um den Rang zu bestimmen:
 \end{tabular}
 \end{align*}
 Daraus kann man ablesen, dass der Rang der Matrix $5$ ist, es gibt genau
-einen frei w"ahlbaren Winkel.
-Insbesonder ist das Gleichungssystem nicht regul"ar.
+einen frei wählbaren Winkel.
+Insbesonder ist das Gleichungssystem nicht regulär.
 \end{loesung}

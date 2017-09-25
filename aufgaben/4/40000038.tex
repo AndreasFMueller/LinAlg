@@ -1,12 +1,12 @@
 Jedes Jahr im Oktober findet in Morton, Illinois, das ``Punkin Chuckin' ''
 Festival steht.
 In diesem Rahmen findet auch ein Wettbwerb statt, bei dem die Teilnehmer
-ausmarchen, wer mit seiner oft abenteurlichen Konstruktion einen K"urbis
+ausmarchen, wer mit seiner oft abenteurlichen Konstruktion einen Kürbis
 am weitesten schiessen kann.
 Ein Teilnehmer versucht den optimalen Abschusswinkel experimentell zu
-bestimmen, und misst daher die Schussweite in Abh"angigkeit vom
+bestimmen, und misst daher die Schussweite in Abhängigkeit vom
 Abschusswinkel.
-Er erh"alt die folgenden Daten:
+Er erhält die folgenden Daten:
 \begin{center}
 \def\c{\phantom{\mathstrut^\circ}}
 \begin{tabular}{l|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}}
@@ -28,18 +28,18 @@ Stellen Sie ein Gleichungssystem zur Bestimmung der Koeffizienten $a$, $b$
 und $c$ auf.
 \item
 Finden Sie den Abschusswinkel, mit dem sich die maximale Schussweite erzielen
-l"asst.
+lässt.
 \end{teilaufgaben}
 
 \begin{hinweis}
-L"osen Sie das Gleichungssystem mit dem Taschenrechner.
+Lösen Sie das Gleichungssystem mit dem Taschenrechner.
 \end{hinweis}
 
 \begin{loesung}
 \begin{teilaufgaben}
 \item
 Setzt man die gegebenen Werte aus der Tabelle in den Ansatz~(\ref{40000038:q})
-ein, erh"alt man das Gleichungssystem
+ein, erhält man das Gleichungssystem
 \[
 \underbrace{
 \begin{pmatrix}
@@ -66,9 +66,9 @@ c
 323
 \end{pmatrix}}_{\displaystyle = b}
 \]
-Dieses "uberbestimmte Gleichungssystem kann mit Hilfe der
-Least-Squares-Methode gel"ost werden, dazu ist das Gleichungssystem
-mit Matrix $A^tA$ und rechter Seite $A^tb$ zu l"osen:
+Dieses überbestimmte Gleichungssystem kann mit Hilfe der
+Least-Squares-Methode gelöst werden, dazu ist das Gleichungssystem
+mit Matrix $A^tA$ und rechter Seite $A^tb$ zu lösen:
 \[
 A^tA
 =
@@ -86,7 +86,7 @@ A^tb
    2605
 \end{pmatrix}.
 \]
-Die L"osung mit dem Taschenrechner liefert
+Die Lösung mit dem Taschenrechner liefert
 \[
 \begin{pmatrix}
 a\\b\\c
@@ -109,25 +109,25 @@ w_S=-\frac{b}{2a}=\frac{22.49679}{2\cdot 0.26054}=43.174^\circ.
 \end{loesung}
 
 \begin{diskussion}
-Die vermutete quadratische Abh"angigkeit zwischen Winkel und Distanz
+Die vermutete quadratische Abhängigkeit zwischen Winkel und Distanz
 ist nur eine heuristische Vermutung.
-Und f"ur die Extremwerte $w=0$ und $w=90^\circ$ ergeben sich offensichtlich
+Und für die Extremwerte $w=0$ und $w=90^\circ$ ergeben sich offensichtlich
 falsche Werte.
 
-Eine von der Kinematik bessere gest"utzte Hypothese w"are, dass
+Eine von der Kinematik bessere gestützte Hypothese wäre, dass
 die Schussdistanz eine Funktion von $\sin \frac{w}2$ ist.
-In einer Umgebung des Maximums l"asst sich die Sinus-Funktion jedoch
+In einer Umgebung des Maximums lässt sich die Sinus-Funktion jedoch
 sehr gut durch eine quadratische Funktion approximieren.
 %Die Aufgabe stammt von
 %\url{http://www.houstonisd.org/cms/lib2/TX01001591/Centricity/Domain/26026/quadratic\%20regression\%20worksheet.pdf}
 \end{diskussion}
 
 \begin{bewertung}
-Lineares Gleichungssystem f"ur die Koeffizienten $a$, $b$ und $c$ ({\bf G})
+Lineares Gleichungssystem für die Koeffizienten $a$, $b$ und $c$ ({\bf G})
 1 Punkt,
-L"osungsverfahren Least Squares ({\bf L}) 1 Punkt,
+Lösungsverfahren Least Squares ({\bf L}) 1 Punkt,
 Berechungung $A^tA$ und $A^tb$ ({\bf A}) je 1 Punkt,
 Berechnung der Koeffizienten ({\bf K}) 1 Punkt,
-$w$-Wert f"ur Maximum ({\bf W}) 1 Punkt.
+$w$-Wert für Maximum ({\bf W}) 1 Punkt.
 \end{bewertung}
 

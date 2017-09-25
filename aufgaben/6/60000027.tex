@@ -12,9 +12,9 @@ A(a)
 \item
 Berechnen Sie Spur und Determinante von $A(a)$.
 \item 
-F"ur welche Werte von $a$ ist $A(a)$ regul"ar?
+Für welche Werte von $a$ ist $A(a)$ regulär?
 \item
-F"ur welche Werte des Parameters $a$ hat $A(a)^{-1}$
+Für welche Werte des Parameters $a$ hat $A(a)^{-1}$
 genau einen negativen Eigenwert?
 \end{teilaufgaben}
 
@@ -35,9 +35,9 @@ genau einen negativen Eigenwert?
 \label{60000027:det}
 \end{align}
 \item
-Damit $A(a)$ regul"ar ist, muss $\det A(a)$
+Damit $A(a)$ regulär ist, muss $\det A(a)$
 von $0$ verschieden sein.
-Die Determinante verschwindet f"ur
+Die Determinante verschwindet für
 \[
 \det A(a)
 =
@@ -49,17 +49,17 @@ Die Determinante verschwindet f"ur
 \qquad
 a=\pm\sqrt{3}.
 \]
-Die Matrix $A(a)$ ist also f"ur $a\ne\pm\sqrt{3}$ regul"ar.
+Die Matrix $A(a)$ ist also für $a\ne\pm\sqrt{3}$ regulär.
 \item
-Die Matrix $A(a)^{-1}$ existiert "uberhaupt nur dann, wenn $A(a)$
-regul"ar ist, und wir haben bereits in Teilaufgabe b) gesehen, dass
-das f"ur $a\ne\pm\sqrt{3}$ der Fall ist.
+Die Matrix $A(a)^{-1}$ existiert überhaupt nur dann, wenn $A(a)$
+regulär ist, und wir haben bereits in Teilaufgabe b) gesehen, dass
+das für $a\ne\pm\sqrt{3}$ der Fall ist.
 
 Da die Matrix symmetrisch und damit diagonalisierbar ist, sind alle
 Eigenwerte rell, und die Eigenwerte von $A(a)^{-1}$ sind die
 Kehrwerte der Eigenwerte von $A(a)$, haben also insbesondere
 das gleiche Vorzeichen.
-Statt der Eigenwerte von $A(a)^{-1}$ k"onnen wir also die Eigenwerte
+Statt der Eigenwerte von $A(a)^{-1}$ können wir also die Eigenwerte
 von $A(a)$ diskutieren.
 
 Die Determinante von $A(a)$ ist das Produkt der Eigenwerte, die Spur
@@ -67,20 +67,20 @@ von $A(a)$ ist deren Summe.
 Da die Determinante nicht verschwindet, sind alle Eigenwerte von $0$
 verschieden.
 
-W"aren alle Eigenwerte positiv, m"usste die Spur positiv sein,
-w"aren sie negativ, m"ussten die Spur negativ sein.
+Wären alle Eigenwerte positiv, müsste die Spur positiv sein,
+wären sie negativ, müssten die Spur negativ sein.
 Beides widerspricht der Beobachtung in Teilaufgabe a), dass 
 $\operatorname{Spur}A(a)=0$ ist.
 Die Eigenwerte haben also nicht alle das gleiche Vorzeichen.
 Damit bleiben nur zwei Situation: zwei positive und ein negativer
 Eigenwert oder umgekehrt.
 
-Zwei negative Eigenwerte f"uhren auf eine positive Determinante,
-zwei positive Eigenwerte und ein negativer Eigenwert f"uhren auf
+Zwei negative Eigenwerte führen auf eine positive Determinante,
+zwei positive Eigenwerte und ein negativer Eigenwert führen auf
 eine negative Determinaten.
 Der gesuchte Fall genau eines negativen Eigenwertes ist also derjenige,
 wo $\det A(a) <0$ ist.
-Die Formel \eqref{60000027:det} f"ur die Determinante zeigt aber:
+Die Formel \eqref{60000027:det} für die Determinante zeigt aber:
 \[
 \det A(a) = -a^2 + 3 < 0
 \qquad\Rightarrow\qquad
@@ -88,25 +88,25 @@ Die Formel \eqref{60000027:det} f"ur die Determinante zeigt aber:
 \qquad\Rightarrow\qquad
 a >\sqrt{3}\quad\vee\quad a < -\sqrt{3}.
 \]
-Wir finden, dass $A(a)^{-1}$ genau zwei negative Eigenwerte f"ur $a$ im Interval
-$(-\sqrt{3},\sqrt{3})$ hat, und genau einen negativen Eigenwert f"ur
+Wir finden, dass $A(a)^{-1}$ genau zwei negative Eigenwerte für $a$ im Interval
+$(-\sqrt{3},\sqrt{3})$ hat, und genau einen negativen Eigenwert für
 $a$ ausserhalb des Intervals $[-\sqrt{3},\sqrt{3}]$.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}
 
 \begin{diskussion}
-Im Grenzfall verschwindender Determinante ist noch nicht vollst"andig
-gekl"art, was mit den Vorzeichen der Eigenwerte passiert.
+Im Grenzfall verschwindender Determinante ist noch nicht vollständig
+geklärt, was mit den Vorzeichen der Eigenwerte passiert.
 Wenn wir davon ausgehen, dass die Eigenwerte stetig mit $a$ varieren,
-dann "andert beim "Ubergang genau eine der Eigenwerte das Vorzeichen,
+dann ändert beim "Ubergang genau eine der Eigenwerte das Vorzeichen,
 so dass wir an den Stellen $a=\pm\sqrt{3}$ genau eine positive und
 eine negative Eigenwerte haben.
-Die einzige Alternative w"are, dass alle Eigenwerte verschwinden,
-dann w"are die Matrix aber die Nullmatrix, und das ist offensichtlich
+Die einzige Alternative wäre, dass alle Eigenwerte verschwinden,
+dann wäre die Matrix aber die Nullmatrix, und das ist offensichtlich
 nicht der Fall.
 
-Man kann f"ur den Fall $a=\pm\sqrt{3}$ auch das charakteristische Polynom
+Man kann für den Fall $a=\pm\sqrt{3}$ auch das charakteristische Polynom
 zum Beispiel mit einem CAS berechnen, man bekommt
 \[
 \chi_{A(a)}(\lambda)
@@ -120,7 +120,7 @@ Setzt man darin $a^2=3$, vereinfacht sich die Eigenwertgleichung auf
 -\lambda(\lambda^2 -16)=0
 \qquad\Rightarrow\qquad \lambda = 0,\pm 4,
 \]
-was die obige Diskussion best"atigt.
+was die obige Diskussion bestätigt.
 \end{diskussion}
 
 \begin{bewertung}
@@ -129,9 +129,9 @@ Determinante ({\bf D}) 1 Punkt,
 Berechnung der kritischen Werte $a=\pm\sqrt{3}$ ({\bf K}) 1 Punkt,
 Diagonalisierbarkeit wegen Symmetrie ({\bf S}) 1 Punkt,
 Spur $0$ bedeutet, dass nicht alle Eigenwerte das gleiche Vorzeichen
-haben k"onnen ({\bf V}) 1 Punkt,
+haben können ({\bf V}) 1 Punkt,
 negative Determinante bedeute genau ein negativer Eigenwert ({\bf N}) 1 Punkt,
-Bestimmung der zul"assigen Werte $a$ f"ur negative Determinante ({\bf A})
+Bestimmung der zulässigen Werte $a$ für negative Determinante ({\bf A})
 1 Punkt, jedoch maximal 6 Punkte.
 \end{bewertung}
 

@@ -8,20 +8,20 @@ x&+&(a+1)y&+&5z&=&13
 \]
 \begin{teilaufgaben}
 \item
-F"ur welche Werte von $a$ hat das Gleichungssystem
-keine, unendlich viele oder genau eine L"osung?
+Für welche Werte von $a$ hat das Gleichungssystem
+keine, unendlich viele oder genau eine Lösung?
 \item
-Geben Sie die L"osung des Gleichungssystems in Abh"angigkeit von $a$
-in den F"allen, in denen es genau eine L"osung gibt.
+Geben Sie die Lösung des Gleichungssystems in Abhängigkeit von $a$
+in den Fällen, in denen es genau eine Lösung gibt.
 \item
-Geben Sie eine numerische L"osung f"ur den Fall $a=0$.
+Geben Sie eine numerische Lösung für den Fall $a=0$.
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-Wir versuchen, das Gleichungssystem soweit m"oglich mit dem
-Gaussalgorithmus zu l"osen:
+Wir versuchen, das Gleichungssystem soweit möglich mit dem
+Gaussalgorithmus zu lösen:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -81,13 +81,13 @@ Zeile von der zweiten:
 \hline
 \end{tabular}
 \end{align*}
-Offenbar kann man den Gauss-Algorithmus also genau dann weiterf"uhren,
+Offenbar kann man den Gauss-Algorithmus also genau dann weiterführen,
 wenn das Element $\frac{5(a-1)}3$ nicht verschwindet, also wenn $a\ne 1$.
 Falls $a=1$, wird die rechte Seite dieser Gleichung zu $5-(-3)\frac{-6}{3}=
-11$, das Gleichungssystem kann dann also gar keine L"osung haben.
+11$, das Gleichungssystem kann dann also gar keine Lösung haben.
 
-Man kann nat"urlich $a=1$ auch in das urspr"ungliche Gleichungssystem
-einsetzen, und erh"alt dann das Tableau
+Man kann natürlich $a=1$ auch in das ursprüngliche Gleichungssystem
+einsetzen, und erhält dann das Tableau
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -97,7 +97,7 @@ einsetzen, und erh"alt dann das Tableau
 \hline
 \end{tabular}
 \]
-Subtrahiert man die zweite Zeile von der Dritten erh"alt man
+Subtrahiert man die zweite Zeile von der Dritten erhält man
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -108,9 +108,9 @@ Subtrahiert man die zweite Zeile von der Dritten erh"alt man
 \end{tabular}
 \]
 Die letzte Zeile entspricht der Gleichung $0=1$, das Gleichungssystem
-kann also keine L"osung haben.
+kann also keine Lösung haben.
 
-Man kann die Regularit"at nat"urlich auch mit der Determinanten
+Man kann die Regularität natürlich auch mit der Determinanten
 entscheiden, die man zum Beispiel mit Hilfe der Sarrus-Formel
 berechnen kann:
 \begin{align*}
@@ -132,7 +132,7 @@ berechnen kann:
 \end{align*}
 Die Determinante verschwindet also genau dann, wenn $a=1$ ist.
 \item
-F"ur $a=0$ kann man das Gleichungssystem direkt l"osen:
+Für $a=0$ kann man das Gleichungssystem direkt lösen:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -208,10 +208,10 @@ x&+&2ay&+&5z&=&4a+8\\
 x&+&(a+1)y&+&5z&=&13
 \end{linsys}.
 \]
-F"ur dieses Gleichungssystem kann man die L"osung wie folgt durchf"uhren.
+Für dieses Gleichungssystem kann man die Lösung wie folgt durchführen.
 \begin{teilaufgaben}
 \item
-Wir l"osen das Gleichungssystem mit Hilfe des Gauss-Algorithmus:
+Wir lösen das Gleichungssystem mit Hilfe des Gauss-Algorithmus:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -230,9 +230,9 @@ Wir l"osen das Gleichungssystem mit Hilfe des Gauss-Algorithmus:
 \hline
 \end{tabular}
 \end{align*}
-Bereits jetzt kann man ablesen, dass das System singul"ar ist
-genau f"ur $a=1$. Wir diskutieren also zun"achst diesen Fall,
-bevor wir das System fertig l"osen. Setzt man $a=1$, wird das
+Bereits jetzt kann man ablesen, dass das System singulär ist
+genau für $a=1$. Wir diskutieren also zunächst diesen Fall,
+bevor wir das System fertig lösen. Setzt man $a=1$, wird das
 Gleichungssystem zu
 \begin{align*}
 \rightarrow
@@ -255,14 +255,14 @@ Gleichungssystem zu
 \end{align*}
 In der letzten Zeile ist eine Nullzeile entstanden, aber die
 rechte Seite ist nicht 0. In diesem Fall hat das Gleichungssystem
-also keine L"osung.
+also keine Lösung.
 
-In allen anderen F"allen, also f"ur $a\ne 1$ ist das Gleichungssystem
-regul"ar, hat also genau eine L"osung.
+In allen anderen Fällen, also für $a\ne 1$ ist das Gleichungssystem
+regulär, hat also genau eine Lösung.
 \item
 Wir brauchen nur noch den Fall $a\ne 1$ zu betrachten. In diesem
 Fall darf man durch $a-1$ dividieren, und kann so den Gauss-Algorithmus
-zu Ende f"uhren.
+zu Ende führen.
 \begin{align*}
 \rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
@@ -324,7 +324,7 @@ wegen
 =
 \frac{6a^2-21a+17}{a-1}
 \end{align*}
-Die L"osung ist also
+Die Lösung ist also
 \[
 x=\frac{6a^2-21a+17}{a-1}
 ,\qquad
@@ -387,8 +387,8 @@ z=5
 \hline
 \end{tabular}
 \end{align*}
-Die eindeutige L"osung ist also $x=-17$, $y=5$ und $z=5$,
-wie man durch Einsetzen nachpr"ufen kann.
+Die eindeutige Lösung ist also $x=-17$, $y=5$ und $z=5$,
+wie man durch Einsetzen nachprüfen kann.
 \qedhere
 \end{teilaufgaben}
 \end{diskussion}

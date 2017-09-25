@@ -24,14 +24,14 @@ Zeigen Sie, dass
 D\colon V_n\to V_{n+1},
 \]
 dass also $Df\in V_{n+1}$ falls nur $f\in V_n$. Beim Ableiten wird der Grad
-also h"ochstens um eins gr"osser.
+also höchstens um eins grösser.
 \item Stellen Sie die $6\times 5$-Matrix von $D\colon V_4\to V_5$ auf.
 \item Gibt es eine Funktion $f\in V_4$ so dass $Df=e^{\frac{x^2}2}$?
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
-\item F"ur die Ableitung gilt die Kettenregel:
+\item Für die Ableitung gilt die Kettenregel:
 \begin{equation}
 Dx^ke^{\frac{x^2}2}=kx^{k-1}e^{\frac{x^2}2}+x^{k+1}e^{\frac{x^2}2}
 \label{kettenregel}
@@ -55,7 +55,7 @@ aus der Formel (\ref{kettenregel}) kann man also die Matrix ablesen:
 Es muss ein Vektor gefunden werden, der durch die Matrix $D$ auf
 den Vektor $\begin{pmatrix}1&0&0&0&0&0\end{pmatrix}^t$
 abgebildet wird. Es muss also ein lineares Gleichungssystem mit
-Matrix $D$ gel"ost werden, wir verwenden daf"ur den Gauss-Algorithmus:
+Matrix $D$ gelöst werden, wir verwenden dafür den Gauss-Algorithmus:
 \begin{align*}
 \begin{tabular}{|ccccc|c|}
 \hline
@@ -107,10 +107,10 @@ Im ersten Schritt haben wir die erste Zeile ganz nach unten geschoben,
 dann hat das Schema bis auf die letzte Zeile bereits die angestrebte
 Dreicksform. Die Einsen auf der Diagonalen erlauben dann, die linke
 Seite der letzten Zeile zu Null zu machen, dabei wird die $1$ auf der
-rechten Seite nicht ver"andert. Insbesondere hat das Gleichungssystem
-also kein L"osung. Man beachte, dass dieses Argument unabh"angig von
-$n$ funktioniert, es gibt also in keinem der Vektorr"aume $V_n$
-eine Funktion $f$, f"ur die $Df=e^{\frac{x^2}2}$.
+rechten Seite nicht verändert. Insbesondere hat das Gleichungssystem
+also kein Lösung. Man beachte, dass dieses Argument unabhängig von
+$n$ funktioniert, es gibt also in keinem der Vektorräume $V_n$
+eine Funktion $f$, für die $Df=e^{\frac{x^2}2}$.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}

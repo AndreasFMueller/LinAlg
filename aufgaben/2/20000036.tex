@@ -1,4 +1,4 @@
-F"ur welche Werte von $a$ ist die Matrix 
+Für welche Werte von $a$ ist die Matrix 
 \[
 A=\begin{pmatrix}
 0&a&\sqrt{2}\\
@@ -6,12 +6,12 @@ a&\sqrt{2}&a\\
 \sqrt{2}&a&0
 \end{pmatrix}
 \]
-singul"ar?
-Berechnen Sie ausserdem die inverse Matrix von $A$ f"ur alle anderen
+singulär?
+Berechnen Sie ausserdem die inverse Matrix von $A$ für alle anderen
 Werte von $a$.
 
 \begin{loesung}
-Ob die Matrix singul"ar ist, kann man am leichtesten mit der Determinanten
+Ob die Matrix singulär ist, kann man am leichtesten mit der Determinanten
 entscheiden. 
 Diese ist nach der Sarrus-Formel
 \begin{align*}
@@ -22,7 +22,7 @@ Diese ist nach der Sarrus-Formel
 &=2a^2\sqrt{2}-2\sqrt{2}=2\sqrt{2}(a^2-1).
 \end{align*}
 Dieser Ausdruck verschwindet genau dann, wenn $a^2=1$,
-also sind $a=\pm1$ die beiden Werte, f"ur die die Matrix singul"ar wird.
+also sind $a=\pm1$ die beiden Werte, für die die Matrix singulär wird.
 
 Die inverse Matrix kann man jetzt, da man die Determinante ja schon berechnet
 hat, mit Hilfe von Minoren bestimmen.
@@ -61,9 +61,9 @@ a\sqrt{2}&-2&a\sqrt{2}\\
 a^2-2&a\sqrt{2}&-a^2
 \end{pmatrix}.
 \end{align*}
-Man kann die Inverse Matrix nat"urlich auch mit dem Gauss-Algorithmus
+Man kann die Inverse Matrix natürlich auch mit dem Gauss-Algorithmus
 ausrechnen, das ist in diesem Fall aber ziemlich schmerzhaft.
-Wie man den Gaussalgorithmus schrittweise mit Maxima durchf"uhren kann,
+Wie man den Gaussalgorithmus schrittweise mit Maxima durchführen kann,
 zeigt das folgende Maxima-Programm:
 \verbatimainput{20000036/gauss.maxima}
 Es liefert schrittweise die folgenden Tableau:
@@ -259,13 +259,13 @@ a\sqrt{2}&       -2&a\sqrt{2}\\
 \end{loesung}
 
 \begin{diskussion}
-Man kann die Determinante nat"urlich auch mit dem Gauss-Algorithmus
+Man kann die Determinante natürlich auch mit dem Gauss-Algorithmus
 berechnen, die Pivots sind
 \[
 a,\quad a\quad \text{und}\quad 2\sqrt{2}\frac{1-a^2}{a^2},
 \]
-man erh"alt als Produkt $\det(A)=2\sqrt(2)(1-a^2)$, das verkehrte Vorzeichen
-r"uhrt daher, dass man f"ur die Durchf"uhrung des Gauss-Algorithmus zwei
+man erhält als Produkt $\det(A)=2\sqrt(2)(1-a^2)$, das verkehrte Vorzeichen
+rührt daher, dass man für die Durchführung des Gauss-Algorithmus zwei
 Zeilen vertauschen musste, was das Vorzeichen der Determinante umkehrt.
 \end{diskussion}
 
@@ -273,8 +273,8 @@ Zeilen vertauschen musste, was das Vorzeichen der Determinante umkehrt.
 Determinantenkriterum ({\bf D}) 1 Punkt,
 Berechnung der Determinante zum Beispiel mit der Sarrus-Formel ({\bf S})
 1 Punkt,
-Werte von $a$, f"ur die die Matrix singul"ar wird ({\bf A}) 1 Punkt,
-Minor-Formel f"ur die Inverse ({\bf M}) 1 Punkt,
+Werte von $a$, für die die Matrix singulär wird ({\bf A}) 1 Punkt,
+Minor-Formel für die Inverse ({\bf M}) 1 Punkt,
 Berechnung der Inversen ({\bf I}) 2 Punkte.
 \end{bewertung}
 

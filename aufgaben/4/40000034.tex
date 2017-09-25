@@ -6,7 +6,7 @@ f(t) = a_0 + a_1\cos t+b_1\sin t
 beschrieben werden kann, aber die Werte von $a_0$, $a_1$ und $b_1$ sind
 vorerst nicht bekannt.
 Um sie zu bestimmen, wird das Signal zu verschiedenen Zeitpunkten
-gemessen, dabei erh"alt man die folgenden Messresultate, die nat"urlich
+gemessen, dabei erhält man die folgenden Messresultate, die natürlich
 mit Messfehlern behaftet sind:
 \begin{center}
 \begin{tabular}{>{$}c<{$}|>{$}c<{$}}
@@ -19,15 +19,15 @@ mit Messfehlern behaftet sind:
 \end{tabular}
 \end{center}
 Stellen Sie ein Gleichungssystem auf, mit dem
-die Koeffizienten $a_0$, $a_1$ und $b_1$ m"oglichst
-genau bestimmt werden k"onnen.
+die Koeffizienten $a_0$, $a_1$ und $b_1$ möglichst
+genau bestimmt werden können.
 
 \begin{hinweis}
-Die L"osung des Gleichungssystems ist nicht verlangt.
+Die Lösung des Gleichungssystems ist nicht verlangt.
 \end{hinweis}
 
 \begin{loesung}
-Wir erg"anzen die Wertetabelle durch die Werte der Winkelfunktionen:
+Wir ergänzen die Wertetabelle durch die Werte der Winkelfunktionen:
 \begin{center}
 \begin{tabular}{>{$}c<{$}|>{$}c<{$}|>{$}c<{$}>{$}c<{$}}
            t&f(t)&\cos t&\sin t\\
@@ -38,11 +38,11 @@ Wir erg"anzen die Wertetabelle durch die Werte der Winkelfunktionen:
 \frac{3\pi}4&  5 &-\frac{\sqrt{2}}2&\frac{\sqrt{2}}2\\
 \end{tabular}
 \end{center}
-Die Koeffizienten m"ussen so bestimmt werden, dass die Gleichungen
+Die Koeffizienten müssen so bestimmt werden, dass die Gleichungen
 \[
 f(t)=a_0+a_1\cos t + b_1\sin t
 \]
-f"ur alle vier gemessenen Werte $t$ stimmen.
+für alle vier gemessenen Werte $t$ stimmen.
 Setzen wir die Werte ein, erhalten wir das Gleichungssystem
 \[
 \begin{linsys}{4}
@@ -52,8 +52,8 @@ a_0& &                   &+&                b_1&=& 5\\
 a_0&-&\frac{\sqrt{2}}2a_1&+&\frac{\sqrt{2}}2b_1&=& 5\\
 \end{linsys}
 \]
-Dies sind vier Gleichungen f"ur nur drei Unbekannte, das Gleichungssystem
-ist also "uberbestimmt, in der "ublichen Notation
+Dies sind vier Gleichungen für nur drei Unbekannte, das Gleichungssystem
+ist also überbestimmt, in der üblichen Notation
 verwenden wir die Matrix $A$ und die rechte Seite $b$ mit
 \[
 A=\begin{pmatrix}
@@ -72,8 +72,8 @@ b=\begin{pmatrix}
  5
 \end{pmatrix}.
 \]
-Die beste L"osung findet man mit Hilfe von kleinsten Quadraten, also
-als L"osung des Gleichungssystems $A^tAx=A^tb$.
+Die beste Lösung findet man mit Hilfe von kleinsten Quadraten, also
+als Lösung des Gleichungssystems $A^tAx=A^tb$.
 Wir berechnen daher zuerst $A^tA$ und $A^tb$:
 \begin{align*}
 A^tA&=
@@ -100,7 +100,7 @@ A^tb&=
 \phantom{-}9.9497
 \end{pmatrix}
 \end{align*}
-Numerische L"osung des Gleichungssystems liefert 
+Numerische Lösung des Gleichungssystems liefert 
 \begin{align*}
 a_0&=\phantom{-}0.085786\\
 a_1&=-2.103553\\
@@ -119,10 +119,10 @@ Funktion $f(t)$ graphisch dargestellt.
 
 \begin{bewertung}
 "Uberbstimmtes Gleichungssystem ({\bf "U}) 1 Punkt (es muss darauf hingewiesen
-worden sein, dass dies ein "uberbestimmtes Gleichungssystem ist),
-L"osungsverfahren f"ur "uberbestimmte Gleichungssysteme ({\bf L}),
+worden sein, dass dies ein überbestimmtes Gleichungssystem ist),
+Lösungsverfahren für überbestimmte Gleichungssysteme ({\bf L}),
 Matrix $A$ und Vektor $b$ ({\bf M}) 1 Punkt,
 Matrix $A^tA$ und Vektor $A^tb$ ({\bf A}) je 1 Punkt,
-L"osung ({\bf X}) 1 Punkt.
+Lösung ({\bf X}) 1 Punkt.
 \end{bewertung}
 

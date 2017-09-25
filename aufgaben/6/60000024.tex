@@ -1,4 +1,4 @@
-Finden Sie eine Formel f"ur die Zahlen $x_n$, die durch die Rekursionsformel
+Finden Sie eine Formel für die Zahlen $x_n$, die durch die Rekursionsformel
 \[
 x_{n+1}=2x_n+x_{n-1}-2x_{n-2}
 \]
@@ -34,7 +34,7 @@ x_{n-1}\\
 x_{n-2}
 \end{pmatrix}
 \]
-Wir bestimmen Eigenwerte und Eigenvektoren von $A$, dazu muss zun"achst
+Wir bestimmen Eigenwerte und Eigenvektoren von $A$, dazu muss zunächst
 das charakteristische Polynom ermittelt werden.
 Es gilt
 \begin{align*}
@@ -61,8 +61,8 @@ Es gilt
 Daraus liest man ab, dass die Eigenwerte $\lambda_1=-1$, $\lambda_2=1$ und
 $\lambda_3=2$ sind.
 
-Wir m"ussen jetzt f"ur jeden Eigenwert einen Eigenvektor finden.
-F"ur $\lambda=\lambda_1=-1$ gilt
+Wir müssen jetzt für jeden Eigenwert einen Eigenvektor finden.
+Für $\lambda=\lambda_1=-1$ gilt
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -108,7 +108,7 @@ Daraus kann man die Eigenvektor $v_1$ zum Eigenwert $\lambda_1=-1$ ablesen:
 \[
 v_1=\begin{pmatrix}1\\-1\\1\end{pmatrix}.
 \]
-F"ur $\lambda=\lambda_2=1$ wenden wir den Gauss-Algorithmus auf das
+Für $\lambda=\lambda_2=1$ wenden wir den Gauss-Algorithmus auf das
 Tableau
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
@@ -157,7 +157,7 @@ v_2=\begin{pmatrix}
 1\\1\\1
 \end{pmatrix}.
 \]
-Schliesslich f"ur $\lambda=\lambda_3=2$:
+Schliesslich für $\lambda=\lambda_3=2$:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -191,13 +191,13 @@ Schliesslich f"ur $\lambda=\lambda_3=2$:
 \hline
 \end{tabular}
 \end{align*}
-Der zugeh"orige Eigenvektor ist
+Der zugehörige Eigenvektor ist
 \[
 v_3=\begin{pmatrix}4\\2\\1 \end{pmatrix}.
 \]
 
-Um die Rekursionsgleichung zu l"osen, muss jetzt der Startvektor als
-Linearkombination der Basisvektoren ausgedr"uckt werden:
+Um die Rekursionsgleichung zu lösen, muss jetzt der Startvektor als
+Linearkombination der Basisvektoren ausgedrückt werden:
 \[
 \begin{pmatrix}1\\1\\-2\end{pmatrix}
 =
@@ -207,7 +207,7 @@ Linearkombination der Basisvektoren ausgedr"uckt werden:
 +
 \alpha_3v_3,
 \]
-die $\alpha_i$ k"onnen als L"osung eines linearen Gleichungssystems
+die $\alpha_i$ können als Lösung eines linearen Gleichungssystems
 gefunden werden:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
@@ -254,7 +254,7 @@ gefunden werden:
 \end{tabular}
 \end{align*}
 Also ist der Startvektor $ -v_1-2v_2+v_3$.
-Damit kann man jetzt einen Ausdruck f"ur die Zahlen $x_n$
+Damit kann man jetzt einen Ausdruck für die Zahlen $x_n$
 \[
 x_n
 =

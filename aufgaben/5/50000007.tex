@@ -3,14 +3,14 @@ Gegeben sind
 A=\begin{pmatrix}1&2\\2&3\\2&4\end{pmatrix},\qquad
 b=\begin{pmatrix}2\\2\\2\end{pmatrix}.
 \]
-Das Gleichungssystem $Ax=b$ ist "uberbestimmt, finden Sie die Least-Squares
-L"osung mit Hilfe der QR-Zerlegung.
+Das Gleichungssystem $Ax=b$ ist überbestimmt, finden Sie die Least-Squares
+Lösung mit Hilfe der QR-Zerlegung.
 
 \begin{loesung}
-F"ur die Matrix $A$ muss zun"achst eine QR-Zerlegung gefunden werden.
+Für die Matrix $A$ muss zunächst eine QR-Zerlegung gefunden werden.
 Mit Octave findet man zum Beispiel
 \verbatimainput{qroctave}
-Die rechte Seite des Gleichungssystems nach dem L"osungsverfahren 
+Die rechte Seite des Gleichungssystems nach dem Lösungsverfahren 
 unter Verwendung der QR-Zerlegung ist $Q^tb$:
 \verbatimainput{qrb}
 Das Gleichungssystem wird damit zu
@@ -20,14 +20,14 @@ Das Gleichungssystem wird damit zu
          & &0.74536y&=&\phantom{-}0.29814
 \end{linsys}
 \]
-mit der L"osung
+mit der Lösung
 \[
 \begin{pmatrix}
 0.4\\
 0.4
 \end{pmatrix}.
 \]
-Man kann die QR-Zerlegung nat"urlich auch mit dem Verfahren von Gram-Schmidt
+Man kann die QR-Zerlegung natürlich auch mit dem Verfahren von Gram-Schmidt
 von Hand bestimmen. Dazu orthonormalisiert man die Vektoren
 \[
 b_1=\begin{pmatrix}1\\2\\2\end{pmatrix}
@@ -46,7 +46,7 @@ b_2'&
 =\frac{\displaystyle\frac19\begin{pmatrix}2\\-5\\4\end{pmatrix}}{\sqrt{\frac{5}{9}}}
 =\frac1{\sqrt{45}}\begin{pmatrix}2\\-5\\4\end{pmatrix}
 \end{align*}
-Daraus findet man zun"achst die Matrix 
+Daraus findet man zunächst die Matrix 
 \[
 Q
 =
@@ -70,7 +70,7 @@ R
 \end{pmatrix}.
 \]
 Dies deckt sich bis auf die Wahl des Vorzeichens von $b_1'$ mit der
-maschinell gefundenen L"osung.
+maschinell gefundenen Lösung.
 Wir berechnen zur Kontrolle das Produkt $QR$:
 \[
 QR=
@@ -109,7 +109,7 @@ QR=
 \end{pmatrix}
 =A.
 \]
-Damit ist best"atigt, dass die Matrizen $Q$ und $R$ die QR-Zerlegung der
+Damit ist bestätigt, dass die Matrizen $Q$ und $R$ die QR-Zerlegung der
 Matrix $A$ bilden.
 \end{loesung}
 

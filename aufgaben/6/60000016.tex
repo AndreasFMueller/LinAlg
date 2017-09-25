@@ -10,7 +10,7 @@ A
 \]
 %\begin{teilaufgaben}
 %\item
-Bestimmen Sie alle Eigenwerte und zugeh"orige Eigenvektoren.
+Bestimmen Sie alle Eigenwerte und zugehörige Eigenvektoren.
 %\item
 %Berechnen Sie $A^{10}$ mit Hilfe der Eigenwerte und Eigenvektoren.
 %\end{teilaufgaben}
@@ -23,7 +23,7 @@ Man beachte, dass $A$ nicht symmetrisch ist, und damit die Existenz der
 Eigenwerte nicht automatisch garantiert ist.
 %\begin{teilaufgaben}
 %\item
-Wir bestimmen zun"achst das charakteristische Polynom:
+Wir bestimmen zunächst das charakteristische Polynom:
 \begin{align*}
 \chi_A(\lambda)=
 \det (A-\lambda E)
@@ -59,11 +59,11 @@ Also gilt
 \chi_A(\lambda)=-(\lambda -1)^2(\lambda -2),
 \]
 die Matrix $A$ hat also die Eigenwerte $1$ und $2$, wobei die Nullstelle
-$1$ doppelt zu z"ahlen ist. Wir erwarten, dass es zu dieser Nullstellen
+$1$ doppelt zu zählen ist. Wir erwarten, dass es zu dieser Nullstellen
 zwei verschiedene Eigenvektoren geben kann.
 
 Zur Berechnung der Eigenvektoren setzen wir jetzt $\lambda$ in die
-Gleichungen $(A-\lambda E)x=0$ ein, und bestimmen $x$. F"ur $\lambda=2$
+Gleichungen $(A-\lambda E)x=0$ ein, und bestimmen $x$. Für $\lambda=2$
 erhalten wir das Gauss-Tableau:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
@@ -104,7 +104,7 @@ alle Komponenten gleich hat, zum Beispiel:
 v_2=\begin{pmatrix}1\\1\\1\end{pmatrix}.
 \]
 
-F"ur den Eigenwert $\lambda=1$ bekommt man dagegen folgendes Gauss-Tableau
+Für den Eigenwert $\lambda=1$ bekommt man dagegen folgendes Gauss-Tableau
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -122,14 +122,14 @@ F"ur den Eigenwert $\lambda=1$ bekommt man dagegen folgendes Gauss-Tableau
 \hline
 \end{tabular}.
 \]
-Wie erwartet gibt es zwei frei w"ahlbare Variablen, also auch zwei linear
-unabh"angige Eigenvektoren. Die zwei Eigenvektoren
+Wie erwartet gibt es zwei frei wählbare Variablen, also auch zwei linear
+unabhängige Eigenvektoren. Die zwei Eigenvektoren
 \[
 v_{1,1}=\begin{pmatrix}1\\0\\-1 \end{pmatrix},
 \qquad
 v_{1,2}=\begin{pmatrix}3\\2\\0 \end{pmatrix}.
 \]
-Das Resultat k"onnen wir durch Auswerten des Produktes $Av$ pr"ufen.
+Das Resultat können wir durch Auswerten des Produktes $Av$ prüfen.
 Dazu schreiben wir die Eigenvektoren in die Spalten einer Matrix $B$:
 \[
 B=
@@ -160,9 +160,9 @@ AB=
 \end{pmatrix}
 = B \operatorname{diag}(2,1,1).
 \]
-Die erste Spalte enth"alt den Eigenvektor zum Eigenwert $2$, und wird 
+Die erste Spalte enthält den Eigenvektor zum Eigenwert $2$, und wird 
 daher verdoppelt, die anderen Spalten enthalten Eigenvektoren zum
-Eigenwert $1$, sie bleiben unver"andert.
+Eigenwert $1$, sie bleiben unverändert.
 %\item
 %Das Produkt $A^10$ kann jetzt mit Hilfe der Formel
 %\[

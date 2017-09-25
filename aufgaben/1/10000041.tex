@@ -13,19 +13,19 @@ alle Gleichungen stimmen:
 \end{center}
 \begin{teilaufgaben}
 \item
-Ist dies m"oglich?
+Ist dies möglich?
 \item
-Kann man eine Bedingung angeben, die die angegebenen Zahlen erf"ullen
-m"ussen, damit das R"atsel l"osbar wird?
+Kann man eine Bedingung angeben, die die angegebenen Zahlen erfüllen
+müssen, damit das Rätsel lösbar wird?
 \item
-Finden Sie die allgemeine L"osung des Problems f"ur alle Quadrupel
-$b_1,\dots,b_4$ von Zahlen, die die in b) gefundene Bedingung erf"ullen.
+Finden Sie die allgemeine Lösung des Problems für alle Quadrupel
+$b_1,\dots,b_4$ von Zahlen, die die in b) gefundene Bedingung erfüllen.
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-Wir schreiben $x$, $y$, $z$ und $t$ f"ur die Fragezeichen, und erhalten
+Wir schreiben $x$, $y$, $z$ und $t$ für die Fragezeichen, und erhalten
 \begin{center}
 \begin{tabular}{>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}}
  x&-&y&=& 9\\
@@ -44,7 +44,7 @@ x& & &+&z& & &=&12\\
  & &y& & &+&t&=& 2
 \end{linsys}
 \]
-l"asst sich die Aufgabe mit dem Gauss-Algorithmus l"osen:
+lässt sich die Aufgabe mit dem Gauss-Algorithmus lösen:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -86,18 +86,18 @@ l"asst sich die Aufgabe mit dem Gauss-Algorithmus l"osen:
 \end{tabular}
 \end{align*}
 Da in der letzten Zeile auf der rechten Seite eine von $0$ verschiedene
-Zahl steht, hat das Gleichungssystem keine L"osung.
+Zahl steht, hat das Gleichungssystem keine Lösung.
 \item
-Das Gleichungssystem hat genau dann eine L"osung, wenn beim ``Gaussen''
+Das Gleichungssystem hat genau dann eine Lösung, wenn beim ``Gaussen''
 auf der rechten Seite in der letzten Zeile ebenfalls eine 0 entsteht.
-Da die Zeilen der Matrix linear abh"angig sind, erf"ullen die Zeilen
+Da die Zeilen der Matrix linear abhängig sind, erfüllen die Zeilen
 $z_1,\dots,z_4$ eine Gleichung der Form
 \[
 \lambda_1z_1+ \lambda_2z_2+ \lambda_3z_3+ \lambda_4z_4=0.
 \]
-Das Gleichungssytem kann nur dann l"osbar sein, wenn auch die rechten
-Seiten diese Bedingung erf"ullen.
-Wir m"ussen also die Koeffizienten $\lambda_i$ finden, auch dies
+Das Gleichungssytem kann nur dann lösbar sein, wenn auch die rechten
+Seiten diese Bedingung erfüllen.
+Wir müssen also die Koeffizienten $\lambda_i$ finden, auch dies
 kann man mit dem Gauss-Algorithmus
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
@@ -148,7 +148,7 @@ kann man mit dem Gauss-Algorithmus
 \hline
 \end{tabular}
 \end{align*}
-Daraus k"onnen wir ablesen
+Daraus können wir ablesen
 \[
 \begin{aligned}
 \lambda_1&= 1,&
@@ -157,17 +157,17 @@ Daraus k"onnen wir ablesen
 \lambda_4&= 1
 \end{aligned}
 \]
-Die rechten Seiten $b_1,\dots,b_4$ m"ussen also die Gleichung
+Die rechten Seiten $b_1,\dots,b_4$ müssen also die Gleichung
 \[
 b_1+b_2-b_3+b_4=0
 \]
-erf"ullen, damit die Gleichung l"osbar ist.
+erfüllen, damit die Gleichung lösbar ist.
 Die Zahlen aus der Aufgabe haben dagegen
 \[
 9+14-12+2=13\ne 0,
 \]
-was erneut zeigt, dass die urspr"ungliche Aufgabe nicht l"osbar ist.
-Dagegen m"usste das Gleichungssystem f"ur die rechten Seiten
+was erneut zeigt, dass die ursprüngliche Aufgabe nicht lösbar ist.
+Dagegen müsste das Gleichungssystem für die rechten Seiten
 \[
 \begin{aligned}
 b_1&=1
@@ -179,16 +179,16 @@ b_3&=9
 b_4&=5
 \end{aligned}
 \]
-l"osbar sein.
-Tats"achlich liefert der Gauss-Algorithmus die unendlich vielen
-L"osungen des Gleichungssystems mit der frei w"ahlbaren Variable $t$:
+lösbar sein.
+Tatsächlich liefert der Gauss-Algorithmus die unendlich vielen
+Lösungen des Gleichungssystems mit der frei wählbaren Variable $t$:
 \begin{align*}
 x&=6-t\\
 y&=5-t\\
 z&=3+t
 \end{align*}
 \item
-Wir l"osen das Gleichungssystem mit den rechten Seiten $b_i$:
+Wir lösen das Gleichungssystem mit den rechten Seiten $b_i$:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -253,7 +253,7 @@ x&=b_1+b_4-t\\
 y&=b_4-t\\
 z&=b_2+t,
 \end{align*}
-wobei $t$ frei w"ahlbar ist.
+wobei $t$ frei wählbar ist.
 Das Beispiel aus Teilaufgabe b) ergibt sich daraus als Spezialfall.
 \qedhere
 \end{teilaufgaben}

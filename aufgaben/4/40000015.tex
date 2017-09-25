@@ -3,35 +3,35 @@ Betrachten Sie das Signal
 f(i)=\sin\frac{i\pi}{N}, \qquad 0\le i<N,
 \]
 wobei $N=2^k$ eine Zweierpotenz ist.
-Im Skript im Anhang "uber die Haar-Wavelets wird gezeigt,
+Im Skript im Anhang über die Haar-Wavelets wird gezeigt,
 wie man die verschiedenen Haar-Wavelet-Koeffizienten
 $$a_{0,0},a_{1,0}, a_{2,0},a_{2,1},\dots ,a_{k,0},\dots, a_{k,2^{k-1}-1}$$
 berechnen kann.
 \begin{teilaufgaben}
 \item
-Welcher der Waveletkoeffizienten $a_{k,j}, 0\le j<2^{k-1}$ ist betragsm"assig
-der gr"osste?
+Welcher der Waveletkoeffizienten $a_{k,j}, 0\le j<2^{k-1}$ ist betragsmässig
+der grösste?
 \item
-Berechnen Sie den betragsm"assig gr"ossten Waveletkoeffizienten $a_{k,j}$
-f"ur $N=1024$.
+Berechnen Sie den betragsmässig grössten Waveletkoeffizienten $a_{k,j}$
+für $N=1024$.
 \end{teilaufgaben}
 
 \begin{loesung}
 Die Vektoren der Waveletbasis $\psi_{k,j}$ haben nur zwei nicht verschwindende
-Koeffizienten, die $\pm\frac1{\sqrt{2}}$ sein m"ussen, weil ja $|\psi_{j,k}|=1$
+Koeffizienten, die $\pm\frac1{\sqrt{2}}$ sein müssen, weil ja $|\psi_{j,k}|=1$
 gelten muss. Die Wavelet-Koeffizienten ermittelt man, indem man das Signal
 skalar mit den $\psi_{k,j}$ multipliziert. Ein solches Skalarprodukt hat
-aber wiederum nur zwei Terme, n"amlich:
+aber wiederum nur zwei Terme, nämlich:
 \begin{equation}
 a_{k,j}=f\cdot \psi_{k,j} = \frac1{\sqrt{2}}(f(2j)-f(2j+1))
 \label{betragsmaessig}
 \end{equation}
 \begin{teilaufgaben}
-\item der betragsm"assig gr"osste Wert tritt also dort auf, wo die Differenz
-(\ref{betragsmaessig}) am gr"ossten ist. Beim Signal handelt es sich um
-einen positiven Sinus-Bogen, die Differenz ist dort am gr"ossten, wo die
-Steigung am gr"ossten ist, und dies ist ganz am Anfang des Intervals bei
-$j=0$. Also ist $a_{k,0}$ der betragsm"assig gr"osste Koeffizient.
+\item der betragsmässig grösste Wert tritt also dort auf, wo die Differenz
+(\ref{betragsmaessig}) am grössten ist. Beim Signal handelt es sich um
+einen positiven Sinus-Bogen, die Differenz ist dort am grössten, wo die
+Steigung am grössten ist, und dies ist ganz am Anfang des Intervals bei
+$j=0$. Also ist $a_{k,0}$ der betragsmässig grösste Koeffizient.
 \item Der Wert des Koeffizienten ist
 \begin{align*}
 a_{10,0}&=\frac1{\sqrt{2}}(f(0)-f(1))=\frac1{\sqrt{2}}\biggl(0-\sin\frac{\pi}{1024}\biggr)

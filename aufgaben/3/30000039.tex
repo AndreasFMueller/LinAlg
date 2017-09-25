@@ -1,7 +1,7 @@
 Ein Spielzeughersteller produziert einen ``Globus'', der aus gefalteten
 Kartonteilen zusammengesetzt ist. Er besteht aus acht ``Schnitzen'',
-die jeweils $45^\circ$ in geographischer L"ange umfassen. Die Schnitze
-sind am "Aquator und bei je $45^\circ$ n"ordlicher und s"udlicher Breite
+die jeweils $45^\circ$ in geographischer Länge umfassen. Die Schnitze
+sind am "Aquator und bei je $45^\circ$ nördlicher und südlicher Breite
 geknickt:
 \begin{center}
 \includeagraphics[width=0.5\hsize]{globus.jpg}
@@ -17,15 +17,15 @@ Bestimmen Sie den Winkel $\beta$ an der Basis der Trapeze am "Aquator.
 \begin{loesung}
 Wir verwenden ein Koordinatensystem, dessen $x$-Achse durch den 0-Merdian
 und den "Aquator (im Punkt $X$) und dessen $z$-Achse durch den Nordpol $N$
-verl"auft.
+verläuft.
 Wir nehmen als Radius des ``Globus'' den Wert $1$.
 
-Wir brauchen die Ortsvektoren der Punkte bei $45^\circ$ "ostlicher L"ange
+Wir brauchen die Ortsvektoren der Punkte bei $45^\circ$ östlicher Länge
 und Breite, und stellen dazu die folgende Tabelle zusammen:
 \begin{center}
 \begin{tabular}{|>{$}c<{$}|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-\text{Punkt}&\text{L"ange}&\text{Breite}&x&y&z\\
+\text{Punkt}&\text{Länge}&\text{Breite}&x&y&z\\
 \hline
 P_1         &0            &45^\circ     &\frac1{\sqrt{2}}&0               &\frac1{\sqrt{2}}\\
 P_2         &45^\circ     &0            &\frac1{\sqrt{2}}&\frac1{\sqrt{2}}&0\\
@@ -36,7 +36,7 @@ P_3         &45^\circ     &45^\circ     &\frac12         &\frac12         &\frac
 Darin ist nur der letzte Punkt nicht sofort klar. Man kann ihn zum Beispiel
 als winkelhalbierenden Vektor zwischen dem zweitletzten Punkt und dem Nordpol
 bekommen. Dazu muss man man die Summe des zweitletzten Punktes mit dem Nordpol
-bilden und den Vektor auf L"ange $1$ bringen.
+bilden und den Vektor auf Länge $1$ bringen.
 
 Oder man dreht den ersten Punkt um die $z$-Achse um den Winkel $45^\circ$,
 was man mit einer Drehmatrix wie folgt bewerkstelligen kann:
@@ -61,7 +61,7 @@ D_{z,45^\circ}\begin{pmatrix}\frac1{\sqrt{2}}\\0\\\frac1{\sqrt{2}}\end{pmatrix}
 \end{pmatrix}
 \]
 
-In diesem Koordinatensystem hat der Punkt auf mit L"ange 0
+In diesem Koordinatensystem hat der Punkt auf mit Länge 0
 und Breite $45^\circ$ den Ortsvektor
 \[
 v=
@@ -70,8 +70,8 @@ v=
 \end{pmatrix}.
 \]
 
-Ausserdem werden wir noch die L"ange $l$ eines Vektors vom Pol zu den Punkten
-auf $45^\circ$ Breite brauchen. Diese L"ange taucht auch auf dem "Aquator
+Ausserdem werden wir noch die Länge $l$ eines Vektors vom Pol zu den Punkten
+auf $45^\circ$ Breite brauchen. Diese Länge taucht auch auf dem "Aquator
 auf. 
 \[
 l
@@ -90,7 +90,7 @@ l
 \]
 
 Mit all diesen Punkten kann man jetzt die Teilaufgaben unter Verwendung
-der Zwischenwinkelformel mit Hilfe des Skalarproduktes l"osen.
+der Zwischenwinkelformel mit Hilfe des Skalarproduktes lösen.
 \begin{teilaufgaben}
 \item
 Wir finden mit Hilfe der Zwischenwinkelformel
@@ -150,15 +150,15 @@ Wir finden mit Hilfe der Zwischenwinkelformel:
 \end{loesung}
 
 \begin{diskussion}
-In der Pr"ufung wurde diese Aufgabe ohne Teilaufgabe b) gestellt, wodurch
-die Aufgabe leicher wird, weil es nicht mehr n"otig ist, den Punkt
+In der Prüfung wurde diese Aufgabe ohne Teilaufgabe b) gestellt, wodurch
+die Aufgabe leicher wird, weil es nicht mehr nötig ist, den Punkt
 $P_3$ zu bestimmen.
 \end{diskussion}
 
 \begin{bewertung}
 Identifikation des Winkels ({\bf B}) 1 Punkt,
 Zwischenwinkelformel ({\bf Z}) 1 Punkt,
-Wahl eines zweckm"assigen Koordinatensystems ({\bf K}) 1 Punkt,
+Wahl eines zweckmässigen Koordinatensystems ({\bf K}) 1 Punkt,
 Bestimmung der Punkte $P_1$ und $P_2$ ({\bf P}) 1 Punkt,
 Skalarprodukt ({\bf S}) 1 Punkt,
 Berechnung des Winkels ({\bf W}) 1 Punkt.

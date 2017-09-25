@@ -7,7 +7,7 @@ ist.
 
 \begin{loesung}
 Eine geeignete Basis besteht aus den Eigenvektoren von $A$. Weil $A$
-symmetrisch ist, l"asst sich immer eine Eigenvektorbasis find.
+symmetrisch ist, lässt sich immer eine Eigenvektorbasis find.
 
 Das charakteristische Polynom von $A$ ist
 \begin{align*}
@@ -15,7 +15,7 @@ Das charakteristische Polynom von $A$ ist
 &=\left|\begin{matrix}2-\lambda&6\\6&7-\lambda\end{matrix}\right|
 =(2-\lambda)(7-\lambda)-36=\lambda^2-9\lambda+14-36=\lambda^2-9\lambda-22
 \end{align*}
-Die Nullstellen k"onnen mit der L"osungsformel f"ur quadratische Gleichungen
+Die Nullstellen können mit der Lösungsformel für quadratische Gleichungen
 gefunden werden:
 \begin{align*}
 \lambda_{\pm}&=\frac{9}{2}\pm\frac{1}{2}\sqrt{9^2+4 \cdot 22}
@@ -24,10 +24,10 @@ gefunden werden:
 11\\-2
 \end{cases}
 \end{align*}
-F"ur jeden Eigenwert muss jetzt mit Hilfe des Gaussalgorithmus ein
+Für jeden Eigenwert muss jetzt mit Hilfe des Gaussalgorithmus ein
 Eigenvektor gefunden werden.
 
-F"ur $\lambda_+=11$ findet man
+Für $\lambda_+=11$ findet man
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -50,13 +50,13 @@ F"ur $\lambda_+=11$ findet man
 \hline
 \end{tabular}
 \]
-Die zweite Koordinate ist wie erwartet frei w"ahlbar, indem wir sie auf
-$3$ setzen erhalten wir einen Eigenvektor ohne Br"uche
+Die zweite Koordinate ist wie erwartet frei wählbar, indem wir sie auf
+$3$ setzen erhalten wir einen Eigenvektor ohne Brüche
 \[
 v_+=\begin{pmatrix}2\\3\end{pmatrix}.
 \]
 
-F"ur $\lambda_-=-2$ erhalten wir
+Für $\lambda_-=-2$ erhalten wir
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -79,7 +79,7 @@ F"ur $\lambda_-=-2$ erhalten wir
 \hline
 \end{tabular}.
 \]
-Wieder ist die zweite Variable frei w"ahlbar, die Wahl $-2$ liefert 
+Wieder ist die zweite Variable frei wählbar, die Wahl $-2$ liefert 
 den Eigenvektor
 \[
 v_-=\begin{pmatrix}3\\-2\end{pmatrix}.
@@ -120,7 +120,7 @@ mit dem charakteristischen Polynom
 \[
 \chi_A(\lambda)=(a-\lambda)(c-\lambda)-b^2=\lambda^2-(a+c)\lambda+ac-b^2.
 \]
-Die Nullstellen k"onnen mit der L"osungsformel f"ur quadratische 
+Die Nullstellen können mit der Lösungsformel für quadratische 
 Gleichungen gefunden werden:
 \begin{align*}
 \lambda_{\pm}&=\frac{a+c}2\pm\sqrt{\biggl(\frac{a+c}2\biggr)^2-ac+b^2}\\
@@ -133,7 +133,7 @@ auf der rechten Seite ganzzahlig sein, es muss also
 \[
 x=a-c, \quad y=2b ,\quad z=\sqrt{(a-c)^2+4b^2}
 \]
-ein pythagor"aisches Tripel sein. Schreibt man $m=\frac{a+c}2$, kann man
+ein pythagoräisches Tripel sein. Schreibt man $m=\frac{a+c}2$, kann man
 die Matrix jetzt auch mit dem Tripel $(x,y,z)$ parametrisieren:
 \[
 A=\begin{pmatrix}
@@ -144,7 +144,7 @@ m + \frac{x}2&\frac{y}2\\
 \lambda_{\pm}=m\pm\frac{z}2.
 \]
 Mit diesen Bezeichungen kann man jetzt auch die Eigenvektoren
-berechnen. Wir schreiben das Gauss\-tableau f"ur $A-\lambda_\pm E$:
+berechnen. Wir schreiben das Gauss\-tableau für $A-\lambda_\pm E$:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -167,7 +167,7 @@ y&-x\mp z\\
 \hline
 \end{tabular}
 \]
-Daraus kann man als m"ogliche Eigenvektoren ablesen:
+Daraus kann man als mögliche Eigenvektoren ablesen:
 \[
 v_+=\begin{pmatrix}
 y\\z-x
@@ -185,7 +185,7 @@ v_-=\begin{pmatrix}
 x-z\\y
 \end{pmatrix}
 \]
-Die Eigenvektoren m"ussen orthogonal sein, ihr Skalarprodukt muss also
+Die Eigenvektoren müssen orthogonal sein, ihr Skalarprodukt muss also
 verschwinden:
 \begin{align*}
 \begin{pmatrix}
@@ -208,13 +208,13 @@ x-z\\y
 &=
 (x+z)(x-z)+y^2=x^2-z^2+y^2=0.
 \end{align*}
-Die Aufgabe entspricht dem pythagor"aischen Tripel $(5,12,13)$.
+Die Aufgabe entspricht dem pythagoräischen Tripel $(5,12,13)$.
 \end{diskussion}
 
 \begin{bewertung}
 Charakteristisches Polynom ({\bf X}) 1 Punkt,
 Nullstellen ({\bf N}) 1 Punkt,
-Gleichungssysteme f"ur $\lambda_+$ und $\lambda_-$ ({\bf G$\pm$}) je 1 Punkt,
+Gleichungssysteme für $\lambda_+$ und $\lambda_-$ ({\bf G$\pm$}) je 1 Punkt,
 Eigenvektoren ({\bf E$\pm$}) je 1 Punkt.
 \end{bewertung}
 

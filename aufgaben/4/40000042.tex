@@ -1,6 +1,6 @@
-Ein RGB-Farbsensor sollte zu jeder Lichtfarbe die Werte f"ur den roten,
-gr"unen und blauen Anteil ermitteln.
-Wir k"onnen annehmen, dass der Zusammenhang zwischen Lichtfarbe und
+Ein RGB-Farbsensor sollte zu jeder Lichtfarbe die Werte für den roten,
+grünen und blauen Anteil ermitteln.
+Wir können annehmen, dass der Zusammenhang zwischen Lichtfarbe und
 ermittelten Werten linear ist.
 Beim Testen des Sensors mit einer kalibrierten Farbquelle stellt sich
 heraus, dass die Werte $(r,g,b)$ des Sensors stark von den wahren Werten 
@@ -21,17 +21,17 @@ R&G&B&r&g&b\\
 \end{center}
 Gesucht ist jetzt eine $3 \times 3$-Matrix $S$, die den Zusammenhang
 zwischen den wahren Werten $(R,G,B)$ und den gemessenen Werten $(r,g,b)$
-m"oglichst gut wiedergeben kann. Stellen Sie dazu ein Gleichungssystem auf,
-mit welchem die Matrixelemente von $S$ berechnet werden k"onnen.
-Im Gleichungssystem m"ussen alle Messwerte ber"ucksichtigt werden.
-Zudem soll es erweitert werden k"onnen, wenn mehr Daten bekannt werden.
+möglichst gut wiedergeben kann. Stellen Sie dazu ein Gleichungssystem auf,
+mit welchem die Matrixelemente von $S$ berechnet werden können.
+Im Gleichungssystem müssen alle Messwerte berücksichtigt werden.
+Zudem soll es erweitert werden können, wenn mehr Daten bekannt werden.
 
 \begin{hinweis}
 Es wird nicht verlangt, die Matrix $S$ zu berechnen
 \end{hinweis}
 
 \begin{loesung}
-Wir suchen eine Matrix, die Farb-Vektoren gem"ass
+Wir suchen eine Matrix, die Farb-Vektoren gemäss
 \begin{equation}
 \begin{pmatrix}r\\g\\b\end{pmatrix}
 =
@@ -40,7 +40,7 @@ S
 \label{40000042:basis}
 \end{equation}
 umrechnet.
-Die Eintr"age in $S$ sind die Unbekannten.
+Die Einträge in $S$ sind die Unbekannten.
 Im Idealfall lassen sich die Messwerte exakt wiedergeben, dann
 gelten die Gleichungen:
 \[
@@ -59,8 +59,8 @@ gelten die Gleichungen:
 	&=&b\\
 \end{linsys}
 \]
-Setzt man die vier Messungen ein, erh"alt man daraus zw"olf Gleichungen
-f"ur die neun gesuchten Matrixeintr"age von $S$, also ein "uberbestimmtes
+Setzt man die vier Messungen ein, erhält man daraus zwölf Gleichungen
+für die neun gesuchten Matrixeinträge von $S$, also ein überbestimmtes
 Gleichungssystem.
 Die Matrix $A$ und die rechte Seite $b$ dieses Gleichungssystems ist
 \[
@@ -113,11 +113,11 @@ A^tA
 ,\qquad
 A^tb=\begin{pmatrix}2\\3\\1\\3\\5\\3\\1\\3\\2\end{pmatrix}
 \]
-Es ist nicht verlangt worden, dass das Gleichungssystem gel"ost wird.
+Es ist nicht verlangt worden, dass das Gleichungssystem gelöst wird.
 \end{loesung}
 
 \begin{diskussion}
-Mit Octave kann man daraus nat"urlich auch eine numerische L"osung gewinnen,
+Mit Octave kann man daraus natürlich auch eine numerische Lösung gewinnen,
 man findet
 \[
 S=\begin{pmatrix}
@@ -129,7 +129,7 @@ S=\begin{pmatrix}
 \end{diskussion}
 
 \begin{bewertung}
-Gleichung \eqref{40000042:basis} f"ur ein Paar von Messtripeln ({\bf B})
+Gleichung \eqref{40000042:basis} für ein Paar von Messtripeln ({\bf B})
 1 Punkt,
 4-fache Anwendung von \eqref{40000042:basis} auf die gegebenen Daten ({\bf A})
 2 Punkte,

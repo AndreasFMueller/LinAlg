@@ -5,21 +5,21 @@ vx_1&+& x_2&+&ux_3&=&2\\
 ux_1&+&vx_2&+& x_3&=&1
 \end{linsys}
 \]
-f"ur die Unbekannten $x_1$, $x_2$ und $x_3$ mit den Parametern $u$ und $v$.
+für die Unbekannten $x_1$, $x_2$ und $x_3$ mit den Parametern $u$ und $v$.
 \begin{teilaufgaben}
 \item
-Finden Sie eine Gleichung f"ur die Parameter $u$ und $v$, f"ur die das
-Gleichungssystem nicht eindeutig l"osbar ist.
+Finden Sie eine Gleichung für die Parameter $u$ und $v$, für die das
+Gleichungssystem nicht eindeutig lösbar ist.
 \item
-Der Punkt $(1,1)$ der $u$-$v$-Ebene erf"ullt die in a) gefundene Bedingung. 
+Der Punkt $(1,1)$ der $u$-$v$-Ebene erfüllt die in a) gefundene Bedingung. 
 Welchen Rang hat die Koeffizientenmatrix, wenn man diese Werte einsetzt?
 \item
-Die Punkte $(-1,0)$ und $(0,-1)$ der $u$-$v$-Ebene erf"ullen die Bedingung
+Die Punkte $(-1,0)$ und $(0,-1)$ der $u$-$v$-Ebene erfüllen die Bedingung
 ebenfalls.
-Welchen Rang hat die Koeffizientenmatrix f"ur diese Werte?
+Welchen Rang hat die Koeffizientenmatrix für diese Werte?
 \item
-L"osen Sie das Gleichungssystem f"ur diejenigen Werte von $u$ und $v$,
-f"ur die eine eindeutige L"osung existiert.
+Lösen Sie das Gleichungssystem für diejenigen Werte von $u$ und $v$,
+für die eine eindeutige Lösung existiert.
 \end{teilaufgaben}
 
 \begin{loesung}
@@ -39,17 +39,17 @@ des Gleichungssystems mit Hilfe der Sarrus-Formel:
 =
 1+u^3+v^3-3uv.
 \]
-Wenn die Determinante verschwindet, ist die Matrix singul"ar und es kann
-keine eindeutige L"osung existieren.
+Wenn die Determinante verschwindet, ist die Matrix singulär und es kann
+keine eindeutige Lösung existieren.
 Die gesuchte Gleichung ist also
 \begin{equation}
 u^3+v^3-3uv+1=0.
 \label{20000033:bedingung}
 \end{equation}
-Wir k"urzen im folgenden die linke Seite von (\ref{20000033:bedingung})
+Wir kürzen im folgenden die linke Seite von (\ref{20000033:bedingung})
 als $p(u,v)$ ab.
 \item
-F"ur $u=1$ und $v=1$ wird die Koeffizientenmatrix zu
+Für $u=1$ und $v=1$ wird die Koeffizientenmatrix zu
 \[
 \begin{pmatrix}
 1&1&1\\
@@ -59,7 +59,7 @@ F"ur $u=1$ und $v=1$ wird die Koeffizientenmatrix zu
 \]
 die den Rang 1 hat.
 \item
-Setzt man die Werte ein, erh"alt man die Matrizen
+Setzt man die Werte ein, erhält man die Matrizen
 \begin{align*}
 &\begin{pmatrix}
 1&-1&0\\
@@ -78,12 +78,12 @@ die Transponierte voneinander sind.
 Es reicht also, den Rang einer der beiden Matrizen zu bestimmen.
 
 Die Summe der drei Zeilen ist 0, der Rang muss also kleiner als 3 sein,
-was wir ja auch erwarten, $u$ und $v$ waren so gew"ahlt, dass eine singul"are
+was wir ja auch erwarten, $u$ und $v$ waren so gewählt, dass eine singuläre
 Matrix entsteht.
-Da aber auch die ersten zwei Zeilen linear unabh"angig sind, muss der
+Da aber auch die ersten zwei Zeilen linear unabhängig sind, muss der
 Rang 2 sein.
 \item
-Das Gleichungsystem kann jetzt mit der Kramerschen Regel gel"ost werden:
+Das Gleichungsystem kann jetzt mit der Kramerschen Regel gelöst werden:
 \begin{align*}
 x_1&=\frac1{p(u,v)}\left|\,\begin{matrix}
 \color{green}1&u&v\\
@@ -115,8 +115,8 @@ u&v&\color{green}1
 =\frac{1+2u^2+v^2-u-2v-uv}{u^3+v^3-3uv+1}.
 %\label{20000033:x3}
 \end{align*}
-Wir kontrollieren die L"osung durch Einsetzen in das Gleichungssystem.
-Setzt man den Klammerausdruck in der Formel f"ur $x_1$ in die erste Gleichung
+Wir kontrollieren die Lösung durch Einsetzen in das Gleichungssystem.
+Setzt man den Klammerausdruck in der Formel für $x_1$ in die erste Gleichung
 ein, sollte $p(u,v)$ entstehen:
 \begin{align*}
 &(1+u^2+2v^2-v-uv-2u)
@@ -179,16 +179,16 @@ Die Gleichung (\ref{20000033:bedingung}) definiert eine Menge von Punkten
 in der $u$-$v$-Ebene.
 Diese Menge zu finden ist nicht trivial, und auch nicht unbedingt Gegenstand
 der linearen Algebra, sondern eher der algebraischen Geometrie, die sich
-mit den Eigenschaften von L"osungsmengen von solchen Polynomgleichungen befasst.
+mit den Eigenschaften von Lösungsmengen von solchen Polynomgleichungen befasst.
 Trotzdem sei hier ein Argument angegeben, wie man diese Menge finden kann.
 
-Man kann durch Probieren die Punkte $(-1,0)$, $(0,-1)$ und $(1,1)$ als L"osungen
+Man kann durch Probieren die Punkte $(-1,0)$, $(0,-1)$ und $(1,1)$ als Lösungen
 der Gleichung (\ref{20000033:bedingung}) finden.
-Da die Gleichung symmetrisch in $u$ und $v$ ist, muss die L"osung
-spiegelungssymmetrisch bez"uglich der Geraden $x=y$ sein, und man kann
-vermuten, dass die L"osung ein Kurvenst"uck enthalten muss, welches
+Da die Gleichung symmetrisch in $u$ und $v$ ist, muss die Lösung
+spiegelungssymmetrisch bezüglich der Geraden $x=y$ sein, und man kann
+vermuten, dass die Lösung ein Kurvenstück enthalten muss, welches
 die ersten beiden Punkte verbindet.
-Dieses Kurvenst"uck muss eine Gerade, eine Parabel (quadratische Kurve) oder
+Dieses Kurvenstück muss eine Gerade, eine Parabel (quadratische Kurve) oder
 eine kubische Kurve sein. 
 Wir probieren eine Gerade durch die beiden Punkte, sie hat die Gleichung $u=-1-v$.
 Setzt man dies in (\ref{20000033:bedingung}) ein, findet man
@@ -199,21 +199,21 @@ Setzt man dies in (\ref{20000033:bedingung}) ein, findet man
 \end{align*}
 Die Punkte auf der genannten Geraden mit der Gleichung
 $u+v+1=0$
-erf"ullen die Gleichung also automatisch.
+erfüllen die Gleichung also automatisch.
 
 Da das Polynom $p(u,v)$ immer dann verschwindet, wenn das Polynom $q(u,v)=u+v+1$
 verschwindet, muss das Polynom $q(u,v)$ ein Teiler von $p(u,v)$ sein.
-Nach einer etwas m"uhsamen Rechnung findet man 
+Nach einer etwas mühsamen Rechnung findet man 
 \[
 \frac{p(u,v)}{q(u,v)}= u^2 - uv + v^2-u-v+1=r(u,v).
 \]
-Ausser aus der Geraden $u+v+1=0$ muss die gesuchte L"osungsmenge also auch noch aus
-der L"osungsmenge von $r(u,v)=0$ bestehen.
+Ausser aus der Geraden $u+v+1=0$ muss die gesuchte Lösungsmenge also auch noch aus
+der Lösungsmenge von $r(u,v)=0$ bestehen.
 
 $r(u,v)$ ist ein quadratisches Polynom, und die Koeffizienten der quadratischen
-Terme sind positiv, also muss die L"osungsmenge eine Ellipse sein.
-Wegen der Symmetrieeigenschaften der L"osungsmenge m"ussen die Halbachsen der 
-Ellipse gegen"uber dem $u$-$v$-Koordinatensystem um $45^\circ$ verdreht sein,
+Terme sind positiv, also muss die Lösungsmenge eine Ellipse sein.
+Wegen der Symmetrieeigenschaften der Lösungsmenge müssen die Halbachsen der 
+Ellipse gegenüber dem $u$-$v$-Koordinatensystem um $45^\circ$ verdreht sein,
 wir ersetzen daher $u$ und $v$ durch
 \begin{equation}
 %\left.
@@ -237,7 +237,7 @@ v&=x-y.
 %\right.
 \label{20000033:transformation}
 \end{equation}
-Setzt man diese Ausdr"ucke f"ur $u$ und $v$ in $r(u,v)$ ein erh"alt man
+Setzt man diese Ausdrücke für $u$ und $v$ in $r(u,v)$ ein erhält man
 \begin{align*}
 r(u,v)
 &=(x+y)^2-(x+y)(x-y)+(x-y)^2-(x+y)-(x-y)+1\\
@@ -246,33 +246,33 @@ r(u,v)
 &=(x-1)^2+3y^2.
 \end{align*}
 Jeder Term im letzten Ausdruck ist positiv, die Gleichung $r(u,v)=0$ kann
-also nur dann erf"ullt sein, wenn beide Terme verschwinden, oder $x=1$ und $y=0$.
+also nur dann erfüllt sein, wenn beide Terme verschwinden, oder $x=1$ und $y=0$.
 Setzt man diese Werte wieder in (\ref{20000033:transformation}) ein,
-erh"alt man $u=1$ und $v=1$, also genau den dritten der geratenen Punkte.
+erhält man $u=1$ und $v=1$, also genau den dritten der geratenen Punkte.
 Die erwartete Ellipse ist also zu einem Punkt entartet.
 
-Die L"osungsmenge der Gleichung $p(u,v)=0$ besteht also aus der Geraden
+Die Lösungsmenge der Gleichung $p(u,v)=0$ besteht also aus der Geraden
 mit der Gleichung $u+v+1=0$ und dem Punkt $(1,1)$.
 Sie ist in der Abbildung~\ref{20000033:loesungsmenge} dargestellt.
 \begin{figure}
 \centering
 \includeagraphics[]{kubisch-1.pdf}
-\caption{L"osungsmenge der Gleichung $p(u,v) = u^3+v^3-3uv+1=0$
+\caption{Lösungsmenge der Gleichung $p(u,v) = u^3+v^3-3uv+1=0$
 in Aufgabe~\ref{20000033}. Sie besteht aus der Geraden durch die
 Punkte $(-1,0)$ und $(0,-1)$ sowie dem isolierten Punkt $(1,1)$.
 \label{20000033:loesungsmenge}}
 \end{figure}
 
-Alternativ kann man die L"osungsmenge auch dadurch finden, dass man die
-Funktion $p(u,v)$ als Fl"ache "uber der $u$-$v$-Ebene darstellt, und die
+Alternativ kann man die Lösungsmenge auch dadurch finden, dass man die
+Funktion $p(u,v)$ als Fläche über der $u$-$v$-Ebene darstellt, und die
 Schnittmenge mit der $u$-$v$-Ebene sucht.
 Dies  ist in Abbildung~\ref{20000033:flaeche} dargestellt.
 \begin{figure}
 \centering
 \includeagraphics[width=0.7\hsize]{cubic.jpg}
-\caption{Graph der Funktion $p(u,v)=u^3+v^3-3uv+1$ f"ur $-2\le u,v\le 2$ (rot),
-die Fl"ache schneidet die $u$-$v$-Ebene in der Geraden durch $(-1,0)$ und
-$(0,-1)$, und ber"uhrt die $u$-$v$-Ebene im Punkt $(1,1)$ (beide gelb).
+\caption{Graph der Funktion $p(u,v)=u^3+v^3-3uv+1$ für $-2\le u,v\le 2$ (rot),
+die Fläche schneidet die $u$-$v$-Ebene in der Geraden durch $(-1,0)$ und
+$(0,-1)$, und berührt die $u$-$v$-Ebene im Punkt $(1,1)$ (beide gelb).
 \label{20000033:flaeche}}
 \end{figure}
 \end{diskussion}

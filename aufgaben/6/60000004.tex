@@ -21,23 +21,23 @@ a_{21}&a_{22}
 \end{pmatrix}.
 \]
 \begin{teilaufgaben}
-\item Bestimmen Sie eine Gleichung f"ur $\alpha$.
-\item L"osen Sie die Gleichung in dem Spezialfall
+\item Bestimmen Sie eine Gleichung für $\alpha$.
+\item Lösen Sie die Gleichung in dem Spezialfall
 \[
 A=\begin{pmatrix}
 3&1\\
 1&1
 \end{pmatrix}
 \]
-\item Bestimmen Sie Eigenwerte und Eigenvektoren f"ur den
+\item Bestimmen Sie Eigenwerte und Eigenvektoren für den
 Spezialfall b) mit dem Jacobi-Algorithmus.
-\item "Uberpr"ufen Sie Eigenwerte und Eigenvektoren mit dem klassischen
+\item "Uberprüfen Sie Eigenwerte und Eigenvektoren mit dem klassischen
 Algorithmus.
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
-\item Zun"achst sind die Matrizenprodukte auf der linken Seite zu berechnen
+\item Zunächst sind die Matrizenprodukte auf der linken Seite zu berechnen
 \begin{align*}
 D_{-\alpha}AD_{\alpha}
 &=
@@ -50,7 +50,7 @@ D_{-\alpha}AD_{\alpha}
  \sin\alpha& \cos\alpha
 \end{pmatrix}
 \end{align*}
-F"ur die Gleichung f"ur $\alpha$ brauchen wir nur das Matrixelement
+Für die Gleichung für $\alpha$ brauchen wir nur das Matrixelement
 in der rechten oberen Ecke, also
 \begin{align*}
 0
@@ -82,7 +82,7 @@ D_{\frac{\pi}8}=\begin{pmatrix}
    0.38268&  0.92388
 \end{pmatrix}
 \]
-Transformiert man die Matrix $A$ damit, erh"alt man
+Transformiert man die Matrix $A$ damit, erhält man
 \[
 D^tAD=
 \begin{pmatrix}
@@ -105,7 +105,7 @@ Die Eigenwerte werden mit dem charakteristischen Polynom bestimmt:
 \end{cases}
 \end{align*}
 Die Eigenvektoren bestimmt man mit dem Gauss-Algorithmus.
-F"ur $\lambda_+$ erh"alt man
+Für $\lambda_+$ erhält man
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -144,11 +144,11 @@ F"ur $\lambda_+$ erh"alt man
 \hline
 \end{tabular}
 \end{align*}
-Die zweite Variable ist also frei w"ahlbar, und damit ist
+Die zweite Variable ist also frei wählbar, und damit ist
 \[
 v_+=\begin{pmatrix}1+\sqrt{2}\\1\end{pmatrix}
 \]
-ein Eigenvektor. Octave hat auf L"ange 1 normierte Eigenvektoren
+ein Eigenvektor. Octave hat auf Länge 1 normierte Eigenvektoren
 geliefert, tut man dies hier auch, mit $|v_+|=\sqrt{4+2\sqrt{2}}$
 bekommt man den Vektor
 \[
@@ -160,7 +160,7 @@ bekommt man den Vektor
 \end{pmatrix},
 \]
 also genau der Vektor aus der ersten Spalte der Drehmatrix.
-Die Berechnung f"ur $\lambda_-$ und $v_-$ verl"auft analog.
+Die Berechnung für $\lambda_-$ und $v_-$ verläuft analog.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}

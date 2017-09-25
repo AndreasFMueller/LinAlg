@@ -12,11 +12,11 @@ Betrachten Sie das folgende Netzwerk
 \begin{teilaufgaben}
 \item Berechnen Sie die $\partial$-Matrix dieses Netzwerkes.
 \item Bestimmen Sie die Zyklen.
-\item Welche Str"ome sind frei w"ahlbar? Bestimmen Sie die Gleichungen daf"ur.
+\item Welche Ströme sind frei wählbar? Bestimmen Sie die Gleichungen dafür.
 \item Berechnen Sie den Laplace-Operator $\partial\partial^t$ 
 durch Ausmultiplizieren des Matrizenproduktes.
 \item Berechnen Sie den Laplace-Operator $\partial S\partial^t$, wenn
-die Leitwerte proportional zur L"ange der Dr"ahte in der graphischen
+die Leitwerte proportional zur Länge der Drähte in der graphischen
 Darstellung des Netzwerkes sind.
 \end{teilaufgaben}
 
@@ -33,7 +33,7 @@ sie codiert die Verbindungen im Graphen:
  0& 0& 1& 0& 1& 1
 \end{pmatrix}
 \]
-\item Die Zyklen findet man als L"osungen von $\partial z=0$.
+\item Die Zyklen findet man als Lösungen von $\partial z=0$.
 Der Gauss-Algorithmus ergibt das folgende Tableau
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
@@ -45,9 +45,9 @@ Der Gauss-Algorithmus ergibt das folgende Tableau
 \hline
 \end{tabular}
 \]
-Offenbar sind die drei Variablen $z_4$, $z_5$ und $z_6$ frei w"ahlbar.
-W"ahlt man jeweils eine diese Variablen als $1$, die anderen als $0$, bekommt
-man die folgenden drei Zyklen als L"osung:
+Offenbar sind die drei Variablen $z_4$, $z_5$ und $z_6$ frei wählbar.
+Wählt man jeweils eine diese Variablen als $1$, die anderen als $0$, bekommt
+man die folgenden drei Zyklen als Lösung:
 \[
 \begin{pmatrix}
 1\\-1\\0\\1\\0\\0
@@ -66,7 +66,7 @@ man die folgenden drei Zyklen als L"osung:
 Diesen Vektoren entsprechen die Zyklen $1\to2\to3\to 1$, $1\to 2\to 4\to 1$
 und $1\to 3\to 4\to 1$.
 \item
-Dazu braucht man zun"achst die Matrix 
+Dazu braucht man zunächst die Matrix 
 \[
 Z=
 \begin{pmatrix}
@@ -78,7 +78,7 @@ Z=
  0& 0& 1
 \end{pmatrix}
 \]
-Die frei w"ahlbaren Str"ome ergeben sich als L"osung der
+Die frei wählbaren Ströme ergeben sich als Lösung der
 Gleichung
 \[
 Z^tRZj=Ze
@@ -131,7 +131,7 @@ R_1&R_1+R_3+R_5&R_3\\
 \end{pmatrix}
 \end{align*}
 Damit sind alle Matrizen des Gleichungssystems bekannt, es kann mit
-dem Computer gel"ost werden.
+dem Computer gelöst werden.
 \item Ausmultiplizieren ergibt
 \[
 \begin{pmatrix}
@@ -156,8 +156,8 @@ dem Computer gel"ost werden.
 \end{pmatrix}
 \]
 Die letzte Matrix sagt, was man auch von blossem Auge sehen kann,
-n"amlich dass jeder Knoten mit drei Nachbarn verbunden ist.
-\item In diesem Fall sind die diagonalen Dr"ahte l"anger, haben
+nämlich dass jeder Knoten mit drei Nachbarn verbunden ist.
+\item In diesem Fall sind die diagonalen Drähte länger, haben
 als Widerstand $\sqrt{2}$ statt $1$. Der Laplace-Operator wird 
 damit
 \begin{align*}

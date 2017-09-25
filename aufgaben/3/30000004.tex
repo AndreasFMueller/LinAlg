@@ -3,7 +3,7 @@ durch die Punkte $A=(6,4,7)$, $B=(9,2,9)$ und $C=(1,7,0)$ bzw.~$P=(2,2,4)$,
 $Q=(6,13,4)$, und $R=(1,3,7)$.
 
 \begin{loesung}
-Wir ben"otigen zun"achst Parameterdarstellungen f"ur die Ebenen:
+Wir benötigen zunächst Parameterdarstellungen für die Ebenen:
 \[
 \begin{pmatrix}6\\4\\7\end{pmatrix}
 +t
@@ -17,8 +17,8 @@ Wir ben"otigen zun"achst Parameterdarstellungen f"ur die Ebenen:
 +v
 \begin{pmatrix}-1\\1\\3\end{pmatrix}
 \]
-Gesucht werden jetzt Werte f"ur $t$, $s$, $u$ und $v$, f"ur die
-die beidden Ausdr"ucke "ubereinstimmen, also
+Gesucht werden jetzt Werte für $t$, $s$, $u$ und $v$, für die
+die beidden Ausdrücke übereinstimmen, also
 \begin{align*}
 \begin{pmatrix}6\\4\\7\end{pmatrix}
 +t
@@ -57,7 +57,7 @@ $ 2$&$-7$&$  0$&$-3$&$-3$\\
 \hline
 \end{tabular}
 \end{center}
-Dieses Gleichungssystem l"ost man am einfachsten mit Octave, und findet
+Dieses Gleichungssystem löst man am einfachsten mit Octave, und findet
 \verbatiminput{1.m}
 also
 \begin{align*}
@@ -65,8 +65,8 @@ t&=-\frac13-2v\\
 s&=\frac13-v\\
 u&=\frac13
 \end{align*}
-Setzt man die Beziehung f"ur $u$ in die Parameterdarstellung der
-zweiten Ebene  ein, findet man als Parameterdarstellung f"ur die
+Setzt man die Beziehung für $u$ in die Parameterdarstellung der
+zweiten Ebene  ein, findet man als Parameterdarstellung für die
 Schnittgerade:
 \[
 \left\{\left.
@@ -78,7 +78,7 @@ v\in\mathbb R
 \right\}
 \]
 
-Alternativ kann man das Problem auch l"osen, indem man die beiden
+Alternativ kann man das Problem auch lösen, indem man die beiden
 Ebenen als sechs Gleichungen mit sieben Unbekannten $x,y,z,u,v,s,t$
 schreibt,
 \begin{align*}
@@ -104,7 +104,7 @@ schreibt,
 +{\color{red}v}
 \begin{pmatrix}-1\\1\\3\end{pmatrix}
 \end{align*}
-Das zugeh"orige Gauss-Tableau ist:
+Das zugehörige Gauss-Tableau ist:
 \begin{center}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -134,15 +134,15 @@ $x$& $y$& $z$& $t$& $s$& $u$& $v$&\\
 \hline
 \end{tabular}
 \end{center}
-Aus den ersten drei Zeilen kann man wieder die L"osung ablesen.
+Aus den ersten drei Zeilen kann man wieder die Lösung ablesen.
 
 Die unteren drei Zeilen braucht man
-nicht, sie geben die Abh"angigkeit der Variablen $t$, $s$ und $u$
-von $v$ wieder, welche zwar auch mit denjenigen im ersten L"osungsweg
-"ubereinstimmen, aber bei diesem zweiten L"osungsweg nicht
-explizit ben"otig werden. In der ersten L"osung waren diese
-Abh"angigkeiten nur ben"otigt werden, um sie sp"ater in die
-Ebenengleichungen einsetzen zu k"onnen. In der zweiten L"osung
-hat das der Gauss-Algorithmus bereits "ubernommen.
+nicht, sie geben die Abhängigkeit der Variablen $t$, $s$ und $u$
+von $v$ wieder, welche zwar auch mit denjenigen im ersten Lösungsweg
+übereinstimmen, aber bei diesem zweiten Lösungsweg nicht
+explizit benötig werden. In der ersten Lösung waren diese
+Abhängigkeiten nur benötigt werden, um sie später in die
+Ebenengleichungen einsetzen zu können. In der zweiten Lösung
+hat das der Gauss-Algorithmus bereits übernommen.
 \end{loesung}
 

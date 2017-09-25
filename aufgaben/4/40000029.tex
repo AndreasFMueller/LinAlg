@@ -2,10 +2,10 @@
 %die ihrerseits um die vertikale Achse gedreht werden kann. So kann ein
 %Tourist an einem Aussichtspunkt jeden beliebigen Punkt beobachten
 %(Abbildung~\ref{40000029:altaz} links).
-%F"ur ein grosses Teleskop, welches bei $45^\circ$ n"ordlicher Breite
+%Für ein grosses Teleskop, welches bei $45^\circ$ nördlicher Breite
 %aufgestellt werden soll, ist diese Montierungsart zu simpel.
 %Um die
-%Drehung der Erde kompensieren zu k"onnen, wird die vertikale Achse
+%Drehung der Erde kompensieren zu können, wird die vertikale Achse
 %gekippt, so dass sie parallel zur Erdachse liegt. Dreht man das Teleskop mit
 %einer Umdrehung pro Tag um diese Achse, zeigt es immer auf den gleichen
 %Punkt am Himmel (Abbildung~\ref{40000029:altaz} rechts).
@@ -21,10 +21,10 @@
 %\includeagraphics[width=0.3192\hsize]{forksaltazeq.jpg}
 %\end{center}
 %\caption{Montierung von Teleskopen: azimutale Montierung (links)
-%und "aquatoriale Montierung (rechts)\label{40000029:altaz}}
+%und äquatoriale Montierung (rechts)\label{40000029:altaz}}
 %\end{figure}
 Zur Beschreibung der Position von Objekten am Himmel sind zwei
-Koordinatensysteme "ublich.
+Koordinatensysteme üblich.
 \begin{figure}[ht]
 \begin{center}
 \includeagraphics[width=0.3\hsize]{azimutalcoord.jpg}
@@ -32,7 +32,7 @@ Koordinatensysteme "ublich.
 \quad
 \includeagraphics[width=0.3\hsize]{equatorialcoord.jpg}
 \end{center}
-\caption{Koordinatensysteme: azimutal (links) und "aquatorial (rechts),
+\caption{Koordinatensysteme: azimutal (links) und äquatorial (rechts),
 die Richtung nach Osten ist links vorne.
 \label{40000029:coord}}
 \end{figure}
@@ -43,10 +43,10 @@ Das {\it azimutale} Koordinatensystem
 verwendet eine $x$-Achse, die genau nach Osten zeigt, und eine $z$-Achse,
 die nach oben zeigt.
 In diesem Koordinatensystem ist es besonders einfach zu entscheiden, ob
-ein Himmelsk"orper "uber dem Horizont steht: seine $z$-Koordinate ist
+ein Himmelskörper über dem Horizont steht: seine $z$-Koordinate ist
 positiv.
 \item
-Das {\it "aquatoriale} Koordinatensystem
+Das {\it äquatoriale} Koordinatensystem
 (Abbildung \ref{40000029:coord} rechts)
 verwendet wieder eine $x$-Achse,
 die nach Osten zeigt, aber die $z$-Achse ist parallel zur Erdachse.
@@ -54,26 +54,26 @@ In diesem Koordinatensystem ist die Bewegung der Objekte, hervorgerufen
 durch die Erddrehung, besonders einfach zu berechnen.
 \end{itemize}
 In den folgenden Teilaufgaben gehen wir davon aus, dass sich der Beobachter
-bei $45^\circ$ n"ordlicher Breite befindet.
+bei $45^\circ$ nördlicher Breite befindet.
 \begin{teilaufgaben}
 \item Finden Sie die Vektoren der Nordrichtung und der Zenithrichtung
-(vertikal nach oben) im azimutalen und im "aquatorialen Koordinatensystem.
+(vertikal nach oben) im azimutalen und im äquatorialen Koordinatensystem.
 \item Finden Sie die Transformationsmatrix, mit der Sie Vektoren
-vom azimutalen ins "aquatoriale Koordinatensystem umrechnen k"onnen.
-%\item Im "aquatorialen Koordinatensystem entspricht $\vec e_3$
+vom azimutalen ins äquatoriale Koordinatensystem umrechnen können.
+%\item Im äquatorialen Koordinatensystem entspricht $\vec e_3$
 %der Erdachse. Welche Koordinaten hat dieser Vektor im azimutalen
 %Koordinatensystem?
-\item Ein Himmelsk"orper geht genau im S"udosten auf
+\item Ein Himmelskörper geht genau im Südosten auf
 (Abbildung \ref{40000029:coord}).
 Bestimmen Sie einen Einheitsvektor mit Blickrichtung zum
-aufgehenden Himmelsk"orper in beiden Koordinatensystemen.
-\item Ist der Himmelsk"orper nach 8 Stunden schon wieder untergegangen?
+aufgehenden Himmelskörper in beiden Koordinatensystemen.
+\item Ist der Himmelskörper nach 8 Stunden schon wieder untergegangen?
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
 \item Im azimutalen Koordinatensystem sind dies die Vektoren $\vec e_2$
-und $\vec e_3$. Im "aquatorialen System gilt
+und $\vec e_3$. Im äquatorialen System gilt
 \[
 \text{Norden:} \quad \begin{pmatrix}0\\ \cos 45^\circ\\\sin 45^\circ\end{pmatrix}
 \qquad\text{und}\qquad
@@ -94,7 +94,7 @@ T=\begin{pmatrix}
 %\[
 %\begin{pmatrix}0\\\sin 45^\circ\\\cos 45^\circ\end{pmatrix}.
 %\]
-\item Im azimutalen Koordinatensystem hat der aufgehende Himmelsk"orper
+\item Im azimutalen Koordinatensystem hat der aufgehende Himmelskörper
 die Richtung
 \[
 v=\begin{pmatrix}
@@ -112,7 +112,7 @@ A'=\begin{pmatrix}
 \end{pmatrix}
 \]
 Im azimutalen Koordinatensystem hat die Abbildung die Matrix
-$A=T^{-1}A'T.$ Wir m"ussen dieses Produkt nicht ausrechnen, sondern
+$A=T^{-1}A'T.$ Wir müssen dieses Produkt nicht ausrechnen, sondern
 sondern nur seine Wirkung auf den Vektor $v$:
 \begin{align*}
 Av&=
@@ -144,8 +144,8 @@ Av&=
    0.256236
 \end{pmatrix}
 \end{align*}
-Da die $z$-Komponente positiv ist, steht der Himmelsk"orper immer noch
-"uber dem Horizont.
+Da die $z$-Komponente positiv ist, steht der Himmelskörper immer noch
+über dem Horizont.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}

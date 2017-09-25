@@ -6,10 +6,10 @@ AX+XB=C
 \end{equation}
 von $n\times n$-Matrizen.
 Gesucht ist $X$ zu gegebenen Matrizen $A$, $B$ und $C$.
-Da man f"ur $n>1$ die Faktoren im Allgmeinen nicht vertauschen darf,
-ist die Gleichung nicht direkt mit Matrizenalgebra l"osbar.
-Trotzdem ist es nat"urlich eine lineare Gleichung f"ur Elemente von $X$.
-F"ur den Fall $n=2$ schreibe man
+Da man für $n>1$ die Faktoren im Allgmeinen nicht vertauschen darf,
+ist die Gleichung nicht direkt mit Matrizenalgebra lösbar.
+Trotzdem ist es natürlich eine lineare Gleichung für Elemente von $X$.
+Für den Fall $n=2$ schreibe man
 \begin{equation}
 X=\begin{pmatrix}
 x_1&x_2\\
@@ -17,13 +17,13 @@ x_3&x_4
 \end{pmatrix}
 \label{10000040:sylvester2}
 \end{equation}
-und stelle die linearen Gleichungen f"ur $x$ auf.
+und stelle die linearen Gleichungen für $x$ auf.
 
 \begin{loesung}
 Auf beiden Seiten der Gleichung (\ref{10000040:sylvester})
 stehen $2\times 2$-Matrizen,
 die Gleichung stellt also vier Gleichungen bereit, die
-vier Eintr"age der Matrix $X$ zu bestimmen.
+vier Einträge der Matrix $X$ zu bestimmen.
 Ausmultiplizieren der beiden Matrizenprodukte $AX$ und $XB$ ergibt
 \begin{align*}
 AX&=\begin{pmatrix}
@@ -42,7 +42,7 @@ x_3b_{11}+x_4b_{21}&
 x_3b_{12}+x_4b_{22}
 \end{pmatrix}.
 \end{align*}
-Man kann jetzt die Gleichungen als lineares Gleichungssystem f"ur die
+Man kann jetzt die Gleichungen als lineares Gleichungssystem für die
 Variablen $x_1,\dots,x_4$ aufschreiben:
 \begin{equation}
 \begin{linsys}{5}
@@ -89,12 +89,12 @@ B^t&0\\
 \end{pmatrix}.
 \label{10000040:matrix}
 \end{align}
-Damit ist die L"osung der Sylvester-Gleichung (\ref{10000040:sylvester}) auf 
-die L"osung eines linearen Gleichungssystems mit 4 Unbekannten und 4 Gleichungen
-zur"uckgef"uhrt.
+Damit ist die Lösung der Sylvester-Gleichung (\ref{10000040:sylvester}) auf 
+die Lösung eines linearen Gleichungssystems mit 4 Unbekannten und 4 Gleichungen
+zurückgeführt.
 
-Um einzusehen, dass die Gleichung ein lineares Gleichungssystem f"ur $X$ ist,
-k"onnte man auch wie folgt vorgehen.
+Um einzusehen, dass die Gleichung ein lineares Gleichungssystem für $X$ ist,
+könnte man auch wie folgt vorgehen.
 Die linke Seite ist linear in $X$, wenn gilt
 \begin{align*}
 A(X_1+X_2)+(X_1+X_2)B&=AX_1+AX_2+X_1B+X_2B=AX_1+X_1B + AX_2+X_2B\\
@@ -104,13 +104,13 @@ welche beide aus den Rechenregeln der Matrizenalgebra unmittelbar folgen.
 \end{loesung}
 
 \begin{diskussion}
-Die L"osung der Sylvester-Gleichung auf diesem Weg ist sehr aufwendig und
+Die Lösung der Sylvester-Gleichung auf diesem Weg ist sehr aufwendig und
 numerisch auch nicht stabil. 
-F"ur beliebiges $n$ hat das Gleichungssystem f"ur die Unbekannten $x_i$ 
+Für beliebiges $n$ hat das Gleichungssystem für die Unbekannten $x_i$ 
 nicht weniger als $n^2$ Unbekannte.
-Die L"osung mit dem Gauss-Algorithmus braucht daf"ur $O(n^6)$ Operationen.
-Es stehen alternative Algorithmen zur Verf"ugung, die die Sylvester-Gleichung
-mit Aufwand $O(n^3)$ l"osen k"onnen.
+Die Lösung mit dem Gauss-Algorithmus braucht dafür $O(n^6)$ Operationen.
+Es stehen alternative Algorithmen zur Verfügung, die die Sylvester-Gleichung
+mit Aufwand $O(n^3)$ lösen können.
 
 Die Matrix (\ref{10000040:matrix}) hat eine sehr spezielle Form.
 Mit dem sogenannten Kronecker-Produkt kann man sie in der Form
@@ -132,8 +132,8 @@ B^t \otimes E_n
 schreiben.
 
 Um das Gleichungssystem aufzustellen, wurde $X$ als ein Vektor betrachtet.
-Schreibt man $\operatorname{vec}X$ f"ur den aus der Matrix $X$ in dieser Art
-gewonnenen Vektor, dann kann das der Sylvester-Gleichung "aquivalente
+Schreibt man $\operatorname{vec}X$ für den aus der Matrix $X$ in dieser Art
+gewonnenen Vektor, dann kann das der Sylvester-Gleichung äquivalente
 lineare Gleichungssystem (\ref{10000040:glsystem}) kompakt als
 \[
 (E_n \otimes A

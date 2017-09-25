@@ -1,7 +1,7 @@
 Die Zeitschrift {\em The Economist} hat 1986 den Big Mac Index geschaffen,
 angeblich um die Theorie der Wechselkurse ebenso ``leicht verdaulich''
 zu machen wie das namensgebende Produkt.
-Unter anderem wird regelm"assig die Abh"angigkeit des Big Mac Preises
+Unter anderem wird regelmässig die Abhängigkeit des Big Mac Preises
 vom Bruttoinlandprodukt (BIP) pro Person ermittelt und publiziert.
 \begin{center}
 \begin{tabular}{|l|r|r|}
@@ -16,27 +16,27 @@ Indien&1608&1.90\\
 \end{tabular}
 \end{center}
 Es wird postuliert, dass es einen linearen Zusammenhang der Form $f(x)=ax+b$
-zwischen BIP pro Person und Big Mac Preis g"abe.
+zwischen BIP pro Person und Big Mac Preis gäbe.
 
 \begin{teilaufgaben}
 \item Stellen Sie ein Gleichungssystem auf, mit dem Sie die Koeffizienten
-einer Funktion berechnen k"onnen, die den postulierten linearen Zusammenhang
+einer Funktion berechnen können, die den postulierten linearen Zusammenhang
 wiedergibt.
-\item L"osen das Gleichungssystem (mit dem Taschenrechner).
+\item Lösen das Gleichungssystem (mit dem Taschenrechner).
 \item Die Schweiz hat eine BIP pro Kopf von 86468USD, ein Big Mac kostet
 in der Schweiz 6.44USD.
-Zahlt man in der Schweiz zu viel f"ur einen Big Mac?
+Zahlt man in der Schweiz zu viel für einen Big Mac?
 \end{teilaufgaben}
 
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-Es wird behauptet, es g"abe einen Zusammenhang zwischen BIP pro Person $x$
+Es wird behauptet, es gäbe einen Zusammenhang zwischen BIP pro Person $x$
 und Big Mac Preis $y$ in der Form
 \[
 y={\color{red}a}x+{\color{red}b}
 \]
-Aus den angegebenen Daten k"onnen wir das Gleichungssystem
+Aus den angegebenen Daten können wir das Gleichungssystem
 \[
 \begin{linsys}{2}
 96930\color{red}a&+&\color{red}b&=&5.21\\
@@ -45,7 +45,7 @@ Aus den angegebenen Daten k"onnen wir das Gleichungssystem
 \end{linsys}
 \]
 aufstellen.
-Es ist ein "uberbestimmtes Gleichungssstem mit
+Es ist ein überbestimmtes Gleichungssstem mit
 \[
 A=\begin{pmatrix}
 96930&1\\
@@ -61,14 +61,14 @@ b=\begin{pmatrix}
 1.90
 \end{pmatrix}
 \]
-Das L"osungsverfahren f"ur "uberbestimmte Gleichungssysteme besagt,
+Das Lösungsverfahren für überbestimmte Gleichungssysteme besagt,
 dass man stattdessen das Gleichungssystem 
 \[
 A^tA\begin{pmatrix}\color{red}a\\\color{red}b\end{pmatrix}
 =
 A^tb
 \]
-l"osen muss.
+lösen muss.
 Die Berechnung liefert 
 \[
 A^tA=\begin{pmatrix}
@@ -84,7 +84,7 @@ A^tb=\begin{pmatrix}
 \end{pmatrix}.
 \]
 \item
-Die L"osung mit dem Computer oder Taschenrechner liefert
+Die Lösung mit dem Computer oder Taschenrechner liefert
 \[
 {\color{red}a}=0.000035618
 \qquad
@@ -94,7 +94,7 @@ Die L"osung mit dem Computer oder Taschenrechner liefert
 \]
 \item
 Setzt man das BIP pro Person der Schweiz in den linearen Zusammenhang
-ein, erh"alt man f"ur den gesch"atzten Big Mac Preis 
+ein, erhält man für den geschätzten Big Mac Preis 
 \[
 86468
 {\color{red}a}
@@ -103,27 +103,27 @@ ein, erh"alt man f"ur den gesch"atzten Big Mac Preis
 =
 5.2777,
 \]
-der Big Mac Preis in der Schweiz ist also deutlich h"oher, also die
-Theorie vermuten l"asst.
+der Big Mac Preis in der Schweiz ist also deutlich höher, also die
+Theorie vermuten lässt.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}
 
 \begin{diskussion}
-Die Antwort in c) l"asst sich auch finden, indem man den Big Mac Preis
-als unabh"angige Variable (das ``$x$'') und das BIP pro Person als
-abh"angige Variable w"ahlt. 
+Die Antwort in c) lässt sich auch finden, indem man den Big Mac Preis
+als unabhängige Variable (das ``$x$'') und das BIP pro Person als
+abhängige Variable wählt. 
 Es ist jedoch etwas verwegen davon auszugehen, dass das BIP durch den
 Big Mac Preis bestimmt wird\dots
 \end{diskussion}
 
 \begin{bewertung}
 "Uberbestimmtes Gleichungssystem ({\bf "U}) 1 Punkt (es muss darauf hingewiesen
-worden sein, dass dies ein "uberbestimmtes Gleichungssystem ist),
-L"osungsverfahren f"ur "uberbestimmte Gleichungssysteme ({\bf L}) 1 Punkt,
+worden sein, dass dies ein überbestimmtes Gleichungssystem ist),
+Lösungsverfahren für überbestimmte Gleichungssysteme ({\bf L}) 1 Punkt,
 Matrix $A$ und Vektor $b$ ({\bf M}) 1 Punkt,
 Matrix $A^tA$ und Vektor $A^tb$ ({\bf A}) 1 Punkt,
-L"osung f"ur $a$ und $b$ ({\bf X}) 1 Punkt,
+Lösung für $a$ und $b$ ({\bf X}) 1 Punkt,
 Theoretischer Big Mac Preis ({\bf T}) 1 Punkt.
 \end{bewertung}
 

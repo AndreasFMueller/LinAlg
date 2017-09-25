@@ -10,7 +10,7 @@ in die Variablen $y_0,\dots,y_{n-1}$.
 \begin{teilaufgaben}
 \item Schreiben Sie die Transformation als Produkt von Matrizen und Vektoren.
 \item Finden Sie die Inverse der Matrix im Falle $n=5$.
-\item K"onnen Sie daraus eine Vermutung f"ur die Form der inversen Matrix im allgemeinen Fall
+\item Können Sie daraus eine Vermutung für die Form der inversen Matrix im allgemeinen Fall
 ableiten, und eventuell beweisen?
 \end{teilaufgaben}
 
@@ -176,7 +176,7 @@ A^{-1}=\frac15\begin{pmatrix}
 5& 1& 2& 3& 4\\
 \end{pmatrix}.
 \]
-\item Die allgemeine Form k"onnte wie folgt aussehen:
+\item Die allgemeine Form könnte wie folgt aussehen:
 \[
 B=\begin{pmatrix}
 1     &-\frac{n-1}n&-\frac{n-2}n&-\frac{n-3}n&\dots   &-\frac1n    \\
@@ -187,8 +187,8 @@ B=\begin{pmatrix}
 1     & \frac1n    & \frac2n    & \frac3n    &  \dots & \frac{n-1}n
 \end{pmatrix}
 \]
-Die Eintr"age oberhalb der Diagonalen sind alle negativ, und die Differenz zu den
-Eintr"agen unter der Diagonalen ist 1.
+Die Einträge oberhalb der Diagonalen sind alle negativ, und die Differenz zu den
+Einträgen unter der Diagonalen ist 1.
 In der Spalte $k\ge 2$ stehen die Elemente
 \[
 a_{lk}=\begin{cases}
@@ -197,14 +197,14 @@ a_{lk}=\begin{cases}
 \end{cases}
 \]
 
-Um zu beweisen, dass dies tats"achlich die Inverse im allgemeinen Fall ist,
-dass also $A^{-1}=B$ ist, "uberlegen wir uns das Produkt $AB$,
+Um zu beweisen, dass dies tatsächlich die Inverse im allgemeinen Fall ist,
+dass also $A^{-1}=B$ ist, überlegen wir uns das Produkt $AB$,
 wir erwarten, dass $AB=E$. 
 
 Das Produkt der ersten Zeile von $A$ mit einer Spalte von $B$ ist der
-Mittelwert der Eintr"age in dieser Spalte.
-F"ur die erste Spalte ergibt das wie gew"unscht $0$.
-F"ur die Spalte $k$ mit $k\ge 2$ m"ussen wir den Mittelwert der $a_{lk}$ berechnen.
+Mittelwert der Einträge in dieser Spalte.
+Für die erste Spalte ergibt das wie gewünscht $0$.
+Für die Spalte $k$ mit $k\ge 2$ müssen wir den Mittelwert der $a_{lk}$ berechnen.
 Dieser ist
 \[
 \frac1n\biggl(-(k-1)\frac{n-k+1}n+(n-k+1)\frac{k-1}n\biggr)
@@ -214,12 +214,12 @@ Dieser ist
 also ist die erste Zeile der Produktmatrix korrekt, d.~h.~die erste Zeile
 einer Einheitsmatrix.
 
-Die Folgezeilen in $A$ haben jeweils nur zwei Eintr"age $-1$ und $1$,
+Die Folgezeilen in $A$ haben jeweils nur zwei Einträge $-1$ und $1$,
 das Produkt mit einer Spalte von $B$ ergibt die Differenz der entsprechenden
-Eintr"age in der Spalte. Die Differenz ergibt genau dann $1$, wenn $-1$ 
+Einträge in der Spalte. Die Differenz ergibt genau dann $1$, wenn $-1$ 
 auf einen negativen Eintrag und $1$ auf eine positiven Eintrag der Spalte
-f"allt, und die Differenz ist in diesem Fall $1$.
-In allen anderen F"allen sind die Werte einer Spalte konstant, es ergibt sich
+fällt, und die Differenz ist in diesem Fall $1$.
+In allen anderen Fällen sind die Werte einer Spalte konstant, es ergibt sich
 keine Differenz.
 Damit ist nachgewiesen, dass das Matrizenprodukt $AB=E$ ist, also ist
 $A^{-1}=B$.

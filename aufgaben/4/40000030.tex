@@ -1,10 +1,10 @@
-In Zaouit Massa in Marokko auf $30^\circ$ n"ordlicher Breite steht abends
-um 20:00 Uhr ein Stern im Zenit (genau "uber dem Beobachter). Wann geht
+In Zaouit Massa in Marokko auf $30^\circ$ nördlicher Breite steht abends
+um 20:00 Uhr ein Stern im Zenit (genau über dem Beobachter). Wann geht
 dieser Stern unter?
 
 \begin{loesung}
-Es ist zu berechnen, welcher Drehwinkel der Himmelskugel dazu f"uhrt,
-dass der Stern auf Horizonth"ohe zu liegen kommt. Zu Beginn hat der
+Es ist zu berechnen, welcher Drehwinkel der Himmelskugel dazu führt,
+dass der Stern auf Horizonthöhe zu liegen kommt. Zu Beginn hat der
 Stern in einem Koordinatensystem mit vertikaler $z$-Achse den
 Ortsvektor
 \[
@@ -12,10 +12,10 @@ Ortsvektor
 \]
 Wir legen die $x$-Achse des Koordinatensystems in Richtung Osten.
 
-Die Drehung der Himmelskugel l"asst sich aber viel leichter in einem
+Die Drehung der Himmelskugel lässt sich aber viel leichter in einem
 Koordinatensystem beschreiben, welches eine Gerade parallel zur Erdachse
 als $z$-Achse verwendet. Wir bezeichnen Vektoren in diesem Koordinatensystem
-mit Strichen. Es ist gegen"uber dem urspr"unglichen Koordinatensystem
+mit Strichen. Es ist gegenüber dem ursprünglichen Koordinatensystem
 um einen Winkel $\alpha=60^\circ$ verdreht, Drehachse ist die $x$-Achse.
 Die Umrechnung eines Vektors $\vec v$ in dieses Koordinatensystem
 erfolgt mit Hilfe einer Drehmatrix.
@@ -75,9 +75,9 @@ D_{z',\varphi}\vec v'
 \end{pmatrix}.
 \]
 
-Ob der Stern sich genau auf Horizonth"ohe befindet, kann nur im ungestrichen
+Ob der Stern sich genau auf Horizonthöhe befindet, kann nur im ungestrichen
 Koordinatensystem entschieden werden.
-Man muss daher wieder mit $T^{-1}$ zur"ucktransformieren:
+Man muss daher wieder mit $T^{-1}$ zurücktransformieren:
 \[
 T^{-1}D_{z',\varphi}Te_3 = 
 \begin{pmatrix}
@@ -97,14 +97,14 @@ T^{-1}D_{z',\varphi}Te_3 =
 \frac{\sqrt{3}}4\cos\varphi+\frac14
 \end{pmatrix}
 \]
-Jetzt muss $\varphi$ so gew"ahlt werden, dass die $z$-Komponente dieses
+Jetzt muss $\varphi$ so gewählt werden, dass die $z$-Komponente dieses
 Vektors verschwindet:
 \begin{align*}
 \frac{3}4\cos\varphi+\frac14&=0\\
 \cos\varphi&=-\frac1{3}\\
 \varphi&=\pm 109.47^\circ.
 \end{align*}
-Die Antwort ist aber in Stunden gesucht, wir m"ussen also den Winkel
+Die Antwort ist aber in Stunden gesucht, wir müssen also den Winkel
 noch mit dem Faktor $\frac{24}{360}=\frac1{15}$ multiplizieren:
 \[
 \varphi=7.298\text{h}=7\text{h} 17.8\text{min}.
@@ -114,17 +114,17 @@ Der Stern wird also um 03:18 Uhr untergehen.
 
 \begin{diskussion}
 Die Berechnung der Untergangszeit ist nicht ganz korrekt. Die Erde dreht
-sich n"amlich nicht einmal in 24 Stunden, sondern einmal in 23.9345 Stunden,
+sich nämlich nicht einmal in 24 Stunden, sondern einmal in 23.9345 Stunden,
 dem siderischen Tag.
 Der korrekte Umrechungsfaktor ist daher $\frac{23.9245}{360}$, damit
 wird die Untergangszeit 03:16:30.
 
-Ausserdem bewirkt das Ph"anomen der atmosph"arischen Refraktion, dass
-Sterne in Horizontn"ahe h"oher erscheinen, als sie tats"achlich
+Ausserdem bewirkt das Phänomen der atmosphärischen Refraktion, dass
+Sterne in Horizontnähe höher erscheinen, als sie tatsächlich
 sind, ein Stern ist also noch sichtbar, wenn die Gerade zum Stern bereits
 unter dem Horizont liegt.
-Sterne gehen also sp"ater unter, also die Geometrie alleine vorhersagen
-w"urde.
+Sterne gehen also später unter, also die Geometrie alleine vorhersagen
+würde.
 \end{diskussion}
 
 \begin{bewertung}

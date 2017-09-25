@@ -7,8 +7,8 @@ A=\begin{pmatrix}
 \end{pmatrix}.
 \]
 \begin{teilaufgaben}
-\item F"ur welche Werte von $c$ ist die Matrix $A$ singul"ar?
-\item L"osen Sie f"ur jeden der in Teilaufgabe a) gefundenen Werte von $c$ 
+\item Für welche Werte von $c$ ist die Matrix $A$ singulär?
+\item Lösen Sie für jeden der in Teilaufgabe a) gefundenen Werte von $c$ 
 das Gleichungssystem $Ax=b$ mit
 \[
 b=\begin{pmatrix}2\\2\\3\end{pmatrix}.
@@ -18,7 +18,7 @@ b=\begin{pmatrix}2\\2\\3\end{pmatrix}.
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-Der Gaussalgorithmus kann dazu verwendet werden, die Regularit"at von $A$
+Der Gaussalgorithmus kann dazu verwendet werden, die Regularität von $A$
 zu ermitteln:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
@@ -46,16 +46,16 @@ zu ermitteln:
 \end{tabular}.
 \end{align*}
 Im zweiten Schritt ist das Pivot-Element $c-1$, der zweite Schritt
-kann also nur durchgef"uhrt werden, wenn $c\ne 1$ ist.
-Analog erfordert der n"achst Gauss-Schritt, dass $c\ne 2$ ist.
-Die Werte $c\in\{1,2\}$ sind also die gesuchten Werte, f"ur die die Matrix
-nicht regul"ar ist.
+kann also nur durchgeführt werden, wenn $c\ne 1$ ist.
+Analog erfordert der nächst Gauss-Schritt, dass $c\ne 2$ ist.
+Die Werte $c\in\{1,2\}$ sind also die gesuchten Werte, für die die Matrix
+nicht regulär ist.
 \item
 Da wir wiederholt ein Gleichungssystem mit der nicht
-regul"aren Matrix $A$ l"osen m"ussen, ist die LR-Zerlegung
-n"utzlich, damit wir die Arbeit des Gauss-Algorithmus nicht immer wieder
-neu durchf"uhren m"ussen.
-Wir k"onnen die LR-Zerlegung der Matrix $A$ aus der Rechnung von Teilaufgabe a) 
+regulären Matrix $A$ lösen müssen, ist die LR-Zerlegung
+nützlich, damit wir die Arbeit des Gauss-Algorithmus nicht immer wieder
+neu durchführen müssen.
+Wir können die LR-Zerlegung der Matrix $A$ aus der Rechnung von Teilaufgabe a) 
 ablesen:
 \[
 A=
@@ -73,16 +73,16 @@ A=
 \end{pmatrix}}_{\displaystyle =R}
 .
 \]
-Die Matrix $R$ ist regul"ar.
-Damit das Gleichungssystem $Ax=b$ gel"ost werden kann, muss zun"achst mal
-das Gleichungssystem $Ly=b$ gel"ost werden, danach kann man $x$ in einem
-zweiten Schritt durch L"osung des Gleichungssystems $Rx=y$ bekommen.
+Die Matrix $R$ ist regulär.
+Damit das Gleichungssystem $Ax=b$ gelöst werden kann, muss zunächst mal
+das Gleichungssystem $Ly=b$ gelöst werden, danach kann man $x$ in einem
+zweiten Schritt durch Lösung des Gleichungssystems $Rx=y$ bekommen.
 
-F"ur $c\in\{1,2\}$ ist die Matrix $L$ nicht regul"ar, das Gleichungssystem
-muss mit dem Gauss-Algorithmus gel"ost werden.
+Für $c\in\{1,2\}$ ist die Matrix $L$ nicht regulär, das Gleichungssystem
+muss mit dem Gauss-Algorithmus gelöst werden.
 Wir betrachten jeden Fall einzeln:
 
-F"ur $c=1$ erhalten wir die Rechnung
+Für $c=1$ erhalten wir die Rechnung
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -101,9 +101,9 @@ F"ur $c=1$ erhalten wir die Rechnung
 \end{tabular}.
 \]
 Da die ersten beiden Gleichungen widersprechen sich, das Gleichungssystem
-ist daher gar nicht l"osbar.
+ist daher gar nicht lösbar.
 
-F"ur $c=2$ erhalten wir die Rechnung
+Für $c=2$ erhalten wir die Rechnung
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -137,16 +137,16 @@ F"ur $c=2$ erhalten wir die Rechnung
 \hline
 \end{tabular}.
 \]
-Daraus kann man die allgemeine L"osung
+Daraus kann man die allgemeine Lösung
 \[
 y=\begin{pmatrix} 1\\1\\z \end{pmatrix}
 \]
 ablesen.
-Jetzt muss man noch $Rx=y$ l"osen, das kann man zum Beispiel mit der
+Jetzt muss man noch $Rx=y$ lösen, das kann man zum Beispiel mit der
 Inversen von $R$ machen.
 Man kann sie ebenfalls mit dem Gauss-Algorithmus finden, der hier
-besonders einfach ist, weil die Vorw"artsreduktion ja schon gemacht
-ist, man muss nur noch R"uckw"artseinsetzen:
+besonders einfach ist, weil die Vorwärtsreduktion ja schon gemacht
+ist, man muss nur noch Rückwärtseinsetzen:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -172,7 +172,7 @@ ist, man muss nur noch R"uckw"artseinsetzen:
 \hline
 \end{tabular}.
 \]
-Die allgemeine L"osung $x$ finden wir jetzt durch Matrixmultiplikation
+Die allgemeine Lösung $x$ finden wir jetzt durch Matrixmultiplikation
 \[
 R^{-1}y
 =
@@ -185,7 +185,7 @@ R^{-1}y
 =
 \begin{pmatrix} -1+5z\\1-3z\\z \end{pmatrix}.
 \]
-Zur Kontrolle rechnen wir $Ax$ nach f"ur $c=2$:
+Zur Kontrolle rechnen wir $Ax$ nach für $c=2$:
 \[
 Ax
 =
@@ -204,8 +204,8 @@ Ax
 \begin{pmatrix} -1+5z\\1-3z\\z \end{pmatrix}.
 \]
 
-Statt die LR-Zerlegung zu bem"uhen kann man in den beiden F"allen das
-Gleichungssystem nat"urlich auch direkt l"osen.
+Statt die LR-Zerlegung zu bemühen kann man in den beiden Fällen das
+Gleichungssystem natürlich auch direkt lösen.
 \begin{align*}
 c&=1:&
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
@@ -266,7 +266,7 @@ c&=2:&
 \end{tabular}.
 \end{align*}
 Im Fall $c=1$ zeigt die {\color{red}rote} 1, dass das Gleichungssystem
-keine L"osung hat, im Fall $c=2$ kann man f"ur die allgemeine L"osung
+keine Lösung hat, im Fall $c=2$ kann man für die allgemeine Lösung
 \[
 x=
 \begin{pmatrix}
@@ -283,11 +283,11 @@ ablesen.
 \begin{bewertung}
 \begin{teilaufgaben}
 \item
-Methode zur Bestimmung der Werte f"ur $c$ ({\bf M}) 1 Punkt,
-Werte $1$ und $2$ f"ur $c$ ({\bf C}) 1 Punkt.
+Methode zur Bestimmung der Werte für $c$ ({\bf M}) 1 Punkt,
+Werte $1$ und $2$ für $c$ ({\bf C}) 1 Punkt.
 \item
-F"ur jeden Wert von $c$: L"osung des Gleichungssystems f"ur diesen Wert von $c$ 
-({\bf G$\mathstrut_{1,2}$}) 1 Punkt, L"osungsmenge ({\bf L$\mathstrut_{1,2}$})
+Für jeden Wert von $c$: Lösung des Gleichungssystems für diesen Wert von $c$ 
+({\bf G$\mathstrut_{1,2}$}) 1 Punkt, Lösungsmenge ({\bf L$\mathstrut_{1,2}$})
 1 Punkt.
 \end{teilaufgaben}
 \end{bewertung}
