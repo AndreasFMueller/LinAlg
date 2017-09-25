@@ -16,11 +16,11 @@
 
 	\node[start](begin) at(0,-0.2*\step){ };
 	\node[decision](s0) at(0,-1*\step){\textcolor{red}{$\ast=0\,?$}};
-	\node[decision,inner sep=1pt](s1) at(0,-2*\step){\textcolor{greenT}{\parbox{3cm}{\centering Hat es frei wÃ¤hl- bare Variabeln?}}};
+	\node[decision,inner sep=1pt](s1) at(0,-2*\step){\textcolor{greenT}{\parbox{3cm}{\centering Hat es frei wähl-\\ bare Variabeln?}}};
 
-	\node[processStep](s2) at(\shift,-1*\step){Keine LÃ¶sung};
-	\node[processStep](s3) at(\shift,-2*\step){Eine LÃ¶sung};
-	\node[processStep](s4) at(0,-2.9*\step){$\infty$-viele LÃ¶sungen};
+	\node[processStep](s2) at(\shift,-1*\step){Keine Lösung};
+	\node[processStep](s3) at(\shift,-2*\step){Eine Lösung};
+	\node[processStep](s4) at(0,-2.9*\step){$\infty$-viele Lösungen};
 
 
 	\draw[connection](begin)--(s0);

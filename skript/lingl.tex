@@ -5,57 +5,57 @@
 %
 \chapter{Lineare Gleichungssysteme\label{chapter-lingl}}
 \rhead{Lineare Gleichungssysteme}
-Die Basis f"ur die gesamte Lineare Algebra ist die F"ahigkeit, lineare
-Gleichungen l"osen zu k"onnen.
+Die Basis für die gesamte Lineare Algebra ist die Fähigkeit, lineare
+Gleichungen lösen zu können.
 Daher beginnen wir in diesem Kapitel
-damit, Verfahren f"ur die L"osung linearer Gleichungssysteme
+damit, Verfahren für die Lösung linearer Gleichungssysteme
 zusammenzustellen.
-Dabei interessiert uns nicht nur die L"osung
+Dabei interessiert uns nicht nur die Lösung
 eines solchen Gleichungssystems, sondern auch die Frage, ob es
-"uberhaupt l"osbar ist, oder ob es vielleicht sogar mehr als eine
-L"osung hat.
+überhaupt lösbar ist, oder ob es vielleicht sogar mehr als eine
+Lösung hat.
 Dabei wird sich herausstellen, dass dabei immer die
 gleichen Alternativen auftreten:
 \begin{compactenum}
-\item Keine L"osung
-\item Genau eine L"osung
-\item Unendlich viele L"osungen
+\item Keine Lösung
+\item Genau eine Lösung
+\item Unendlich viele Lösungen
 \end{compactenum}
-Genau genommen sind dies nicht drei gleichberechtigte F"alle,
+Genau genommen sind dies nicht drei gleichberechtigte Fälle,
 sondern
-\index{regulaer@regul\"ar}
-\index{singulaer@singul\"ar}
+\index{regulaer@regul\är}
+\index{singulaer@singul\är}
 \begin{compactenum}
-\item {\em Regul"arer} Fall: Genau eine L"osung
-\item {\em Singul"arer} Fall
+\item {\em Regulärer} Fall: Genau eine Lösung
+\item {\em Singulärer} Fall
 \begin{compactenum}
-\item Keine L"osung
-\item Unendlich viele L"osungen
+\item Keine Lösung
+\item Unendlich viele Lösungen
 \end{compactenum}
 \end{compactenum}
-Neben den Methoden, eine L"osung tats"achlich zu berechnen, ist
+Neben den Methoden, eine Lösung tatsächlich zu berechnen, ist
 diese Dreier-Alternative ein zentrales Thema.
 Es stellt sich heraus,
-dass diese nicht nur f"ur Gleichungen mit reellen oder rationalen
-Koeffizienten gilt, sondern auch f"ur komplexe Zahlen, oder
-f"ur weitere Systeme von ``Zahlen'', sogenannte K"orper.
+dass diese nicht nur für Gleichungen mit reellen oder rationalen
+Koeffizienten gilt, sondern auch für komplexe Zahlen, oder
+für weitere Systeme von ``Zahlen'', sogenannte Körper.
 Daher
-m"ussen zusammen mit den Methoden zur L"osung der Gleichungen
-auch Algorithmen zur Unterscheidung dieser F"alle bereitgestellt
+müssen zusammen mit den Methoden zur Lösung der Gleichungen
+auch Algorithmen zur Unterscheidung dieser Fälle bereitgestellt
 werden.
-\index{Koerper@K\"orper}
+\index{Koerper@K\örper}
 
 \section{Gleichungssysteme}
 \subsection{Begriffe und Notation}
 \index{Linearform}
 \begin{definition}
-Eine Linearform $l(x_1,\dots,x_2)$ "uber $\mathbb R$ in den $n$
+Eine Linearform $l(x_1,\dots,x_2)$ über $\mathbb R$ in den $n$
 Variablen $x_1,\dots,x_n$
 ist eine Funktion der Form
 \[
 l(x_1,\dots,x_2)=a_1x_1+a_2x_2+\dots+a_nx_n,
 \]
-wobei $a_i\in\mathbb R$ f"ur alle $i$.
+wobei $a_i\in\mathbb R$ für alle $i$.
 \end{definition}
 Ist $(x_1',\dots,x_n')$ ein zweiter Satz Variablen, und $\lambda\in\mathbb R$,
 dann gilt
@@ -66,14 +66,14 @@ l(\lambda x_1, \dots ,\lambda x_n)&=\lambda l(x_1,\dots,x_n)
 \end{aligned}
 \label{linearitaet-linearformen}
 \end{equation}
-Man nennt diese Eigenschaft {\em Linearit"at}, die Linearformen sind
+Man nennt diese Eigenschaft {\em Linearität}, die Linearformen sind
 {\em lineare} Funktionen.
 \index{linear}%
-Etwas salopp ausgedr"uckt sind lineare Funktionen, solche, die sich
-auf die einzelnen Summanden einer Summe verteilen lassen, und f"ur
+Etwas salopp ausgedrückt sind lineare Funktionen, solche, die sich
+auf die einzelnen Summanden einer Summe verteilen lassen, und für
 die sich Faktoren aus den Argumenten vor die Funktion ziehen lassen.
 Multiplikation aller Argumente mit einer Zahl und Additionen aller
-Argumente lassen sich also ``aufl"osen''.
+Argumente lassen sich also ``auflösen''.
 
 \index{Gleichung!lineare}
 Aus einer Linearform und einer Konstanten kann man eine
@@ -81,15 +81,15 @@ lineare Gleichung bilden:
 \[
 l(x_1,\dots,x_n)=a_1x_1+\dots +a_nx_n=b
 \]
-Hat man nur zwei oder drei Unbekannte, kann man sie etwas "ubersichtlicher
+Hat man nur zwei oder drei Unbekannte, kann man sie etwas übersichtlicher
 mit $x$, $y$ und $z$ bezeichnen:
 \[
 ax+by+cz=d
 \]
 ist auch eine lineare Gleichung.
-Die L"osung einer solchen Gleichung
-besteht aus einem Tripel von Zahlen $(x,y,z)$, die die Gleichung erf"ullen.
-Statt als Tripel wird die L"osung oft auch als Spalte geschrieben:
+Die Lösung einer solchen Gleichung
+besteht aus einem Tripel von Zahlen $(x,y,z)$, die die Gleichung erfüllen.
+Statt als Tripel wird die Lösung oft auch als Spalte geschrieben:
 \[
 \begin{pmatrix}
 x\\y\\z
@@ -106,10 +106,10 @@ l_m(x_1,\dots,x_n)&=b_m
 \end{align*}
 Dabei lassen wir vorerst zu, dass auch weniger oder mehr Gleichungen
 als Unbekannte gegeben sind.
-Sp"ater werden wir diskutieren, unter
-welchen Bedingungen diese Gleichungssysteme L"osungen haben.
+Später werden wir diskutieren, unter
+welchen Bedingungen diese Gleichungssysteme Lösungen haben.
 
-Vollst"andig ausgeschrieben lauten die Gleichungssysteme
+Vollständig ausgeschrieben lauten die Gleichungssysteme
 \begin{align*}
 a_{11}x_1+a_{12}x_2+\dots a_{1n}x_n&=b_1\\
 a_{21}x_1+a_{22}x_2+\dots a_{2n}x_n&=b_2\\
@@ -118,7 +118,7 @@ a_{m1}x_1+a_{m2}x_2+\dots a_{mn}x_n&=b_m
 \end{align*}
 Das Gleichungssystem ist durch die Angabe der Koeffizienten $a_{ij}$
 und der rechten Seite $b_j$ gegeben, gesucht sind die Unbekannten $x_j$.
-Es ist also nicht unbedingt n"otig, die Gleichungen auszuschreiben,
+Es ist also nicht unbedingt nötig, die Gleichungen auszuschreiben,
 wenn man diese Angaben in anderer Form machen kann, z.~B.~indem man
 Unbekannte und rechte Seite in Spaltenform und die Koeffizienten in
 Matrixform schreibt:
@@ -145,32 +145,32 @@ Gleichungen
 \[
 ax=b
 \]
-mit $a,b\in\mathbb R$ und suchen eine L"osung $x\in\mathbb R$.
-Offenbar kann man die L"osung finden, indem man durch $a$ teilt:
+mit $a,b\in\mathbb R$ und suchen eine Lösung $x\in\mathbb R$.
+Offenbar kann man die Lösung finden, indem man durch $a$ teilt:
 \[
 x=\frac{b}{a},
 \]
-dies ist aber nur dann m"oglich, wenn $a\ne 0$ ist.
+dies ist aber nur dann möglich, wenn $a\ne 0$ ist.
 Dies scheint
-der ``regul"are'' Fall zu sein, in dem es genau eine L"osung gibt.
+der ``reguläre'' Fall zu sein, in dem es genau eine Lösung gibt.
 
-Der singul"are Fall ist $a=0$, die Gleichung wird dann zu 
+Der singuläre Fall ist $a=0$, die Gleichung wird dann zu 
 \[
 0=b.
 \]
-Offenbar ist diese Gleichung "uberhaupt nicht erf"ullbar, wenn $b\ne 0$
+Offenbar ist diese Gleichung überhaupt nicht erfüllbar, wenn $b\ne 0$
 ist.
 Falls jedoch $b=0$, dann ist die Gleichung $0\cdot x=0$, die
-zutrifft was immer wir f"ur Werte f"ur $x$ einsetzen, in diesem
-Fall haben wir also unendlich viele L"osungen.
+zutrifft was immer wir für Werte für $x$ einsetzen, in diesem
+Fall haben wir also unendlich viele Lösungen.
 Zusammengefasst
 bekommen wird
 \begin{enumerate}
-\item regul"arer Fall: $a\ne 0\Rightarrow x=\frac{b}{a}$
-\item singul"arer Fall: $a=0$
+\item regulärer Fall: $a\ne 0\Rightarrow x=\frac{b}{a}$
+\item singulärer Fall: $a=0$
 \begin{enumerate}
-\item $b=0\Rightarrow$ jedes beliebige $x\in\mathbb R$ ist L"osung
-\item $b\ne0\Rightarrow$ keine L"osungen
+\item $b=0\Rightarrow$ jedes beliebige $x\in\mathbb R$ ist Lösung
+\item $b\ne0\Rightarrow$ keine Lösungen
 \end{enumerate}
 \end{enumerate}
 
@@ -179,9 +179,9 @@ Eine einzelne Gleichung mit zwei Unbekannten
 \[
 ax+by=c
 \]
-kann keine eindeutige L"osung haben.
+kann keine eindeutige Lösung haben.
 Falls $b\ne 0$ kann man
-sie nach $y$ aufl"osen:
+sie nach $y$ auflösen:
 \[
 y=\frac{c-ax}b=-\frac{a}{b}x+\frac{c}b,
 \]
@@ -192,7 +192,7 @@ g_1=\{(x,y)\,|\,ax+by=c\}
 \]
 ist eine Gerade.
 
-F"ugt man jetzt eine zweite Gleichung hinzu, erh"alt man
+Fügt man jetzt eine zweite Gleichung hinzu, erhält man
 ein Gleichungssystem
 \[
 \begin{linsys}{2}
@@ -200,46 +200,46 @@ ax&+&by&=&e\\
 cx&+&dy&=&f
 \end{linsys}
 \]
-\index{Loesungsmenge@L\"osungsmenge}
-Die L"osungsmenge jeder dieser Gleichungen entspricht einer
+\index{Loesungsmenge@L\ösungsmenge}
+Die Lösungsmenge jeder dieser Gleichungen entspricht einer
 Geraden:
 \begin{align*}
 g&=\{(x,y)\,|\,ax+by=e\}\\
 h&=\{(x,y)\,|\,cx+dy=f\}
 \end{align*}
-Wir interessieren uns jedoch f"ur diejenigen Paare $(x,y)$,
-die beide Gleichungen erf"ullen, also f"ur die Schnittmenge
+Wir interessieren uns jedoch für diejenigen Paare $(x,y)$,
+die beide Gleichungen erfüllen, also für die Schnittmenge
 der Geraden $g$ und $h$.
 
 \index{Gerade}
 Ohne dass wir bereits ein Verfahren zur Berechnung einer
-L"osung haben, k"onnen wir bereits herausfinden, wie viele
-L"osungen das Gleichungssystem hat.
+Lösung haben, können wir bereits herausfinden, wie viele
+Lösungen das Gleichungssystem hat.
 Zwei Geraden in der Ebene
-k"onnen h"ochstens in den drei folgenden Lagen angeordnet sein:
+können höchstens in den drei folgenden Lagen angeordnet sein:
 \begin{enumerate}
 \item Die Geraden sind nicht parallel, dann schneiden sie sich in
-genau einem Punkt, das Gleichungssystem hat eine einzige L"osung.
-\item Die Geraden sind parallel, dann gibt es zwei m"ogliche Unterf"alle:
+genau einem Punkt, das Gleichungssystem hat eine einzige Lösung.
+\item Die Geraden sind parallel, dann gibt es zwei mögliche Unterfälle:
 \begin{enumerate}
 \item Die Geraden haben einen positiven Abstand, dann gibt es keine
-gemeinsamen Punkte, also hat das Gleichungssystem auch keine L"osung
+gemeinsamen Punkte, also hat das Gleichungssystem auch keine Lösung
 \item Der Abstand der Geraden ist $0$, dann sind die Geraden deckungsgleich,
-jeder Punkt der beiden Geraden ist L"osung des Gleichungssystems, es hat
-also unendlich viele L"osungen.
+jeder Punkt der beiden Geraden ist Lösung des Gleichungssystems, es hat
+also unendlich viele Lösungen.
 \end{enumerate}
 \end{enumerate}
 Hier drei Beispiele von Gleichungssystemen, die diese drei Situationen
 widerspiegeln:
-\begin{beispiel}[Beispiel f"ur den Fall 1]
-Das folgende Gleichungssystem hat genau eine L"osung.
+\begin{beispiel}[Beispiel für den Fall 1]
+Das folgende Gleichungssystem hat genau eine Lösung.
 \begin{align*}
 x+y=2\\
 x-y=0
 \end{align*}
-hat die L"osung $(1,1)$, wie man durch Einsetzen nachpr"ufen kann.
+hat die Lösung $(1,1)$, wie man durch Einsetzen nachprüfen kann.
 \end{beispiel}
-\begin{beispiel}[Beispiel f"ur den Fall 2.~(a)]
+\begin{beispiel}[Beispiel für den Fall 2.~(a)]
 Das Gleichungssystem
 \[
 \begin{linsys}{2}
@@ -247,13 +247,13 @@ x&+&y&=&1\\
 2x&+&2y&=&0
 \end{linsys}
 \]
-kann keine L"osung haben.
+kann keine Lösung haben.
 Multipliziert man die erste Gleichung mit $2$
-und subtrahiert die zweite Gleichung erh"alt man $0=2$, dies kann nat"urlich
-nie erf"ullt werden, insbesondere gibt es kein Zahlenpaar $(x,y)$, f"ur
-welches die beiden Gleichungen wahr w"urden.
+und subtrahiert die zweite Gleichung erhält man $0=2$, dies kann natürlich
+nie erfüllt werden, insbesondere gibt es kein Zahlenpaar $(x,y)$, für
+welches die beiden Gleichungen wahr würden.
 \end{beispiel}
-\begin{beispiel}[Beispiel f"ur den Fall 2.~(b)]
+\begin{beispiel}[Beispiel für den Fall 2.~(b)]
 Das Gleichungssystem
 \[
 \begin{linsys}{2}
@@ -261,19 +261,19 @@ x&+&y&=&1\\
 2x&+&2y&=&2
 \end{linsys}
 \]
-hat alle Punkte der Geraden $y=1-x$ als L"osung.
+hat alle Punkte der Geraden $y=1-x$ als Lösung.
 \end{beispiel}
 
 \section{Das Gauss-Verfahren}
 \index{Gauss-Verfahren}
 \index{Gauss-Elimination|see{Gauss-Verfahren}}
-F"ur die Anwendung brauchen wir ein effizientes Verfahren zur
-L"osung von linearen Gleichungssystemen.
-Dabei erwarten wir nat"urlich,
-dass wir zur Bestimmung von $n$ Unbekannten auch $n$ Gleichungen ben"otigen
+Für die Anwendung brauchen wir ein effizientes Verfahren zur
+Lösung von linearen Gleichungssystemen.
+Dabei erwarten wir natürlich,
+dass wir zur Bestimmung von $n$ Unbekannten auch $n$ Gleichungen benötigen
 werden.
 Dass dies so ist, wird sich im Laufe des Verfahrens so ergeben,
-wir werden daher zun"achst weiter von $m$ Gleichungen ausgehen.
+wir werden daher zunächst weiter von $m$ Gleichungen ausgehen.
 \subsection{Ein Beispiel}
 Als Beispiel wollen wir das Gleichungssystem
 \[
@@ -286,11 +286,11 @@ Als Beispiel wollen wir das Gleichungssystem
 2\;x&+&4y&=&-2
 \end{linsys}
 \]
-l"osen.
-Wir f"uhren dabei genau Buch "uber die einzelnen Schritte,
-damit wir daraus sp"ater ein allgemeines Verfahren ableiten k"onnen.
-Dazu werden wir in jedem Schritt zun"achst einzeichnen, um welchen
-Term wir uns als n"achstes k"ummern wollen.
+lösen.
+Wir führen dabei genau Buch über die einzelnen Schritte,
+damit wir daraus später ein allgemeines Verfahren ableiten können.
+Dazu werden wir in jedem Schritt zunächst einzeichnen, um welchen
+Term wir uns als nächstes kümmern wollen.
 
 \subsubsection{Schritt I: $x$ isolieren}
 Dividieren wir die erste Gleichung durch $3$, steht $x$ ohne Koeffizient
@@ -314,11 +314,11 @@ x%
 2\;x&+&4y&=&-2
 \end{linsys}
 \]
-Es wird damit einfacher, nach $x$ aufzul"osen,
+Es wird damit einfacher, nach $x$ aufzulösen,
 und das gefundene Resultat dazu zu verwenden, die anderen $x$ zu
 eliminieren
 \subsubsection{Schritt F: $x$ aus Folgegleichungen eliminieren}
-Mit Hilfe der ersten Gleichung k"onnen wir jetzt auch das $x$ in
+Mit Hilfe der ersten Gleichung können wir jetzt auch das $x$ in
 der zweiten Gleichung eliminieren.
 Dazu subtrahieren wir das Doppelte der ersten Gleichung von der zweiten.
 Resultat:
@@ -369,8 +369,8 @@ x&-&2\;y &=&3\\
 \end{linsys}
 \]
 
-\subsubsection{Schritt R: $y$ aus Vorg"angergleichungen eliminieren}
-Mit der zweiten Gleichung k"onnen wir jetzt auch das $y$ aus der ersten
+\subsubsection{Schritt R: $y$ aus Vorgängergleichungen eliminieren}
+Mit der zweiten Gleichung können wir jetzt auch das $y$ aus der ersten
 Gleichung eliminieren.
 Wir addieren dazu das Doppelte der zweiten
 Gleichung zur ersten:
@@ -395,11 +395,11 @@ x&&%
 &&y&=&-1
 \end{linsys}
 \]
-Damit ist das Gleichungssystem vollst"andig gel"ost.
+Damit ist das Gleichungssystem vollständig gelöst.
 
-Offenbar ist es m"oglich, mit IFR-Schritten das Gleichungssystem zu l"osen.
+Offenbar ist es möglich, mit IFR-Schritten das Gleichungssystem zu lösen.
 Die Variablen und Operationszeichen haben dabei nur Platzhalterfunktion
-gehabt, wir k"onnten in allen Schritten auch nur die Koeffizienten
+gehabt, wir könnten in allen Schritten auch nur die Koeffizienten
 in einem sogenannten Tableau schreiben:
 \index{Tableau}
 \begin{gather*}
@@ -452,7 +452,7 @@ in einem sogenannten Tableau schreiben:
 \hline
 \end{tabular}
 \end{gather*}
-Die drei Arten von Operationen k"onnen ausschliesslich "uber die
+Die drei Arten von Operationen können ausschliesslich über die
 Koeffizientenschemata beschrieben werden:
 \begin{itemize}
 \item[\bf I:] Eine Variable isolieren bedeutet, die ganze
@@ -460,14 +460,14 @@ Zeile durch den Koeffizienten dieser Variable zu teilen.
 \item[\bf F:] Eine Variable mit Hilfe einer anderen Zeile zu eliminieren
 bedeutet, ein geeignetes Vielfaches dieser anderen Zeile zu subtrahieren,
 so dass der Koeffizient zu $0$ wird.
-\item[\bf R:] Eliminieren aus einer fr"uheren Gleichung funktioniert
+\item[\bf R:] Eliminieren aus einer früheren Gleichung funktioniert
 genau gleich wie {\bf F}.
 \end{itemize}
 Da {\bf F} und {\bf R} offenbar identisch sind, fassen wir diese
 Operationen unter dem Namen {\bf E} zusammen.
 
-\subsection{Operationen I und E f"ur drei Unbekannte}
-Als Beispiel f"uhren wir das Verfahren auch noch f"ur die drei Unbekannten
+\subsection{Operationen I und E für drei Unbekannte}
+Als Beispiel führen wir das Verfahren auch noch für die drei Unbekannten
 des Gleichungssystems
 \begin{equation}
 \begin{linsys}{3}
@@ -476,7 +476,7 @@ x&+&2y&+&3z&=&10\\
 x&-&y&+&z&=&2
 \end{linsys}
 \end{equation}
-Die zugeh"orige Folge von Tableaus ist
+Die zugehörige Folge von Tableaus ist
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -553,13 +553,13 @@ Die zugeh"orige Folge von Tableaus ist
 \hline
 \end{tabular}
 \end{align*}
-Daraus lesen wir die L"osung $x=3$, $y=2$ und $z=1$ ab.
+Daraus lesen wir die Lösung $x=3$, $y=2$ und $z=1$ ab.
 Im ersten Schritt konnte man sich eine Operation {\bf I} sparen, weil
 der Koeffizient von $x$ bereits $1$ ist.
 
 \subsection{Der Normalfall}
 Mit den Operationen {\bf I} und {\bf E} kann man das Gleichungssystem
-also l"osen.
+also lösen.
 Dabei geht man in zwei Phasen vor, die man wie folgt
 visualisieren kann:
 \begin{gather*}
@@ -599,16 +599,16 @@ visualisieren kann:
 \hline
 \end{tabular}
 \end{gather*}
-\index{Vorwaertsreduktion@Vorw\"artsreduktion}
-\index{Rueckwaertseinsetzen@R\"uckw\"artseinsetzen}
-Die erste Phase wird auch Vorw"artsreduktion genannt, die
-zweite Phase R"uckw"artseinsetzen.
-\subsubsection{Vorw"artsreduktion}
+\index{Vorwaertsreduktion@Vorw\ärtsreduktion}
+\index{Rueckwaertseinsetzen@R\ückw\ärtseinsetzen}
+Die erste Phase wird auch Vorwärtsreduktion genannt, die
+zweite Phase Rückwärtseinsetzen.
+\subsubsection{Vorwärtsreduktion}
 In der ersten Phase muss man also alle Elemente unterhalb der
 Diagonalen zu Null machen.
 Mit Operationen {\bf I} und {\bf E} geht man dazu zeilenweise vor.
 In jeder Zeile macht man mit {\bf I}
-zun"achst den vordersten nicht verschwindenden Koeffizienten, das sogenannte
+zunächst den vordersten nicht verschwindenden Koeffizienten, das sogenannte
 Pivot-Element zu $1$.
 \index{Pivot-Element}
 Die Zeile und Spalte dieses Elements heisst deshalb
@@ -666,7 +666,7 @@ Die Operation {\bf E} auf der Zeile $k>i$ ist
 a_{kj}'&=a_{kj}-a_{ki}a_{ij}&&i < k \le m, i \le j\le n\\
 b_k'&=b_k-a_{ki}b_i&&i < k \le m
 \end{align*}
-F"uhrt man beide Operationen in einem Schritt durch, erh"alt man die
+Führt man beide Operationen in einem Schritt durch, erhält man die
 Gleichungen:
 \begin{equation}
 \begin{aligned}
@@ -676,14 +676,14 @@ a_{kj}'&=a_{kj}-a_{ki}\frac{a_{ij}}{a_{ii}}&
 \end{aligned}
 \label{vorwaertsreduktion}
 \end{equation}
-mit $i < k\le m$ und $i\le j\le n$. Dieser Schritt muss f"ur $i=1,\dots,m$
+mit $i < k\le m$ und $i\le j\le n$. Dieser Schritt muss für $i=1,\dots,m$
 wiederholt werden.
 
-\subsubsection{R"uckw"artseinsetzen}
-Das R"uckw"artseinsetzen kommt ohne die {\bf I}-Operationen aus.
+\subsubsection{Rückwärtseinsetzen}
+Das Rückwärtseinsetzen kommt ohne die {\bf I}-Operationen aus.
 Es eliminiert die nicht verschwinden Element oberhalb der Diagonalen
 Spaltenweise, beginnend bei der letzten.
-F"ur die dritte Spalte beispielsweise bedeutet dies bildlich:
+Für die dritte Spalte beispielsweise bedeutet dies bildlich:
 \begin{gather*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -708,31 +708,31 @@ F"ur die dritte Spalte beispielsweise bedeutet dies bildlich:
 \hline
 \end{tabular}
 \end{gather*}
-In Formeln bedeutet dies f"ur die {\bf E}-Operation, bei der die
-Spalte mit der Nummer $i$ ``leerger"aumt'' wird:
+In Formeln bedeutet dies für die {\bf E}-Operation, bei der die
+Spalte mit der Nummer $i$ ``leergeräumt'' wird:
 \begin{align}
 a_{kj}'&=a_{kj}- a_{ki} a_{ij}
 &
 b_k'&=b_k- a_{ki}b_i
 \label{rueckwaertseinsetzen}
 \end{align}
-Dieser Schritt muss f"ur $i=m,\dots,2$ wiederholt werden.
-\subsection{Sonderf"alle}
-Nicht immer kann das Verfahren so problemlos durchgef"uhrt werden.
+Dieser Schritt muss für $i=m,\dots,2$ wiederholt werden.
+\subsection{Sonderfälle}
+Nicht immer kann das Verfahren so problemlos durchgeführt werden.
 Es kann vorkommen, dass eines der Pivot-Elemente $a_{ii}=0$ ist.
-Da beim Vorw"artsreduzieren immer durch das Pivot-Element geteilt
-werden muss, bricht das Verfahren in diesem Falle ab, m"oglicherweise
-obwohl das Gleichungssystem l"osbar ist.
+Da beim Vorwärtsreduzieren immer durch das Pivot-Element geteilt
+werden muss, bricht das Verfahren in diesem Falle ab, möglicherweise
+obwohl das Gleichungssystem lösbar ist.
 Zwei Strategien sind denkbar, mit dieser Situation umzugehen.
 
-Nicht nur ein verschwindendes Pivot-Element f"uhrt zu Problemen,
+Nicht nur ein verschwindendes Pivot-Element führt zu Problemen,
 auch die Division durch ein kleines Pivot-Element kann bereits die
-Rechengenauigkeit un\-g"unstig beeinflussen.
+Rechengenauigkeit un\-günstig beeinflussen.
 Daher kann es je nach
 Gleichungssystem geraten sein, eine der folgenden Strategien anzuwenden,
 um die Genauigkeit der Resultate zu verbessern.
 \subsubsection{Gleichungen umordnen}
-Die Reihenfolge der Gleichungen hat keinen Einfluss auf die L"osungsmenge.
+Die Reihenfolge der Gleichungen hat keinen Einfluss auf die Lösungsmenge.
 Ist $a_{ii}=0$, kann man jede der Gleichungen $i+1$ bis $m$ an Stelle
 der Gleichung Nummer $i$ verwenden.
 
@@ -764,16 +764,16 @@ Vertauscht man aber die beiden Zeilen, wird daraus
 \hline
 \end{tabular}
 \end{gather*}
-was nicht nur l"osbar, sondern bereits gel"ost ist.
+was nicht nur lösbar, sondern bereits gelöst ist.
 \end{beispiel}
 
 \subsubsection{Variablen umordnen}
-Die Reihenfolge der Variablen hat keinen Einfluss auf die L"osungsmenge.
+Die Reihenfolge der Variablen hat keinen Einfluss auf die Lösungsmenge.
 Ist $a_{ii}=0$ kann jede andere Spalte $i+1$ bis $n$ Anstelle der
 Spalte mit der Nummer $i$ verwendet werden.
-Allerdings muss man "uber
-die Vertauschungen von Spalten Buch f"uhren, zum Beispiel indem man in
-einer zus"atzlichen Zeile die Bedeutung der Spalten mitschreibt.
+Allerdings muss man über
+die Vertauschungen von Spalten Buch führen, zum Beispiel indem man in
+einer zusätzlichen Zeile die Bedeutung der Spalten mitschreibt.
 
 \begin{beispiel}[\bf Beispiel]
 Wir versuchen, das Gleichungssystem
@@ -784,15 +784,15 @@ Wir versuchen, das Gleichungssystem
 -x &   &   & + & z & = & 2
 \end{linsys}
 \]
-zu l"osen.
-Zweimal w"ahrend der Durchf"uhrung des Gauss-Algorithmus,
+zu lösen.
+Zweimal während der Durchführung des Gauss-Algorithmus,
 gekennzeichnet durch {\color{red}!},
 sind wir gezwungen%
-, durch eine Spaltenvertauschung daf"ur zu
+, durch eine Spaltenvertauschung dafür zu
 sorgen, dass das Pivot-Element nicht $0$ ist%
-\footnote{Es w"are nat"urlich auch m"oglich,
+\footnote{Es wäre natürlich auch möglich,
 mit Zeilenvertauschungen das gleiche Ziel zu erreichen, doch soll
-dieses Beispiel zeigen, wie man Spaltenvertauschungen f"ur diesen
+dieses Beispiel zeigen, wie man Spaltenvertauschungen für diesen
 Zweck einsetzen kann.}%
 .
 \begin{align*}
@@ -919,26 +919,26 @@ Spalten vertauscht, im dritten Schritt die letzten
 beiden.
 Im letzten Schritt wurden die Variablen
 und Gleichungen wieder in die ``Standardreihenfolge'' gebracht.
-Die L"osung ist $(x,y,z)=(-1, 3, 1)$.
+Die Lösung ist $(x,y,z)=(-1, 3, 1)$.
 \end{beispiel}
 
-\section{Lineare Abh"angigkeit}
-\index{abhaengig@abh\"angig, linear}
-\index{linear abh\"angig}
+\section{Lineare Abhängigkeit}
+\index{abhaengig@abh\ängig, linear}
+\index{linear abh\ängig}
 Im Gleichungssystem
 \begin{align*}
 x+2y&=5\\
 2x+4y&=10
 \end{align*}
 ist die zweite Gleichung das Doppelte der ersten.
-Sie ist also immer genau dann erf"ullt, wenn die erste erf"ullt ist.
-Insbesondere schr"ankt sie die Menge der m"oglichen L"osungen
-nicht weiter ein, die L"osungsmenge ist
+Sie ist also immer genau dann erfüllt, wenn die erste erfüllt ist.
+Insbesondere schränkt sie die Menge der möglichen Lösungen
+nicht weiter ein, die Lösungsmenge ist
 \[
 \mathbb L=\{(x,y)\,|\, x+2y=5\}.
 \]
 Auch kompliziertere Beziehungen zwischen Gleichungen sind
-m"oglich.
+möglich.
 Im Gleichungssystem
 \begin{align*}
  x+4y+5z&=1\\
@@ -947,18 +947,18 @@ Im Gleichungssystem
 \end{align*}
 ist die letzte Gleichung die Summe der ersten beiden.
 Sie ist also
-immer bereits erf"ullt, wenn die ersten beiden Gleichungen erf"ullt
+immer bereits erfüllt, wenn die ersten beiden Gleichungen erfüllt
 ist.
-Damit schr"ankt auch sie die L"osungsmenge nicht ein.
+Damit schränkt auch sie die Lösungsmenge nicht ein.
 
-Zur Definition der eindeutigen L"osung eines Gleichungssystems 
-tragen offenbar nur diejenigen Gleichungen etwas bei, die unabh"angig
-von den anderen Gleichungen erf"ullbar sind.
+Zur Definition der eindeutigen Lösung eines Gleichungssystems 
+tragen offenbar nur diejenigen Gleichungen etwas bei, die unabhängig
+von den anderen Gleichungen erfüllbar sind.
 Wenn eine Gleichung
-durch andere Gleichungen ausgedr"uckt werden kann, kann man sie
+durch andere Gleichungen ausgedrückt werden kann, kann man sie
 eliminieren.
-L"asst sich die letzte Gleichung durch die
-anderen ausdr"ucken, gibt es Koeffizienten $\lambda_i$ so, dass
+Lässt sich die letzte Gleichung durch die
+anderen ausdrücken, gibt es Koeffizienten $\lambda_i$ so, dass
 \begin{equation*}
 \begin{aligned}
 l_m(x_1,\dots,x_n)&=\lambda_1 l_1(x_1,\dots,x_n)+\dots+\lambda_{m-1}l_{m-1}(x_1,\dots, x_n)\\
@@ -974,43 +974,43 @@ dann bedeuten diese Gleichungen, dass
 \end{aligned}
 \label{linearabhaengigegleichungen}
 \end{equation}
-Gibt es keine solche Beziehung, sind die Gleichungen unabh"angig
+Gibt es keine solche Beziehung, sind die Gleichungen unabhängig
 voneinander.
-Diese Form verwenden wir, um den Begriff der linearen Abh"angigkeit
+Diese Form verwenden wir, um den Begriff der linearen Abhängigkeit
 zu definieren.
 \begin{definition}
-Die Linearformen $l_1,\dots,l_m$ heissen linear unabh"angig,
+Die Linearformen $l_1,\dots,l_m$ heissen linear unabhängig,
 wenn die einzige lineare Beziehung
 \begin{equation}
 \lambda_1l_1(x_1,\dots,x_n)+\dots+\lambda_ml_m(x_1,\dots,x_n)=0
 \label{linearabhaengig}
 \end{equation}
-jene mit $\lambda_i=0$ f"ur $1\le i\le m$ ist.
+jene mit $\lambda_i=0$ für $1\le i\le m$ ist.
 
-Die $l_i$ heissen linear abh"angig, wenn es eine Beziehung der Form
+Die $l_i$ heissen linear abhängig, wenn es eine Beziehung der Form
 (\ref{linearabhaengig})
 gibt, in der nicht alle Koeffizienten $\lambda_i$ verschwinden.
 
-Die Gleichungen $l_i(x_1,\dots,x_n)=b_i,1\le i\le m$ heissen linear unabh"angig,
+Die Gleichungen $l_i(x_1,\dots,x_n)=b_i,1\le i\le m$ heissen linear unabhängig,
 wenn  die einzige Beziehung der Form (\ref{linearabhaengigegleichungen})
 die Koeffizienten $\lambda_i=0$ hat.
-Sie heissen linear abh"angig, wenn
+Sie heissen linear abhängig, wenn
 es eine Beziehung der Form (\ref{linearabhaengigegleichungen}) gibt.
 \end{definition}
 
-Wenn Linearformen oder Gleichungen linear abh"angig sind, dann kann
-man eine oder mehrere von ihnen eliminieren, da sie zur L"osung nichts
+Wenn Linearformen oder Gleichungen linear abhängig sind, dann kann
+man eine oder mehrere von ihnen eliminieren, da sie zur Lösung nichts
 beitragen.
-Da der Gauss-Algorithmus versucht, genau die minimal ben"otigten Gleichungen
+Da der Gauss-Algorithmus versucht, genau die minimal benötigten Gleichungen
 zu ermitteln, wird er eine Zeile voller Nullen hervorbringen.
 
 \begin{hilfssatz}
-Die Linearformen $l_1,\dots,l_m$ sind genau dann linear abh"angig, wenn
+Die Linearformen $l_1,\dots,l_m$ sind genau dann linear abhängig, wenn
 die Anwendung des Gauss-Algorithmus auf das Koeffizientenschema dieser
 Linearformen eine Zeile voller Nullen hervorbringt.
-Insbesondere sind mehr als $n$ Linearformen immer linear abh"angig.
+Insbesondere sind mehr als $n$ Linearformen immer linear abhängig.
 Ist eine der Linearformen
-bereits $0$, dann sind die Linearformen auf jeden Fall linear abh"angig.
+bereits $0$, dann sind die Linearformen auf jeden Fall linear abhängig.
 \end{hilfssatz}
 
 \begin{proof}[Beweis]
@@ -1018,7 +1018,7 @@ Ist $m>n$, dann erzeugt der Gauss-Algorithmus im besten Fall $n$ Zeilen,
 die ausser Nullen in der Zeile $i$ auch noch in der $i$-ten Spalte eine
 $1$ enthalten.
 Alle nachfolgenden Zeilen bestehen jedoch ausschliesslich
-aus Nullen, somit sind die Gleichungen linear abh"angig.
+aus Nullen, somit sind die Gleichungen linear abhängig.
 
 Ist zum Beispiel $l_i(x_1,\dots,x_n)=0$, dann ergibt sich mit den
 Koeffizienten
@@ -1032,16 +1032,16 @@ eine lineare Beziehung
 in der nicht alle Koeffizienten verschwinden.
 \end{proof}
 
-Mit dem Gauss-Algorithmus k"onnen wir sehr rasch entscheiden, ob Zeilen 
-linear abh"angig sind.
+Mit dem Gauss-Algorithmus können wir sehr rasch entscheiden, ob Zeilen 
+linear abhängig sind.
 Wenn wir aber die $\lambda_i$ bestimmen wollen,
-die gem"ass Definition existieren sollen, dann m"ussen wir noch etwas
+die gemäss Definition existieren sollen, dann müssen wir noch etwas
 mehr arbeiten.
 Wir illustrieren dies an einem Beispiel.
 
 \begin{beispiel}
 Der Gauss-Algorithmus
-erkennt die folgenden Zeilen als linear abh"angig:
+erkennt die folgenden Zeilen als linear abhängig:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -1100,7 +1100,7 @@ die Null-Zeile ergeben:
 &&0&0&0
 \end{tabular}
 \]
-F"ur die $\lambda_i$ finden wir daraus ein lineares Gleichungssystem:
+Für die $\lambda_i$ finden wir daraus ein lineares Gleichungssystem:
 \[
 \begin{linsys}{3}
 1\lambda_1&+&6\lambda_2&+&7\lambda_3&=&0\\
@@ -1109,11 +1109,11 @@ F"ur die $\lambda_i$ finden wir daraus ein lineares Gleichungssystem:
 \end{linsys}.
 \]
 Man beachte, dass das Koeffizientenschema 
-gegen"uber dem urspr"unglichen an der Diagonalen
+gegenüber dem ursprünglichen an der Diagonalen
 gespiegelt worden ist.
 
 Das Gleichungssystem kann jetzt mit Hilfe des
-Gauss-Algorithmus gel"ost werden:
+Gauss-Algorithmus gelöst werden:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -1177,11 +1177,11 @@ Gauss-Algorithmus gel"ost werden:
 \end{tabular}
 \end{align*}
 Die beiden nicht verschwindenden Zeilen bedeuten, dass $\lambda_1$ und
-$\lambda_2$ aus $\lambda_3$ berechnet werden k"onnen:
+$\lambda_2$ aus $\lambda_3$ berechnet werden können:
 \begin{align*}
 \lambda_1&=-\frac{13}7\lambda_3&\lambda_2&=-\frac{6}7\lambda_3.
 \end{align*}
-Eine ganzzahlige L"osung ergibt sich zum Beispiel f"ur $\lambda_3=7$,
+Eine ganzzahlige Lösung ergibt sich zum Beispiel für $\lambda_3=7$,
 also
 \[
 (
@@ -1193,46 +1193,47 @@ also
 -13,-6,7
 ),
 \]
-was man durch nachrechnen auch best"atigen kann.
+was man durch nachrechnen auch bestätigen kann.
 Da in diesem Gleichungssystem
-die auf der rechten Seite nur Nullen stehen, k"onnen wir schliessen,
-dass eine L"osung mit $\lambda_i\ne 0$ nur im singul"aren Fall gefunden
+die auf der rechten Seite nur Nullen stehen, können wir schliessen,
+dass eine Lösung mit $\lambda_i\ne 0$ nur im singulären Fall gefunden
 werden kann.
-Die gespiegelten Koeffizienten sind also immer dann singul"ar,
-wenn auch die ungespiegelten Koeffizienten singul"ar sind.
+Die gespiegelten Koeffizienten sind also immer dann singulär,
+wenn auch die ungespiegelten Koeffizienten singulär sind.
 \end{beispiel}
 
-\section{L"osungsmenge und Rang}
+\section{Lösungsmenge und Rang}
 Was passiert, wenn im Gauss-Algorithmus die Anzahl der Gleichungen
-nicht mit der Anzahl der Unbekannten "ubereinstimmt? Oder wenn
-pl"otzlich alle Folgezeilen nur noch Koeffizienten $0$ enthalten,
+nicht mit der Anzahl der Unbekannten übereinstimmt? Oder wenn
+plötzlich alle Folgezeilen nur noch Koeffizienten $0$ enthalten,
 also auch unter Verwendung der Vertauschungsstrategien kein geeignetes
-Pivot-Element mehr zur Verf"ugung steht? Eine eindeutige L"osung kann
-es in diesem Fall nat"urlich nicht mehr geben.
-Die Alternative ``gar keine L"osung'' gegen ``unendlich viele L"osungen''
+Pivot-Element mehr zur Verfügung steht? Eine eindeutige Lösung kann
+es in diesem Fall natürlich nicht mehr geben.
+Die Alternative ``gar keine Lösung'' gegen ``unendlich viele Lösungen''
 ist aber noch offen.
-Ausserdem ist die Zahl der Gleichungen, nach denen dieses Ph"anomen
-auftritt, eine charakteristische Gr"osse des betrachteten Gleichungssystems,
+Ausserdem ist die Zahl der Gleichungen, nach denen dieses Phänomen
+auftritt, eine charakteristische Grösse des betrachteten Gleichungssystems,
 der sogenannte Rang.
 
 \subsection{Mehr Unbekannte als Gleichungen}
-In diesem Fall kommt das Vorw"artsreduzieren bereits zu einem Ende,
+In diesem Fall kommt das Vorwärtsreduzieren bereits zu einem Ende,
 wenn noch gar nicht alle Unbekannten verwendet wurden.
-Das R"uckw"artseinsetzen kann dann auch nicht alle Spalten ``reinigen'',
+Das Rückwärtseinsetzen kann dann auch nicht alle Spalten ``reinigen'',
 so dass rechts einige Spalten stehen bleiben:
 \begin{gather}
+\definecolor{greenT}{rgb}{0,0.666,0}
 \begin{array}{|ccccccc|c|}
 \hline
-1&\dots&0&*&\dots&*&&*\\
+1&\dots&0&\color{greenT}*&\dots&\color{greenT}*&&*\\
 \vdots&\ddots&\vdots&\vdots&\ddots&\vdots&&\vdots\\
-0&\dots&1&*&\dots&*&&*\\
+0&\dots&1&\color{greenT}*&\dots&\color{greenT}*&&*\\
 \hline
 \end{array}
 \end{gather}
-\index{waehlbar@w\"ahlbar}
+\index{waehlbar@w\ählbar}
 Schreibt man dies wieder als System von Gleichungen kann man ablesen,
 dass man die Unbekannten $x_{m+1}$ bis $x_n$ gar nicht bestimmen kann.
-Diese k"onnen frei gew"ahlt werden, und bestimmen dann die Unbekannten
+Diese können frei gewählt werden, und bestimmen dann die Unbekannten
 $x_1$ bis $x_m$.
 Konkreter: haben wir das Koeffizientenschema
 \begin{gather}
@@ -1246,17 +1247,20 @@ Konkreter: haben wir das Koeffizientenschema
 \end{gather}
 gefunden, bedeutet dies, dass die Unbekannten $x_1$ bis $x_m$ bestimmt
 sind durch die Gleichungen
+{
+\definecolor{greenT}{rgb}{0,0.666,0}
 \begin{align*}
-x_1&=b_1-a_{1,m+1}x_{m+1}-\dots-a_{1n}x_n\\
+x_1&=b_1-a_{1,m+1}{\color{greenT}x_{m+1}}-\dots-a_{1n}{\color{greenT}x_n}\\
 &\vdots\\
-x_m&=b_m-a_{m,m+1}x_{m+1}-\dots-a_{mn}x_n
+x_m&=b_m-a_{m,m+1}{\color{greenT}x_{m+1}}-\dots-a_{mn}{\color{greenT}x_n}
 \end{align*}
-sobald die Unbekannten $x_{m+1}$ bis $x_n$ vorgegeben sind.
-\subsubsection{L"osungsmenge}
-Im vorliegenden Fall hat man eine L"osungsmenge, die durch $n-m$
-Parameter beschrieben ist, n"amlich durch die frei w"ahlbaren
+}
+sobald die Unbekannten $x_{m+1}$ bis $x_n$ frei gewählt werden können.
+\subsubsection{Lösungsmenge}
+Im vorliegenden Fall hat man eine Lösungsmenge, die durch $n-m$
+Parameter beschrieben ist, nämlich durch die frei wählbaren
 Variablen $x_{m+1}$ bis $x_n$.
-Ein L"osungsvektor hat also die
+Ein Lösungsvektor hat also die
 Form 
 \[
 \begin{pmatrix}
@@ -1272,8 +1276,8 @@ x_{m+1}\\
 x_n
 \end{pmatrix}
 \]
-Man spricht von einem $n-m$-dimensionalen L"osungsraum.
-Die L"osungsmenge kann also als
+Man spricht von einem $n-m$-dimensionalen Lösungsraum.
+Die Lösungsmenge kann also als
 \[
 \mathbb L
 =
@@ -1294,9 +1298,9 @@ x_{m+1},\dots,x_n\in\mathbb R
 \right\}
 \]
 geschrieben werden.
-\subsubsection{Vektorform der L"osungsmenge}
-Wir k"onnen allerdings auch die Parameter $x_{m+1}$ bis $x_n$ noch
-etwas verdeutlichen, indem wir die L"osung als Linearkombination von
+\subsubsection{Vektorform der Lösungsmenge}
+Wir können allerdings auch die Parameter $x_{m+1}$ bis $x_n$ noch
+etwas verdeutlichen, indem wir die Lösung als Linearkombination von
 Vektoren mit Koeffizienten $x_{m+1}$ bis $x_n$ schreiben:
 \[
 \begin{pmatrix}
@@ -1320,8 +1324,8 @@ x_n
 1
 \end{pmatrix}
 \]
-Die L"osungsmenge k"onnen wir jetzt etwas kompakter in Vektorform schreiben.
-Dazu k"urzen wir ab
+Die Lösungsmenge können wir jetzt etwas kompakter in Vektorform schreiben.
+Dazu kürzen wir ab
 \[
 \tilde b
 =
@@ -1345,14 +1349,14 @@ b_1\\\vdots\\b_m\\0\\\vdots\\0
 1
 \end{pmatrix}
 \]
-Damit ist die L"osungsmenge
+Damit ist die Lösungsmenge
 \[
 \mathbb L = \{
 \tilde b+x_{m+1}\tilde a_{m+1}+\dots+x_n\tilde a_n\;|\;x_{m+1},\dots,x_n\in\mathbb R\}.
 \]
 
 \begin{beispiel}
-Man bestimme die L"osungsmenge des Gleichungssystems
+Man bestimme die Lösungsmenge des Gleichungssystems
 %   1  -2   3  -0  -4   1
 %   3  -1   4  -0   3  -2
 %   3  -1   2  -4  -5   4
@@ -1440,8 +1444,8 @@ Man bestimme die L"osungsmenge des Gleichungssystems
 \hline
 \end{tabular}\,.
 \end{align*}
-Die Variablen $x_4$ und $x_5$ sind frei w"ahlbar, also wird die 
-L"osungsmenge:
+Die Variablen $x_4$ und $x_5$ sind frei wählbar, also wird die 
+Lösungsmenge:
 \[
 \mathbb L=
 \left\{
@@ -1476,21 +1480,22 @@ das Gleichungssystem bestenfalls in die Form
 bringen.
 Die letzten $m-n$ Zeilen entsprechen Gleichungen, die auf
 der linken Seite $0$ stehen haben.
-Sie sind nur dann erf"ullbar, wenn
+Sie sind nur dann erfüllbar, wenn
 auch auf der rechten Seite, an Stelle der Sterne, nur Nullen vorkommen.
-Man hat also im Allgemeinen keine L"osung, sondern erst, wenn die Werte
+Man hat also im Allgemeinen keine Lösung, sondern erst, wenn die Werte
 auf der rechten Seite der $m-n$ letzten Gleichungen verschwinden,
-also wenn Zusatzbedingungen erf"ullt sind.
+also wenn Zusatzbedingungen erfüllt sind.
 
 \subsection{Mischformen}
 Es kann auch passieren, dass das Gauss-Verfahren abbricht, bevor alle
 Gleichungen aufgebraucht sind, das Schema sieht dann wie folgt aus:
 \begin{equation}
+\definecolor{greenT}{rgb}{0,0.666,0}
 \begin{array}{|cccccc|c|}
 \hline
-1&\dots&0 &*&\dots&*&*\\
+1&\dots&0 &\color{greenT}*&\dots&\color{greenT}*&*\\
 \vdots&\ddots&\vdots &\vdots&\ddots&\vdots&\vdots\\
-0&\dots&1 &*&\dots&*&*\\
+0&\dots&1 &\color{greenT}*&\dots&\color{greenT}*&*\\
 \hline
 0&\dots&0 &0&\dots&0&\color{red}*\\
 \vdots&\ddots&\vdots &\vdots&\ddots&\vdots&\color{red}\vdots\\
@@ -1500,20 +1505,32 @@ Gleichungen aufgebraucht sind, das Schema sieht dann wie folgt aus:
 \label{rangdef}
 \end{equation}
 In diesem Fall kann man auch durch vertauschen von Zeilen oder Spalten
-das Verfahren nach $r$ Gleichungen nicht weiterf"uhren.
-Es existiert genau dann eine L"osung, wenn die letzten $m-r$ Gleichungen
+das Verfahren nach $r$ Gleichungen nicht weiterführen.
+Es existiert genau dann eine Lösung, wenn die letzten $m-r$ Gleichungen
 mit Nullen auf der linken Seite auch Nullen auf der
 rechten Seite haben.
 
+\begin{figure}
+\centering
+\input{images/flussdiagrammLoesungsmenge.tex}
+\caption{Flussdiagramm für die Entscheidung, wieviele Lösungen ein
+Gleichungssystem hat, basierend auf dem Schlusstableau
+\label{lingl:flussdiagramm}}
+\end{figure}
+
 Nehmen wir an, dass auf der rechten Seite der Nullzeilen auch
-nur Nullzeilen stehen.
-Offensichtlich k"onnen nur diejenigen Variablen bestimmt werden,
+nur Nullen stehen.
+Offensichtlich können nur diejenigen Variablen bestimmt werden,
 deren Spalten im Laufe des Verfahrens als Pivot-Spalten aufgetreten sind.
 Alle anderen Variablen werden durch die vorhandenen Gleichungen nicht
-bestimmt, und sind frei w"ahlbar.
+bestimmt, und sind frei wählbar.
+
+Der gesamte Enscheidungsprozess auf der Basis des
+Schlusstableau~\eqref{rangdef} ist im Flussdiagramm
+in Abbildung~\ref{lingl:flussdiagramm} zusammengefasst.
 
 \begin{beispiel}
-Man finde die L"osungsmenge des Gleichungssystems
+Man finde die Lösungsmenge des Gleichungssystems
 \[
 \begin{linsys}{4}
 x&+&2y&+&3z&=&1\\
@@ -1576,8 +1593,8 @@ Der Gauss-Algorithmus liefert:
 \hline
 \end{tabular}
 \end{align*}
-Offenbar wird die letzte Gleichung gar nicht ben"otigt, die
-L"osungsmenge kann aus den ersten zwei Gleichungen
+Offenbar wird die letzte Gleichung gar nicht benötigt, die
+Lösungsmenge kann aus den ersten zwei Gleichungen
 abgelesen werden:
 \[
 \mathbb L=
@@ -1602,14 +1619,14 @@ Offenbar spielt die Zahl $r$, die Anzahl der Einsen im Schema (\ref{rangdef}),
 eine wesentliche Rolle, wir nennen diese Zahl den Rang der Matrix.
 
 \begin{definition}
-Der Rang einer Matrix $A$ ist die maximale Anzahl linear unabh"angiger Zeilen.
+Der Rang einer Matrix $A$ ist die maximale Anzahl linear unabhängiger Zeilen.
 \end{definition}
 \begin{satz}
-Die maximale Anzahl linear unabh"angiger Spalten einer Matrix $A$ ist
+Die maximale Anzahl linear unabhängiger Spalten einer Matrix $A$ ist
 $\operatorname{Rang}A$.
 \end{satz}
-Aus dem Rang l"asst sich also auch ermitteln, wie viele frei w"ahlbare
-Parameter in die L"osungsmenge eingehen.
+Aus dem Rang lässt sich also auch ermitteln, wie viele frei wählbare
+Parameter in die Lösungsmenge eingehen.
 \begin{satz}
 Ist $A$ eine $m\times n$-Matrix mit $r=\operatorname{Rang}A$ 
 und $b$ ein $m$-Vektor, dann gibt es $n-r$ Vektoren $\tilde a_1$
@@ -1621,34 +1638,34 @@ bis $\tilde a_{n-r}$ und einen Vektor $\tilde b$ so, dass
 \tilde b+x_1\tilde a_1+\dots+x_{n-r}\tilde a_{n+r}\;|\;x_1,\dots,x_{n-r}\in\mathbb R
 \}
 \]
-die L"osungsmenge des Gleichungssystems $Ax=b$ ist.
+die Lösungsmenge des Gleichungssystems $Ax=b$ ist.
 \end{satz}
 
 \subsection{Reduzierte Zeilenstufenform}
 Das allgemeine Schlusstableau der Form (\ref{rangdef}) kann im Allgemeinen nur
 erreicht werden, indem nach Bedarf Zeilen- und Spaltenvertauschungen vorgenommen
 werden.
-W"ahrend Zeilenvertauschungen unproblematisch sind, muss man bei
-Spaltenvertauschungen sorgf"altig dar"uber Buchf"uhren, zu welcher Variablen
-die Spalten geh"oren.
+Während Zeilenvertauschungen unproblematisch sind, muss man bei
+Spaltenvertauschungen sorgfältig darüber Buchführen, zu welcher Variablen
+die Spalten gehören.
 Dadurch wird der Algorithmus wesentlich komplizierter.
-Gew"unscht ist eine Variante des Algorithmus, die ohne Zeilenvertauschungen
+Gewünscht ist eine Variante des Algorithmus, die ohne Zeilenvertauschungen
 auskommt, aber immer noch die gleich einfache Interpretation des
-Schlusstableaus erm"oglicht.
+Schlusstableaus ermöglicht.
 
-Wir "uberlegen uns zun"achst, wie das Schlusstableau des modifizierten
-Algorithmus aussehen m"usste.
-Das Tableau (\ref{rangdef}) enth"alt zwei Arten von Spalten:
-Spalten mit einer $1$, welche dazu dienen die zugeh"orte Variable aus der
-rechten Seite und eventuell frei w"ahlbaren Variable zu berechnen, und
-Spalten mit $*$, die frei w"ahlbare Variablen anzeigen.
+Wir überlegen uns zunächst, wie das Schlusstableau des modifizierten
+Algorithmus aussehen müsste.
+Das Tableau (\ref{rangdef}) enthält zwei Arten von Spalten:
+Spalten mit einer $1$, welche dazu dienen die zugehörte Variable aus der
+rechten Seite und eventuell frei wählbaren Variable zu berechnen, und
+Spalten mit $*$, die frei wählbare Variablen anzeigen.
 Spaltenvertauschungen auf dem Weg zu (\ref{rangdef}) verwenden immer nur Spalten
 rechts von der aktuellen Pivot-Spalte, die Spalten links davon sind ja schon als
 ausgewertet worden.
-Tauscht man die Spalten zur"uck, k"onnen zwar Spalten mit $*$ weiter links
-landen, aber h"ochstens so, dass sich links davon eine $1$-Spalte finden
-l"asst, die die $1$ nicht weiter oben hat als der unterste $*$, das
-Tableau sieht also ungef"ahr so aus:
+Tauscht man die Spalten zurück, können zwar Spalten mit $*$ weiter links
+landen, aber höchstens so, dass sich links davon eine $1$-Spalte finden
+lässt, die die $1$ nicht weiter oben hat als der unterste $*$, das
+Tableau sieht also ungefähr so aus:
 \begin{center}
 \begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} | >{$}c<{$}|}
 \hline
@@ -1666,19 +1683,19 @@ Tableau sieht also ungef"ahr so aus:
 \hline
 \end{tabular}
 \end{center}
-Auch in dieser Form lassen sich die Fragen bez"uglich der Anzahl der L"osung
+Auch in dieser Form lassen sich die Fragen bezüglich der Anzahl der Lösung
 direkt aus dem Tableau ablesen.
-Ist einer der roten $\color{red}*$ von Null verschieden, gibt es keine L"osung,
-andernfalls gibt es unendlich viele L"osungen, wenn frei w"ahlbare Variablen
+Ist einer der roten $\color{red}*$ von Null verschieden, gibt es keine Lösung,
+andernfalls gibt es unendlich viele Lösungen, wenn frei wählbare Variablen
 in Spalten mit $*$ vorhanden sind.
-Die L"osungsmenge l"asst sich wieder ablesen, indem man die frei w"ahlbaren
+Die Lösungsmenge lässt sich wieder ablesen, indem man die frei wählbaren
 Variablen auf die rechte Seite bringt.
 
 Nachdem nun klar ist, wie ein Schlusstableau ohne Spaltenvertauschungen aussehen
-wird, m"ussen wir den Algorithmus so formulieren, dass wir das Tableau direkt
-finden k"onnen, ohne Umweg "uber Vertauschungen und R"uckvertauschungen.
-Im bisherigen Algorithmus wird eine Spaltenvertauschung unumg"anglich, wenn
-im n"achsten Pivot-Feld und in allen Feldern der Spalte unterhalb des Pivot-Feldes
+wird, müssen wir den Algorithmus so formulieren, dass wir das Tableau direkt
+finden können, ohne Umweg über Vertauschungen und Rückvertauschungen.
+Im bisherigen Algorithmus wird eine Spaltenvertauschung unumgänglich, wenn
+im nächsten Pivot-Feld und in allen Feldern der Spalte unterhalb des Pivot-Feldes
 nur $0$ stehen:
 \begin{center}
 \begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} | >{$}c<{$} |}
@@ -1694,11 +1711,11 @@ nur $0$ stehen:
 \hline
 \end{tabular}
 \end{center}
-Die zur Pivot-Spalte geh"orige Variable kann auf keinen Fall bestimmt werden,
-dann dazu w"are ja ein von Null verschiedenes Element an der Pivot-Position
+Die zur Pivot-Spalte gehörige Variable kann auf keinen Fall bestimmt werden,
+dann dazu wäre ja ein von Null verschiedenes Element an der Pivot-Position
 oder darunter notwendig.
-Es steht also jetzt schon fest, dass diese Variable frei w"ahlbar ist.
-Man kann daher diese Spalte "uberspringen, und in der n"achsten Spalte nach
+Es steht also jetzt schon fest, dass diese Variable frei wählbar ist.
+Man kann daher diese Spalte überspringen, und in der nächsten Spalte nach
 einem geeigneten Pivot-Element suchen:
 \begin{align*}
 \begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$} | >{$}c<{$} |}
@@ -1728,13 +1745,13 @@ einem geeigneten Pivot-Element suchen:
 \end{tabular}
 \end{align*}
 Die Einsen entstehen jetzt nicht mehr entlang der Diagonalen, sondern
-entlang einer Treppe, in der einzelne Stufen auch etwas breiter sein k"onnen.
-Das R"uckw"artseinsetzen funktioniert weiterhin, wobei nat"urlich nur
-Spalten bearbeitet werden k"onnen, in denen sich eine Pivot-Position
+entlang einer Treppe, in der einzelne Stufen auch etwas breiter sein können.
+Das Rückwärtseinsetzen funktioniert weiterhin, wobei natürlich nur
+Spalten bearbeitet werden können, in denen sich eine Pivot-Position
 befindet.
 
 \begin{beispiel}
-Man finde die L"osungsmenge des Gleichungssystems
+Man finde die Lösungsmenge des Gleichungssystems
 \[
 \begin{linsys}{5}
 3x&+&6y& &  &+&12v&=& 6\phantom{.}\\
@@ -1778,16 +1795,16 @@ folgt:
 \end{tabular}
 \end{align*}
 Per Zufall ist das Element oberhalb der $1$ in der dritten Spalte auch schon $0$,
-es gibt also f"ur das R"uckw"artseinsetzen nichts mehr zu tun.
+es gibt also für das Rückwärtseinsetzen nichts mehr zu tun.
 
-Man kann jetzt die L"osungsmenge ablesen: frei w"ahlbar sind die Variablen 
-$y$ und $v$, die Variablen $x$ und $v$ k"onnen durch $y$ und $v$ ausgedr"uckt
+Man kann jetzt die Lösungsmenge ablesen: frei wählbar sind die Variablen 
+$y$ und $v$, die Variablen $x$ und $v$ können durch $y$ und $v$ ausgedrückt
 werden
 \begin{align*}
 x&=2-2y-4v\\
 z&=5-7v.
 \end{align*}
-Die L"osungsmenge ist daher
+Die Lösungsmenge ist daher
 \[
 {\mathbb L}
 =
@@ -1808,14 +1825,14 @@ die {\em reduzierte Zeilenstufenform}, englisch auch {\em reduced row echelon fo
 \index{Zeilenstufenform, reduzierte}
 \index{rref}
 \index{reduced row echelon form}
-Leistungsf"ahige Taschenrechner und Programme zur Matrizenrechnung stellen
-eine "ublicherweise \texttt{rref} genannte Funktion zur Verf"ugung, welche die 
+Leistungsfähige Taschenrechner und Programme zur Matrizenrechnung stellen
+eine üblicherweise \texttt{rref} genannte Funktion zur Verfügung, welche die 
 Zeilenstufenform einer beliebigen Matrix berechnen kann.
 
-\section{Mehrere Gleichungssysteme simultan l"osen\label{simultan}}
+\section{Mehrere Gleichungssysteme simultan lösen\label{simultan}}
 Mit dem Gauss-Algorithmus kann man gleichzeitig mehrere Gleichungssysteme
-l"osen, die sich nur in den rechten Seiten unterscheiden.
-Die rechten Seiten haben n"amlich auf den Gang der Rechnung keinen
+lösen, die sich nur in den rechten Seiten unterscheiden.
+Die rechten Seiten haben nämlich auf den Gang der Rechnung keinen
 Einfluss.
 So kann man die beiden Gleichungssysteme
 \begin{align*}
@@ -1827,7 +1844,7 @@ So kann man die beiden Gleichungssysteme
 &
 -\frac{\sqrt{3}}2x+\frac12y&=1
 \end{align*}
-in einem Durchgang l"osen:
+in einem Durchgang lösen:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -1881,33 +1898,33 @@ in einem Durchgang l"osen:
 \hline
 \end{tabular}
 \end{align*}
-Das erste Gleichungssystem hat also die L"osung
+Das erste Gleichungssystem hat also die Lösung
 $(x,y)=(\frac12,\frac{\sqrt{3}}2)$,
 das zweite
 $(x,y)=(-\frac{\sqrt{3}}2, \frac12)$.
 
 Die spezielle Wahl der rechten Seiten erlaubt auch, aus den
-beiden gefundenen L"osungen die L"osung f"ur jede beliebige rechte
-Seite zusammenzusetzen. Wenn n"amlich auf der rechten
+beiden gefundenen Lösungen die Lösung für jede beliebige rechte
+Seite zusammenzusetzen. Wenn nämlich auf der rechten
 Seite die Zahlen $b_1$ und $b_2$ stehen sollen, dann
-bedeutet dies offenbar, dass wir $b_1$ mal die erste L"osung
-und $b_2$ mal die zweite L"osung zusammennehmen m"ussen, um
+bedeutet dies offenbar, dass wir $b_1$ mal die erste Lösung
+und $b_2$ mal die zweite Lösung zusammennehmen müssen, um
 die verlangten rechten Seiten zu finden.
 Also
 \[
 x=\frac12b_1-\frac{\sqrt{3}}2b_2,\qquad y=\frac{\sqrt{3}}2b_1+\frac12b_2.
 \]
-Durch Einsetzen in die urspr"ungliche Gleichung kann man die
-L"osung "uberpr"ufen.
+Durch Einsetzen in die ursprüngliche Gleichung kann man die
+Lösung überprüfen.
 
 Ein interessanter Spezialfall liegt vor, wenn man ein Gleichungssystem
-f"ur die rechten Seiten 
+für die rechten Seiten 
 \[
 e_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad
 e_2=\begin{pmatrix}0\\1\\0\end{pmatrix},\qquad
 e_3=\begin{pmatrix}0\\0\\1\end{pmatrix}
 \]
-bereits gel"ost und die L"osungsvektoren
+bereits gelöst und die Lösungsvektoren
 \[
 c_1=\begin{pmatrix} c_{11}\\ c_{21}\\ c_{31} \end{pmatrix},\qquad
 c_2=\begin{pmatrix} c_{12}\\ c_{22}\\ c_{32} \end{pmatrix},\qquad
@@ -1928,13 +1945,13 @@ b_3 \begin{pmatrix}0\\0\\1\end{pmatrix}
 =
 b_1 e_1 + b_2 e_2 + b_3 e_3
 \]
-geschrieben werden kann, kann auch die L"osung aus den Teill"osungen
+geschrieben werden kann, kann auch die Lösung aus den Teillösungen
 zusammengesetzt werden:
 \[
 x = b_1 c_1 + b_2 c_2 + b_3 c_3.
 \]
-Man kann also ein allgemeines L"osungsverfahren auch wie folgt konzipieren.
-Zun"achst bildet man das Gauss-Tableau
+Man kann also ein allgemeines Lösungsverfahren auch wie folgt konzipieren.
+Zunächst bildet man das Gauss-Tableau
 \begin{center}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -1955,26 +1972,26 @@ welches man anschliessend mit dem Gauss-Algorithmus in das Tableau
 \end{tabular}
 \end{center}
 umwandelt.
-Dann baut man die L"osung aus den Zahlen $c_{ij}$ und der rechten
+Dann baut man die Lösung aus den Zahlen $c_{ij}$ und der rechten
 Seite $b$ zusammen.
 Die Berechnung der $c_{ij}$ muss nur einmal
-erfolgen, danach kann die L"osung mit verschiedenen rechten Seiten
+erfolgen, danach kann die Lösung mit verschiedenen rechten Seiten
 $b$ bestimmt werden.
 
 
 \section{Bezeichnungen: Matrizen und Vektoren}
-Viele der Operationen im L"osungsverfahren f"ur lineare Gleichungssysteme,
-sind unabh"angig von ihrem Bezug zu einem Gleichungssystem sinnvoll.
+Viele der Operationen im Lösungsverfahren für lineare Gleichungssysteme,
+sind unabhängig von ihrem Bezug zu einem Gleichungssystem sinnvoll.
 In der Tabellendarstellung haben wir auch einen Notation verwendet,
-in der die Unbekannten "uberhaupt nicht mehr vorkommen.
-Dies kann jedoch nicht nur ein praktische Abk"urzung sein, es muss mehr
+in der die Unbekannten überhaupt nicht mehr vorkommen.
+Dies kann jedoch nicht nur ein praktische Abkürzung sein, es muss mehr
 dahinter stecken.
 In diesem Abschnitt definieren wir die Vektoren und Matrizen, die zu
-einem Gleichungssystem geh"oren.
+einem Gleichungssystem gehören.
 
 \subsection{Vektoren}
 \subsubsection{Definition von Zeilen- und Spaltenvektoren}
-Die Operationen im L"osungsverfahren erfolgten jeweils Zeilen- oder Spaltenweise,
+Die Operationen im Lösungsverfahren erfolgten jeweils Zeilen- oder Spaltenweise,
 es ist daher sinnvoll, die Zeilen oder Spalten als eigene vollwertige 
 mathematische Objekte zu definieren.
 
@@ -1997,7 +2014,7 @@ heisst $m$-dimensionaler Spaltenvektor.
 Die Linearformen entsprechen also Zeilenvektoren, die rechte
 Seite des Gleichungssystems ist ein Spaltenvektor.
 
-Zeilen oder Spaltenvektoren k"urzen wir ab als ein einzelnes
+Zeilen oder Spaltenvektoren kürzen wir ab als ein einzelnes
 Zeichen, zum Beispiel
 \[
 a
@@ -2011,10 +2028,10 @@ b=\begin{pmatrix}
 \]
 
 \subsubsection{Rechenoperationen mit Vektoren}
-F"ur Zeilen- oder Spaltenvektoren k"onnen wir die Addition von
+Für Zeilen- oder Spaltenvektoren können wir die Addition von
 Vektoren und die Multiplikation mit reellen Zahlen definieren.
-Damit das "uberhaupt gehen kann, m"ussen die Vektoren nat"urlich
-die gleiche L"ange (Dimension) haben.
+Damit das überhaupt gehen kann, müssen die Vektoren natürlich
+die gleiche Länge (Dimension) haben.
 Die Operationen erfolgen elementweise:
 
 \begin{definition}
@@ -2055,14 +2072,14 @@ b_m+b'_m\\
 \end{pmatrix}
 \end{align*}
 \end{definition}
-Die Operationen {\bf E} und {\bf I} k"onnen wir jetzt mit Vektoren
+Die Operationen {\bf E} und {\bf I} können wir jetzt mit Vektoren
 beschreiben.
 Die Zeile mit der Nummer $i$ ist offenbar ein
 $n+1$-dimensionaler Zeilenvektoren $z_i$
 \[
 z_i=\begin{pmatrix}a_{i1}&a_{i2}&\dots&a_{im}&b_i\end{pmatrix}.
 \]
-Die Operation {\bf I} f"ur die $i$-te Zeile bedeutet jetzt, dass man
+Die Operation {\bf I} für die $i$-te Zeile bedeutet jetzt, dass man
 den Zeilenvektor $z_i$ ersetzt durch den neuen Zeilenvektor
 \[
 \frac1{a_{ii}}z_i
@@ -2079,15 +2096,15 @@ z_j \leftarrow z_j-a_{ji}z_i.
 \]
 
 \subsubsection{Gleichungssystem in Vektorschreibweise}
-Auch das Gleichungssystem selbst k"onnen wir mit Hilfe von Spaltenvektoren
+Auch das Gleichungssystem selbst können wir mit Hilfe von Spaltenvektoren
 schreiben.
 Betrachten wir die Spalten mit der Nummer $k$ als Spaltenvektor $a_k$,
 also
 \[
 a_k=\begin{pmatrix}a_{1k}\\a_{2k}\\\dots\\a_{mk}\end{pmatrix},
 \]
-und die rechten Seiten des Gleichungssystems wie fr"uher als Spaltenvektor $b$,
-dann k"onnen wir das Gleichungssystem schreiben als
+und die rechten Seiten des Gleichungssystems wie früher als Spaltenvektor $b$,
+dann können wir das Gleichungssystem schreiben als
 \[
 x_1\begin{pmatrix}a_{11}\\a_{21}\\\vdots\\a_{m1}\end{pmatrix}
 +
@@ -2105,13 +2122,13 @@ a_1x_1+a_2x_2+\dots+a_nx_n=b.
 \]
 
 \subsubsection{Spezielle Vektoren\label{speziellevektoren}}
-Die folgenden speziellen Vektoren sind oft n"utzlich.
+Die folgenden speziellen Vektoren sind oft nützlich.
 Der Nullvektor besteht
-aus lauter Nullen, wir schreiben daf"ur
+aus lauter Nullen, wir schreiben dafür
 \[
 0=\begin{pmatrix}0\\\vdots\\0\end{pmatrix}.
 \]
-Im Verfahren f"ur die simultane L"osung von Gleichungssystemen haben
+Im Verfahren für die simultane Lösung von Gleichungssystemen haben
 wir spezielle rechte Seiten verwendet, welche bis auf eine Stelle aus lauter
 Nullen bestehen.
 Diese Vektoren bezeichnen wir in Zukunft mit
@@ -2125,10 +2142,10 @@ e_n=\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}.
 
 \subsection{Matrizen}
 \subsubsection{Definition einer Matrix}
-Die Formulierung mit Zeilen- und Spaltenvektoren ist immer noch etwas umst"andlich,
-wir w"urden erwarten, dass auch das ganze Koeffizientenschema $(a_{ij})$
-eine eigenst"andiges mathematisches Objekt ist, immerhin bestimmt es den
-Gang des L"osungsverfahrens vollst"andig.
+Die Formulierung mit Zeilen- und Spaltenvektoren ist immer noch etwas umständlich,
+wir würden erwarten, dass auch das ganze Koeffizientenschema $(a_{ij})$
+eine eigenständiges mathematisches Objekt ist, immerhin bestimmt es den
+Gang des Lösungsverfahrens vollständig.
 
 \begin{definition}
 Das rechteckige Zahlenschema
@@ -2146,9 +2163,9 @@ heisst $m\times n$-Matrix.
 
 \subsubsection{Produkt einer Matrix mit einem Vektor}
 Um das Gleichungssystem mit der Koeffizientenmatrix $A$ zu beschreiben
-fehlt uns jetzt noch eine Verkn"upfung zwischen Matrizen und
+fehlt uns jetzt noch eine Verknüpfung zwischen Matrizen und
 Vektoren.
-Die folgende Definition tut, was wir uns w"unschen.
+Die folgende Definition tut, was wir uns wünschen.
 \begin{definition}
 Ist $A$ eine $m\times n$-Matrix und $x$ ein $n$-dimensionaler Spaltenvektor,
 dann definieren wir das Produkt $Ax$ also den $m$-dimensionalen
@@ -2215,25 +2232,25 @@ Av&=
 \end{beispiel}
 
 Mit diesen Definitionen ist das Gleichungssystem mit Koeffizientenmatrix $A$,
-dem L"osungs-Spaltenvektor $x$ und der rechten Seite $b$, ebenfalls einem
+dem Lösungs-Spaltenvektor $x$ und der rechten Seite $b$, ebenfalls einem
 Spaltenvektor, zu
 \[
 Ax=b
 \]
 geworden.
 Diese Schreibweise suggeriert, dass wir einfach auf beiden
-Seiten ``durch $A$ teilen'' k"onnten, um die L"osung zu finden.
+Seiten ``durch $A$ teilen'' könnten, um die Lösung zu finden.
 Auf dieses
 Ziel werden wir hinarbeiten, und eine Multiplikation und ``Division''
-von Matrizen definieren, so dass wir tats"achlich die L"osung des Gleichungssystems
+von Matrizen definieren, so dass wir tatsächlich die Lösung des Gleichungssystems
 mit Hilfe einer Formel
 \[
 x=A^{-1}b
 \]
-finden k"onnen.
+finden können.
 
-\subsubsection{Rechenregeln f"ur das Produkt Matrix $\times$ Vektor}
-F"ur das Produkt gelten die Regeln, die man sich von der Algebra 
+\subsubsection{Rechenregeln für das Produkt Matrix $\times$ Vektor}
+Für das Produkt gelten die Regeln, die man sich von der Algebra 
 gewohnt ist:
 \begin{equation}
 \begin{aligned}
@@ -2247,13 +2264,13 @@ Die Gleichungen (\ref{linearitaet-matrixvektor}) sehen aus wie
 man sagt, $A$ sei eine {\em lineare} Abbildung.
 
 \subsubsection{Produkt zweier Matrizen}
-Da Matrizen als ``dicke'' Vektoren aufgefasst werden k"onnen, lassen
+Da Matrizen als ``dicke'' Vektoren aufgefasst werden können, lassen
 sich jetzt auch Matrizen mit anderen Matrizen multiplizieren.
 Die Multiplikation erfolgt wie bei Vektoren als
 $\text{Zeilen}\times\text{Spalten}$, das Element in Zeile $i$
 und Spalte $j$ der Produktmatrix entsteht aus Zeile $i$ des ersten
 Faktors und Spalte $j$ des zweiten Faktors.
-Die Zeilenl"ange der ersten Matrix muss zur Spaltenl"ange
+Die Zeilenlänge der ersten Matrix muss zur Spaltenlänge
 der zweiten Matrix passen:
 \begin{align*}
 \left(\begin{tabular}{|c|c|c|c|c|}
@@ -2360,7 +2377,7 @@ Die beiden Produkte sind offensichtlich verschieden.
 \end{beispiel}
 
 \subsubsection{Transponierte Matrix}
-Hat eine Matrix linear abh"angige Zeilen, lassen sich die Zeilen
+Hat eine Matrix linear abhängige Zeilen, lassen sich die Zeilen
 linear zu einer Null-Zeile kombinieren.
 Die Zeilen der Matrix
 \[
@@ -2371,7 +2388,7 @@ a_{11}&\dots&a_{1n}\\
 a_{m1}&\dots&a_{mn}
 \end{pmatrix}
 \]
-sind also genau dann linear abh"angig, wenn das Gleichungssystem
+sind also genau dann linear abhängig, wenn das Gleichungssystem
 \[
 \begin{linsys}{4}
 a_{11}\lambda_1&+&a_{21}\lambda_2&+&\dots&+&a_{m1}\lambda_m&=&0\\
@@ -2380,11 +2397,11 @@ a_{12}\lambda_1&+&a_{22}\lambda_2&+&\dots&+&a_{m2}\lambda_m&=&0\\
 a_{1n}\lambda_1&+&a_{2n}\lambda_2&+&\dots&+&a_{mn}\lambda_m&=&0\\
 \end{linsys}
 \]
-eine L"osung hat, die nicht aus lauter Nullen besteht.
+eine Lösung hat, die nicht aus lauter Nullen besteht.
 Die Koeffizientenmatrix
 dieses Gleichungssystems entsteht dadurch, dass $A$ an der
 Diagonalen $a_{11}\dots a_{22}\dots a_{33}\dots$ gespiegelt wird.
-\begin{definition} Ist $A$ eine $m\times n$-Matrix mit Eintr"agen
+\begin{definition} Ist $A$ eine $m\times n$-Matrix mit Einträgen
 $a_{ij}$ in der $i$-ten Zeile und $j$-ten Spalte, dann heisst die
 gespiegelte Matrix
 \[
@@ -2473,8 +2490,8 @@ AA^t&=
 Man beachte, dass auch hier wieder $A^tA\ne AA^t$.
 \end{beispiel}
 
-\subsubsection{Rechenregeln f"ur Matrizen}
-Wir haben bereits fr"uher die Rechenregeln f"ur das Produkt einer Matrix
+\subsubsection{Rechenregeln für Matrizen}
+Wir haben bereits früher die Rechenregeln für das Produkt einer Matrix
 mit einem Vektor aufgestellt, und dabei festgestellt, dass die
 aus der Algebra vertrauten Regeln erhalten bleiben.
 Mit dem
@@ -2490,9 +2507,9 @@ A\lambda v&=\lambda Av&\Rightarrow&&A\lambda B&=\lambda AB
 
 \section{Inverse Matrix}
 \index{Matrix!inverse}
-Mit den neuen Notationen k"onnen wir jetzt auch das Verfahren zur simultanen
-L"osung mehrere Gleichungssysteme aus Abschnitt \ref{simultan} etwas
-"ubersichtlicher schreiben.
+Mit den neuen Notationen können wir jetzt auch das Verfahren zur simultanen
+Lösung mehrere Gleichungssysteme aus Abschnitt \ref{simultan} etwas
+übersichtlicher schreiben.
 Dazu brauchen wir die spezielle Matrix, die auf der Diagonalen Einsen hat
 und sonst nur Nullen.
 Diese Matrix heisst die Einheitsmatrix, wir bezeichnen sie mit
@@ -2503,14 +2520,14 @@ I=
 0&\dots&1
 \end{pmatrix},
 \]
-unabh"angig von der Anzahl Zeilen und Spalten, diese ist aus dem Zusammenhang
+unabhängig von der Anzahl Zeilen und Spalten, diese ist aus dem Zusammenhang
 zu entnehmen.
 
 Das Verfahren begann damit, an die gegebene Koeffizientenmatrix die Matrix $I$
-anzuh"angen.
+anzuhängen.
 Anschliessend wurde der Gauss-Algorithmus verwendet, bis in
-der linken H"alfte der Tabelle eine Einheitsmatrix stand.
-Symbolisch k"onnen wir dies durch
+der linken Hälfte der Tabelle eine Einheitsmatrix stand.
+Symbolisch können wir dies durch
 \begin{equation}
 \begin{tabular}{|c|c|}\hline
 $A$&$I$\\
@@ -2524,11 +2541,11 @@ $I$&$C$\\
 \label{gaussinverse}
 \end{equation}
 darstellen.
-Die Matrix $C$ enth"alt in ihren Spalten die L"osungen des
-Gleichungssystems f"ur die speziellen rechten Seiten, die nur aus Nullen
+Die Matrix $C$ enthält in ihren Spalten die Lösungen des
+Gleichungssystems für die speziellen rechten Seiten, die nur aus Nullen
 und einer Eins bestehen.
 
-Eine beliebige rechte Seite $b$ l"asst sich jetzt aus den speziellen rechten
+Eine beliebige rechte Seite $b$ lässt sich jetzt aus den speziellen rechten
 Seiten zusammensetzen:
 \[
 b=\begin{pmatrix}b_1\\b_2\\\vdots\\b_n\end{pmatrix}
@@ -2539,7 +2556,7 @@ b_2\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix}
 +\dots+
 b_n\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}
 \]
-wir versuchen daher, auch die L"osung aus den entsprechenden Spalten von $C$
+wir versuchen daher, auch die Lösung aus den entsprechenden Spalten von $C$
 aufzubauen:
 \begin{equation}
 x
@@ -2551,7 +2568,7 @@ b_2\begin{pmatrix}c_{12}\\c_{22}\\\vdots\\c_{n2}\end{pmatrix}
 b_n\begin{pmatrix}c_{1n}\\c_{2n}\\\vdots\\c_{nn}\end{pmatrix}.
 \label{zusammensetzen}
 \end{equation}
-Tats"achlich ergibt sich, wenn wir die Matrix $A$ auf diesen Vektor
+Tatsächlich ergibt sich, wenn wir die Matrix $A$ auf diesen Vektor
 anwenden
 \[
 Ax
@@ -2568,7 +2585,7 @@ b_2\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix}
 +\dots+
 b_n\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}=b,
 \]
-dieses $x$ ist also tats"achlich die gesuchte L"osung.
+dieses $x$ ist also tatsächlich die gesuchte Lösung.
 
 Das Element auf Zeile $i$ in 
 \ref{zusammensetzen} ist
@@ -2576,17 +2593,17 @@ Das Element auf Zeile $i$ in
 x_i=c_{i1}b_1+c_{i2}b_2+\dots+c_{in}b_n,
 \]
 dies ist aber nichts anderes als die $i$-te Komponente des Produktes
-$Cb$, die L"osung $x$ kann als mit Hilfe eines Matrizenproduktes gefunden
+$Cb$, die Lösung $x$ kann als mit Hilfe eines Matrizenproduktes gefunden
 werden:
 \[
 x = Cb.
 \]
-Die Matrix $C$ hat also offenbar eine ganz besondere Bedeutung f"ur die
-L"osung linearer Gleichungssysteme, ist sie einmal bestimmt, kann man das
-Gleichungssystem f"ur jede beliebige rechte Seite l"osen.
+Die Matrix $C$ hat also offenbar eine ganz besondere Bedeutung für die
+Lösung linearer Gleichungssysteme, ist sie einmal bestimmt, kann man das
+Gleichungssystem für jede beliebige rechte Seite lösen.
 Daher definieren wir
 \begin{definition}Die Matrix $C$ aus \ref{gaussinverse} heisst inverse
-Matrix von $A$, geschrieben $A^{-1}=C$, sie existiert immer, wenn $A$ regul"ar ist.
+Matrix von $A$, geschrieben $A^{-1}=C$, sie existiert immer, wenn $A$ regulär ist.
 \end{definition}
 Den Algorithmus zur Bestimmung der inversen Matrix kann also symbolisch
 als
@@ -2604,19 +2621,19 @@ I&A^{-1}\\
 \label{gaussinverse2}
 \end{equation}
 notiert werden.
-\begin{satz}Die L"osung eines Gleichungssystems
+\begin{satz}Die Lösung eines Gleichungssystems
 \[
 Ax=b
 \]
 mit
-regul"arer Koeffizientenmatrix $A$ ist
+regulärer Koeffizientenmatrix $A$ ist
 \[
 x=A^{-1}b.
 \]
 \end{satz}
 
 \begin{beispiel}
-Man finde die L"osung des Gleichungssystems
+Man finde die Lösung des Gleichungssystems
 \[
 Ax=
 \begin{pmatrix}
@@ -2711,7 +2728,7 @@ A^{-1}A&=
 =\begin{pmatrix}
 1&0&0\\0&1&0\\0&0&1\end{pmatrix}.
 \end{align*}
-Mit der inversen Matrix kann man jetzt auch die L"osung
+Mit der inversen Matrix kann man jetzt auch die Lösung
 \[
 \begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
 =A^{-1}
@@ -2735,10 +2752,10 @@ erhalten.
 \section{Homogene und Inhomogene Gleichungssysteme}
 \index{homogen}
 \index{inhomogen}
-Bei der Untersuchung der linearen Abh"angigkeit haben wir aus einem
+Bei der Untersuchung der linearen Abhängigkeit haben wir aus einem
 Gleichungssystem mit beliebigen rechten Seiten ein neues Gleichungssystem
 mit ausschliesslich Nullen auf der rechten Seite abgeleitet.
-Es gibt also einen Zusammenhang zwischen der L"osbarkeit des Systems 
+Es gibt also einen Zusammenhang zwischen der Lösbarkeit des Systems 
 $Ax=b$ mit $b\ne 0$ und $Ax=0$, die wir jetzt genauer untersuchen
 wollen.
 \begin{definition}
@@ -2753,72 +2770,72 @@ das Gleichungssystem mit Nullen auf der rechten Seite
 Ax=0\qquad\text{heisst homogen.}
 \]
 \end{definition}
-\subsection{Regul"are Koeffizientenmatrix}
-Ist $A$ regul"ar, dann hat das Gleichungssystem $Ax=b$ f"ur jede beliebige
-rechte Seite genau eine L"osung, insbesondere auch die Gleichung $Ax=0$.
-Die L"osung kann mit der inversen Matrix berechnet werden, also $x=A^{-1}b$,
-im Falle des homogenen Gleichungssystems ist die einzige L"osung also
-die Nulll"osung $x=0$.
+\subsection{Reguläre Koeffizientenmatrix}
+Ist $A$ regulär, dann hat das Gleichungssystem $Ax=b$ für jede beliebige
+rechte Seite genau eine Lösung, insbesondere auch die Gleichung $Ax=0$.
+Die Lösung kann mit der inversen Matrix berechnet werden, also $x=A^{-1}b$,
+im Falle des homogenen Gleichungssystems ist die einzige Lösung also
+die Nulllösung $x=0$.
 
-\subsection{Singul"are Koeffizientenmatrix}
-Ist $A$ singular, sind zwei Alternativen m"oglich: entweder hat das
-Gleichungssystem gar keine L"osung, oder es hat unendlich viele.
+\subsection{Singuläre Koeffizientenmatrix}
+Ist $A$ singular, sind zwei Alternativen möglich: entweder hat das
+Gleichungssystem gar keine Lösung, oder es hat unendlich viele.
 \begin{align*}
 Ax&=b&\qquad&\begin{cases}
-\text{keine L"osung}\\
-\text{unendlich viele L"osungen}
+\text{keine Lösung}\\
+\text{unendlich viele Lösungen}
 \end{cases}
 \\
 Ax&=0&\qquad&\begin{cases}
-\text{keine L"osung}&\text{$\Rightarrow$ kann wegen $A0=0$ nicht eintreten!}\\
-\text{unendlich viele L"osungen}&
+\text{keine Lösung}&\text{$\Rightarrow$ kann wegen $A0=0$ nicht eintreten!}\\
+\text{unendlich viele Lösungen}&
 \end{cases}
 \end{align*}
-Ein homogenes Gleichungssystem mit singul"arer Koeffizientenmatrix hat also
-immer unendlich viele L"osungen.
-Wir bezeichnen die L"osungsmenge des Systems $Ax=0$ mit $\mathbb L_h$:
+Ein homogenes Gleichungssystem mit singulärer Koeffizientenmatrix hat also
+immer unendlich viele Lösungen.
+Wir bezeichnen die Lösungsmenge des Systems $Ax=0$ mit $\mathbb L_h$:
 \[
 \mathbb L_h=\{x|Ax=0\}.
 \]
 
-Ist jetzt $x_p$ eine beliebige L"osung des inhomogenen Systems $Ax=b$, dann
-k"onnen wir weiter L"osungen finden, indem wir L"osungen $x_h\in\mathbb L_h$
+Ist jetzt $x_p$ eine beliebige Lösung des inhomogenen Systems $Ax=b$, dann
+können wir weiter Lösungen finden, indem wir Lösungen $x_h\in\mathbb L_h$
 dazuaddieren:
 \[
 A(x_p+x_h)=Ax_p+Ax_h=b+0=b,
 \]
-also ist $x_p+x_h$ auch wieder eine L"osung.
+also ist $x_p+x_h$ auch wieder eine Lösung.
 Umgekehrt ist die Differenz
-zwischen zwei L"osungen $x_p$ und $x_p'$ der inhomogenen Gleichung in
+zwischen zwei Lösungen $x_p$ und $x_p'$ der inhomogenen Gleichung in
 $\mathbb L_h$:
 \[
 A(x_p-x_p')=Ax_p-Ax_p'=b-b=0\quad\Rightarrow\quad (x_p-x_p')\in\mathbb L_h.
 \]
-Damit haben wir folgendes Rezept zur Bestimmung der L"osungsmenge des
+Damit haben wir folgendes Rezept zur Bestimmung der Lösungsmenge des
 inhomogenen Gleichungssystems gefunden
 \begin{satz}
-\index{partikulaer@partikul\"ar}
-Ist $x_p$ eine spezielle L"osung des inhomogenen Gleichungssystems $Ax=b$,
-auch partikul"are L"osung genannt,
-dann ist die L"osungsmenge dieses Gleichungssystems 
+\index{partikulaer@partikul\är}
+Ist $x_p$ eine spezielle Lösung des inhomogenen Gleichungssystems $Ax=b$,
+auch partikuläre Lösung genannt,
+dann ist die Lösungsmenge dieses Gleichungssystems 
 \[
 \mathbb L=\{x_p+x_h|x_h\in\mathbb L_h\},
 \]
-wobei $\mathbb L_h$ die L"osungsmenge des homogenen Gleichungssystems ist.
+wobei $\mathbb L_h$ die Lösungsmenge des homogenen Gleichungssystems ist.
 \end{satz}
-Der Satz leistet eine Aufteilung des Problems, alle L"osungen zu finden,
+Der Satz leistet eine Aufteilung des Problems, alle Lösungen zu finden,
 in die beiden Teilprobleme
 \begin{enumerate}
-\item Finden einer einzigen L"osung des inhomogenen Systems.
-\item Finden der L"osungsmenge des homogenen Systems.
+\item Finden einer einzigen Lösung des inhomogenen Systems.
+\item Finden der Lösungsmenge des homogenen Systems.
 \end{enumerate}
 Dieses Muster trifft man an vielen Orten in der Mathematik wieder, zum
-Beispiel bei der L"osung gew"ohnlicher Differentialgleichungen.
+Beispiel bei der Lösung gewöhnlicher Differentialgleichungen.
 Oft lassen sich die beiden Teilprobleme mit spezialisierten Techniken
-viel einfacher l"osen.
+viel einfacher lösen.
 
-Das Problem, die L"osungsmenge des homogenen Systems zu bestimmen wird
-dadurch vereinfacht, dass man in dieser L"osungsmenge rechnen kann.
+Das Problem, die Lösungsmenge des homogenen Systems zu bestimmen wird
+dadurch vereinfacht, dass man in dieser Lösungsmenge rechnen kann.
 Sind $x$ und $x'$  in $\mathbb L_h$, dann sind auch deren Summe und
 die Vielfachen in $\mathbb L_h$:
 \begin{align*}
@@ -2831,23 +2848,23 @@ bildet.
 
 \section{Rechenaufwand}
 \index{Rechenaufwand}
-Wir wollen den Rechenaufwand f"ur die Durchf"uhrung des Gauss-Verfahrens
+Wir wollen den Rechenaufwand für die Durchführung des Gauss-Verfahrens
 bestimmen.
-Diese Information wird zum Beispiel ben"otigt, wenn man mit
-einem Microcontroller einen Kalman-Filter implementieren m"ochte, dort
+Diese Information wird zum Beispiel benötigt, wenn man mit
+einem Microcontroller einen Kalman-Filter implementieren möchte, dort
 muss auch eine Matrix invertiert werden.
 \index{AVR}
 Ein typischer 8bit-Microcontroller (AVR)
-ben"otigt ca 200$\mu$s f"ur eine Multiplikation, und etwa 80$\mu$s f"ur
+benötigt ca 200$\mu$s für eine Multiplikation, und etwa 80$\mu$s für
 eine Addition\footnote{Zeitangaben aus der Microcontroller Performance
 Comparison auf \url {http://www.freertos.org.}}.
 \index{ARM}
 Ein 32bit-$\mu$C wie der ARM (LPC2106) ist wesentlich schneller,
 er schafft diese Operationen in etwa 10$\mu$s.
 Je nach Rechenaufwand kann
-es also n"otig sein, von einen schnelleren Prozessor zu verwenden.
+es also nötig sein, von einen schnelleren Prozessor zu verwenden.
 
-F"ur den $k$-ten Schritt beim Vorw"artsreduzieren muss die $k$-te
+Für den $k$-ten Schritt beim Vorwärtsreduzieren muss die $k$-te
 Zeile mit einer Zahl multipliziert werden ($n$ Operationen) und dann
 von $n-k$ Zeilen subtrahiert werden ($(n-k)n$ Operationen).
 Es sind also
@@ -2855,10 +2872,10 @@ Es sind also
 \sum_{k=1}^n n(n-k+1) = n^3 - n \sum_{k=1}^n k + n^2
 =n^3+n^2-n\frac{n(n+1)}2=\frac{n^2(n+1)}2 =O(n^3)
 \]
-Operationen n"otig.
+Operationen nötig.
 Bei $n=12$ Unbekannten braucht man also bereits
-$936$ Operationen, mehr als ungef"ahr sieben mal pro Sekunde kann man das mit
+$936$ Operationen, mehr als ungefähr sieben mal pro Sekunde kann man das mit
 einem 8bit AVR also nicht machen.
-Mit einem ARM7 dagegen k"onnte
-man dies "uber 100 Mal pro Sekunde durchf"uhren.
+Mit einem ARM7 dagegen könnte
+man dies über 100 Mal pro Sekunde durchführen.
 
