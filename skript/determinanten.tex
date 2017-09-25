@@ -1,48 +1,48 @@
 \chapter{Determinanten\label{chapter-determinanten}}
 \rhead{Determinanten}
-Die L"osungen eines linearen Gleichungssystems "andern sich nicht,
-wenn man die Operationen {\bf E} oder {\bf I} ausf"uhrt.
+Die Lösungen eines linearen Gleichungssystems ändern sich nicht,
+wenn man die Operationen {\bf E} oder {\bf I} ausführt.
 Es sollte
-also eine hoffentlich geringe Anzahl von ``Kennzahlen'' f"ur die
+also eine hoffentlich geringe Anzahl von ``Kennzahlen'' für die
 Koeffizienten $(a_{ij})$
 und die rechten Seiten geben, die sich unter {\bf E} und {\bf I}
-m"oglichst nicht "andern, und aus denen man die L"osung auch
+möglichst nicht ändern, und aus denen man die Lösung auch
 schon berechnen kann.
 Ziel dieses Kapitels ist, diese Kennzahlen zu finden.
 
 Es stellt sich heraus, dass es zu einer Matrix
 im wesentlichen nur eine solche Kennzahl gibt, die Determinante,
-die sich mit dem Gauss-Verfahren einfach berechnen l"asst.
+die sich mit dem Gauss-Verfahren einfach berechnen lässt.
 Sie erweist sich auch in anderen Anwendungen als praktisch.
-In sp"ateren Kapiteln
-wird sie zum Beispiel f"ur folgendes verwendet:
+In späteren Kapiteln
+wird sie zum Beispiel für folgendes verwendet:
 \index{Vektorprodukt}
 \index{Volumenberechnung}
 \index{Eigenwert}
 \index{Eigenvektor}
 \begin{compactitem}
-\item Kriterium f"ur L"osbarkeit eines Gleichungssystems
+\item Kriterium für Lösbarkeit eines Gleichungssystems
 \item Vektorprodukt
 \item Volumenberechnung
 \item Eigenwerte, charakteristisches Polynom
 \end{compactitem}
 \section{Begriff der Determinanten}
 Die Determinante soll eine Kennzahl liefern, an der sich ablesen
-l"asst, ob eine Matrix regul"ar oder singul"ar ist.
-Zur Definition kann man sich dabei auf den Gauss-Algorithmus st"utzen.
-F"ur das
+lässt, ob eine Matrix regulär oder singulär ist.
+Zur Definition kann man sich dabei auf den Gauss-Algorithmus stützen.
+Für das
 Arbeiten mit Determinanten ist das nicht praktisch, dazu werden
-Rechenregeln (Formeln) ben"otigt.
+Rechenregeln (Formeln) benötigt.
 Daraus ergibt sich dann mit
-dem Entwicklungssatz ein praktisch durchf"uhrbarer Algorithmus.
+dem Entwicklungssatz ein praktisch durchführbarer Algorithmus.
 Schliesslich kann man Determinanten sogar dazu verwenden, Gleichungssysteme
-zu l"osen oder Matrizen zu invertieren.
+zu lösen oder Matrizen zu invertieren.
 \subsection{Definition}
 \index{Determinante}
-Zu einer Matrix $A=(a_{ij})$ suchen wir eine Gr"osse
+Zu einer Matrix $A=(a_{ij})$ suchen wir eine Grösse
 $\det A$, welche folgende Eigenschaften hat:
 \begin{compactenum}
-\item $\det A$ "andert sich nicht unter der Operation $E$.\label{invarianzE}
+\item $\det A$ ändert sich nicht unter der Operation $E$.\label{invarianzE}
 \item Wird eine Zeile von $A$ mit $\lambda$ multipliziert,\label{skalarI}
 wird auch $\det A$ mit $\lambda$ multipliziert.
 \item $\det E=1$\label{normierung}
@@ -52,7 +52,7 @@ Im trivialen Fall des $1\times1$-Schemas folgt daraus bereits
 \det(a)\overset{\text{Eigenschaft \ref{skalarI}}}=a\det(1)\overset{\text{Eigenschaft \ref{normierung}}}=a\cdot 1=a.
 \]
 
-Aber auch f"ur den Fall $2\times 2$ k"onnen wir die L"osung
+Aber auch für den Fall $2\times 2$ können wir die Lösung
 bereits bestimmen.
 Dazu gehen wir wie folgt vor:
 \begin{align*}
@@ -121,9 +121,9 @@ c%
 \end{align*}
 Die Eigenschaften sind also offenbar bereits stark genug, um die
 Determinante festzulegen.
-F"ur die Determinante hat sich auch die
+Für die Determinante hat sich auch die
 Bezeichnung mit zwei vertikalen Linien links und rechts des
-Koeffizientenschemas eingeb"urgert:
+Koeffizientenschemas eingebürgert:
 \[
 \det\begin{pmatrix}a&b\\c&d\end{pmatrix}
 =
@@ -132,8 +132,8 @@ Koeffizientenschemas eingeb"urgert:
 ad-bc.
 \]
 
-\subsection{Rechenregeln f"ur Determinanten}
-Nach "ahnlichem Muster lassen sich auch aus den Eigenschaften auch
+\subsection{Rechenregeln für Determinanten}
+Nach ähnlichem Muster lassen sich auch aus den Eigenschaften auch
 noch weitere praktische Rechenregeln ableiten:
 
 \begin{hilfssatz}
@@ -145,13 +145,13 @@ lauter Nullen, ist auch $\det A=0$.
 \begin{proof}[Beweis]
 Multipliziert man die aus Nullen bestehende Zeilen mit $\lambda$
 wird $\det A$ nach Eigenschaft \ref{skalarI}  mit $\lambda$ multipliziert.
-Durch die Multiplikation "andern sich die Nullen in der Zeile allerdings
+Durch die Multiplikation ändern sich die Nullen in der Zeile allerdings
 nicht, es gilt also
 \[
 \lambda \det A=\det A
 \]
-f"ur jedes beliebige $\lambda$.
-Die einzige Zahl, die sich nicht "andert,
+für jedes beliebige $\lambda$.
+Die einzige Zahl, die sich nicht ändert,
 wenn man sie mit beliebigen Zahlen multipliziert, ist die Null.
 Also $\det A=0$.
 \end{proof}
@@ -162,7 +162,7 @@ gleich, dann ist $\det A=0$.
 \end{hilfssatz}
 \begin{proof}[Beweis]
 Subtrahiert man die erste der beiden gleichen Zeilen von der
-zweiten, "andert sich die Determinante nicht, denn dies ist eine
+zweiten, ändert sich die Determinante nicht, denn dies ist eine
 {\bf E}-Operation.
 In der zweiten Zeile stehen nach dieser Operation
 aber lauter Nullen, die Determinante muss nach Hilfssatz \ref{nullzeile}
@@ -171,10 +171,10 @@ also $0$ sein.
 
 \begin{hilfssatz}
 Vertauscht man in einer Matrix $A=(a_{ij})$ zwei
-Zeilen, dann "andert $\det A$ das Vorzeichen.
+Zeilen, dann ändert $\det A$ das Vorzeichen.
 \end{hilfssatz}
 \begin{proof}[Beweis]
-Die Zeilenvertauschung kann man in folgenden Schritten durchf"uhren:
+Die Zeilenvertauschung kann man in folgenden Schritten durchführen:
 \begin{compactenum}
 \item Erste Zeile von der zweiten subtrahieren:
 \[
@@ -249,7 +249,7 @@ a_{i1}&\dots&a_{ik}&\dots\\
 \end{pmatrix}
 \]
 \end{compactenum}
-Da die ersten drei Schritte {\bf E}-Operationen sind, "andert sich nach
+Da die ersten drei Schritte {\bf E}-Operationen sind, ändert sich nach
 Eigenschaft \ref{invarianzE} die Determinante dabei nicht.
 Die letzte
 Operation ist eine {\bf I}-Operation, nach Eigenschaft \ref{skalarI}
@@ -258,18 +258,18 @@ wird die Determinante dabei mit $-1$ multipliziert.
 
 \begin{hilfssatz}
 \label{detlinabh}
-Sind die Gleichungen eines Gleichungssystems linear abh"angig, dann
-gilt f"ur die Koeffizienten $\det A=0$.
+Sind die Gleichungen eines Gleichungssystems linear abhängig, dann
+gilt für die Koeffizienten $\det A=0$.
 \end{hilfssatz}
 \begin{proof}[Beweis]
-Wenn die Zeilen linear abh"angig sind, dann wissen wir bereits, dass
+Wenn die Zeilen linear abhängig sind, dann wissen wir bereits, dass
 im Gauss-Verfahren, bei welchem nur die Operationen {\bf I} und {\bf E}
 angewendet werden, am Ende mindestens eine Zeile aus lauter
 Nullen auftauchen muss.
 Am Ende des Prozesses ist die Determinante also $0$.
 
 Da die Operation {\bf E} die Determinante gar nicht,
-und {\bf I} nur um einen nicht verschwindenden Faktor "andert, muss
+und {\bf I} nur um einen nicht verschwindenden Faktor ändert, muss
 die Determinante also auch schon am Anfang des Prozesses $0$ gewesen
 sein.
 \end{proof}
@@ -277,8 +277,8 @@ sein.
 \subsection{Determinante als lineare Funktion der Zeilen\label{detlinfun}}
 Die bisher verwendeten Eigenschaften der Determinante hatten den
 Vorteil, einen direkten Bezug zu den Operationen zu haben, mit 
-denen wir Gleichungssysteme gel"ost haben.
-Sie hatten den Nachteil, etwas willk"urlich zu sein.
+denen wir Gleichungssysteme gelöst haben.
+Sie hatten den Nachteil, etwas willkürlich zu sein.
 Daher verwendet man oft die folgenden Eigenschaften, aus denen
 die bisherigen Eigenschaften folgen.
 
@@ -337,34 +337,34 @@ Setzt man
 $a'_{ki}=a_{ki}$, $a''_{ki}=a_{li}$, $\lambda=1$ entsteht auf der linken Seite
 die Determinante nach dem hinzuaddieren des $\mu$-fachen der $l$-ten Zeile
 zur $k$-ten Zeile, also das Resultat einer {\bf E}-Operation.
-Auf der rechten Seite steht als erster Term die urspr"ungliche Determinante,
+Auf der rechten Seite steht als erster Term die ursprüngliche Determinante,
 der zweite Term ist aber eine Determinante, in der die $k$-te und die
-$l$-te Zeile "ubereinstimmen, diese verschwindet also nach $2'$.
+$l$-te Zeile übereinstimmen, diese verschwindet also nach $2'$.
 Damit ist die Eigenschaft \ref{invarianzE}.~bewiesen.
 
 Setzt man $a'_{ki}=a_{ki}$ und $\mu=0$, steht auf der linken Seite
 die Determinante, in der die $k$-te Zeile mit $\lambda$ multipliziert
 wurde.
 Auf der rechten Seite steht die mit $\lambda$ multiplizierte
-Determinante, wegen $\mu=0$ f"allt der zweite Term weg.
+Determinante, wegen $\mu=0$ fällt der zweite Term weg.
 Somit ist auch die Eigenschaft \ref{skalarI}.~bewiesen.
 \end{proof}
 
-Wenn die Eigenschaften $1'$., $2'$.~und 3.~erf"ullt sind, sind also immer
-noch alle Schlussfolgerungen g"ultig, die wir aus den Eigenschaften
+Wenn die Eigenschaften $1'$., $2'$.~und 3.~erfüllt sind, sind also immer
+noch alle Schlussfolgerungen gültig, die wir aus den Eigenschaften
 1.~bis 3.~gezogen hatten.
 
-Der Vorteil dieser Eigenschaften gegen"uber den bisher verwendeten
-besteht darin, dass sich daraus eine Formel ableiten l"asst, aus
+Der Vorteil dieser Eigenschaften gegenüber den bisher verwendeten
+besteht darin, dass sich daraus eine Formel ableiten lässt, aus
 der weiter Eigenschaften der Determinante leichter abgeleitet
-werden k"onnen. 
+werden können. 
 
 Man kann zeigen, dass die Eigenschaften der Determinante diese
 eindeutig bestimmen.
 Es kann also nicht passieren, dass eine andere
-Reihenfolge der Pivot-Elemente zu einem anderen Resultat f"uhrt.
+Reihenfolge der Pivot-Elemente zu einem anderen Resultat führt.
 Da diese Eigenschaft auf eine Art beweisen wird, die uns keine
-anderen n"utzlichen Resultate liefert, verbannen wir den Beweis
+anderen nützlichen Resultate liefert, verbannen wir den Beweis
 in den letzten Abschnitt \ref{deteindeutig} dieses Kapitels.
 Wir halten hier nur das Resultat fest.
 
@@ -375,7 +375,7 @@ $\det A$
 ist die einzige lineare Funktion der Zeilen von $A$, die folgende zwei
 Eigenschaften hat:
 \begin{compactenum}
-\item Falls $A$ zwei gleiche Zeilen enth"alt ist $\det A=0$.
+\item Falls $A$ zwei gleiche Zeilen enthält ist $\det A=0$.
 \item $\det E = 1$.
 \end{compactenum}
 \end{satz}
@@ -383,7 +383,7 @@ Eigenschaften hat:
 \subsection{Spalten statt Zeilen}
 Die Definition verlangt explizit nach Zeilen-Operationen {\bf I}
 und {\bf E}.
-Wir k"onnten aber auch entsprechende Spalten-Operationen
+Wir könnten aber auch entsprechende Spalten-Operationen
 {\bf I$\mathstrut^t$}
 und
 {\bf E$\mathstrut^t$}
@@ -391,9 +391,9 @@ verwenden, um die Determinante zu definieren.
 Das vorgehen zur Berechnung der Determinante ist genau das selbe.
 Man wendet die Operationen an, bis nur noch die Einheitsmatrix stehen bleibt.
 
-Analog zum Vorgehen in Abschnitt \ref{detlinfun} k"onnen wir auch
+Analog zum Vorgehen in Abschnitt \ref{detlinfun} können wir auch
 fordern, dass die Determinante eine lineare Funktion der Spalten
-(statt der Zeilen) sein soll, und w"urden dieselbe Determinante
+(statt der Zeilen) sein soll, und würden dieselbe Determinante
 erhalten wie mit der Definition durch die Operationen 
 {\bf I$\mathstrut^t$}
 und
@@ -404,25 +404,25 @@ Die Determinante
 $\det A$ ist die einzige lineare Funktion der Spalten von $A$, die folgende
 zwei Eigenschaften hat:
 \begin{compactenum}
-\item Falls $A$ zwei gleiche Spalten enth"alt ist $\det A=0$.
+\item Falls $A$ zwei gleiche Spalten enthält ist $\det A=0$.
 \item $\det E = 1$.
 \end{compactenum}
 \end{satz}
-Im Prinzip k"onnte diese "uber die Spalten definierte Determinante
-von der "uber die Zeilen definierten Determinante verschieden sein.
-Im Abschnitt \ref{deteindeutig} wird jedoch eine Formel f"ur die
+Im Prinzip könnte diese über die Spalten definierte Determinante
+von der über die Zeilen definierten Determinante verschieden sein.
+Im Abschnitt \ref{deteindeutig} wird jedoch eine Formel für die
 Determinante abgeleitet, aus der hervorgeht, dass beide Definitionen
-auf den selben Wert f"ur die Determinante f"uhren.
+auf den selben Wert für die Determinante führen.
 
 \section{Berechnung der Determinanten}
 \subsection{Berechnung mit Gauss-Verfahren}
 Das Beispiel der $2\times 2$-Determinante aus dem ersten Abschnitt
-l"asst sich auch f"ur beliebig grosse Determinanten verallgemeinern,
-woraus sich ein effizientes Berechnungsverfahren f"ur die Determinante
+lässt sich auch für beliebig grosse Determinanten verallgemeinern,
+woraus sich ein effizientes Berechnungsverfahren für die Determinante
 ergibt.
 
-Im Laufe des Gauss-Verfahrens "andert sich die Determinante offenbar
-immer dann, wenn eine {\bf I}-Operation ausgef"uhrt wird.
+Im Laufe des Gauss-Verfahrens ändert sich die Determinante offenbar
+immer dann, wenn eine {\bf I}-Operation ausgeführt wird.
 In solchen Schritten wird durch das Pivot-Element dividiert.
 Am Ende des 
 Verfahrens bleibt die Einheitsmatrix stehen, welche die Determinante
@@ -449,15 +449,15 @@ die im Laufe des Gauss-Verfahrens auftreten.
 \index{Entwicklungssatz}
 \index{rekursiv}
 Der Entwicklungssatz erlaubt, Determinanten rekursiv zu berechnen.
-F"ur die Berechnung einer $n\times n$-Determinante werden $n$
-$(n-1)\times(n-1)$-Determinanten bestimmt und miteinander verkn"upft.
+Für die Berechnung einer $n\times n$-Determinante werden $n$
+$(n-1)\times(n-1)$-Determinanten bestimmt und miteinander verknüpft.
 Die Entwicklung einer Determinante erfolgt einer Spalte oder Zeile.
 Da wir durch Vertauschungen und Transposition diese Zeile oder Spalte
-immer zur vordersten Spalte machen k"onnen, stellen wir nur die
+immer zur vordersten Spalte machen können, stellen wir nur die
 Entwicklung der Determinante nach der ersten Spalte dar.
 
-Seien also $a_{ij}$ die Eintr"age in einer $n\times n$-Determinante.
-Die erste Spalte k"onnen wir als Summe von Vektoren betrachten,
+Seien also $a_{ij}$ die Einträge in einer $n\times n$-Determinante.
+Die erste Spalte können wir als Summe von Vektoren betrachten,
 die jeweils nur an einer Stelle eine Eins haben und sonst aus
 Nullen bestehen:
 \[
@@ -474,7 +474,7 @@ a_{21}\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix}
 a_{n1}\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}
 \]
 Da die Determinante eine lineare Funktion der Spalten ist,
-k"onnen wir dies einsetzen:
+können wir dies einsetzen:
 \begin{align*}
 \det(A)
 %=
@@ -563,7 +563,7 @@ gibt es nichts mehr zu tun, das dort stehende Pivot-Element ist
 bereits $1$.
 Es bleibt also nur noch die $(n-1)\times(n-1)$-Matrix
 im rechten unteren Teil, diese besteht aus den Zeilen und Spalten
-von $A$ die "ubrig bleiben, wenn man die erste Spalte wegstreicht,
+von $A$ die übrig bleiben, wenn man die erste Spalte wegstreicht,
 und im $i$-ten Summanden die $i$-te Zeile.
 Der Gauss-Algorithmus wird
 die Determinante dieser $(n-1)\times(n-1)$ Matrix liefern.
@@ -602,9 +602,9 @@ a_{n-1,2}&\dots&a_{n-1,n}
 \;\right|
 \end{align*}
 Wir verwenden folgende Notation, um diese Formel noch etwas kompakter
-auszudr"ucken.
+auszudrücken.
 \index{Minor}
-\begin{definition}Sei $A$ eine $n\times n$-Matrix mit Eintr"agen $a_{ij}$.
+\begin{definition}Sei $A$ eine $n\times n$-Matrix mit Einträgen $a_{ij}$.
 Dann heisst die Matrix $A_{ij}$, die sich aus $A$ durch wegstreichen
 der $i$-ten Zeile und der $j$-ten Spalte ergibt, der $i$-$j$-Minor der
 Matrix $A$.
@@ -630,7 +630,7 @@ die Entwicklung nach der ersten Spalte bzw.~Zeile, und
 die Entwicklung nach der $j$-ten Spalte bzw.~$i$-ten Zeile. 
 \end{satz}
 
-\begin{beispiel}Die zu Beginn des Kapitels gefundene Formel f"ur
+\begin{beispiel}Die zu Beginn des Kapitels gefundene Formel für
 die Determinante einer $2\times 2$-Matrix ist ein Spezialfall
 des Entwicklungssatzes
 \[
@@ -666,7 +666,7 @@ Der Entwicklungssatz liefert
 
 \subsection{Spezialfall: Dimension 3, die Sarrus Formel}
 \index{Sarrus-Formel}
-Mit diesem Satz l"asst sich jetzt auch die Sarrussche Formel einfach beweisen:
+Mit diesem Satz lässt sich jetzt auch die Sarrussche Formel einfach beweisen:
 \begin{align*}
 \left|\;
 \begin{matrix}
@@ -701,11 +701,11 @@ a_{22}&a_{23}
 a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}
 -a_{31}a_{22}a_{13}-a_{32}a_{23}a_{11}-a_{33}a_{21}a_{12}
 \end{align*}
-Achtung: diese Formel kann nicht auf gr"ossere Determinanten
+Achtung: diese Formel kann nicht auf grössere Determinanten
 verallgemeinert werden.
 
 \section{Produktformel}
-Wie vertr"agt sich die Determinante mit Matrizenprodukten?
+Wie verträgt sich die Determinante mit Matrizenprodukten?
 "Uberraschenderweise gibt es hierauf eine sehr einfach Antwort,
 die auch nicht schwierig zu verstehen ist.
 
@@ -718,21 +718,21 @@ Sind $A$ und $B$ $n\times n$-Matrizen, dann ist
 
 \begin{proof}[Beweisidee]
 Wir gehen den Beweis wie folgt an.
-Wir betrachten zun"achst nur die Abh"angigkeit von $\det(AB)$ von $A$.
+Wir betrachten zunächst nur die Abhängigkeit von $\det(AB)$ von $A$.
 Dabei werden wir feststellen,
-dass sich $\det(AB)$ fast wie die Determinante verh"alt, nur der
-Wert f"ur $A=E$ ist nicht der richtige, $\det(B)$ statt $1$.
+dass sich $\det(AB)$ fast wie die Determinante verhält, nur der
+Wert für $A=E$ ist nicht der richtige, $\det(B)$ statt $1$.
 Indem wir
 $\det(AB)$ durch $\det(B)$ dividieren, erhalten wir aber eine Funktion,
-die sich genau wie die Determinante verh"alt.
+die sich genau wie die Determinante verhält.
 Weil die Eigenschaften der Determinante diese eindeutig bestimmen, muss
-$\det(AB)/\det(B)=\det(A)$ sein, woraus wir die Behauptung folgern k"onnen.
+$\det(AB)/\det(B)=\det(A)$ sein, woraus wir die Behauptung folgern können.
 \end{proof}
 
 \begin{proof}[Beweis]
 Wir betrachten die Funktion $d\colon A\mapsto d(A) = \det(AB)$.
 Sie hat die folgenden Eigenschaften, die weiter unten noch
-begr"undet werden m"ussen:
+begründet werden müssen:
 \begin{enumerate}
 \item[1'.] $d$ ist eine lineare Funktion der Zeilen von $A$.
 \item[2.']
@@ -740,7 +740,7 @@ Hat $A$ zwei gleiche Zeilen, dann auch $AB$ und damit ist $d(A)=0$.
 \item[3.]
 $d(E)=\det(B)$.
 \end{enumerate}
-Die Funktion $d$ verh"alt sich bis auf die letzte Eigenschaft
+Die Funktion $d$ verhält sich bis auf die letzte Eigenschaft
 wie die Determinante.
 Dividiert man die Funktion $d$ durch die Determinante
 von $B$, ist auch die letzte Eigenschaft die einer Determinanten.
@@ -751,7 +751,7 @@ d':A\mapsto \frac{\det(AB)}{\det(B)}
 hat die Eigenschaften:
 \begin{enumerate}
 \item[1'.] $d'$ ist eine lineare Funktion der Zeilen von $A$.
-\item[2'.] Enth"alt $A$ zwei gleiche Zeilen, dann ist $d'(A)=0$.
+\item[2'.] Enthält $A$ zwei gleiche Zeilen, dann ist $d'(A)=0$.
 \item[3.] $d'(E)=1$.
 \end{enumerate}
 Nach Satz \ref{detcharacterisation} muss $d'$ die Determinante von $A$ sein:
@@ -766,7 +766,7 @@ Das beweist die Produktformel, bis auf die oben behaupteten Eigenschaften
 Die Zeile mit der Nummer $i$ in $AB$ wird erhalten,
 indem man die Zeile $i$ von $A$
 mit der Matrix $B$ multipliziert.
-Wenn also $A$ zwei gleiche Zeilen enth"alt, dann sind auch die
+Wenn also $A$ zwei gleiche Zeilen enthält, dann sind auch die
 entsprechenden Zeilen von $AB$ gleich.
 was Eigenschaft 2 beweist.
 
@@ -787,7 +787,7 @@ a''_{i1} &\dots &a''_{in}
 \end{pmatrix},
 \]
 dann ist die Zeile $i$ von $AB$ ebenfalls eine Linearekombination,
-n"amlich
+nämlich
 \[
 \begin{pmatrix}
 a_{i1}&\dots&a_{in}
@@ -803,18 +803,18 @@ a'_{i1} &\dots &a'_{in}
 a''_{i1} &\dots &a''_{in}
 \end{pmatrix}B.
 \]
-Schreiben wir $A'$ f"ur die Matrix, die in Zeile $i$ die $a'_{ij}$
-statt der $a_{ij}$ enthalten, und analog f"ur $A''$, dann folgt, dass
+Schreiben wir $A'$ für die Matrix, die in Zeile $i$ die $a'_{ij}$
+statt der $a_{ij}$ enthalten, und analog für $A''$, dann folgt, dass
 \[
 d(A) = \det(AB)=\lambda \det(A'B)+\mu\det(A''B)=\lambda d(A') + \mu d(A''),
 \]
 was genau die Eigenschaft 1 ist.
 \end{proof}
 
-Es gibt keine vergleichbare Formel f"ur die Determinante der Summe
+Es gibt keine vergleichbare Formel für die Determinante der Summe
 von zwei Matrizen.
 Schon $2\times 2$-Diagonalmatrizen zeigen uns,
-das wir eine solche Formel auch nicht erwarten k"onnen:
+das wir eine solche Formel auch nicht erwarten können:
 \begin{align*}
 A&=\begin{pmatrix}a&0\\0&1\end{pmatrix}&
 \det(A)&=\left|\;\begin{matrix}a  &0\\0&  1\end{matrix}\;\right|= a\\
@@ -828,27 +828,27 @@ A+B&=\begin{pmatrix}a+1&0\\0&b+1\end{pmatrix}
 Offenbar gibt es keine einfache Formel, die $\det(A+B)$ mit $\det(A)$ und
 $\det(B)$ verbindet.
 
-\section{L"osen von Gleichungssystemen}
+\section{Lösen von Gleichungssystemen}
 Aus dem Hilfssatz \ref{detlinabh} folgt sofort, dass ein Gleichungssystem
-genau dann eindeutig l"osbar ist, wenn die Determinante der Koeffizienten
+genau dann eindeutig lösbar ist, wenn die Determinante der Koeffizienten
 nicht $0$ ist.
 
 \begin{satz}
 Das Gleichungssystem mit $n$ Unbekannten und $n$ Gleichungen
-mit den Koeffizienten $a_{ij}$ ist genau dann eindeutig l"osbar,
+mit den Koeffizienten $a_{ij}$ ist genau dann eindeutig lösbar,
 wenn
 $\det A\ne 0$
 \end{satz}
 
-Wir m"ochten jetzt die in der Einleitung versprochen Formel f"ur die L"osung
-ableiten, mit der man die L"osung des Gleichungssystems aus lauter
+Wir möchten jetzt die in der Einleitung versprochen Formel für die Lösung
+ableiten, mit der man die Lösung des Gleichungssystems aus lauter
 Determinanten berechnen kann.
 
 \index{Cramersche Regel}
 \begin{satz}[Cramer]
 Das Gleichungssystem mit $n$ Unbekannten und $n$ Gleichungen
 mit den Koeffizienten $a_{ij}$ 
-mit $\det A\ne 0$ hat die L"osungen
+mit $\det A\ne 0$ hat die Lösungen
 \[
 x_1=\frac{
 \left|\,\begin{matrix}
@@ -883,7 +883,7 @@ von $A$, in der man die $k$-te Spalte durch die rechten Seiten $b_i$
 ersetzt hat, und der Determinanten von $A$.
 \end{satz}
 \begin{proof}[Beweis]
-Schreiben wir $a_1,\dots,a_n$ f"ur die Spalten von $A$ und $b$ f"ur die 
+Schreiben wir $a_1,\dots,a_n$ für die Spalten von $A$ und $b$ für die 
 Spalte der rechten Seite, dann bedeutet das Gleichungssystem, dass die
 Spalte $b$ geschrieben werden kann als eine Linearkombination der
 Spalten von $A$:
@@ -892,8 +892,8 @@ x_1a_1+\dots +x_na_n=b
 \label{glinspalten}
 \end{equation}
 Die Determinante von $A$ ist eine lineare Funktion jeder einzelnen Spalte.
-Wir betrachten f"ur den Moment nur die Abh"angigkeit von der $k$-ten
-Spalte und schreiben daf"ur
+Wir betrachten für den Moment nur die Abhängigkeit von der $k$-ten
+Spalte und schreiben dafür
 \[
 \Delta_k(u)=\left|
 \,\begin{matrix}
@@ -904,14 +904,14 @@ a_{n1}&\dots&u_n&\dots&a_{nn}
 \,\right|.
 \]
 Setzen wir beide Seiten von (\ref{glinspalten}) in $\Delta_k$ ein,
-erhalten wir unter Ausn"utzung der Linearit"at:
+erhalten wir unter Ausnützung der Linearität:
 \[
 x_1\Delta_k(a_1)+\dots+x_k\Delta_k(a_k)+\dots+x_n\Delta_k(a_n)=\Delta_k(b).
 \]
 Auf der linken Seite enthalten alle Terme ausser dem $k$-ten die
-Spalte $a_i$ zweimal, einmal am Platz $i$, und einmal neu eingef"ugt am
+Spalte $a_i$ zweimal, einmal am Platz $i$, und einmal neu eingefügt am
 Platz $k$.
-Da die Determinante verschwindet, wenn zwei Spalten "ubereinstimmen,
+Da die Determinante verschwindet, wenn zwei Spalten übereinstimmen,
 bleibt nur der $k$-te Term stehen:
 \[
 x_k\Delta_k(a_k)=\Delta_k(b)
@@ -934,15 +934,15 @@ a_{11}&\dots&b_1&\dots&a_{1n}\\
 a_{n1}&\dots&b_n&\dots&a_{nn}\\
 \end{matrix}\,\right|
 \]
-Die Behauptung folgt jetzt durch Aufl"osen nach $x_k$.
+Die Behauptung folgt jetzt durch Auflösen nach $x_k$.
 \end{proof}
-Dieser Satz stellt zwar eine h"ubsche Formel zur Berechnung der L"osung
-bereit, praktisch n"utzlich ist diese jedoch kaum.
+Dieser Satz stellt zwar eine hübsche Formel zur Berechnung der Lösung
+bereit, praktisch nützlich ist diese jedoch kaum.
 Die Berechnung der
-$n+1$ Determinanten ist bereits aufwendiger als die Durchf"uhrung des
-Gauss-Verfahrens, welches die L"osung auch schon liefert.
+$n+1$ Determinanten ist bereits aufwendiger als die Durchführung des
+Gauss-Verfahrens, welches die Lösung auch schon liefert.
 
-\begin{beispiel}Man finde die L"osung des Gleichungssystems
+\begin{beispiel}Man finde die Lösung des Gleichungssystems
 \[
 \begin{linsys}{4}
 -x&-&3y&&&=&\color[rgb]{0,0.5,0}-7\\
@@ -962,8 +962,8 @@ b=\begin{pmatrix}
 \color[rgb]{0,0.5,0}-7\\\color[rgb]{0,0.5,0}2\\\color[rgb]{0,0.5,0}-5
 \end{pmatrix}
 \]
-wobei wir fr"uher bereits $\det(A)=1$ gefunden haben.
-F"ur die L"osungen des Gleichungssystems bekommen wir damit
+wobei wir früher bereits $\det(A)=1$ gefunden haben.
+Für die Lösungen des Gleichungssystems bekommen wir damit
 \begin{align*}
 x&=\frac{
 \left|\;
@@ -1005,15 +1005,15 @@ z&=\frac{
 \section{Inverse Matrix}
 \index{inverse Matrix}
 Mit den im letzten Abschnitt beschriebenen Minoren kann man jetzt auch
-eine Formel f"ur die Elemente der inversen Matrix finden.
+eine Formel für die Elemente der inversen Matrix finden.
 Die inverse
-Matrix von $A$ hat in ihren Spalten die L"osungen $x$ des Gleichungssystems 
-$Ax=b$ f"ur ganz spezielle rechte Seiten $b$.
-Die $j$-te Spalte ist die L"osung zur rechten Seite $e_j$, dem Einheitsvektor,
+Matrix von $A$ hat in ihren Spalten die Lösungen $x$ des Gleichungssystems 
+$Ax=b$ für ganz spezielle rechte Seiten $b$.
+Die $j$-te Spalte ist die Lösung zur rechten Seite $e_j$, dem Einheitsvektor,
 der genau an der $j$-ten Stelle eine $1$ hat, und sonst aus lauter Nullen
 besteht.
 Nach der Cramerschen Regel kann man die $i$-te Unbekannte $x_i$
-in $Ax=e_j$ mit Determinanten berechnen, n"amlich
+in $Ax=e_j$ mit Determinanten berechnen, nämlich
 \[
 x_i=(-1)^{i+j}\frac{\det(A_{ji})}{\det(A)}.
 \]
@@ -1048,7 +1048,7 @@ A^{-1}=\frac1{\det(A)}\operatorname{cof}(A)^t
 \end{equation}
 \end{definition}
 
-F"ur $2\times2$-Matrizen f"uhrt dies auf die manchmal n"utzliche
+Für $2\times2$-Matrizen führt dies auf die manchmal nützliche
 Formel
 \[
 \begin{pmatrix}
@@ -1059,16 +1059,16 @@ a&b\\c&d
 d&-b\\-c&a
 \end{pmatrix}
 \]
-F"ur die Berechnung der Inversen gr"osserer Matrizen ist die Formel
-nur in ganz speziellen F"allen von Nutzen.
+Für die Berechnung der Inversen grösserer Matrizen ist die Formel
+nur in ganz speziellen Fällen von Nutzen.
 Die Berechnung der Inverse
 mit Hilfe des Gauss-Algorithmus erfordert im allgemeinen deutlich weniger
 Aufwand.
-Hingegen ist die Formel f"ur theoretische "Uberlegungen durchaus
+Hingegen ist die Formel für theoretische "Uberlegungen durchaus
 interessant.
 Es folgt aus ihr zum Beispiel, dass die Inverse einer
-Matrix mit ganzzahligen Eintr"agen und Determinante $1$ wieder
-lauter ganzzahlige Eintr"age hat.
+Matrix mit ganzzahligen Einträgen und Determinante $1$ wieder
+lauter ganzzahlige Einträge hat.
 Die Menge
 \[
 \operatorname{SL}_n(\mathbb Z)=\{A\in M_{n}(\mathbb Z)|\det(A)=1\},
@@ -1176,7 +1176,7 @@ Zur Kontrolle rechnen wir das Produkt nach:
 0&0&1
 \end{pmatrix}.
 \end{align*}
-Da wir in diesem Produkt die Determinanten $-3$ noch nicht ber"ucksichtigt
+Da wir in diesem Produkt die Determinanten $-3$ noch nicht berücksichtigt
 haben, ist das das zu erwartende Resultat.
 \end{beispiel}
 
@@ -1184,9 +1184,9 @@ haben, ist das das zu erwartende Resultat.
 In diesem Abschnitt wollen wir zeigen, dass die Determinante
 eindeutig ist.
 Wir gehen dazu wie folgt vor.
-Zun"achst zeigen wir,
+Zunächst zeigen wir,
 dass sich jede Determinantenberechnung auf die Berechnung der Determinanten
-von sehr speziellen $A$s zur"uckf"uhren l"asst, n"amlich solchen,
+von sehr speziellen $A$s zurückführen lässt, nämlich solchen,
 die genau eine $1$ in jeder Zeile und Spalte haben, und sonst nur
 Nullen enthalten.
 Im zweiten Schritt zeigen wir dann, dass diese
@@ -1209,9 +1209,9 @@ a_k=a_{1k}
 0\\0\\\vdots\\1
 \end{pmatrix}
 \]
-Setzt man dies als $k$-te Spalte in die Determinante ein (wir hatten fr"uher
-daf"ur die Bezeichnung $\Delta_k(a_k)$ eingef"uhrt), kann man mit
-der Linearit"at  die Determinante schreiben als
+Setzt man dies als $k$-te Spalte in die Determinante ein (wir hatten früher
+dafür die Bezeichnung $\Delta_k(a_k)$ eingeführt), kann man mit
+der Linearität  die Determinante schreiben als
 \[
 \det A=a_{1k}\Delta_k\left(
 \begin{matrix}
@@ -1250,15 +1250,15 @@ Am Ende bleibt eine Summe von Termen stehen, in der alle Determinanten
 in jeder Zeile und Spalte genau eine $1$ und sonst lauter Nullen
 enthalten.
 Die Vorfaktoren sind die Produkte der Koeffizienten in $A$,
-die an Stelle der $1$ in der urspr"unglichen Matrizen standen.
+die an Stelle der $1$ in der ursprünglichen Matrizen standen.
 
 Wir bezeichnen die speziellen Matrizen aus lauter Nullen und Einsen
 mit $\sigma$, und die Menge all dieser Matrizen mit $S_n$.
 Aus einem
-Index $i$ kann man die zugeh"orige Spalte $k$ herausfinden, indem
+Index $i$ kann man die zugehörige Spalte $k$ herausfinden, indem
 man die einzige Spalte in $\sigma$ sucht, welche an der $i$-ten
-Stelle eine $1$ enth"alt.
-Wir schreiben $\sigma(i)$ f"ur dieses $k$.
+Stelle eine $1$ enthält.
+Wir schreiben $\sigma(i)$ für dieses $k$.
 Mit dieser Schreibweise ist 
 \[
 \det A=\sum_{\sigma\in S_n}
@@ -1269,19 +1269,19 @@ a_{n\sigma(n)}
 \det \sigma.
 \]
 Aus dieser Formel ist jetzt klar, dass die Determinante nicht vom
-Vorgehen abh"angt.
+Vorgehen abhängt.
 
-Dieselben Aufl"osungen kann man auch mit Hilfe der Linearit"at der
+Dieselben Auflösungen kann man auch mit Hilfe der Linearität der
 Determinante als Funktion der Spalten vornehmen, dabei kommt die 
 gleiche Formel heraus.
 Wenn man jetzt noch zeigen kann, dass
-die Determinanten $\det\sigma$ nicht davon abh"angen, ob man von
+die Determinanten $\det\sigma$ nicht davon abhängen, ob man von
 Zeilen oder von Spalten ausgeht, dann ist klar, dass es nur eine
 Determinante gibt.
 
 Die Determinante von $\sigma$ muss $1$ oder $-1$ sein, denn durch
 Zeilenvertauschungen kann sie auf die Form $E$ gebracht werden.
 Alternativ kann dies mit Spaltenvertauschungen geschehen.
-Jede Vertauschung tr"agt einen Faktor $-1$ zum Wert der Determinante bei.
-Es kommt also nur darauf an, ob die Zahl der n"otigen
+Jede Vertauschung trägt einen Faktor $-1$ zum Wert der Determinante bei.
+Es kommt also nur darauf an, ob die Zahl der nötigen
 Vertauschungen gerade oder ungerade ist.

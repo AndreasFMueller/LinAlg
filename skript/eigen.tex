@@ -6,41 +6,41 @@ In vielen Anwendungen hat man ein Gleichungssystem der Form
 \[
 Ax=\lambda x
 \]
-zu l"osen, wobei nicht nur der Spaltenvektor $x$, sondern auch der
+zu lösen, wobei nicht nur der Spaltenvektor $x$, sondern auch der
 Parameter $\lambda$ unbekannt sind.
-Nat"urlich kann man ein solches Problem immer umschreiben in die Form
+Natürlich kann man ein solches Problem immer umschreiben in die Form
 \[
 (A-\lambda E) x=0,
 \]
 also ein Gleichungssystem, welches entweder gar keine, oder dann
-unendlich viele L"osungen hat.
+unendlich viele Lösungen hat.
 Daher interessiert die Frage 
-ganz besonders, f"ur welche $\lambda$ eine nicht triviale L"osung m"oglich ist.
+ganz besonders, für welche $\lambda$ eine nicht triviale Lösung möglich ist.
 
 In diesem Kapitel geht es darum, diese sogenannten Eigenwerte $\lambda$
-und die zugeh"origen L"osungsvektoren, die Eigenvektoren, zu finden.
+und die zugehörigen Lösungsvektoren, die Eigenvektoren, zu finden.
 Dieses
 Problem ist von grosser praktischer Bedeutung, sehr viele Anwendungsproblem
-lassen sich darauf zur"uckf"uhren.
+lassen sich darauf zurückführen.
 Es lohnt sich also, dieses Problem
-effizient l"osen zu k"onnen.
+effizient lösen zu können.
 Beispiele:
 \begin{compactitem}
-\item L"osung von linearen Differenzengleichungen
+\item Lösung von linearen Differenzengleichungen
 \index{lineare Differenzengleichung}
-\item L"osung von linearen Differentialgleichungen beliebiger Ordnung
+\item Lösung von linearen Differentialgleichungen beliebiger Ordnung
 \index{lineare Differentialgleichung}
 \item Schwingungen eines Bauwerks oder einer Maschine: die Bewegung wird durch
 eine partielle Differentialgleichung beschrieben, die Schwingungsfrequenzen
 werden durch die Eigenwerte gegeben.
-Um Resonanzen und damit die Zerst"orung
+Um Resonanzen und damit die Zerstörung
 zu verhindern, muss der Ingenieur die Eigenfrequenzen
-berechnen k"onnen.
+berechnen können.
 \index{Schwingung}
 \index{Eigenfrequenz}
 \item Resonanzen eines Hohlraumresonators: die Felder im Hohlraumresonator
 werden durch eine partielle Differentialgleichung beschrieben.
-Die Eigenfrequenzen sind Eigenwerte, der Ingenieur kann durch Ver"anderung
+Die Eigenfrequenzen sind Eigenwerte, der Ingenieur kann durch Veränderung
 der Geometrie des Hohlraumes das Frequenzspektrum anpassen.
 \index{Resonanz}
 \index{Hohlraumresonator}
@@ -49,8 +49,8 @@ der Geometrie des Hohlraumes das Frequenzspektrum anpassen.
 \item
 \index{Akustik}
 In der
-Akustik strebt man eine m"oglichst gleichm"assige Verteilung der Eigenfrequenzen
-eines Konzertsaals an, um dem Zuh"orer ein m"oglichst ausgewogenes Klangbild
+Akustik strebt man eine möglichst gleichmässige Verteilung der Eigenfrequenzen
+eines Konzertsaals an, um dem Zuhörer ein möglichst ausgewogenes Klangbild
 zu bieten.
 \item Klangspektrum eines Musikinstruments: Die Schwingungen eines Musikinstruments
 werden durch eine partielle Differentialgleichung beschrieben, die
@@ -59,8 +59,8 @@ Instruments vertreten sind.
 \index{Klangspektrum}
 \end{compactitem}
 Bis auf das erste Beispiel stehen Ihnen die mathematischen Mittel noch nicht
-zur Verf"ugung, auch nur die Problemstellung zu formulieren, daher beginnen
-wir mit einer Differenzengleichung als einf"uhrendes Beispiel.
+zur Verfügung, auch nur die Problemstellung zu formulieren, daher beginnen
+wir mit einer Differenzengleichung als einführendes Beispiel.
 
 \section{Problemstellung}
 In diesem Kapitel gehen wir immer von einer $n\times n$-Matrix $A$ aus.
@@ -72,10 +72,10 @@ Zahlen $\lambda\in\mathbb R$ so, dass $Ax=\lambda x$.
 
 {\parindent0pt Diese Problemstellung ist nicht ganz klar:}
 \begin{compactitem}
-\item Der Vektor $x=0$ ist immer eine L"osung, das Problem ist also
+\item Der Vektor $x=0$ ist immer eine Lösung, das Problem ist also
 nur dann interessant, wenn Vektoren $x\ne 0$ verlangt werden.
 \item Der Vektor $x$ ist nicht eindeutig bestimmt.
-Gilt $Ax=\lambda x$, dann gilt dasselbe auch f"ur $y=\mu x$:
+Gilt $Ax=\lambda x$, dann gilt dasselbe auch für $y=\mu x$:
 \[
 Ay= A(\mu x)=\mu Ax=\mu\lambda x = \lambda (\mu x)=\lambda y.
 \]
@@ -131,9 +131,9 @@ $e_i$ sind Eigenvektoren zum Eigenwert $\lambda_i$.
 Offenbar ist dies ein besonders einfacher Fall, die Basisvektoren sind
 alle Eigenvektoren.
 Es gibt einige Klassen von Matrizen, bei denen es
-immer m"oglich ist, eine Basis aus Eigenvektoren zu w"ahlen.
+immer möglich ist, eine Basis aus Eigenvektoren zu wählen.
 Hat die
-$n\times n$-Matrix $A$ $n$ linear unabh"angig Eigenvektoren $v_1,\dots,v_n$
+$n\times n$-Matrix $A$ $n$ linear unabhängig Eigenvektoren $v_1,\dots,v_n$
 mit Eigenwerten $\lambda_1,\dots,\lambda_n$, dann kann man die Wirkung
 der Matrix $A$ auf einen beliebigen Vektor $x=\alpha_1v_1+\dots+\alpha_nv_n$
 sofort berechnen:
@@ -157,33 +157,33 @@ Eine Matrix $A$ heisst diagonalisierbar, wenn es eine Basis aus
 Eigenvektoren gibt.
 \end{definition}
 
-Wir haben also die Gleichung $Ax=\lambda x$ zu l"osen.
-W"are $\lambda$ bekannt, k"onnten wir das Problem in ein Standardproblem
+Wir haben also die Gleichung $Ax=\lambda x$ zu lösen.
+Wäre $\lambda$ bekannt, könnten wir das Problem in ein Standardproblem
 umwandeln:
 \[
 Ax=\lambda x\qquad\Rightarrow\qquad Ax-\lambda Ex=(A-\lambda E)x=0
 \]
-gesucht ist also ein nicht verschwindende L"osung des homogenen
+gesucht ist also ein nicht verschwindende Lösung des homogenen
 Gleichungssystems mit
 Matrix $A-\lambda E$.
 Nur kennen wir $\lambda$ nicht.
 Allerdings
 liefert gerade die Bedingung, dass wir ein nicht verschwindende
-L"osung des homogenen Systems finden wollen, ein Kriterium zur
-Bestimmung von $\lambda$: $A-\lambda E$ muss singul"ar sein.
-Das Eigenwertproblem wird also in zwei Schritten gel"ost:
+Lösung des homogenen Systems finden wollen, ein Kriterium zur
+Bestimmung von $\lambda$: $A-\lambda E$ muss singulär sein.
+Das Eigenwertproblem wird also in zwei Schritten gelöst:
 \begin{compactenum}
-\item Bestimmung der m"oglichen Eigenwerte: f"ur welche Werte von $\lambda$
-ist $A-\lambda E$ singul"ar?
+\item Bestimmung der möglichen Eigenwerte: für welche Werte von $\lambda$
+ist $A-\lambda E$ singulär?
 \item Bestimmung der Eigenvektoren zu gegebenem Eigenwert: Finde die
-L"osungen von $(A-\lambda E)x=0$.
+Lösungen von $(A-\lambda E)x=0$.
 Hierzu kann der Gauss-Algorithmus
-verwendet werden, oder in einfachen F"allen auch die Cramersche Regel.
+verwendet werden, oder in einfachen Fällen auch die Cramersche Regel.
 \end{compactenum}
-Die folgenden Einf"uhrungsbeispiele sollen zeigen, wie das Eigenwertproblem
-in der Praxis auftaucht und gel"ost werden kann.
+Die folgenden Einführungsbeispiele sollen zeigen, wie das Eigenwertproblem
+in der Praxis auftaucht und gelöst werden kann.
 
-\section{Zwei Einf"uhrungsbeispiele}
+\section{Zwei Einführungsbeispiele}
 \subsection{Federkette}
 \begin{figure}
 \begin{center}
@@ -196,15 +196,15 @@ Wir betrachten $n$ gleiche Massen $m$, welche in einer Kette mit gleich
 starken Federn miteinander verbunden sind.
 Am Ende sind die Massen
 ebenfalls mit einer Feder verankert.
-Die Massen sollen sich nur entlang der Achse der Federkette bewegen k"onnen.
+Die Massen sollen sich nur entlang der Achse der Federkette bewegen können.
 Die Variablen $x_i(t)$ sind Funktionen, die die Auslenkung der Masse mit
 Nummer $i$ zur Zeit $t$ aus der Ruhelage beschreibt.
 Die Bewegungsgleichung sagt,
 dass die zweite Ableitung der Position die von den Federn bewirkte Kraft
 ist.
 Die Federkraft ist proportional zum Auslenkungsunterschied
-$x_{i+1}(t)-x_i(t)$ f"ur die ``rechte'' Feder, bzw.~
-$x_{i}(t)-x_{i-1}(t)$ f"ur die ``linke'' Feder.
+$x_{i+1}(t)-x_i(t)$ für die ``rechte'' Feder, bzw.~
+$x_{i}(t)-x_{i-1}(t)$ für die ``linke'' Feder.
 Die Kraft ist also
 \begin{align*}
 m\frac{d^2x_i(t)}{dt^2}
@@ -212,26 +212,26 @@ m\frac{d^2x_i(t)}{dt^2}
 &=K(x_{i+1}(t)-2x_i(t)+x_{i-1}(t))
 \end{align*}
 Aus der Erfahrung wissen wir, dass so eine Federkette schwingt, wir nehmen also
-an, dass wir eine L"osung in der Form $x_i(t)=x_i(0)\sin\omega t$ finden
-k"onnen.
+an, dass wir eine Lösung in der Form $x_i(t)=x_i(0)\sin\omega t$ finden
+können.
 Setzen wir dies ein, erhalten wir die Gleichungen
 \[
 -m\omega^2\sin\omega t x_i(0)=K(x_{i+1}(0)-2x_i(0)+x_{i-1}(0))\sin\omega t.
 \]
-Da diese Gleichung f"ur alle Zeitpunkte gelten muss, gilt sie auch f"ur
+Da diese Gleichung für alle Zeitpunkte gelten muss, gilt sie auch für
 Zeitpunkte, an denen $\sin\omega t\ne 0$, so dass man durch $\sin\omega t$
 teilen kann:
 \[
 -m\omega^2 x_i(0)=K(x_{i+1}(0)-2x_i(0)+x_{i-1}(0)).
 \]
-F"ur die Endpunkte der Kette gelten einfachere Formeln.
+Für die Endpunkte der Kette gelten einfachere Formeln.
 Auf die Masse $1$
-wirkt die Feder links mit der Kraft $-Kx_1(t)$, die Feder rechts "ubt die
+wirkt die Feder links mit der Kraft $-Kx_1(t)$, die Feder rechts übt die
 Kraft $K(x_2(t)-x_1(t))$ aus, so dass die Bewegungsgleichung hier zu
 \[
 -m\ddot x_1(t)=K(-2x_1(t)+x_2(t)),
 \]
-die Gleichung f"ur die Anfangswerte wird
+die Gleichung für die Anfangswerte wird
 \[
 \omega^2 x_1(0)=-\frac{K}{m}(-2x_1(0)+x_2(0)),
 \]
@@ -256,26 +256,26 @@ Die rechte Seite der Gleichung wird durch die Wirkung der $n\times n$-Matrix
 \]
 beschrieben.
 
-Unbekannt ist jetzt offenbar, welche Werte $\omega$ "uberhaupt eine nicht-%
-triviale L"osung erm"oglichen, also einen Vektor $x$ mit der Eigenschaft
+Unbekannt ist jetzt offenbar, welche Werte $\omega$ überhaupt eine nicht-%
+triviale Lösung ermöglichen, also einen Vektor $x$ mit der Eigenschaft
 \[
 \Delta x=\lambda x
 \]
 mit $\lambda=\omega^2$.
-Wenn wir die zul"assigen $\lambda$ bestimmen k"onnen,
-f"ur die sich eine L"osung $x$ finden l"asst, dann kennen wir offenbar auch
+Wenn wir die zulässigen $\lambda$ bestimmen können,
+für die sich eine Lösung $x$ finden lässt, dann kennen wir offenbar auch
 die Eigenfrequenzen, mit denen die Federkette schwingen kann.
 
 \subsubsection{Zwei Massen}
-F"ur nur zwei Massen wird die Matrix $\Delta$ zu
+Für nur zwei Massen wird die Matrix $\Delta$ zu
 \[
 \Delta=\begin{pmatrix}
 2&-1\\
 -1&2
 \end{pmatrix}.
 \]
-Um die Werte $\lambda$ zu finden, f"ur die $\Delta-\lambda E$ singul"ar
-wird, k"onnen wir das Determinanten-Kriterium verwenden:
+Um die Werte $\lambda$ zu finden, für die $\Delta-\lambda E$ singulär
+wird, können wir das Determinanten-Kriterium verwenden:
 \begin{align*}
 \left|\;\begin{matrix}
 2-\lambda&-1\\-1&2-\lambda
@@ -285,7 +285,7 @@ wird, k"onnen wir das Determinanten-Kriterium verwenden:
 \Rightarrow\qquad
 \lambda_{\pm}&=2\pm\sqrt{2^2-3}=\begin{cases}3\\1\end{cases}
 \end{align*}
-Die Eigenvektoren sind L"osungen des homogenen Gleichungssystems mit
+Die Eigenvektoren sind Lösungen des homogenen Gleichungssystems mit
 Koeffizientenmatrix $\Delta-\lambda E$.
 Einen Vektor im Nullraum
 von
@@ -329,12 +329,12 @@ was auch angezeigt wird durch die gleichen Vorzeichen
 der Komponenten von $v_-$.
 Bei der schnellen Schwingung mit Kreisfrequenz
 $\omega_+=\sqrt{\lambda_+}=\sqrt{3}\simeq 1.732$ bewegen sich die 
-beiden Massen gegenphasig, ausgedr"uckt auch durch
+beiden Massen gegenphasig, ausgedrückt auch durch
 die verschiedenen Vorzeichen der Komponenten von $v_+$.
 
 \subsubsection{Drei Massen}
-Auch f"ur drei Massen l"asst sich das Eigenwertproblem noch
-``von Hand'' l"osen.
+Auch für drei Massen lässt sich das Eigenwertproblem noch
+``von Hand'' lösen.
 Wir verwenden wieder das Determinanten-Kriterium
 \begin{align*}
 \det(\Delta -\lambda E)&=\left|\;
@@ -350,7 +350,7 @@ Wir verwenden wieder das Determinanten-Kriterium
 \lambda_1&=2\\
 \lambda_{2,3}&=2\pm\sqrt{2^2-2}=2\pm\sqrt{2}
 \end{align*}
-F"ur die Eigenvektoren finden wir
+Für die Eigenvektoren finden wir
 \begin{align*}
 \lambda&=\lambda_1=2:
 &
@@ -394,7 +394,7 @@ mittlere Eigenfrequenz: $\lambda=\lambda_1$:\\
 \includegraphics[width=\hsize]{images/e-6}\\
 \includegraphics[width=\hsize]{images/e-7}\\
 \\
-h"ochste Eigenfrequenz: $\lambda=\lambda_2$:\\
+höchste Eigenfrequenz: $\lambda=\lambda_2$:\\
 \includegraphics[width=\hsize]{images/e-10}\\
 \includegraphics[width=\hsize]{images/e-11}
 \end{tabular}
@@ -405,26 +405,26 @@ Diesmal gibt es drei Schwingungsmodi, von denen in Abbildung~\ref{n3modi}
 wieder jeweils die Extremlagen dargestellt sind.
 Zur geringsten Frequenz
 $\omega_3=\sqrt{\mathstrut\lambda_3}=\sqrt{2-\sqrt{2\mathstrut}}\simeq 0.7654$
-geh"ort eine Schwingung, bei der alle drei Massen in Phase
+gehört eine Schwingung, bei der alle drei Massen in Phase
 hin- und herschwingen, wobei die mittlere Masse eine 41\% 
-gr"ossere Amplitude hat (Abbildung~\ref{n3modi} unten).
-Zur h"ochsten Frequenz
+grössere Amplitude hat (Abbildung~\ref{n3modi} unten).
+Zur höchsten Frequenz
 $\omega_2=\sqrt{\lambda_2}=\sqrt{2+\sqrt{2}}\simeq 1.848$
-geh"ort eine Schwingung, bei der die "ausseren Massen in Phase sind,
+gehört eine Schwingung, bei der die äusseren Massen in Phase sind,
 aber gegenphasig zur mittleren Massen schwingen, die wieder etwa
-41\% gr"ossere Amplitude hat (Abbildung~\ref{n3modi} Mitte).
+41\% grössere Amplitude hat (Abbildung~\ref{n3modi} Mitte).
 Die mittlere Frequenz $\omega_1=\sqrt{\lambda_1}=\sqrt{2}\simeq 1.414$
-geh"ort zu einer Schwingung, bei der die mittlere Masse stehenbleibt,
-w"ahrend die "ausseren beiden Massen gegenphasig schwingen (Abbildung~\ref{n3modi} oben).
+gehört zu einer Schwingung, bei der die mittlere Masse stehenbleibt,
+während die äusseren beiden Massen gegenphasig schwingen (Abbildung~\ref{n3modi} oben).
 
 \subsubsection{Numerische Resultate}
 Mindestens numerisch kann man jetzt bereits viele bekannte
-Schwingungs-Ph"anomene verstehen.
+Schwingungs-Phänomene verstehen.
 Schon aus den Beispielen
 $n=2$ und $n=3$ ist plausibel, dass bei der langsamsten Schwingung
 alle $n$ Massen in Phase schwingen.
-Zur h"ochsten Frequenz wird
-dagegen die Schwingung geh"oren, bei der die geraden untereinander
+Zur höchsten Frequenz wird
+dagegen die Schwingung gehören, bei der die geraden untereinander
 und die ungeraden Massen untereinander in Phase sind.
 
 \begin{table}
@@ -447,10 +447,10 @@ i&\omega_i&\omega_i/\omega_1\\
 \label{frequenzen-federkette}}
 \end{table}
 
-Bestimmen wir die Eigenfrequenzen f"ur $n=100$ numerisch, finden wir
+Bestimmen wir die Eigenfrequenzen für $n=100$ numerisch, finden wir
 die Frequenzen in Tabelle~\ref{frequenzen-federkette}.
-Es f"allt auf, dass
-in guter N"aherung die h"oheren Eigenfrequenzen ganzzahlige Vielfache
+Es fällt auf, dass
+in guter Näherung die höheren Eigenfrequenzen ganzzahlige Vielfache
 der Grundfrequenz sind.
 
 \begin{figure}
@@ -464,10 +464,10 @@ Massen\label{eigenvektoren-n100}}
 \end{figure}
 In Abbildung \ref{eigenvektoren-n100} sind die Komponenten der drei
 Eigenvektoren mit der geringsten Frequenz dargestellt.
-Die "Ahnlichkeit mit den Sinusfunktionen l"asst sich dadurch erkl"aren,
+Die "Ahnlichkeit mit den Sinusfunktionen lässt sich dadurch erklären,
 dass die Federkette die diskrete Variante eines kontinuierlichen
-Problems ist, n"amlich der Schwingung einer Saite, deren L"osungen
-tats"achlich die trigonometrischen Funktionen sind.
+Problems ist, nämlich der Schwingung einer Saite, deren Lösungen
+tatsächlich die trigonometrischen Funktionen sind.
 
 \subsection{Fibonacci-Zahlen}
 \index{Fibonacci-Folge}
@@ -475,14 +475,14 @@ In der Folge der Fibonacci-Zahlen
 \[
 0,1,1,2,3,5,8,13,21,34,55,89,144,\dots
 \]
-entsteht das n"achste Element als Summe der beiden vorangegangenen
+entsteht das nächste Element als Summe der beiden vorangegangenen
 Elemente.
 Die Folge ist offenbar festgelegt, wenn man die zwei ersten
 Werte $0$ und $1$ festlegt.
 Durch Wahl eines anderen Paares von Startzahlen
-erh"alt man eine alternative Fibonacci-Folge.
+erhält man eine alternative Fibonacci-Folge.
 Die Fibonacci-Zahlen
-erf"ullen die Gleichung 
+erfüllen die Gleichung 
 \[
 x_{n+1}=x_n+x_{n-1},
 \]
@@ -491,7 +491,7 @@ auch
 \begin{equation}
 x_{n+1}-x_n-x_{n-1}=0
 \end{equation}
-schreiben k"onnen.
+schreiben können.
 Eine solche Gleichung heisst eine Differenzengleichung.
 
 \begin{figure}
@@ -503,8 +503,8 @@ Eine solche Gleichung heisst eine Differenzengleichung.
 \includegraphics[width=0.47\hsize]{graphics/helianthus-fibonacci4.jpg}
 \end{tabular}
 \end{center}
-\caption{Die Anzahl der Spiralen in den Bl"utenst"anden von Sonnenblumen
-sind aufeinanderfolgende Fibonacci-Zahlen, hier $21$ (rot) und $34$ (gr"un).
+\caption{Die Anzahl der Spiralen in den Blütenständen von Sonnenblumen
+sind aufeinanderfolgende Fibonacci-Zahlen, hier $21$ (rot) und $34$ (grün).
 \label{helianthus}}
 \end{figure}
 
@@ -516,15 +516,15 @@ Die Fibonacci-Zahlen kommen erstaunlich oft vor:
 \index{Romanesco-Broccoli}
 \index{goldener Schnitt}
 \index{Lateralus}
-\item In den Bl"utenst"anden von Sonnenblumen kann man jeweils zwei
+\item In den Blütenständen von Sonnenblumen kann man jeweils zwei
 Scharen von Spiralen erkennen, auf denen die Sonnenblumenkerne angeordnet sind.
 Die Anzahlen der Spiralen in jeder Schar sind jeweils zwei aufeinanderfolgende
 Fibonacci-Zahlen (Abbildung~\ref{helianthus}).
 \item Auch in Tannenzapfen, auf einer Ananas oder auf Romanesco-Broccoli
 kann man diese Spiralen erkennen.
-\item Das Verh"altnis aufeinanderfolgender Fibonacci-Zahlen strebt gegen
-$\frac{1+\sqrt{5}}2$, dem Verh"altnis des goldenen Schnittes, dem schon die
-Griechen besondere "asthetische Qualit"aten nachsagten.
+\item Das Verhältnis aufeinanderfolgender Fibonacci-Zahlen strebt gegen
+$\frac{1+\sqrt{5}}2$, dem Verhältnis des goldenen Schnittes, dem schon die
+Griechen besondere ästhetische Qualitäten nachsagten.
 \item Im Song `Lateralus' der Gruppe Tool ist die Anzahl der Silben
 in jedem Textblock eine Fibonacci-Zahl, und auch der Rhythmus basiert
 auf den Fibonacci-Zahlen.
@@ -554,12 +554,12 @@ A
 \begin{pmatrix}x_n\\x_{n-1}\end{pmatrix}.
 \label{fibonaccirekursion}
 \end{equation}
-\subsubsection{L"osung als Eigenwertproblem}
-Nat"urlich ist es etwas umst"andlich, zum Beispiel die 1291-ste Fibonacci-Zahl
-zu berechnen, da w"are eine Formel $f(n)$ sehr praktisch, in der man einfach
-die Zahl 1291 einsetzen k"onnte.
+\subsubsection{Lösung als Eigenwertproblem}
+Natürlich ist es etwas umständlich, zum Beispiel die 1291-ste Fibonacci-Zahl
+zu berechnen, da wäre eine Formel $f(n)$ sehr praktisch, in der man einfach
+die Zahl 1291 einsetzen könnte.
 Die Fibonacci-Zahlen nehmen sehr schnell zu, 
-wir versuchen die L"osung in der Form
+wir versuchen die Lösung in der Form
 \[
 f(n)=a\lambda^n
 \]
@@ -569,7 +569,7 @@ zu finden. Eingesetzt in (\ref{fibonaccirekursion}) ergibt sich
 =A\begin{pmatrix}a\lambda^n\\a\lambda^{n-1}\end{pmatrix}.
 \]
 Der Vektor auf der linken Seite ist das $\lambda$-fache des Vektors
-auf der rechten Seite, wenn es also "uberhaupt eine L"osung in der
+auf der rechten Seite, wenn es also überhaupt eine Lösung in der
 Form $f(n)=a\lambda^n$ gibt, dann gibt es auch einen Vektor $y$, der
 die Gleichung
 \begin{equation}
@@ -577,14 +577,14 @@ Ay=\lambda y, \qquad y=\begin{pmatrix}
 a\lambda^n\\a\lambda^{n-1}
 \end{pmatrix}
 \end{equation}
-erf"ullt. In diesem Gleichungssystem kommen die Unbekannten auch auf
+erfüllt. In diesem Gleichungssystem kommen die Unbekannten auch auf
 der rechten Seite vor, die Standard-Form ist daher
 \[
 Ay-\lambda y=(A-\lambda I)y=0.
 \]
-Wir m"ussen also herausfinden, f"ur welche Werte von $\lambda$ dieses
-Gleichungssystem "uberhaupt eine nichttriviale L"osung (und damit unendlich
-viele L"osungen) hat.
+Wir müssen also herausfinden, für welche Werte von $\lambda$ dieses
+Gleichungssystem überhaupt eine nichttriviale Lösung (und damit unendlich
+viele Lösungen) hat.
 Dies geschieht genau dann, wenn die Determinante der Matrix
 \[
 A-\lambda I=\begin{pmatrix}1-\lambda&1\\1&-\lambda\end{pmatrix}
@@ -596,12 +596,12 @@ Berechnung der Determinante ergibt die quadratische Gleichung
 \begin{pmatrix}1-\lambda&1\\1&-\lambda\end{pmatrix}
 =(1-\lambda)(-\lambda)-1=\lambda^2-\lambda-1=0.
 \]
-Sie hat die L"osungen
+Sie hat die Lösungen
 \[
 \lambda_{\pm}=\frac12+\pm\sqrt{\frac14+1}=\frac{1\pm\sqrt{5}}2.
 \]
-F"ur jeden Wert $\lambda_{\pm}$ gibt es einen nichttrivialen
-L"osungsvektor, den man durch L"osen des Gleichungssystems nach
+Für jeden Wert $\lambda_{\pm}$ gibt es einen nichttrivialen
+Lösungsvektor, den man durch Lösen des Gleichungssystems nach
 Einsetzen von $\lambda_{\pm}$ erhalten kann.
 
 Setzt man $\lambda_+$ ein, bekommt man die Koeffizientenmatrix
@@ -616,7 +616,7 @@ A-\lambda_+I=
 \end{pmatrix}
 \]
 Wir wissen bereits, dass das Gleichungssystem $(A-\lambda_+I)y=0$
-eine nichttriviale L"osung hat, zum Beispiel
+eine nichttriviale Lösung hat, zum Beispiel
 \[
 y_+=\begin{pmatrix}
 \frac{1+\sqrt{5}}2\\1
@@ -625,7 +625,7 @@ y_+=\begin{pmatrix}
 \lambda_+\\1
 \end{pmatrix}
 \]
-Analog hat man f"ur $\lambda_-$ die Matrix
+Analog hat man für $\lambda_-$ die Matrix
 \[
 A-\lambda_-I=
 \begin{pmatrix}
@@ -633,7 +633,7 @@ A-\lambda_-I=
 1&-\frac{1-\sqrt{5}}2
 \end{pmatrix}
 \]
-und eine nichttriviale L"osung 
+und eine nichttriviale Lösung 
 \[
 y_-=\begin{pmatrix}
 \frac{1-\sqrt{5}}2\\
@@ -651,8 +651,8 @@ Wir haben inzwischen die Folgen
 1&\lambda_-&\lambda_-^2&\lambda_-^3&\lambda_-^4&\dots
 \end{matrix}
 \]
-gefunden, die beide L"osungen des Rekursionsgleichung sind, die Summe
-zweier Folgenglieder ergibt das n"achste Glied.
+gefunden, die beide Lösungen des Rekursionsgleichung sind, die Summe
+zweier Folgenglieder ergibt das nächste Glied.
 Diese Eigenschaft bleibt auch erhalten, wenn wir zwei beliebige
 Vielfache dieser Folgen addieren.
 Die Folge
@@ -667,9 +667,9 @@ A+B,
 &\dots
 \end{matrix}
 \]
-ist auch eine L"osung der Rekursionsgleichung.
-Tats"achlich k"onnen
-wir die L"osung
+ist auch eine Lösung der Rekursionsgleichung.
+Tatsächlich können
+wir die Lösung
 $x_n=A\lambda_+^n + B\lambda_-^n$
 in die Rekursionsgleichung einsetzen:
 \begin{align*}
@@ -685,11 +685,11 @@ B(\lambda_-^{n+1}-\lambda_-^n-\lambda_-^{n-1})
 \\
 &=0
 \end{align*}
-Die Klammerausdr"ucke verschwinden, weil $\lambda_+^n$ und $\lambda_-^n$
-f"ur sich bereits L"osungen der Rekursionsgleichung sind.
+Die Klammerausdrücke verschwinden, weil $\lambda_+^n$ und $\lambda_-^n$
+für sich bereits Lösungen der Rekursionsgleichung sind.
 
-Wir m"ochten jetzt eine Folge konstruieren, die mit bestimmten Werten
-$0$ und $1$ beginnt, dazu m"ussen wir die Koeffizienten $A$ und $B$
+Wir möchten jetzt eine Folge konstruieren, die mit bestimmten Werten
+$0$ und $1$ beginnt, dazu müssen wir die Koeffizienten $A$ und $B$
 bestimmen:
 \[
 \begin{matrix}
@@ -704,8 +704,8 @@ Es ist also ein Gleichungssystem mit Matrix
 1&1\\\lambda_+&\lambda_-
 \end{pmatrix}
 \]
-und den gew"unschten Anfangswerten als rechten Seiten zu l"osen.
-In diesem speziellen Fall ist das Determinanten-Verfahren zweckm"assig:
+und den gewünschten Anfangswerten als rechten Seiten zu lösen.
+In diesem speziellen Fall ist das Determinanten-Verfahren zweckmässig:
 \begin{align*}
 A&=\frac{
 \left|
@@ -745,9 +745,9 @@ x_n=\frac1{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^n
 -\frac1{\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^n
 \label{fibonacci}
 \end{equation}
-die gesuchte geschlossene Formel f"ur die Fibonacci-Zahlen.
-Es ist auf den ersten Blick "uberraschend, dass die Formel
-(\ref{fibonacci}) f"ur jeden Wert von $n$ einen nat"urliche
+die gesuchte geschlossene Formel für die Fibonacci-Zahlen.
+Es ist auf den ersten Blick überraschend, dass die Formel
+(\ref{fibonacci}) für jeden Wert von $n$ einen natürliche
 Zahl ergibt, obwohl jeder einzelne Summand irrational ist.
 
 Man kann aus (\ref{fibonacci}) auch andere Eigenschaften der
@@ -763,7 +763,7 @@ Zum Beispiel ist der Quotient zweier aufeinanderfolgender Fibonacci-Zahlen
 \lambda_+\frac{1-q^{n+1}}{1-q^n},
 \end{align*}
 wobei $q=\lambda_+/\lambda_-$.
-Da $q<1$ ist, werden die Potenzen $q^n$ f"ur grosse $n$ beliebig klein,
+Da $q<1$ ist, werden die Potenzen $q^n$ für grosse $n$ beliebig klein,
 und damit auch
 \[
 \lim_{n\to\infty}\frac{x_{n+1}}{x_n}=\lambda_+,
@@ -772,8 +772,8 @@ der Quotient aufeinanderfolgender Fibonacci-Zahlen strebt also gegen
 $\lambda_+$.
 
 \subsubsection{Verallgemeinerung}
-Das eben dargestellte Verfahren zur L"osung einer endlichen 
-Differenzengleichung l"asst sich verallgemeinern.
+Das eben dargestellte Verfahren zur Lösung einer endlichen 
+Differenzengleichung lässt sich verallgemeinern.
 Eine Differenzengleichung der Form
 \[
 x_{n+1}=a_kx_n+a_{k-1}x_{n-1}+\dots+a_1x_{n-k+1}+a_0x_{n-k}
@@ -832,23 +832,23 @@ Eigenwert-Problem
 =Ax
 \]
 Im allgemeinen wird es $k$ verschiedene Werte $\lambda_1,\dots\lambda_k$ geben,
-f"ur die dieses Gleichungssystem eine nichttriviale L"osung hat.
-Eine Linearkombination der L"osungen $\lambda_i^n$ ist wiederum eine
-L"osung der Differenzengleichung.
-Sogar die Wachstumseigenschaft l"asst
+für die dieses Gleichungssystem eine nichttriviale Lösung hat.
+Eine Linearkombination der Lösungen $\lambda_i^n$ ist wiederum eine
+Lösung der Differenzengleichung.
+Sogar die Wachstumseigenschaft lässt
 sich verallgemeinern: der Quotient aufeinanderfolgender Folgenglieder
-einer L"osung strebt gegen den betragsm"assig gr"ossten Eigenwert $\lambda_i$
-unter den zur L"osung kombinierten $\lambda_i^n$.
+einer Lösung strebt gegen den betragsmässig grössten Eigenwert $\lambda_i$
+unter den zur Lösung kombinierten $\lambda_i^n$.
 
 \section{Charakteristische Gleichung}
 \index{charakteristische Gleichung}
 Welche Eigenwerte und Eigenvektoren hat eine Matrix? Ein Eigenvektor 
 ist ein von $0$ verschiedener Vektor $x$, der die Gleichung
-$Ax=\lambda x$ erf"ullt, oder wie wir fr"uher gesehen haben,
-eine nicht verschwindende L"osung des homogenen Gleichungssystems
+$Ax=\lambda x$ erfüllt, oder wie wir früher gesehen haben,
+eine nicht verschwindende Lösung des homogenen Gleichungssystems
 $(A-\lambda E)x=0$.
 Im Kapitel \ref{chapter-determinanten} wurde gezeigt, dass ein eine solche
-L"osung nur dann existieren kann, wenn die Determinante des Gleichungssystems
+Lösung nur dann existieren kann, wenn die Determinante des Gleichungssystems
 verschwindet, also
 \[
 \det(A-\lambda E)=
@@ -862,7 +862,7 @@ a_{n1}&a_{n2}&\dots&a_{nn}-\lambda
 \right|
 \]
 Die Determinante ist ein Polynom $n$-ten Grades in $\lambda$, das Finden der
-Eigenwerte l"auft also darauf hinaus, Nullstellen eines Polynoms zu finden.
+Eigenwerte läuft also darauf hinaus, Nullstellen eines Polynoms zu finden.
 \begin{satz}
 Die Eigenwerte einer $n\times n$ Matrix $A$ sind Nullstellen des
 Polynoms
@@ -886,19 +886,19 @@ charakteristische Polynom
 \det(A-\lambda I)&=\left|\begin{matrix}-\lambda&1\\1&-\lambda\end{matrix}\right|\\
 &=\lambda^2-1=(\lambda+1)(\lambda-1)
 \end{align*}
-mit den L"osungen $\lambda_\pm=\pm1$.
+mit den Lösungen $\lambda_\pm=\pm1$.
 Um die Eigenvektoren zu finden, muss
 man jetzt das Gleichungssystem $(A-\lambda E)x=0$ bestimmen.
-F"ur die Eigenwerte $\pm1$ hat das Gleichungssystem die Matrizen
+Für die Eigenwerte $\pm1$ hat das Gleichungssystem die Matrizen
 \[
 \begin{pmatrix}
 -1&1\\1&-1
-\end{pmatrix}\quad \text{f"ur $\lambda=1$},\qquad
+\end{pmatrix}\quad \text{für $\lambda=1$},\qquad
 \begin{pmatrix}
 1&1\\1&1
-\end{pmatrix}\quad\text{f"ur $\lambda=-1$}
+\end{pmatrix}\quad\text{für $\lambda=-1$}
 \]
-mit den L"osungsvektoren 
+mit den Lösungsvektoren 
 \[
 \vec v_+=\begin{pmatrix}1\\1\end{pmatrix},
 \qquad
@@ -908,14 +908,14 @@ mit den L"osungsvektoren
 
 \section{Diagonalisierung symmetrischer Matrizen\label{section-diag-sym}}
 \index{Matrix!symmetrische}
-Falls eine Basis aus Eigenvektoren existiert, l"asst sich eine Matrix
+Falls eine Basis aus Eigenvektoren existiert, lässt sich eine Matrix
 besonders einfach als Diagonalmatrix darstellen.
 Leider ist die Existenz
 einer Basis aus Eigenvektoren im Allgemeinen nicht garantiert, und noch
 viel weniger darf man annehmen, dass eine orthonormierte Basis
 von Eigenvektoren existiert.
 Im Spezialfall einer symmetrischen Matrix
-ist dies jedoch immer m"oglich, wie in diesem Abschnitt gezeigt werden
+ist dies jedoch immer möglich, wie in diesem Abschnitt gezeigt werden
 soll.
 
 In diesem Abschnitt sei $A$ eine symmetrische $n\times n$-Matrix,
@@ -929,7 +929,7 @@ ist $v_1\cdot v_2=0$.
 
 \begin{proof}[Beweis]
 Wir berechnen das Skalarprodukt $v_1\cdot Av_2$ auf zwei verschiedene
-Arten, wobei wir in der zweiten Variante ausn"utzen, dass $A=A^t$:
+Arten, wobei wir in der zweiten Variante ausnützen, dass $A=A^t$:
 \begin{align*}
 v_1^tAv_2&=\lambda_2v_1^tv_2
 \\
@@ -963,13 +963,13 @@ also $Aw\perp v$.
 
 \begin{hilfssatz}
 \label{ev-existenz}
-Sei $v$ ein Einheitsvektor f"ur den $v^tAv$ den minimalen Wert $\lambda$ annimmt.
+Sei $v$ ein Einheitsvektor für den $v^tAv$ den minimalen Wert $\lambda$ annimmt.
 Dann ist $v$ ein Eigenvektor zum Eigenwert $\lambda$.
 \end{hilfssatz}
 
 \begin{proof}[Beweis]
-Wir m"ussen zeigen, dass $Av=\lambda v$.
-Da $v$ so gew"ahlt war, dass $v^tAv$ minimal wird, berechnen wir 
+Wir müssen zeigen, dass $Av=\lambda v$.
+Da $v$ so gewählt war, dass $v^tAv$ minimal wird, berechnen wir 
 \begin{align*}
 f(t)&=\frac{(v+ty)^tA(v+ty)}{(v+ty)^t(v+ty)}
 \\
@@ -989,7 +989,7 @@ f'(0)
 &=
 2\frac{ (Av - \lambda v)^ty }{ v^tv }=0
 \end{align*}
-Da dies f"ur jeden Vektor $y$ gilt, folgt $Av-\lambda v=0$, also
+Da dies für jeden Vektor $y$ gilt, folgt $Av-\lambda v=0$, also
 $Av=\lambda v$, $v$ ist also ein Eigenvektor.
 \end{proof}
 
@@ -1002,7 +1002,7 @@ von Eigenvektoren von $A$.
 \begin{proof}[Beweis]
 Wir beweisen diesen Satz mit Induktion nach der Dimension des Vektorraumes.
 
-Ein $1$-dimensionaler Raum enth"alt ausschliesslich Eigenvektoren.
+Ein $1$-dimensionaler Raum enthält ausschliesslich Eigenvektoren.
 
 Sei jetzt also ein Vektorraum der Dimension $n$.
 Nach Hilfssatz \ref{ev-existenz} gibt es mindestens einen Eigenvektor $v_1$
@@ -1026,7 +1026,7 @@ Unter welchen Bedingungen haben die beiden Eigenwerte das gleiche
 oder verschiedenes Vorzeichen?
 
 \smallskip
-{\parindent 0pt Die Eigenwerte k"onnen mit dem charakteristischen
+{\parindent 0pt Die Eigenwerte können mit dem charakteristischen
 Polynom berechnet werden:}
 \[
 \left|\;
@@ -1045,7 +1045,7 @@ dieses Polynoms, also gilt
 \lambda_1+\lambda_2&=a+c\\
 \lambda_1\lambda_2&=ac-b^2
 \end{align*}
-Wir w"ahlen die Bezeichnungen so, dass $\lambda_1$ der gr"ossere Eigenwert ist.
+Wir wählen die Bezeichnungen so, dass $\lambda_1$ der grössere Eigenwert ist.
 Haben beide Eigenwerte das gleiche Vorzeichen, ist $ac-b^2>0$.
 In diesem
 Fall kann man das gemeinsame Vorzeichen der Eigenwerte an der Summe
@@ -1086,7 +1086,7 @@ ac-b^2<0
 \hline
 \end{tabular}
 \end{center}
-\caption{Vorzeichen und relative Gr"osse der Eigenwerte einer
+\caption{Vorzeichen und relative Grösse der Eigenwerte einer
 symmetrischen $2\times 2$-Matrix
 \label{vorzeichen-eigenwerte}}
 \end{table}
@@ -1105,46 +1105,46 @@ A=\begin{pmatrix}
 {\parindent 0pt $\det(A)=-1$ und $3+5=8>0$, also kann man aus der
 Tabelle \ref{vorzeichen-eigenwerte}
 ablesen, dass die beiden Eigenwerte entgegengesetztes
-Vorzeichen haben, und dass der negative Eigenwert betragsm"assig
+Vorzeichen haben, und dass der negative Eigenwert betragsmässig
 kleiner ist.}
 
-Man kann die Eigenwerte nat"urlich auch ausrechnen.
+Man kann die Eigenwerte natürlich auch ausrechnen.
 Die charakteristische Gleichung ist 
 \[
 \lambda^2-8\lambda-1=0
 \]
-und hat die L"osungen
+und hat die Lösungen
 \[
 \lambda_{1,2}=4\pm\sqrt{16+1}=\begin{cases}
 4+\sqrt{17}&=\phantom{-}8.12311\\
 4-\sqrt{17}&=-0.12311
 \end{cases}
 \]
-Dies best"atigt die aus der Tabelle abgeleiteten Schl"usse.
+Dies bestätigt die aus der Tabelle abgeleiteten Schlüsse.
 \end{beispiel}
 
-\section{Numerische L"osung des Eigenwertproblems}
-In der Praxis m"ussen meist grosse Eigenwertprobleme gel"ost werden.
-Das Vorgehen "uber das charakteristische Polynom ist dabei nicht zweckm"assig,
+\section{Numerische Lösung des Eigenwertproblems}
+In der Praxis müssen meist grosse Eigenwertprobleme gelöst werden.
+Das Vorgehen über das charakteristische Polynom ist dabei nicht zweckmässig,
 einerseits ist es sehr aufwendig zu berechnen, andererseits ist die
 Berechnung der Nullstellen eines Polynoms hohen Grades mit dem Computer
 keineswegs einfach.
 
-Ein f"ur praktische Anwendungen besonders wichtiger Fall ist
-das Eigenwertproblem f"ur symmetrische Matrizen.
+Ein für praktische Anwendungen besonders wichtiger Fall ist
+das Eigenwertproblem für symmetrische Matrizen.
 Aus Abschnitt \ref{section-diag-sym} wissen wir, dass sich symmetrische
 Matrizen sogar mit einer orthonormierten Basis diagonalisieren lassen.
 Es muss also eine orthogonale Matrix $T$ geben, welche $A$ auf
 Diagonalform transformiert, oder $T^tAT$ muss diagonal sein.
 Oder $A=TDT^t$, mit einer Diagonalmatrix $D$.
-Die in Abschnitt \ref{section-svd} beschriebene Singul"arwertzerlegung
+Die in Abschnitt \ref{section-svd} beschriebene Singulärwertzerlegung
 liefert genau so eine Zerlegung der Matrix, die Matrix $S$ von 
 Satz \ref{satz-svd} ist also die gesuchte Diagonalmatrix, die
-Singul"arwerte sind die Eigenwerte, und die Transformationsmatrix
+Singulärwerte sind die Eigenwerte, und die Transformationsmatrix
 entspricht den Matrizen $U$ und $V$, die in diesem Falle gleich sind:
 $T=U=V$.
 
-Die Singul"arwertzerlegung ist tats"achlich die Basis vieler Implementation
+Die Singulärwertzerlegung ist tatsächlich die Basis vieler Implementation
 von Algorithmen zur Bestimmung der Eigenwerte und Eigenvektoren.
 Octave/Matlab hat aber auch eine eigene Funktion zur Berechnung der
 Eigenwerte und Eigenvektoren.
@@ -1155,7 +1155,7 @@ A=\begin{pmatrix}0&1\\1&0\end{pmatrix}
 \]
 bestimmt werden.
 
-Die Eigenwerte sind der R"uckgabewert der Funktion {\tt eig}:
+Die Eigenwerte sind der Rückgabewert der Funktion {\tt eig}:
 \begin{verbatim}
 6> eig([0,1;1,0])
 ans =
@@ -1163,7 +1163,7 @@ ans =
   -1
    1
 \end{verbatim}
-Wenn man aber auch die Eigenvektoren braucht, muss man als R"uckgabewert
+Wenn man aber auch die Eigenvektoren braucht, muss man als Rückgabewert
 einen Vektor anfordern:
 \begin{verbatim}
 > [T, D] = eig([0,1;1,0])
@@ -1188,10 +1188,10 @@ ans =
   -1   0
    0   1
 \end{verbatim}
-Die Matrix $T$ enth"alt also als Spalten genau die Eigenvektoren,
+Die Matrix $T$ enthält also als Spalten genau die Eigenvektoren,
 also die Vektoren einer Basis, in der $A$ diagonal wird.
 \end{beispiel}
-Die n"achsten Abschnitte sollen jetzt aber die Frage beantworten,
+Die nächsten Abschnitte sollen jetzt aber die Frage beantworten,
 wie ein solches Verfahren funktionieren kann.
 
 \subsection{Jacobi-Verfahren}
@@ -1200,10 +1200,10 @@ wie ein solches Verfahren funktionieren kann.
 \index{Jacobi-Algorithmus}
 Ein einfach zu verstehender Algorithmus zur Bestimmung der Eigenwerte
 ist der Jacobi-Algorithmus.
-Er bestimmt eine angen"aherte Matrix $T$ iterativ.
-Man erh"alt also nicht wie bei Gauss-Algorithmus und
-den Matrixzerlegungen direkt eine exakte L"osung, sondern nur eine
-mehr oder weniger gute N"aherungsl"osung, die durch weitere Iterationen
+Er bestimmt eine angenäherte Matrix $T$ iterativ.
+Man erhält also nicht wie bei Gauss-Algorithmus und
+den Matrixzerlegungen direkt eine exakte Lösung, sondern nur eine
+mehr oder weniger gute Näherungslösung, die durch weitere Iterationen
 verbessert werden kann.
 
 Die Idee ist, die Matrix $T$ aus Drehmatrizen in einer der Koordinaten-Ebenen
@@ -1222,7 +1222,7 @@ D_{\alpha,i,k}=\begin{pmatrix}
 \end{pmatrix}
 \label{matrixd}
 \end{equation}
-die nat"urlich orthogonal ist.
+die natürlich orthogonal ist.
 Diese Drehungen heissen Givens-Rotationen.
 \index{Givens-Rotation}
 Ausserdem ist
@@ -1230,12 +1230,12 @@ $D_{\alpha,i,k}^{-1}=D_{-\alpha,i,k}$.
 Jetzt versucht man mit
 einer solchen Drehmatrix aus $A$ eine Matrix zu machen, die 
 eher wie eine Diagonalmatrix aussieht.
-Nat"urlich geht das
+Natürlich geht das
 normalerweise nicht exakt, aber man kann wenigstens fordern,
 dass in $A''= D^{-1}AD=D^tAD$ die Elemente $a''_{ik}=0$ sind.
 
-Wir f"uhren jetzt die Berechnung des Produktes durch.
-Zun"achst das Produkt $A'=AD$,
+Wir führen jetzt die Berechnung des Produktes durch.
+Zunächst das Produkt $A'=AD$,
 \[
 A'
 =
@@ -1264,7 +1264,7 @@ a_{n1}&\dots &a_{1i}\cos\alpha - a_{1k}\sin\alpha
 \end{pmatrix}
 \]
 Es werden also nur die Elemente in den Spalten $i$ und $k$
-ver"andert, und zwar gilt
+verändert, und zwar gilt
 \begin{equation}
 \begin{aligned}
 a'_{ji}&=-a_{ji}\cos\alpha-a_{jk}\sin\alpha,\\
@@ -1285,7 +1285,7 @@ a''_{kj}&=-a_{ij}\sin\alpha+a_{kj}\cos\alpha.
 \label{dtad2}
 \end{equation}
 Die Elemente in den Spalten und Zeilen $i$ und $k$ werden
-auch bei diesem zweiten Schritt abege"andert zu
+auch bei diesem zweiten Schritt abegeändert zu
 \begin{equation}
 \begin{aligned}
 a''_{ii}&=\cos\alpha \cdot a'_{ii}+\sin\alpha \cdot a'_{ki}\\
@@ -1312,7 +1312,7 @@ a''_{kk}&=-\sin\alpha \cdot a'_{ik}+\cos\alpha \cdot a'_{kk}\\
 \end{aligned}
 \label{dtad3}
 \end{equation}
-Jetzt muss $\alpha$ so gew"ahlt werden, dass $a''_{ik}=a''_{ki}=0$
+Jetzt muss $\alpha$ so gewählt werden, dass $a''_{ik}=a''_{ki}=0$
 wird:
 \[
 -\sin\alpha\cos\alpha(a_{ii}-a_{kk}) +(-\sin^2\alpha+\cos^2\alpha)a_{ik}=0.
@@ -1327,7 +1327,7 @@ Folglich gilt
 \label{tan2alpha1}
 \end{equation}
 \index{Halbwinkel-Formel}
-Mit der Halbwinkel-Formel f"ur den Tangens bekommt man 
+Mit der Halbwinkel-Formel für den Tangens bekommt man 
 \begin{equation}
 \tan\alpha=\frac{\tan2\alpha}{1+\sqrt{1+\tan^22\alpha}}
 \label{tan2alpha2}
@@ -1344,25 +1344,25 @@ und daraus
 \label{tan2alpha3}
 \end{align}
 Insbesondere kann man die Matrix $D$ berechnen, ohne trigonometrische
-Funktionen invertieren zu m"ussen, 
+Funktionen invertieren zu müssen, 
 
-Der Algorithmus zur Diagonalisierung von $A$ l"auft jetzt also
+Der Algorithmus zur Diagonalisierung von $A$ läuft jetzt also
 wie folgt ab:
 \begin{enumerate}
 \item Initialisiere $T=E$
-\item W"ahle ein Element $a_{ik}\ne 0$, mit $i\ne k$, welches als
-n"achstes zu $0$ gemacht werden soll.
+\item Wähle ein Element $a_{ik}\ne 0$, mit $i\ne k$, welches als
+nächstes zu $0$ gemacht werden soll.
 \item Bestimme $\tan2\alpha$, $\tan\alpha$, $\sin\alpha$ und $\cos\alpha$
 mit den Formeln (\ref{tan2alpha1}) bis (\ref{tan2alpha3}).
 \item Bestimme die Matrix $D$ mit Formel (\ref{matrixd}).
 \item Bestimme die Matrix $A''$ mit den Formeln (\ref{dtad1}) bis
 (\ref{dtad3}).
 \item Ersetze $T$ durch $TD$, $A$ durch $A''$.
-\item Falls ein Ausserdiagonalelement betragsm"assig $>\varepsilon$,
+\item Falls ein Ausserdiagonalelement betragsmässig $>\varepsilon$,
 verwende dessen Zeile $i$ und $k$ und fahre weiter bei Schritt 3.
 \end{enumerate}
 Dieser Algorithmus terminiert, wenn alle Ausserdiagonalelemente 
-betragsm"assig $<\varepsilon$ sind.
+betragsmässig $<\varepsilon$ sind.
 "Ubrig bleibt in der Matrix
 die Diagonalmatrix, mit den Eigenwerten auf der Diagonalen, 
 und die Matrix $T$, welche die Eigenschaft hat, dass $T^tAT$
@@ -1371,19 +1371,19 @@ Die Eigenvektoren stehen in den Spalten der Matrix $T$.
 
 \subsection{Potenzmethode\label{section:potenzmethode}}
 \index{Potenz-Methode}
-F"ur den Spezialfall, dass alle Eigenwerte einer Matrix verschieden
-sind, kann man ein relativ simples L"osungsverfahren angeben.
+Für den Spezialfall, dass alle Eigenwerte einer Matrix verschieden
+sind, kann man ein relativ simples Lösungsverfahren angeben.
 In diesem
 Abschnitt sei also $A$ eine symmetrische $n\times n$-Matrix mit
 verschiedenen Eigenwerten.
 \subsubsection{Eigenvektoren zum dominanten Eigenwert\label{section:dominant}}
 \index{Eigenwert!dominant}
 Nehmen wir an, die Eigenwerte von $A$
-seien der Gr"osse nach geordnet:
+seien der Grösse nach geordnet:
 \[
 |\lambda_1| > |\lambda_2| > \dots > |\lambda_n|.
 \]
-Seien $v_1,\dots,v_n$ die zugeh"origen Eigenvektoren.
+Seien $v_1,\dots,v_n$ die zugehörigen Eigenvektoren.
 Jetzt nehmen wir einen beliebigen Vektor $u$.
 Da die Eigenvektoren eine Basis bilden,
 kann man $u$ in dieser Basis schreiben:
@@ -1407,13 +1407,13 @@ A^ku&=
 u_1\lambda_1^kv_1+u_2\lambda_2^kv_2+\dots+u_n\lambda_n^kv_n
 \label{power-method-vectors}
 \end{align}
-Je nach der Gr"osse von $\lambda_i$ wachsen dabei die einzelnen
-Terme $u_i\lambda_i^kv_i$ "uber alle Grenzen (wenn $|\lambda_i|>1$)
+Je nach der Grösse von $\lambda_i$ wachsen dabei die einzelnen
+Terme $u_i\lambda_i^kv_i$ über alle Grenzen (wenn $|\lambda_i|>1$)
 oder konvergieren gegen $0$ (wenn $|\lambda_i|<1$).
 Auf jeden Fall
 aber wird der erste Term entweder am schnellsten wachsen (wenn $|\lambda_i|>1$)
 oder am langsamsten gegen $0$ gehen (wenn $|\lambda_i|<1$).
-Wenn wir also den Vektor $A^ku$ immer wieder auf L"ange $1$ normieren, 
+Wenn wir also den Vektor $A^ku$ immer wieder auf Länge $1$ normieren, 
 werden im Vergleich zum ersten Term alle anderen Terme gegen $0$ gehen.
 
 \begin{beispiel}
@@ -1425,7 +1425,7 @@ A=\begin{pmatrix}
 3&5&6
 \end{pmatrix}
 \]
-Die Eigenwerte sind tats"achlich sehr verschieden, Octave findet
+Die Eigenwerte sind tatsächlich sehr verschieden, Octave findet
 die folgenden Werte:
 \begin{verbatim}
 > eig(A)
@@ -1435,7 +1435,7 @@ ans =
     0.17092
    11.34481
 \end{verbatim}
-Jetzt w"ahlen wir einen zuf"alligen Vektor
+Jetzt wählen wir einen zufälligen Vektor
 \begin{verbatim}
 5> v = rand(3,1)
 v =
@@ -1487,7 +1487,7 @@ v_4=\begin{pmatrix}
 %\end{pmatrix}
 \]
 Bei $v_5$ ist bereits keine "Anderung mehr feststellbar.
-Damit ist der Eigenvektor zum gr"ossten Eigenwert gefunden, 
+Damit ist der Eigenvektor zum grössten Eigenwert gefunden, 
 \end{beispiel}
 
 \subsubsection{Weitere Eigenvektoren}
@@ -1496,7 +1496,7 @@ kann man das Problem verkleinern.
 Die weiteren Eigenvektoren von $A$ stehen ja alle auf  $v_1$
 senkrecht.
 Man kann also eine Basistransformation
-durchf"uhren, so dass $e_1$ der erste Eigenvektor der transformierten
+durchführen, so dass $e_1$ der erste Eigenvektor der transformierten
 Matrix $A'$ ist, $A'$ hat die Form
 \[
 A'=\begin{pmatrix}
@@ -1516,16 +1516,16 @@ A'=\begin{pmatrix}
 \end{tabular}
 \right)
 \]
-Um die weiteren Eigenvektoren zu finden, m"ussen wir das Verfahren jetzt
+Um die weiteren Eigenvektoren zu finden, müssen wir das Verfahren jetzt
 also nur auf den Teil $A_2$ anwenden.
 
 Mit $A'=T^{-1}AT$ muss in der ersten Spalte von $T$
 also der Vektor $v_1$ stehen.
-Da die "ubrigen Vektoren senkrecht stehen,
-k"onnen wir f"ur $T$ eine orthogonale Matrix verwenden.
+Da die übrigen Vektoren senkrecht stehen,
+können wir für $T$ eine orthogonale Matrix verwenden.
 Eine solche
-k"onnen wir dadurch finden, dass wir zu $v_1$ noch ein paar linear
-unabh"angige Vektoren hinzunehmen und darauf das Orthogonalisierungsverfahren
+können wir dadurch finden, dass wir zu $v_1$ noch ein paar linear
+unabhängige Vektoren hinzunehmen und darauf das Orthogonalisierungsverfahren
 anwenden.
 
 \begin{beispiel}
@@ -1546,8 +1546,8 @@ v=\begin{pmatrix}
 \]
 Wir suchen jetzt eine orthogonale Transformationsmatrix $T$, die $v$
 als erste Spalte hat.
-Dazu f"ullen wir $V$ einfach mit Basisvektoren
-zu einer Matrix $T_0$ auf (diese ist nat"urlich nicht orthogonal),
+Dazu füllen wir $V$ einfach mit Basisvektoren
+zu einer Matrix $T_0$ auf (diese ist natürlich nicht orthogonal),
 und verwenden die Orthogonalisierung, um $T$ zu erhalten.
 \[
 T_0=\begin{pmatrix}
@@ -1578,7 +1578,7 @@ A_2&=
    0.25507 &-0.40221
 \end{pmatrix}
 \end{align*}
-F"ur $A_2$ kann man den n"achsten Eigenvektor wieder mit der
+Für $A_2$ kann man den nächsten Eigenvektor wieder mit der
 gleichen Methode bestimmen, oder mit dem Jacobi-Verfahren.
 Man findet wieder eine Matrix $T_2$, welche $A_2$ auf Diagonalform
 transformiert, in diesem Fall
@@ -1613,7 +1613,7 @@ T\left(
    0.73698&            -0.32799& \phantom{-}0.59101
 \end{pmatrix}
 \]
-Tats"achlich transformiert diese Matrix das urspr"unglich $A$ auf
+Tatsächlich transformiert diese Matrix das ursprünglich $A$ auf
 Diagonalform:
 \[
 V^tAV=\begin{pmatrix}
@@ -1633,7 +1633,7 @@ Wir wissen aus
 Abschnitt \ref{section-qr}, dass jede Matrix als Produkt $A=QR$
 geschrieben werden kann, wobei $Q$ orthogonal und $R$ eine obere
 Dreiecksmatrix ist.
-Die erste Spalte von $Q$ ist bis auf die L"ange die erste Spalte
+Die erste Spalte von $Q$ ist bis auf die Länge die erste Spalte
 von $A$, genauer
 \[
 \begin{pmatrix}a_{11}\\\vdots\\a_{n1} \end{pmatrix}
@@ -1661,20 +1661,20 @@ auch noch das Koordinatensystem wechselt.
 
 Setzt man alle $Q_k$ zusammen, bilden
 sie nacheinander den $e_1$ auf die $A^ke_1$ ab, allerdings wird
-dies in jedem Schritt in einem anderen Koordinatensystem ausgedr"uckt.
+dies in jedem Schritt in einem anderen Koordinatensystem ausgedrückt.
 Unter den Voraussetzungen der Potenzmethode wird die Richtung von
 $A^ke_1$ gegen den dominanten Eigenvektor konvergieren.
-F"ur $A_k$ bedeutet dies,
+Für $A_k$ bedeutet dies,
 dass das Element in der linken oberen Ecke gegen den dominanten Eigenwert
 konvergiert, und alle anderen Elemente in der gleichen Zeile und Spalte
 gegen $0$.
 
-Um das st"andig wechselnde Koordinatensystem wieder zur"uckzurechnen,
+Um das ständig wechselnde Koordinatensystem wieder zurückzurechnen,
 muss das Produkt der $Q_k$ ermittelt werden,  die Matrix
 \[
 V=Q_1Q_2Q_3\dots
 \]
-enth"alt dann in der ersten Spalte den ersten Eigenvektor.
+enthält dann in der ersten Spalte den ersten Eigenvektor.
 
 \begin{beispiel}
 Wir gehen aus von der Matrix
@@ -1784,12 +1784,12 @@ U_\infty&=\begin{pmatrix}
 Man beachte, dass im Laufe des Verfahrens der zweite Eigenvektor
 immer wieder sein Vorzeichen wechselt.
 Der Algorithmus hat also die Eigenwerte in der Reihenfolge
-ihres Betrages geliefert, die zugeh"origen Eigenvektoren
+ihres Betrages geliefert, die zugehörigen Eigenvektoren
 stehen in den Spalten von $U_\infty$.
 \end{beispiel}
 
 Die Berechnung von $Q_k^tA_kQ_k$ ist ziemlich aufwendig, weil dazu
-zwei Matrizenprodukte ausgerechnet werden m"ussen.
+zwei Matrizenprodukte ausgerechnet werden müssen.
 Man kann die
 Berechnung allerdings drastisch vereinfachen, wenn man beachtet,
 dass wegen $Q_k^tQ_k=E$ gilt
@@ -1797,54 +1797,54 @@ dass wegen $Q_k^tQ_k=E$ gilt
 A_{k+1}=Q_k^tA_kQ_k=Q_k^tQ_kR_kQ_k=R_kQ_k.
 \]
 Die Berechnung von $A_{k+1}$ ist also mit nur einer Matrizenmultiplikation
-m"oglich, und noch dazu ist der eine Faktor eine Dreiecksmatrix, was den
-Aufwand nochmals ungef"ahr halbiert.
+möglich, und noch dazu ist der eine Faktor eine Dreiecksmatrix, was den
+Aufwand nochmals ungefähr halbiert.
 
 \subsection{Verbesserungen}
 Der in \ref{section-qr} beschriebene Algorithmus funktioniert, ist
-aber numerisch nicht sehr zuverl"assig.
+aber numerisch nicht sehr zuverlässig.
 Das Problem ist, dass fast
-linear abh"angige Vektoren zu kleinen Nennern f"uhren, so dass
+linear abhängige Vektoren zu kleinen Nennern führen, so dass
 Rundungsfehler aufgeblasen werden.
 Mit sogenannten Householder-Transformationen kann jedoch eine 
 Verbesserung erreicht werden.
 \index{Householder-Transformation}
 
 Der QR-Algorithmus zur Eigenwert-Bestimmung ist noch nicht optimal.
-Zun"achst funktioniert er in dieser Form nur, wenn die Eigenwerte
+Zunächst funktioniert er in dieser Form nur, wenn die Eigenwerte
 verschieden und reell sind.
-Selbst f"ur symmetrische Matrizen,
-f"ur die die Eigenwerte reell sind, ist nicht ausgeschlossen, dass
+Selbst für symmetrische Matrizen,
+für die die Eigenwerte reell sind, ist nicht ausgeschlossen, dass
 Eigenwerte gleich oder fast gleich sind, was zu langsamer
-Konvergenz des Algorithmus f"uhrt.
+Konvergenz des Algorithmus führt.
 
 \index{Francis-Algorithmus}
 Der Francis-Algorithmus korrigiert diese Defekte:
 \begin{enumerate}
 \item
 Statt die Matrix $A$ anzuwenden, wendet er $p(A)$ an, wobei
-$p(x)$ ein geeignet zu w"ahlendes Polynom ist.
+$p(x)$ ein geeignet zu wählendes Polynom ist.
 Statt (\ref{power-method-vectors}) bekommt man dann
 \[
 u_1p(\lambda_1)^kv_1+u_2p(\lambda_2)^kv_2+\dots+u_np(\lambda_n)^kv_n
 \]
-Sorgt man daf"ur, dass die Werte von $p(\lambda_i)$ sich stark
+Sorgt man dafür, dass die Werte von $p(\lambda_i)$ sich stark
 unterscheiden, wird die Konvergenz beschleunigt.
 
 Man kann dies zum
-Beispiel dadurch erreichen, dass man f"ur $p$ einen Faktor des
-charakteristischen Polynoms von $A$ w"ahlt.
+Beispiel dadurch erreichen, dass man für $p$ einen Faktor des
+charakteristischen Polynoms von $A$ wählt.
 \item 
 Damit die Konvergenz des Verfahrens schnell ist, sollte das Problem
-m"oglichst schnell in kleinere Teilaufgaben zerlegt werden k"onnen,
-die effizienter l"osbar sind.
+möglichst schnell in kleinere Teilaufgaben zerlegt werden können,
+die effizienter lösbar sind.
 Der Francis-Algorithmus erkennt 
-Bl"ocke, in denen die Konvergenz bereits soweit fortgeschritten
+Blöcke, in denen die Konvergenz bereits soweit fortgeschritten
 ist, dass sie sich abspalten lassen.
 \item
 Die Eigenwerte reeller Matrizen sind reell oder konjugiert komplexe
 Paare.
-Der Francis-Algorithmus erkennt $2\times 2$-Bl"ocke, die zu
-solchen Paaren geh"oren, und berechnet Eigenwerte und Eigenvektoren
+Der Francis-Algorithmus erkennt $2\times 2$-Blöcke, die zu
+solchen Paaren gehören, und berechnet Eigenwerte und Eigenvektoren
 mit Hilfe des charakteristischen Polynoms und dem Gauss-Algorithmus.
 \end{enumerate}
