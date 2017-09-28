@@ -1,9 +1,10 @@
-Verwenden sie den \texttt{rref}-Befehl um folgendes Gleichungssystem zu lösen.
+Verwenden Sie den \texttt{rref}-Algorithmus oder -Befehl um folgendes
+Gleichungssystem zu lösen.
 \[
 \begin{linsys}{3}
-7x&+&3y&+&2z&=&2\\
-x&+&y&+&z&=&7\\
-13x&+&5y&+&3z&=&-3
+ x &+& 14y & &    &=&  6\\
+6x &+& 42y &+& 4z &=& -2\\
+5x &+& 35y &+&  z &=& 10
 \end{linsys}
 \qquad
 \]
@@ -13,52 +14,78 @@ Wie viele Lösungen hat dieses Gleichungssystem?
 \item
 Geben Sie die Lösungsmenge in Vektorschreibweise an.
 \end{teilaufgaben}
+
 \begin{loesung}
 \begin{teilaufgaben}
 \item
 Übergeben wir dem \texttt{rref}-Befehl des Taschenrechners das Gleichungssystem
-als Gauss-Tableau, erhalten wir folgendes Tableau als Resultat.
+als Gauss-Tableau oder rechnen wir von Hand, dann erhalten wir folgendes
+Tableau als Resultat:
 \begin{align*}
-\begin{tabular}{|ccc|c|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
 \hline
-7&3&2&2\\
-1&1&1&7\\
-13&5&3&-3\\
+2&14&0& 6\\
+6&42&4&-2\\
+5&35&1&10\\
 \hline
 \end{tabular}
 &
 \rightarrow
-\begin{tabular}{|ccc|c|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
 \hline
-1&0&-$\frac{1}{4}$&-$\frac{19}{4}$\\
-0&1&$\frac{5}{4}$&$\frac{47}{4}$\\
-0&0&0&0\\
+1& 7& 0&  3\\
+0& 0& 4&-20\\
+0& 0& 1& -5\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+1& 7& 0& 3\\
+0& 0& 1&-5\\
+0& 0& 0& 0\\
 \hline
 \end{tabular}
 \end{align*}
-Das resultierende Gauss-Tableau enthält eine Nullzeile, womit wir im singulären Fall sind.
-Da auf der rechten Seite 0 steht haben wir die Gleichung $0=0$, welche immer erfüllt ist.
+Das resultierende Gauss-Tableau enthält eine Nullzeile, womit wir im
+singulären Fall sind.
+Da auf der rechten Seite $0$ steht, haben wir die Gleichung $0=0$,
+welche immer erfüllt ist.
 Folglich gibt es unendlich viele Lösungen. 
+Die zweite Variable hat sich als frei wählbar herausgestellt.
 \item
 Die Lösungsmenge kann aus den ersten beiden
-Zeilen abgelesen werden. Die entsprechenden Gleichungen dazu sind
+Zeilen abgelesen werden.
+Die entsprechenden Gleichungen dazu sind
 \[
-x-\frac{1}{4}z = -\frac{19}{4}\qquad\text{und}\qquad y+\frac{5}{4}z = \frac{47}{4}.
+x+7y=3
+\qquad\text{und}\qquad
+z=-5.
 \]
-Durch Isolieren der Variablen x bzw. y erhalten wir
+Durch Auflösen nach der Variablen $x$ erhalten wir
 \[
-x = -\frac{19}{4} +\frac{1}{4}z\qquad\text{und}\qquad y = \frac{47}{4} -\frac{5}{4}z
+x = 3-7y
+\qquad\text{und}\qquad
+z=-5
 \]
 oder in Vektorschreibweise:
 \[
 \mathbb L =\left\{\left.
- \begin{pmatrix}
--\frac{19}{4}\\\frac{47}{4}\\0
+\begin{pmatrix}
+3\\
+0\\
+-5
 \end{pmatrix}
-+z\begin{pmatrix}
-\frac{1}{4}\\-\frac{5}{4}\\1
-\end{pmatrix}\right | z\in \mathbb R
-\right\}
++y
+\begin{pmatrix}
+-7\\
+ 1\\
+ 0
+\end{pmatrix}
+\;
+\right|
+y\in \mathbb R
+\right\}.
 \qedhere
 \]
 \end{teilaufgaben}
