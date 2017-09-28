@@ -7,10 +7,15 @@ x&+&y&+&z&=&7\\
 \end{linsys}
 \qquad
 \]
-Wie viele Lösungen hat dieses Gleichungssystem?\\
+\begin{teilaufgaben}
+\item
+Wie viele Lösungen hat dieses Gleichungssystem?
+\item
 Geben Sie die Lösungsmenge in Vektorschreibweise an.
-
+\end{teilaufgaben}
 \begin{loesung}
+\begin{teilaufgaben}
+\item
 Übergeben wir dem rref-Befehl des Taschenrechners das Gleichungssystem
 als Gauss-Tableau, erhalten wir folgendes Tableau als Resultat.
 \begin{align*}
@@ -33,12 +38,14 @@ als Gauss-Tableau, erhalten wir folgendes Tableau als Resultat.
 \end{align*}
 Das resultierende Gauss-Tableau enthält eine Nullzeile, womit wir im singulären Fall sind.
 Da auf der rechten Seite 0 steht haben wir die Gleichung $0=0$, welche immer erfüllt ist.
-Folglich gibt es unendlich viele Lösungen. Die Lösungsmenge kann aus den ersten beiden
+Folglich gibt es unendlich viele Lösungen. 
+\item
+Die Lösungsmenge kann aus den ersten beiden
 Zeilen abgelesen werden. Die entsprechenden Gleichungen dazu sind
 \[
 x-\frac{1}{4}z = -\frac{19}{4}\qquad\text{und}\qquad y+\frac{5}{4}z = \frac{47}{4}.
 \]
-Durch isolieren der Variablen x bzw. y erhalten wir
+Durch Isolieren der Variablen x bzw. y erhalten wir
 \[
 x = -\frac{19}{4} +\frac{1}{4}z\qquad\text{und}\qquad y = \frac{47}{4} -\frac{5}{4}z
 \]
@@ -54,5 +61,6 @@ oder in Vektorschreibweise:
 \right\}
 \qedhere
 \]
+\end{teilaufgaben}
 \end{loesung}
 
