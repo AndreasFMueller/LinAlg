@@ -5,43 +5,46 @@
 %
 
 \section{Linearformen}
-Sei $V$ ein Vektorraum über $K$, wobei wir zunächst einschränkend
-annehmen, dass $V$ endlichdimensional ist.
-Für die nachfolgende Diskussion kännen wir uns vorstellen, in $V$ eine Basis
-$(b_i)_{1\le i\le n}$ gewählt zu haben, so dass wir $V$ mit $K^n$
-identifizieren können.
-Ein Vektor in $V$ kann als Spaltenvektor geschrieben werden.
-Die Basisvektoren werden dann mit den Standardbasisvektoren $e_i$
-identifiziert.
+\rhead{Linearformen}
+Der Begriff der Linearform ist offensichtlich nicht auf endlichdimensionale
+Vektorräume beschränkt.
+Wir wollen in diesem Abschnitt die Beobachtungen, die wir für Zeilen-
+und Spaltenvektoren gemacht haben, auf beliebige Vektoren verallgemeinern.
 
-Wir versuchen jetzt die Bedeutung der Zeilenvektoren zu ergründen.
-Die Matrizenrechnung lehrt uns, dass wir einen $n$-dimensionalen
-Zeilenvektor $l$ mit einem $n$-dimensionalne Spaltenvektor $v\in K^n$
-nach der Regel
+\subsection{Notation}
+Sei $V$ ein $K$-Vektorraum.
+Der Vektorraum $\operatorname{Hom}(V,K)$, ebenfalls ein $K$-Vektorraum,
+besteht aus linearen Abbildungen von $V$ mach $K$.
+Normalerweise schreibt man $l(v)$ für den Wert einer Linearform
+$l\in\operatorname{Hom}(V,K)$ auf dem Vektor $v\in V$.
+Diese Notation passt aber nicht gut zur Matrizenschreibweise aus
+Abschnitt~\ref{section:dualraum:zeilenspalten}.
+Wir schreiben daher 
 \[
-l\cdot v
-=
-\begin{pmatrix}
-l_1&l_2&\dots&l_n
-\end{pmatrix}
-\begin{pmatrix}v_1\\v_2\\\vdots\\v_n\end{pmatrix}
-=
-l_1v_1+l_2v_2+\dots+l_nv_n
+\langle l,v\rangle = l(v),
 \]
-multiplizieren können.
-Linearformen in einem $n$-dimensionalen Raum können also selbst
-als den $n$-dimensionalen Vektorraum Zeilenvektoren der Länge $n$
-betrachtet werden.
+dies ähnelt viel mehr der Produktnotation für Zeilen- und Spaltenvektoren.
 
-Dass die Linearformen selbst einen Vektorraum bilden, wussten wir
-natürlich schon länger.
-In Kapitel~\ref{chapter:vektorraum} haben wir bereits gezeigt,
-dass die Menge lineare Abbildungen ein Vektorraum ist.
-Da $K$ selbst auch ein eindimensionaler Vektorraum ist, ist
-$V^*=\operatorname{Hom}(V,K)$ ebenfalls ein Vektorraum, er heisst
-der {\em Dualraum}.
+\subsection{Der Dualraum}
+Den Vektorraum $\operatorname{Hom}(V,K)$ haben wir
+als Spezialfall des Vektorraums $\operatorname{Hom}(V,U)$
+bereits im
+Kapitel~\ref{chapter:vektorraum} kennengelernt.
+Der Spezialfall ist aber wichtig genug, dass wir ihm einen eigenen Namen
+geben.
+
+\begin{definition}
+Der Vektorraum der Linearformen auf einem $K$-Vektorraum $V$ heisst
+der Dualraum und wird auch mit
+\[
+\operatorname{Hom}(V,K) = V^* = \operatorname{Dual}(V)
+\]
+bezeichnet.
+\end{definition}
+
 \index{Dualraum}%
 
+\subsection{Induzierte Lineare Abbildung}
 Seien jetzt $U,V$ zwei $K$-Vektorräume und $f\colon U\to V$ eine lineare
 Abbildung zwischen den beiden Vektorräumen.
 Aus $f$ können wir eine lineare Abbildung zwischen den Dulräumen
