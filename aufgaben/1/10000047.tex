@@ -3,12 +3,73 @@ der Zeilen der Matrix
 \[
 A=\begin{pmatrix}
 1&2&3\\
-2&3&d\\
+2&3&c\\
 3&4&5
 \end{pmatrix},
 \]
 die verschwindet.
 
 \begin{loesung}
+Die Koeffizienten sind Lösung eines Gleichungssystems mit der
+transponierten Matrix $A^t$, also mit dem Tableau
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&3\\
+2&3&4\\
+3&c&5\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  2& 3\\
+0& -1&-2\\
+0&c-6&-4\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  2& 3\\
+0&  1& 2\\
+0&  0&-4-2(c-6)\\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  2& 3\\
+0&  1& 2\\
+0&  0&8-2c\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  0&-1\\
+0&  1& 2\\
+0&  0&8-2c\\
+\hline
+\end{tabular}
+\end{align*}
+Damit das Gleichungssystem überhaupt eine Lösung $\ne 0$ hat, muss eine
+Nullzeile entstehen, das ist nur möglichm wenn der Eintrag rechts unten
+verschwindet, also
+\[
+8-2c = 0 \qquad\Rightarrow\qquad c=4.
+\]
+Jetzt müssen aber noch die Koeffizienten $\lambda_i$ gefunden werden.
+$\lambda_3$ ist offenbar frei wählbar, wir wählen $\lambda_3=1$.
+Dann lesen wird ab
+\begin{align*}
+\lambda_1 &= \lambda_3=1\\
+\lambda_2 &= -2\lambda_3=2.
+\end{align*}
+Eine mögliche Linearkombination hat also die Koeffizienten
+$\lambda_1=1$,
+$\lambda_2=-2$
+und
+$\lambda_1=1$.
 \end{loesung}
 
