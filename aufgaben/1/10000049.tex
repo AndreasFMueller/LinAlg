@@ -1,0 +1,162 @@
+Gegeben sind die beiden Matrizen
+\[
+A
+=
+\begin{pmatrix}
+\cos\gamma&         - \sin\gamma&0\\
+\sin\gamma&\phantom{-}\cos\gamma&0\\
+    0     &\phantom{-}    0     &1
+\end{pmatrix}
+\qquad\text{und}\qquad
+B
+=
+\begin{pmatrix}
+\phantom{-}\cos\beta&0&\sin\beta\\
+\phantom{-}    0    &1&    0    \\
+         - \sin\beta&0&\cos\beta
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item Berechnen Sie $AB$
+\item Berechnen Sie $BA$
+\item Für welche Werte von $\beta,\gamma\in[0,2\pi)$ gilt
+$AB=BA$?
+\end{teilaufgaben}
+
+\begin{hinweis}
+$[0,2\pi)$ ist das rechts offene Interval der reellen Zahlen zwischen 
+$0$ und $2\pi$.
+Eine Zahl $x$ ist in $[0,2\pi)$ genau dann,
+wenn $2\le x<2\pi$,
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Das Produkt $AB$ ist
+\begin{align*}
+AB
+&=
+\begin{pmatrix}
+\cos\gamma&         - \sin\gamma&0\\
+\sin\gamma&\phantom{-}\cos\gamma&0\\
+    0     &\phantom{-}    0     &1
+\end{pmatrix}
+\begin{pmatrix}
+\phantom{-}\cos\beta&0&\sin\beta\\
+\phantom{-}    0    &1&    0    \\
+         - \sin\beta&0&\cos\beta
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\cos\gamma\cos\beta&-\sin\gamma&\cos\gamma\sin\beta\\
+\sin\gamma\cos\beta& \cos\gamma&\sin\gamma\sin\beta\\
+         -\sin\beta&     0     &          \cos\beta
+\end{pmatrix}.
+\end{align*}
+\item Das Produkt $BA$ ist
+\begin{align*}
+BA
+&=
+\begin{pmatrix}
+\phantom{-}\cos\beta&0&\sin\beta\\
+\phantom{-}    0    &1&    0    \\
+         - \sin\beta&0&\cos\beta
+\end{pmatrix}
+\begin{pmatrix}
+\cos\gamma&         - \sin\gamma&0\\
+\sin\gamma&\phantom{-}\cos\gamma&0\\
+    0     &\phantom{-}    0     &1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+ \cos\beta\cos\gamma&-\cos\beta\sin\gamma&\sin\beta\\
+          \sin\gamma&          \cos\gamma&     0   \\
+-\sin\beta\cos\gamma& \sin\beta\sin\gamma&\cos\beta
+\end{pmatrix}.
+\end{align*}
+\item
+Wir müssen herausfinden, für welche Werte von $\beta$ und $\gamma$ die
+beiden Produkte $AB$ und $BA$ übereinstimmen.
+Die Elemente auf den Diagonalen beider Matrizen stimmen bereits
+überein, wir müssen also nur noch die Elemente ausserhalb der
+Diagonale vergleichen:
+\begin{align}
+&\text{Zeile $1$, Spalte $2$}
+&
+-\sin\gamma&=-\cos\beta\sin\gamma
+\label{10000049:e1}
+\\
+&\text{Zeile $1$, Spalte $3$}
+&
+\cos\gamma\sin\beta&=\sin\beta
+\label{10000049:e2}
+\\
+&\text{Zeile $2$, Spalte $1$}
+&
+\sin\gamma\cos\beta&=\sin\gamma
+\label{10000049:e3}
+\\
+&\text{Zeile $2$, Spalte $3$}
+&
+\sin\gamma\sin\beta&=0
+\label{10000049:e4}
+\\
+&\text{Zeile $3$, Spalte $2$}
+&
+-\sin\beta&=-\sin\beta\cos\gamma
+\label{10000049:e5}
+\\
+&\text{Zeile $3$, Spalte $3$}
+&
+0&=\sin\beta\sin\gamma
+\label{10000049:e6}
+\end{align}
+Gleichungen
+\eqref{10000049:e4}
+und
+\eqref{10000049:e6}
+stimmen überein und implizieren, dass $\sin\gamma=0$ oder $\sin\beta=0$.
+Gleichungen
+\eqref{10000049:e2}
+und
+\eqref{10000049:e5}
+stimmen überein, ebenso
+\eqref{10000049:e1}
+und
+\eqref{10000049:e3}.
+Damit bleiben
+\begin{align}
+\sin\beta   \sin\gamma &=0, \label{10000049:r1}\\
+\sin\beta(1-\cos\gamma)&=0\qquad\text{und} \label{10000049:r2}\\
+\sin\gamma(1-\cos\beta)&=0.\label{10000049:r3}
+\end{align}
+Alle drei Gleichungen besagen, dass jeweils einder der Faktoren verschwinden
+muss.
+Sollte $\sin\gamma\ne0$ sein, folgt aus \eqref{10000049:r3}, dass $\cos\beta=1$
+ist, was nur für $\beta=2\pi k$ mit $k\in\mathbb Z$ möglich ist.
+Aber dann ist $\sin\beta=\sin 2\pi k=0$.
+Analog schliesst man für den Fall $\sin\beta\ne=0$, auch in diesem Fall folgt
+$\sin\gamma=0$.
+Somit gilt in allen Fällen, dass $\beta$ und $\gamma$ Vielfache von
+$\pi$ sein müssen.
+Die möglichen Matrizen sind daher
+\[
+A=\begin{pmatrix}
+\pm1&   0&0\\
+   0&\pm1&0\\
+   0&   0&1
+\end{pmatrix},
+\qquad
+B=\begin{pmatrix}
+\pm1&0&   0\\
+   0&1&   0\\
+   0&0&\pm1
+\end{pmatrix}.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+

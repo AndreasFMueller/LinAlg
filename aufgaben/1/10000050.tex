@@ -1,0 +1,83 @@
+Gegeben ist die Matrix
+\[
+A
+=
+\begin{pmatrix}1&2\\3&4\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item Berechnen Sie $B=A^tA$.
+\item In b) hat sich herausgestellt, dass $B^t=B$ gilt.
+Warum gilt das für jede beliebige Ausgangsmatrix $A$?
+\item
+Berechnen Sie $AB$.
+\item
+Finden Sie $BA^t$, ohne erneut ein Matrizenprodukt auszurechnen.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item $B$ ist Die Matrix
+\[
+B=A^tA=
+\begin{pmatrix}1&3\\2&4\end{pmatrix}
+\begin{pmatrix}1&2\\3&4\end{pmatrix}
+=
+\begin{pmatrix}
+10&14\\
+14&20
+\end{pmatrix}.
+\]
+\item Die Formel für die Transposition eines Produktes ergibt
+\[
+B^t
+=
+(A^tA)^t
+=
+A^t(A^t)^t
+=
+A^tA
+=
+B.
+\]
+\item
+Das Produkt ist
+\[
+AB
+=
+\begin{pmatrix}1&2\\3&4\end{pmatrix}
+\begin{pmatrix}
+10&14\\
+14&20
+\end{pmatrix}
+=
+\begin{pmatrix}
+38& 54\\
+86&122
+\end{pmatrix}.
+\]
+\item
+Die Formel für die Transposition eines Produktes liefert
+\[
+(AB)^t = B^tA^t=BA^t,
+\]
+gefragt ist also nach der Transponierten der Matrix, die in c) berechnet
+worden war.
+Also ist
+\[
+BA^t
+= 
+\begin{pmatrix}
+38& 54\\
+86&122
+\end{pmatrix}^t
+=
+\begin{pmatrix}
+38& 86\\
+54&122
+\end{pmatrix}.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+
