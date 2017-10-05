@@ -13,7 +13,8 @@ aufgabensammlung.pdf:	$(TEXFILES) aufgabensammlung.ind thema.tex
 	pdflatex aufgabensammlung.tex
 
 thema.tex:	thema.tix
-	../bin/mkthemaidx thema.tix thema.tex
+	iconv -f ISO-8859-1 -t UTF-8 thema.tix > thema.tix2
+	../bin/mkthemaidx thema.tix2 thema.tex
 
 thema.tix:	$(TEXFILES)
 	pdflatex aufgabensammlung.tex
