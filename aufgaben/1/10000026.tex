@@ -5,6 +5,7 @@ Finden Sie für das Netzwerk
 eine minimale Menge von Zyklen.
 
 \begin{loesung}
+\definecolor{greenT}{rgb}{0,0.666,0}
 Die Matrix $\partial$ dieses Netzwerkes ist
 \[
 \partial
@@ -14,7 +15,7 @@ Die Matrix $\partial$ dieses Netzwerkes ist
  1& 0& 0&-1&-1& 0\\
  0& 1& 0& 1& 0&-1\\
  0& 0& 1& 0& 1& 1
-\end{pmatrix}
+\end{pmatrix}.
 \]
 Wendet man auf $\partial$ den Gaussalgorithmus an, findet man
 \begin{align*}
@@ -76,7 +77,7 @@ x_1&x_2&x_3&x_4&x_5&x_6\\
  0& 0& 1& 0& 1& 1\\
  0& 0& 0& 0& 0& 0\\
 \hline
-  &  &  &\color{green}*&\color{green}*&\color{green}*\\
+  &  &  &\color{greenT}*&\color{greenT}*&\color{greenT}*\\
 \hline
 \end{tabular}
 \end{align*}
@@ -91,25 +92,25 @@ z_1=\begin{pmatrix}
  1\\
 -1\\
  0\\
-\color{green} 1\\
-\color{green} 0\\
-\color{green} 0\\
+\color{greenT} 1\\
+\color{greenT} 0\\
+\color{greenT} 0\\
 \end{pmatrix},\quad
 z_2=\begin{pmatrix}
  1\\
  0\\
 -1\\
-\color{green} 0\\
-\color{green} 1\\
-\color{green} 0
+\color{greenT} 0\\
+\color{greenT} 1\\
+\color{greenT} 0
 \end{pmatrix},\quad
 z_3= \begin{pmatrix}
  0\\
  1\\
 -1\\
-\color{green} 0\\
-\color{green} 0\\
-\color{green} 1
+\color{greenT} 0\\
+\color{greenT} 0\\
+\color{greenT} 1
 \end{pmatrix}
 \]
 Die folgende Abbildung zeigt die drei Zyklen:
