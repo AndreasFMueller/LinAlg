@@ -63,3 +63,14 @@
 \NewEnviron{bewertung}{\relax}
 % oft benutzte Macros
 \def\blank{\text{\textvisiblespace}}
+%
+% macros fuer den thema-Index
+%
+\newcommand{\openthemaindex}{%
+\newwrite\themaindex
+\immediate\openout\themaindex=thema.tix}
+%
+\newcommand{\closethemaindex}{\immediate\closeout\themaindex}
+%
+\def\thema#1{\immediate\write\themaindex%
+{{\thechapter}{#1}{\arabic{problemcounter}}{\thechapter.\arabic{problemcounter}}}}
