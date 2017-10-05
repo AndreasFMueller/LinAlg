@@ -74,3 +74,10 @@
 %
 \def\thema#1{\immediate\write\themaindex%
 {{\thechapter}{#1}{\arabic{problemcounter}}{\thechapter.\arabic{problemcounter}}}}
+\def\themasection#1#2{ \item[#1] #2 }
+\newcommand{\printthemata}{
+\chapter*{Aufgaben nach Themen}
+\begin{description}
+\input{thema.tex}
+\end{description}
+}
