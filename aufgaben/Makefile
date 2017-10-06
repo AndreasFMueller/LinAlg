@@ -9,8 +9,15 @@ all:	aufgabensammlung.pdf
 TEXFILES = aufgabensammlung.tex uebungen.tex \
 	1.tex 2.tex 3.tex 4.tex 5.tex 6.tex o.tex
 
-aufgabensammlung.pdf:	$(TEXFILES) aufgabensammlung.ind
-	pdflatex aufgabensammlung.tex uebungen.tex
+aufgabensammlung.pdf:	$(TEXFILES) aufgabensammlung.ind thema.tex
+	pdflatex aufgabensammlung.tex
+
+thema.tex:	thema.tix
+	iconv -f ISO-8859-1 -t UTF-8 thema.tix > thema.tix2
+	../bin/mkthemaidx thema.tix2 thema.tex
+
+thema.tix:	$(TEXFILES)
+	pdflatex aufgabensammlung.tex
 
 aufgabensammlung.ind:	$(TEXFILES) images
 	touch aufgabensammlung.ind
