@@ -54,6 +54,7 @@
 \label{#2}
 \bigskip{\parindent0pt\strut}\hbox{\bf\theproblemcounter. }%
 \marginpar{\raggedright\tiny #2}%
+\expandafter\def\csname currentaufgabe\endcsname{#2}%
 \expandafter\def\csname aufgabepath\endcsname{\inputpath/#1/#2/}%
 \expandafter\input{\inputpath#1/#2.tex}
 \bigskip
@@ -73,11 +74,13 @@
 \newcommand{\closethemaindex}{\immediate\closeout\themaindex}
 %
 \def\thema#1{\immediate\write\themaindex%
-{{\thechapter}{#1}{\arabic{problemcounter}}{\thechapter.\arabic{problemcounter}}}}
+{{\thechapter}{#1}{\arabic{problemcounter}}{\thechapter.\arabic{problemcounter}}{\currentaufgabe}}}
 \def\themasection#1#2{ \item[#1] #2 }
 \newcommand{\printthemata}{
+\IfFileExists{./thema.tex}{
 \chapter*{Aufgaben nach Themen}
 \begin{description}
 \input{thema.tex}
 \end{description}
+}{}
 }

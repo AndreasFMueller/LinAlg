@@ -21,10 +21,14 @@ class entry {
 	int		_chapter;
 	int		_problem;
 	std::string	_thema;
+	std::string	_pretty;
+	std::string	_label;
 public:
 	int	chapter() const { return _chapter; }
 	int	problem() const { return _problem; }
+	const std::string&	label() const { return _label; }
 	const std::string&	thema() const { return _thema; }
+	const std::string&	pretty() const { return _pretty; }
 	entry(const std::string& line) {
 		std::string	s = line;
 		// get the chapter number
@@ -34,7 +38,17 @@ public:
 		size_t	offset = s.find('}');
 		_thema = s.substr(0, offset);
 		// get the problem
-		_problem = std::stoi(s.substr(offset + 2, s.find('}')));
+		s = s.substr(offset + 2);
+		offset = s.find('}');
+		_problem = std::stoi(s.substr(0, offset));
+		// get the pretty printed problem number
+		s = s.substr(offset + 2);
+		offset = s.find('}');
+		_pretty = s.substr(0, offset);
+		// get the label
+		s = s.substr(offset + 2);
+		offset = s.find('}');
+		_label = s.substr(0, offset);
 		//std::cout << line << std::endl;
 		//std::cout << _thema << "|" << _chapter << "|" << _problem << std::endl;
 	}
@@ -138,7 +152,9 @@ int	main(int argc, char *argv[]) {
 		} else {
 			out << ", ";
 		}
+		out << "\\hyperref[" << i->label() << "]{";
 		out << i->chapter() << "." << i->problem();
+		out << "}";
 	}
 	out << "}" << std::endl;
 	out.close();
