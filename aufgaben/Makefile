@@ -2,7 +2,6 @@
 # Makefile to build the problem collection
 #
 # (c) 2013 Prof Dr Andreas Mueller, Hochschule Rapperswil
-# $Id$
 #
 all:	aufgabensammlung.pdf
 
