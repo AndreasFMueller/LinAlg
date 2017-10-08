@@ -1,0 +1,226 @@
+%
+% kovarianz.tex -- Kovarianz
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Kovarianz und Kontravarianz}
+\rhead{Kovarianz und Kontravarianz}
+Bisher sind wir davon ausgegangen, dass die Stellung eines Index die
+einzige wesentliche Eigenschaft ist wenn es darum geht zu beschreiben,
+was für ein Objekt $u^i$ oder $v_j$ ist.
+Dies ist jedoch nicht ganz zutreffend.
+Die Zahlen $u^i$ und $v_j$ beschreiben einen Vektor, doch dafür ist
+die Wahl einer Basis Voraussetzung.
+Dies bedeutet auch, dass die Wahl einer anderen Basis zu anderen
+Koeffizienten $u^i$ oder $v_j$ führt, die immer noch den gleichen
+Vektor beschreibt.
+Wir müssen daher bei jedem Tensor auch beschreiben, wie die Komponenten
+sich ändern, wenn man eine andere Basis wählt.
+
+\subsection{Basistransformation}
+Wir betrachten jetzt zwei verschiedenen Basen
+\[
+B=\{b_1,\dots,b_n\}
+\qquad\text{und}\qquad
+B'=\{b'_1,\dots,b_n'\}.
+\]
+eins Vektorraumes $V$.
+Da beide Mengen $B$ und $B'$ jeden beliebigen Vektor $v\in V$ auszudrücken
+gestatten, gibt es Zahlen $v^i$ und $v^{\prime i}$, mit denen sich der Vektor
+$v$ beschreiben lässt:
+\begin{equation}
+v = v^ib_i = v^{\prime i}b'_i,
+\label{tensor:basistransformation1}
+\end{equation}
+wir stellen uns die Frage, wie $v^{\prime i}$ aus $v^i$ berechnet
+werden kann.
+
+Da die Vektoren $b_i\in V$ sind, können wir auch diese Vektoren durch
+die Vektoren $b'_i$ beschreiben.
+Es muss Zahlen $t^k_i$ geben, so dass
+\begin{equation}
+b_i = t_i^k b'_k
+\label{tensor:basistransformation2}
+\end{equation}
+gilt.
+Daraus können wir aber auch ablesen, wie die Koeffizienten $v^{\prime i}$
+zu berechnen sind.
+Setzen wir \eqref{tensor:basistransformation2} in
+\eqref{tensor:basistransformation1} ein, erhalten wir
+\begin{equation}
+v = v^i b_i = v^i t_i^kb'_k.
+\end{equation}
+Durch Vergleich mit dem zweiten Teil von \eqref{tensor:basistransformation1}
+erkennen wir, dass 
+\begin{equation}
+v^i t_i^k
+=
+t_i^k v^i
+=
+v^{\prime k}.
+\label{tensor:basistransformation3}
+\end{equation}
+Die Matrix $t_i^k$ beschreibt also auch die Transformation der Koordinaten
+$v^{\prime k}$.
+
+Die inverse Matrix $\bar t_j^i$ erfüllt die Bedingung
+$\bar t_j^i t_i^k=\delta_i^k$.
+Multiplizieren wir \eqref{tensor:basistransformation1} mit $\bar t_j^i$,
+erhalten wir
+\begin{equation}
+\bar t_j^i b_i
+=
+\bar t_j^i t_i^k b'_k
+=
+\delta_j^k b'_k
+=
+b'_j,
+\end{equation}
+die inverse Matrix vermittelt also die Transformation in der umgekehrten
+Richtung.
+Wendet man die inverse Matrix auf \eqref{tensor:basistransformation3} an,
+erhält man eine entsprechende Formel für die Umrechnung 
+\[
+\bar t_k^j
+t_i^k v^i
+=
+\bar t_k^j
+v^{\prime k}
+=
+v^j.
+\]
+Die Formel \eqref{tensor:basistransformation3} liefert als in jedem Fall
+die Transformation zwischen Komponenten eines Vektors ausgedrückt
+in verschiedenen Basen.
+
+\subsection{Kovarianz und Kontravarianz}
+Die Formel \eqref{tensor:basistransformation3} beschreibt die Transformation
+zwischen kontravarianten Vektorkomponenten, es fehlt uns eine entsprechende
+Formel für kovariante Komponenten.
+Wir verwenden dazu, dass ein kovarianter Index den Zweck hat, mit einem
+kontravarianten Index zusammen summiert zu werden.
+Ist $u_i$ ein kovarianter Vektor und $v^i$ ein kontravarianter Vektor,
+dann ist $u_iv^i$ eine Zahl.
+Wenn $u_iv^i$ ein Objekt beschreiben soll, welches von der Wahl der
+Basis unabhängig ist, dann darf es sich nicht ändern, wenn wir zu einer
+anderen Basis übergehen.
+Wir fordern daher, dass 
+\[
+\begin{aligned}
+u_iv^i
+=
+u_i \bar t^i_k v^{\prime k}
+=
+u'_k v^{\prime k}
+\qquad\Rightarrow\qquad
+u'_k
+&=
+u_i \bar t^i_k
+\\
+t^k_i
+u'_k
+&=
+u_i
+\end{aligned}
+\]
+gilt.
+Dies ist eine Transformationsformel für die kovarianten Komponenten
+$u_i$ eines Vektors.
+Stellt man die Transformationsformeln für $v^i$ und $u_i$ gegenüber
+\[
+v^{\prime k}
+=
+t_i^k v^i
+\qquad\text{und}\qquad
+u_i
+=
+t^k_i
+u'_k,
+\]
+erkennt man, dass die Transformation für die kovarianten Komponenten
+vom gestrichenen Koordinatensystem zum ungestrichenen die gleiche Matrix
+verwendet wie \eqref{tensor:basistransformation1}, wenn die 
+ungestrichenen Basisvektoren durch gestrichene ausgedrückt werden sollen.
+Die Transformation der kontravarianten Komponten dagegen verwendet ebenfalls
+die gleiche Matrix aber für die Transformation von ungestrichenen
+zu gestrichenen Koordinaten, also in der umgekehrten Richtung.
+Dies erklärt auch die Namen kovariant und kontravariant.
+
+Wie soll ein Tensor höherer Stufe transformiert werden?
+Die einfachsten Tensoren höherer Stufe sind Produkte von
+ko- oder kontravarianten Tensoren erster Stufe.
+Der Tensor $a^{ij}=u^iv^j$ hat offensichtlich das Transformationsgesetz
+\[
+a^{\prime ij}
+=
+u^{\prime i}v^{\prime j}
+=
+t^i_k u^k
+t^j_l v^l
+=
+t^i_k
+t^j_l
+a^{kl}.
+\]
+Dir können daraus ablesen, dass jeder kovariante Index
+vom ungestrichenen zum gestrichenen Koordinatensystem mit der Matrix
+$t^i_k$ transformiert werden muss.
+Analog zeigt der Tensor $a_{ij}=u_iv_j$ und die Rechnung
+\[
+a_{ij}
+=
+u_iv_j
+=
+t_i^k u'_k
+t_j^l v'_l
+=
+t_i^k
+t_j^l a'_{kl},
+\]
+dass die Matrix $t_i^k$ für die Transformation jedes kontravarianten 
+Index vom gestrichenen zum ungestrichenen verwendet werden muss.
+
+\begin{definition}
+Eine $p$-fach kovarianter und $q$-fach kontravarianter Tensor ist
+eine Grösse
+\[
+a_{i_1\dots i_p}^{j_1\dots j_q},
+\]
+die bei Basiswechsel zur gestrichenen Basis gemäss den äquivalenten Formeln
+\begin{align*}
+a_{i_1\cdots i_p}^{j_1\cdots j_q}
+\,
+t_{j_1}^{k_1}
+\cdots
+t_{j_p}^{k_q}
+&=
+a_{i_1\cdots i_p}^{\prime l_1\cdots l_q}
+\,
+t_{l_1}^{k_1}
+\cdots
+t_{l_q}^{k_q}
+\\
+a_{i_1\cdots i_p}^{j_1\cdots j_q}
+&=
+a_{k_1\cdots k_p}^{\prime l_1\cdots l_q}
+\,
+t_{l_1}^{j_1}\cdots t_{l_q}^{j_q}
+\,
+\bar t_{i_1}^{k_1}\cdots \bar t_{i_p}^{k_p}
+\\
+a_{i_1\cdots i_p}^{j_1\cdots j_q}
+\,
+\bar t_{k_1}^{i_1}\cdots \bar t_{k_p}^{i_p}
+\,
+t_{j_1}^{l_1}\cdots t_{j_q}^{l_q}
+&=
+a_{k_1\cdots k_p}^{\prime l_1\cdots l_q}
+\end{align*}
+transformiert wird.
+\end{definition}
+
+Ein den meisten Fällen sind die Transformationsregeln eine automatische
+Folge der Definition der Objekte und müssen nicht weiter verifiziert werden.
+
+\subsection{Koordinatenfreie Darstellung}
+

@@ -1,0 +1,165 @@
+%
+% motivation.tex -- Motivation der Tensoralgebra
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Multilineare Algebra%
+\label{section:multilinearealgebra}}
+\rhead{Multilineare Algebra}
+In der elementaren linearen Algebra begnügt man sich damit, lineare
+Abbildungen zu studieren.
+Der Matrizenkalkül stellt sich in diesem Zusammenhang als eine
+besonders erfolgreiche und intuitive Notation heraus.
+Doch bereits beim Skalarprodukt stösst die Notation an ihre Grenzen,
+die bei multilinearen Funktionen von mehr als zwei Vektoren
+endgültig überschritten werden.
+Dieses Kapitel sucht daher nach einem erweiterten Kalkül, der mit
+diesen allgemeineren Situationen fertig werden kann.
+
+\subsection{Multilineare Funktionen%
+\label{subsection:multilinearefunktionen}}
+Die multiplikative Grundoperation der Matrizenalgebra ist die 
+Multiplikation $\text{Zeile}\times \text{Spalte}$:
+\[
+f(b)
+=
+\begin{pmatrix}a_1&a_2&\dots&a_n\end{pmatrix}
+\begin{pmatrix}
+b_1\\b_2\\\vdots\\b_n
+\end{pmatrix}
+=
+a_1b_1+a_2b_2+\dots+a_nb_n
+=
+\sum_{i=1}^n a_ib_i.
+\]
+Als Funktion des Spaltenvektors ist die Funktion $b\mapsto f(b)$ eine
+lineare Funktion.
+In Kapitel~\ref{chapter:dualitaet} wurde gezeigt, dass sich jede lineare
+Funktion auf einem endlichdimensionalen Vektorraum auf diese Weise
+darstellen lässt.
+Eine lineare Abbildung $\mathbb R^n\to\mathbb R^m$ besteht aus je einer
+Linearform für jede der $m$ Komponenten des Bildraumes, was die übliche
+Darstellung der linearen Abbildung als $m\times n$-Matrix rechtfertigt.
+
+Das Skalarprodukt von zwei Vektoren ist 
+\[
+u,v\mapsto g(u,v)=u\cdot v = \sum_{i=1}^n u_iv_i.
+\]
+Jede der Funktionen $u\mapsto g(u,v)$ und $v\mapsto g(u,v)$ sind
+linear und können daher in der Form eines Matrizenproduktes dargestellt
+werden, nämlich
+\[
+v\mapsto g(u,v) = u^tv
+\qquad\text{und}\qquad
+u\mapsto g(u,v) = v^tu.
+\]
+Das unbefriedigende an dieser Darstellung ist, dass je nachdem welcher
+Vektor als unabhängige Variable angesehen wird, die Funktion anders
+beschrieben wird.
+Da das Skalarprodukt symmetrisch ist, erwarten wir, dass es eine
+Darstellungsmöglichkeit gibt, in der $u_i$ und $v_i$ in symmetrischer
+Weise vorkommen.
+
+Betrachten wir eine Funktion $h(a,b,c)$, die auf lineare Weise von
+drei Vektoren $a$, $b$ und $c$ abhängt.
+Eine solche Funktion ist
+\[
+h(a,b,c)=\sum_{i,j,k=1}^n h_{ijk} a_i b_j c_k,
+\]
+wobei $h_{ijk}$ beliebige reelle Zahlen sind.
+Jede partielle Funktion $a\mapsto h(a,b,c)$ kann als Matrizenprodukt
+$h(a,b,c)=w_{b,c}a$ dargestellt werden, doch damit ist die Abhängigkeit des
+Zeilenvektors $w_{b,c}$ von $b$ und $c$ noch nicht ausgedrückt.
+Natürlich kann man den Vektor berechnen, er hat die Komponenten
+\begin{equation}
+w_i = \sum_{j,k=1}^n h_{ijk}b_jc_k.
+\label{tensor:beispiel}
+\end{equation}
+Während beim Skalaprodukt mit Hilfe der Transposition der eine Vektor
+in die ``richtige'' Linearform umgewandelt werden konnte, für die das
+Produkt $\text{Zeile}\times\text{Spalte}$ mit dem zweiten Vektor das
+Skalarprodukt ergibt, scheint es keine solche Möglichkeit für drei
+beteiligte Vektoren zu geben.
+
+Gesucht ist daher ein Ersatz für das Matrizenprodukt, welcher ermöglicht,
+beliebige lineare Abbildungen zu beschreiben.
+Die Darstellung \eqref{tensor:beispiel} der Komponenten des Vektors
+$w_{a,b}$ zeigt bereits, dass die Rechnung in einer Basis vergleichsweise
+einfach ist.
+Die Multiplikation der $m\times n$-Matrix $A$ mit dem $n$-dimensionalen
+Vektor $x$ hat die Komponenten
+\[
+\sum_{j=1}^n a_{ij}x_j,
+\]
+die Notation $Ax$ bedeutet automatisch, dass die Summation über den zweiten
+Index zu erfolgen hat.
+In \eqref{tensor:beispiel} ist jedoch nicht klar, welche Indizes für
+die Summation herangezogen werden sollen.
+
+\subsection{Multilineare Vektoren%
+\label{subsection:multilinearevektoren}}
+Wir betrachten erneut das Skalarprodukt
+\[
+\cdot\colon
+\mathbb R^n \times \mathbb R^n \to \mathbb R^n
+:
+(u,v)\mapsto u\cdot v= u^t v.
+\]
+Es ist klar, dass diese Funktion sowohl in $u$ als auch in $v$ linear ist.
+Es gilt aber auch, dass die Paare $(u,v)$ und $(\lambda u,\lambda^{-1} v)$
+das gleiche Skalarprodukt haben.
+Das Skalarprodukt ist daher eine lineare Funktion aller Produkte $u_iv_j$.
+Es gibt daher Koeffizienten $g_{ij}$ derart, dass
+\[
+u\cdot v
+=
+\sum_{i,j=1}g_{ij}u_iv_j
+=
+\sum_{i=1}^n = u_iv_i
+\qquad\Rightarrow\qquad
+g_{ij}=\delta_{ij}
+=
+\begin{cases}
+1&\qquad i=j\\
+0&\qquad\text{sonst.}
+\end{cases}
+\]
+Zu jedem Paar $u,v$ von Vektoren gibt es daher einen Vektor, den wir mit
+$u\times v$ bezeichnen wollen, bestehend
+aus den Produkten $u_iv_j$, die Abbildung
+\[
+\mathbb R^n\times \mathbb R^n
+\to
+\mathbb R^{n^2}
+:
+(u,v)\mapsto
+u\otimes v
+=
+\begin{pmatrix}
+u_1v_1\\u_1v_2\\\vdots\\u_1v_n\\u_2v_1\\\vdots\\u_nv_n
+\end{pmatrix}
+\]
+Man kann sich diesen Vektor zwar auch als die Matrix $uv^t$ vorstellen,
+doch hilft uns das nicht, das Skalarprodukt als Linearform
+auf den Produkten zu verstehen.
+Es ist zweckmässiger, die Produkte als neuen $n^2$-dimensionalen Vektorraum
+$\mathbb R^n \otimes \mathbb R^n$ mit einer Basis bestehend aus den 
+Vektoren
+\[
+e_{ij}
+=
+e_i\otimes e_j
+\qquad\text{mit}\qquad
+u\otimes v = \sum_{i,j=1}^n u_iv_j\, e_i\otimes e_j.
+\]
+Der Vektor $u\otimes v$ heisst das Tensorprodukt der Vektoren $u$ und $v$,
+er ist ein Vektor im Tensorprodukt $\mathbb R^n\otimes \mathbb R^n$
+der Vektorräume, aus denen die Faktoren $u$ und $v$ stammen.
+
+Ziel dieses Kapitels ist daher die Entwicklung eines Kalküls, der 
+Berechnungen mit beliebigen Tensorprodukten $u\otimes v$ und beliebigen
+multilinearen Abbildungen auf ähnlich unverselle Weise ermöglicht,
+wie das Produkt ``$\text{Zeile}\times\text{Spalte}$'' dies für lineare
+Abbildungen eines einzelnen Vektors ermöglicht hat.
+
+

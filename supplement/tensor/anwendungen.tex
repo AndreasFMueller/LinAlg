@@ -1,0 +1,321 @@
+%
+% anwendungen.tex -- Anwendungen
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Anwendungen%
+\label{section:tensor:anwendungen}}
+\rhead{Anwendungen}
+In diesem Abschnitt sollen ein paar Anwendungen des allgemeinen
+Tensorkalküls gezeigt werden, der in den vorangegangenen Abschnitten
+entwickelt worden ist.
+
+\subsection{Tangentialvektoren einer Mannigfaltigkeit%
+\label{tensor:subsetion:tangentialvektoren}}
+Wir betrachten eine im dreidimensionalen Raum eingebettete Fläche,
+die wir mit Hilfe eine Abbildung
+\[
+f\colon \mathbb R^2 \to \mathbb R^3: (u,v) \mapsto f(u,v)
+\]
+beschreiben können.
+Die Abbildung gibt jedem Punkt auf der Fläche zugehörige Koordinaten $(u,v)$.
+Die Ableitung nach den Koordinaten $u$ und $v$ liefert zwei linear
+Tangentialvektoren im dreidimensionalen Raum:
+\[
+f_u = \frac{\partial f}{\partial u}
+\qquad\text{und}\qquad
+f_v = \frac{\partial f}{\partial v}.
+\]
+Diese Betrachtungsweise der Tangentialvektoren ist aber nicht
+verallgemeinerungsfähig auf die Untersuchung beleibiger Räume
+unabhängig von deren Einbettung in einen grösseren Raum, wie
+man sie für die Beschreibung des Universums in der allgemeinen
+Relativitätsttheorie braucht.
+
+Ein Vektor $v$ im dreidimensionalen Raum wirkt an einem Punkt $p$
+auf Funktionen $g$ von drei Variablen via der Richtungsableitung
+\[
+X_v\cdot g
+=
+\frac{d}{dt}g(p+vt)\bigg|_{t=0}.
+\]
+In der mehrdimensionalen Analysis lernt man, dass man die Richtungsableitung
+auch mit dem Gradienten beschreiben kann, es gilt
+\[
+X_v\cdot g
+=
+\operatorname{grad}g\cdot v.
+\]
+Man liest ab, dass der Gradient eine Linearform ist, die jedem
+Tangentialvektor $v$ eine Zahl zuordnet.
+
+Übertragen wir dies auf das Beispiel der zweidimensionalen Fläche im
+dreidimensionalen Raum.
+Zu Koordinate $u$ gehört der Tangentialvektor $f_u$, wir wollen die 
+zugehörige Richtungsableitung einer Funktion $g$ im Punkt $f(u_0,v_0)$
+auf der Fläche berechnen.
+Dazu brauchen wir die Ableitung
+\[
+X_{f_u}\cdot g(u_0,v_0)
+=
+\frac{\partial}{\partial u}g(f(u,v_0)) \bigg|_{u=u_0}
+=
+\frac{\partial}{\partial u}(g\circ f)(u_0,v_0).
+\]
+Dem Vektor $f_u$ entspricht also der Differentialoperator
+\[
+\partial_u
+=
+\frac{\partial}{\partial u},
+\]
+wir können diese Operatoren direkt als Basis der (verallgemeinerten) 
+Tangentialvektoren betrachten.
+
+Der Vorteil dieser Betrachtungsweise ist, dass sie erlaubt, sich
+der Vorstellung der Einbettung vollständig zu lösen.
+Für einen $n$-dimensionalen Raum mit Koordinatensystem mit den Koordinaten
+$(x^1,\dots,x^n)$ betrachten wir die Ableitungsoperatoren 
+\[
+X_i = \frac{\partial}{\partial x^i}
+\]
+als die Tangentialvektoren.
+Ein beliebiger Tangentialvektor ist Linearkombination der $X_i$, also
+von der Form $X = \xi^i X_i$.
+Die Richtungsableitung des Vektors $X$ auf einer Funktion $g$ ist
+\[
+X\cdot g(x^1,\dots,x^n)
+=
+\xi^i \frac{\partial g}{\partial x^i}.
+\]
+
+Diese Betrachtungsweise der Tangentialvektors ist auch mit
+Koordinatenwechseln verträglich.
+Ist $\tilde x_i$ ein anderes Koordinatensystem, gibt es Umrechnungsfunktionen
+\[
+x^i
+=
+x^i(\tilde x^1,\dots,\tilde x^n)
+\qquad
+\text{und}
+\qquad
+\tilde x^i
+=
+\tilde x^i(x^1,\dots,x^n).
+\]
+Die Umrechnung des Differentialoperators $\partial/\partial x^i$ in 
+$\partial/\partial\tilde x^i$ ist durch die Jacobi-Matrix 
+\[
+\frac{\partial g}{\partial x^i}
+=
+\frac{\partial x^j}{\partial x^i}
+\frac{\partial g}{\partial\tilde x^j}
+\qquad\Rightarrow\qquad
+X_i
+=
+\frac{\partial}{\partial x^i}
+=
+\frac{\partial\tilde x^j}{\partial x^i}
+\frac{\partial}{\partial\tilde x^j}
+=
+\frac{\partial\tilde x^j}{\partial x^i} \tilde X_j.
+\]
+gegeben.
+
+\subsection{Metrik auf einer Mannigfaltigkeit}
+In einem $n$-dimensionalen Raum sei ein Kurve durch die Parametrisierung
+\[
+t
+\mapsto
+x^i(t)
+\]
+gegeben.
+Der Tangentialvektor an der Stelle $t_0$ ist
+\begin{equation}
+X(t_0)
+=
+\dot x^i(t_0)
+\frac{\partial}{\partial x^i}.
+\label{tensor:kurve:tangentialvektor}
+\end{equation}
+
+Um die Länge der Kurve zwischen den Parameterwerten $a$ und $b$ zu bestimmen,
+muss die Summe
+\[
+l = \sum_{k=0}^{N-} d(x^i(t_k),x^i(t_{k+1}))
+\]
+für beliebig feine Unterteilung $a=t_0<t_1<\dots <t_{N-1}<t_N=b$ des Intervals,
+berechnet werden.
+Darin ist $d(x^i(t_k), x^i(t_{k+1}))$ die Entfernung zwischen den Punkten
+$x^i(t_k)$ und $x^i(t_{k+1})$.
+Für kleine Unterschiede zwischen $t_k$ und $t_{k+1}$ ist die Distanz
+näherungsweise durch die Ableitungen gegeben:
+\[
+d(x^i(t_k), x^i(t_{k+1}))
+\simeq
+\sqrt{g_{ij}(x^s(t_k))\,\dot x^i(t_k) \dot x^j(t_k)}.
+\]
+Die Summe
+\eqref{tensor:kurve:tangentialvektor}
+für die Kurvenlänge $l$ wir damit zu einem Integral
+\begin{equation}
+l=\int_a^b \sqrt{g_{ij}(x^s(t))\, \dot x^i(t) \dot x^j(t)}\,dt.
+\label{tensor:kurve:kurvenlaenge}
+\end{equation}
+Die Kurvenlänge wird daher durch einen kovarianten Tensor $g_{ij}$ 
+zweiter Stufe beschrieben, den sogenannten metrischen Tensor.
+
+\subsection{Kovariante Ableitung, Geodäten und Krümmung}
+
+\subsection{Differentialformen}
+Die partiellen Ableitungsoperatoren haben wir in
+Abschnitt~\ref{tensor:subsetion:tangentialvektoren}
+als eine einbettungsunabhängige Beschreibung der Tangentialvektoren
+erkannt.
+Die Tangentialvektoren bilden einen $n$-dimensionalen Vektorraum
+mit Basisvektoren $\partial/\partial x^i$.
+
+\subsubsection{$1$-Formen}
+Die Linearformen auf den Tangentialvektoren bilden ebenfalls einen
+$n$-dimensionalen Vektorraum, den zu $\partial/\partial x^i$ duale Basisvektor
+bezeichnen wir mit $dx^i$, es gilt also
+\[
+dx^i \cdot X_j = dx^i \cdot \frac{\partial}{\partial x^j}=\delta^i_j
+\]
+
+Die Notation $dx^i$ ist einigermassen willkürlich, lässt sich aber
+wie folgt rechtfertigen.
+Wir berechnen die Änderung der Koordinate $x^i$ entlang 
+der Koordinatenlinie $t\mapsto (x^1,\dots,t,\dots x^n)$, wobei $t$
+als $i$-te Koordinate verwendet wird, wenn $t$ von $a$ auf $b$ anwächst.
+Entlang der Kurve ändert sich $x^i$ zwischen den zwei Punkten
+$x^i(t_k)$ und $x^i(t_{k+1})$ näherungsweise um 
+\[
+\Delta x^i
+=
+\dot x^i(t) \cdot (t_{k+1}-t_k)
+=
+dx^i \cdot \dot x^j\, X_j.
+\]
+Wir können auch schreiben
+\[
+b-a
+=
+\int_a^b dx^i
+\]
+schreiben, in diesem Sinne ist $dx^i$ eine sinnvolle Bezeichnung für die
+zum Vektor $\partial/\partial x^i$ duale Linearform.
+
+\subsubsection{Integration einer $1$-Form}
+Die Integration entlang einer Kurve hängt jetzt nicht mehr von der
+Parametrisierung der Kurve ab.
+Ist $\omega = \omega_i\,dx^i$ eine $1$-Form und $x^i(t)$ eine
+Parametrisierung, dann ist das Integral der $1$Form $\omega$
+entlang der Kurve
+\[
+\int_{\gamma} \omega_i dx^i
+=
+\int_a^b \omega_i(x^i(t))\dot x^i(t)\,dt.
+\]
+Eine andere Parametrisierung $t=t(s)$ liefert das Integral
+\[
+\int_a^b \omega^i(x^i(t)) \dot x^i(t)\,dt
+=
+\int_a^b \omega^i(x^i(s(t))) \frac{x^i(t)}{dt} \frac{dt}{ds}\,ds
+=
+\int_c^d \omega^i \frac{dx^i(s)}{ds}\,ds.
+\]
+Das Integral
+\[
+\int_\gamma \omega
+\]
+kann daher auf parametrisierungsunabhängige Art definiert werden.
+
+\subsubsection{Metrik}
+Der metrische Tensor, der in~\eqref{tensor:kurve:kurvenlaenge}
+für die Berechnung der Kurvenlänge verwendet wird, kann jetzt als
+Tensorprodukt geschrieben werden:
+\[
+l = \int_\gamma \sqrt{g_{ij}dx^i\otimes dx^j}.
+\]
+
+\subsubsection{$2$-Formen}
+Wir betrachten jetzt eine Fläche $S$ mit Parametern $u^1$ und $u^2$, die
+durch die Abbildungen $x^i(u^1,u^2)$ beschrieben wird.
+Ausserdem sei eine bilinear-Form $a_{ij}dx^i\otimes dx^j$ gegeben.
+Wir möchten wieder ein Integral von $\omega$ über die durch die
+Parametrisierung beschrieben Fläche definieren und versuchen
+\begin{equation}
+\int_S \omega
+=
+\int_S a_{ij}dx^i\otimes dx^j
+=
+\int a_{ij}
+\frac{\partial x^i}{\partial u^1}
+\frac{\partial x^j}{\partial u^2}
+\,
+du^1\,du^2.
+\label{tensor:2form}
+\end{equation}
+Bei einem Koordinatenwechsel $u^i(v^1, v^2)$ ändert der
+Integrand in \eqref{tensor:2form}, von den Koordinaten unabhängig kann
+das Integral nur sein, wenn sich das Integral wie ein Flächenintegral 
+transformiert.
+Dazu muss bei der Koordinatenumrechnung das Flächenelement mit der 
+Determinante 
+\begin{align*}
+a_{ij}
+\frac{\partial x^i}{\partial u^1}
+\frac{\partial x^j}{\partial u^2}
+du^1\,du^2
+&=
+a_{ij}
+\frac{\partial x^i}{\partial u^1}
+\frac{\partial x^j}{\partial u^2}
+\biggl(
+\frac{\partial u^1}{\partial v^1}
+\frac{\partial u^2}{\partial v^2}
+-
+\frac{\partial u^1}{\partial v^2}
+\frac{\partial u^2}{\partial v^1}
+\biggr)
+dv^1\,dv^2
+\\
+&=
+\frac12
+(
+a_{ij}
+-
+a_{ji}
+)
+\frac{\partial x^i}{\partial u^k}
+\frac{\partial x^j}{\partial u^l}
+\biggl(
+\frac{\partial u^k}{\partial v^1}
+\frac{\partial u^l}{\partial v^2}
+-
+\frac{\partial u^k}{\partial v^2}
+\frac{\partial u^l}{\partial v^1}
+\biggr)
+dv^1\,dv^2
+\end{align*}
+multipliziert werden.
+Daraus folgt, dass das Integral nur definiert werden kann, wenn
+\[
+a_{ij}=-a_{ji},
+\]
+also nur dann, wenn $a_{ij}$ antisymmetrisch ist.
+Eine antisymmetrische Bilinearform heisst daher auch einen $2$-Form.
+
+Eine Basis von Zweiformen ist durch die Bilinearformen
+\[
+dx^i\wedge dx^j = \frac12 (dx^i\otimes dx^j - dx^j \otimes dx^i)
+\]
+gegeben.
+
+\subsubsection{$p$-Formen}
+
+
+\subsection{Äussere Ableitung und Maxwell-Gleichungen}
+
+\subsection{Symbol eines Differentialoperators als Tensor}
+
