@@ -1,0 +1,109 @@
+%
+% symmetrisch.tex
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Symmetrische und antisymmetrische Tensoren%
+\label{tensor:symmetrisch}}
+
+\subsection{Symmetrieeigenschaften}
+Sei $V=\mathbb R^n$ ein $n$-dimensionaler Vektorraum mit Basisvektoren $e_i$.
+Die Tensorprodukte $e_i\otimes e_j$ bilden eine Basis der Tensoren
+zweiter Stufe, Tensoren der Stufe $p$ haben als Basis die Tensorprodukte
+\[
+e_{i_1}\otimes e_{i_2}\otimes\dots\otimes e_{i_p}.
+\]
+In vielen Anwendungen spielen diese ganz allgemeine Tensoren nur eine
+untergeordnete Rolle.
+Sehr oft hat man mit Tensoren zu tun, die symmetrisch oder antisymmetrisch
+sind. 
+Ein Skalarprodukt hängt symmetrisch von den beiden Vektoren ab, ist
+also eine lineare Funktion, die auf $e_i\otimes e_j$ und $e_j\otimes e_i$
+die gleichen Werte annimmt.
+
+Das Vektorprodukt zweier dreidimensionaler Vektoren ist eine
+bilineare Funktion $\mathbb R^3\times\mathbb R^3\to\mathbb R^3$.
+Weil sie bilinear ist, muss man sie auch als lineare Abbildung
+\[
+\mathbb R^3\otimes \mathbb R^3 \to \mathbb R^3
+\]
+beschreiben können.
+Jede Komponente des Vektorproduktes hängt auf antisymmetrische
+Weise von Faktoren ab.
+Die Werte auf
+\[
+e_i\otimes e_j
+\qquad\text{und}\qquad
+e_j\otimes e_i
+\]
+müssen entgegengesetztes Vorzeichen haben.
+Zur Beschreibung des Vektorproduktes brauchen wir daher nicht die Werte
+auf beliebigen Tensorprodukten festzulegen, sondern nur auf ganz
+besonderen, antisymmetrischen Tensoren.
+
+\subsection{Antisymmetrische Tensoren}
+Sei $V$ ein $n$-dimensionaler Vektorraum mit Basis $e_i$, $i\le i\le n$.
+Eine antisymmetrische bilineare Funktion nimmt auf
+$e_i\otimes e_j$ und $e_j\otimes e_i$
+Werte mit entgegengesetztem Vorzeichen an.
+Es reicht daher, die Werte auf
+\[
+e_i\wedge e_j
+=
+\frac12(
+e_i\otimes e_j
+-
+e_j\otimes e_i
+)
+\]
+zu bestimmen.
+Die Vektoren $e_i\wedge e_j$ mit $i<j$ bilden eine Basis des Vektorraums
+$V\wedge V$ der antisymmetrischen Tensoren.
+
+\subsubsection{Vektorprodukt}
+Jede Komponente des Vektorprodukt $w=u\times v$ ist eine antisymmetrische
+bilineare Funktion der Vektoren $u$ und $v$.
+Zum Beispiel ist die erste Komponente 
+\[
+w^1
+=
+u^2v^3-u^3v^2
+\]
+
+\subsubsection{$p$-Vektoren}
+Eine multilineare Abbildung von $p$ Vektoren, die in jedem Paar von
+Argumenten antisymmetrisch ist, erfüllt
+\[
+f(\dots,u,\dots,v,\dots)
+=
+-f(\dots,v,\dots,u,\dots)
+\]
+für jedes Paar von beliebigen Argumenten.
+$f$ ist eine lineare Funktion, die auf den Tensorprodukten
+\[
+\dots\otimes e_i\otimes\dots\otimes e_j\otimes\dots
+\qquad\text{und}\qquad
+\dots\otimes e_j\otimes\dots\otimes e_i\otimes\dots
+\]
+entgegengesetzte Werte annimmt.
+Es genügt, die Funktionswerte auf den vollständig antisymmetrischen
+Tensorprodukte 
+\[
+e_{i_1}\wedge e_{i_2}\wedge\dots\wedge e_{i_p}
+=
+\frac1{p!}
+\sum_{\sigma\in S_p}
+e_{i_{\sigma(1)}}\otimes e_{i_{\sigma(2)}}\otimes\dots\otimes e_{i_{\sigma(p)}}
+\]
+festzulegen.
+Diese bilden eine Basis eines Vektorraumes $\bigwedge^p V$.
+
+\subsubsection{Determinante}
+
+\subsection{Symmetrische Tensoren und Skalarprodukt}
+
+
+
+
+
+
