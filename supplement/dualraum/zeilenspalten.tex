@@ -1,0 +1,143 @@
+%
+% zeilenspalten.tex -- das Verhältnis von Zeilen und Spalten
+%
+% (c) 2017 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Zeilen- und Spaltenvektoren%
+\label{section:dualraum:zeilenspalten}}
+\rhead{Zeilen- und Spaltenvektoren}
+In der elementaren Theorie arbeitet man meistens ausschliesslich mit
+Spaltenvektoren, die Zeilenvektoren erhalten nur eine stiefmütterliche
+Behandlung.
+In diesem Abschnitt soll die besondere Beziehung zwischen Zeilen- und
+Spaltenvektoren genauer beleuchtet werden.
+Insbesondere sind wir an einer Verallgemeinerung interessiert, die
+für beliebige Vektorräume konstruiert werden kann.
+
+\subsection{Linearformen}
+In der elementaren linearen Algebra lernt man als eines der einfachsten
+Beispiele das Matrizenprodukt eines Zeilenvektors mit einem Spaltenvektor
+kennen.
+Dieses Produkt ordnet einem Spaltenvektor $v$ auf lineare Weise einen Skalar zu.
+Die Abbildung
+\[
+l\colon \mathbb R^n\to \mathbb R:
+v\mapsto
+l(v)
+=
+\begin{pmatrix}l_1&l_2&\dots&l_n\end{pmatrix}
+\begin{pmatrix}v_1\\v_2\\\vdots\\v_n\end{pmatrix}
+\]
+ist ein lineare Abbildung vom $n$-dimensionalen Vektorraum $V=\mathbb R^n$
+in den eindimensionalen Vektorraum $\mathbb R$, also ein Element von
+$\operatorname{Hom}(\mathbb R^n, \mathbb R)$.
+Die linearen Abbildung $V\to\mathbb R$ oder allgemeiner $V\to K$ für
+einen $K$-Vektorraum heissen auch {\em Linearformen}.
+\index{Linearform}
+
+\subsection{Dualbasis}
+Umgekehrt lässt sich mit Hilfe einer Basis in einem endlichdimensionalen
+Vektorraum $V$ jede Linearform auf diese Art schreiben.
+Die Schreibweise suggeriert auch, dass der Vektorraum der Linearformen
+eine naheliegende Basis hat, ihre Basisvektoren sind die durch die
+Zeilenvektoren
+\begin{align*}
+e_1^*&=\begin{pmatrix}1&0&\dots&0\end{pmatrix}\\
+e_2^*&=\begin{pmatrix}0&1&\dots&0\end{pmatrix}\\
+&\vdots\\
+e_n^*&=\begin{pmatrix}0&0&\dots&1\end{pmatrix}
+\end{align*}
+beschriebenen Linearformen.
+Diese Basis ``passt'' zur Standardbasis des Vektorraums der Spaltenvektoren
+in dem Sinne, dass
+\[
+e_i^* e_j = \delta_{ij}
+\]
+gilt.
+
+\subsection{Abbildungen}
+Ist $A$ eine $n\times m$ Matrix, die eine lineare Abbildung von
+$\mathbb R^m\to\mathbb R^n$
+beschreibt, dann können wir aus einer Linearform $l$ auf $\mathbb R^n$ eine
+neue Linearform $\tilde l$ auf $\mathbb R^m$ konstruieren, indem wir
+\[
+\tilde l(u) = lAu
+\]
+setzen.
+$Au$ ist ein $m$-dimensionaler Spaltenvektor.
+Die Zuordnung $l\mapsto \tilde l$ ist natürlich wieder eine lineare
+Abbildung, die zugehörigen Zeilenvektoren werden gemäss der Regel
+\[
+l\mapsto \tilde l = lA
+\]
+abgebildet.
+Man beachte aber, dass diese Abbildung in ``umgekehrter Richtung''
+geht, also 
+\[
+\mathbb R^m\to\mathbb R^n
+\qquad\text{führt auf}\qquad
+\operatorname{Hom}(\mathbb R^n,\mathbb R)
+\to
+\operatorname{Hom}(\mathbb R^m,\mathbb R).
+\]
+Die Enstehung der lineare Abbildung $\tilde l$ kann man als Zusammensetzung
+in dem Diagramm 
+\[
+\begin{tikzcd}
+\mathbb R^m \ar[d,"A"] \ar[r,"\tilde l"]
+	& \mathbb R \ar[d,equal]
+\\
+\mathbb R^n \ar[r,"l"]
+	& \mathbb R
+\end{tikzcd}
+\qquad
+\text{ergibt Abbildung der $\operatorname{Hom}$-Vektorräume}
+\qquad
+\begin{tikzcd}
+\tilde l \ar[r,hook]
+	&\operatorname{Hom}(\mathbb R^m,\mathbb R)
+\\
+l \ar[u, maps to] \ar[r,hook]
+	&\operatorname{Hom}(\mathbb R^n,\mathbb R) \ar[u,"A^*"]
+\end{tikzcd}
+\]
+visualisieren.
+
+\subsection{Transposition}
+Üblicherweise verwendet man eine Basis $B=\{b_1,\dots,b_n\}$
+eines Vektorraums $V$ dazu, einem beliebigen Vektor $v\in V$ einen
+Spaltenvektor mit Komponenten $v_i$ zuzuordnen derart, dass
+\[
+v=v_1b_1+\dots+v_nb_n
+\]
+Wenden wir dieses Vorgehen auf die Standardbasis $\{e_1^*, \dots e_n^*\}$
+des Vektorraums $\operatorname{Hom}(\mathbb R^n, \mathbb R)$ an, bekommen
+wir für die Linearform $l$ die Darstellung
+\[
+l = l_1e_1^* + l_2e_2^* + \dots + l_ne_n^*.
+\]
+In diesem Vorgehen wäre der Linearform $l$ also der Spaltenvektor
+\[
+\begin{pmatrix}
+l_1\\
+l_2\\
+\vdots\\
+l_n
+\end{pmatrix}
+=
+\begin{pmatrix}l_1&l_2&\dots&l_n \end{pmatrix}^t
+\]
+zuzuordnen.
+
+Sei $A$ wieder eine $m\times n$-Matrix wie oben.
+Der Linearform $A^*l$, die wir oben durch Zusammensetzung konstruiert haben, 
+wird der Spaltenvektor
+\[
+(lA)^t = A^tl^t
+\]
+zugeordnet.
+Die Abbildung $A^*$, die auf Linearformen wirkt, wird also durch die
+transponierte Matrix wiedergegeben.
+
+
+
