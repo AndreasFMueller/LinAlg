@@ -445,7 +445,7 @@ Die Determinante von $A$ ist das Produkt der Pivot-Elemente,
 die im Laufe des Gauss-Verfahrens auftreten.
 \end{satz}
 
-\subsection{Entwicklungssatz\label{entwicklungssatz}}
+\section{Entwicklungssatz\label{entwicklungssatz}}
 \index{Entwicklungssatz}
 \index{rekursiv}
 Der Entwicklungssatz erlaubt, Determinanten rekursiv zu berechnen.
@@ -456,6 +456,11 @@ Da wir durch Vertauschungen und Transposition diese Zeile oder Spalte
 immer zur vordersten Spalte machen können, stellen wir nur die
 Entwicklung der Determinante nach der ersten Spalte dar.
 
+\input{entwicklungssatz.tex}
+
+\subsection{Entwicklungssatz direkt aus der Linearität}
+Man kann den Entwicklungssatz auch ganz direkt aus der Linearität
+und den Rechenregeln für die Determinante einer Matrix $A$ herleiten.
 Seien also $a_{ij}$ die Einträge in einer $n\times n$-Determinante.
 Die erste Spalte können wir als Summe von Vektoren betrachten,
 die jeweils nur an einer Stelle eine Eins haben und sonst aus
