@@ -1,0 +1,113 @@
+Betrachten Sie die Matrizen
+\[
+A=\begin{pmatrix}
+13& 9&-3&15\\
+ 0&11& 7& 5\\
+ 0& 0&17&13\\
+ 0& 0& 0&19
+\end{pmatrix}
+\qquad\text{und}\qquad
+B
+=
+\begin{pmatrix}
+   0&  1&  0&  0\\
+  -1&  0& -2&  0\\
+   0&  2&  0&  1\\
+   0&  0&  1&  0
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item Berechnen Sie $\det(A)$.
+\item Berechnen Sie $C=BAB^t$.
+\item Berechnen Sie $\det(C)$.
+\end{teilaufgaben}
+
+\thema{Produktsatz}
+\thema{Matrizenprodukt}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item $A$ ist eine Dreiecksmatrix, die Determinante ist das Produkt der
+Diagonalelemente:
+\[
+\det(A) = 13\cdot 11 \cdot 17\cdot 19=46189.
+\]
+\item Die Matrix $C$ ist
+\[
+C
+=
+BAB^t
+=
+\begin{pmatrix}
+  0& 11&  7&  5\\
+-13& -9&-31&-41\\
+  0& 22& 14& 29\\
+  0&  0& 17& 13
+\end{pmatrix}
+\begin{pmatrix}
+   0& -1&  0&  0\\
+   1&  0&  2&  0\\
+   0& -2&  0&  1\\
+   0&  0&  1&  0
+\end{pmatrix}
+=
+\begin{pmatrix}
+   11& -14&  27&   7\\
+   -9&  75& -59& -31\\
+   22& -28&  73&  14\\
+    0& -34&  13&  17
+\end{pmatrix}.
+\]
+\item Aus der Produktformel für Determinanten folgt
+\[
+\det(C)
+=
+\det(BAB^t)
+=
+\det(B)\det(A)\det(B^t)
+=
+\det(B)\det(A)\det(B)
+=
+\det(A)\det(B)^2.
+\]
+Im letzten Schritt wurde $\det(B)=\det(B^t)$ verwendet.
+Die Determinante $\det(A)$ auf der rechten Seite wurde in Teilaufgabe a)
+bereits berechnet.
+Es muss also nur noch $\det(B)$ berechnet werden.
+Dies kann mit dem Entwicklungssatz geschehen
+\[
+\det(B)
+=
+\left|
+\begin{matrix}
+ 0&  1&  0&  0\\
+-1&  0& -2&  0\\
+ 0&  2&  0&  1\\
+ 0&  0&  1&  0
+\end{matrix}\right|
+=
+-1\cdot
+\left|\begin{matrix}
+-1& -2&  0\\
+ 0&  0&  1\\
+ 0&  1&  0
+\end{matrix}\right|
+=
+(-1)\cdot(-1)\cdot
+\left|\begin{matrix}
+0&  1\\
+1&  0
+\end{matrix}\right|
+=(-1)\cdot(-1)\cdot(-1)=-1.
+\]
+Damit folgt
+\[
+\det(BAB^t)
+=
+\det(A)\det(B)^2
+=
+46189\cdot(-1)^2=46189.\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+

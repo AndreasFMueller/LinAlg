@@ -104,3 +104,40 @@ Damit folgt
 \end{teilaufgaben}
 \end{loesung}
 
+\begin{diskussion}
+Man könnte die Determinante von $C$ auch direkt mit dem Entwicklungssatz
+berechnen.
+Hier ist diese Lösung:
+\begin{align*}
+\det(C)
+&=
+\left|\begin{matrix}
+  11&   7&   5&   0\\
+   0&  17&  13&   0\\
+   0&   0&  19&   0\\
+   9&  -3&  15&  13
+\end{matrix}\right|
+%\\
+%&
+=
+13\cdot
+\left|\begin{matrix}
+  11&   7&   5\\
+   0&  17&  13\\
+   0&   0&  19
+\end{matrix}\right|
+=
+13\cdot 11\cdot
+\left|\begin{matrix}
+17&  13\\
+ 0&  19
+\end{matrix}\right|
+=
+13\cdot 11\cdot 17\cdot 19
+=
+46189.
+\end{align*}
+Im ersten Schritt wird nach der letzten Spalte entwickelt, im zweiten
+nach der erste Spalte.
+\end{diskussion}
+
