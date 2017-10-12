@@ -1,12 +1,12 @@
 Berechnen Sie die folgende Determinante
 \[
-\left|
+\left|\;
 \begin{matrix}
 2&3&4&0\\
 3&4&0&0\\
 4&0&0&0\\
 1&2&3&4
-\end{matrix}
+\end{matrix}\;
 \right|
 \]
 
@@ -16,45 +16,38 @@ Berechnen Sie die folgende Determinante
 Mit drei Zeilenvertauschungen, die jedesmal das Vorzeichen der
 Determinante umkehren, also insgesammt das Vorzeichen ändern,
 kann man die Determinante in die Form
-\[
-\left|
+\begin{align*}
+\left|\;
 \begin{matrix}
 2&3&4&0\\
 3&4&0&0\\
 4&0&0&0\\
 1&2&3&4
-\end{matrix}
+\end{matrix}\;
 \right|
-=
--\left|
+&=
+-\left|\;
 \begin{matrix}
 4&0&0&0\\
 3&4&0&0\\
 2&3&4&0\\
 1&2&3&4
-\end{matrix}
+\end{matrix}\;
 \right|
-\]
-Transposition ändert die Determinante nicht, also ist
-\[
-\left|
-\begin{matrix}
-2&3&4&0\\
-3&4&0&0\\
-4&0&0&0\\
-1&2&3&4
-\end{matrix}
-\right|
-=
--\left|
+\\
+\intertext{%
+Transposition ändert die Determinante nicht, also ist sie
+}
+&=
+-\left|\;
 \begin{matrix}
 4&3&2&1\\
 0&4&3&2\\
 0&0&4&3\\
 0&0&0&4
-\end{matrix}
+\end{matrix}\;
 \right|=-4^4=-256
 \qedhere
-\]
+\end{align*}
 \end{loesung}
 
