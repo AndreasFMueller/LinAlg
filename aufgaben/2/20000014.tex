@@ -1,14 +1,15 @@
 Berechnen Sie die folgende Determinante
 \[
-\left|\;
+\operatorname{det} (A) = \left|
 \begin{matrix}
 2&3&4&0\\
 3&4&0&0\\
 4&0&0&0\\
 1&2&3&4
-\end{matrix}\;
-\right|
+\end{matrix}
+\right|.
 \]
+Ist die Matrix $A$ singulär oder regulär? 
 
 \thema{Determinante}
 
@@ -36,7 +37,7 @@ kann man die Determinante in die Form
 \right|
 \\
 \intertext{%
-Transposition ändert die Determinante nicht, also ist sie
+bringen. Transposition ändert die Determinante nicht, also ist sie
 }
 &=
 -\left|\;
@@ -46,8 +47,9 @@ Transposition ändert die Determinante nicht, also ist sie
 0&0&4&3\\
 0&0&0&4
 \end{matrix}\;
-\right|=-4^4=-256
+\right|=-4^4=-256.
 \qedhere
 \end{align*}
+Da $\det A \neq 0$ ist, ist die Matrix regulär.
 \end{loesung}
 
