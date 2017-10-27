@@ -19,70 +19,8 @@ Wir benötigen zunächst Parameterdarstellungen für die Ebenen:
 +v
 \begin{pmatrix}-1\\1\\3\end{pmatrix}
 \]
-Gesucht werden jetzt Werte für $t$, $s$, $u$ und $v$, für die
-die beidden Ausdrücke übereinstimmen, also
-\begin{align*}
-\begin{pmatrix}6\\4\\7\end{pmatrix}
-+t
-\begin{pmatrix}3\\-2\\2\end{pmatrix}
-+s
-\begin{pmatrix}-5\\3\\-7\end{pmatrix}
-&=
-\begin{pmatrix}2\\2\\4\end{pmatrix}
-+u
-\begin{pmatrix}4\\11\\0\end{pmatrix}
-+v
-\begin{pmatrix}-1\\1\\3\end{pmatrix}
-\\
-t
-\begin{pmatrix}3\\-2\\2\end{pmatrix}
-+s
-\begin{pmatrix}-5\\3\\-7\end{pmatrix}
-+u
-\begin{pmatrix}-4\\-11\\0\end{pmatrix}
-+v
-\begin{pmatrix}1\\-1\\-3\end{pmatrix}
-&=
-\begin{pmatrix}2\\2\\4\end{pmatrix}
--
-\begin{pmatrix}6\\4\\7\end{pmatrix}
-=
-\begin{pmatrix}-4\\-2\\-3\end{pmatrix}
-\end{align*}
-Es ist also das lineare Gleichungssystem
-\begin{center}
-\begin{tabular}{|cccc|c|}
-\hline
-$ 3$&$-5$&$ -4$&$ 1$&$-4$\\
-$-2$&$ 3$&$-11$&$-1$&$-2$\\
-$ 2$&$-7$&$  0$&$-3$&$-3$\\
-\hline
-\end{tabular}
-\end{center}
-Dieses Gleichungssystem löst man am einfachsten mit Octave, und findet
-\verbatiminput{1.m}
-also
-\begin{align*}
-t&=-\frac13-2v\\
-s&=\frac13-v\\
-u&=\frac13
-\end{align*}
-Setzt man die Beziehung für $u$ in die Parameterdarstellung der
-zweiten Ebene  ein, findet man als Parameterdarstellung für die
-Schnittgerade:
-\[
-\left\{\left.
-\begin{pmatrix}\frac{10}{3}\\\frac{17}{3}\\4\end{pmatrix}
-+v
-\begin{pmatrix}-1\\1\\3\end{pmatrix}
-\right|
-v\in\mathbb R
-\right\}
-\]
-
-Alternativ kann man das Problem auch lösen, indem man die beiden
-Ebenen als sechs Gleichungen mit sieben Unbekannten $x,y,z,u,v,s,t$
-schreibt,
+Dies sind 
+sechs Gleichungen mit sieben Unbekannten $x,y,z,u,v,s,t$:
 \begin{align*}
 \begin{pmatrix}
 {\color{red}x}\\
@@ -146,5 +84,67 @@ explizit benötig werden. In der ersten Lösung waren diese
 Abhängigkeiten nur benötigt werden, um sie später in die
 Ebenengleichungen einsetzen zu können. In der zweiten Lösung
 hat das der Gauss-Algorithmus bereits übernommen.
+
+Die konventionelle Methode, diese Aufgabe zu lösen, setzt die beiden 
+Parameterdarstellungen gleich, also
+\begin{align*}
+\begin{pmatrix}6\\4\\7\end{pmatrix}
++t
+\begin{pmatrix}3\\-2\\2\end{pmatrix}
++s
+\begin{pmatrix}-5\\3\\-7\end{pmatrix}
+&=
+\begin{pmatrix}2\\2\\4\end{pmatrix}
++u
+\begin{pmatrix}4\\11\\0\end{pmatrix}
++v
+\begin{pmatrix}-1\\1\\3\end{pmatrix}
+\\
+t
+\begin{pmatrix}3\\-2\\2\end{pmatrix}
++s
+\begin{pmatrix}-5\\3\\-7\end{pmatrix}
++u
+\begin{pmatrix}-4\\-11\\0\end{pmatrix}
++v
+\begin{pmatrix}1\\-1\\-3\end{pmatrix}
+&=
+\begin{pmatrix}2\\2\\4\end{pmatrix}
+-
+\begin{pmatrix}6\\4\\7\end{pmatrix}
+=
+\begin{pmatrix}-4\\-2\\-3\end{pmatrix}
+\end{align*}
+Es ist also das lineare Gleichungssystem
+\begin{center}
+\begin{tabular}{|cccc|c|}
+\hline
+$ 3$&$-5$&$ -4$&$ 1$&$-4$\\
+$-2$&$ 3$&$-11$&$-1$&$-2$\\
+$ 2$&$-7$&$  0$&$-3$&$-3$\\
+\hline
+\end{tabular}
+\end{center}
+Dieses Gleichungssystem löst man am einfachsten mit Octave, und findet
+\verbatiminput{1.m}
+also
+\begin{align*}
+t&=-\frac13-2v\\
+s&=\frac13-v\\
+u&=\frac13
+\end{align*}
+Setzt man die Beziehung für $u$ in die Parameterdarstellung der
+zweiten Ebene  ein, findet man als Parameterdarstellung für die
+Schnittgerade:
+\[
+\left\{\left.
+\begin{pmatrix}\frac{10}{3}\\\frac{17}{3}\\4\end{pmatrix}
++v
+\begin{pmatrix}-1\\1\\3\end{pmatrix}
+\right|
+v\in\mathbb R
+\right\}
+\]
+
 \end{loesung}
 
