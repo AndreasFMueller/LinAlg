@@ -20,6 +20,72 @@ Punkte auf der Geraden haben die Form
 \[
 \begin{pmatrix}0\\0\\1\end{pmatrix}+u\begin{pmatrix}1\\1\\-1\end{pmatrix}.
 \]
+Dies ist ein Gleichungssytem mit den 6 Unbekannten
+$\color{red}x$,
+$\color{red}y$,
+$\color{red}z$,
+$\color{red}t$,
+$\color{red}s$ und
+$\color{red}u$.
+Die Ebenengleichung liefert Ortsvektoren von Punkten auf der Ebene
+\[
+\begin{pmatrix}
+{\color{red}x}\\
+{\color{red}y}\\
+{\color{red}z}
+\end{pmatrix}
+=
+{\color{red}t}
+\begin{pmatrix}1\\0\\1\end{pmatrix}
++
+{\color{red}s}
+\begin{pmatrix}0\\1\\1\end{pmatrix}.
+\]
+Die Geradengleichung ist entsprechend
+\[
+\begin{pmatrix}
+{\color{red}x}\\
+{\color{red}y}\\
+{\color{red}z}
+\end{pmatrix}
+=
+\begin{pmatrix}0\\0\\1\end{pmatrix}+{\color{red}}{\color{red}u}\begin{pmatrix}1\\1\\-1\end{pmatrix}.
+\]
+Wir haben also insgesamt sechs Gleichungen mit sechs Unbekannten.
+Das Gauss-Tableau dieses Gleichungssystems ist
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+{\color{red}x}&{\color{red}y}&{\color{red}z}&{\color{red}t}&{\color{red}s}&{\color{red}u}&\\
+\hline
+1&0&0&-1& 0& 0& 0\\
+0&1&0& 0&-1& 0& 0\\
+0&0&1&-1&-1& 0& 0\\
+1&0&0& 0& 0&-1& 0\\
+0&1&0& 0& 0&-1& 0\\
+0&0&1& 0& 0& 1& 1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+{\color{red}x}&{\color{red}y}&{\color{red}z}&{\color{red}t}&{\color{red}s}&{\color{red}u}&\\
+\hline
+1&0&0&0&0&0&\frac13\\
+0&1&0&0&0&0&\frac13\\
+0&0&1&0&0&0&\frac23\\
+0&0&0&1&0&0&\frac13\\
+0&0&0&0&1&0&\frac13\\
+0&0&0&0&0&1&\frac13\\
+\hline
+\end{tabular}
+\]
+Daraus liest man ab, dass $(\frac13,\frac13,\frac23)$ der Schnittpunkt ist,
+und dass er auf der Ebene mit den Parameterwerten $t=\frac13$  und $s=\frac13$
+und auf der Geraden mit dem Parameterwert $u=\frac13$ erreicht wird.
+
+Die konventionelle Lösungsmethode setzt die beiden Parameterdarstellungen
+gleich.
 Der Durchstosspunkt kann also als Lösung der Gleichung
 \begin{align*}
 t\begin{pmatrix}1\\0\\1\end{pmatrix}
@@ -80,63 +146,5 @@ Somit ist $u=\frac13$, also
 \]
 der Ortsvektor des Durchstosspunktes.
 
-Noch etwas ökonomischer ist das folgende Verfahren, welches auch in der
-Vorlesung besprochen wurde. Die Variablen werden {\color{red}} markiert.
-Die Ebenengleichung liefert Ortsvektoren von Punkten auf der Ebene
-\[
-\begin{pmatrix}
-{\color{red}x}\\
-{\color{red}y}\\
-{\color{red}z}
-\end{pmatrix}
-=
-{\color{red}t}
-\begin{pmatrix}1\\0\\1\end{pmatrix}
-+
-{\color{red}s}
-\begin{pmatrix}0\\1\\1\end{pmatrix}.
-\]
-Die Geradengleichung entsprechend
-\[
-\begin{pmatrix}
-{\color{red}x}\\
-{\color{red}y}\\
-{\color{red}z}
-\end{pmatrix}
-=
-\begin{pmatrix}0\\0\\1\end{pmatrix}+{\color{red}}{\color{red}u}\begin{pmatrix}1\\1\\-1\end{pmatrix}.
-\]
-Wir haben also insgesamt sechs Gleichungen mit sechs Unbekannten.
-Das Gauss-Tableau dieses Gleichungssystems ist
-\[
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
-{\color{red}x}&{\color{red}y}&{\color{red}z}&{\color{red}t}&{\color{red}s}&{\color{red}u}&\\
-\hline
-1&0&0&-1& 0& 0& 0\\
-0&1&0& 0&-1& 0& 0\\
-0&0&1&-1&-1& 0& 0\\
-1&0&0& 0& 0&-1& 0\\
-0&1&0& 0& 0&-1& 0\\
-0&0&1& 0& 0& 1& 1\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
-{\color{red}x}&{\color{red}y}&{\color{red}z}&{\color{red}t}&{\color{red}s}&{\color{red}u}&\\
-\hline
-1&0&0&0&0&0&\frac13\\
-0&1&0&0&0&0&\frac13\\
-0&0&1&0&0&0&\frac23\\
-0&0&0&1&0&0&\frac13\\
-0&0&0&0&1&0&\frac13\\
-0&0&0&0&0&1&\frac13\\
-\hline
-\end{tabular}
-\]
-Daraus liest man ab, dass $(\frac13,\frac13,\frac23)$ der Schnittpunkt ist,
-und dass er auf der Ebene mit den Parameterwerten $t=\frac13$  und $s=\frac13$
-und auf der Geraden mit dem Parameterwert $u=\frac13$ erreicht wird.
 \end{loesung}
 
