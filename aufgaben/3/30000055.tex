@@ -1,0 +1,78 @@
+Finden Sie die Gleichung einer Kugel mit Mittelpunkt auf der Geraden
+mit Parameterdarstellung
+\[
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=
+\begin{pmatrix} 7\\0\\0 \end{pmatrix}
++t
+\begin{pmatrix}1\\0\\3\end{pmatrix}
+\]
+die die beiden Ebenen mit Gleichungen
+\[
+\begin{linsys}{4}
+4x&+&7y&-&4z&-&18&=&0\\
+4x&-&8y&+& z&+&27&=&0
+\end{linsys}
+\]
+berührt.
+
+\begin{loesung}
+Der Mittelpunkt hat gleichen Abstand von beiden Ebenen. 
+Diese Bedingung lässt sich am leichtesten mit der Hesseschen Normalform
+formulieren.
+Dazu muss die Gleichung durch die Wurzel aus der Quadratsumme der
+Koeffizienten von $x$, $y$ und $z$ geteilt werden, d.~h.~durch
+\begin{align*}
+4^2+7^2+4^2&=9^2\\
+4^2+8^2+1^2&=9^2.
+\end{align*}
+Die Hessenschen Normalformen lauten jetzt
+\[
+\begin{linsys}{4}
+\frac{4}{9}x&+&\frac{7}{9}y&-&\frac{4}{9}z&-&2&=&0\\
+\frac{4}{9}x&-&\frac{8}{9}y&+&\frac{1}{9}z&+&3&=&0.
+\end{linsys}
+\]
+Der Mittelpunkt muss bon beiden Ebenen den gleichen Abstand haben,
+also müssen beide Hesseschen Normalformen den gleichen Wert für den Abstand
+liefern, also
+\begin{align*}
+\frac{4}{9}x+\frac{7}{9}y-\frac{4}{9}z-2&=
+\frac{4}{9}x-\frac{8}{9}y+\frac{1}{9}z+3
+\\
+\frac{16}{9}y-\frac{5}{9}z&=5
+\\
+16y-5z&=45.
+\end{align*}
+Setzt man dir Geradengleichung darin ein, erhält man die Gleichung
+\[
+-15t=45
+\qquad\Rightarrow\qquad t=-3,
+\]
+und daraus für den Mittelpunkt
+\[
+\vec m=\begin{pmatrix}4\\0\\-9\end{pmatrix}.
+\]
+Um die Kugelgleichung aufstellen zu können, müssen wir auch noch den
+Radius kennen.
+Dieser ist aber auch der Abstand des Mittelpunktes von den Ebenen,
+den wir mit der Hesseschen Normalform berechnen können:
+\[
+r
+=
+\frac{4}{9}\cdot 4+\frac{7}{9}\cdot 0-\frac{4}{9}\cdot (-9)-2
+=
+\frac{16}{9}+4-2
+=
+\frac{16+18}{9}
+=
+\frac{34}{9}.
+\]
+Damit können wir jetzt die Kugelgleichung aufstellen:
+\[
+\left(
+\vec p - \begin{pmatrix}4\\0\\-9\end{pmatrix}
+\right)^2-\biggl(\frac{34}{9}\biggr)^2=0.
+\qedhere
+\]
+\end{loesung}
