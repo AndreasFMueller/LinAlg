@@ -1,0 +1,10 @@
+A = round(12 * (rand(4,3) - 0.5 * ones(4,3)))
+x = round(3 * (rand(3,1) - 0.5 * ones(3,1)))
+B = rref(A')
+f = A * x
+[n1,d1] = rat(B(1,4))
+[n2,d2] = rat(B(2,4))
+[n3,d3] = rat(B(3,4))
+d = lcm(d1,d2,d3)
+n = [ -B(1,4) * d; -B(2,4) * d; -B(3,4) * d; d ]
+P = f + n
