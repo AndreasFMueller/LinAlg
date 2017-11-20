@@ -1,0 +1,114 @@
+Die Matrix $A$ soll eine ven Vektor auf die Ebene durch den
+Nullpunkt mit der Normalen $\vec n$ projizieren.
+\begin{teilaufgaben}
+\item
+Finden Sie die Abbildungsmatrix für
+\[
+\vec n=\begin{pmatrix}1\\1\\1\end{pmatrix}.
+\]
+\item
+Wenn man eine Projektion zweimal durchführt, ändert sich nichts mehr,
+zweimal projizieren ergibt dasselbe wie nur einmal projizieren.
+Kontrollieren Sie, ob $P^2=P$ ist.
+\item
+Ist diese Matrix orthogonal?
+\item
+Berechnen Sie die Deteminanten von $P$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Projektion eines Vektors $\vec v$ auf die Ebene entsteht dadurch, dass man
+den Vektor $\vec v$ um die Projektion auf die Richtung $\vec n$ verringert.
+Es ist also die Matrix der Abbildung
+\[
+\vec v\mapsto \vec v - \vec v_{\|}
+\]
+zu finden.
+Die Projektion $\vec v_{\|}$ haben wir bereits gefunden, es ist
+\[
+\vec v_{\|}
+=
+\vec n^0
+(\vec n^0\cdot \vec v)
+=
+(\vec n^0(\vec n^0)^t)\vec v
+\]
+Der normierte Normalenvektor ist
+\[
+\vec n^0 =\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}
+\]
+Damit wird die Matrix, die $\vec v_{\|}$ berechnet:
+\[
+\vec v_{\|}
+=
+\frac13\begin{pmatrix}
+1&1&1\\
+1&1&1\\
+1&1&1
+\end{pmatrix}
+\vec v.
+\]
+Daraus ergibt sich für die Projektion auf die Ebene die Matrix
+\[
+P\vec v
+=
+\vec v-\vec v_{\|}
+=
+\left(E-
+\frac13\begin{pmatrix}
+1&1&1\\
+1&1&1\\
+1&1&1
+\end{pmatrix}\right)
+\vec v
+=
+\frac13
+\begin{pmatrix}
+ 2&-1&-1\\
+-1& 2&-1\\
+-1&-1& 2
+\end{pmatrix}
+\vec v.
+\]
+Die gesuchte Matrix ist also
+\[
+P=
+\frac13
+\begin{pmatrix}
+ 2&-1&-1\\
+-1& 2&-1\\
+-1&-1& 2
+\end{pmatrix}.
+\]
+\item
+Es ist $PP$ zu berechnen.
+\begin{align*}
+PP
+&=
+\frac19
+\begin{pmatrix}
+ 6&-3&-3\\
+-3& 6&-3\\
+-3&-3& 6
+\end{pmatrix}
+=
+\frac13
+\begin{pmatrix}
+ 2&-1&-1\\
+-1& 2&-1\\
+-1&-1& 2
+\end{pmatrix}
+=P.
+\end{align*}
+\item
+Da $P^t=P$ ist $P^tP=PP=P\ne E$, die Matrix $P$ ist daher nicht
+orthogonal.
+\item
+Da die Spalten von $P$ alle in der Ebene senkrecht auf $\vec n$ liegen,
+sind sie linear abhängig. 
+Eine Matrix mir linear abhängigen Spalten hat Determinante $0$.
+\end{teilaufgaben}
+\end{loesung}
+
