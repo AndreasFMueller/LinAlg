@@ -1,0 +1,87 @@
+Gegeben sind die Vektoren
+\[
+\vec u = \begin{pmatrix}\frac12\\\frac{\sqrt{3}}2\end{pmatrix},
+\qquad
+\vec v = \begin{pmatrix}\frac{\sqrt{3}}2\\-\frac12\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item
+Finden Sie eine Matrix $A$, die die Standardbasisvektoren $\vec e_1$ und
+$\vec e_2$ auf $\vec u$ bzw.~$\vec v$ abbildet.
+\item
+Ist $A$ eine orthogonale Matrix?
+\item
+Ist $A\in \operatorname{SO}(2)$?
+\item
+Ist $A$ eine Drehmatrix?
+\item
+Finden Sie eine Matrix $B$, die die Vektoren $\vec u$ und $\vec v$ auf
+die Standardbasisvektoren abbildet.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die Spalten von $A$ sind die Bilder der Standardbasisvektoren
+\[
+A=\begin{pmatrix}
+\frac12         &\frac{\sqrt{3}}2\\
+\frac{\sqrt{3}}2&-\frac12
+\end{pmatrix}.
+\]
+\item Wir müssen überprüfen, ob $A^tA=E$ ist.
+Dazu berechnen wir
+\begin{align*}
+A^tA
+&=
+\begin{pmatrix}
+\frac12         &\frac{\sqrt{3}}2\\
+\frac{\sqrt{3}}2&-\frac12
+\end{pmatrix}
+\begin{pmatrix}
+\frac12         &\frac{\sqrt{3}}2\\
+\frac{\sqrt{3}}2&-\frac12
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac14+\frac34&\frac{\sqrt{3}}{4}-\frac{\sqrt{3}}{4}\\
+\frac{\sqrt{3}}{4}-\frac{\sqrt{3}}{4}&\frac34+\frac14
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix}
+=E,
+\end{align*}
+die Matrix $A$ ist also tatsächlich orthogonal.
+\item
+Eine orthogonale Matrix $A$ ist in $\operatorname{SO}(2)$, wenn die
+Determinante $\det(A)=1$ ist.
+Wir berechnen daher die Determinante:
+\[
+\det(A)
+=
+\left|\,\begin{matrix}
+\frac12         &\frac{\sqrt{3}}2\\
+\frac{\sqrt{3}}2&-\frac12
+\end{matrix}\,\right|
+=
+-\frac14-\frac34
+=
+-1\ne 1.
+\]
+Die Matrix $A$ ist daher in $\operatorname{O}(2)\setminus\operatorname{SO}(2)$.
+\item
+Eine Drehmatrix ist eine Matrix in $\operatorname{SO}(2)$, also ist
+$A$ keine Drehmatrix.
+\item
+Die Matrix $A$ bildet die Standardbasisvektoren auf $\vec u$ und $\vec v$
+ab, die gesuchte Matrix $B$ soll das Umgekehrte machen.
+Die inverse Matrix macht dies, also ist $B=A^{-1}$.
+Da aber $A$ eine orthogonale Matrix ist, ist $A^{-1}=A^t$.
+Da die Matrix $A$ sogar symmetrisch ist, folgt $B=A$.
+\end{teilaufgaben}
+\end{loesung}
+
+
+
