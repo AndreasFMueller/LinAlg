@@ -1,25 +1,154 @@
-In dieser Aufgabe wird eine Kamera verwendet, deren Brennweite $f=50$ ist,
-der Chip hat die Dimensionen $160\times 120$.
-Die Kamera befindet sich im Punkt $(1000,0,0)$ und ist auf den Punkt
-$(0,0,100)$ gerichtet.
+In dieser Aufgabe wird eine Kamera verwendet, deren Brennweite $f=100$ ist,
+der Chip hat die Dimensionen $120\times 90$.
+Die Kamera befindet sich im Punkt $(300,100,0)$ und ist auf den Punkt
+$Q_0=(-100,800,100)$ gerichtet.
+Die Drehmatrix zu diesem Zweck ist 
+\[
+D=
+\begin{pmatrix}
+  -0.868243& -0.496139&  0.000000\\
+   0.061070& -0.106873&  0.992395\\
+  -0.492366&  0.861640&  0.123091
+\end{pmatrix}.
+\]
 \begin{teilaufgaben}
-\item Bestimmen Sie die Kameramatrix $K$.
-\item Bestimmen Sie die Bildkoordinaten der Punkte
-$Q_1=(0,0,200)$ und $Q_2=(20,100,50)$.
+\item Bestimmen Sie die Kameraabbildungsmatrix $K$.
+\item Berechnen Sie die Kameraprojektionsmatrix $P$.
+\item Kontrollieren Sie, dass der Punkt $Q_0$ auf den Mittelpunkt des
+Bildes abgebildet wird.
+\item Bestimmen Sie die Bildkoordinaten des Punktes
+$Q_1 = (100,600,-5)$.
+\item Der Punkt $Q_2$ wird auf $B_2=(77.07171,38.38996)$.
+Bestimmen Sie die Gerade, auf der sich $Q_2$ befinden muss.
 \end{teilaufgaben}
 
 \thema{Kamerageometrie}
 
 \begin{loesung}
 \begin{teilaufgaben}
-\item Der Mittelpunkt des Chip hat die Koordinaten $(m_x,m_y)=(80,60)$,
+\item Der Mittelpunkt des Chip hat die Koordinaten $(m_x,m_y)=(60,45)$,
 damit wird die Kameramatrix
 \[
-K=\begin{pmatrix}
-50& 0&80\\
- 0&50&60\\
- 0& 0& 1
+K
+=
+\begin{pmatrix}
+100&  0&60\\
+  0&100&45\\
+  0&  0& 1
+\end{pmatrix}.
+\]
+\item Für die Kameraprojektionsmatrix wird die Matrix
+\begin{align}
+KD
+&=
+\begin{pmatrix}
+100&  0&60\\
+  0&100&45\\
+  0&  0& 1
 \end{pmatrix}
+\begin{pmatrix}
+  -0.868243& -0.496139&  0.000000\\
+   0.061070& -0.106873&  0.992395\\
+  -0.492366&  0.861640&  0.123091
+\end{pmatrix}
+\notag
+\\
+&=
+\begin{pmatrix}
+  -116.366272&     2.084532&     7.385489\\
+   -16.049420&    28.086485&   104.778650\\
+    -0.492366&     0.861640&     0.123091
+\end{pmatrix}
+\label{40000050:kd}
+\end{align}
+benötigt.
+Damit kann die Kameraprojektionsmatrix berechnet werden, sie ist
+\begin{align*}
+P
+&=
+KD\begin{pmatrix}E&-c\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+  -116.36627&  2.08453&   7.38549& 34701.42838\\
+   -16.04942& 28.08649& 104.77865&  2006.17753\\
+    -0.49237&  0.86164&   0.12309&    61.54575
+\end{pmatrix}.
+\end{align*}
+\item
+Zur Kontrolle berechnen wir die Projektion des Punktes $Q_0$ durch die
+Abbildung. 
+Dazu muss $q_0$ zunächst in homogenen Koordinaten geschrieben werden,
+auf die dann $P$ angewendet werden kann:
+\[
+P
+\begin{pmatrix}
+-100\\800\\100\\1
+\end{pmatrix}
+=
+\begin{pmatrix}
+   48744.23\\
+   36558.17\\
+     812.40
+\end{pmatrix}.
+\]
+Dies sind die homogenen Koordinaten des Bild-Punktes, um die gewöhnlichen
+Koordinaten zu finden, muss durch die dritte Komponente geteilt werden:
+\[
+b
+=
+\begin{pmatrix}
+60\\45
+\end{pmatrix}.
+\]
+Dies sind die Bildkoordinaten des Mittelpunktes, damit haben
+wir bestätigt, dass die Kamera auf den Punkt $Q_0$ gerichtet ist.
+\item
+Die homogenen Koordinaten des Bildes des Punktes $Q_1$ sind
+\[
+\tilde b_1
+=
+P\tilde q_1
+=
+P\begin{pmatrix}100\\600\\-5\\1\end{pmatrix}
+=
+\begin{pmatrix}
+   24278.593\\
+   16729.233\\
+     528.678
+\end{pmatrix}.
+\]
+Division durch die dritte Komponente ergibt die Bildkoordinaten
+\[
+b_1 = \begin{pmatrix}
+   45.923\\
+   31.644
+\end{pmatrix}.
+\]
+\item
+Der Stützvektor ist bereits bekannt, es muss nur noch der Richtungsvektor
+gefunden werden.
+Dazu wird die Inverse von $KD$ wie in \eqref{40000050:kd} benötigt,
+es ist
+\[
+(KD)^{-1}
+=
+\begin{pmatrix}
+  -0.008682431&  0.000610705&  0.001098205\\
+  -0.004961389& -0.001068733&  1.207416804\\
+   0.000000000&  0.009923953& -0.323486406
+\end{pmatrix}.
+\]
+Der Richtungsvektor ist dann
+\[
+r = (KD)^{-1}
+=
+\begin{pmatrix}
+  -0.644627\\
+   0.784005\\
+   0.057494
+\end{pmatrix}.
+\qedhere
 \]
 \end{teilaufgaben}
 \end{loesung}
