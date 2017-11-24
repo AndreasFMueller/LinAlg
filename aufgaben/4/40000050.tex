@@ -1,6 +1,25 @@
-
+In dieser Aufgabe wird eine Kamera verwendet, deren Brennweite $f=50$ ist,
+der Chip hat die Dimensionen $160\times 120$.
+Die Kamera befindet sich im Punkt $(1000,0,0)$ und ist auf den Punkt
+$(0,0,100)$ gerichtet.
+\begin{teilaufgaben}
+\item Bestimmen Sie die Kameramatrix $K$.
+\item Bestimmen Sie die Bildkoordinaten der Punkte
+$Q_1=(0,0,200)$ und $Q_2=(20,100,50)$.
+\end{teilaufgaben}
 
 \thema{Kamerageometrie}
 
 \begin{loesung}
+\begin{teilaufgaben}
+\item Der Mittelpunkt des Chip hat die Koordinaten $(m_x,m_y)=(80,60)$,
+damit wird die Kameramatrix
+\[
+K=\begin{pmatrix}
+50& 0&80\\
+ 0&50&60\\
+ 0& 0& 1
+\end{pmatrix}
+\]
+\end{teilaufgaben}
 \end{loesung}
