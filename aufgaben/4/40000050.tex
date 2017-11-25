@@ -18,7 +18,7 @@ D=
 Bildes abgebildet wird.
 \item Bestimmen Sie die Bildkoordinaten des Punktes
 $Q_1 = (100,600,-5)$.
-\item Der Punkt $Q_2$ wird auf $B_2=(77.07171,38.38996)$.
+\item Der Punkt $Q_2$ wird auf $B_2=(77,38)$ abgebildet.
 Bestimmen Sie die Gerade, auf der sich $Q_2$ befinden muss.
 \end{teilaufgaben}
 
@@ -141,14 +141,28 @@ es ist
 \]
 Der Richtungsvektor ist dann
 \[
-r = (KD)^{-1}
+r = (KD)^{-1}\tilde b_2 = (KD)^{-1} \begin{pmatrix} 77\\ 38\\ 1\end{pmatrix}
 =
 \begin{pmatrix}
-  -0.644627\\
-   0.784005\\
-   0.057494
+  -0.6442\\
+  \phantom{-}0.7848\\
+  \phantom{-}0.0536
 \end{pmatrix}.
-\qedhere
 \]
+Die Gerade, auf welcher sich der Punkt $Q_2$ befindet, ist folglich
+\[
+g = c + sr = 
+\begin{pmatrix}
+300\\
+100\\
+0
+\end{pmatrix} + s\,
+\begin{pmatrix}
+-0.6442\\
+\phantom{-}0.7848\\
+\phantom{-}0.0536
+\end{pmatrix}.
+\]
+\qedhere
 \end{teilaufgaben}
 \end{loesung}
