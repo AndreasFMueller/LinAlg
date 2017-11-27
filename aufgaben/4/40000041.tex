@@ -91,8 +91,18 @@ Tv
 \end{aligned}
 \]
 \item
-In der Vorlesung wurde gezeigt, dass die Matrix $G$ wie folgt
-berechnet werden kann:
+Die Matrix $T$ rechnet von $B$- auf $B'$-Koordinaten um, die Matrix $T^{-1}$
+liefert die Umrechnung in umgekehrter Richtung.
+Für das Skalarprodukt gilt
+\[
+u^t v
+=
+(T^{-1}u)^t(T^{-1}v)
+=
+u^t
+\underbrace{ (T^{-1})^t T^{-1}}_{\displaystyle =G} v
+\]
+Wenden wir dies auf die oben berechnete Matrix $T$ an, erhalten wir:
 \[
 G
 =
@@ -104,7 +114,8 @@ G
 \begin{pmatrix} 1&\frac12\\\frac12&1 \end{pmatrix}.
 \]
 \item
-Unter Verwendung der Matrix $G$ lässt sich das Skalarprodukt jetzt berechnen:
+Unter Verwendung der Matrix $G$ lässt sich das Skalarprodukt jetzt auch
+in $B'$-Koordinaten berechnen:
 \begin{align*}
 u^tv
 &=
