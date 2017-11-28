@@ -30,7 +30,7 @@ v&=\begin{pmatrix}1\\-1\end{pmatrix}
 Die Vektoren stehen senkrecht aufeinander.
 \item
 Das Skalarprodukt hat in $B'$-Koordinaten nicht mehr die einfache
-Formel $u^tv$ sondern muss als $u^tGv$ ausgedrückt werden.
+Formel $u^tv$ sondern muss als $u'^tGv'$ ausgedrückt werden.
 Berechnen Sie die Matrix $G$.
 \item 
 Berechnen Sie das Skalarprodukt von $u'$ und $v'$ in den $B'$-Koordinaten.
@@ -97,10 +97,10 @@ Für das Skalarprodukt gilt
 \[
 u^t v
 =
-(T^{-1}u)^t(T^{-1}v)
+(T^{-1}u')^t(T^{-1}v')
 =
-u^t
-\underbrace{ (T^{-1})^t T^{-1}}_{\displaystyle =G} v
+u'^t
+\underbrace{ (T^{-1})^t T^{-1}}_{\displaystyle =G} v'
 \]
 Wenden wir dies auf die oben berechnete Matrix $T$ an, erhalten wir:
 \[
@@ -119,7 +119,7 @@ in $B'$-Koordinaten berechnen:
 \begin{align*}
 u^tv
 &=
-u'^tGv
+u'^tGv'
 =
 \begin{pmatrix} 1-\frac1{\sqrt{3}}&\frac2{\sqrt{3}} \end{pmatrix}
 \begin{pmatrix} 1&\frac12\\\frac12&1 \end{pmatrix}
