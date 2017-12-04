@@ -68,3 +68,5 @@ cube-new.eps:	cube-new.ps Makefile
 	ps2eps --force cube-new.ps
 cube-new.pdf:	cube-new.ps Makefile
 	gs -o cube-new.pdf -sDEVICE=pdfwrite -dEPSCrop cube-new.ps
+hexagon.pdf:	hexagon.ps Makefile
+	gs -o hexagon.pdf -sDEVICE=pdfwrite -dEPSCrop hexagon.ps
