@@ -9,6 +9,8 @@ A=\begin{pmatrix}
 \item Warum ist $A$ diagonalisierbar?
 \item Finden Sie eine Basis, in der $A$ diagonal ist.
 \item Wie gross ist der Winkel zwischen den neuen Basisvektoren?
+\item Berechnen Sie die Transformationsmatrix $T$, welche Koordinaten der Standardbasis in Koordinaten der Eigenbasis umrechnet.
+\item Bestimmen Sie die diagonalisierte Matrix $A'$.
 \end{teilaufgaben}
 
 \thema{Eigenwerte}
@@ -48,11 +50,31 @@ ein Lösungsvektor ist. Für $\lambda_2=-4$ ist die Matrix
 \]
 mit dem mindestens ebenso offensichtlichen Lösungsvektor
 \[
-\vec v_2=\begin{pmatrix}1\\-1\end{pmatrix}.
+v_2=\begin{pmatrix}1\\-1\end{pmatrix}.
 \]
 \item
 Eigenvektoren einer symmetrischen Matrix zu verschiedenen Eigenwerten
 stehen immer senkrecht aufeinander.
+\item Die Transformationsmatrix $T$ ist die Inverse der Matrix, deren Spalten den Eigenvektoren von $A$ entsprechen. $T$ ist folglich
+\[
+    T = \begin{pmatrix}v_1 & v_2 \end{pmatrix}^{-1} = \begin{pmatrix}1 & 1\\ 1 & -1 \end{pmatrix}^{-1} = \begin{pmatrix}\frac{1}{2} & \frac{1}{2}\\ \frac{1}{2} & -\frac{1}{2} \end{pmatrix}.
+\]
+\item Die diagonalisierte Matrix $A'$ hat als Diagonalelemente die Eigenwerte und ist folglich
+\[
+    A' = \begin{pmatrix}
+          6 & 0\\ 0 & -4
+         \end{pmatrix}.
+\]
+Alternativ kann sie auch berechnet werden als
+\[
+    A' = TAT^{-1} =  
+    \begin{pmatrix}\frac{1}{2} & \frac{1}{2}\\ \frac{1}{2} & -\frac{1}{2} \end{pmatrix}
+    \begin{pmatrix} 1&5\\ 5&1 \end{pmatrix}
+    \begin{pmatrix}1 & 1\\ 1 & -1 \end{pmatrix}
+    = \begin{pmatrix}
+          6 & 0\\ 0 & -4
+         \end{pmatrix}.
+\]
 \qedhere
 \end{teilaufgaben}
 \end{loesung}
