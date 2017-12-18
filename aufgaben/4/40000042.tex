@@ -35,6 +35,105 @@ Es wird nicht verlangt, die Matrix $S$ zu berechnen
 \begin{loesung}
 Wir suchen eine Matrix, die Farb-Vektoren gemäss
 \begin{equation}
+\begin{pmatrix}R\\G\\B\end{pmatrix}
+=
+S
+\begin{pmatrix}r\\g\\b\end{pmatrix}
+\label{40000042:basis}
+\end{equation}
+umrechnet.
+Die Einträge in $S$ sind die Unbekannten.
+Im Idealfall lassen sich die Messwerte exakt wiedergeben, dann
+gelten die Gleichungen:
+\[
+\begin{linsys}{12}
+{\color{red}s_{11}}r&+&{\color{red}s_{12}}g&+&{\color{red}s_{13}}b
+	& &       & &       & &
+	& &       & &       & &
+	&=&R\\
+       & &       & &       
+	& &{\color{red}s_{21}}r&+&{\color{red}s_{22}}g&+&{\color{red}s_{23}}b
+	& &       & &       & &
+	&=&G\\
+       & &       & &       
+	& &       & &       & &
+	& &{\color{red}s_{31}}r&+&{\color{red}s_{32}}g&+&{\color{red}s_{33}}b
+	&=&B\\
+\end{linsys}
+\]
+Setzt man die vier Messungen ein, erhält man daraus zwölf Gleichungen
+für die neun gesuchten Matrixeinträge von $S$, also ein überbestimmtes
+Gleichungssystem.
+Die Matrix $A$ und die rechte Seite $b$ dieses Gleichungssystems ist
+\[
+A=\begin{pmatrix}
+1&1&0& 0&0&0& 0&0&0\\
+0&0&0& 1&1&0& 0&0&0\\
+0&0&0& 0&0&0& 1&1&0\\
+%
+1&1&1& 0&0&0& 0&0&0\\
+0&0&0& 1&1&1& 0&0&0\\
+0&0&0& 0&0&0& 1&1&1\\
+%
+0&1&1& 0&0&0& 0&0&0\\
+0&0&0& 0&1&1& 0&0&0\\
+0&0&0& 0&0&0& 0&1&1\\
+%
+1&2&1& 0&0&0& 0&0&0\\
+0&0&0& 1&2&1& 0&0&0\\
+0&0&0& 0&0&0& 1&2&1\\
+\end{pmatrix}
+,
+\qquad
+b
+=
+\begin{pmatrix}
+1\\0\\0\\
+0\\1\\0\\
+0\\0\\1\\
+1\\2\\1
+\end{pmatrix}
+\]
+Das gesuchte Gleichungssystem hat die Matrix $A^tA$ und die rechte
+Seite $A^tb$:
+\[
+A^tA
+=
+\begin{pmatrix}
+3&4&2&0&0&0&0&0&0\\
+4&7&4&0&0&0&0&0&0\\
+2&4&3&0&0&0&0&0&0\\
+%
+0&0&0&3&4&2&0&0&0\\
+0&0&0&4&7&4&0&0&0\\
+0&0&0&2&4&3&0&0&0\\
+%
+0&0&0&0&0&0&3&4&2\\
+0&0&0&0&0&0&4&7&4\\
+0&0&0&0&0&0&2&4&3\\
+\end{pmatrix}
+,\qquad
+A^tb=\begin{pmatrix}2\\3\\1\\3\\5\\3\\1\\3\\2\end{pmatrix}
+\]
+Es ist nicht verlangt worden, dass das Gleichungssystem gelöst wird.
+
+\end{loesung}
+
+\begin{diskussion}
+Daraus kann man natürlich auch eine numerische Lösung gewinnen,
+man findet
+\[
+S=\begin{pmatrix}
+0& 1& -1\\
+\frac{1}{3} & \frac{1}{3} & \frac{1}{3}\\
+-1& 1& 0\\
+\end{pmatrix}.
+\]
+\end{diskussion}
+
+\begin{loesung}
+Alternativ könnte man auch eine Matrix suchen, die Farb-Vektoren gemäss
+\begin{equation}
 \begin{pmatrix}r\\g\\b\end{pmatrix}
 =
 S
