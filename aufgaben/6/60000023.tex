@@ -31,10 +31,12 @@ Die Rekursionsformel kann in vektorieller Form als
 \[
 \begin{pmatrix}x_{n+1}\\x_{n\mathstrut}\end{pmatrix}
 =
-\underbrace{\begin{pmatrix}
+\underbrace{
+\begin{pmatrix}
 5&-6\\
 1& 0
-\end{pmatrix}}_{=A}
+\end{pmatrix}
+}_{=A}
 \begin{pmatrix}x_{n\mathstrut}\\x_{n-1}\end{pmatrix}
 \]
 geschrieben werden.
@@ -99,32 +101,117 @@ Für $\lambda=3$:
 \qquad\Rightarrow\qquad
 v_3=\begin{pmatrix}3\\1\end{pmatrix}
 \]
-Den Startvektor muss man aus den beiden Eigenvektoren linear kombinieren,
-dies geschieht mit dem linearen Gleichungssystem
+Für die Umrechung in die Eigenbasis brauchen wir die Matrizen $T$ und $T^{-1}$.
+Die Matrix $T^{-1}$ rechnet in die Eigenbasis um, sie hat also die Matrix
+\[
+T^{-1}
+=
+\begin{pmatrix}
+2&3\\
+1&1
+\end{pmatrix}
+\qquad\Rightarrow\qquad
+T
+=
+\begin{pmatrix}
+-1& 3\\
+ 1&-2
+\end{pmatrix}.
+\]
+Durch Nachrechnen kann man auch kontrollieren, dass
+\[
+TAT^{-1}
+=
+\begin{pmatrix}
+-1& 3\\
+ 1&-2
+\end{pmatrix}
+\begin{pmatrix}
+5&-6\\
+1& 0
+\end{pmatrix}
+\begin{pmatrix}
+2&3\\
+1&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+-2& 6\\
+ 3&-6
+\end{pmatrix}
+\begin{pmatrix}
+2&3\\
+1&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2&0\\
+0&3
+\end{pmatrix}
+=
+\begin{pmatrix}
+\lambda_1&0\\
+0&\lambda_2
+\end{pmatrix}
+\]
+tatsächlich eine Diagonalmatrix ist.
+Zur Berechnung der Potenzen auf dem Startvektor verwenden wir jetzt die 
+Gleichung
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
-2&3&1\\
-1&1&0\\
-\hline
-\end{tabular}
-&
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
-1& \frac32& \frac12\\
-0&-\frac12&-\frac12\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
-1& 0&-1\\
-0& 1& 1\\
-\hline
-\end{tabular}
+T^{-1}AT
+=
+A'
+\qquad\Rightarrow\qquad
+A^kv_0
+=
+T^{-1}A'^kTv_0
+&=
+\begin{pmatrix}
+2&3\\
+1&1
+\end{pmatrix}
+\begin{pmatrix}
+2^k& 0\\
+ 0 &3^k
+\end{pmatrix}
+\begin{pmatrix}
+-1& 3\\
+ 1&-2
+\end{pmatrix}
+\begin{pmatrix}
+1\\0
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+2&3\\
+1&1
+\end{pmatrix}
+\begin{pmatrix}
+2^k& 0\\
+ 0 &3^k
+\end{pmatrix}
+\begin{pmatrix}
+-1\\1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+2&3\\
+1&1
+\end{pmatrix}
+\begin{pmatrix}
+-2^k\\
+ 3^k
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+-2^{k+1}+3^{k+1}\\
+-2^k+3^k
+\end{pmatrix}
 \end{align*}
-Damit kann man die Lösung aufschreiben:
+Daraus kann man die Lösung als zweite Komponenten ablesen:
 \[
 x_n=f(n)=-2^n+3^n.
 \]
