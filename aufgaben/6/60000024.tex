@@ -18,7 +18,9 @@ definiert sind.
 \begin{loesung}
 Mit der Matrix 
 \[
-A=\begin{pmatrix}
+A
+=
+\begin{pmatrix}
 2&1&-2\\
 1&0& 0\\
 0&1& 0
@@ -201,65 +203,119 @@ Der zugehörige Eigenvektor ist
 v_3=\begin{pmatrix}4\\2\\1 \end{pmatrix}.
 \]
 
-Um die Rekursionsgleichung zu lösen, muss jetzt der Startvektor als
-Linearkombination der Basisvektoren ausgedrückt werden:
+Für die Lösung der Rekursionsgleichung brauchen wir die
+Transformationsmatrizen, welche auf die Eigenbasis transformieren.
+Diese sind 
 \[
-\begin{pmatrix}1\\1\\-2\end{pmatrix}
+T^{-1}
 =
-\alpha_1v_1
-+
-\alpha_2v_2
-+
-\alpha_3v_3,
+\begin{pmatrix}
+ 1&1&4\\
+-1&1&2\\
+ 1&1&1
+\end{pmatrix}
+\qquad\text{und}\qquad
+T
+=
+\begin{pmatrix}
+ \frac16&-\frac12& \frac13\\
+-\frac12& \frac12&1      \\
+ \frac13&   0    &-\frac13
+\end{pmatrix}
 \]
-die $\alpha_i$ können als Lösung eines linearen Gleichungssystems
-gefunden werden:
+Man kann durch Nachrechnen kontrollieren, dass
+\[
+A'
+=
+TAT^{-1}
+=
+\begin{pmatrix}
+ \frac16&-\frac12& \frac13\\
+-\frac12& \frac12&1      \\
+ \frac13&   0    &-\frac13
+\end{pmatrix}
+\begin{pmatrix}
+2&1&-2\\
+1&0& 0\\
+0&1& 0
+\end{pmatrix}
+\begin{pmatrix}
+ 1&1&4\\
+-1&1&2\\
+ 1&1&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1& 0& 0\\
+ 0& 1& 0\\
+ 0& 0& 2
+\end{pmatrix}
+\]
+tatsächlich eine Diagonalmatrix ist.
+
+Die Lösung der Rekursionsgleichung findet man jetzt mit Hilfe von $A^k$
+aus dem Anfangsvektor
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
- 1&1&4& 1\\
--1&1&2& 1\\
- 1&1&1&-2\\
-\hline
-\end{tabular}
-&
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
- 1&1&4& 1\\
- 0&2&6& 2\\
- 0&0&-3&-3\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
- 1&1& 4& 1\\
- 0&1& 3& 1\\
- 0&0&-3&-3\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
- 1&1& 0&-3\\
- 0&1& 0&-2\\
- 0&0& 1& 1\\
-\hline
-\end{tabular}
+A^kv_0
+=
+T^{-1}A'^kTv_0
+&=
+\begin{pmatrix}
+ 1&1&4\\
+-1&1&2\\
+ 1&1&1
+\end{pmatrix}
+\begin{pmatrix}
+(-1)^k& 0& 0\\
+     0& 1& 0\\
+     0& 0& 2^k
+\end{pmatrix}
+\begin{pmatrix}
+ \frac16&-\frac12& \frac13\\
+-\frac12& \frac12&1      \\
+ \frac13&   0    &-\frac13
+\end{pmatrix}
+\begin{pmatrix}
+1\\1\\-2
+\end{pmatrix}
 \\
-&
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
- 1&0& 0&-1\\
- 0&1& 0&-2\\
- 0&0& 1& 1\\
-\hline
-\end{tabular}
+&=
+\begin{pmatrix}
+ 1&1&4\\
+-1&1&2\\
+ 1&1&1
+\end{pmatrix}
+\begin{pmatrix}
+(-1)^k& 0& 0\\
+     0& 1& 0\\
+     0& 0& 2^k
+\end{pmatrix}
+\begin{pmatrix}
+-1\\-2\\1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+ 1&1&4\\
+-1&1&2\\
+ 1&1&1
+\end{pmatrix}
+\begin{pmatrix}
+-(-1)^k\\
+-2\\
+2^k
+\end{pmatrix}
+=
+\begin{pmatrix}
+\dots\\
+\dots\\
+-(-1)^k
+-2
++
+2^k
+\end{pmatrix}.
 \end{align*}
-Also ist der Startvektor $ -v_1-2v_2+v_3$.
-Damit kann man jetzt einen Ausdruck für die Zahlen $x_n$
+Daraus können wir jetzt die Lösung ablesen:
 \[
 x_n
 =
