@@ -14,5 +14,5 @@ ebene.jpg:	ebene.png
 	convert ebene.png -density 300 -units PixelsPerInch ebene.jpg
 
 ebene.png:	ebene.pov Makefile
-	../../../common/povray $(OPTIONS) -W1080 -H1080 -Oebene.png ebene.pov
+	povray $(OPTIONS) -W1080 -H1080 -Oebene.png ebene.pov
 
