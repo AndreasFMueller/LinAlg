@@ -1,0 +1,50 @@
+Können Sie die Matrix 
+\[
+A
+=
+\begin{pmatrix}
+ 25& -5& -25\\
+ -5& 50&  19\\
+-25& 19&  30
+\end{pmatrix}
+\]
+als Produkt $A=BB^t$ schreiben?
+Wenn ja bestimmen Sie eine solche Matrix $B$.
+
+\begin{loesung}
+Die Cholesky-Zerlegung ermöglicht, eine solche Zerlegung 
+mit einer unteren Dreiecksmatrix $L$ zu finden, womit hier gilt $B = L$. 
+Der in der Vorlesung gezeigte Algorithmus liefert folgende Lösungen:
+\[
+L=\begin{pmatrix}
+   5&  0&  0\\
+  -1& -7&  0\\
+  -5& -2& \pm 1
+\end{pmatrix},
+\quad\phantom{\text{oder}}\quad
+L=\begin{pmatrix}
+   5&  0&  0\\
+  -1&  7&  0\\
+  -5&  2& \pm 1
+\end{pmatrix},
+\]
+\[
+L=\begin{pmatrix}
+  -5&  0&  0\\
+   1& -7&  0\\
+   5& -2& \pm 1
+\end{pmatrix}\phantom{,}
+\quad\text{oder}\quad
+L=\begin{pmatrix}
+  -5&  0&  0\\
+   1&  7&  0\\
+   5&  2& \pm 1
+\end{pmatrix}
+\]
+
+\end{loesung}
+
+\begin{bewertung}
+Cholesky-Zerlegung ({\bf C}) 1 Punkt, Pro richtigem nicht verschwindendem Matrix-Element in $B$ ein
+Punkt, maximal 6 Punkte.
+\end{bewertung}
