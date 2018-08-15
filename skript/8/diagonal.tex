@@ -1,0 +1,222 @@
+%
+% diagonal.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Diagonalisierung symmetrischer Matrizen\label{section-diag-sym}}
+\index{Matrix!symmetrische}
+Falls eine Basis aus Eigenvektoren existiert, lässt sich eine Matrix
+besonders einfach als Diagonalmatrix darstellen.
+Leider ist die Existenz
+einer Basis aus Eigenvektoren im Allgemeinen nicht garantiert, und noch
+viel weniger darf man annehmen, dass eine orthonormierte Basis
+von Eigenvektoren existiert.
+Im Spezialfall einer symmetrischen Matrix
+ist dies jedoch immer möglich, wie in diesem Abschnitt gezeigt werden
+soll.
+
+In diesem Abschnitt sei $A$ eine symmetrische $n\times n$-Matrix,
+also  $A^t=A$.
+
+\begin{hilfssatz}
+Sind $v_1$ und $v_2$ Eigenvektoren von $A$ zu den Eigenwerten 
+$\lambda_1$ und $\lambda_2$ mit $\lambda_1\ne \lambda_2$, dann
+ist $v_1\cdot v_2=0$.
+\end{hilfssatz}
+
+\begin{proof}[Beweis]
+Wir berechnen das Skalarprodukt $v_1\cdot Av_2$ auf zwei verschiedene
+Arten, wobei wir in der zweiten Variante ausnützen, dass $A=A^t$:
+\begin{align*}
+v_1^tAv_2&=\lambda_2v_1^tv_2
+\\
+v_1^tAv_2&=v_1^tA^tv_2=(Av_1)^tv_2=\lambda_1v_1^tv_2
+\\
+\Rightarrow
+\qquad
+0&=(\lambda_2-\lambda_1)v_1^tv_2
+\end{align*}
+Da $\lambda_2\ne\lambda_1$ ist $\lambda_2-\lambda_1\ne 0$, man kann
+also durch den Klammerausdruck teilen und findet
+\[
+v_1^tv_2=v_1\cdot v_2=0,
+\]
+die beiden Eigenvektoren stehen also senkrecht aufeinander.
+\end{proof}
+
+\begin{hilfssatz}
+\label{ev-ortho}
+Ist $v$ ein Eigenvektor zum Eigenwert $\lambda$, und $w\perp v$ ein weiterer
+Vektor, dann ist auch $Aw\perp v$.
+\end{hilfssatz}
+
+\begin{proof}[Beweis]
+Wir berechnen das Skalarprodukt
+\[
+(Aw)\cdot v=(Aw)^t v=w^tA^tv=w^tAv=w^t\lambda v=\lambda w\cdot v=0,
+\]
+also $Aw\perp v$.
+\end{proof}
+
+\begin{hilfssatz}
+\label{ev-existenz}
+Sei $v$ ein Einheitsvektor für den $v^tAv$ den minimalen Wert $\lambda$ annimmt.
+Dann ist $v$ ein Eigenvektor zum Eigenwert $\lambda$.
+\end{hilfssatz}
+
+\begin{proof}[Beweis]
+Wir müssen zeigen, dass $Av=\lambda v$.
+Da $v$ so gewählt war, dass $v^tAv$ minimal wird, berechnen wir 
+\begin{align*}
+f(t)&=\frac{(v+ty)^tA(v+ty)}{(v+ty)^t(v+ty)}
+\\
+&=
+\frac{v^tAv+t(y^tAv+v^tAy)+t^2y^tAy}{v^tv+t(y^tv+v^ty)+t^2v^tv}
+\\
+f'(0)
+&=
+\frac{ (y^tAv+v^tAy)v^tv + v^tAv(y^tv+v^ty) }{ (v^tv)^2 }
+\\
+&=
+\frac{ (y^tAv+v^tAy) - \lambda (y^tv+v^ty) }{ v^tv }
+\\
+&=
+2\frac{ v^tAy - \lambda v^ty }{ v^tv }
+\\
+&=
+2\frac{ (Av - \lambda v)^ty }{ v^tv }=0
+\end{align*}
+Da dies für jeden Vektor $y$ gilt, folgt $Av-\lambda v=0$, also
+$Av=\lambda v$, $v$ ist also ein Eigenvektor.
+\end{proof}
+
+\begin{satz}
+\label{satz:symmetrischdiagonalisierbar}
+Sei $A$ eine symmetrische Matrix, dann gibt es eine orthonormierte Basis
+von Eigenvektoren von $A$.
+\end{satz}
+
+\begin{proof}[Beweis]
+Wir beweisen diesen Satz mit Induktion nach der Dimension des Vektorraumes.
+
+Ein $1$-dimensionaler Raum enthält ausschliesslich Eigenvektoren.
+
+Sei jetzt also ein Vektorraum der Dimension $n$.
+Nach Hilfssatz \ref{ev-existenz} gibt es mindestens einen Eigenvektor $v_1$
+zum Eigenwert $\lambda$.
+Die Menge der Vektoren, die auf $v_1$ senkrecht
+stehen, bilden einen Vektorraum $V_1$.
+Die durch $A$ definierte Abbildung
+bildet Vektoren aus $V_1$ nach Hilfssatz \ref{ev-ortho} wieder nach
+$V_1$ ab.
+Die Dimension von $V_1$ ist um $1$ kleiner, nach der
+Induktionsannahme gibt es also ein Basis von Einheitsvektoren in $V_1$.
+Damit ist auch in $V$ eine Basis aus Eigenvektoren konstruiert.
+\end{proof}
+
+\begin{beispiel} Eine symmetrische $2\times 2$-Matrix 
+\[
+A=\begin{pmatrix}a&b\\b&c\end{pmatrix}
+\]
+ist nach Satz \ref{satz:symmetrischdiagonalisierbar} diagonalisierbar.
+Unter welchen Bedingungen haben die beiden Eigenwerte das gleiche
+oder verschiedenes Vorzeichen?
+
+\smallskip
+{\parindent 0pt Die Eigenwerte können mit dem charakteristischen
+Polynom berechnet werden:}
+\[
+\left|\;
+\begin{matrix}a-\lambda & b\\ b&c-\lambda\end{matrix}
+\;\right|=(a-\lambda)(c-\lambda)-b^2
+=
+\lambda^2-(a+c)\lambda+ ac-b^2=0
+\]
+Die zwei Eigenwerte $\lambda_1$ und $\lambda_2$ sind Nullstellen
+dieses Polynoms, also gilt
+\begin{align*}
+(\lambda-\lambda_1)(\lambda-\lambda_2)&=\lambda^2-(\lambda_1+\lambda_2)\lambda
++\lambda_1\lambda_2=
+\lambda^2-(a+c)\lambda+ ac-b^2=0\\
+\Rightarrow\qquad
+\lambda_1+\lambda_2&=a+c\\
+\lambda_1\lambda_2&=ac-b^2
+\end{align*}
+Wir wählen die Bezeichnungen so, dass $\lambda_1$ der grössere Eigenwert ist.
+Haben beide Eigenwerte das gleiche Vorzeichen, ist $ac-b^2>0$.
+In diesem
+Fall kann man das gemeinsame Vorzeichen der Eigenwerte an der Summe
+$\lambda_1+\lambda_2=a+c$ ablesen.
+Die Resultate sind in Tabelle
+\ref{vorzeichen-eigenwerte} zusammengestellt.
+\begin{table}
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|}
+\hline
+	&a+c\ge0
+		&a+c\le0
+\\
+\hline
+ac-b^2>0
+	&\lambda_1\ge\lambda_2>0
+		&\lambda_2\le\lambda_1<0
+\\
+\hline
+ac-b^2=0
+	&\lambda_1\ge 0
+		&\lambda_1=0
+\\
+	&\lambda_2=0
+		&\lambda_2 \le 0
+\\
+\hline
+ac-b^2<0
+	&\lambda_1>0
+		&\lambda_1>0
+\\
+	&\lambda_2<0
+		&\lambda_2<0
+\\
+	&\lambda_1\ge|\lambda_2|
+		&\lambda_1\le|\lambda_2|
+\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Vorzeichen und relative Grösse der Eigenwerte einer
+symmetrischen $2\times 2$-Matrix
+\label{vorzeichen-eigenwerte}}
+\end{table}
+\end{beispiel}
+
+\begin{beispiel}[Zahlenbeispiel]
+Welche Vorzeichen haben die Eigenwerte der symmetrische Matrix
+\[
+A=\begin{pmatrix}
+3&4\\
+4&5
+\end{pmatrix}?
+\]
+
+\smallskip
+{\parindent 0pt $\det(A)=-1$ und $3+5=8>0$, also kann man aus der
+Tabelle \ref{vorzeichen-eigenwerte}
+ablesen, dass die beiden Eigenwerte entgegengesetztes
+Vorzeichen haben, und dass der negative Eigenwert betragsmässig
+kleiner ist.}
+
+Man kann die Eigenwerte natürlich auch ausrechnen.
+Die charakteristische Gleichung ist 
+\[
+\lambda^2-8\lambda-1=0
+\]
+und hat die Lösungen
+\[
+\lambda_{1,2}=4\pm\sqrt{16+1}=\begin{cases}
+4+\sqrt{17}&=\phantom{-}8.12311\\
+4-\sqrt{17}&=-0.12311
+\end{cases}
+\]
+Dies bestätigt die aus der Tabelle abgeleiteten Schlüsse.
+\end{beispiel}
+

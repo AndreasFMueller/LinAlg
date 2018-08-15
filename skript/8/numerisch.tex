@@ -1,0 +1,730 @@
+%
+% numerisch.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Numerische Lösung des Eigenwertproblems}
+In der Praxis müssen meist grosse Eigenwertprobleme gelöst werden.
+Das Vorgehen über das charakteristische Polynom ist dabei nicht zweckmässig,
+einerseits ist es sehr aufwendig zu berechnen, andererseits ist die
+Berechnung der Nullstellen eines Polynoms hohen Grades mit dem Computer
+keineswegs einfach.
+
+Ein für praktische Anwendungen besonders wichtiger Fall ist
+das Eigenwertproblem für symmetrische Matrizen.
+Aus Abschnitt \ref{section-diag-sym} wissen wir, dass sich symmetrische
+Matrizen sogar mit einer orthonormierten Basis diagonalisieren lassen.
+Es muss also eine orthogonale Matrix $T$ geben, welche $A$ auf
+Diagonalform transformiert, oder $T^tAT$ muss diagonal sein.
+Oder $A=TDT^t$, mit einer Diagonalmatrix $D$.
+Die in Abschnitt \ref{section-svd} beschriebene Singulärwertzerlegung
+liefert genau so eine Zerlegung der Matrix, die Matrix $S$ von 
+Satz \ref{satz-svd} ist also die gesuchte Diagonalmatrix, die
+Singulärwerte sind die Eigenwerte, und die Transformationsmatrix
+entspricht den Matrizen $U$ und $V$, die in diesem Falle gleich sind:
+$T=U=V$.
+
+Die Singulärwertzerlegung ist tatsächlich die Basis vieler Implementation
+von Algorithmen zur Bestimmung der Eigenwerte und Eigenvektoren.
+Octave/Matlab hat aber auch eine eigene Funktion zur Berechnung der
+Eigenwerte und Eigenvektoren.
+\begin{beispiel}
+Es sollen die Eigenwerte und Eigenvektoren der Matrix
+\[
+A=\begin{pmatrix}0&1\\1&0\end{pmatrix}
+\]
+bestimmt werden.
+
+Die Eigenwerte sind der Rückgabewert der Funktion {\tt eig}:
+\begin{verbatim}
+6> eig([0,1;1,0])
+ans =
+
+  -1
+   1
+\end{verbatim}
+Wenn man aber auch die Eigenvektoren braucht, muss man als Rückgabewert
+einen Vektor anfordern:
+\begin{verbatim}
+> [T, D] = eig([0,1;1,0])
+T =
+
+  -0.70711   0.70711
+   0.70711   0.70711
+
+D =
+
+Diagonal Matrix
+
+  -1   0
+   0   1
+\end{verbatim}
+In den Spalten der Matrix $T$ stehen die Eigenvektoren, es ist
+$D=T^{-1}AT$, wie man auch mit Octave nachrechnen kann:
+\begin{verbatim}
+0> T^-1 * A * T
+ans =
+
+  -1   0
+   0   1
+\end{verbatim}
+Die Matrix $T$ enthält also als Spalten genau die Eigenvektoren,
+also die Vektoren einer Basis, in der $A$ diagonal wird.
+\end{beispiel}
+Die nächsten Abschnitte sollen jetzt aber die Frage beantworten,
+wie ein solches Verfahren funktionieren kann.
+
+\subsection{Jacobi-Verfahren}
+\index{Eigenwertberechnung!mit dem Jacobi-Algorithmus}
+\index{Jacobi, Carl Gustav}
+\index{Jacobi-Algorithmus}
+Ein einfach zu verstehender Algorithmus zur Bestimmung der Eigenwerte
+ist der Jacobi-Algorithmus.
+Er bestimmt eine angenäherte Matrix $T$ iterativ.
+Man erhält also nicht wie bei Gauss-Algorithmus und
+den Matrixzerlegungen direkt eine exakte Lösung, sondern nur eine
+mehr oder weniger gute Näherungslösung, die durch weitere Iterationen
+verbessert werden kann.
+
+Die Idee ist, die Matrix $T$ aus Drehmatrizen in einer der Koordinaten-Ebenen
+zusammenzusetzen.
+Die Drehung um den Winkel $\alpha$ in der Ebene
+$x_i$-$x_k$-Ebene hat die Matrix
+\begin{equation}
+D_{\alpha,i,k}=\begin{pmatrix}
+1     &      &           &      &           &      &      \\
+      &\ddots&           &      &           &      &      \\
+      &      & \cos\alpha&      &-\sin\alpha&      &      \\
+      &      &           &\ddots&           &      &      \\
+      &      & \sin\alpha&      & \cos\alpha&      &      \\
+      &      &           &      &           &\ddots&      \\
+      &      &           &      &           &      &1     \\
+\end{pmatrix}
+\label{matrixd}
+\end{equation}
+die natürlich orthogonal ist.
+Diese Drehungen heissen Givens-Rotationen.
+\index{Givens-Rotation}
+Ausserdem ist
+$D_{\alpha,i,k}^{-1}=D_{-\alpha,i,k}$.
+Jetzt versucht man mit
+einer solchen Drehmatrix aus $A$ eine Matrix zu machen, die 
+eher wie eine Diagonalmatrix aussieht.
+Natürlich geht das
+normalerweise nicht exakt, aber man kann wenigstens fordern,
+dass in $A''= D^{-1}AD=D^tAD$ die Elemente $a''_{ik}=0$ sind.
+
+Wir führen jetzt die Berechnung des Produktes durch.
+Zunächst das Produkt $A'=AD$,
+\[
+A'
+=
+\begin{pmatrix}
+a_{11}&\dots &a_{1i}\cos\alpha - a_{1k}\sin\alpha
+		&\dots  & a_{1i}\sin\alpha+a_{1k}\cos\alpha
+				&\dots	&a_{1n}\\
+\vdots&      &\vdots
+		&	&\vdots
+				&	&\vdots\\
+a_{i1}&\dots &a_{ii}\cos\alpha - a_{ik}\sin\alpha
+		&\dots  & a_{ii}\sin\alpha+a_{ik}\cos\alpha
+				&\dots	&a_{in}\\
+\vdots&      &\vdots
+		&	&\vdots
+				&	&\vdots\\
+a_{k1}&\dots &a_{ki}\cos\alpha - a_{kk}\sin\alpha
+		&\dots  & a_{ki}\sin\alpha+a_{kk}\cos\alpha
+				&\dots	&a_{kn}\\
+\vdots&      &\vdots
+		&	&\vdots
+				&	&\vdots\\
+a_{n1}&\dots &a_{1i}\cos\alpha - a_{1k}\sin\alpha
+		&\dots  & a_{1i}\sin\alpha+a_{1k}\cos\alpha
+				&\dots	&a_{nn}\\
+\end{pmatrix}
+\]
+Es werden also nur die Elemente in den Spalten $i$ und $k$
+verändert, und zwar gilt
+\begin{equation}
+\begin{aligned}
+a'_{ji}&=-a_{ji}\cos\alpha-a_{jk}\sin\alpha,\\
+a'_{jk}&=-a_{ji}\sin\alpha+a_{jk}\cos\alpha.
+\end{aligned}
+\label{dtad1}
+\end{equation}
+Jetzt muss noch von links mit der Matrix $D^t$
+multipliziert werden, um $A''=D^tAD=D^tA'$ zu bekommen.
+Dabei werden die Zeilen $i$ und $k$ modifiziert.
+Die Elemente ausserhalb der Spalten $i$ und $k$ werden 
+dabei zu
+\begin{equation}
+\begin{aligned}
+a''_{ij}&=a_{ij}\cos\alpha+a_{kj}\sin\alpha,\\
+a''_{kj}&=-a_{ij}\sin\alpha+a_{kj}\cos\alpha.
+\end{aligned}
+\label{dtad2}
+\end{equation}
+Die Elemente in den Spalten und Zeilen $i$ und $k$ werden
+auch bei diesem zweiten Schritt abegeändert zu
+\begin{equation}
+\begin{aligned}
+a''_{ii}&=\cos\alpha \cdot a'_{ii}+\sin\alpha \cdot a'_{ki}\\
+        &=\cos\alpha\cdot (a_{ii}\cos\alpha+a_{ik}\sin\alpha)
+         +\sin\alpha\cdot (a_{ki}\cos\alpha+a_{kk}\sin\alpha)\\
+        &=a_{ii}\cos^2\alpha-a_{kk}\sin^2\alpha+2a_{ki}\sin\alpha\cos\alpha
+\\
+a''_{ki}&=-\sin\alpha \cdot a'_{ii}+\cos\alpha \cdot a'_{ki}\\
+        &=-\sin\alpha\cdot (a_{ii}\cos\alpha+a_{ik}\sin\alpha)
+         +\cos\alpha\cdot (a_{ki}\cos\alpha+a_{kk}\sin\alpha)\\
+        &=-\sin\alpha\cos\alpha(a_{ii}-a_{kk})
+        +(-\sin^2\alpha+\cos^2\alpha)a_{ki}
+\\
+a''_{ik}&=\cos\alpha \cdot a'_{ik} +\sin\alpha \cdot a'_{kk}\\
+        &=-\cos\alpha\cdot (a_{ii}\sin\alpha+a_{ik}\cos\alpha)
+         +\sin\alpha\cdot (-a_{ki}\sin\alpha+a_{kk}\cos\alpha)\\
+        &=-\sin\alpha\cos\alpha(a_{ii}-a_{kk})
+        +(-\sin^2\alpha+\cos^2\alpha)a_{ik}
+\\
+a''_{kk}&=-\sin\alpha \cdot a'_{ik}+\cos\alpha \cdot a'_{kk}\\
+        &=-\sin\alpha\cdot (-a_{ii}\sin\alpha+a_{ik}\cos\alpha)
+         +\cos\alpha\cdot (-a_{ki}\sin\alpha+a_{kk}\cos\alpha)\\
+        &=a_{kk}\cos^2\alpha+a_{ii}\sin^2\alpha-2a_{ik}\sin\alpha\cos\alpha
+\end{aligned}
+\label{dtad3}
+\end{equation}
+Jetzt muss $\alpha$ so gewählt werden, dass $a''_{ik}=a''_{ki}=0$
+wird:
+\[
+-\sin\alpha\cos\alpha(a_{ii}-a_{kk}) +(-\sin^2\alpha+\cos^2\alpha)a_{ik}=0.
+\]
+Darin erkennen wir die Doppelwinkelformeln:
+\[
+-\frac{a_{kk}-a_{ii}}2 \sin2\alpha +a_{ik}\cos2\alpha=0.
+\]
+Folglich gilt 
+\begin{equation}
+\tan2\alpha=\frac{2a_{ik}}{a_{ii}-a_{kk}}.
+\label{tan2alpha1}
+\end{equation}
+\index{Halbwinkel-Formel}
+Mit der Halbwinkel-Formel für den Tangens bekommt man 
+\begin{equation}
+\tan\alpha=\frac{\tan2\alpha}{1+\sqrt{1+\tan^22\alpha}}
+\label{tan2alpha2}
+\end{equation}
+und daraus
+\begin{align}
+\sin\alpha
+&=
+\frac{\tan\alpha}{\sqrt{1+\tan^2\alpha}},
+\\
+\cos\alpha
+&=
+\frac{1}{\sqrt{1+\tan^2\alpha}}.
+\label{tan2alpha3}
+\end{align}
+Insbesondere kann man die Matrix $D$ berechnen, ohne trigonometrische
+Funktionen invertieren zu müssen, 
+
+Der Algorithmus zur Diagonalisierung von $A$ läuft jetzt also
+wie folgt ab:
+\begin{enumerate}
+\item Initialisiere $T=E$
+\item Wähle ein Element $a_{ik}\ne 0$, mit $i\ne k$, welches als
+nächstes zu $0$ gemacht werden soll.
+\item Bestimme $\tan2\alpha$, $\tan\alpha$, $\sin\alpha$ und $\cos\alpha$
+mit den Formeln (\ref{tan2alpha1}) bis (\ref{tan2alpha3}).
+\item Bestimme die Matrix $D$ mit Formel (\ref{matrixd}).
+\item Bestimme die Matrix $A''$ mit den Formeln (\ref{dtad1}) bis
+(\ref{dtad3}).
+\item Ersetze $T$ durch $TD$, $A$ durch $A''$.
+\item Falls ein Ausserdiagonalelement betragsmässig $>\varepsilon$,
+verwende dessen Zeile $i$ und $k$ und fahre weiter bei Schritt 3.
+\end{enumerate}
+Dieser Algorithmus terminiert, wenn alle Ausserdiagonalelemente 
+betragsmässig $<\varepsilon$ sind.
+Übrig bleibt in der Matrix
+die Diagonalmatrix, mit den Eigenwerten auf der Diagonalen, 
+und die Matrix $T$, welche die Eigenschaft hat, dass $T^tAT$
+eine Diagonalmatrix ist.
+Die Eigenvektoren stehen in den Spalten der Matrix $T$.
+
+\subsection{Potenzmethode\label{section:potenzmethode}}
+\index{Potenz-Methode}
+Für den Spezialfall, dass alle Eigenwerte einer Matrix verschieden
+sind, kann man ein relativ simples Lösungsverfahren angeben.
+In diesem
+Abschnitt sei also $A$ eine symmetrische $n\times n$-Matrix mit
+verschiedenen Eigenwerten.
+\subsubsection{Eigenvektoren zum dominanten Eigenwert\label{section:dominant}}
+\index{Eigenwert!dominant}
+Nehmen wir an, die Eigenwerte von $A$
+seien der Grösse nach geordnet:
+\[
+|\lambda_1| > |\lambda_2| > \dots > |\lambda_n|.
+\]
+Seien $v_1,\dots,v_n$ die zugehörigen Eigenvektoren.
+Jetzt nehmen wir einen beliebigen Vektor $u$.
+Da die Eigenvektoren eine Basis bilden,
+kann man $u$ in dieser Basis schreiben:
+\[
+u=u_1v_1+u_2v_2+\dots+u_nv_n.
+\]
+Wenden wir auf diesen Vektor die Matrix $A$ mehrmals an, entstehen
+nacheinander
+\begin{align}
+Au&=
+u_1\lambda_1v_1+u_2\lambda_2v_2+\dots+u_n\lambda_nv_n
+\notag
+\\
+A^2u&=
+u_1\lambda_1^2v_1+u_2\lambda_2^2v_2+\dots+u_n\lambda_n^2v_n
+\notag
+\\
+&\vdots
+\\
+A^ku&=
+u_1\lambda_1^kv_1+u_2\lambda_2^kv_2+\dots+u_n\lambda_n^kv_n
+\label{power-method-vectors}
+\end{align}
+Je nach der Grösse von $\lambda_i$ wachsen dabei die einzelnen
+Terme $u_i\lambda_i^kv_i$ über alle Grenzen (wenn $|\lambda_i|>1$)
+oder konvergieren gegen $0$ (wenn $|\lambda_i|<1$).
+Auf jeden Fall
+aber wird der erste Term entweder am schnellsten wachsen (wenn $|\lambda_i|>1$)
+oder am langsamsten gegen $0$ gehen (wenn $|\lambda_i|<1$).
+Wenn wir also den Vektor $A^ku$ immer wieder auf Länge $1$ normieren, 
+werden im Vergleich zum ersten Term alle anderen Terme gegen $0$ gehen.
+
+\begin{beispiel}
+Wir betrachten die Matrix 
+\[
+A=\begin{pmatrix}
+1&2&3\\
+2&4&5\\
+3&5&6
+\end{pmatrix}
+\]
+Die Eigenwerte sind tatsächlich sehr verschieden, Octave findet
+die folgenden Werte:
+\begin{verbatim}
+> eig(A)
+ans =
+
+   -0.51573
+    0.17092
+   11.34481
+\end{verbatim}
+Jetzt wählen wir einen zufälligen Vektor
+\begin{verbatim}
+5> v = rand(3,1)
+v =
+
+   0.12634
+   0.68662
+   0.56531
+\end{verbatim}
+und wenden die Matrix $A$ wiederholt darauf an, und normieren nach
+jedem Schritt sofort wieder:
+\[
+v_0 = v,\qquad v_{k+1}=\frac{Av_k}{|Av_k|},\; k\ge 0,
+\]
+in Octave kann man das durch die Befehle
+\begin{verbatim}
+> v3 = A * v2; v3 = v3 / norm(v3);
+\end{verbatim}
+erreichen.
+Numerisch erhalten wir Resultate:
+\[
+v_1=\begin{pmatrix}
+   0.32606\\
+   0.59444\\
+   0.73507
+\end{pmatrix}
+,\quad
+v_2=\begin{pmatrix}
+   0.32792\\
+   0.59104\\
+   0.73698
+\end{pmatrix}
+,\quad
+v_3=\begin{pmatrix}
+   0.32799\\
+   0.59101\\
+   0.73697
+\end{pmatrix}
+,\quad
+v_4=\begin{pmatrix}
+   0.32799\\
+   0.59101\\
+   0.73698
+\end{pmatrix}
+%,\quad
+%v_5=\begin{pmatrix}
+%   0.32799\\
+%   0.59101\\
+%   0.73698
+%\end{pmatrix}
+\]
+Bei $v_5$ ist bereits keine Änderung mehr feststellbar.
+Damit ist der Eigenvektor zum grössten Eigenwert gefunden, 
+\end{beispiel}
+
+\subsubsection{Weitere Eigenvektoren}
+Hat man einen ersten Eigenvektor $v_1$ gefunden,
+kann man das Problem verkleinern.
+Die weiteren Eigenvektoren von $A$ stehen ja alle auf  $v_1$
+senkrecht.
+Man kann also eine Basistransformation
+durchführen, so dass $e_1$ der erste Eigenvektor der transformierten
+Matrix $A'$ ist, $A'$ hat die Form
+\[
+A'=\begin{pmatrix}
+\lambda_1&0&\dots&0\\
+0&*&\dots&*\\
+\vdots&\vdots&\ddots&\vdots\\
+0&*&\dots&*
+\end{pmatrix}
+=
+\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+\lambda_1&0&\dots&0\\
+\hline
+0&&&\\
+\vdots&&A_2&\\
+0&&&
+\end{tabular}
+\right)
+\]
+Um die weiteren Eigenvektoren zu finden, müssen wir das Verfahren jetzt
+also nur auf den Teil $A_2$ anwenden.
+
+Mit $A'=T^{-1}AT$ muss in der ersten Spalte von $T$
+also der Vektor $v_1$ stehen.
+Da die übrigen Vektoren senkrecht stehen,
+können wir für $T$ eine orthogonale Matrix verwenden.
+Eine solche
+können wir dadurch finden, dass wir zu $v_1$ noch ein paar linear
+unabhängige Vektoren hinzunehmen und darauf das Orthogonalisierungsverfahren
+anwenden.
+
+\begin{beispiel}
+Wir arbeiten wieder mit der Matrix $A$ mit dem bereits berechneten
+Eigenvektor v:
+\[
+A=\begin{pmatrix}
+1&2&3\\
+2&4&5\\
+3&5&6
+\end{pmatrix}
+,\qquad
+v=\begin{pmatrix}
+   0.32799\\
+   0.59101\\
+   0.73698
+\end{pmatrix}.
+\]
+Wir suchen jetzt eine orthogonale Transformationsmatrix $T$, die $v$
+als erste Spalte hat.
+Dazu füllen wir $V$ einfach mit Basisvektoren
+zu einer Matrix $T_0$ auf (diese ist natürlich nicht orthogonal),
+und verwenden die Orthogonalisierung, um $T$ zu erhalten.
+\[
+T_0=\begin{pmatrix}
+   0.32799&0&0\\
+   0.59101&1&0\\
+   0.73698&0&1
+\end{pmatrix}
+\qquad\rightarrow\qquad
+T=
+\begin{pmatrix}
+   0.32799 &-0.24030& -0.91361\\
+   0.59101 &\phantom{-} 0.80666&  \phantom{-}0.00000\\
+   0.73698 &-0.53995&  \phantom{-}0.40659
+\end{pmatrix}
+\]
+Damit ist die transformierte Matrix 
+\begin{align*}
+A'&=T^tAT=\begin{pmatrix}
+   11.345              &0.00000 & \phantom{-}0.00000\\
+   \phantom{0}0.00000  &0.05740 & \phantom{-}0.25507\\
+   \phantom{0}0.00000  &0.25507 &-0.40221
+\end{pmatrix}
+\\
+\Rightarrow\qquad
+A_2&=
+\begin{pmatrix}
+   0.05740 & \phantom{-}0.25507\\
+   0.25507 &-0.40221
+\end{pmatrix}
+\end{align*}
+Für $A_2$ kann man den nächsten Eigenvektor wieder mit der
+gleichen Methode bestimmen, oder mit dem Jacobi-Verfahren.
+Man findet wieder eine Matrix $T_2$, welche $A_2$ auf Diagonalform
+transformiert, in diesem Fall
+\[
+T_2=\begin{pmatrix}
+   0.91361&          -0.40659\\
+   0.40659&\phantom{-}0.91361
+\end{pmatrix},\qquad
+T_2A_2T_2^t=
+\begin{pmatrix}
+   0.17092&        0\\
+         0& -0.51573
+\end{pmatrix}
+\]
+Die Eigenwerte sind damit auch bereits bekannt.
+In der Matrix $T_2$ stehen in den Spalten die Eigenvektoren
+von $A_2$.
+Die Eigenvektoren von $A$ kann man daraus jetzt zusammensetzen:
+\[
+V=
+T\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}}
+1&0&0\\
+\hline
+0&\multicolumn{2}{c}{\raisebox{-1.5ex}[0cm][0cm]{$T_2$}}\\
+0
+\end{tabular}
+\right)
+=\begin{pmatrix}
+   0.32799&            -0.59101&           -0.73698\\
+   0.59101& \phantom{-} 0.73698&           -0.32799\\
+   0.73698&            -0.32799& \phantom{-}0.59101
+\end{pmatrix}
+\]
+Tatsächlich transformiert diese Matrix das ursprünglich $A$ auf
+Diagonalform:
+\[
+V^tAV=\begin{pmatrix}
+11.345&0&0\\
+0&0.17092&0\\
+0&0&-0.51573
+\end{pmatrix}
+\]
+Damit haben wir alle Eigenwerte und Eigenvektoren gefunden.
+\end{beispiel}
+
+\subsection{QR-Algorithmus}
+\index{Eigenwertberechnung!mit dem QR-Algorithmus}
+\index{QR-Algorithmus}
+Sei $A$ wieder eine symmetrische $n\times n$-Matrix.
+Wir wissen aus
+Abschnitt \ref{section-qr}, dass jede Matrix als Produkt $A=QR$
+geschrieben werden kann, wobei $Q$ orthogonal und $R$ eine obere
+Dreiecksmatrix ist.
+Die erste Spalte von $Q$ ist bis auf die Länge die erste Spalte
+von $A$, genauer
+\[
+\begin{pmatrix}a_{11}\\\vdots\\a_{n1} \end{pmatrix}
+=
+\begin{pmatrix}q_{11}\\\vdots\\q_{n1} \end{pmatrix}\cdot r_{11}.
+\]
+Die Matrix $Q$ vollzieht also eine Basistransformation
+in ein Koordinatensystem, in dem der erste Basisvektor die Richtung
+der ersten Spalte von $A$ hat.
+
+Wiederholt man diese Prozedur mit
+der Matrix $A_2=Q^tAQ$, findet man $A_2=Q_2R_2$, 
+$Q_2$  bildet den ersten Basisvektor auf das Bild  des ersten
+Basisvektors unter $A_2$ ab.
+Man kann dies iterieren,
+\[
+A_k=Q_kR_k\quad\Rightarrow\quad
+A_{k+1}=Q_k^tA_kQ_k.
+\]
+In jedem Schritt bildet $Q_k$ den ersten Basisvektor auf die Richtung
+der ersten Spalte von $A_k$ ab.
+Dieses Vorgehen unterscheidet sich
+also von der Potenzmethode nur dadurch, dass man nach jeder Iteration
+auch noch das Koordinatensystem wechselt.
+
+Setzt man alle $Q_k$ zusammen, bilden
+sie nacheinander den $e_1$ auf die $A^ke_1$ ab, allerdings wird
+dies in jedem Schritt in einem anderen Koordinatensystem ausgedrückt.
+Unter den Voraussetzungen der Potenzmethode wird die Richtung von
+$A^ke_1$ gegen den dominanten Eigenvektor konvergieren.
+Für $A_k$ bedeutet dies,
+dass das Element in der linken oberen Ecke gegen den dominanten Eigenwert
+konvergiert, und alle anderen Elemente in der gleichen Zeile und Spalte
+gegen $0$.
+
+Um das ständig wechselnde Koordinatensystem wieder zurückzurechnen,
+muss das Produkt der $Q_k$ ermittelt werden,  die Matrix
+\[
+V=Q_1Q_2Q_3\dots
+\]
+enthält dann in der ersten Spalte den ersten Eigenvektor.
+
+\begin{beispiel}
+Wir gehen aus von der Matrix
+\[
+A=\begin{pmatrix}
+6&3&5\\
+3&1&2\\
+5&2&4
+\end{pmatrix},
+\]
+einer permutierten Variante der bisher betrachteten Matrix.
+Die QR-Zerlegung liefert
+\[
+Q=\begin{pmatrix}
+   0.71714&  \phantom{-}0.65809& -0.22942\\
+   0.35857& -0.63067& -0.68825\\
+   0.59761& -0.41131& \phantom{-}0.68825
+\end{pmatrix},
+\quad
+R=\begin{pmatrix}
+   8.36660&  3.70521&  6.69328\\
+   0.00000&  0.52099&  0.38389\\
+   0.00000&  0.00000&  0.22942
+\end{pmatrix}
+\]
+Die transformierte Matrix $A_2$ ist dann
+\[
+A_2=Q^tAQ=\begin{pmatrix}
+   11.328571&  \phantom{-}0.416226&  \phantom{-}0.137102\\
+    0.416226&  -0.486466&  -0.094360\\
+    0.137102&  -0.094360&  \phantom{-}0.157895
+\end{pmatrix}
+\]
+Der dominante Eigenwert in der linken oberen Ecke der Matrix zeichnet
+sich bereits ab.
+Iteriert man jetzt, und rechnet auch immer gleich
+das Produkt $U_k=Q_1\dots Q_{k-1}$ aus, findet man nacheinander
+\begin{align*}
+A_3&=\begin{pmatrix}
+             11.345\phantom{00}&  \phantom{-}0.01958&   \phantom{-}0.00209\\
+   \phantom{0}0.01958          &  -0.51406&  -0.03348\\
+   \phantom{0}0.00209          &  -0.03348&  \phantom{-}0.16928
+\end{pmatrix}&
+U_3&=\begin{pmatrix}
+   0.73799& -0.57307& -0.35631\\
+   0.32682& \phantom{-}0.76549& -0.55427\\
+   0.59039& \phantom{-}0.29259& \phantom{-}0.75222
+\end{pmatrix}
+\\
+A_4&=\begin{pmatrix}
+   11.345\phantom{00} &  \phantom{-}0.00089&  \phantom{-}0.00003\\
+   \phantom{0}0.00089& -0.51555& -0.01112\\
+   \phantom{0}0.00003& -0.01112&  \phantom{-}0.17074
+\end{pmatrix}&
+U_4&=\begin{pmatrix}
+   0.73693&  \phantom{-}0.59630& -0.31837\\
+   0.32804& -0.72728& -0.60287\\
+   0.59103& -0.33983&  \phantom{-}0.73157
+\end{pmatrix}
+\\
+A_5&=\begin{pmatrix}
+   11.345\phantom{00}&  \phantom{-}0.00004&  \phantom{-}0.00000\\
+   \phantom{0}0.00004& -0.51571& -0.00368\\
+   \phantom{0}0.00000& -0.00368&  \phantom{-}0.17090
+\end{pmatrix}&
+U_5&=\begin{pmatrix}
+   0.73698& -0.58924& -0.33115\\
+   0.32798&  0.74014& -0.58704\\
+   0.59101&  0.32403&  0.73873
+\end{pmatrix}
+\\
+%A_6&=\begin{pmatrix}
+%   1.1345e+01&  1.8466e-06&  7.1446e-09\\
+%   1.8466e-06& -5.1573e-01& -1.2216e-03\\
+%   7.1446e-09& -1.2216e-03&  1.7091e-01
+%\end{pmatrix}&
+%U_6&=\begin{pmatrix}
+%   0.73698&  0.59159& -0.32693\\
+%   0.32799& -0.73592& -0.59232\\
+%   0.59101& -0.32930&  0.73639
+%\end{pmatrix}
+%\\
+%A_7&=\begin{pmatrix}
+%   1.1345e+01&  8.3945e-08&  1.0764e-10\\
+%   8.3945e-08& -5.1573e-01& -4.0484e-04\\
+%   1.0764e-10& -4.0484e-04&  1.7091e-01
+%\end{pmatrix}&
+%U_7&=\begin{pmatrix}
+%   0.73698& -0.59082& -0.32833\\
+%   0.32799&  0.73732& -0.59057\\
+%   0.59101&  0.32755&  0.73717
+%\end{pmatrix}
+&\vdots
+&&\vdots
+\\
+A_\infty&=\begin{pmatrix}
+   11.345& 0&0\\
+   0& -0.51573&0\\
+   0& 0&  0.17092
+\end{pmatrix}&
+U_\infty&=\begin{pmatrix}
+   0.73698& \phantom{-}0.59101& -0.32799\\
+   0.32799& -0.73698& -0.59101\\
+   0.59101& -0.32799& \phantom{0}0.73698
+\end{pmatrix}
+\end{align*}
+Man beachte, dass im Laufe des Verfahrens der zweite Eigenvektor
+immer wieder sein Vorzeichen wechselt.
+Der Algorithmus hat also die Eigenwerte in der Reihenfolge
+ihres Betrages geliefert, die zugehörigen Eigenvektoren
+stehen in den Spalten von $U_\infty$.
+\end{beispiel}
+
+Die Berechnung von $Q_k^tA_kQ_k$ ist ziemlich aufwendig, weil dazu
+zwei Matrizenprodukte ausgerechnet werden müssen.
+Man kann die
+Berechnung allerdings drastisch vereinfachen, wenn man beachtet,
+dass wegen $Q_k^tQ_k=E$ gilt
+\[
+A_{k+1}=Q_k^tA_kQ_k=Q_k^tQ_kR_kQ_k=R_kQ_k.
+\]
+Die Berechnung von $A_{k+1}$ ist also mit nur einer Matrizenmultiplikation
+möglich, und noch dazu ist der eine Faktor eine Dreiecksmatrix, was den
+Aufwand nochmals ungefähr halbiert.
+
+\subsection{Verbesserungen}
+Der in \ref{section-qr} beschriebene Algorithmus funktioniert, ist
+aber numerisch nicht sehr zuverlässig.
+Das Problem ist, dass fast
+linear abhängige Vektoren zu kleinen Nennern führen, so dass
+Rundungsfehler aufgeblasen werden.
+Mit sogenannten Householder-Transformationen kann jedoch eine 
+Verbesserung erreicht werden.
+\index{Householder-Transformation}
+
+Der QR-Algorithmus zur Eigenwert-Bestimmung ist noch nicht optimal.
+Zunächst funktioniert er in dieser Form nur, wenn die Eigenwerte
+verschieden und reell sind.
+Selbst für symmetrische Matrizen,
+für die die Eigenwerte reell sind, ist nicht ausgeschlossen, dass
+Eigenwerte gleich oder fast gleich sind, was zu langsamer
+Konvergenz des Algorithmus führt.
+
+\index{Francis-Algorithmus}
+Der Francis-Algorithmus korrigiert diese Defekte:
+\begin{enumerate}
+\item
+Statt die Matrix $A$ anzuwenden, wendet er $p(A)$ an, wobei
+$p(x)$ ein geeignet zu wählendes Polynom ist.
+Statt (\ref{power-method-vectors}) bekommt man dann
+\[
+u_1p(\lambda_1)^kv_1+u_2p(\lambda_2)^kv_2+\dots+u_np(\lambda_n)^kv_n
+\]
+Sorgt man dafür, dass die Werte von $p(\lambda_i)$ sich stark
+unterscheiden, wird die Konvergenz beschleunigt.
+
+Man kann dies zum
+Beispiel dadurch erreichen, dass man für $p$ einen Faktor des
+charakteristischen Polynoms von $A$ wählt.
+\item 
+Damit die Konvergenz des Verfahrens schnell ist, sollte das Problem
+möglichst schnell in kleinere Teilaufgaben zerlegt werden können,
+die effizienter lösbar sind.
+Der Francis-Algorithmus erkennt 
+Blöcke, in denen die Konvergenz bereits soweit fortgeschritten
+ist, dass sie sich abspalten lassen.
+\item
+Die Eigenwerte reeller Matrizen sind reell oder konjugiert komplexe
+Paare.
+Der Francis-Algorithmus erkennt $2\times 2$-Blöcke, die zu
+solchen Paaren gehören, und berechnet Eigenwerte und Eigenvektoren
+mit Hilfe des charakteristischen Polynoms und dem Gauss-Algorithmus.
+\end{enumerate}

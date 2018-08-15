@@ -24,6 +24,12 @@ TEXFILES = determinanten.tex eigen.tex linsys.tex 			\
 	2/inverse.tex							\
 	2/kramer.tex							\
 	2/produktformel.tex						\
+	8/chapter.tex							\
+	8/beispiel.tex							\
+	8/char.tex							\
+	8/diagonal.tex							\
+	8/numerisch.tex							\
+	8/problem.tex							\
 	vektorgeometrie.tex \
 	einleitung.tex geometrie.tex zerlegung.tex \
 	applications/hauptachse.tex \
