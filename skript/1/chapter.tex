@@ -1,0 +1,55 @@
+%
+% chapter.tex -- Lineare Gleichungssysteme
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\chapter{Lineare Gleichungssysteme\label{chapter-lingl}}
+\rhead{Lineare Gleichungssysteme}
+Die Basis für die gesamte Lineare Algebra ist die Fähigkeit, lineare
+Gleichungen lösen zu können.
+Daher beginnen wir in diesem Kapitel
+damit, Verfahren für die Lösung linearer Gleichungssysteme
+zusammenzustellen.
+Dabei interessiert uns nicht nur die Lösung
+eines solchen Gleichungssystems, sondern auch die Frage, ob es
+überhaupt lösbar ist, oder ob es vielleicht sogar mehr als eine
+Lösung hat.
+Dabei wird sich herausstellen, dass dabei immer die
+gleichen Alternativen auftreten:
+\begin{compactenum}
+\item Keine Lösung
+\item Genau eine Lösung
+\item Unendlich viele Lösungen
+\end{compactenum}
+Genau genommen sind dies nicht drei gleichberechtigte Fälle,
+sondern
+\index{regulaer@regulär}
+\index{singulaer@singulär}
+\begin{compactenum}
+\item {\em Regulärer} Fall: Genau eine Lösung
+\item {\em Singulärer} Fall
+\begin{compactenum}
+\item Keine Lösung
+\item Unendlich viele Lösungen
+\end{compactenum}
+\end{compactenum}
+Neben den Methoden, eine Lösung tatsächlich zu berechnen, ist
+diese Dreier-Alternative ein zentrales Thema.
+Es stellt sich heraus,
+dass diese nicht nur für Gleichungen mit reellen oder rationalen
+Koeffizienten gilt, sondern auch für komplexe Zahlen, oder
+für weitere Systeme von ``Zahlen'', sogenannte Körper.
+Daher
+müssen zusammen mit den Methoden zur Lösung der Gleichungen
+auch Algorithmen zur Unterscheidung dieser Fälle bereitgestellt
+werden.
+\index{Koerper@K\örper}
+
+\input{1/glsysteme.tex}
+\input{1/gauss.tex}
+\input{1/loesungsmenge.tex}
+\input{1/simultan.tex}
+\input{1/matrizen.tex}
+\input{1/inverse.tex}
+\input{1/homin.tex}
+\input{1/rechenaufwand.tex}

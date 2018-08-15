@@ -1,0 +1,663 @@
+%
+% gauss.tex -- Gauss-Elimination
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\section{Das Gauss-Verfahren}
+\index{Gauss-Verfahren}
+\index{Gauss-Elimination|see{Gauss-Verfahren}}
+Für die Anwendung brauchen wir ein effizientes Verfahren zur
+Lösung von linearen Gleichungssystemen.
+Dabei erwarten wir natürlich,
+dass wir zur Bestimmung von $n$ Unbekannten auch $n$ Gleichungen benötigen
+werden.
+Dass dies so ist, wird sich im Laufe des Verfahrens so ergeben,
+wir werden daher zunächst weiter von $m$ Gleichungen ausgehen.
+\subsection{Ein Beispiel}
+Als Beispiel wollen wir das Gleichungssystem
+\[
+\begin{linsys}{3}
+3\;x%
+\begin{picture}(0,0)
+\color{red}\put(-13,4){\circle{12}}
+\end{picture}%
+&-&6y&=&9\\
+2\;x&+&4y&=&-2
+\end{linsys}
+\]
+lösen.
+Wir führen dabei genau Buch über die einzelnen Schritte,
+damit wir daraus später ein allgemeines Verfahren ableiten können.
+Dazu werden wir in jedem Schritt zunächst einzeichnen, um welchen
+Term wir uns als nächstes kümmern wollen.
+
+\subsubsection{Schritt I: $x$ isolieren}
+Dividieren wir die erste Gleichung durch $3$, steht $x$ ohne Koeffizient
+auf der linken Seite:
+\[
+\begin{linsys}{3}
+3\;x%
+\begin{picture}(0,0)
+\color{red}\put(-13,4){\circle{12}}
+\end{picture}%
+&-&6y&=&9\\
+2\;x&+&4y&=&-2
+\end{linsys}
+\qquad\rightarrow\qquad
+\begin{linsys}{3}
+x%
+\begin{picture}(0,0)
+\color{red}\put(-13,4){\circle{12}}
+\end{picture}%
+&-&2y&=&3\\
+2\;x&+&4y&=&-2
+\end{linsys}
+\]
+Es wird damit einfacher, nach $x$ aufzulösen,
+und das gefundene Resultat dazu zu verwenden, die anderen $x$ zu
+eliminieren
+\subsubsection{Schritt F: $x$ aus Folgegleichungen eliminieren}
+Mit Hilfe der ersten Gleichung können wir jetzt auch das $x$ in
+der zweiten Gleichung eliminieren.
+Dazu subtrahieren wir das Doppelte der ersten Gleichung von der zweiten.
+Resultat:
+\[
+\begin{linsys}{3}
+x&-&2y&=&3\\
+2x%
+\begin{picture}(0,0)
+\color{blue}\drawline(-14,-3)(-14,10)(12,10)(12,-3)
+\end{picture}%
+&+&4y&=&-2
+\end{linsys}
+\qquad
+\rightarrow
+\qquad
+\begin{linsys}{3}
+x&-&2y&=&3\\
+ %
+\begin{picture}(0,0)
+\color{blue}\drawline(-14,-3)(-14,10)(12,10)(12,-3)
+\end{picture}%
+& &8y&=-8
+\end{linsys}
+\]
+\subsubsection{Schritt I: $y$ isolieren}
+Durch dividieren der zweiten Gleichung durch $8$ erreichen wir, dass
+$y$ auf der linken Seite alleine steht, wir haben also bereits
+eine Unbekannte bestimmt:
+\[
+\begin{linsys}{3}
+x-2\;y&=3\\
+8\;y%
+\begin{picture}(0,0)
+\color{red}\put(-12,4){\circle{12}}
+\end{picture}%
+&=-8
+\end{linsys}
+\qquad
+\rightarrow
+\qquad
+\begin{linsys}{3}
+x&-&2\;y &=&3\\
+&&y%
+\begin{picture}(0,0)
+\color{red}\put(-12,4){\circle{12}}
+\end{picture}%
+&=&-1
+\end{linsys}
+\]
+
+\subsubsection{Schritt R: $y$ aus Vorgängergleichungen eliminieren}
+Mit der zweiten Gleichung können wir jetzt auch das $y$ aus der ersten
+Gleichung eliminieren.
+Wir addieren dazu das Doppelte der zweiten
+Gleichung zur ersten:
+\[
+\begin{linsys}{3}
+x&-&2y%
+\begin{picture}(0,0)
+\color{blue}\drawline(-32,10)(-32,-4)(2,-4)(2,10)
+\end{picture}%
+&=&3\\
+&&y&=&-1
+\end{linsys}
+\qquad
+\rightarrow
+\qquad
+\begin{linsys}{3}
+x&&%
+\begin{picture}(0,0)
+\color{blue}\drawline(-18,10)(-18,-4)(1,-4)(1,10)
+\end{picture}%
+&=&1\\
+&&y&=&-1
+\end{linsys}
+\]
+Damit ist das Gleichungssystem vollständig gelöst.
+
+Offenbar ist es möglich, mit IFR-Schritten das Gleichungssystem zu lösen.
+Die Variablen und Operationszeichen haben dabei nur Platzhalterfunktion
+gehabt, wir könnten in allen Schritten auch nur die Koeffizienten
+in einem sogenannten Tableau schreiben:
+\index{Tableau}
+\begin{gather*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\begin{picture}(0,0)
+{\color{red}\put(2.5,4){\circle{12}}}
+\end{picture}
+3&-6&9\\
+2&4&-2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+{\color{red}1}&-2&3\\
+2%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,-2)(-8,10)(1,10)(1,-2)
+\end{picture}%
+&4&-2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-2&3\\
+{\color{blue}0}&\begin{picture}(0,0)
+\color{red}\put(2.8,4){\circle{12}}
+\end{picture}
+8&-8\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&
+\begin{picture}(0,0)
+\color{blue}\drawline(1,9)(1,-2)(20,-2)(20,9)
+\end{picture}%
+-2&3\\
+0&{\color{red}1}&-1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&{\color{blue}0}&1\\
+0&1&-1\\
+\hline
+\end{tabular}
+\end{gather*}
+Die drei Arten von Operationen können ausschliesslich über die
+Koeffizientenschemata beschrieben werden:
+\begin{itemize}
+\item[\bf I:] Eine Variable isolieren bedeutet, die ganze
+Zeile durch den Koeffizienten dieser Variable zu teilen.
+\item[\bf F:] Eine Variable mit Hilfe einer anderen Zeile zu eliminieren
+bedeutet, ein geeignetes Vielfaches dieser anderen Zeile zu subtrahieren,
+so dass der Koeffizient zu $0$ wird.
+\item[\bf R:] Eliminieren aus einer früheren Gleichung funktioniert
+genau gleich wie {\bf F}.
+\end{itemize}
+Da {\bf F} und {\bf R} offenbar identisch sind, fassen wir diese
+Operationen unter dem Namen {\bf E} zusammen.
+
+\subsection{Operationen I und E für drei Unbekannte}
+Als Beispiel führen wir das Verfahren auch noch für die drei Unbekannten
+des Gleichungssystems
+\begin{equation}
+\begin{linsys}{3}
+x&+&2y&+&3z&=&10\\
+6x&+&5y&+&4z&=&32\\
+x&-&y&+&z&=&2
+\end{linsys}
+\end{equation}
+Die zugehörige Folge von Tableaus ist
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\begin{picture}(0,0)
+\color{red}\put(3,4){\circle{12}}
+\end{picture}%
+1&2&3&10\\
+6&5&4&32\\
+\begin{picture}(0,0)
+\color{blue}\drawline(-3,-2)(-3,25)(9,25)(9,-2)
+\end{picture}%
+1&-1&1&2\\
+\hline
+\end{tabular}
+&\overset{\text{\bf E}}\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&2&3&10\\
+0&-7%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{17}}
+\end{picture}%
+&-14&-28\\
+0&-3%
+\begin{picture}(0,0)
+\color{blue}\drawline(-15,-3)(-15,10)(1,10)(1,-3)
+\end{picture}%
+&-2&-8\\
+\hline
+\end{tabular}
+\\
+&\overset{\text{\bf I,E}}\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&2&3&10\\
+0&1&2&4\\
+0&0&\begin{picture}(0,0)
+\color{red}\put(3,4){\circle{12}}
+\end{picture}%
+4&4\\
+\hline
+\end{tabular}
+\\
+&\overset{\text{\bf I}}\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&2&3&10\\
+0&1&\begin{picture}(0,0)
+\color{blue}\drawline(-3,24)(-3,-3)(8,-3)(8,24)
+\end{picture}%
+2&4\\
+0&0&1&1\\
+\hline
+\end{tabular}
+\\
+&\overset{\text{\bf R}}\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&\begin{picture}(0,0)
+\color{blue}\drawline(-3,9)(-3,-3)(8,-3)(8,9)
+\end{picture}%
+2&0&7\\
+0&1&0&2\\
+0&0&1&1\\
+\hline
+\end{tabular}
+\\
+&\overset{\text{\bf R}}\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&0&3\\
+0&1&0&2\\
+0&0&1&1\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus lesen wir die Lösung $x=3$, $y=2$ und $z=1$ ab.
+Im ersten Schritt konnte man sich eine Operation {\bf I} sparen, weil
+der Koeffizient von $x$ bereits $1$ ist.
+
+\subsection{Der Normalfall}
+Mit den Operationen {\bf I} und {\bf E} kann man das Gleichungssystem
+also lösen.
+Dabei geht man in zwei Phasen vor, die man wie folgt
+visualisieren kann:
+\begin{gather*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\begin{picture}(0,0)
+\color{red}\put(2.7,3.1){\circle{12}}
+\end{picture}%
+*&*&\dots&*&*\\
+*&*&\dots&*&*\\
+\vdots& \vdots& \ddots& \vdots&\vdots\\
+\begin{picture}(0,0)
+\color{blue}\drawline(-3,-2)(-3,43)(8.5,43)(8.5,-2)
+\end{picture}%
+*&*&\dots&*&*\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&*&\dots&*&*\\
+0&1&\dots&*&*\\
+\vdots& \vdots& \ddots&\begin{picture}(0,0)
+\color{blue}\drawline(-4,43)(-4,-3)(7,-3)(7,43)
+\end{picture}%
+\vdots&\vdots\\
+0&0&\dots&1&*\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&\dots&0&*\\
+0&1&\dots&0&*\\
+\vdots& \vdots& \ddots& \vdots&\vdots\\
+0&0&\dots&1&*\\
+\hline
+\end{tabular}
+\end{gather*}
+\index{Vorwaertsreduktion@Vorwärtsreduktion}
+\index{Rueckwaertseinsetzen@Rückwärtseinsetzen}
+Die erste Phase wird auch Vorwärtsreduktion genannt, die
+zweite Phase Rückwärtseinsetzen.
+\subsubsection{Vorwärtsreduktion}
+In der ersten Phase muss man also alle Elemente unterhalb der
+Diagonalen zu Null machen.
+Mit Operationen {\bf I} und {\bf E} geht man dazu zeilenweise vor.
+In jeder Zeile macht man mit {\bf I}
+zunächst den vordersten nicht verschwindenden Koeffizienten, das sogenannte
+Pivot-Element zu $1$.
+\index{Pivot-Element}
+Die Zeile und Spalte dieses Elements heisst deshalb
+auch Pivot-Zeile bzw.~Pivot-Spalte.
+\index{Pivot-Zeile}
+\index{Pivot-Spalte}
+Dann subtrahiert man mit der Operation {\bf E} geeignete Vielfache
+der Pivot-Zeile, so dass in der Spalte
+unter der eben entstandenen $1$ alle Koeffizienten verschwinden.
+\begin{gather*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&*&*&\dots&*&*\\
+0&\begin{picture}(0,0)
+\color{red}\put(2.8,3.05){\circle{12}}
+\end{picture}%
+*&*&\dots&*&*\\
+0&*&*&\dots&*&*\\
+\vdots&\vdots& \vdots& \ddots& \vdots&\vdots\\
+0&*&*&\dots&*&*\\
+\hline
+\end{tabular}
+\overset{\text{\bf I}}\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&*&*&\dots&*&*\\
+0&1&*&\dots&*&*\\
+0&*&*&\dots&*&*\\
+\vdots&\vdots& \vdots& \ddots& \vdots&\vdots\\
+0&\begin{picture}(0,0)
+\color{blue}\drawline(-2,-2)(-2,43)(8,43)(8,-2)
+\end{picture}%
+*&*&\dots&1&*\\
+\hline
+\end{tabular}
+\overset{\text{\bf E}}\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&*&*&\dots&*&*\\
+0&1&*&\dots&*&*\\
+0&0&*&\dots&*&*\\
+\vdots& \vdots&\vdots& \ddots& \vdots&\vdots\\
+0&0&*&\dots&*&*\\
+\hline
+\end{tabular}
+\end{gather*}
+In Formeln wird im Schritt {\bf I} auf der Zeile $i$
+durch $a_{ii}$ dividiert:
+\begin{align*}
+a_{ij}'&=\frac{a_{ij}}{a_{ii}}&& i < j \le m,\\
+b_i'&=\frac{b_i}{a_{ii}}
+\end{align*}
+Die Operation {\bf E} auf der Zeile $k>i$ ist
+\begin{align*}
+a_{kj}'&=a_{kj}-a_{ki}a_{ij}&&i < k \le m, i \le j\le n\\
+b_k'&=b_k-a_{ki}b_i&&i < k \le m
+\end{align*}
+Führt man beide Operationen in einem Schritt durch, erhält man die
+Gleichungen:
+\begin{equation}
+\begin{aligned}
+a_{ij}'&=\frac{a_{ij}}{a_{ii}}&&&b_i'&=\frac{b_i}{a_{ii}}\\
+a_{kj}'&=a_{kj}-a_{ki}\frac{a_{ij}}{a_{ii}}&
+&\qquad&b_k'&=b_k-a_{ki}\frac{a_{ij}}{a_{ii}}
+\end{aligned}
+\label{vorwaertsreduktion}
+\end{equation}
+mit $i < k\le m$ und $i\le j\le n$. Dieser Schritt muss für $i=1,\dots,m$
+wiederholt werden.
+
+\subsubsection{Rückwärtseinsetzen}
+Das Rückwärtseinsetzen kommt ohne die {\bf I}-Operationen aus.
+Es eliminiert die nicht verschwinden Element oberhalb der Diagonalen
+Spaltenweise, beginnend bei der letzten.
+Für die dritte Spalte beispielsweise bedeutet dies bildlich:
+\begin{gather*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&*&*&\dots&0&*\\
+0&1&\begin{picture}(0,0)
+\color{blue}\drawline(-2,22)(-2,-2)(8,-2)(8,22)
+\end{picture}%
+*&\dots&0&*\\
+0&0&1&\dots&0&*\\
+\vdots&\vdots& \vdots& \ddots& \vdots&\vdots\\
+0&0&0&\dots&1&*\\
+\hline
+\end{tabular}
+\overset{\text{\bf E}}\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&*&0&\dots&0&*\\
+0&1&0&\dots&0&*\\
+0&0&1&\dots&0&*\\
+\vdots& \vdots&\vdots& \ddots& \vdots&\vdots\\
+0&0&0&\dots&1&*\\
+\hline
+\end{tabular}
+\end{gather*}
+In Formeln bedeutet dies für die {\bf E}-Operation, bei der die
+Spalte mit der Nummer $i$ ``leergeräumt'' wird:
+\begin{align}
+a_{kj}'&=a_{kj}- a_{ki} a_{ij}
+&
+b_k'&=b_k- a_{ki}b_i
+\label{rueckwaertseinsetzen}
+\end{align}
+Dieser Schritt muss für $i=m,\dots,2$ wiederholt werden.
+\subsection{Sonderfälle}
+Nicht immer kann das Verfahren so problemlos durchgeführt werden.
+Es kann vorkommen, dass eines der Pivot-Elemente $a_{ii}=0$ ist.
+Da beim Vorwärtsreduzieren immer durch das Pivot-Element geteilt
+werden muss, bricht das Verfahren in diesem Falle ab, möglicherweise
+obwohl das Gleichungssystem lösbar ist.
+Zwei Strategien sind denkbar, mit dieser Situation umzugehen.
+
+Nicht nur ein verschwindendes Pivot-Element führt zu Problemen,
+auch die Division durch ein kleines Pivot-Element kann bereits die
+Rechengenauigkeit un\-günstig beeinflussen.
+Daher kann es je nach
+Gleichungssystem geraten sein, eine der folgenden Strategien anzuwenden,
+um die Genauigkeit der Resultate zu verbessern.
+\subsubsection{Gleichungen umordnen}
+Die Reihenfolge der Gleichungen hat keinen Einfluss auf die Lösungsmenge.
+Ist $a_{ii}=0$, kann man jede der Gleichungen $i+1$ bis $m$ an Stelle
+der Gleichung Nummer $i$ verwenden.
+
+\begin{beispiel}[\bf Beispiel] Im Gleichungssystem $y=1, x=2$ versagt
+in der Standardreihenfolge von Gleichungen und Variablen bereits der
+erste Schritt:
+\begin{gather*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+0%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\put(4,0){!}
+\end{picture}%
+&1&1\\
+1&0&2\\
+\hline
+\end{tabular}
+\end{gather*}
+Vertauscht man aber die beiden Zeilen, wird daraus
+\begin{gather*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\begin{picture}(0,0)
+\color{red}\put(2.7,4){\circle{12}}
+\end{picture}%
+1&0&2\\
+0&1&1\\
+\hline
+\end{tabular}
+\end{gather*}
+was nicht nur lösbar, sondern bereits gelöst ist.
+\end{beispiel}
+
+\subsubsection{Variablen umordnen}
+Die Reihenfolge der Variablen hat keinen Einfluss auf die Lösungsmenge.
+Ist $a_{ii}=0$ kann jede andere Spalte $i+1$ bis $n$ Anstelle der
+Spalte mit der Nummer $i$ verwendet werden.
+Allerdings muss man über
+die Vertauschungen von Spalten Buch führen, zum Beispiel indem man in
+einer zusätzlichen Zeile die Bedeutung der Spalten mitschreibt.
+
+\begin{beispiel}[\bf Beispiel]
+Wir versuchen, das Gleichungssystem
+\[
+\begin{linsys}{3}
+   &   & y & - & z & = & 2\\
+   &   & y & + & z & = & 4\\
+-x &   &   & + & z & = & 2
+\end{linsys}
+\]
+zu lösen.
+Zweimal während der Durchführung des Gauss-Algorithmus,
+gekennzeichnet durch {\color{red}!},
+sind wir gezwungen%
+, durch eine Spaltenvertauschung dafür zu
+sorgen, dass das Pivot-Element nicht $0$ ist%
+\footnote{Es wäre natürlich auch möglich,
+mit Zeilenvertauschungen das gleiche Ziel zu erreichen, doch soll
+dieses Beispiel zeigen, wie man Spaltenvertauschungen für diesen
+Zweck einsetzen kann.}%
+.
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&z&\\
+\hline
+0%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\put(5,0){!}
+\end{picture}%
+&1&-1&2\\
+0&1&1&4\\
+-1&0&1&2\\
+\hline
+\end{tabular}
+&\overset{\displaystyle *}{\rightarrow}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+y&x&z&\\
+\hline
+\begin{picture}(0,0)
+\color{red}\put(3,4){\circle{12}}
+\end{picture}%
+1&0&-1&2\\
+1&0&1&4\\
+\begin{picture}(0,0)
+\color{blue}\drawline(-2,-2)(-2,25)(8,25)(8,-2)
+\end{picture}%
+0&-1&1&2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+y&x&z&\\
+\hline
+1&0&-1&2\\
+0&0%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\put(5,0){!}
+\end{picture}%
+&2&2\\
+0&-1&1&2\\
+\hline
+\end{tabular}
+\\
+&\overset{\displaystyle *}{\rightarrow}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+y&z&x&\\
+\hline
+1&-1&0&2\\
+0& 2%
+\begin{picture}(0,0)
+\color{red}\put(-3,3.5){\circle{12}}
+\end{picture}%
+&0&2\\
+0&1\begin{picture}(0,0)
+\color{blue}\drawline(-8,-2)(-8,10)(2,10)(2,-2)
+\end{picture}%
+&-1&2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+y&z&x&\\
+\hline
+1&-1&0&2\\
+0&1& 0&1\\
+0&0&-1%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+y&z&x&\\
+\hline
+1&-1%
+\begin{picture}(0,0)
+\color{blue}\drawline(-15,10)(-15,-2)(1,-2)(1,10)
+\end{picture}%
+&0&2\\
+0&1& 0
+\begin{picture}(0,0)%
+\color{blue}\drawline(-10,24)(-10,-2)(3,-2)(3,24)%
+\end{picture}%
+&1\\
+0&0&1&-1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+y&z&x&\\
+\hline
+1&0&0&3\\
+0&1&0&1\\
+0&0&1&-1\\
+\hline
+\end{tabular}
+\\
+&\overset{\displaystyle *}{\rightarrow}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&z&\\
+\hline
+1&0&0&-1\\
+0&1&0&3\\
+0&0&1&1\\
+\hline
+\end{tabular}
+\end{align*}
+Im ersten Schritt wurden die ersten beiden
+Spalten vertauscht, im dritten Schritt die letzten
+beiden.
+Im letzten Schritt wurden die Variablen
+und Gleichungen wieder in die ``Standardreihenfolge'' gebracht.
+Die Lösung ist $(x,y,z)=(-1, 3, 1)$.
+\end{beispiel}
+

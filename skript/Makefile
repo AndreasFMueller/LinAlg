@@ -5,8 +5,26 @@
 #
 all:	skript.pdf checklist.pdf
 
-TEXFILES = determinanten.tex eigen.tex lingl.tex \
-	linsys.tex vektorgeometrie.tex \
+TEXFILES = determinanten.tex eigen.tex linsys.tex 			\
+	1/chapter.tex							\
+	1/gauss.tex							\
+	1//glsysteme.tex						\
+	1/homin.tex							\
+	1/inverse.tex							\
+	1/linabh.tex							\
+	1/loesungsmenge.tex						\
+	1/matrizen.tex							\
+	1/rechenaufwand.tex						\
+	1/simultan.tex							\
+	2/chapter.tex							\
+	2/begriff.tex							\
+	2/berechnung.tex						\
+	2/eindeutigkeit.tex						\
+	2/entwicklungssatz.tex						\
+	2/inverse.tex							\
+	2/kramer.tex							\
+	2/produktformel.tex						\
+	vektorgeometrie.tex \
 	einleitung.tex geometrie.tex zerlegung.tex \
 	applications/hauptachse.tex \
 	applications/kirchhoff.tex \

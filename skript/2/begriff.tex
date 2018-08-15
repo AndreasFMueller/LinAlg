@@ -1,0 +1,393 @@
+%
+% begriff.tex -- Begriff der Determinanten
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Begriff der Determinanten}
+Die Determinante soll eine Kennzahl liefern, an der sich ablesen
+lässt, ob eine Matrix regulär oder singulär ist.
+Zur Definition kann man sich dabei auf den Gauss-Algorithmus stützen.
+Für das
+Arbeiten mit Determinanten ist das nicht praktisch, dazu werden
+Rechenregeln (Formeln) benötigt.
+Daraus ergibt sich dann mit
+dem Entwicklungssatz ein praktisch durchführbarer Algorithmus.
+Schliesslich kann man Determinanten sogar dazu verwenden, Gleichungssysteme
+zu lösen oder Matrizen zu invertieren.
+\subsection{Definition}
+\index{Determinante}
+Zu einer Matrix $A=(a_{ij})$ suchen wir eine Grösse
+$\det A$, welche folgende Eigenschaften hat:
+\begin{compactenum}
+\item $\det A$ ändert sich nicht unter der Operation $E$.\label{invarianzE}
+\item Wird eine Zeile von $A$ mit $\lambda$ multipliziert,\label{skalarI}
+wird auch $\det A$ mit $\lambda$ multipliziert.
+\item $\det E=1$\label{normierung}
+\end{compactenum}
+Im trivialen Fall des $1\times1$-Schemas folgt daraus bereits
+\[
+\det(a)\overset{\text{Eigenschaft \ref{skalarI}}}=a\det(1)\overset{\text{Eigenschaft \ref{normierung}}}=a\cdot 1=a.
+\]
+
+Aber auch für den Fall $2\times 2$ können wir die Lösung
+bereits bestimmen.
+Dazu gehen wir wie folgt vor:
+\begin{align*}
+\begin{pmatrix}
+a%
+\begin{picture}(0,0)
+\color{red}\put(-2,3){\circle{12}}
+\end{picture}%
+&b\\
+c&d%
+\end{pmatrix}
+&\rightarrow
+\begin{pmatrix}1&\frac{b}{a}\\
+c%
+\begin{picture}(0,0)
+\color{blue}\drawline(-6,-1)(-6,10)(1,10)(1,-1)
+\end{picture}%
+&d\end{pmatrix}
+&\det \begin{pmatrix}a&b\\c&d\end{pmatrix}
+&=a%
+\begin{picture}(0,0)
+\color{red}\put(-3,3){\circle{10}}
+\end{picture}%
+\;
+\det
+\begin{pmatrix}1&\frac{b}{a}\\c&d\end{pmatrix}
+\\
+&\rightarrow
+\begin{pmatrix}1&\frac{b}{a}\\0&d-\frac{bc}{a}%
+\begin{picture}(0,0)
+\color{red}\put(-15,3){\circle{28}}
+\end{picture}%
+\end{pmatrix}
+&
+&=a%
+\begin{picture}(0,0)
+\color{red}\put(-3,3){\circle{10}}
+\end{picture}%
+\;\det\begin{pmatrix}1&\frac{b}{a}\\0&d-\frac{bc}{a}\end{pmatrix}
+\\
+&\rightarrow
+\begin{pmatrix}1&\frac{b}{a}%
+\begin{picture}(0,0)
+\color{blue}\drawline(-7,10)(-7,-5)(0,-5)(0,10)
+\end{picture}%
+\\0&1\end{pmatrix}
+&
+&=a%
+\begin{picture}(0,0)
+\color{red}\put(-3,3){\circle{10}}
+\end{picture}%
+\;
+\left(d-\frac{bc}a\right)%
+\begin{picture}(0,0)
+\color{red}\put(-22.5,4){\circle{35}}
+\end{picture}%
+\det\begin{pmatrix}1&\frac{b}{a}\\0&1\end{pmatrix}
+\\
+&\rightarrow
+\begin{pmatrix}1&0\\0&1\end{pmatrix}
+&
+&=(ad-bc)
+\det \begin{pmatrix}1&0\\0&1\end{pmatrix}
+\\
+&&&=ad-bc
+\end{align*}
+Die Eigenschaften sind also offenbar bereits stark genug, um die
+Determinante festzulegen.
+Für die Determinante hat sich auch die
+Bezeichnung mit zwei vertikalen Linien links und rechts des
+Koeffizientenschemas eingebürgert:
+\[
+\det\begin{pmatrix}a&b\\c&d\end{pmatrix}
+=
+\left|\,\begin{matrix}a&b\\c&d\end{matrix}\,\right|
+=
+ad-bc.
+\]
+
+\subsection{Rechenregeln für Determinanten}
+Nach ähnlichem Muster lassen sich auch aus den Eigenschaften auch
+noch weitere praktische Rechenregeln ableiten:
+
+\begin{hilfssatz}
+Besteht eine Zeile in einer Matrix $A=(a_{ij})$ aus
+lauter Nullen, ist auch $\det A=0$.
+\label{nullzeile}
+\end{hilfssatz}
+
+\begin{proof}[Beweis]
+Multipliziert man die aus Nullen bestehende Zeilen mit $\lambda$
+wird $\det A$ nach Eigenschaft \ref{skalarI}  mit $\lambda$ multipliziert.
+Durch die Multiplikation ändern sich die Nullen in der Zeile allerdings
+nicht, es gilt also
+\[
+\lambda \det A=\det A
+\]
+für jedes beliebige $\lambda$.
+Die einzige Zahl, die sich nicht ändert,
+wenn man sie mit beliebigen Zahlen multipliziert, ist die Null.
+Also $\det A=0$.
+\end{proof}
+
+\begin{hilfssatz}
+Sind zwei Zeilen in einer Matrix $A=(a_{ij})$
+gleich, dann ist $\det A=0$.
+\end{hilfssatz}
+\begin{proof}[Beweis]
+Subtrahiert man die erste der beiden gleichen Zeilen von der
+zweiten, ändert sich die Determinante nicht, denn dies ist eine
+{\bf E}-Operation.
+In der zweiten Zeile stehen nach dieser Operation
+aber lauter Nullen, die Determinante muss nach Hilfssatz \ref{nullzeile}
+also $0$ sein.
+\end{proof}
+
+\begin{hilfssatz}
+Vertauscht man in einer Matrix $A=(a_{ij})$ zwei
+Zeilen, dann ändert $\det A$ das Vorzeichen.
+\end{hilfssatz}
+\begin{proof}[Beweis]
+Die Zeilenvertauschung kann man in folgenden Schritten durchführen:
+\begin{compactenum}
+\item Erste Zeile von der zweiten subtrahieren:
+\[
+\begin{pmatrix}
+      &\dots&      &\dots\\
+a_{i1}&\dots&a_{ik}&\dots\\
+      &\dots&      &\dots\\
+a_{j1}&\dots&a_{jk}&\dots\\
+      &\dots&      &\dots\\
+\end{pmatrix}
+\rightarrow
+\begin{pmatrix}
+             &\dots&             &\dots\\
+a_{i1}       &\dots&a_{ik}       &\dots\\
+             &\dots&             &\dots\\
+a_{j1}-a_{i1}&\dots&a_{jk}-a_{ik}&\dots\\
+             &\dots&             &\dots\\
+\end{pmatrix}
+\]
+\item Zweite Zeile zur ersten addieren:
+\[
+\begin{pmatrix}
+             &\dots&             &\dots\\
+a_{i1}       &\dots&a_{ik}       &\dots\\
+             &\dots&             &\dots\\
+a_{j1}-a_{i1}&\dots&a_{jk}-a_{ik}&\dots\\
+             &\dots&             &\dots\\
+\end{pmatrix}
+\rightarrow
+\begin{pmatrix}
+             &\dots&             &\dots\\
+a_{j1}       &\dots&a_{jk}       &\dots\\
+             &\dots&             &\dots\\
+a_{j1}-a_{i1}&\dots&a_{jk}-a_{ik}&\dots\\
+             &\dots&             &\dots\\
+\end{pmatrix}
+\]
+\item  Erste Zeile von der zweiten Subtrahieren:
+\[
+\begin{pmatrix}
+             &\dots&             &\dots\\
+a_{j1}       &\dots&a_{jk}       &\dots\\
+             &\dots&             &\dots\\
+a_{j1}-a_{i1}&\dots&a_{jk}-a_{ik}&\dots\\
+             &\dots&             &\dots\\
+\end{pmatrix}
+\rightarrow
+\begin{pmatrix}
+       &\dots&       &\dots\\
+a_{j1} &\dots&a_{jk} &\dots\\
+       &\dots&       &\dots\\
+-a_{i1}&\dots&-a_{ik}&\dots\\
+       &\dots&       &\dots\\
+\end{pmatrix}
+\]
+\item Zweite Zeile mit $-1$ multiplizieren.
+\[
+\begin{pmatrix}
+       &\dots&       &\dots\\
+a_{j1} &\dots&a_{jk} &\dots\\
+       &\dots&       &\dots\\
+-a_{i1}&\dots&-a_{ik}&\dots\\
+       &\dots&       &\dots\\
+\end{pmatrix}
+\rightarrow
+\begin{pmatrix}
+      &\dots&      &\dots\\
+a_{j1}&\dots&a_{jk} &\dots\\
+      &\dots&      &\dots\\
+a_{i1}&\dots&a_{ik}&\dots\\
+      &\dots&      &\dots\\
+\end{pmatrix}
+\]
+\end{compactenum}
+Da die ersten drei Schritte {\bf E}-Operationen sind, ändert sich nach
+Eigenschaft \ref{invarianzE} die Determinante dabei nicht.
+Die letzte
+Operation ist eine {\bf I}-Operation, nach Eigenschaft \ref{skalarI}
+wird die Determinante dabei mit $-1$ multipliziert.
+\end{proof}
+
+\begin{hilfssatz}
+\label{detlinabh}
+Sind die Gleichungen eines Gleichungssystems linear abhängig, dann
+gilt für die Koeffizienten $\det A=0$.
+\end{hilfssatz}
+\begin{proof}[Beweis]
+Wenn die Zeilen linear abhängig sind, dann wissen wir bereits, dass
+im Gauss-Verfahren, bei welchem nur die Operationen {\bf I} und {\bf E}
+angewendet werden, am Ende mindestens eine Zeile aus lauter
+Nullen auftauchen muss.
+Am Ende des Prozesses ist die Determinante also $0$.
+
+Da die Operation {\bf E} die Determinante gar nicht,
+und {\bf I} nur um einen nicht verschwindenden Faktor ändert, muss
+die Determinante also auch schon am Anfang des Prozesses $0$ gewesen
+sein.
+\end{proof}
+
+\subsection{Determinante als lineare Funktion der Zeilen\label{detlinfun}}
+Die bisher verwendeten Eigenschaften der Determinante hatten den
+Vorteil, einen direkten Bezug zu den Operationen zu haben, mit 
+denen wir Gleichungssysteme gelöst haben.
+Sie hatten den Nachteil, etwas willkürlich zu sein.
+Daher verwendet man oft die folgenden Eigenschaften, aus denen
+die bisherigen Eigenschaften folgen.
+
+\begin{compactenum}
+\item[$1'$.] $\det A$ ist eine lineare Funktion der Zeilen, d.h.
+\[
+\left|
+\;
+\begin{matrix}
+a_{11}&\dots&a_{1n}\\
+\vdots&\ddots&\vdots\\
+\lambda a'_{k1}+\mu a''_{k1}&\dots&\lambda a'_{kn}+\mu a''_{kn}\\
+\vdots&\ddots&\vdots\\
+a_{n1}&\dots&a_{nn}
+\end{matrix}
+\;
+\right|
+=
+\lambda
+\left|
+\;
+\begin{matrix}
+a_{11}&\dots&a_{1n}\\
+\vdots&\ddots&\vdots\\
+a'_{k1}&\dots&a'_{kn}\\
+\vdots&\ddots&\vdots\\
+a_{n1}&\dots&a_{nn}
+\end{matrix}
+\;
+\right|
++
+\mu
+\left|
+\;
+\begin{matrix}
+a_{11}&\dots&a_{1n}\\
+\vdots&\ddots&\vdots\\
+a''_{k1}&\dots&a''_{kn}\\
+\vdots&\ddots&\vdots\\
+a_{n1}&\dots&a_{nn}
+\end{matrix}
+\;
+\right|
+\]
+\item[$2'$.] Sind zwei Zeilen von $A$ gleich, ist $\det A=0$
+\end{compactenum}
+
+Aus diesen Eigenschaften lassen sich die Eigenschaften \ref{invarianzE}.~und
+\ref{skalarI}.~ableiten.
+
+\begin{hilfssatz} Aus den Eigenschaften $1'$.~und $2'$.~folgen die Eigenschaften
+1.~und 2.~der Determinante.
+\end{hilfssatz}
+\begin{proof}[Beweis]
+Setzt man 
+$a'_{ki}=a_{ki}$, $a''_{ki}=a_{li}$, $\lambda=1$ entsteht auf der linken Seite
+die Determinante nach dem hinzuaddieren des $\mu$-fachen der $l$-ten Zeile
+zur $k$-ten Zeile, also das Resultat einer {\bf E}-Operation.
+Auf der rechten Seite steht als erster Term die ursprüngliche Determinante,
+der zweite Term ist aber eine Determinante, in der die $k$-te und die
+$l$-te Zeile übereinstimmen, diese verschwindet also nach $2'$.
+Damit ist die Eigenschaft \ref{invarianzE}.~bewiesen.
+
+Setzt man $a'_{ki}=a_{ki}$ und $\mu=0$, steht auf der linken Seite
+die Determinante, in der die $k$-te Zeile mit $\lambda$ multipliziert
+wurde.
+Auf der rechten Seite steht die mit $\lambda$ multiplizierte
+Determinante, wegen $\mu=0$ fällt der zweite Term weg.
+Somit ist auch die Eigenschaft \ref{skalarI}.~bewiesen.
+\end{proof}
+
+Wenn die Eigenschaften $1'$., $2'$.~und 3.~erfüllt sind, sind also immer
+noch alle Schlussfolgerungen gültig, die wir aus den Eigenschaften
+1.~bis 3.~gezogen hatten.
+
+Der Vorteil dieser Eigenschaften gegenüber den bisher verwendeten
+besteht darin, dass sich daraus eine Formel ableiten lässt, aus
+der weiter Eigenschaften der Determinante leichter abgeleitet
+werden können. 
+
+Man kann zeigen, dass die Eigenschaften der Determinante diese
+eindeutig bestimmen.
+Es kann also nicht passieren, dass eine andere
+Reihenfolge der Pivot-Elemente zu einem anderen Resultat führt.
+Da diese Eigenschaft auf eine Art beweisen wird, die uns keine
+anderen nützlichen Resultate liefert, verbannen wir den Beweis
+in den letzten Abschnitt \ref{deteindeutig} dieses Kapitels.
+Wir halten hier nur das Resultat fest.
+
+\begin{satz}
+\label{detcharacterisation}
+Die Determinante
+$\det A$
+ist die einzige lineare Funktion der Zeilen von $A$, die folgende zwei
+Eigenschaften hat:
+\begin{compactenum}
+\item Falls $A$ zwei gleiche Zeilen enthält ist $\det A=0$.
+\item $\det E = 1$.
+\end{compactenum}
+\end{satz}
+
+\subsection{Spalten statt Zeilen}
+Die Definition verlangt explizit nach Zeilen-Operationen {\bf I}
+und {\bf E}.
+Wir könnten aber auch entsprechende Spalten-Operationen
+{\bf I$\mathstrut^t$}
+und
+{\bf E$\mathstrut^t$}
+verwenden, um die Determinante zu definieren.
+Das vorgehen zur Berechnung der Determinante ist genau das selbe.
+Man wendet die Operationen an, bis nur noch die Einheitsmatrix stehen bleibt.
+
+Analog zum Vorgehen in Abschnitt \ref{detlinfun} können wir auch
+fordern, dass die Determinante eine lineare Funktion der Spalten
+(statt der Zeilen) sein soll, und würden dieselbe Determinante
+erhalten wie mit der Definition durch die Operationen 
+{\bf I$\mathstrut^t$}
+und
+{\bf E$\mathstrut^t$}.
+Auch hier halten wir das Resultat fest:
+\begin{satz}
+Die Determinante
+$\det A$ ist die einzige lineare Funktion der Spalten von $A$, die folgende
+zwei Eigenschaften hat:
+\begin{compactenum}
+\item Falls $A$ zwei gleiche Spalten enthält ist $\det A=0$.
+\item $\det E = 1$.
+\end{compactenum}
+\end{satz}
+Im Prinzip könnte diese über die Spalten definierte Determinante
+von der über die Zeilen definierten Determinante verschieden sein.
+Im Abschnitt \ref{deteindeutig} wird jedoch eine Formel für die
+Determinante abgeleitet, aus der hervorgeht, dass beide Definitionen
+auf den selben Wert für die Determinante führen.
+

@@ -1,0 +1,224 @@
+%
+% glsysteme.tex -- Gleichungssysteme
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\section{Gleichungssysteme}
+\subsection{Begriffe und Notation}
+\index{Linearform}
+\begin{definition}
+Eine Linearform $l(x_1,\dots,x_2)$ über $\mathbb R$ in den $n$
+Variablen $x_1,\dots,x_n$
+ist eine Funktion der Form
+\[
+l(x_1,\dots,x_2)=a_1x_1+a_2x_2+\dots+a_nx_n,
+\]
+wobei $a_i\in\mathbb R$ für alle $i$.
+\end{definition}
+Ist $(x_1',\dots,x_n')$ ein zweiter Satz Variablen, und $\lambda\in\mathbb R$,
+dann gilt
+\begin{equation}
+\begin{aligned}
+l(x_1+x_1',\dots,x_n+x_n')&=l(x_1,\dots, x_n)+l(x_1',\dots,x_n')\\
+l(\lambda x_1, \dots ,\lambda x_n)&=\lambda l(x_1,\dots,x_n)
+\end{aligned}
+\label{linearitaet-linearformen}
+\end{equation}
+Man nennt diese Eigenschaft {\em Linearität}, die Linearformen sind
+{\em lineare} Funktionen.
+\index{linear}%
+Etwas salopp ausgedrückt sind lineare Funktionen, solche, die sich
+auf die einzelnen Summanden einer Summe verteilen lassen, und für
+die sich Faktoren aus den Argumenten vor die Funktion ziehen lassen.
+Multiplikation aller Argumente mit einer Zahl und Additionen aller
+Argumente lassen sich also ``auflösen''.
+
+\index{Gleichung!lineare}
+Aus einer Linearform und einer Konstanten kann man eine
+lineare Gleichung bilden:
+\[
+l(x_1,\dots,x_n)=a_1x_1+\dots +a_nx_n=b
+\]
+Hat man nur zwei oder drei Unbekannte, kann man sie etwas übersichtlicher
+mit $x$, $y$ und $z$ bezeichnen:
+\[
+ax+by+cz=d
+\]
+ist auch eine lineare Gleichung.
+Die Lösung einer solchen Gleichung
+besteht aus einem Tripel von Zahlen $(x,y,z)$, die die Gleichung erfüllen.
+Statt als Tripel wird die Lösung oft auch als Spalte geschrieben:
+\[
+\begin{pmatrix}
+x\\y\\z
+\end{pmatrix}.
+\]
+
+\index{Gleichungssystem!lineares}
+Ein wesentlicher Teil der linearen Algebra befasst sich mit linearen
+Gleichungssystemen, also mehreren linearen Gleichungen:
+\begin{align*}
+l_1(x_1,\dots,x_n)&=b_1\\
+\vdots\qquad\qquad&\quad\vdots\\
+l_m(x_1,\dots,x_n)&=b_m
+\end{align*}
+Dabei lassen wir vorerst zu, dass auch weniger oder mehr Gleichungen
+als Unbekannte gegeben sind.
+Später werden wir diskutieren, unter
+welchen Bedingungen diese Gleichungssysteme Lösungen haben.
+
+Vollständig ausgeschrieben lauten die Gleichungssysteme
+\begin{align*}
+a_{11}x_1+a_{12}x_2+\dots a_{1n}x_n&=b_1\\
+a_{21}x_1+a_{22}x_2+\dots a_{2n}x_n&=b_2\\
+\vdots\\
+a_{m1}x_1+a_{m2}x_2+\dots a_{mn}x_n&=b_m
+\end{align*}
+Das Gleichungssystem ist durch die Angabe der Koeffizienten $a_{ij}$
+und der rechten Seite $b_j$ gegeben, gesucht sind die Unbekannten $x_j$.
+Es ist also nicht unbedingt nötig, die Gleichungen auszuschreiben,
+wenn man diese Angaben in anderer Form machen kann, z.~B.~indem man
+Unbekannte und rechte Seite in Spaltenform und die Koeffizienten in
+Matrixform schreibt:
+\[
+A=\begin{pmatrix}
+a_{11}&a_{12}&\dots &a_{1n}\\
+a_{21}&a_{22}&\ddots&a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{m1}&a_{m2}&\dots&a_{mn}
+\end{pmatrix}
+,\quad
+x=\begin{pmatrix}
+x_1\\x_2\\\vdots\\x_n
+\end{pmatrix},
+\quad
+b=\begin{pmatrix}
+b_1\\b_2\\\vdots\\b_m
+\end{pmatrix}.
+\]
+
+\subsection{Eine Unbekannte}
+Der Fall einer Unbekannten ist besonders einfach, wir diskutieren die
+Gleichungen
+\[
+ax=b
+\]
+mit $a,b\in\mathbb R$ und suchen eine Lösung $x\in\mathbb R$.
+Offenbar kann man die Lösung finden, indem man durch $a$ teilt:
+\[
+x=\frac{b}{a},
+\]
+dies ist aber nur dann möglich, wenn $a\ne 0$ ist.
+Dies scheint
+der ``reguläre'' Fall zu sein, in dem es genau eine Lösung gibt.
+
+Der singuläre Fall ist $a=0$, die Gleichung wird dann zu 
+\[
+0=b.
+\]
+Offenbar ist diese Gleichung überhaupt nicht erfüllbar, wenn $b\ne 0$
+ist.
+Falls jedoch $b=0$, dann ist die Gleichung $0\cdot x=0$, die
+zutrifft was immer wir für Werte für $x$ einsetzen, in diesem
+Fall haben wir also unendlich viele Lösungen.
+Zusammengefasst
+bekommen wird
+\begin{enumerate}
+\item regulärer Fall: $a\ne 0\Rightarrow x=\frac{b}{a}$
+\item singulärer Fall: $a=0$
+\begin{enumerate}
+\item $b=0\Rightarrow$ jedes beliebige $x\in\mathbb R$ ist Lösung
+\item $b\ne0\Rightarrow$ keine Lösungen
+\end{enumerate}
+\end{enumerate}
+
+\subsection{Zwei Unbekannte}
+Eine einzelne Gleichung mit zwei Unbekannten 
+\[
+ax+by=c
+\]
+kann keine eindeutige Lösung haben.
+Falls $b\ne 0$ kann man
+sie nach $y$ auflösen:
+\[
+y=\frac{c-ax}b=-\frac{a}{b}x+\frac{c}b,
+\]
+sie beschreibt also eine Gerade.
+Die Menge der Punkte 
+\[
+g_1=\{(x,y)\,|\,ax+by=c\}
+\]
+ist eine Gerade.
+
+Fügt man jetzt eine zweite Gleichung hinzu, erhält man
+ein Gleichungssystem
+\[
+\begin{linsys}{2}
+ax&+&by&=&e\\
+cx&+&dy&=&f
+\end{linsys}
+\]
+\index{Loesungsmenge@L\ösungsmenge}
+Die Lösungsmenge jeder dieser Gleichungen entspricht einer
+Geraden:
+\begin{align*}
+g&=\{(x,y)\,|\,ax+by=e\}\\
+h&=\{(x,y)\,|\,cx+dy=f\}
+\end{align*}
+Wir interessieren uns jedoch für diejenigen Paare $(x,y)$,
+die beide Gleichungen erfüllen, also für die Schnittmenge
+der Geraden $g$ und $h$.
+
+\index{Gerade}
+Ohne dass wir bereits ein Verfahren zur Berechnung einer
+Lösung haben, können wir bereits herausfinden, wie viele
+Lösungen das Gleichungssystem hat.
+Zwei Geraden in der Ebene
+können höchstens in den drei folgenden Lagen angeordnet sein:
+\begin{enumerate}
+\item Die Geraden sind nicht parallel, dann schneiden sie sich in
+genau einem Punkt, das Gleichungssystem hat eine einzige Lösung.
+\item Die Geraden sind parallel, dann gibt es zwei mögliche Unterfälle:
+\begin{enumerate}
+\item Die Geraden haben einen positiven Abstand, dann gibt es keine
+gemeinsamen Punkte, also hat das Gleichungssystem auch keine Lösung
+\item Der Abstand der Geraden ist $0$, dann sind die Geraden deckungsgleich,
+jeder Punkt der beiden Geraden ist Lösung des Gleichungssystems, es hat
+also unendlich viele Lösungen.
+\end{enumerate}
+\end{enumerate}
+Hier drei Beispiele von Gleichungssystemen, die diese drei Situationen
+widerspiegeln:
+\begin{beispiel}[Beispiel für den Fall 1]
+Das folgende Gleichungssystem hat genau eine Lösung.
+\begin{align*}
+x+y=2\\
+x-y=0
+\end{align*}
+hat die Lösung $(1,1)$, wie man durch Einsetzen nachprüfen kann.
+\end{beispiel}
+\begin{beispiel}[Beispiel für den Fall 2.~(a)]
+Das Gleichungssystem
+\[
+\begin{linsys}{2}
+x&+&y&=&1\\
+2x&+&2y&=&0
+\end{linsys}
+\]
+kann keine Lösung haben.
+Multipliziert man die erste Gleichung mit $2$
+und subtrahiert die zweite Gleichung erhält man $0=2$, dies kann natürlich
+nie erfüllt werden, insbesondere gibt es kein Zahlenpaar $(x,y)$, für
+welches die beiden Gleichungen wahr würden.
+\end{beispiel}
+\begin{beispiel}[Beispiel für den Fall 2.~(b)]
+Das Gleichungssystem
+\[
+\begin{linsys}{2}
+x&+&y&=&1\\
+2x&+&2y&=&2
+\end{linsys}
+\]
+hat alle Punkte der Geraden $y=1-x$ als Lösung.
+\end{beispiel}
+

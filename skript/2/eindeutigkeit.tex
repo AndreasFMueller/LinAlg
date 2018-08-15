@@ -1,0 +1,110 @@
+%
+% eindeutigkeit.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Eindeutigkeit der Determinante\label{deteindeutig}}
+In diesem Abschnitt wollen wir zeigen, dass die Determinante
+eindeutig ist.
+Wir gehen dazu wie folgt vor.
+Zunächst zeigen wir,
+dass sich jede Determinantenberechnung auf die Berechnung der Determinanten
+von sehr speziellen $A$s zurückführen lässt, nämlich solchen,
+die genau eine $1$ in jeder Zeile und Spalte haben, und sonst nur
+Nullen enthalten.
+Im zweiten Schritt zeigen wir dann, dass diese
+speziellen Determinanten in jeder Definition dasselbe geben.
+
+Die $k$-te Spalte $a$ von $A$ kann man als lineare Kombination von
+speziellen Spalten schreiben:
+\[
+a_k=a_{1k}
+\begin{pmatrix}
+1\\0\\\vdots\\0
+\end{pmatrix}
++a_{2k}
+\begin{pmatrix}
+0\\1\\\vdots\\0
+\end{pmatrix}
++\dots+
++a_{nk}
+\begin{pmatrix}
+0\\0\\\vdots\\1
+\end{pmatrix}
+\]
+Setzt man dies als $k$-te Spalte in die Determinante ein (wir hatten früher
+dafür die Bezeichnung $\Delta_k(a_k)$ eingeführt), kann man mit
+der Linearität  die Determinante schreiben als
+\[
+\det A=a_{1k}\Delta_k\left(
+\begin{matrix}
+1\\0\\\vdots\\0
+\end{matrix}
+\right)
++a_{2k}
+\Delta_k\left(
+\begin{matrix}
+0\\1\\\vdots\\0
+\end{matrix}
+\right)+\dots+
+\Delta_k\left(
+\begin{matrix}
+0\\0\\\vdots\\1
+\end{matrix}
+\right).
+\]
+Die $\Delta_k$ auf der rechten Seite sind Determinanten, in denen 
+eine Spalte ersetzt worden ist durch eine Spalte aus Nullen und genau
+einer Eins.
+
+Diese Zerlegung kann man jetzt noch $(n-1)$-mal wiederholen,
+jedes mal kommt ein anderer Faktor $a_{ik}$ vor die Determinante.
+Dabei werden auch Determinanten entsteht die die gleichen Spalten
+haben, die also die Eins an der selben Stelle haben.
+Diese Determinanten verschwinden alle, man kann sie ignorieren.
+Der Vorfaktor ist
+jeweils $a_{ik}$, wobei $i$ die Zeile der Eins bezeichnet, und $k$
+die Nummer der Spalte, die man ersetzt hat.
+Die Indizes des
+Vorfaktors $a_{ik}$ sind gerade die Koordinaten der Eins, die durch
+die Ersetzung in der Determinante stehen bleibt.
+
+Am Ende bleibt eine Summe von Termen stehen, in der alle Determinanten
+in jeder Zeile und Spalte genau eine $1$ und sonst lauter Nullen
+enthalten.
+Die Vorfaktoren sind die Produkte der Koeffizienten in $A$,
+die an Stelle der $1$ in der ursprünglichen Matrizen standen.
+
+Wir bezeichnen die speziellen Matrizen aus lauter Nullen und Einsen
+mit $\sigma$, und die Menge all dieser Matrizen mit $S_n$.
+Aus einem
+Index $i$ kann man die zugehörige Spalte $k$ herausfinden, indem
+man die einzige Spalte in $\sigma$ sucht, welche an der $i$-ten
+Stelle eine $1$ enthält.
+Wir schreiben $\sigma(i)$ für dieses $k$.
+Mit dieser Schreibweise ist 
+\[
+\det A=\sum_{\sigma\in S_n}
+a_{1\sigma(1)}
+a_{2\sigma(2)}
+\dots
+a_{n\sigma(n)}
+\det \sigma.
+\]
+Aus dieser Formel ist jetzt klar, dass die Determinante nicht vom
+Vorgehen abhängt.
+
+Dieselben Auflösungen kann man auch mit Hilfe der Linearität der
+Determinante als Funktion der Spalten vornehmen, dabei kommt die 
+gleiche Formel heraus.
+Wenn man jetzt noch zeigen kann, dass
+die Determinanten $\det\sigma$ nicht davon abhängen, ob man von
+Zeilen oder von Spalten ausgeht, dann ist klar, dass es nur eine
+Determinante gibt.
+
+Die Determinante von $\sigma$ muss $1$ oder $-1$ sein, denn durch
+Zeilenvertauschungen kann sie auf die Form $E$ gebracht werden.
+Alternativ kann dies mit Spaltenvertauschungen geschehen.
+Jede Vertauschung trägt einen Faktor $-1$ zum Wert der Determinante bei.
+Es kommt also nur darauf an, ob die Zahl der nötigen
+Vertauschungen gerade oder ungerade ist.

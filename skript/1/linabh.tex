@@ -1,0 +1,285 @@
+%
+% linabh.tex -- lineare Abhängigkeit
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\section{Lineare Abhängigkeit}
+\index{abhaengig@abhängig, linear}
+\index{linear abhängig}
+Im Gleichungssystem
+\begin{align*}
+x+2y&=5\\
+2x+4y&=10
+\end{align*}
+ist die zweite Gleichung das Doppelte der ersten.
+Sie ist also immer genau dann erfüllt, wenn die erste erfüllt ist.
+Insbesondere schränkt sie die Menge der möglichen Lösungen
+nicht weiter ein, die Lösungsmenge ist
+\[
+\mathbb L=\{(x,y)\,|\, x+2y=5\}.
+\]
+Auch kompliziertere Beziehungen zwischen Gleichungen sind
+möglich.
+Im Gleichungssystem
+\begin{align*}
+ x+4y+5z&=1\\
+3x-6y-2z&=-1\\
+4x-2y+3z&=0
+\end{align*}
+ist die letzte Gleichung die Summe der ersten beiden.
+Sie ist also
+immer bereits erfüllt, wenn die ersten beiden Gleichungen erfüllt
+ist.
+Damit schränkt auch sie die Lösungsmenge nicht ein.
+
+Zur Definition der eindeutigen Lösung eines Gleichungssystems 
+tragen offenbar nur diejenigen Gleichungen etwas bei, die unabhängig
+von den anderen Gleichungen erfüllbar sind.
+Wenn eine Gleichung
+durch andere Gleichungen ausgedrückt werden kann, kann man sie
+eliminieren.
+Lässt sich die letzte Gleichung durch die
+anderen ausdrücken, gibt es Koeffizienten $\lambda_i$ so, dass
+\begin{equation*}
+\begin{aligned}
+l_m(x_1,\dots,x_n)&=\lambda_1 l_1(x_1,\dots,x_n)+\dots+\lambda_{m-1}l_{m-1}(x_1,\dots, x_n)\\
+b_m&=\lambda_1b_1+\dots+\lambda_{m-1}b_{m-1}
+\end{aligned}
+\end{equation*}
+Setzt man $\lambda_m=-1$ und bringt alle Terme auf eine Seite,
+dann bedeuten diese Gleichungen, dass
+\begin{equation}
+\begin{aligned}
+0&=\lambda_1l_1(x_1,\dots,x_n)+\dots+\lambda_ml_m(x_1,\dots,x_n)\\
+0&=\lambda_1b_1+\dots+\lambda_mb_m
+\end{aligned}
+\label{linearabhaengigegleichungen}
+\end{equation}
+Gibt es keine solche Beziehung, sind die Gleichungen unabhängig
+voneinander.
+Diese Form verwenden wir, um den Begriff der linearen Abhängigkeit
+zu definieren.
+\begin{definition}
+Die Linearformen $l_1,\dots,l_m$ heissen linear unabhängig,
+wenn die einzige lineare Beziehung
+\begin{equation}
+\lambda_1l_1(x_1,\dots,x_n)+\dots+\lambda_ml_m(x_1,\dots,x_n)=0
+\label{linearabhaengig}
+\end{equation}
+jene mit $\lambda_i=0$ für $1\le i\le m$ ist.
+
+Die $l_i$ heissen linear abhängig, wenn es eine Beziehung der Form
+(\ref{linearabhaengig})
+gibt, in der nicht alle Koeffizienten $\lambda_i$ verschwinden.
+
+Die Gleichungen $l_i(x_1,\dots,x_n)=b_i,1\le i\le m$ heissen linear unabhängig,
+wenn  die einzige Beziehung der Form (\ref{linearabhaengigegleichungen})
+die Koeffizienten $\lambda_i=0$ hat.
+Sie heissen linear abhängig, wenn
+es eine Beziehung der Form (\ref{linearabhaengigegleichungen}) gibt.
+\end{definition}
+
+Wenn Linearformen oder Gleichungen linear abhängig sind, dann kann
+man eine oder mehrere von ihnen eliminieren, da sie zur Lösung nichts
+beitragen.
+Da der Gauss-Algorithmus versucht, genau die minimal benötigten Gleichungen
+zu ermitteln, wird er eine Zeile voller Nullen hervorbringen.
+
+\begin{hilfssatz}
+Die Linearformen $l_1,\dots,l_m$ sind genau dann linear abhängig, wenn
+die Anwendung des Gauss-Algorithmus auf das Koeffizientenschema dieser
+Linearformen eine Zeile voller Nullen hervorbringt.
+Insbesondere sind mehr als $n$ Linearformen immer linear abhängig.
+Ist eine der Linearformen
+bereits $0$, dann sind die Linearformen auf jeden Fall linear abhängig.
+\end{hilfssatz}
+
+\begin{proof}[Beweis]
+Ist $m>n$, dann erzeugt der Gauss-Algorithmus im besten Fall $n$ Zeilen,
+die ausser Nullen in der Zeile $i$ auch noch in der $i$-ten Spalte eine
+$1$ enthalten.
+Alle nachfolgenden Zeilen bestehen jedoch ausschliesslich
+aus Nullen, somit sind die Gleichungen linear abhängig.
+
+Ist zum Beispiel $l_i(x_1,\dots,x_n)=0$, dann ergibt sich mit den
+Koeffizienten
+\[
+\lambda_1=0,\dots,\lambda_i=1,\dots \lambda_m=0
+\]
+eine lineare Beziehung
+\[
+\lambda_1l_1+\dots+\lambda_il_i+\dots+\lambda_ml_m=l_i=0,
+\]
+in der nicht alle Koeffizienten verschwinden.
+\end{proof}
+
+Mit dem Gauss-Algorithmus können wir sehr rasch entscheiden, ob Zeilen 
+linear abhängig sind.
+Wenn wir aber die $\lambda_i$ bestimmen wollen,
+die gemäss Definition existieren sollen, dann müssen wir noch etwas
+mehr arbeiten.
+Wir illustrieren dies an einem Beispiel.
+
+\begin{beispiel}
+Der Gauss-Algorithmus
+erkennt die folgenden Zeilen als linear abhängig:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+&2&3\\
+6&5&4\\
+7\begin{picture}(0,0)
+\color{blue}\drawline(-8,-2)(-8,24)(2,24)(2,-2)
+\end{picture}%
+&8&9\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&3\\
+0&-7\begin{picture}(0,0)
+\color{red}\put(-6,4){\circle{16}}
+\end{picture}%
+&-14\\
+0&-6&-12\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&3\\
+0&1&2\\
+0&-6%
+\begin{picture}(0,0)
+\color{blue}\drawline(-14,-2)(-14,10)(1,10)(1,-2)
+\end{picture}%
+&-12\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&3\\
+0&1&2\\
+0&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Es gibt also Zahlen $\lambda_1$, $\lambda_2$ und $\lambda_3$,
+so dass die Summe der $\lambda_i$-fachen der $i$-ten Zeile zusammen
+die Null-Zeile ergeben:
+\[
+\begin{tabular}{>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+\lambda_1&\cdot&1&2&3\\
+\lambda_2&\cdot&6&5&4\\
+\lambda_3&\cdot&7&8&9\\
+\hline
+&&0&0&0
+\end{tabular}
+\]
+Für die $\lambda_i$ finden wir daraus ein lineares Gleichungssystem:
+\[
+\begin{linsys}{3}
+1\lambda_1&+&6\lambda_2&+&7\lambda_3&=&0\\
+2\lambda_1&+&5\lambda_2&+&8\lambda_3&=&0\\
+3\lambda_1&+&4\lambda_2&+&9\lambda_3&=&0
+\end{linsys}.
+\]
+Man beachte, dass das Koeffizientenschema 
+gegenüber dem ursprünglichen an der Diagonalen
+gespiegelt worden ist.
+
+Das Gleichungssystem kann jetzt mit Hilfe des
+Gauss-Algorithmus gelöst werden:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+&6&7\\
+2&5&8\\
+3%
+\begin{picture}(0,0)
+\color{blue}\drawline(-9,-2)(-9,24)(2,24)(2,-2)
+\end{picture}%
+&4&9\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&6&7\\
+0&-7%
+\begin{picture}(0,0)
+\color{red}\put(-6.5,4){\circle{15}}
+\end{picture}%
+&-6\\
+0&-14&-12\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&6&7\\
+0&1&\frac67\\
+0&-14%
+\begin{picture}(0,0)
+\color{blue}\drawline(-20,-2)(-20,10)(1,10)(1,-2)
+\end{picture}%
+&-12\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&6%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,9)(-8,-2)(2,-2)(2,9)
+\end{picture}%
+&7\\
+0&1&\frac67\\
+0&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&\frac{13}{7}\\
+0&1&\frac67\\
+0&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Die beiden nicht verschwindenden Zeilen bedeuten, dass $\lambda_1$ und
+$\lambda_2$ aus $\lambda_3$ berechnet werden können:
+\begin{align*}
+\lambda_1&=-\frac{13}7\lambda_3&\lambda_2&=-\frac{6}7\lambda_3.
+\end{align*}
+Eine ganzzahlige Lösung ergibt sich zum Beispiel für $\lambda_3=7$,
+also
+\[
+(
+\lambda_1,
+\lambda_2,
+\lambda_3
+)
+=(
+-13,-6,7
+),
+\]
+was man durch nachrechnen auch bestätigen kann.
+Da in diesem Gleichungssystem
+die auf der rechten Seite nur Nullen stehen, können wir schliessen,
+dass eine Lösung mit $\lambda_i\ne 0$ nur im singulären Fall gefunden
+werden kann.
+Die gespiegelten Koeffizienten sind also immer dann singulär,
+wenn auch die ungespiegelten Koeffizienten singulär sind.
+\end{beispiel}
+
