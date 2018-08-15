@@ -25,7 +25,7 @@ TEXFILES = determinanten.tex eigen.tex linsys.tex 			\
 	2/kramer.tex							\
 	2/produktformel.tex						\
 	8/chapter.tex							\
-	8/beispiel.tex							\
+	8/beispiele.tex							\
 	8/char.tex							\
 	8/diagonal.tex							\
 	8/numerisch.tex							\
