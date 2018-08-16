@@ -1,0 +1,131 @@
+Wir betrachten den würfelförmigen Hohlraum mit Ecken $(\pm1,\pm1,\pm1)$
+(Abbildung links).
+Im Inneren befindet sich ein gerades Rohr mit Durchmesser $0.1$ zwischen
+den Punkten $(0.5,-1,-0.5)$ und $(-0.5,1,0.5)$.
+Nun soll ein weiteres Rohr mit dem gleichen Durchmesser installiert werden.
+Es soll durch eine Öffnung im Punkt $P=(-0.5,-0.5,-1)$ eingeführt werden und 
+muss einen Punkt an der Rückwand ($z=1$) erreichen, welcher aber von aussen nicht
+erkennbar ist.
+Daher wird eine Kamera mit einem $320\times 180$-Chip und Brennweite $f=50$
+in der Öffnung bei $P$ platziert.
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\node at (0,0) {
+\includeagraphics[width=0.35\hsize]{box.jpg}
+};
+\node at (8.5,0) {
+\includeagraphics[width=0.622222\hsize]{inside.jpg}
+};
+\node at (-2.2,-0.7) {$x$};
+\node at (-0,3.2) {$y$};
+\node at (+2.2,0.1) {$z$};
+\node at (+2.3,-0.6) {$\leftarrow P$};
+%\node at (9.25,0.4) {$B$};
+\node at (7.75,0.4) {$B$};
+\end{tikzpicture}
+\end{center}
+Auf dem Kamerabild (Abbildung rechts) hat der Zielpunkt die Koordinaten
+$B=(179,109)$.
+Die Ausrichtung der Kamera wird durch die Drehmatrix
+\[
+D
+=
+\begin{pmatrix}
+   0.99504 & 0.00000 &         - 0.09950\\
+   0.00000 & 1.00000 &\phantom{-}0.00000\\
+   0.09950 & 0.00000 &\phantom{-}0.99504
+\end{pmatrix}
+\]
+gegeben.
+Kann das neue Rohr installiert werden, ohne vom bereits vorhandenen
+Rohr blockiert zu werden?
+
+\begin{hinweis}
+Berechnen Sie die Matrizen- und Vektoroperationen mit dem Taschenrechner.
+\end{hinweis}
+
+\begin{loesung}
+Das bestehende Rohr hat die Geradengleichung in Parameterdarstellung
+\[
+\vec p
+=
+\vec p_0
++
+t\vec r_0
+=
+\begin{pmatrix}
+\phantom{-}0.5\\
+-1\phantom{.0}\\
+-0.5
+\end{pmatrix}
++t\begin{pmatrix}
+-1\\
+\phantom{-}2\\
+\phantom{-}1
+\end{pmatrix}.
+\]
+
+Die Achse des neuen Rohrs ist eine Gerade durch den Punkt $P$, 
+beziehungsweise das Kamerazentrum mit Ortsvektor
+\[
+\vec c
+=
+\begin{pmatrix}
+-0.5\\
+-0.5\\
+-1\phantom{.0}
+\end{pmatrix}.
+\]
+Der Richtungsvektor ist $\vec r$. Er muss aus dem Bildpunkt $B$
+bestimmt werden.
+
+Die Kameramatrix kann aus den gegebenen Daten abgelesen werden, 
+sie ist
+\[
+K
+=
+\begin{pmatrix}
+50& 0&160\\
+ 0&50& 90\\
+ 0& 0&  1
+\end{pmatrix}.
+\]
+Die Gleichungen der Kamerageometrie liefern den Richtungsvektor
+\[
+\vec r
+=
+(KD)^{-1}\begin{pmatrix}179\\109\\1\end{pmatrix}
+=
+\begin{pmatrix}
+   0.47761 \\
+   0.38000 \\
+   0.95723
+\end{pmatrix}.
+\]
+
+Ob sich das neue Rohr installieren lässt hängt davon ab, ob die beiden
+Geraden einen windschiefen Abstand $\ge 0.1$ haben.
+Dafür können wir die Abstandsformel für den windschiefen Abstand
+\[
+d
+=
+\frac{(\vec r\times\vec r_0)\cdot (\vec c - \vec p_0)}{|\vec r\times \vec r_0|}
+\]
+verwenden.
+Die Rechnung ergibt
+\[
+|d| = 0.060027 < 0.1,
+\]
+das Rohr lässt sich also nicht installieren, weil der windschiefe Abstand
+zu klein ist.
+\end{loesung}
+
+\begin{bewertung}
+Parameterdarstellung der bestehenden Gerade ({\bf B}) 1 Punkt,
+Kamerazentrum und Stützvektor der Gerade neuen ({\bf C}) 1 Punkt,
+Kameramatrix ({\bf K}) 1 Punkt,
+Richtungsvektor der neuen Geraden ({\bf R}) 1 Punkt,
+Abstandsformel für windschiefe Geraden ({\bf A}) 1 Punkt,
+Abstandsberechnung und Entscheidung ({\bf E}) 1 Punkt.
+\end{bewertung}
+
