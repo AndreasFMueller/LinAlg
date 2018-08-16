@@ -1,0 +1,120 @@
+%
+% dreieck.tex
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\section{Zerlegung von Dreiecksmatrizen}
+\index{Dreiecksmatrix}
+Als Vorbereitung untersuchen wir einige Beispiele von möglichen
+Zerlegungen von Dreiecksmatrizen.
+In diesem Abschnitt ist $L$ immer eine untere Dreiecksmatrix
+\[
+L=\begin{pmatrix}
+l_{11}&0     &\dots &0     \\
+l_{21}&l_{22}&\dots &0     \\
+\vdots&\vdots&\ddots&\dots \\
+l_{n1}&l_{n2}&\dots &l_{nn}
+\end{pmatrix}
+\]
+\begin{hilfssatz}
+Eine untere Dreiecksmatrix $L$ kann als Produkt einer Diagonalmatrix
+mit einer unteren Dreiecksmatrix $L_0$ mit Einsen auf der Diagonalen
+geschrieben werden, $L=\operatorname{diag}(l_{11},\dots,l_{nn}) L_0$.
+\end{hilfssatz}
+
+\begin{proof}[Beweis]
+Für $L_0$ muss man die Matrix
+\begin{align*}
+L_0&=
+\operatorname{diag}(l_{11},\dots,l_{nn})^{-1} L
+=
+\begin{pmatrix}
+\frac1{l_{11}}&0             &\dots &0\\
+0             &\frac1{l_{22}}&\dots &\vdots\\
+\vdots        &\vdots        &\ddots&\vdots\\
+0             &0             &\dots &\frac1{l_{nn}}
+\end{pmatrix}
+\begin{pmatrix}
+l_{11}&0     &\dots &0     \\
+l_{21}&l_{22}&\dots &0     \\
+\vdots&\dots &\ddots&\dots \\
+l_{n1}&l_{n2}&\dots &l_{nn}
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\frac{l_{11}}{l_{11}}&0                    &\dots &0     \\
+\frac{l_{21}}{l_{22}}&\frac{l_{22}}{l_{22}}&\dots &0     \\
+\vdots               &\vdots               &\ddots&\vdots\\
+\frac{l_{n1}}{l_{nn}}&\frac{l_{n2}}{l_{nn}}&\dots &\frac{l_{nn}}{l_{nn}}
+\end{pmatrix}
+=
+\begin{pmatrix}
+1                    &0                    &\dots &0     \\
+\frac{l_{21}}{l_{22}}&1                    &\dots &0     \\
+\vdots               &\vdots               &\ddots&\vdots\\
+\frac{l_{n1}}{l_{nn}}&\frac{l_{n2}}{l_{nn}}&\dots &1
+\end{pmatrix}
+\end{align*}
+nehmen.
+\end{proof}
+Offenbar entsteht $L_0$ aus $L$, indem man jede Zeile durch das zugehörige
+Diagonalelement teilt, ähnlich wie man das im Laufe des Gauss-Algorithmus
+macht.
+
+\begin{hilfssatz}
+Sei $L$ eine unter Dreiecksmatrix mit $n$ Zeilen und Spalten, und $k<n$.
+Dann kann man $L$ in zwei untere Dreiecksmatrizen aufteilen:
+\begin{align*}
+L&=
+\begin{pmatrix}
+l_{11}   &\dots &0        &0          &\dots &0     \\
+\vdots   &\ddots&\vdots   &\vdots     &\ddots&\vdots\\
+l_{k1}   &\dots &l_{kk}   &0          &\dots &0     \\
+l_{k+1,1}&\dots &l_{k+1,k}&l_{k+1,k+1}&\dots &0     \\
+\vdots   &\ddots&\vdots   &\vdots     &\ddots&\vdots\\
+l_{nn}   &\dots &l_{nk}   &l_{n,k+1}  &\dots &l_{nn}
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+l_{11}   &\dots &0        &0          &\dots &0     \\
+\vdots   &\ddots&\vdots   &\vdots     &\ddots&\vdots\\
+l_{k1}   &\dots &l_{kk}   &0          &\dots &0     \\
+l_{k+1,1}&\dots &l_{k+1,k}&1          &\dots &0     \\
+\vdots   &\ddots&\vdots   &\vdots     &\ddots&\vdots\\
+l_{nn}   &\dots &l_{nk}   &0          &\dots &1
+\end{pmatrix}
+\begin{pmatrix}
+1        &\dots &0        &0          &\dots &0     \\
+\vdots   &\ddots&\vdots   &\vdots     &\ddots&\vdots\\
+0        &\dots &1        &0          &\dots &0     \\
+0        &\dots &0        &l_{k+1,k+1}&\dots &0     \\
+\vdots   &\ddots&\vdots   &\vdots     &\ddots&\vdots\\
+0        &\dots &0        &l_{n,k+1}  &\dots &l_{nn}
+\end{pmatrix}
+\end{align*}
+\end{hilfssatz}
+
+\begin{proof}[Beweis]
+Durch Nachrechnen.
+\end{proof}
+
+Diese Zerlegung kann man natürlich iterieren, bis in jeder Teilmatrix
+nur noch eine Spalte übrig bleibt.
+Schreiben wir
+\[
+L_i=\begin{pmatrix}
+1      &\dots &0     &\dots &0     \\
+\vdots &\ddots&\vdots&\ddots&\vdots\\
+0      &\dots &l_{ii}&\dots &0     \\
+\vdots &\ddots&\vdots&\ddots&\vdots\\
+0      &\dots &l_{ni}&\dots &1
+\end{pmatrix},
+\]
+dann können wir $L$ schreiben als
+\begin{equation}
+L=L_1L_2\dots L_{n-1}L_n.
+\label{lproductdecomposition}
+\end{equation}
+

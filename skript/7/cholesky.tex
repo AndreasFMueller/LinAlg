@@ -1,0 +1,280 @@
+%
+% cholesky.tex -- Cholesky-Zerlegung
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\section{Cholesky-Zerlegung}
+\index{Cholesky-Zerlegung}
+\index{Zerlegung!Cholesky}
+Kann man aus einer Matrix die Wurzel ziehen? Was wäre das überhaupt?
+Aus einer Diagonalmatrix mit positiven Diagonalelementen kann man offenbar
+die Wurzel ziehen, in dem man die Wurzel aus den Diagonalelementen zieht.
+Negative Diagonalelemente machen dies unmöglich.
+Man muss also auf jeden
+Fall fordern, dass die Matrix in einem gewissen Sinn positiv ist.
+
+\begin{definition}
+Eine symmetrische Matrix $A$ heisst positiv definit, falls $v^tAv>0$ für
+alle Vektoren $v\ne 0$.
+\end{definition}
+
+Im Abschnitt \ref{section-least-squares} haben wir eine Anwendung
+kennengelernt, in der ein Gleichungssystem der Form
+\[
+A^tAx=A^t b
+\]
+gelöst werden musste.
+Die Matrix $A^tA$ ist genau von der hier
+beschriebenen Art: symmetrisch und positiv definit.
+Es ist nämlich
+\[
+v^tA^tAv=(Av)^tAv=(Av)\cdot (Av)=|Av|^2> 0
+\]
+falls $A$ regulär, wie für positiv definite Matrizen gefordert.
+
+Für positiv definite symmetrische Matrizen gibt es eine Quadratwurzel
+im Sinne des folgenden Satzes:
+\begin{satz}[Cholesky-Zerlegung]
+\index{Cholesky-Zerlegung}
+\index{Zerlegung!Cholesky}
+Ist $A$ eine symmetrische positiv definite Matrix, dann gibt es genau eine
+untere Dreiecksmatrix $L$ mit $A=LL^t$.
+\end{satz}
+
+Anstelle eines Beweises zeigen wir einen Algorithmus, mit dem man die Matrix
+$L$ konstruieren kann.
+Das Verfahren startet mit einer positiv definiten
+symmetrischen $n\times n$-Matrix $A$.
+Gesucht wird eine untere Dreiecksmatrix $L$
+mit $A=LL^t$.
+Die Matrix $L$ kann man symbolisch in der Form 
+\[
+L=\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+l_{11}&&0&\\
+\hline
+&&&\\
+l&&L'&\\
+&&&
+\end{tabular}
+\right)
+\]
+Darin ist $l'$ ein $n-1$-dimensionaler Spaltenvektor und $L'$ eine
+untere Dreiecksmatrix mit $n-1$ Zeilen und Spalten.
+Wir wollen $LL^t$ mit $A$ vergleichen, und unterteilen deshalb auch die
+Matrix $A$ nach dem gleichen Muster
+\[
+A=\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+a_{11}&&a^t&\\
+\hline
+&&&\\
+a&&A'&\\
+&&&
+\end{tabular}
+\right).
+\]
+Dann bekommen wir für $LL^t$:
+\[
+LL^t=
+\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+l_{11}&&0&\\
+\hline
+&&&\\
+l&&L'&\\
+&&&
+\end{tabular}
+\right)
+\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+l_{11}&&l^t&\\
+\hline
+&&&\\
+0&&L'^t&\\
+&&&
+\end{tabular}
+\right)
+=
+\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+l_{11}^2&&l_{11}l^t&\\
+\hline
+&&&\\
+l_{11}l&&ll^t+L'L'^t&\\
+&&&
+\end{tabular}
+\right)
+\]
+Daraus können wir ablesen, dass 
+\begin{align*}
+a_{11}&=l_{11}^2   &\Rightarrow&&l_{11}&=\sqrt{a_{11}}\\
+     a&=l_{11}l    &\Rightarrow&&     l&=\frac1{\sqrt{a_{11}}}a\\
+    A'&=ll^t+L'L'^t&\Rightarrow&&L'L'^t&=A'-ll^t
+\end{align*}
+Um $L$ zu finden, muss also nur noch eine Zerlegung von $A'-ll^t$
+finden.
+Damit wurde das $n$-dimensionale Problem auf ein $n-1$-dimensionales
+Problem reduziert.
+Durch Wiederholung dieses Schrittes gelangt man am Schluss
+zu einem eindimensionalen Problem, also dem Problem, die Wurzel aus einer
+positiven Zahl zu ziehen.
+
+\begin{beispiel}
+Man finde die Cholesky-Zerlegung der Matrix
+\[
+A=\begin{pmatrix}
+9&3&3\\
+3&17&21\\
+3&21&107
+\end{pmatrix}.
+\]
+Der erste Schritt leitet daraus ab, dass
+\begin{align*}
+l_{11}&=3,&
+l&=\frac13\begin{pmatrix}3\\3\end{pmatrix}=\begin{pmatrix}1\\1\end{pmatrix},&
+ll^t&=\begin{pmatrix}1&1\\1&1\end{pmatrix},&
+A'-ll^t&=\begin{pmatrix}16&20\\20&106\end{pmatrix}
+\end{align*}
+Bis jetzt ist bekannt, dass
+\[
+L=\begin{pmatrix}
+3&0&0\\
+1&?&?\\
+1&?&?
+\end{pmatrix}
+\]
+Für den unbekannten Teil wird jetzt der gleiche Algorithmus auf
+die Matrix $A'-ll^t$ angewendet.
+Im zweiten Schritt muss jetzt die Matrix $A'-ll^t$ zerlegt werden.
+Wir rezyklieren die Bezeichnungen aus dem ersten Schritt, und
+bekommen
+\begin{align*}
+l_{11}&=4,&
+l&=\frac14\begin{pmatrix}20\end{pmatrix}=\begin{pmatrix}5\end{pmatrix},&
+ll^t&=\begin{pmatrix}25\end{pmatrix},&
+A'-ll^t&=\begin{pmatrix}81\end{pmatrix}
+\end{align*}
+Damit ist jetzt von $L$ bekannt:
+\[
+L=\begin{pmatrix}
+3&0&0\\
+1&4&0\\
+1&5&?
+\end{pmatrix}
+\]
+Für das fehlende Element muss jetzt nur noch die Cholesky-Zerlegung
+einer $1\times 1$-Matrix bestimmt werden, dies ist aber die 
+Quadratwurzel.
+Somit ist
+\[
+L=
+\begin{pmatrix}
+3&0&0\\
+1&4&0\\
+1&5&9
+\end{pmatrix}
+,\quad\text{Kontrolle:}\;
+\begin{pmatrix}
+3&0&0\\
+1&4&0\\
+1&5&9
+\end{pmatrix}
+\begin{pmatrix}
+3&1&1\\
+0&4&5\\
+0&0&9
+\end{pmatrix}
+=\begin{pmatrix}
+9&3&3\\
+3&17&21\\
+3&21&107
+\end{pmatrix}=A.
+\]
+\end{beispiel}
+
+{\small
+Unsere Beschreibung des Algorithmus für die Cholesky-Zerlegung ist in
+einem Punkt unvollständig.
+Woher wissen wir, dass $A'-ll^t$ positiv
+definit ist? Dies ist ja die Voraussetzung, dass der Algorithmus
+überhaupt angewendet werden kann.
+
+Wir wissen, dass $A$ und $A'$ positiv definit sind.
+Für jeden $n-1$-dimensionalen Vektor $v$ können wir einen Vektor
+\[
+\tilde v=\left(
+\begin{tabular}{c}
+$\alpha$\\
+\hline
+$\mathstrut$\\
+$v$\\
+$\mathstrut$
+\end{tabular}
+\right)
+\]
+bilden.
+Nach Voraussetzung ist $v^tA'v>0$ und $\tilde v^tA\tilde v>0$.
+Wir möchten nachrechnen, dass $v^t(A'-ll^t)v>0$ gilt, das würde bedeuten,
+dass $A'-ll^t$ positiv definit ist.
+Es ist
+\begin{align*}
+0\ge
+\tilde v^tA\tilde v
+&=
+\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+\alpha&&v^t&
+\end{tabular}
+\right)
+\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+a_{11}&&a^t&\\
+\hline
+&&&\\
+a&&A'&\\
+&&&
+\end{tabular}
+\right)
+\left(
+\begin{tabular}{>{$}c<{$}}
+\alpha\\
+\hline
+\mathstrut\\
+v\\
+\mathstrut
+\end{tabular}
+\right)
+\\
+&=
+\left(
+\begin{tabular}{>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}}
+\alpha&&v^t&
+\end{tabular}
+\right)
+\left(
+\begin{tabular}{>{$}c<{$}}
+a_{11}\alpha+a^tv\\
+\hline
+\\
+\alpha a+A'v\\
+\\
+\end{tabular}
+\right)
+\\
+&=\alpha^2a_{11}+\alpha a^tv+\alpha v^ta+v^tA'v
+\\
+&=\alpha^2a_{11}+2\alpha (a\cdot v)+v^tA'v
+\end{align*}
+Setzt man $\alpha=-(a\cdot v)/a_{11}$, wird daraus
+\[
+\frac{(a\cdot v)^2}{a_{11}^2}a_{11}-2\frac{(a\cdot v)^2}{a_{11}}+v^tAv
+=v^tAv-(l\cdot v)^2\ge 0.
+\]
+Andererseits ist
+\[
+v^t(A-ll^t)v=v^tAv-v^tll^tv=v^tAv-(l\cdot v)^2\ge 0,
+\]
+also ist $A-ll^t$ positiv definit.
+}
+

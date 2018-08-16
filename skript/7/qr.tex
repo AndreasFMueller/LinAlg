@@ -1,0 +1,218 @@
+%
+% qr.tex -- QR-Zerlegung
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\section{QR-Zerlegung\label{section-qr}}
+\index{QR-Zerlegung}
+\index{Zerlegung!QR}
+Die Zerlegung in zwei Dreiecksmatrizen mag für das Problem, Gleichungen
+zu lösen, adäquat sein.
+Für viele andere Problem wünscht man
+sich von den Faktoren weitere oder andere Eigenschaften, zum Beispiel
+Orthogonalität.
+Die QR-Zerlegung liefert eine Matrix mit orthonormierten Spalten.
+
+Betrachten wir nochmals den Orthonormalisierungsprozess.
+Im $k$-ten Schritt erzeugt er den Vektor $b_k'$ aus $b_1',\dots,b_{k-1}'$
+und $b_k$ nach der Formel
+\[
+b_k'=\frac{
+b_k-(b_1'\cdot b_k)b_1'-\dots-(b_{k-1}'\cdot b_k)b_{k-1}'
+}{|
+b_k-(b_1'\cdot b_k)b_1'-\dots-(b_{k-1}'\cdot b_k)b_{k-1}'
+|}
+\]
+Da sich die Vektoren $b_1',\dots,b_{k-1}'$ aus 
+$b_1,\dots,b_{k-1}$ kombinieren lassen, gibt es Koeffizienten $r_{ik}$
+so, dass
+\[
+b_k'=r_{1k}b_1+\dots r_{kk}b_k
+\]
+Schreiben wir wieder $\tilde B$ für die Matrix, deren Spalten die
+$b_i$ sind, ist dies gleichbedeutend mit
+\[
+b_k'=\tilde B\begin{pmatrix}r_{1k}\\\vdots\\r_{kk}\\\vdots\\0\end{pmatrix}
+\]
+Man kann also alle Koeffizienten $r_{ki}$ in eine $n\times n$ Matrix $R$
+zusammenfassen:
+\[
+R=\begin{pmatrix}
+r_{11}&r_{12}&r_{13}&\dots &r_{1k}\\
+0     &r_{22}&r_{23}&\dots &r_{2k}\\
+0     &0     &r_{33}&\dots &r_{3k}\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+0     &0     &0     &\dots &r_{kk}\\
+\end{pmatrix}.
+\]
+$R$ ist eine invertierbare
+obere Dreiecksmatrix, weil keines der
+Diagonalelemente
+\[
+r_{ii}=\frac1{|
+b_i-(b_1'\cdot b_i)b_1'-\dots-(b_{i-1}'\cdot b_i)b_{i-1}'
+|}
+\]
+verschwindet.
+Die Matrix $\tilde B'$ mit Spalten $b_i'$ entsteht als Produkt aus $\tilde B$
+und $R$:
+\[
+\tilde B'=\tilde BR
+\quad\Rightarrow\quad
+\tilde B=\tilde B'R^{-1}
+\]
+Da auch $R^{-1}$ eine Dreiecksmatrix ist, haben wir eine Zerlegung der
+Matrix $\tilde B$ in eine Matrix $\tilde B'$ mit orthonormierten
+Spalten und eine obere Dreiecksmatrix erreicht.
+
+\begin{satz}[QR-Zerlegung]
+\index{QR-Zerlegung}
+\index{Zerlegung!QR}
+Ist $A$ eine $m\times n$-Matrix mit linear unabhängigen Spalten,
+dann gibt es eine $m\times n$-Matrix $Q$ mit orthonormalen Spalten
+und eine $n\times n$-Dreiecksmatrix $R$ so, dass $A=QR$.
+\end{satz}
+
+Im Spezialfall $n=m$, also für quadratische Matrizen, liefert der
+Algorithmus eine orthogonale Matrix $Q$ und obere Dreiecksmatrix eine $R$
+so, dass $A=QR$.
+Da $Q^{-1}=Q^t$ ist, kann man $R=AQ^t$ bestimmen,
+was die Berechnung von $R$ vereinfacht.
+Wieder ist $\det(A)=\det(Q)\det(R)=\pm\det(R)$.
+
+\begin{beispiel}
+Man finde die QR-Zerlegung von 
+\[
+A=\begin{pmatrix}1&0&0\\1&1&0\\1&1&1\end{pmatrix}.
+\]
+Für die Matrix $Q$ kann man das Resultat der Orthonormalisierung
+verwenden, welches wir bereits in einem früheren Beispiel gefunden
+haben:
+\[
+Q=
+\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac{-2}{\sqrt{6}}&0\\
+\frac1{\sqrt{3}}&\frac{1}{\sqrt{6}}&\frac{-1}{\sqrt{2}}\\
+\frac1{\sqrt{3}}&\frac{1}{\sqrt{6}}&\frac{1}{\sqrt{2}}
+\end{pmatrix}
+\]
+Dann muss $R=Q^{-1}A=Q^tA$ sein:
+\[
+R=
+\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+\frac{-2}{\sqrt{6}}&\frac{1}{\sqrt{6}}&\frac{1}{\sqrt{6}}\\
+0&\frac{-1}{\sqrt{2}}&\frac{1}{\sqrt{2}}
+\end{pmatrix}
+\begin{pmatrix}1&0&0\\1&1&0\\1&1&1\end{pmatrix}
+=
+\begin{pmatrix}
+\sqrt{3}&\frac{2}{\sqrt{3}}&\frac{1}{\sqrt{3}}\\
+0&\frac2{\sqrt{6}}&\frac1{\sqrt{6}}\\
+0&0&\frac1{\sqrt{2}}
+\end{pmatrix}
+\]
+\end{beispiel}
+
+\subsection{QR-Zerlegung und Least-Squares}
+Die QR-Zerlegung kann dazu verwendet werden, das Least-Squares-Problem
+zu lösen.
+Dabei wird für ein überbestimmtes Gleichungssystem mit
+$m\times n$-Koeffizienten\-matrix $A$ und rechter Seite $b$ ein Vektor $v$
+so gesucht,
+dass $Ax-b$ minimal wird.
+Die in Abschnitt~\ref{section:ueberbestimmt}
+gefundene Lösung benötigt die Matrizenprodukte $A^tA$ und $A^tb$, welche
+für grosses $m$ aufwendig zu berechnen sind.
+Es besteht also die Hoffnung,
+dass eine alternative Methode diesen Aufwand reduzieren könnte.
+
+Die geometrische Lösung des Problems aus Abschnitt~\ref{section:ueberbestimmt}
+verwendet, dass $Av-b$ senkrecht steht auf $Av$.
+Die QR-Zerlegung ist
+im Wesentlichen eine Umformulierung des Orthogonalisierungsverfahrens, in den
+Matrizen $Q$ und $R$ ist also die Information über Orthogonalität ebenfalls
+enthalten.
+
+Genauer: wenn $A=QR$ ist, wobei $Q$ eine orthogonale $m\times m$-Matrix
+ist und $R$ eine obere $m\times n$-Dreiecksmatrix, dann bilden die
+ersten $n$ Spaltenvektoren von $Q$ eine orthonormierte Basis des
+von den Spalten von $A$ aufgespannten Raumes.
+Wir nennen diese Vektoren
+$Q_{\|}$.
+Die nachfolgenden Spaltenvektoren
+in $Q$ stehen alle senkrecht auf $Av$, wir nennen sie $Q_{\perp}$.
+Mit diesen Bezeichnungen können wir die Matrix $Q$ schreiben als
+\[
+Q=\begin{pmatrix}
+*     &\dots &     *&      *&\dots   &*     \\
+\vdots&      &\vdots&\vdots &        &\vdots\\
+\vdots&Q_{\|}&\vdots&\vdots&Q_{\perp}&\vdots\\
+\vdots&      &\vdots&\vdots &        &\vdots\\
+*     &\dots &     *&      *&\dots   &*     
+\end{pmatrix}.
+\]
+Die Matrix $R$ liefert die Umrechnung von $v$ in die Basis $Q$.
+
+Gesucht ist ein jetzt Vektor $v$ so, dass
+$Av-b$ senkrecht steht auf dem von $A$ aufgespannten Raum.
+Offenbar ist dies in der Basis $Q$ viel einfacher auszudrücken:
+gesucht ist ein Vektor $v$ so, dass $Av-b$ im von $Q_{\perp}$
+aufgespannten Raum liegt, oder so, dass $Av-b$ verschwindende Koordinaten
+für die Basisvektoren $Q_{\|}$ hat.
+
+Dafür müssen wir die Koordinaten eines Vektors in der Basis $Q$
+berechnen können.
+Sind $\xi$ diese Koordinaten des Vektors $v$,
+dann gilt offenbar $Q\xi = v$.
+Da $Q$ orthogonal ist, ist $Q^{-1}=Q^t$, es ist also $\xi=Q^tv$.
+Insbesondere sind die Koordinaten von $b$ in der
+Matrix $Q$ gegeben durch $\xi_b=Q^tb$.
+
+Wir suchen immer noch einen Vektor $v$, so dass $Av-b$ im $Q$-Koordinatensystem
+verschwindende $Q_{\|}$-Koordinaten hat.
+In $Q$-Koordinaten hat dieser
+Vektor die Koordinaten
+\[
+Q^t(Av-b)=Q^t(QRv-b)=Rv-Q^tb.
+\]
+Dass die $Q_{\|}$-Koordinaten dieses Vektors verschwinden sollen ist
+gleichbedeutend damit, dass die ersten $n$ Komponenten von 
+$Rv$ und $Q^tb$ übereinstimmen müssen.
+Die ersten $n$ Komponenten
+von $Q^tb$ sind aber $Q_{\|}^tb$, wir erhalten so ein Gleichungssystem
+der Form
+\begin{equation}
+Rv=\begin{pmatrix}
+Q_{\|}^tb\\
+0
+\end{pmatrix}.
+\label{qr-leastsquares}
+\end{equation}
+Die letzten $m-n$ Gleichungen (mit $0$ auf der rechten Seite) sind dabei
+wegen der Dreiecksform von $R$ automatisch erfüllt, man muss also nur
+noch das $n\times n$-Gleichungssystem bestehend aus den ersten $n$
+Gleichungen lösen.
+
+Wir haben also wiederum nur eine $n\times n$-Gleichungssystem
+zu lösen, wie beim Verfahren aus Abschnitt~\ref{section:ueberbestimmt}.
+Trotzdem haben wir eine Vereinfachung erreicht:
+\begin{itemize}
+\item Wir müssen das Produkt $A^tA$ nicht mehr berechnen.
+\item Es ist nur noch das Produkt $Q_{\|}^tb$ zu berechnen.
+Da $Q_{\|}^t$
+eine $n\times m$-Matrix ist, ist dies der gleiche Aufwand wie $A^tb$.
+\item Das Gleichungssystem (\ref{qr-leastsquares}) ist bereits in Dreiecksform,
+es kann also allein durch Rückwärtseinsetzen gelöst werden.
+\item Falls es gelingt, einen effizienteren Algorithmus für die Bestimmung
+der $QR$-Zerlegung zu finden, profitiert die Lösung des Least-Squares-Problems
+davon.
+\end{itemize}
+Übrigens ist es nach der $QR$-Zerlegung sehr einfach, das Produkt $A^tA$
+zu berechnen, denn es gilt:
+\[
+A^tA=(QR)^tQR=R^tQ^tQR=R^tR,
+\]
+und in der Matrix $R$ finden sich im Gegensatz zu $A$
+nur in den ersten $n$ Zeilen von $0$ verschiedene Elemente.
+
