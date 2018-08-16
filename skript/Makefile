@@ -24,6 +24,16 @@ TEXFILES = determinanten.tex eigen.tex linsys.tex 			\
 	2/inverse.tex							\
 	2/kramer.tex							\
 	2/produktformel.tex						\
+	3/chapter.tex							\
+	4/chapter.tex							\
+	5/chapter.tex							\
+	6/chapter.tex							\
+	7/chapter.tex							\
+	7/cholesky.tex							\
+	7/dreieck.tex							\
+	7/lr.tex							\
+	7/qr.tex							\
+	7/svd.tex							\
 	8/chapter.tex							\
 	8/beispiele.tex							\
 	8/char.tex							\
