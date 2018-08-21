@@ -1,0 +1,54 @@
+%
+% ueberbestimmt.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Überbestimmte Gleichungssysteme\label{section:ueberbestimmt}}
+\index{Gleichungssystem!ueberbestimmtes@\überbestimmtes}
+Überbestimmte Gleichungssysteme sind Gleichungssysteme der Form
+$Ax=b$ mit einer $m\times n$-Matrix mit $m>n$, also mehr Gleichungen
+als Unbekannten.
+Im allgemeinen sind sie nicht lösbar, weil $b$ nicht
+im Bild von $A$ enthalten ist: $b\not\in \operatorname{im}A$.
+
+Statt einer exakten Lösung könnte man daher eine approximative
+Lösung suchen, welche die Gleichung möglichst gut erfüllt,
+der Vektor $Ax-b$ sollte also möglichst kurz sein.
+Geometrisch
+geht es also darum, das Lot vom Punkt $b$ auf den von den Spaltenvektoren
+von $A$ aufgespannten Unterraum zu fällen.
+Wir suchen also
+einen Vektor, der auf allen Spaltenvektoren von $A$ senkrecht steht.
+Das Skalarprodukt von Spaltenvektoren von $A$ mit $Ax-b$ ist aber
+$A^t(Ax-b)$, wir müssen also das Gleichungssystem
+\[A^t(Ax-b)=0\]
+lösen.
+Nach Ausmultiplizieren bekommen wir
+\begin{equation}
+A^tAx-A^tb=0\quad\Rightarrow\quad A^tAx=A^tb\quad\Rightarrow\quad
+x=(A^tA)^{-1}A^tb.
+\label{uberbestimmt}
+\end{equation}
+Man beachte, dass $A$ nicht quadratisch ist, und dass man daher
+nicht mit $(A^tA)^{-1}A^t=A^{-1}(A^t)^{-1}A^t=A^{-1}$ vereinfachen
+kann.
+
+\begin{beispiel}
+Sei 
+\[
+A=\begin{pmatrix}1\\1\\1\\\end{pmatrix},\quad b=\begin{pmatrix}1\\2\\3\end{pmatrix}.
+\]
+Offenbar ist $b\not\in\operatorname{im}A$.
+Nach der Formel (\ref{uberbestimmt}) muss man zunächst $A^tA$ ausrechnen:
+\[
+A^tA=\begin{pmatrix}1&1&1\end{pmatrix}\begin{pmatrix}1\\1\\1\end{pmatrix}=3.
+\]
+Damit kann man jetzt nach (\ref{uberbestimmt}) die bestmögliche
+approximative Lösung finden:
+\[
+x=\frac13\cdot\begin{pmatrix}1&1&1\end{pmatrix}
+\begin{pmatrix}1\\2\\3\end{pmatrix}=2.
+\]
+Der von $b$ am wenigsten weit entfernte Punkt der Geraden mit
+Richtung $A$ ist also der Punkt $(2,2,2)$.
+\end{beispiel}

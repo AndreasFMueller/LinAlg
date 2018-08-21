@@ -5,7 +5,8 @@
 #
 all:	skript.pdf checklist.pdf
 
-TEXFILES = determinanten.tex eigen.tex linsys.tex 			\
+TEXFILES = linsys.tex 							\
+	einleitung.tex 							\
 	1/chapter.tex							\
 	1/gauss.tex							\
 	1//glsysteme.tex						\
@@ -21,12 +22,25 @@ TEXFILES = determinanten.tex eigen.tex linsys.tex 			\
 	2/berechnung.tex						\
 	2/eindeutigkeit.tex						\
 	2/entwicklungssatz.tex						\
+	2/entwicklungssatzneu.tex					\
 	2/inverse.tex							\
 	2/kramer.tex							\
 	2/produktformel.tex						\
 	3/chapter.tex							\
+	3/basis.tex							\
+	3/ebenen.tex							\
+	3/geraden.tex							\
+	3/koordinatensysteme.tex					\
+	3/loesungen.tex							\
+	3/vektorgeometrie.tex						\
+	3/vektorraum.tex						\
 	4/chapter.tex							\
+	4/kreis.tex							\
+	4/skalar.tex							\
+	4/skalarprodukt.tex						\
+	4/ueberbestimmt.tex						\
 	5/chapter.tex							\
+	5/vektorprodukt.tex						\
 	6/chapter.tex							\
 	7/chapter.tex							\
 	7/cholesky.tex							\
@@ -40,8 +54,6 @@ TEXFILES = determinanten.tex eigen.tex linsys.tex 			\
 	8/diagonal.tex							\
 	8/numerisch.tex							\
 	8/problem.tex							\
-	vektorgeometrie.tex \
-	einleitung.tex geometrie.tex zerlegung.tex \
 	applications/hauptachse.tex \
 	applications/kirchhoff.tex \
 	applications/sniping.tex \
