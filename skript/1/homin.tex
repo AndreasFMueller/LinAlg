@@ -1,0 +1,102 @@
+%
+% homin.tex -- homogene und inhomogene Gleichungssysteme
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\section{Homogene und Inhomogene Gleichungssysteme}
+\index{homogen}
+\index{inhomogen}
+Bei der Untersuchung der linearen Abhängigkeit haben wir aus einem
+Gleichungssystem mit beliebigen rechten Seiten ein neues Gleichungssystem
+mit ausschliesslich Nullen auf der rechten Seite abgeleitet.
+Es gibt also einen Zusammenhang zwischen der Lösbarkeit des Systems 
+$Ax=b$ mit $b\ne 0$ und $Ax=0$, die wir jetzt genauer untersuchen
+wollen.
+\begin{definition}
+Sei $A$ eine $m\times n$-Matrix, und $b\ne 0$ ein $m$-dimensionaler
+Spaltenvektor.
+Das Gleichungssystem mit nicht verschwindender rechten Seite
+\[
+Ax=b\qquad\text{heisst inhomogen,}
+\]
+das Gleichungssystem mit Nullen auf der rechten Seite 
+\[
+Ax=0\qquad\text{heisst homogen.}
+\]
+\end{definition}
+\subsection{Reguläre Koeffizientenmatrix}
+Ist $A$ regulär, dann hat das Gleichungssystem $Ax=b$ für jede beliebige
+rechte Seite genau eine Lösung, insbesondere auch die Gleichung $Ax=0$.
+Die Lösung kann mit der inversen Matrix berechnet werden, also $x=A^{-1}b$,
+im Falle des homogenen Gleichungssystems ist die einzige Lösung also
+die Nulllösung $x=0$.
+
+\subsection{Singuläre Koeffizientenmatrix}
+Ist $A$ singular, sind zwei Alternativen möglich: entweder hat das
+Gleichungssystem gar keine Lösung, oder es hat unendlich viele.
+\begin{align*}
+Ax&=b&\qquad&\begin{cases}
+\text{keine Lösung}\\
+\text{unendlich viele Lösungen}
+\end{cases}
+\\
+Ax&=0&\qquad&\begin{cases}
+\text{keine Lösung}&\text{$\Rightarrow$ kann wegen $A0=0$ nicht eintreten!}\\
+\text{unendlich viele Lösungen}&
+\end{cases}
+\end{align*}
+Ein homogenes Gleichungssystem mit singulärer Koeffizientenmatrix hat also
+immer unendlich viele Lösungen.
+Wir bezeichnen die Lösungsmenge des Systems $Ax=0$ mit $\mathbb L_h$:
+\[
+\mathbb L_h=\{x|Ax=0\}.
+\]
+
+Ist jetzt $x_p$ eine beliebige Lösung des inhomogenen Systems $Ax=b$, dann
+können wir weiter Lösungen finden, indem wir Lösungen $x_h\in\mathbb L_h$
+dazuaddieren:
+\[
+A(x_p+x_h)=Ax_p+Ax_h=b+0=b,
+\]
+also ist $x_p+x_h$ auch wieder eine Lösung.
+Umgekehrt ist die Differenz
+zwischen zwei Lösungen $x_p$ und $x_p'$ der inhomogenen Gleichung in
+$\mathbb L_h$:
+\[
+A(x_p-x_p')=Ax_p-Ax_p'=b-b=0\quad\Rightarrow\quad (x_p-x_p')\in\mathbb L_h.
+\]
+Damit haben wir folgendes Rezept zur Bestimmung der Lösungsmenge des
+inhomogenen Gleichungssystems gefunden
+\begin{satz}
+\index{partikulaer@partikulär}
+Ist $x_p$ eine spezielle Lösung des inhomogenen Gleichungssystems $Ax=b$,
+auch partikuläre Lösung genannt,
+dann ist die Lösungsmenge dieses Gleichungssystems 
+\[
+\mathbb L=\{x_p+x_h|x_h\in\mathbb L_h\},
+\]
+wobei $\mathbb L_h$ die Lösungsmenge des homogenen Gleichungssystems ist.
+\end{satz}
+Der Satz leistet eine Aufteilung des Problems, alle Lösungen zu finden,
+in die beiden Teilprobleme
+\begin{enumerate}
+\item Finden einer einzigen Lösung des inhomogenen Systems.
+\item Finden der Lösungsmenge des homogenen Systems.
+\end{enumerate}
+Dieses Muster trifft man an vielen Orten in der Mathematik wieder, zum
+Beispiel bei der Lösung gewöhnlicher Differentialgleichungen.
+Oft lassen sich die beiden Teilprobleme mit spezialisierten Techniken
+viel einfacher lösen.
+
+Das Problem, die Lösungsmenge des homogenen Systems zu bestimmen wird
+dadurch vereinfacht, dass man in dieser Lösungsmenge rechnen kann.
+Sind $x$ und $x'$  in $\mathbb L_h$, dann sind auch deren Summe und
+die Vielfachen in $\mathbb L_h$:
+\begin{align*}
+A(x+x')&=Ax+Ax'=0+0=0&\Rightarrow&&x+x'&\in\mathbb L_h\\
+A(\lambda x)&=\lambda Ax=\lambda 0=0&\Rightarrow&&\lambda x&\in \mathbb L_h
+\end{align*}
+Hat man also erst mal ein paar Vektoren in $\mathbb L_h$ gefunden, kann
+man unendlich viele weitere konstruieren, indem man alle Vielfachen und Summen
+bildet.
+

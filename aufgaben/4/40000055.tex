@@ -1,0 +1,257 @@
+Die Punkte
+\begin{align*}
+A&=(0,0,1),
+&
+B&=(1,0,0),
+&
+C&=(0,1,0),
+\\
+D&=(-1,0,0),
+&
+E&=(0,-1,0),
+&
+F&=(0,0,-1)
+\end{align*}
+sind Ecken des Oktaeders
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\node at (0,0) {\includeagraphics[width=6cm]{oktaeder.jpg}};
+\node at (3,-1.3) {$x$};
+\node at (1.5,0.4) {$y$};
+\node at (-0.1,2.9) {$z$};
+\node at (-0.6,2.0) {$A$};
+\node at (2.0, -0.8) {$B$};
+\node at (0.9,0.6) {$C$};
+\node at (-1.9,0.4) {$D$};
+\node at (-2.2,-1.2) {$E$};
+\node at (-0.0,-2.5) {$F$};
+\end{tikzpicture}
+\end{center}
+
+\begin{teilaufgaben}
+\item Finden Sie eine Drehmatrix $R$, welche den Punkt $A$ auf den Punkt $D$
+abbildet und den Schwerpunkt der Seitenfläche $BEF$ nicht bewegt.
+\item Auf welchen Punkt wird $F$ abgebildet?
+\item Finden Sie den Drehwinkel dieser Drehung.
+\end{teilaufgaben}
+
+\thema{Abbildungsmatrix}
+\thema{Drehmatrix}
+\thema{Drehwinkel}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Der Schwerpunkt $S$ des Dreiecks $BEF$ hat die Koordinaten
+$S=(\frac13,-\frac13,-\frac13)$.
+Da mit $S$ auch die Gerade durch $O$ und $S$ von der Drehung nicht bewegt
+wird, können wir den Vektor $\begin{pmatrix}1&-1&-1\end{pmatrix}^t$ als
+Achsvektor verwenden.
+Um die Drehmatrix $R$ zu bestimmen, haben wir also bis jetzt:
+\[
+R
+\begin{pmatrix}0\\0\\1\end{pmatrix}
+=
+\begin{pmatrix}-1\\0\\0\end{pmatrix}
+\qquad\text{und}\qquad
+R
+\begin{pmatrix}1\\-1\\-1\end{pmatrix}
+=
+\begin{pmatrix}1\\-1\\-1\end{pmatrix}.
+\qquad\Rightarrow\qquad
+R
+\begin{pmatrix}
+0& 1\\
+0&-1\\
+1&-1
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1& 1\\
+ 0&-1\\
+ 0&-1
+\end{pmatrix}.
+\]
+Um dies nach $R$ auflösen zu können, brauchen wir aber noch die Abbildung
+eines weiteren, linear unabhängigen Vektors.
+Da das Dreieck $BEF$ auf sich selbst abgebildet wird, muss der Punkt
+$E$ auf den Punkt $F$ abgebildet werden.
+Dies liefert die zusätzliche Bedingung
+\[
+R
+\begin{pmatrix}0\\-1\\0\end{pmatrix}
+=
+\begin{pmatrix}0\\0\\-1\end{pmatrix}.
+\]
+Wir können $R$ daher als Lösung
+\[
+R
+\underbrace{
+\begin{pmatrix}
+0& 1& 0\\
+0&-1&-1\\
+1&-1& 0
+\end{pmatrix}
+}_{\displaystyle B_1}
+=
+\underbrace{
+\begin{pmatrix}
+-1& 1& 0\\
+ 0&-1& 0\\
+ 0&-1&-1
+\end{pmatrix}
+}_{\displaystyle B_2}
+\qquad\Rightarrow\qquad
+R=B_2B_1^{-1}
+\]
+finden.
+Die inverse Matrix von $B_1$ kann mit dem Gauss-Algorithmus wie folgt
+gefunden wereen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 0& 1& 0& 1& 0& 0\\
+ 0&-1&-1& 0& 1& 0\\
+ 1&-1& 0& 0& 0& 1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1&-1& 0& 0& 0& 1\\
+ 0& 1& 0& 1& 0& 0\\
+ 0&-1&-1& 0& 1& 0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1&-1& 0& 0& 0& 1\\
+ 0& 1& 0& 1& 0& 0\\
+ 0& 0&-1& 1& 1& 0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1&-1& 0& 0& 0& 1\\
+ 0& 1& 0& 1& 0& 0\\
+ 0& 0& 1&-1&-1& 0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 0& 0& 1& 0& 1\\
+ 0& 1& 0& 1& 0& 0\\
+ 0& 0& 1&-1&-1& 0\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus können wir $B_1^{-1}$ ablesen:
+\[
+B_1^{-1}
+=
+\begin{pmatrix}
+ 1& 0& 1\\
+ 1& 0& 0\\
+-1&-1& 0
+\end{pmatrix}.
+\]
+Die Drehmatrix $R$ ist daher
+\[
+R
+=
+B_2B_1^{-1}
+=
+\begin{pmatrix}
+-1& 1& 0\\
+ 0&-1& 0\\
+ 0&-1&-1
+\end{pmatrix}
+\begin{pmatrix}
+ 1& 0& 1\\
+ 1& 0& 0\\
+-1&-1& 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 0& 0&-1\\
+-1& 0& 0\\
+ 0& 1& 0
+\end{pmatrix}.
+\]
+\item
+Die Matrix $R$ kann jetzt dazu verwendet werden, das Bild von $F$ zu bestimmen:
+\[
+R\vec f
+=
+\begin{pmatrix}
+ 0& 0&-1\\
+-1& 0& 0\\
+ 0& 1& 0
+\end{pmatrix}
+\begin{pmatrix}0\\0\\-1\end{pmatrix}
+=
+\begin{pmatrix}1\\0\\0\end{pmatrix}
+=
+\vec{b}.
+\]
+Der Punkt $F$ wird also auf $B$ abgebildet.
+\item
+Die Drehwinkelformel angewendet auf die Matrix $R$ liefert
+\begin{align*}
+\cos\alpha
+&=
+\frac{\operatorname{Spur}R-1}{2}
+=
+-\frac12
+\\
+\Rightarrow\qquad
+\alpha
+&=
+120^\circ.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Da die Eckpunkte $B$, $C$ und $A$ des Oktaeders als Ortsvektoren die
+Standardbasisvektoren haben und wir deren Abbildung auch direkt ermitteln
+können, können wir die Drehmatrix auch direkt mit den Bildern der
+genannten Punkte füllen.
+Die Abbildung der genannten Punkte ist
+\[
+B\rightarrow E,\qquad
+C\rightarrow A,\qquad
+A\rightarrow D.
+\]
+Daraus lesen wir ab
+\[
+R
+=
+\begin{pmatrix}
+ 0& 0&-1\\
+-1& 0& 0\\
+ 0& 1& 0
+\end{pmatrix},
+\]
+in Übereinstimmung mit obiger Lösung.
+\end{diskussion}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Berechnung der Drehmatrix ({\bf R}) 4 Punkte,
+\item
+Ermittlung des Bildpunktes ({\bf B}) 1 Punkt,
+\item
+Berechnung des Drehwinkels ({\bf D}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
+

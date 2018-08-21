@@ -1,0 +1,78 @@
+%
+% chapter.tex -- Kapitel über Eigenwerte
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapeprswil
+%
+\chapter{Eigenwerte und Eigenvektoren\label{chapter-eigen}}
+\index{Eigenwert}
+\index{Eigenvektor}
+\rhead{Eigenwerte und Eigenvektoren}
+In vielen Anwendungen hat man ein Gleichungssystem der Form
+\[
+Ax=\lambda x
+\]
+zu lösen, wobei nicht nur der Spaltenvektor $x$, sondern auch der
+Parameter $\lambda$ unbekannt sind.
+Natürlich kann man ein solches Problem immer umschreiben in die Form
+\[
+(A-\lambda E) x=0,
+\]
+also ein Gleichungssystem, welches entweder gar keine, oder dann
+unendlich viele Lösungen hat.
+Daher interessiert die Frage 
+ganz besonders, für welche $\lambda$ eine nicht triviale Lösung möglich ist.
+
+In diesem Kapitel geht es darum, diese sogenannten Eigenwerte $\lambda$
+und die zugehörigen Lösungsvektoren, die Eigenvektoren, zu finden.
+Dieses
+Problem ist von grosser praktischer Bedeutung, sehr viele Anwendungsproblem
+lassen sich darauf zurückführen.
+Es lohnt sich also, dieses Problem
+effizient lösen zu können.
+Beispiele:
+\begin{compactitem}
+\item Lösung von linearen Differenzengleichungen
+\index{lineare Differenzengleichung}
+\item Lösung von linearen Differentialgleichungen beliebiger Ordnung
+\index{lineare Differentialgleichung}
+\item Schwingungen eines Bauwerks oder einer Maschine: die Bewegung wird durch
+eine partielle Differentialgleichung beschrieben, die Schwingungsfrequenzen
+werden durch die Eigenwerte gegeben.
+Um Resonanzen und damit die Zerstörung
+zu verhindern, muss der Ingenieur die Eigenfrequenzen
+berechnen können.
+\index{Schwingung}
+\index{Eigenfrequenz}
+\item Resonanzen eines Hohlraumresonators: die Felder im Hohlraumresonator
+werden durch eine partielle Differentialgleichung beschrieben.
+Die Eigenfrequenzen sind Eigenwerte, der Ingenieur kann durch Veränderung
+der Geometrie des Hohlraumes das Frequenzspektrum anpassen.
+\index{Resonanz}
+\index{Hohlraumresonator}
+\index{partielle Differentialgleichung}
+\index{Frequenzspektrum}
+\item
+\index{Akustik}
+In der
+Akustik strebt man eine möglichst gleichmässige Verteilung der Eigenfrequenzen
+eines Konzertsaals an, um dem Zuhörer ein möglichst ausgewogenes Klangbild
+zu bieten.
+\item Klangspektrum eines Musikinstruments: Die Schwingungen eines Musikinstruments
+werden durch eine partielle Differentialgleichung beschrieben, die
+Eigenwerte beschreiben die Oberton-Frequenzen, die im Klangspektrum des
+Instruments vertreten sind.
+\index{Klangspektrum}
+\end{compactitem}
+Bis auf das erste Beispiel stehen Ihnen die mathematischen Mittel noch nicht
+zur Verfügung, auch nur die Problemstellung zu formulieren, daher beginnen
+wir mit einer Differenzengleichung als einführendes Beispiel.
+
+\input{8/problem.tex}
+\input{8/beispiele.tex}
+\input{8/char.tex}
+\input{8/diagonal.tex}
+\input{8/numerisch.tex}
+
+\section{Anwendungen}
+\input{applications/google.tex}
+

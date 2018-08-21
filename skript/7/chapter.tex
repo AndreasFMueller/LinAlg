@@ -1,0 +1,37 @@
+%
+% Matrixzerlegungen
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\chapter{Matrixzerlegungen\label{chapter-zerlegung}}
+\rhead{Matrixzerlegungen}
+Der Gauss-Algorithmus löst nicht nur Gleichungssysteme, er berechnet
+auch die inverse Matrix oder die Determinante.
+Für viele Zwecke ist
+aber die Berechnung der Inversen nicht unbedingt notwendig, es reicht,
+wenn eine gegebenen Matrix $A$ in Faktoren $A=BC$ zerlegt werden kann,
+wobei die Faktoren $B$ und $C$ besondere Eigenschaften haben sollen.
+Um ein Gleichungssystem
+\[
+Ax=b
+\]
+zu lösen, müssen dann zwei Gleichungssysteme Systeme
+\begin{align*}
+Cy&=b\\
+Bx&=y
+\end{align*}
+gelöst werden, was trotzdem eine Vereinfachung sein kann, wenn
+$B$ und $C$ besonders einfach zu invertieren sind.
+Oder die Berechnung der Determinanten kann mit Hilfe der Formel
+\[
+\det(A)=\det(B)\det(C)
+\]
+vereinfacht werden, sofern die Matrizen $B$ oder $C$ einfach
+zu berechnende Determinanten haben.
+
+\input{7/dreieck.tex}
+\input{7/lr.tex}
+\input{7/qr.tex}
+\input{7/cholesky.tex}
+\input{7/svd.tex}
+

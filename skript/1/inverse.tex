@@ -1,0 +1,249 @@
+%
+% inverse.tex -- Inverse Matrix
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\section{Inverse Matrix}
+\index{Matrix!inverse}
+Mit den neuen Notationen können wir jetzt auch das Verfahren zur simultanen
+Lösung mehrere Gleichungssysteme aus Abschnitt \ref{simultan} etwas
+übersichtlicher schreiben.
+Dazu brauchen wir die spezielle Matrix, die auf der Diagonalen Einsen hat
+und sonst nur Nullen.
+Diese Matrix heisst die Einheitsmatrix, wir bezeichnen sie mit
+\[
+I=
+\begin{pmatrix}1&\dots&0\\
+\vdots&\ddots&\vdots\\
+0&\dots&1
+\end{pmatrix},
+\]
+unabhängig von der Anzahl Zeilen und Spalten, diese ist aus dem Zusammenhang
+zu entnehmen.
+
+Das Verfahren begann damit, an die gegebene Koeffizientenmatrix die Matrix $I$
+anzuhängen.
+Anschliessend wurde der Gauss-Algorithmus verwendet, bis in
+der linken Hälfte der Tabelle eine Einheitsmatrix stand.
+Symbolisch können wir dies durch
+\begin{equation}
+\begin{tabular}{|c|c|}\hline
+$A$&$I$\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|c|c|}\hline
+$I$&$C$\\
+\hline
+\end{tabular}
+\label{gaussinverse}
+\end{equation}
+darstellen.
+Die Matrix $C$ enthält in ihren Spalten die Lösungen des
+Gleichungssystems für die speziellen rechten Seiten, die nur aus Nullen
+und einer Eins bestehen.
+
+Eine beliebige rechte Seite $b$ lässt sich jetzt aus den speziellen rechten
+Seiten zusammensetzen:
+\[
+b=\begin{pmatrix}b_1\\b_2\\\vdots\\b_n\end{pmatrix}
+=
+b_1\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}
++
+b_2\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix}
++\dots+
+b_n\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}
+\]
+wir versuchen daher, auch die Lösung aus den entsprechenden Spalten von $C$
+aufzubauen:
+\begin{equation}
+x
+=
+b_1\begin{pmatrix}c_{11}\\c_{21}\\\vdots\\c_{n1}\end{pmatrix}
++
+b_2\begin{pmatrix}c_{12}\\c_{22}\\\vdots\\c_{n2}\end{pmatrix}
++\dots+
+b_n\begin{pmatrix}c_{1n}\\c_{2n}\\\vdots\\c_{nn}\end{pmatrix}.
+\label{zusammensetzen}
+\end{equation}
+Tatsächlich ergibt sich, wenn wir die Matrix $A$ auf diesen Vektor
+anwenden
+\[
+Ax
+=
+b_1A\begin{pmatrix}c_{11}\\c_{21}\\\vdots\\c_{n1}\end{pmatrix}
++
+b_2A\begin{pmatrix}c_{12}\\c_{22}\\\vdots\\c_{n2}\end{pmatrix}
++\dots+
+b_nA\begin{pmatrix}c_{1n}\\c_{2n}\\\vdots\\c_{nn}\end{pmatrix}
+=
+b_1\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}
++
+b_2\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix}
++\dots+
+b_n\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}=b,
+\]
+dieses $x$ ist also tatsächlich die gesuchte Lösung.
+
+Das Element auf Zeile $i$ in 
+\ref{zusammensetzen} ist
+\[
+x_i=c_{i1}b_1+c_{i2}b_2+\dots+c_{in}b_n,
+\]
+dies ist aber nichts anderes als die $i$-te Komponente des Produktes
+$Cb$, die Lösung $x$ kann als mit Hilfe eines Matrizenproduktes gefunden
+werden:
+\[
+x = Cb.
+\]
+Die Matrix $C$ hat also offenbar eine ganz besondere Bedeutung für die
+Lösung linearer Gleichungssysteme, ist sie einmal bestimmt, kann man das
+Gleichungssystem für jede beliebige rechte Seite lösen.
+Daher definieren wir
+\begin{definition}Die Matrix $C$ aus \ref{gaussinverse} heisst inverse
+Matrix von $A$, geschrieben $A^{-1}=C$, sie existiert immer, wenn $A$ regulär ist.
+\end{definition}
+Den Algorithmus zur Bestimmung der inversen Matrix kann also symbolisch
+als
+\begin{equation}
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}
+\hline
+A&I\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}\hline
+I&A^{-1}\\
+\hline
+\end{tabular}
+\label{gaussinverse2}
+\end{equation}
+notiert werden.
+\begin{satz}Die Lösung eines Gleichungssystems
+\[
+Ax=b
+\]
+mit
+regulärer Koeffizientenmatrix $A$ ist
+\[
+x=A^{-1}b.
+\]
+\end{satz}
+
+\begin{beispiel}
+Man finde die Lösung des Gleichungssystems
+\[
+Ax=
+\begin{pmatrix}
+  -4& -4& -1\\
+   5&  3&  1\\
+   4& -5&  0
+\end{pmatrix}
+\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
+=
+\begin{pmatrix}2\\1\\3\end{pmatrix}.
+\]
+mit Hilfe der Inversen Matrix.
+
+\smallskip
+{\parindent 0pt Man muss die Inverse der Matrix $A$ bestimmen,
+der Gauss-Algorithmus liefert}
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+  -4& -4& -1 & 1& 0& 0\\
+   5&  3&  1 & 0& 1& 0\\
+   4& -5&  0 & 0& 0& 1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  1& \frac14 &-\frac14& 0& 0\\
+   0& -2&-\frac14 & \frac54& 1& 0\\
+   0& -9& -1      & 1      & 0& 1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  1& \frac14 &-\frac14   &       0& 0\\
+   0&  1& \frac18 &-\frac58   &-\frac12& 0\\
+   0&  0& \frac18 &-\frac{37}8&-\frac92& 1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  1&       0 &       9   &       9&-2\\
+   0&  1&       0 &       4   &       4&-1\\
+   0&  0&       1 &-37        &     -36& 8\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   1&  0&       0 &       5   &       5&-1\\
+   0&  1&       0 &       4   &       4&-1\\
+   0&  0&       1 &-37        &     -36& 8\\
+\hline
+\end{tabular}
+\end{align*}
+Die inverse Matrix ist also
+\[
+A^{-1}=
+\begin{pmatrix}
+5&5&-1\\
+4&4&-1\\
+-37&-36&8
+\end{pmatrix}.
+\]
+Zur Kontrolle kann man $A^{-1}A$ ausrechnen, man sollte die Einheitsmatrix
+erhalten:
+\begin{align*}
+A^{-1}A&=
+\begin{pmatrix}
+5&5&-1\\
+4&4&-1\\
+-37&-36&8
+\end{pmatrix}
+\begin{pmatrix}
+  -4& -4& -1\\
+   5&  3&  1\\
+   4& -5&  0
+\end{pmatrix}
+\\
+&
+=
+\begin{pmatrix}
+-20+25-4 & -20+15+5 & -5+5+0\\
+-16+20-4 & -16+12+5 & -4+4+0\\
+148-180+32 & 148-108-40&37-36+0
+\end{pmatrix}
+=\begin{pmatrix}
+1&0&0\\0&1&0\\0&0&1\end{pmatrix}.
+\end{align*}
+Mit der inversen Matrix kann man jetzt auch die Lösung
+\[
+\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
+=A^{-1}
+\begin{pmatrix}2\\1\\3\end{pmatrix}
+=
+\begin{pmatrix}
+5&5&-1\\
+4&4&-1\\
+-37&-36&8
+\end{pmatrix}
+\begin{pmatrix}2\\1\\3\end{pmatrix}
+=\begin{pmatrix}
+12\\
+9\\
+-86
+\end{pmatrix}
+\]
+erhalten.
+\end{beispiel}
+

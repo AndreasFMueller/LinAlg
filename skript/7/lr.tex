@@ -1,0 +1,435 @@
+%
+% lr.tex -- Zerlegung in Dreiecksmatrizen
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\section{Zerlegung einer Matrix in Dreiecksmatrizen}
+\index{LU-Zerlegung}
+\index{Zerlegung!LU}
+Der Gauss-Algorithmus produziert mit bei der Vorwärtsreduktion eine
+obere Dreiecksmatrix, die noch dazu lauter Einsen auf der Diagonalen
+hat.
+Es liegt also nahe, eine Zerlegung von $A$ mit dieser Dreiecksmatrix
+als Faktor $U$ zu versuchen.
+
+Um den zweiten Faktor zu finden, studieren wir nochmals den
+Gauss-Algorithmus.
+Im $k$-ten Schritt wird das Diagonalelement
+$a_{kk}$ zu $1$ gemacht, und damit werden alle Elemente späteren
+Elemente in der Spalte eliminiert.
+Man weiss also bereits, was an
+diesen Stellen in der Matrix stehen wird, es ist nicht nötig, diese
+Einträge zu berechnen oder zu speichern.
+Wir lassen daher diese Einträge stehen.
+Das Gauss-Tableau sieht dann nach der Vorwärtsreduktion
+so aus:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+a_{11}&a_{12}&a_{13}&\dots &a_{1n}\\
+a_{21}&a_{22}&a_{23}&\dots &a_{2n}\\
+a_{31}&a_{32}&a_{33}&\dots &a_{3n}\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+a_{n1}&a_{n2}&a_{n3}&\dots &a_{nn}\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+l_{11}&u_{12}&u_{13}&\dots &u_{1n}\\
+l_{21}&l_{22}&u_{23}&\dots &u_{2n}\\
+l_{31}&l_{32}&l_{33}&\dots &u_{3n}\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+l_{n1}&l_{n2}&l_{n3}&\dots &l_{nn}\\
+\hline
+\end{tabular}
+\]
+Zu beachten ist ferner, dass der Gauss-Algorithmus im $k$-ten Schritt nur 
+die Elemente in den Zeilen mit Indices $\ge k$ und Spalten mit Indices $>k$ 
+modifiziert.
+Die beiden Matrizen $L$ und $R$ sind dann
+\[
+L=\begin{pmatrix}
+l_{11}&0     &0     &\dots &0\\
+l_{21}&l_{22}&0     &\dots &0\\
+l_{31}&l_{32}&l_{33}&\dots &0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+l_{n1}&l_{n2}&l_{n3}&\dots &l_{nn}
+\end{pmatrix},
+\qquad
+U=
+\begin{pmatrix}
+1     &u_{12}&u_{13}&\dots &u_{1n}\\
+0     &1     &u_{23}&\dots &u_{2n}\\
+0     &0     &1     &\dots &u_{3n}\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+0     &0     &0     &\dots &1
+\end{pmatrix}.
+\]
+Wir wissen bereits aus (\ref{lproductdecomposition}), dass sich $L$
+ein Produkt von Matrizen $L_i$ zerlegen lässt, die jeweils nur
+die $i$-te Spalte von $L$ enthalten, im übrigen aber wie eine Einheitsmatrix
+aussehen.
+
+Wir behaupten jetzt, dass $L_i$ den $i$-ten Gauss-Vorwärtsredutionsschritt
+rück\-gängig macht.
+Da $U$ das Resultat der Vorwärtsreduktion ist, 
+muss $LU$ die ursprüngliche Matrix $A$ sein.
+
+Um den $i$-ten Gauss-Schritt rückgängig zu machen, muss die
+$i$-Zeile mit dem Pivot-Element multipliziert werden.
+Die Multiplikation
+der Matrix $L_k$ mit einer Matrix $B$ liefert in Zeile $i$ aber genau das Produkt
+von
+\[
+\begin{pmatrix}
+0&\dots&l_{ii}&\dots &0
+\end{pmatrix}
+\]
+mit allen Spalten von $B$, also jeweils das $i$-te Element dieser
+Spalten multipliziert mit $l_{ii}$:
+\begin{align*}
+\begin{pmatrix}
+0&\dots&l_{ii}&\dots &0
+\end{pmatrix}
+\begin{pmatrix}
+b_{11}&\dots &b_{1n}\\
+\vdots&\ddots&\vdots\\
+b_{i1}&\dots &b_{in}\\
+\vdots&\ddots&\vdots\\
+b_{n1}&\dots &b_{nn}
+\end{pmatrix}
+=
+\begin{pmatrix}
+l_{ii}b_{i1}&\dots &l_{ii}b_{ii}&\dots &l_{ii}b_{in}
+\end{pmatrix}
+\end{align*}
+Multiplikation mit $L_i$ macht
+also die Division durch das Pivot-Element rückgängig.
+
+Eine spätere Zeile $k>i$ von $L_i$ hat die Form
+\[
+\begin{pmatrix}
+0&\dots&l_{ki}&\dots&1&\dots\\
+\end{pmatrix}.
+\]
+Multipliziert man sie mit der Matrix $B$, bekommt man:
+\begin{align*}
+\begin{pmatrix}
+0&\dots&l_{ki}&\dots&1&\dots\\
+\end{pmatrix}
+\begin{pmatrix}
+b_{11}&\dots &b_{1n}\\
+\vdots&\ddots&\vdots\\
+b_{i1}&\dots &b_{in}\\
+\vdots&\ddots&\vdots\\
+b_{k1}&\dots&b_{kn}\\
+\vdots&\ddots&\vdots\\
+b_{n1}&\dots &b_{nn}
+\end{pmatrix}
+&=
+\begin{pmatrix}
+l_{ki}b_{i1}+b_{k1}
+&\dots&
+l_{ki}b_{in}+b_{kn}
+\end{pmatrix}
+\\
+&=
+l_{ki}
+\begin{pmatrix}
+b_{i1}
+&\dots&
+b_{in}
+\end{pmatrix}
++
+\begin{pmatrix}
+b_{k1}
+&\dots&
+b_{kn}
+\end{pmatrix}
+\end{align*}
+Zur Zeile $k$ wird also das $l_{ki}$-fache der Zeile
+$i$ hinzuaddiert.
+Das ist genau die Umkehrung dessen, was
+die Gauss-Elimination macht: da wurde von der Zeile $k$
+das $l_{ki}$-fache der $i$-ten Zeile subtrahiert.
+
+Damit ist gezeigt, dass das $A=LU$, wir haben also den folgenden
+Satz bewiesen.
+
+\begin{satz}[LU-Zerlegung]
+\index{LU-Zerlegung}
+\index{Zerlegung!LU}
+\label{ludecomposition}
+Sei $A$ eine $m\times n$ Matrix mit Rang $r$.
+Dann gibt es eine $m\times r$-Matrix $L$ und eine $r\times n$-Matrix
+$U$ mit $A=LU$.
+Ausserdem haben $L$ und $U$ die folgende Form:
+\[
+L=\begin{pmatrix}
+l_{11}&0&\dots&0\\
+l_{21}&l_{22}&\dots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+l_{r1}&l_{r2}&\dots&l_{rr}\\
+\vdots&\vdots& &\vdots\\
+l_{m1}&l_{m2}&\dots&l_{mr}
+\end{pmatrix},\qquad
+U=\begin{pmatrix}
+1&u_{12}&\dots&u_{1r}&u_{1,r+1}&\dots&u_{1n}\\
+0&1     &\dots&u_{2r}&u_{2,r+1}&\dots&u_{2n}\\
+\vdots&\vdots&\ddots&\vdots&\vdots\\
+0&0&\dots&1&u_{r,r+1}&\dots&u_{rn}
+\end{pmatrix}
+\]
+\end{satz}
+
+Für quadratische $n\times n$-Matrizen mit Rang $n$ folgt insbesondere,
+dass $L$ eine untere Dreiecksmatrix und $U$ eine obere Dreiecksmatrix
+mit lauter $1$ auf der Diagonalen ist.
+Damit wird die Berechnung der
+Determinanten besonders einfach:
+
+\begin{satz}
+Sei $A$ eine $n\times n$-Matrix mit Rang $n$ und $A=LU$ die LU-Zerlegung.
+Dann ist
+\[
+\det(A)=\det(L)=l_{11}l_{22}\dots l_{nn}.
+\]
+\end{satz}
+
+Dieser Satz ist natürlich nichts anderes als Satz~\ref{detprodpivot}.
+Die Pivots sind ja genau die $l_{ii}$, und 
+das Produkt der Pivots ist das Produkt der Elemente
+$l_{11}\dots l_{nn}$.
+
+Natürlich können wir $L$ auch noch in ein Produkt aus einer
+Dreiecksmatrix und einer Diagonalmatrix zerlegen:
+
+\begin{satz}[LDU-Zerlegung]
+\index{LDU-Zerlegung}
+\index{Zerlegung!LDU}
+\label{ldrdecomposition}
+Sei $A$ eine $m\times n$ Matrix mit Rang $r$.
+Dann gibt es eine $m\times r$ Matrix $L_0$, eine $r\times n$-Matrix $R$
+und eine $r\times r$-Diagonalmatrix $D$
+so, dass $A=L_0DR$.
+Ausserdem hat $L_0$ die Form mit folgender Form:
+\[
+L_0=\begin{pmatrix}
+1     &0&\dots&0\\
+l_{21}&1     &\dots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+l_{r1}&l_{r2}&\dots&1     \\
+\vdots&\vdots& &\vdots\\
+l_{m1}&l_{m2}&\dots&l_{mr}
+\end{pmatrix}
+\]
+und $R$ die Form wie in Satz \ref{ludecomposition}.
+\end{satz}
+
+\begin{proof}[Beweis]
+Man verwendet 
+\[
+D=\operatorname{diag}(l_{11},\dots,l_{rr}),
+\]
+und berechnet $L_0$ aus dem $L$ gemäss Satz \ref{ludecomposition} durch
+Multiplikation mit $D^{-1}$, also $L_0=LD^{-1}$.
+Es ist klar, dass
+$L_0DR=LR=A$.
+\end{proof}
+
+\begin{satz}[LR-Zerlegung]
+\index{LR-Zerlegung}
+\index{Zerlegung!LR}
+Eine $m\times n$ Matrix mit Rang $r$ kann zerlegt werden in ein Produkt $A=LR$
+werden, wobei $L$ eine $m\times r$-Matrix ist mit $l_{ii}=1$ und $l_{ik}=0$
+für $k>i$, und $U$ eine $r\times n$-Matrix ist mit $u_{ik}=0$ mit $k<i$.
+\end{satz}
+
+\begin{proof}[Beweis]
+Aus einer Zerlegung $A=LDU$ gemäss Satz \ref{ldrdecomposition} kann man
+$R=DU$ bilden, und erhält so die Zerlegung $A=LR$.
+\end{proof}
+
+\begin{beispiel}
+Man finde die LU-Zerlegung und LR-Zerlegung der Matrix 
+\[
+A=\begin{pmatrix}
+-1&0&2\\
+1&3&3\\
+-1&-3&1
+\end{pmatrix}
+\]
+Der Gauss-Algorithmus liefert
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+-1%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+&0&2\\
+1&3&3\\
+-1%
+\begin{picture}(0,0)
+\color{blue}\drawline(-14,-2)(-14,24)(1,24)(1,-2)
+\end{picture}%
+&-3&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&-2\\
+0&3%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+&5\\
+0&-3%
+\begin{picture}(0,0)
+\color{blue}\drawline(-14,-2)(-14,10)(1,10)(1,-2)
+\end{picture}%
+&-1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&-2\\
+0&1&\frac53\\
+0&0&4%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&-2\\
+0&1&\frac53\\
+0&0&1\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus kann man jetzt die LU-Zerlegung ablesen:
+\[
+L=\begin{pmatrix}
+-1%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+& 0& 0\\
+ 1& 3%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+& 0\\
+-1%
+\begin{picture}(0,0)
+\color{blue}\drawline(-14,-2)(-14,24)(1,24)(1,-2)
+\end{picture}%
+&-3%
+\begin{picture}(0,0)
+\color{blue}\drawline(-14,-2)(-14,10)(1,10)(1,-2)
+\end{picture}%
+& 4%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+\end{pmatrix}
+,\qquad
+U=\begin{pmatrix}
+1& 0&-2\\
+0& 1&\frac53\\
+0& 0&1
+\end{pmatrix}
+\]
+Für die LR-Zerlegung bildet man zunächst $L_0$
+\[
+L
+\begin{pmatrix}
+-1%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+& 0& 0\\
+ 0& 3%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+& 0\\
+ 0& 0& 4%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+ 1& 0&0\\
+-1& 1&0\\
+ 1&-1&1
+\end{pmatrix}
+=L_0
+\]
+und dann
+\[
+R=
+\begin{pmatrix}
+-1%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+& 0& 0\\
+ 0& 3%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+& 0\\
+ 0& 0& 4%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+\end{pmatrix}U
+=
+\begin{pmatrix}
+-1%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+&0&2\\
+0&3%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+&5\\
+0&0&4%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+\end{pmatrix}
+\]
+Kontrolle
+\[
+L_0R=
+\begin{pmatrix}
+ 1& 0&0\\
+-1& 1&0\\
+ 1&-1&1
+\end{pmatrix}
+\begin{pmatrix}
+-1&0&2\\
+0&3&5\\
+0&0&4
+\end{pmatrix}
+=\begin{pmatrix}
+-1&0&2\\
+1&3&3\\
+-1&-3&1
+\end{pmatrix}
+=A.
+\]
+\end{beispiel}
+

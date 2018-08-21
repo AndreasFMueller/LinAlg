@@ -1,0 +1,155 @@
+%
+% simultan.tex -- mehrere Gleichungssysteme gleichzeitig lösen
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\section{Mehrere Gleichungssysteme simultan lösen\label{simultan}}
+Mit dem Gauss-Algorithmus kann man gleichzeitig mehrere Gleichungssysteme
+lösen, die sich nur in den rechten Seiten unterscheiden.
+Die rechten Seiten haben nämlich auf den Gang der Rechnung keinen
+Einfluss.
+So kann man die beiden Gleichungssysteme
+\begin{align*}
+\frac12x+\frac{\sqrt{3}}2y&=1
+&
+\frac12x+\frac{\sqrt{3}}2y&=0
+\\
+-\frac{\sqrt{3}}2x+\frac12y&=0
+&
+-\frac{\sqrt{3}}2x+\frac12y&=1
+\end{align*}
+in einem Durchgang lösen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+\frac12%
+\begin{picture}(0,0)
+\color{red}\put(-3.5,3){\circle{15}}
+\end{picture}%
+&\frac{\sqrt{3}}2&1&0\\
+-\frac{\sqrt{3}}2&\frac12&0&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\sqrt{3}&2&0\\
+-\frac{\sqrt{3}}2%
+\begin{picture}(0,0)
+\color{blue}\drawline(-22,-4)(-22,13)(1,13)(1,-4)
+\end{picture}%
+&\frac12&0&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\sqrt{3}&2&0\\
+0&2%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+&\sqrt{3}&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\sqrt{3}%
+\begin{picture}(0,0)
+\color{blue}\drawline(-16,11)(-16,-3)(1,-3)(1,11)
+\end{picture}%
+&2&0\\
+0&1&\frac{\sqrt{3}}2&\frac12\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&\frac12&-\frac{\sqrt{3}}2\\
+0&1&\frac{\sqrt{3}}2&\frac12\\
+\hline
+\end{tabular}
+\end{align*}
+Das erste Gleichungssystem hat also die Lösung
+$(x,y)=(\frac12,\frac{\sqrt{3}}2)$,
+das zweite
+$(x,y)=(-\frac{\sqrt{3}}2, \frac12)$.
+
+Die spezielle Wahl der rechten Seiten erlaubt auch, aus den
+beiden gefundenen Lösungen die Lösung für jede beliebige rechte
+Seite zusammenzusetzen. Wenn nämlich auf der rechten
+Seite die Zahlen $b_1$ und $b_2$ stehen sollen, dann
+bedeutet dies offenbar, dass wir $b_1$ mal die erste Lösung
+und $b_2$ mal die zweite Lösung zusammennehmen müssen, um
+die verlangten rechten Seiten zu finden.
+Also
+\[
+x=\frac12b_1-\frac{\sqrt{3}}2b_2,\qquad y=\frac{\sqrt{3}}2b_1+\frac12b_2.
+\]
+Durch Einsetzen in die ursprüngliche Gleichung kann man die
+Lösung überprüfen.
+
+Ein interessanter Spezialfall liegt vor, wenn man ein Gleichungssystem
+für die rechten Seiten 
+\[
+e_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad
+e_2=\begin{pmatrix}0\\1\\0\end{pmatrix},\qquad
+e_3=\begin{pmatrix}0\\0\\1\end{pmatrix}
+\]
+bereits gelöst und die Lösungsvektoren
+\[
+c_1=\begin{pmatrix} c_{11}\\ c_{21}\\ c_{31} \end{pmatrix},\qquad
+c_2=\begin{pmatrix} c_{12}\\ c_{22}\\ c_{32} \end{pmatrix},\qquad
+c_3=\begin{pmatrix} c_{13}\\ c_{23}\\ c_{33} \end{pmatrix}
+\]
+gefunden hat.
+Da die allgemeine rechte Seite
+\[
+b=\begin{pmatrix}
+b_1\\b_2\\b_3
+\end{pmatrix}
+=
+b_1 \begin{pmatrix}1\\0\\0\end{pmatrix}
++
+b_2 \begin{pmatrix}0\\1\\0\end{pmatrix}
++
+b_3 \begin{pmatrix}0\\0\\1\end{pmatrix}
+=
+b_1 e_1 + b_2 e_2 + b_3 e_3
+\]
+geschrieben werden kann, kann auch die Lösung aus den Teillösungen
+zusammengesetzt werden:
+\[
+x = b_1 c_1 + b_2 c_2 + b_3 c_3.
+\]
+Man kann also ein allgemeines Lösungsverfahren auch wie folgt konzipieren.
+Zunächst bildet man das Gauss-Tableau
+\begin{center}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+a_{11}&a_{12}&a_{13}&1&0&0\\
+a_{21}&a_{22}&a_{23}&0&1&0\\
+a_{31}&a_{32}&a_{33}&0&0&1\\
+\hline
+\end{tabular}
+\end{center}
+welches man anschliessend mit dem Gauss-Algorithmus in das Tableau
+\begin{center}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&0&c_{11}&c_{12}&c_{13}\\
+0&1&0&c_{21}&c_{22}&c_{23}\\
+0&0&1&c_{31}&c_{32}&c_{33}\\
+\hline
+\end{tabular}
+\end{center}
+umwandelt.
+Dann baut man die Lösung aus den Zahlen $c_{ij}$ und der rechten
+Seite $b$ zusammen.
+Die Berechnung der $c_{ij}$ muss nur einmal
+erfolgen, danach kann die Lösung mit verschiedenen rechten Seiten
+$b$ bestimmt werden.
+
+

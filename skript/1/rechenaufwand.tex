@@ -1,0 +1,38 @@
+%
+% rechenaufwand.tex -- Rechenaufwand zur Lösung linearer Gleichungssysteme
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\section{Rechenaufwand}
+\index{Rechenaufwand}
+Wir wollen den Rechenaufwand für die Durchführung des Gauss-Verfahrens
+bestimmen.
+Diese Information wird zum Beispiel benötigt, wenn man mit
+einem Microcontroller einen Kalman-Filter implementieren möchte, dort
+muss auch eine Matrix invertiert werden.
+\index{AVR}
+Ein typischer 8bit-Microcontroller (AVR)
+benötigt ca 200$\mu$s für eine Multiplikation, und etwa 80$\mu$s für
+eine Addition\footnote{Zeitangaben aus der Microcontroller Performance
+Comparison auf \url {http://www.freertos.org.}}.
+\index{ARM}
+Ein 32bit-$\mu$C wie der ARM (LPC2106) ist wesentlich schneller,
+er schafft diese Operationen in etwa 10$\mu$s.
+Je nach Rechenaufwand kann
+es also nötig sein, von einen schnelleren Prozessor zu verwenden.
+
+Für den $k$-ten Schritt beim Vorwärtsreduzieren muss die $k$-te
+Zeile mit einer Zahl multipliziert werden ($n$ Operationen) und dann
+von $n-k$ Zeilen subtrahiert werden ($(n-k)n$ Operationen).
+Es sind also
+\[
+\sum_{k=1}^n n(n-k+1) = n^3 - n \sum_{k=1}^n k + n^2
+=n^3+n^2-n\frac{n(n+1)}2=\frac{n^2(n+1)}2 =O(n^3)
+\]
+Operationen nötig.
+Bei $n=12$ Unbekannten braucht man also bereits
+$936$ Operationen, mehr als ungefähr sieben mal pro Sekunde kann man das mit
+einem 8bit AVR also nicht machen.
+Mit einem ARM7 dagegen könnte
+man dies über 100 Mal pro Sekunde durchführen.
+

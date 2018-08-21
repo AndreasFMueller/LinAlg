@@ -1,0 +1,183 @@
+%
+% inverse.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Inverse Matrix}
+\index{inverse Matrix}
+Mit den im letzten Abschnitt beschriebenen Minoren kann man jetzt auch
+eine Formel für die Elemente der inversen Matrix finden.
+Die inverse
+Matrix von $A$ hat in ihren Spalten die Lösungen $x$ des Gleichungssystems 
+$Ax=b$ für ganz spezielle rechte Seiten $b$.
+Die $j$-te Spalte ist die Lösung zur rechten Seite $e_j$, dem Einheitsvektor,
+der genau an der $j$-ten Stelle eine $1$ hat, und sonst aus lauter Nullen
+besteht.
+Nach der Cramerschen Regel kann man die $i$-te Unbekannte $x_i$
+in $Ax=e_j$ mit Determinanten berechnen, nämlich
+\[
+x_i=(-1)^{i+j}\frac{\det(A_{ji})}{\det(A)}.
+\]
+Dies ist auch der Eintrag in Spalte $j$ und Zeile $i$ der inversen
+Matrix $A^{-1}$:
+\begin{equation}
+A^{-1}
+=
+\frac{1}{\det(A)}
+\begin{pmatrix}
+\det(A_{11})&-\det(A_{21})&\det(A_{31})& \dots&(-1)^{1+n} \det(A_{n1})\\
+-\det(A_{12})&\det(A_{22})&-\det(A_{32})& \dots&(-1)^{2+n} \det(A_{n2})\\
+\det(A_{13})&-\det(A_{23})&\det(A_{33})& \dots&(-1)^{3+n} \det(A_{n3})\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+(-1)^{n+1}\det(A_{1n})&(-1)^{n+2}\det(A_{2n})&(-1)^{n+3}\det(A_{3n})& \dots&(-1)^{n+n} \det(A_{nn})\\
+\end{pmatrix}
+\label{inversematrix}
+\end{equation}
+\begin{definition}
+Die Terme in der Matrix in (\ref{inversematrix})
+heissen Kofaktoren der Matrix $A$.
+Sie bilden die Matrix der Kofaktoren
+\begin{equation}
+\operatorname{cof}(A)_{ij}=
+(-1)^{i+j}\det(A_{ij})
+\label{cofactor}
+\end{equation}
+Mit dieser Notation ist die inverse Matrix
+\begin{equation}
+A^{-1}=\frac1{\det(A)}\operatorname{cof}(A)^t
+\label{inversecofactors}
+\end{equation}
+\end{definition}
+
+Für $2\times2$-Matrizen führt dies auf die manchmal nützliche
+Formel
+\[
+\begin{pmatrix}
+a&b\\c&d
+\end{pmatrix}^{-1}
+=
+\frac1{ad-bc}\begin{pmatrix}
+d&-b\\-c&a
+\end{pmatrix}
+\]
+Für die Berechnung der Inversen grösserer Matrizen ist die Formel
+nur in ganz speziellen Fällen von Nutzen.
+Die Berechnung der Inverse
+mit Hilfe des Gauss-Algorithmus erfordert im allgemeinen deutlich weniger
+Aufwand.
+Hingegen ist die Formel für theoretische Überlegungen durchaus
+interessant.
+Es folgt aus ihr zum Beispiel, dass die Inverse einer
+Matrix mit ganzzahligen Einträgen und Determinante $1$ wieder
+lauter ganzzahlige Einträge hat.
+Die Menge
+\[
+\operatorname{SL}_n(\mathbb Z)=\{A\in M_{n}(\mathbb Z)|\det(A)=1\},
+\]
+hat also die Eigenschaft, dass mit $A\in\operatorname{SL}_2(\mathbb Z)$ 
+auch $A^{-1}\in\operatorname{SL}_2(\mathbb Z)$.
+
+\begin{beispiel}
+Man bestimme die Inverse der Matrix
+\[
+A=\begin{pmatrix}
+-1&-3&1\\
+2&3&-2\\
+2&1&-3
+\end{pmatrix}
+\]
+Die Determinante von $A$ kann mit der Sarrus-Formel berechnet, werden.
+Sie ist
+\begin{align*}
+\det(A)
+&=
+\left|
+\begin{matrix}
+-1&-3& 1\\
+ 2& 3&-2\\
+ 2& 1&-3
+\end{matrix}
+\right|
+\\
+&=(-1)\cdot 3\cdot(-3) +  (-3)\cdot(-2)\cdot 2 + 1\cdot 2\cdot 1
+\\&\qquad
+-2\cdot 3\cdot 1-1\cdot(-2)\cdot (-1)-(-3)\cdot 2\cdot (-3)
+\\
+&=9+12+2 - 6-2-18=-3.
+\end{align*}
+Die Minoren sind
+\begin{align*}
+\det A_{11}&=\left|\,\begin{matrix} 3&-2\\ 1&-3\end{matrix}\,\right|
+%=-9+2
+=-7
+&
+\det A_{12}&=\left|\,\begin{matrix} 2&-2\\ 2&-3\end{matrix}\,\right|
+%=-6+4
+=-2
+&
+\det A_{13}&=\left|\,\begin{matrix} 2& 3\\ 2& 1\end{matrix}\,\right|
+%=2-6
+=-4\\
+\det A_{21}&=\left|\,\begin{matrix}-3& 1\\ 1&-3\end{matrix}\,\right|
+=8
+&
+\det A_{22}&=\left|\,\begin{matrix}-1& 1\\ 2&-3\end{matrix}\,\right|
+=1
+&
+\det A_{23}&=\left|\,\begin{matrix}-1&-3\\ 2& 1\end{matrix}\,\right|
+%=-1+6
+=5\\
+\det A_{31}&=\left|\,\begin{matrix}-3& 1\\ 3&-2\end{matrix}\,\right|
+=3
+&
+\det A_{32}&=\left|\,\begin{matrix}-1& 1\\ 2&-2\end{matrix}\,\right|
+=0
+&
+\det A_{33}&=\left|\,\begin{matrix}-1&-3\\ 2& 3\end{matrix}\,\right|
+%=-3+6
+=3
+\end{align*}
+Beim Hinschreiben der Inversen muss man jetzt aber beachten,
+dass das Element in Zeile $i$ und Spalte $j$ der inversen Matrix
+mit $A_{ji}$ gebildet wird:
+\[
+A^{-1}=\frac1{\det(A)}\begin{pmatrix}
++\det(A_{11})&-\det(A_{21})&+\det(A_{31})\\
+-\det(A_{12})&+\det(A_{22})&-\det(A_{32})\\
++\det(A_{13})&-\det(A_{23})&+\det(A_{33})
+\end{pmatrix}
+=\frac1{-3}\begin{pmatrix}
+-7&-8& 3\\
+ 2& 1& 0\\
+-4&-5& 3
+\end{pmatrix}
+\]
+Zur Kontrolle rechnen wir das Produkt nach:
+\begin{align*}
+\begin{pmatrix}
+-7&-8& 3\\
+ 2& 1& 0\\
+-4&-5& 3
+\end{pmatrix}
+\begin{pmatrix}
+-1&-3& 1\\
+ 2& 3&-2\\
+ 2& 1&-3
+\end{pmatrix}
+&=
+\begin{pmatrix}
+ 7-16+6&21-24+3&-7+16-9\\
+-2+ 2+0&-6+ 3+0& 2- 2+0\\
+ 4-10+6&12-15+3&-4+10-9
+\end{pmatrix}
+\\
+&=-3\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}.
+\end{align*}
+Da wir in diesem Produkt die Determinanten $-3$ noch nicht berücksichtigt
+haben, ist das das zu erwartende Resultat.
+\end{beispiel}
+

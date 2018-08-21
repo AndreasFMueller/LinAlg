@@ -1,0 +1,126 @@
+%
+% problem.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Problemstellung}
+In diesem Kapitel gehen wir immer von einer $n\times n$-Matrix $A$ aus.
+
+\medskip
+{\parindent0pt \bf Problem:} Finde Vektoren $x\in\mathbb R^n$ und
+Zahlen $\lambda\in\mathbb R$ so, dass $Ax=\lambda x$.
+\medskip
+
+{\parindent0pt Diese Problemstellung ist nicht ganz klar:}
+\begin{compactitem}
+\item Der Vektor $x=0$ ist immer eine Lösung, das Problem ist also
+nur dann interessant, wenn Vektoren $x\ne 0$ verlangt werden.
+\item Der Vektor $x$ ist nicht eindeutig bestimmt.
+Gilt $Ax=\lambda x$, dann gilt dasselbe auch für $y=\mu x$:
+\[
+Ay= A(\mu x)=\mu Ax=\mu\lambda x = \lambda (\mu x)=\lambda y.
+\]
+Der Vektor $x$ kann also bestenfalls bis auf ein Vielfaches bestimmt werden.
+\end{compactitem}
+
+\index{Eigenwert}
+\index{Eigenvektor}
+\begin{definition}
+Ein Vektor $v \in \mathbb R^n$ heisst Eigenvektor der $n\times n$-Matrix $A$
+zum Eigenwert $\lambda$, wenn $v\ne 0$ und $Av=\lambda v$ gilt.
+\end{definition}
+
+\begin{beispiel}
+Die Matrix
+\[
+\begin{pmatrix}
+3&0&0\\
+0&5&0\\
+0&0&7
+\end{pmatrix}
+\]
+hat die Eigenwerte $3$, $5$ und $7$, mit den Eigenvektoren
+\[
+\begin{pmatrix}
+1\\0\\0
+\end{pmatrix}
+,
+\begin{pmatrix}
+0\\1\\0
+\end{pmatrix}
+,
+\begin{pmatrix}
+0\\0\\1
+\end{pmatrix}
+\]
+\end{beispiel}
+
+\begin{hilfssatz}
+\index{Diagonalmatrix}
+Die Diagonalmatrix
+\[
+\operatorname{diag}(\lambda_1,\dots,\lambda_n)
+=\begin{pmatrix}
+\lambda_1&\dots&0\\
+\vdots&\ddots&\vdots\\
+0&\dots&\lambda_n
+\end{pmatrix}
+\]
+hat die Eigenwerte $\lambda_1,\dots,\lambda_n$, die Standardbasisvektoren
+$e_i$ sind Eigenvektoren zum Eigenwert $\lambda_i$.
+\end{hilfssatz}
+Offenbar ist dies ein besonders einfacher Fall, die Basisvektoren sind
+alle Eigenvektoren.
+Es gibt einige Klassen von Matrizen, bei denen es
+immer möglich ist, eine Basis aus Eigenvektoren zu wählen.
+Hat die
+$n\times n$-Matrix $A$ $n$ linear unabhängig Eigenvektoren $v_1,\dots,v_n$
+mit Eigenwerten $\lambda_1,\dots,\lambda_n$, dann kann man die Wirkung
+der Matrix $A$ auf einen beliebigen Vektor $x=\alpha_1v_1+\dots+\alpha_nv_n$
+sofort berechnen:
+\[
+Ax=\alpha_1Av_1+\dots+\alpha_nAv_n=\alpha_1\lambda_1v_1+\dots+\alpha_n\lambda_nv_n.
+\]
+In der Basis $\{v_1,\dots,v_n\}$ hat $A$ also die Matrix
+\[
+A=\operatorname{diag}(\lambda_1,\dots,\lambda_n)
+=
+\begin{pmatrix}
+\lambda_1&\dots&0\\
+\vdots&\ddots&\vdots\\
+0&\dots&\lambda_n
+\end{pmatrix}.
+\]
+\begin{definition}
+\index{diagonalisierbar}
+\index{diagonalisieren}
+Eine Matrix $A$ heisst diagonalisierbar, wenn es eine Basis aus
+Eigenvektoren gibt.
+\end{definition}
+
+Wir haben also die Gleichung $Ax=\lambda x$ zu lösen.
+Wäre $\lambda$ bekannt, könnten wir das Problem in ein Standardproblem
+umwandeln:
+\[
+Ax=\lambda x\qquad\Rightarrow\qquad Ax-\lambda Ex=(A-\lambda E)x=0
+\]
+gesucht ist also ein nicht verschwindende Lösung des homogenen
+Gleichungssystems mit
+Matrix $A-\lambda E$.
+Nur kennen wir $\lambda$ nicht.
+Allerdings
+liefert gerade die Bedingung, dass wir ein nicht verschwindende
+Lösung des homogenen Systems finden wollen, ein Kriterium zur
+Bestimmung von $\lambda$: $A-\lambda E$ muss singulär sein.
+Das Eigenwertproblem wird also in zwei Schritten gelöst:
+\begin{compactenum}
+\item Bestimmung der möglichen Eigenwerte: für welche Werte von $\lambda$
+ist $A-\lambda E$ singulär?
+\item Bestimmung der Eigenvektoren zu gegebenem Eigenwert: Finde die
+Lösungen von $(A-\lambda E)x=0$.
+Hierzu kann der Gauss-Algorithmus
+verwendet werden, oder in einfachen Fällen auch die Cramersche Regel.
+\end{compactenum}
+Die folgenden Einführungsbeispiele sollen zeigen, wie das Eigenwertproblem
+in der Praxis auftaucht und gelöst werden kann.
+

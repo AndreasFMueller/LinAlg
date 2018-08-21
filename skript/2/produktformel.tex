@@ -1,0 +1,129 @@
+%
+% produktformel.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Produktformel}
+Wie verträgt sich die Determinante mit Matrizenprodukten?
+Überraschenderweise gibt es hierauf eine sehr einfach Antwort,
+die auch nicht schwierig zu verstehen ist.
+
+\begin{satz}\label{detprodukt}
+Sind $A$ und $B$ $n\times n$-Matrizen, dann ist
+\[
+\det(AB)=\det(A)\det(B).
+\]
+\end{satz}
+
+\begin{proof}[Beweisidee]
+Wir gehen den Beweis wie folgt an.
+Wir betrachten zunächst nur die Abhängigkeit von $\det(AB)$ von $A$.
+Dabei werden wir feststellen,
+dass sich $\det(AB)$ fast wie die Determinante verhält, nur der
+Wert für $A=E$ ist nicht der richtige, $\det(B)$ statt $1$.
+Indem wir
+$\det(AB)$ durch $\det(B)$ dividieren, erhalten wir aber eine Funktion,
+die sich genau wie die Determinante verhält.
+Weil die Eigenschaften der Determinante diese eindeutig bestimmen, muss
+$\det(AB)/\det(B)=\det(A)$ sein, woraus wir die Behauptung folgern können.
+\end{proof}
+
+\begin{proof}[Beweis]
+Wir betrachten die Funktion $d\colon A\mapsto d(A) = \det(AB)$.
+Sie hat die folgenden Eigenschaften, die weiter unten noch
+begründet werden müssen:
+\begin{enumerate}
+\item[1'.] $d$ ist eine lineare Funktion der Zeilen von $A$.
+\item[2.']
+Hat $A$ zwei gleiche Zeilen, dann auch $AB$ und damit ist $d(A)=0$.
+\item[3.]
+$d(E)=\det(B)$.
+\end{enumerate}
+Die Funktion $d$ verhält sich bis auf die letzte Eigenschaft
+wie die Determinante.
+Dividiert man die Funktion $d$ durch die Determinante
+von $B$, ist auch die letzte Eigenschaft die einer Determinanten.
+Die Funktion
+\[
+d':A\mapsto \frac{\det(AB)}{\det(B)}
+\]
+hat die Eigenschaften:
+\begin{enumerate}
+\item[1'.] $d'$ ist eine lineare Funktion der Zeilen von $A$.
+\item[2'.] Enthält $A$ zwei gleiche Zeilen, dann ist $d'(A)=0$.
+\item[3.] $d'(E)=1$.
+\end{enumerate}
+Nach Satz \ref{detcharacterisation} muss $d'$ die Determinante von $A$ sein:
+\begin{align*}
+d'(A)&=\det(A)\\
+\frac{\det(AB)}{\det(B)}&=\det(A)\\
+\det(AB)&=\det(A)\det(B).
+\end{align*}
+Das beweist die Produktformel, bis auf die oben behaupteten Eigenschaften
+1' und 2'.
+
+Die Zeile mit der Nummer $i$ in $AB$ wird erhalten,
+indem man die Zeile $i$ von $A$
+mit der Matrix $B$ multipliziert.
+Wenn also $A$ zwei gleiche Zeilen enthält, dann sind auch die
+entsprechenden Zeilen von $AB$ gleich.
+was Eigenschaft 2 beweist.
+
+Ist die Zeile $i$ von $A$ eine Linearekombination der Form
+\[
+\begin{pmatrix}
+a_{i1}&\dots&a_{in}
+\end{pmatrix}
+=
+\lambda
+\begin{pmatrix}
+a'_{i1} &\dots &a'_{in}
+\end{pmatrix}
++
+\mu
+\begin{pmatrix}
+a''_{i1} &\dots &a''_{in}
+\end{pmatrix},
+\]
+dann ist die Zeile $i$ von $AB$ ebenfalls eine Linearekombination,
+nämlich
+\[
+\begin{pmatrix}
+a_{i1}&\dots&a_{in}
+\end{pmatrix}B
+=
+\lambda
+\begin{pmatrix}
+a'_{i1} &\dots &a'_{in}
+\end{pmatrix}B
++
+\mu
+\begin{pmatrix}
+a''_{i1} &\dots &a''_{in}
+\end{pmatrix}B.
+\]
+Schreiben wir $A'$ für die Matrix, die in Zeile $i$ die $a'_{ij}$
+statt der $a_{ij}$ enthalten, und analog für $A''$, dann folgt, dass
+\[
+d(A) = \det(AB)=\lambda \det(A'B)+\mu\det(A''B)=\lambda d(A') + \mu d(A''),
+\]
+was genau die Eigenschaft 1 ist.
+\end{proof}
+
+Es gibt keine vergleichbare Formel für die Determinante der Summe
+von zwei Matrizen.
+Schon $2\times 2$-Diagonalmatrizen zeigen uns,
+das wir eine solche Formel auch nicht erwarten können:
+\begin{align*}
+A&=\begin{pmatrix}a&0\\0&1\end{pmatrix}&
+\det(A)&=\left|\;\begin{matrix}a  &0\\0&  1\end{matrix}\;\right|= a\\
+B&=\begin{pmatrix}1&0\\0&b\end{pmatrix}&
+\det(B)&=\left|\;\begin{matrix}  1&0\\0&b  \end{matrix}\;\right|= b\\
+A+B&=\begin{pmatrix}a+1&0\\0&b+1\end{pmatrix}
+&
+\det(A+B)&=\left|\;\begin{matrix}a+1&0\\0&b+1\end{matrix}\;\right|\\
+&&&=(a+1)(b+1)=ab+a+b+1.
+\end{align*}
+Offenbar gibt es keine einfache Formel, die $\det(A+B)$ mit $\det(A)$ und
+$\det(B)$ verbindet.
+

@@ -24,7 +24,7 @@ aufgabensammlung.ind:	$(TEXFILES) images
 	makeindex aufgabensammlung.idx
 
 mkthemaidx:	mkthemaidx.cpp
-	g++ -Wall -g -O -o mkthemaidx mkthemaidx.cpp
+	g++ -std=c++11 -Wall -g -O -o mkthemaidx mkthemaidx.cpp
 
 clean:
 	rm -f *.dvi *.log ?.tex aufgabensammlung.pdf

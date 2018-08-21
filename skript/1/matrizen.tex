@@ -1,0 +1,531 @@
+%
+% matrizen.tex -- Matrizen und Vektoren
+%
+% (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
+%
+\section{Bezeichnungen: Matrizen und Vektoren}
+Viele der Operationen im Lösungsverfahren für lineare Gleichungssysteme,
+sind unabhängig von ihrem Bezug zu einem Gleichungssystem sinnvoll.
+In der Tabellendarstellung haben wir auch einen Notation verwendet,
+in der die Unbekannten überhaupt nicht mehr vorkommen.
+Dies kann jedoch nicht nur ein praktische Abkürzung sein, es muss mehr
+dahinter stecken.
+In diesem Abschnitt definieren wir die Vektoren und Matrizen, die zu
+einem Gleichungssystem gehören.
+
+\subsection{Vektoren}
+\subsubsection{Definition von Zeilen- und Spaltenvektoren}
+Die Operationen im Lösungsverfahren erfolgten jeweils Zeilen- oder Spaltenweise,
+es ist daher sinnvoll, die Zeilen oder Spalten als eigene vollwertige 
+mathematische Objekte zu definieren.
+
+\begin{definition}
+Das Zahlenschema
+\[
+\begin{pmatrix}
+a_1&a_2&\dots&a_n
+\end{pmatrix}
+\]
+mit $a_i\in\mathbb R$ heisst ein $n$-dimensionaler Zeilenvektor.
+Das Zahlenschema
+\[
+\begin{pmatrix}
+b_1\\b_2\\\vdots\\b_m
+\end{pmatrix}
+\]
+heisst $m$-dimensionaler Spaltenvektor.
+\end{definition}
+Die Linearformen entsprechen also Zeilenvektoren, die rechte
+Seite des Gleichungssystems ist ein Spaltenvektor.
+
+Zeilen oder Spaltenvektoren kürzen wir ab als ein einzelnes
+Zeichen, zum Beispiel
+\[
+a
+=
+\begin{pmatrix}
+a_1&a_2&\dots&a_n
+\end{pmatrix},\qquad
+b=\begin{pmatrix}
+1\\2\\3
+\end{pmatrix}.
+\]
+
+\subsubsection{Rechenoperationen mit Vektoren}
+Für Zeilen- oder Spaltenvektoren können wir die Addition von
+Vektoren und die Multiplikation mit reellen Zahlen definieren.
+Damit das überhaupt gehen kann, müssen die Vektoren natürlich
+die gleiche Länge (Dimension) haben.
+Die Operationen erfolgen elementweise:
+
+\begin{definition}
+Seien $a$ und $a'$ zwei $n$-dimensionale Zeilenvektoren,
+\begin{align*}
+a&=\begin{pmatrix}a_1&a_2&\dots&a_n\end{pmatrix}
+\\
+a'&=\begin{pmatrix}a'_1&a'_2&\dots&a'_n\end{pmatrix}
+\end{align*}
+und $\lambda\in\mathbb R$, dann sind die Summe $a+a'$ und das
+Produkt $\lambda a$ wie folgt definiert:
+\begin{align*}
+a+a'&=\begin{pmatrix}a_1+a'_1&a_2+a'_2&\dots&a_n+a'_n\end{pmatrix}
+\\
+\lambda a&=\begin{pmatrix}\lambda a_1&\lambda a_2&\dots&\lambda a_n\end{pmatrix}
+\end{align*}
+Sind $b$ und $b'$ zwei $m$-dimensionale Spaltenvektoren
+\begin{align*}
+b&=\begin{pmatrix}b_1\\b_2\\\vdots\\b_m\end{pmatrix},
+&
+b'&=\begin{pmatrix}b'_1\\b'_2\\\vdots\\b'_m\end{pmatrix}
+\end{align*}
+dann, sind die Summe $b+b'$ und das Produkt $\lambda b$ wie folgt 
+definiert:
+\begin{align*}
+b+b'&=\begin{pmatrix}
+b_1+b'_1\\
+b_2+b'_2\\
+\vdots\\
+b_m+b'_m\\
+\end{pmatrix},
+&
+\lambda b&=\begin{pmatrix}
+\lambda b'_1\\
+\lambda b'_2\\
+\vdots\\
+\lambda b'_m
+\end{pmatrix}
+\end{align*}
+\end{definition}
+Die Operationen {\bf E} und {\bf I} können wir jetzt mit Vektoren
+beschreiben.
+Die Zeile mit der Nummer $i$ ist offenbar ein
+$n+1$-dimensionaler Zeilenvektoren $z_i$
+\[
+z_i=\begin{pmatrix}a_{i1}&a_{i2}&\dots&a_{im}&b_i\end{pmatrix}.
+\]
+Die Operation {\bf I} für die $i$-te Zeile bedeutet jetzt, dass man
+den Zeilenvektor $z_i$ ersetzt durch den neuen Zeilenvektor
+\[
+\frac1{a_{ii}}z_i
+=
+\frac1{a_{ii}}
+\begin{pmatrix}a_{i1}&a_{i2}&\dots&a_{im}&b_i\end{pmatrix}
+=
+\begin{pmatrix}\frac{a_{i1}}{a_{ii}}&\frac{a_{i2}}{a_{ii}}&\dots&\frac{a_{im}}{a_{ii}}&\frac{b_i}{a_{ii}}\end{pmatrix}
+\]
+Bei der Operation {\bf E} wird der Zeilenvektor $z_j$
+verringert um das $a_{ji}$-fache des Zeilenvektors $z_i$, also
+\[
+z_j \leftarrow z_j-a_{ji}z_i.
+\]
+
+\subsubsection{Gleichungssystem in Vektorschreibweise}
+Auch das Gleichungssystem selbst können wir mit Hilfe von Spaltenvektoren
+schreiben.
+Betrachten wir die Spalten mit der Nummer $k$ als Spaltenvektor $a_k$,
+also
+\[
+a_k=\begin{pmatrix}a_{1k}\\a_{2k}\\\dots\\a_{mk}\end{pmatrix},
+\]
+und die rechten Seiten des Gleichungssystems wie früher als Spaltenvektor $b$,
+dann können wir das Gleichungssystem schreiben als
+\[
+x_1\begin{pmatrix}a_{11}\\a_{21}\\\vdots\\a_{m1}\end{pmatrix}
++
+x_2\begin{pmatrix}a_{12}\\a_{22}\\\vdots\\a_{m2}\end{pmatrix}
++
+\dots
++
+x_n\begin{pmatrix}a_{1n}\\a_{2n}\\\vdots\\a_{mn}\end{pmatrix}
+=
+\begin{pmatrix}b_1\\b_2\\\vdots\\b_m\end{pmatrix}
+\]
+oder kurz
+\[
+a_1x_1+a_2x_2+\dots+a_nx_n=b.
+\]
+
+\subsubsection{Spezielle Vektoren\label{speziellevektoren}}
+Die folgenden speziellen Vektoren sind oft nützlich.
+Der Nullvektor besteht
+aus lauter Nullen, wir schreiben dafür
+\[
+0=\begin{pmatrix}0\\\vdots\\0\end{pmatrix}.
+\]
+Im Verfahren für die simultane Lösung von Gleichungssystemen haben
+wir spezielle rechte Seiten verwendet, welche bis auf eine Stelle aus lauter
+Nullen bestehen.
+Diese Vektoren bezeichnen wir in Zukunft mit
+\[
+e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix},
+\qquad
+e_2=\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix},
+\qquad
+e_n=\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}.
+\]
+
+\subsection{Matrizen}
+\subsubsection{Definition einer Matrix}
+Die Formulierung mit Zeilen- und Spaltenvektoren ist immer noch etwas umständlich,
+wir würden erwarten, dass auch das ganze Koeffizientenschema $(a_{ij})$
+eine eigenständiges mathematisches Objekt ist, immerhin bestimmt es den
+Gang des Lösungsverfahrens vollständig.
+
+\begin{definition}
+Das rechteckige Zahlenschema
+\[
+A=
+\begin{pmatrix}
+a_{11}&a_{12}&\dots&a_{1n}\\
+a_{21}&a_{22}&\dots&a_{2n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{m1}&a_{m2}&\dots&a_{mn}\\
+\end{pmatrix}
+\]
+heisst $m\times n$-Matrix.
+\end{definition}
+
+\subsubsection{Produkt einer Matrix mit einem Vektor}
+Um das Gleichungssystem mit der Koeffizientenmatrix $A$ zu beschreiben
+fehlt uns jetzt noch eine Verknüpfung zwischen Matrizen und
+Vektoren.
+Die folgende Definition tut, was wir uns wünschen.
+\begin{definition}
+Ist $A$ eine $m\times n$-Matrix und $x$ ein $n$-dimensionaler Spaltenvektor,
+dann definieren wir das Produkt $Ax$ also den $m$-dimensionalen
+Spaltenvektor
+\[
+\begin{pmatrix}
+a_{11}x_1+a_{12}x_2+\dots+a_{1n}x_n\\
+a_{21}x_1+a_{22}x_2+\dots+a_{2n}x_n\\
+\vdots\\
+a_{m1}x_1+a_{m2}x_2+\dots+a_{mn}x_n\\
+\end{pmatrix}
+\]
+Das Element $b_i$ in der $i$-ten Zeile dieses Spaltenvektors ist
+\[
+b_i=\sum_{j=1}^na_{ij}x_j.
+\]
+\end{definition}
+Die Multiplikation $Ax$ erfolgt also, indem die Zeilen von $A$
+elementweise mit der Spalte $x$ multipliziert, und dann alle Produkte
+aufaddiert werden (``Zeile $\strut \times\mathstrut$ Spalte'').
+
+\begin{beispiel} Sei
+\[
+A=\begin{pmatrix}
+6&1&2\\
+5&4&0\\
+4&1&9
+\end{pmatrix}
+,\qquad
+v=
+\begin{pmatrix}
+1\\8\\4
+\end{pmatrix},
+\]
+wir suchen das Produkt $Av$:
+\begin{align*}
+Av&=
+\begin{pmatrix}
+\color{red}6&\color{red}1&\color{red}2\\
+5&4&0\\
+4&1&9
+\end{pmatrix}
+\begin{pmatrix}
+\color{blue}1\\\color{blue}8\\\color{blue}4
+\end{pmatrix}
+=
+\begin{pmatrix}
+{\color{red}6}\cdot{\color{blue}1}+
+{\color{red}1}\cdot{\color{blue}8}+
+{\color{red}2}\cdot{\color{blue}4}
+\\
+5\cdot{\color{blue}1}+
+4\cdot{\color{blue}8}+
+0\cdot{\color{blue}4}
+\\
+4\cdot{\color{blue}1}+
+1\cdot{\color{blue}8}+
+9\cdot{\color{blue}4}
+\end{pmatrix}
+=\begin{pmatrix}
+22\\37\\48
+\end{pmatrix}.
+\end{align*}
+\end{beispiel}
+
+Mit diesen Definitionen ist das Gleichungssystem mit Koeffizientenmatrix $A$,
+dem Lösungs-Spaltenvektor $x$ und der rechten Seite $b$, ebenfalls einem
+Spaltenvektor, zu
+\[
+Ax=b
+\]
+geworden.
+Diese Schreibweise suggeriert, dass wir einfach auf beiden
+Seiten ``durch $A$ teilen'' könnten, um die Lösung zu finden.
+Auf dieses
+Ziel werden wir hinarbeiten, und eine Multiplikation und ``Division''
+von Matrizen definieren, so dass wir tatsächlich die Lösung des Gleichungssystems
+mit Hilfe einer Formel
+\[
+x=A^{-1}b
+\]
+finden können.
+
+\subsubsection{Rechenregeln für das Produkt Matrix $\times$ Vektor}
+Für das Produkt gelten die Regeln, die man sich von der Algebra 
+gewohnt ist:
+\begin{equation}
+\begin{aligned}
+A(u+v)&=Au+Av&\qquad&(A+B)v=Av+Bv\\
+A(\lambda v)&=\lambda Av
+\end{aligned}
+\label{linearitaet-matrixvektor}
+\end{equation}
+Die Gleichungen (\ref{linearitaet-matrixvektor}) sehen aus wie
+(\ref{linearitaet-linearformen}),
+man sagt, $A$ sei eine {\em lineare} Abbildung.
+
+\subsubsection{Produkt zweier Matrizen}
+Da Matrizen als ``dicke'' Vektoren aufgefasst werden können, lassen
+sich jetzt auch Matrizen mit anderen Matrizen multiplizieren.
+Die Multiplikation erfolgt wie bei Vektoren als
+$\text{Zeilen}\times\text{Spalten}$, das Element in Zeile $i$
+und Spalte $j$ der Produktmatrix entsteht aus Zeile $i$ des ersten
+Faktors und Spalte $j$ des zweiten Faktors.
+Die Zeilenlänge der ersten Matrix muss zur Spaltenlänge
+der zweiten Matrix passen:
+\begin{align*}
+\left(\begin{tabular}{|c|c|c|c|c|}
+\hline
+&&&&\\
+\hline
+&&&&\\
+\hline
+&&&&\\
+\hline
+\end{tabular}\right)
+\cdot
+\left(\begin{tabular}{|c|c|}
+\hline
+&\\
+\hline
+&\\
+\hline
+&\\
+\hline
+&\\
+\hline
+&\\
+\hline
+\end{tabular}\right)
+&=
+\left(\begin{tabular}{|c|c|}
+\hline
+&\\
+\hline
+&\\
+\hline
+&\\
+\hline
+\end{tabular}\right)
+\\
+(m\times l)\cdot (l\times n)&=(m\times n)
+\end{align*}
+\begin{beispiel}
+\begin{align*}
+A&=\begin{pmatrix}
+\color{red}1&\color{red}2&\color{red}4\\
+0&4&-1
+\end{pmatrix}
+\\
+B&=\begin{pmatrix}
+\color{blue}-2&4\\
+\color{blue}-4&-5\\
+\color{blue}2&4
+\end{pmatrix}
+\\
+AB&=
+\begin{pmatrix}
+{\color{red}1}\cdot({\color{blue}-2})+{\color{red}2}\cdot({\color{blue}-4})+{\color{red}4}\cdot{\color{blue}2} &
+{\color{red}1}\cdot 4+{\color{red}2}\cdot(-5)+{\color{red}4}\cdot 4\\
+0\cdot ({\color{blue}-2})+4\cdot({\color{blue}-4})+(-1)\cdot {\color{blue}2} &
+0\cdot 4+4\cdot(-5)+(-1)\cdot 4
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+-2&10\\-18&-24
+\end{pmatrix}
+\\
+BA&=\begin{pmatrix}
+(-2)\cdot1+4\cdot 0&
+(-2)\cdot2+4\cdot 4&
+(-2)\cdot4+4\cdot (-1) \\
+(-4)\cdot1+(-5)\cdot 0&
+(-4)\cdot2+(-5)\cdot 4&
+(-4)\cdot4+(-5)\cdot (-1)\\
+2\cdot1+ 4\cdot0&
+2\cdot2+ 4\cdot4&
+2\cdot4+ 4\cdot (-1)
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+   -2&  12& -12\\
+   -4& -28& -11\\
+    2&  20&   4
+\end{pmatrix}
+\end{align*}
+\end{beispiel}
+Das Beispiel illustriert auch, dass es wesentlich auf die Reihenfolge
+der Faktoren ankommt.
+Dies gilt selbst dann, wenn die beiden
+Matrizen quadratisch sind, also $AB$ und $BA$ ebenfalls quadratische
+Matrizen sind.
+\begin{beispiel}
+Dieses Beispiel zeigt, dass das Matrizenprodukt nicht kommutativ ist.
+\begin{align*}
+\begin{pmatrix} 0&1\\0&0 \end{pmatrix}
+\begin{pmatrix} 0&0\\1&0 \end{pmatrix}
+&=
+\begin{pmatrix} 1&0\\0&0 \end{pmatrix}
+\\
+\begin{pmatrix} 0&0\\1&0 \end{pmatrix}
+\begin{pmatrix} 0&1\\0&0 \end{pmatrix}
+&=
+\begin{pmatrix} 0&0\\0&1 \end{pmatrix}
+\end{align*}
+Die beiden Produkte sind offensichtlich verschieden.
+\end{beispiel}
+
+\subsubsection{Transponierte Matrix}
+Hat eine Matrix linear abhängige Zeilen, lassen sich die Zeilen
+linear zu einer Null-Zeile kombinieren.
+Die Zeilen der Matrix
+\[
+A=
+\begin{pmatrix}
+a_{11}&\dots&a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{m1}&\dots&a_{mn}
+\end{pmatrix}
+\]
+sind also genau dann linear abhängig, wenn das Gleichungssystem
+\[
+\begin{linsys}{4}
+a_{11}\lambda_1&+&a_{21}\lambda_2&+&\dots&+&a_{m1}\lambda_m&=&0\\
+a_{12}\lambda_1&+&a_{22}\lambda_2&+&\dots&+&a_{m2}\lambda_m&=&0\\
+\vdots         & &\vdots         & &\ddots&&\vdots         & &\vdots\\
+a_{1n}\lambda_1&+&a_{2n}\lambda_2&+&\dots&+&a_{mn}\lambda_m&=&0\\
+\end{linsys}
+\]
+eine Lösung hat, die nicht aus lauter Nullen besteht.
+Die Koeffizientenmatrix
+dieses Gleichungssystems entsteht dadurch, dass $A$ an der
+Diagonalen $a_{11}\dots a_{22}\dots a_{33}\dots$ gespiegelt wird.
+\begin{definition} Ist $A$ eine $m\times n$-Matrix mit Einträgen
+$a_{ij}$ in der $i$-ten Zeile und $j$-ten Spalte, dann heisst die
+gespiegelte Matrix
+\[
+A^t=\begin{pmatrix}
+a_{11}&a_{21}&\dots&a_{m1}\\
+a_{12}&a_{22}&\dots&a_{m2}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{1n}&a_{2n}&\dots&a_{mn}
+\end{pmatrix}
+\]
+die transponierte Matrix von $A$.
+$A^t$ ist eine $n\times m$-Matrix.
+Eine Matrix heisst symmetrisch, wenn $A^t=A$.
+\index{Matrix!symmetrische}
+\end{definition}
+Da das Transponieren einer Matrix ihre Zeilen und Spalten vertauscht,
+vertauscht
+sie auch die Reihenfolge der Faktoren in einem Matrizenprodukt
+\begin{align*}
+A^tB^t&=\text{Zeilen von $A^t$}\times\text{Spalten von $B^t$}\\
+      &=\text{Spalten von $A$}\times\text{Zeilen von $B$}\\
+      &=(\text{Zeilen von $B$}\times\text{Spalten von $A$})^t\\
+      &=(BA)^t.
+\end{align*}
+
+\begin{beispiel}
+Gegeben sei die Matrix
+\[
+A=\begin{pmatrix}
+4&3\\
+5&4
+\end{pmatrix}.
+\]
+Man berechne $A^tA$ und $AA^t$.
+
+\smallskip
+
+{\parindent 0pt $A^t$ ist}
+\[
+A^t=\begin{pmatrix}
+4&5\\
+3&4
+\end{pmatrix}.
+\]
+Das Produkt der beiden Matrizen ist
+\begin{align*}
+A^tA&=
+\begin{pmatrix}
+4&5\\
+3&4
+\end{pmatrix}
+\begin{pmatrix}
+4&3\\
+5&4
+\end{pmatrix}
+=\begin{pmatrix}
+16+25&12+20\\
+12+20&9+16
+\end{pmatrix}
+=
+\begin{pmatrix}
+41&32\\
+32&25
+\end{pmatrix},
+\\
+AA^t&=
+\begin{pmatrix}
+4&3\\
+5&4
+\end{pmatrix}
+\begin{pmatrix}
+4&5\\
+3&4
+\end{pmatrix}
+=
+\begin{pmatrix}
+16+9&20+12\\
+20+12&25+16
+\end{pmatrix}
+=
+\begin{pmatrix}
+25&32\\
+32&41
+\end{pmatrix}.
+\end{align*}
+Man beachte, dass auch hier wieder $A^tA\ne AA^t$.
+\end{beispiel}
+
+\subsubsection{Rechenregeln für Matrizen}
+Wir haben bereits früher die Rechenregeln für das Produkt einer Matrix
+mit einem Vektor aufgestellt, und dabei festgestellt, dass die
+aus der Algebra vertrauten Regeln erhalten bleiben.
+Mit dem
+Produkt Matrix $\times$ Matrix kommen noch einige neue Regeln dazu,
+die auch vertraut sind.
+Man kann also mit Matrizen genau so rechnen,
+wie man das in der Algebra immer gemacht hat, man muss nur
+aufpassen, dass man nie die Reihenfolge der Matrizen vertauscht.
+\begin{align*}
+    A(u+v)&=Au+Av     &\Rightarrow&&A(B+C)&=AB+AC,    &(A+B)C&=AC+BC\\
+A\lambda v&=\lambda Av&\Rightarrow&&A\lambda B&=\lambda AB
+\end{align*}
+

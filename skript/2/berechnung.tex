@@ -1,0 +1,36 @@
+%
+% berechnung.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Berechnung der Determinanten}
+\subsection{Berechnung mit Gauss-Verfahren}
+Das Beispiel der $2\times 2$-Determinante aus dem ersten Abschnitt
+lässt sich auch für beliebig grosse Determinanten verallgemeinern,
+woraus sich ein effizientes Berechnungsverfahren für die Determinante
+ergibt.
+
+Im Laufe des Gauss-Verfahrens ändert sich die Determinante offenbar
+immer dann, wenn eine {\bf I}-Operation ausgeführt wird.
+In solchen Schritten wird durch das Pivot-Element dividiert.
+Am Ende des 
+Verfahrens bleibt die Einheitsmatrix stehen, welche die Determinante
+$1$ hat.
+Durch fortgesetztes Dividieren durch die Pivot-Elemente wird
+aus der $\det A$ also $1$:
+\[
+\frac{\det A}{\prod_{\text{$p$ Pivot-Element} }p}=1\qquad\Rightarrow
+\qquad
+\det A=\prod_{\text{$p$ Pivot-Element}} p%
+\begin{picture}(0,0)
+\color{red}\put(-4,2){\circle{13}}
+\end{picture}%
+\;.
+\]
+Es folgt
+\begin{satz}
+\label{detprodpivot}
+Die Determinante von $A$ ist das Produkt der Pivot-Elemente,
+die im Laufe des Gauss-Verfahrens auftreten.
+\end{satz}
+

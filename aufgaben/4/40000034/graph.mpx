@@ -1,0 +1,141 @@
+% Written by metapost version 2.000
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n1="rtxmi";
+_s(char25,_n1,0.70000,1.1955,3.9253,);
+interim linecap:=0;
+vardef _r(expr _a,_w)(text _t) =
+  addto _p doublepath _a withpen pencircle scaled _w _t enddef;_r((1.1955,2.5604)..(4.8498,2.5604), 0.5579,);
+_n4="rtxptmr";
+_s("4",_n4,0.70000,1.2792,-3.4371,);
+setbounds _p to (0,-3.4371)--(6.0453,-3.4371)--
+ (6.0453,7.0077)--(0,7.0077)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n1="rtxmi";
+_s(char25,_n1,0.70000,1.1955,3.9253,);
+interim linecap:=0;
+vardef _r(expr _a,_w)(text _t) =
+  addto _p doublepath _a withpen pencircle scaled _w _t enddef;_r((1.1955,2.5604)..(4.8498,2.5604), 0.5579,);
+_n4="rtxptmr";
+_s("2",_n4,0.70000,1.2792,-3.4371,);
+setbounds _p to (0,-3.4371)--(6.0453,-3.4371)--
+ (6.0453,7.0077)--(0,7.0077)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n4="rtxptmr";
+_s("3",_n4,0.70000,1.1955,3.9253,);
+_n1="rtxmi";
+_s(char25,_n1,0.70000,4.6824,3.9253,);
+interim linecap:=0;
+vardef _r(expr _a,_w)(text _t) =
+  addto _p doublepath _a withpen pencircle scaled _w _t enddef;_r((1.1955,2.5604)..(8.3367,2.5604), 0.5579,);
+_s("4",_n4,0.70000,3.0227,-3.4371,);
+setbounds _p to (0,-3.4371)--(9.5322,-3.4371)--
+ (9.5322,8.5908)--(0,8.5908)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n1="rtxmi";
+_s(char25,_n1,1.00000,0.0000,0.0000,);
+setbounds _p to (0,-0.1245)--(5.2204,-0.1245)--
+ (5.2204,4.4035)--(0,4.4035)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n4="rtxptmr";
+_s("5",_n4,0.70000,1.1955,3.9253,);
+_n1="rtxmi";
+_s(char25,_n1,0.70000,4.6824,3.9253,);
+interim linecap:=0;
+vardef _r(expr _a,_w)(text _t) =
+  addto _p doublepath _a withpen pencircle scaled _w _t enddef;_r((1.1955,2.5604)..(8.3367,2.5604), 0.5579,);
+_s("4",_n4,0.70000,3.0227,-3.4371,);
+setbounds _p to (0,-3.4371)--(9.5322,-3.4371)--
+ (9.5322,8.6849)--(0,8.6849)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n4="rtxptmr";
+_s("6",_n4,0.70000,1.1955,3.9253,);
+_n1="rtxmi";
+_s(char25,_n1,0.70000,4.6824,3.9253,);
+interim linecap:=0;
+vardef _r(expr _a,_w)(text _t) =
+  addto _p doublepath _a withpen pencircle scaled _w _t enddef;_r((1.1955,2.5604)..(8.3367,2.5604), 0.5579,);
+_s("4",_n4,0.70000,3.0227,-3.4371,);
+setbounds _p to (0,-3.4371)--(9.5322,-3.4371)--
+ (9.5322,8.6849)--(0,8.6849)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n4="rtxptmr";
+_s("7",_n4,0.70000,1.1955,3.9253,);
+_n1="rtxmi";
+_s(char25,_n1,0.70000,4.6824,3.9253,);
+interim linecap:=0;
+vardef _r(expr _a,_w)(text _t) =
+  addto _p doublepath _a withpen pencircle scaled _w _t enddef;_r((1.1955,2.5604)..(8.3367,2.5604), 0.5579,);
+_s("4",_n4,0.70000,3.0227,-3.4371,);
+setbounds _p to (0,-3.4371)--(9.5322,-3.4371)--
+ (9.5322,8.5908)--(0,8.5908)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n4="rtxptmr";
+_s("2",_n4,1.00000,0.0000,0.0000,);
+_n1="rtxmi";
+_s(char25,_n1,1.00000,4.9813,0.0000,);
+setbounds _p to (0,-0.1245)--(10.2017,-0.1245)--
+ (10.2017,6.6650)--(0,6.6650)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n2="rtxptmri";
+_s("t",_n2,1.00000,0.0000,0.0000,);
+setbounds _p to (0,-0.0747)--(2.9489,-0.0747)--
+ (2.9489,5.4944)--(0,5.4944)--cycle;
+_p endgroup
+mpxbreak
+begingroup save _p,_r,_s,_n; picture _p; _p=nullpicture;
+string _n[];
+vardef _s(expr _t,_f,_m,_x,_y)(text _c)=
+  addto _p also _t infont _f scaled _m shifted (_x,_y) _c; enddef;
+_n2="rtxptmri";
+_s("f",_n2,1.00000,1.4944,0.0000,);
+_n4="rtxptmr";
+_s("(",_n4,1.00000,5.7185,0.0000,);
+_s("t",_n2,1.00000,9.0361,0.0000,);
+_s(")",_n4,1.00000,11.9850,0.0000,);
+setbounds _p to (0,-2.0523)--(15.3026,-2.0523)--
+ (15.3026,6.7248)--(0,6.7248)--cycle;
+_p endgroup
+mpxbreak
