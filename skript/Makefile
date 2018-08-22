@@ -32,7 +32,6 @@ TEXFILES = linsys.tex 							\
 	3/geraden.tex							\
 	3/koordinatensysteme.tex					\
 	3/loesungen.tex							\
-	3/vektorgeometrie.tex						\
 	3/vektorraum.tex						\
 	4/chapter.tex							\
 	4/kreis.tex							\
