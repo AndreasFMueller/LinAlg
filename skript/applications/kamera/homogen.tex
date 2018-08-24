@@ -79,7 +79,7 @@ Wir nennen Zahlenpaare $(x_0,x_1)$ {\em homogene Koordinaten} für die
 Punkte einer Geraden, wenn mindestens eine der Komponenten von $0$
 verschieden ist.
 Die inhomogenen (gewöhnlichen) Koordinate eines Punktes mit
-homogenen Koordinaten $(x_0,x_1)$ mit $x_1$ ist $x_0/x_1$.
+homogenen Koordinaten $(x_0,x_1)$ mit $x_1\ne 0$ ist $x_0/x_1$.
 \end{definition}
 \index{homogene Koordinaten}%
 Man beachte, dass den homogenen Koordinaten $(1,0)$ keine gewöhnlichen
@@ -87,6 +87,9 @@ Koordinaten zugeordnet sind.
 Sie beschreiben einen Punkte auf der $x$-Achse von
 Abbildung~\ref{skript:kamera:strahlensatz}, doch dieser Punkt kann
 von der Kamera gar nicht abgebildet werden.
+Man nennt diesen Punkt manchmal auch den {\em unendlich fernen Punkt} der
+Geraden.
+\index{unendlich ferner Punkt}%
 
 In homogenen Koordinaten lässt sich das Abbildungsproblem also ganz
 einfach lösen. 
@@ -116,6 +119,31 @@ Sensor.
 Dazu müssen wir das Konzept der homogenen Koordinaten auf einen
 dreidimensionalen Raum ausdehen.
 
+\begin{definition}
+Wir nennen Zahlentripel $(x_0,x_1,x_2)$ {\em homogene Koordinaten}
+für die Punkte einer Ebene, wenn mindestens eine der Komponenten von $0$
+verschieden sind.
+Die inhomogenen Koordinaten eines Punktes mit homogenenen Koordinaten
+$(x_0,x_1,x_2)$ mit $x_2\ne 0$ sind $(x_0/x_2,x_1/x_2)$.
+\end{definition}
 
+Wir stellen uns also wieder vor, eine Lochkamera im Ursprung des
+Koordinatensystems platziert zu haben mit Blickrichtung entlang der
+$z$-Achse.
+Die inhomogenen Koordinaten des Punktes $P=(x,y,z)$ können wir dann
+wieder als homogene Koordinaten einer Ebene betrachten.
+Die Abbildung durch die Lochkamera mit Brennweite ist dann wieder sehr
+einfach zu lösen: der Punkt $P$ wird auf den Punkt mit homogenen Koordinaten
+$(x,y,z)$ abgebildet.
+Die Koordinaten in der Brennebene einer Kamera mit Brennweite $f$ sind dann
+$f\cdot (x/z, y/z)$.
+
+Die Punkte mit $z=0$ können nicht abgebildet werden.
+Wenn die $z$-Koordinaten eines Punktes gegen $0$ geht, bewegt sich sein
+Bild in der Brennebene der Lochkamera nach aussen gegen unendlich.
+Man nennt diese Punkte daher manchmal auch unendlich ferne Punkte.
+Da sie ausserdem eine lineare Gleichung erfüllen, kann man die Menge dieser
+Punkte auch die {\em unendlich ferne Gerade} nennen.
+\index{unendlich ferne Gerade}%
 
 
