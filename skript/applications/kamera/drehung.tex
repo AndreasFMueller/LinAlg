@@ -1,0 +1,77 @@
+%
+% drehung.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\subsection{Kameraorientierung und Kamerazentrum\label{section:kameraorientierung}}
+Bis jetzt war die Kamera im Nullpunkt des Koordinatensystems platziert
+und die Achse der Kamera war parallel zur $z$-Achse, die $x$-Achse des Chips
+horizontal.
+Eine Kamera kann aber in jedem beliebigen Punkt $c$, dem Kamerazentrum,
+des Raumes platziert sein und die Achsen der Kamera können beliebig gegenüber
+dem Standard-Koordinatensystem verdreht sein.
+Um das Abbildungsproblem zu lösen, müssen wir also die Weltpunkte erst
+umrechnen in das Koordinatensystem der Kamera, bevor wir die Kameramatrix
+darauf anwenden können.
+
+\subsubsection{Kamerazentrum}
+Die Kamera befindet sich im Punkt mit dem Ortsvektor $c$ statt dem
+Nullpunkt.
+Statt die Kamera in den Nullpunkt zu verschieben, können wir auch die
+Position des abzubildenden Weltpunktes $P$ um $c$ korrigieren.
+Für eine Kamera im Punkt $c$ sieht der Nullpunkt genau so aus wie
+der Punkt $-c$ für eine Kamera im Nullpunkt.
+Wir müssen also die Translation $p\mapsto p-c$ durchführen.
+Leider ist dies keine lineare Abbildung.
+Wir können aber wie bereits bei der Diskussion der Kameramatrix $K_m$
+gesehen, dass dies in homogenen Koordinaten ganz einfach geht.
+Wir schreiben daher Weltpunkte mit inhomogenen Koordinaten
+$(x,y,z)$ als als Quadrupel von homogenen Koordinaten $(x,y,z,1)$.
+Damit können wir die Translation schreiben als
+\[
+p \mapsto p-c =
+\begin{pmatrix}
+1&0&0&-c_x\\
+0&1&0&-c_y\\
+0&0&1&-c_z
+\end{pmatrix}
+\begin{pmatrix}
+x\\y\\z\\1
+\end{pmatrix}
+=
+\begin{pmatrix}
+& & &  \\
+&E& &-c\\
+& & &  
+\end{pmatrix}
+\begin{pmatrix}
+x\\y\\z\\1
+\end{pmatrix}.
+\]
+Wir werden diese Matrix $\begin{pmatrix}E&-c\end{pmatrix}$ schreiben.
+
+\subsubsection{Drehung}
+Die Kamera ist gegenüber dem Standardkoordintensystem verdreht,
+wir können die Orienterung zum Beispiel dadurch bescheiben, dass wir
+die $x$-, $y$- und $z$-Achsen der Kamera als Einheitsvektoren im
+Standardkoordinatensystem ausdrücken und als Spalten in die Matrix $R$
+einfüllen.
+Die Matrix $R$ bildet die Standardbasisvektoren in die Basisvektoren
+des Kamera-Koordinatensystems ab.
+Wir brauchen die Umkehrabbildung $R^{-1}$, um einen Vektor im
+Standardkoordinatensystem ins Kamerakoordinatensystem umzurechnen.
+
+\subsubsection{Die Lösung des Abbildungsproblems}
+Damit haben wir jetzt das Abbildungsproblem vollständig gelöst.
+
+\begin{satz}
+Eine Kamera mit Kameramatrix $K$ im Punkt $c$ mit Orientierung $R$ bildet
+einen Weltpunkt $p$ auf den Bildpunkt
+\[
+\tilde b
+=
+K R^{-1} \begin{pmatrix} E&-c\end{pmatrix} \tilde p
+\]
+ab.
+\end{satz}
+
