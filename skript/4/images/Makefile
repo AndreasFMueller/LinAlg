@@ -4,7 +4,7 @@
 # (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
 #
 
-all:	projektion.pdf linearitaet.pdf skalarprodukt.pdf \
+all:	projektion.pdf linearitaet.pdf skalarprodukt.pdf spiegelung.pdf \
 	normalenform.pdf
 
 projektion.pdf:	projektion.tex
@@ -15,6 +15,9 @@ linearitaet.pdf:	linearitaet.tex
 
 skalarprodukt.pdf:	skalarprodukt.tex
 	pdflatex skalarprodukt.tex
+
+spiegelung.pdf:	spiegelung.tex
+	pdflatex spiegelung.tex
 
 normalenform.png:	normalenform.pov
 	povray +A0.1 -W1920 -H1080 -Onormalenform.png normalenform.pov
