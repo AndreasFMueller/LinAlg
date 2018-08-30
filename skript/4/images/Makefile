@@ -5,6 +5,7 @@
 #
 
 all:	projektion.pdf linearitaet.pdf skalarprodukt.pdf spiegelung.pdf \
+	tangente.pdf thales.pdf \
 	normalenform.pdf
 
 projektion.pdf:	projektion.tex
@@ -18,6 +19,12 @@ skalarprodukt.pdf:	skalarprodukt.tex
 
 spiegelung.pdf:	spiegelung.tex
 	pdflatex spiegelung.tex
+
+tangente.pdf:	tangente.tex
+	pdflatex tangente.tex
+
+thales.pdf:	thales.tex
+	pdflatex thales.tex
 
 normalenform.png:	normalenform.pov
 	povray +A0.1 -W1920 -H1080 -Onormalenform.png normalenform.pov

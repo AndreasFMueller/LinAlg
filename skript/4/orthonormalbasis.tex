@@ -4,6 +4,7 @@
 % (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
 \section{Skalarprodukt und Basis\label{section:orthonormalbasis}}
+\rhead{Skalarprodukt und Basis}
 Bei der Berechnung des Skalarproduktes in Komponenten in der Standardbasis
 hat sich gezeigt, dass eine Basis aus Einheitsvektoren, die zusätzlich
 aufeinander senkrecht stehen, besonders gut für die Arbeit mit dem
@@ -16,6 +17,9 @@ Einheitsvektoren machen kann.
 Schliesslich wird gezeigt, wie sich das Skalarprodukt in einer beliebigen
 Basis schreiben lässt.
 
+%
+% Orthonormalbasis
+%
 \subsection{Orthonormalbasis}
 Die Vektoren $\vec e_i$ stehen senkrecht aufeinander und haben
 Länge $1$.
@@ -158,18 +162,9 @@ Da wir $i$ beliebig wählen können folgt, dass die
 Koeffizienten $v_i'$ und $v_i''$ übereinstimmen.
 \end{proof}
 
-%\subsection{Verallgemeinertes Skalarprodukt}
-
-%\begin{definition}
-%Ein symmetrische Matrix $g_{ij}$ definiert ein allgemeines Skalarprodukt
-%$$g(x,y)=\sum_{i,j=1}^ng_{ij}x_iy_i$$
-%der Vektoren
-%$$x=\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}\qquad\text{und}
-%\qquad y=\begin{pmatrix}y_1\\\vdots\\y_n\end{pmatrix}.$$
-%\end{definition}
-%Das zu Beginn dieses Abschnitts definiert Skalarprodukt ist ein
-%verallgemeinertes Skalarprodukt mit der Matrix $I$.
-
+%
+% Orthonormalisierung 
+%
 \subsection{Orthonormalisierung}
 Für orthonormierte Vektoren ist es besonders einfach, eine Darstellung
 eines beliebigen Vektors als Linearkombination zu finden.
@@ -274,4 +269,93 @@ Wieder können die Formeln von Satz~\ref{satz-gram-schmidt} angewandt werden:
 Die gefundenen Vektoren sind völlig verschiedenen von den Vektoren
 im vorangegangenen Beispiel.
 \end{beispiel}
+
+%
+% Skalarprodukt und Matrixprodukt
+%
+\subsection{Skalarprodukte und Matrixprodukt}
+Das in der Vektorgeometrie definiert Skalarprodukt kann in beliebig
+vielen Dimensionen definiert werden.
+Zwei Vektoren $v$ und $u$ in $\mathbb R^n$ haben
+das Skalarprodukt
+\[
+u\cdot v=
+\begin{pmatrix}u_1\\\vdots\\u_n\end{pmatrix}
+\cdot
+\begin{pmatrix}v_1\\\vdots\\v_n\end{pmatrix}
+=u_1v_1+\dots+u_nv_n=u^tv.
+\]
+Alle bisher entwickelten Anwendungen des Skalarproduktes lassen sich sofort
+auf den $n$-di\-men\-sio\-nalen Raum übertragen.
+Zum Beispiel ist die Länge eines Vektors definiert als
+\[
+|v|=\sqrt{v^tv}.
+\]
+Programme wie Octave oder Matlab brauchen daher keine spezielle Notation
+für das Skalarprodukt, da mit Transposition und Matrixprodukt
+bereits alles vorhanden ist, um das Skalarprodukt auszurechnen.
+In Matlab-Notation ist das Skalarprodukt der Spaltenvektoren
+\texttt{u}
+und
+\texttt{v}
+ist 
+\texttt{u'*v}.
+
+In den Anwendungen findet man aber weitere Beispiel von
+Skalarprodukt-ähnlichen Grössen, zum Beispiel das Trägheitsmoment.
+Die Rotationsenergie eines starren Körpers kann aus dem Vektor $\omega$
+der Winkelgeschwindigkeit mit der (symmetrischen) Matrix des
+Trägheitsmomentes $\Theta$
+berechnet werden:
+$
+E=\frac12 \omega^t\Theta \omega.
+$
+Die allgemeinste Form eines Skalarproduktes verwendet daher eine
+symmetrische Matrix $M$, also eine Matrix mit der Eigenschaft
+$M=M^t$, und berechnet das Skalarprodukt zweier Vektoren $u$ und $v$
+als $u^tMv$.
+\begin{definition}
+Ist $M$ eine symmetrische $n\times n$-Matrix, dann ist
+\[
+u^t Mv
+=
+\langle u,v\rangle_M
+=
+\langle u,v\rangle
+\]
+das zugehörige verallgemeinerte Skalarprodukt.
+\end{definition}
+Das gewöhnliche Skalarprodukt ist in dieser allgemeinen Definition
+als der Fall $M=E$ enthalten.
+Die Matrix
+\[
+M=\begin{pmatrix}
+1& 0& 0& 0\\
+0&-1& 0& 0\\
+0& 0&-1& 0\\
+0& 0& 0&-1
+\end{pmatrix}
+\]
+führt auf das sogenannte Minkowski-Skalarprodukt, so benannt nach
+Hermann Minkowski, der ab 1896 Professor an der ETH war und bei dem
+Einstein studiert hat.
+Es erlangt in der speziellen und allgemeinen Relativitätstheorie von
+Einstein fundamentale Bedeutung.
+
+%
+% Basiswechsel
+%
+\subsection{Basiswechsel}
+Sei wieder $T$ die Matrix, die Koordinaten von der Basis $B'$ in die
+Basis $B$ umrechnet.
+Um das Skalarprodukt bezüglich der Basis $B'$ zu berechnen,
+müssen die Vektoren zuerst mit $T$ in die Basis $B$ umgerechnet werden,
+so dass dann die Formel für das Skalarprodukt in der Basis $B$
+verwendet werden kann:
+\[
+(T\xi)^tT\eta=\xi^tT^tT\eta
+\]
+Die Matrix $T^tT$ ist symmetrisch, der ``Spezialfall'' eines Skalarproduktes,
+welches mit Hilfe einer symmetrischen Matrix definiert worden ist,
+ist also unvermeidlich, wenn man die Basis wechseln will.
 

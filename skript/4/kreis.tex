@@ -3,11 +3,16 @@
 %
 % (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
-\section{Kreis und Kugel}
+\section{Kreis und Kugel\label{section:kreisundkugel}}
+\rhead{Kreis und Kugel}
 Da das Skalarprodukt die Länge eines Vektors berechnet, kann man
 jetzt auch die Menge der Punkte eines Kreises in der Ebene
 oder einer Kugel im Raum vektoriell beschreiben, und damit Standardaufgaben
 lösen.
+
+%
+% Gleichungen von Kreis und Kugel
+%
 \subsection{Gleichungen von Kreis und Kugel}
 \index{Kreis}
 \index{Kugel}
@@ -27,6 +32,10 @@ K(M,r)
 \{\vec p\;| \;(\vec p-\vec m)\cdot(\vec p-\vec m)=r^2\}.
 \]
 Die zweite Form ist für die Lösung konkreter Problem oft nützlicher.
+
+%
+% Durchstosspunkt einer Geraden mit einer Kugel
+%
 \subsection{Durchstosspunkt einer Geraden mit einer Kugel
 \label{durchstosspunktkugel}}
 Gesucht ist der Durchstosspunkt der Geraden
@@ -85,13 +94,25 @@ Fall wird daraus
 Die Diskriminante ist zum Beispiel immer positiv, wenn der Stützpunkt
 $\vec p_0$
 der Gerade innerhalb der Kugel ist, also $|\vec p_0-\vec m|<r$
+
+%
+% Thaleskreis
+%
 \subsection{Thaleskreis}
+\begin{figure}
+\centering
+\includegraphics{4/images/thales.pdf}
+\caption{Die Punkte $P$, von denen aus die Strecke $AB$ unter einem
+rechten Winkel erscheint, bilden den Thaleskreis.
+\label{thales-graphik}}
+\end{figure}
 Mit dem Skalarprodukt kann man ausdrücken, von welchen Punkten aus
 eine Strecke $AB$ unter einem rechten Winkel gesehen wird, es ist
 dies die Menge der Punkte $P$ mit der Eigenschaft
 \[
 \overrightarrow{AP}\cdot\overrightarrow{BP}=0
 \]
+(Abbildung~\ref{thales-graphik}).
 Unter Verwendung der Konvention, dass kleine Buchstaben für die
 Ortsvektoren der Punkte mit entsprechenden Grossbuchstaben stehen, ist
 dies gleichbedeutend mit
@@ -127,11 +148,27 @@ Diese Gleichung beschreibt einen Kreis um den Punkt $(\vec a+\vec b)/2$
 mit dem Radius $|\vec a-\vec b|/2$.
 Dies ist der Thaleskreis.
 
-\subsection{Tangentialebene in einem Punkt}
-Die Normale auf eine Kugel ist immer parallel zum Radiusvektor.
+%
+% Tangente in einem Punkt
+%
+\subsection{Tangente oder Tangentialebene in einem Punkt}
+\begin{figure}
+\centering
+\includegraphics{4/images/tangente.pdf}
+\caption{Tangente im Punkt $P_0$ an den Kreis um $M$ mit Radius $r$.
+Der Vektor $\vec{p}-\vec{p}_0$ muss auf dem
+Normalenvektor $\vec{n}$ senkrecht stehen, letzterer hat die Richtung
+von $
+%\overrightarrow{MP_0}=
+\vec{p}_0-\vec{m}$.
+\label{tangente-graphik}}
+\end{figure}
+Die Normale auf einen Kreis ist immer parallel zum Radiusvektor
+(Abbildung~\ref{tangente-graphik}),
+dasselbe gilt für eine Kugel.
 Daher kann
-man die Gleichung der Tangentialebene in einem Punkt $\vec p_0$ der Kugel
-sofort angeben:
+man die Gleichung der Tangente in einem Punkt $P_0$ an einen Kreis
+oder der Tangentialebene in einem Punkt der Kugel sofort angeben:
 \begin{satz}\label{kugeltangentialebene}
 Die Tangentialebene an eine Kugel mit Mittelpunktsortsvektor
 $\vec m$ und Radius  $r$ im Punkt mit Ortsektor $\vec p_0$ ist
@@ -156,6 +193,9 @@ Die Tantentengleichung ist also die Kreisgleichung, in der man
 eine Kopie von $\vec p$ durch den Berührpunkt $\vec p_0$ ersetzt
 hat.
 
+%
+% Tangente/Tangentialebene von einem Punkt aus
+%
 \subsection{Tangente von einem Punkt an einen Kreis}
 Es sind die Gleichungen der Tangenten an einen Kreis $K(M,r)$ zu finden,
 welche durch den Punkt $P$ gehen.
@@ -212,6 +252,10 @@ Das ist natürlich nicht überraschend, die Bedingung (\ref{thalesbedingung})
 ist ja nichts anderes als die Definition des Thaleskreises.
 Die algebraische Rechnung macht also nichts anderes als die klassische
 Konstruktion.
+
+%
+%  Reflexion eines Lichtstrahls und Ray-Tracing
+%
 \subsection{Reflexion eines Lichtstrahls}
 \begin{figure}
 \begin{center}

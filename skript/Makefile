@@ -38,6 +38,7 @@ TEXFILES = linsys.tex 							\
 	4/skalar.tex							\
 	4/skalarprodukt.tex						\
 	4/ueberbestimmt.tex						\
+	4/abbildungen.tex						\
 	5/chapter.tex							\
 	5/vektorprodukt.tex						\
 	6/chapter.tex							\
