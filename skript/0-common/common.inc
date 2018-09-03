@@ -12,10 +12,15 @@
 intersection {
 	sphere { o, 0.5 }
 	#declare rnormale = vnormalize(vcross(v1, v2));
-	plane { rnormale, vdot(P, rnormale) + 0.01 }
-	plane { -rnormale, -vdot(P, rnormale) + 0.01 }
-	plane { -v1, -vdot(P, v1) }
-	plane { -v2, -vdot(P, v2) }
+	plane { rnormale, vdot(o, rnormale) + 0.01 }
+	plane { -rnormale, -vdot(o, rnormale) + 0.01 }
+	plane { -v1, -vdot(o, v1) }
+	plane { -v2, -vdot(o, v2) }
+	pigment {
+		color c
+	}
+}
+sphere { o + 0.2 * vnormalize(v1) + 0.2 * vnormalize(v2), 0.05
 	pigment {
 		color c
 	}
