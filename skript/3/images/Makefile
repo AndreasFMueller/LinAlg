@@ -3,7 +3,7 @@
 #
 # (c) 2018 Prof Dr Andreas Müller, Hochschule Rappers
 #
-all:	coordsystem.pdf ebene.pdf schnittgerade.pdf
+all:	coordsystem.pdf ebene.pdf schnittgerade.pdf durchstosspunkt.pdf
 
 #
 # Coordinate system
@@ -43,4 +43,17 @@ schnittgerade.jpg:	schnittgerade.png Makefile
 
 schnittgerade.png:	schnittgerade.pov
 	povray +A0.1 -W1920 -H1080 -Oschnittgerade.png schnittgerade.pov
+
+#
+# Durchstosspunkt
+#
+durchstosspunkt.pdf:	durchstosspunkt.tex durchstosspunkt.jpg
+	pdflatex durchstosspunkt.tex
+
+durchstosspunkt.jpg:	durchstosspunkt.png Makefile
+	convert -extract 1464x1080+180+0 durchstosspunkt.png \
+		-density 300 -units PixelsPerInch durchstosspunkt.jpg
+
+durchstosspunkt.png:	durchstosspunkt.pov
+	povray +A0.1 -W1920 -H1080 -Odurchstosspunkt.png durchstosspunkt.pov
 
