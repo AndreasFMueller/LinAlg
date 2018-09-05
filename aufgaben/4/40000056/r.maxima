@@ -1,0 +1,49 @@
+B1 : matrix(
+	[  1,   phi, phi-1 ],
+	[  1, 1-phi,     0 ],
+	[  1,     0,   phi ]
+);
+
+B2 : matrix(
+	[ phi-1,     0, 1-phi ],
+	[     0,  -phi,     0 ],
+	[   phi, phi-1,   phi ]
+);
+
+C: ratsimp(expand(invert(B1)));
+C: subst(phi+1, phi^2, C);
+
+R: ratsimp(expand(B2 . C));
+R: subst(phi+1, phi^2, R);
+
+E: ratsimp(expand(transpose(R) . R));
+subst(phi+1, phi^2, E);
+
+r1: [ 1,  phi  , phi-1, 1, 0, 0 ];
+r2: [ 1, -phi+1,     0, 0, 1, 0 ];
+r3: [ 1,      0,   phi, 0, 0, 1 ];
+
+r2: r2 - r1;
+r3: r3 - r1;
+
+r2: expand(r2 * (1-2*phi)/5);
+r2: expand(subst(phi + 1, phi^2, r2));
+
+r3: expand(r3 + phi * r2);
+r3: expand(subst(phi + 1, phi^2, r3));
+
+r3: expand(subst(phi+1, phi^2, expand(r3 * (3-phi)/2)));
+
+r1: expand(subst(phi+1,phi^2,expand(r1 - r1[3] * r3)));
+r2: expand(subst(phi+1,phi^2,expand(r2 - r2[3] * r3)));
+
+r1: expand(subst(phi+1,phi^2,expand(r1 - r1[2] * r2)));
+
+iB1: matrix(
+    [ r1[4], r1[5], r1[6] ],
+    [ r2[4], r2[5], r2[6] ],
+    [ r3[4], r3[5], r3[6] ]
+);
+R: expand(subst(phi+1,phi^2,expand(B2 . iB1)));
+P: transpose(R) . R;
+expand(subst(phi+1,phi^2,expand(P)));

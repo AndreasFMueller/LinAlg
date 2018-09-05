@@ -1,0 +1,282 @@
+Vom Dodekaeder
+\begin{center}
+\begin{tikzpicture}
+\node at (0,0) {\includeagraphics[width=8cm]{dodekaeder.jpg}};
+
+\node at (4.1,-0.5) {$x$};
+\node at (-3,-1.2) {$y$};
+\node at (0,3.8) {$z$};
+
+\node[color=orange] at ( 2.5, 1.95) {$A_1$};
+\node[color=orange] at ( 1.1, 1.7 ) {$A_2$};
+\node[color=orange] at ( 2.5,-2.1 ) {$A_3$};
+\node[color=orange] at ( 0.5,-2.7 ) {$A_4$};
+\node[color=orange] at (-0.5, 1.9 ) {$A_5$};
+\node[color=orange] at (-3.1, 1.95) {$A_6$};
+\node[color=orange] at (-0.7,-1.2 ) {$A_7$};
+\node[color=orange] at (-3.3,-2.5 ) {$A_8$};
+
+\node[color=green] at ( 0.8, 0.9 ) {$A_9$};
+\node[color=green] at (-2.1, 1.0 ) {$A_{10}$};
+\node[color=green] at ( 1.1,-1.1 ) {$A_{11}$};
+\node[color=green] at (-1.7,-2.1 ) {$A_{12}$};
+
+\node[color=blue] at ( 1.0, 3.3 ) {$A_{13}$};
+\node[color=blue] at ( 1.0,-3.8 ) {$A_{14}$};
+\node[color=blue] at (-1.2, 3.2 ) {$A_{15}$};
+\node[color=blue] at (-1.2,-3.4 ) {$A_{16}$};
+
+\node[color=red] at ( 3.6,-0.1 ) {$A_{17}$};
+\node[color=red] at ( 2.5,-0.4 ) {$A_{18}$};
+\node[color=red] at (-1.7, 0.2 ) {$A_{19}$};
+\node[color=red] at (-3.9,-0.3 ) {$A_{20}$};
+\end{tikzpicture}
+\end{center}
+sind die Punkte
+\[
+\begin{aligned}
+A_1&=(1,1,1),&
+A_{10}&=(0,-\varphi,1/\varphi),&
+A_{13}&=(1/\varphi,0,\varphi),\\
+A_{15}&=(-1/\varphi,0,\varphi),&
+A_{18}&=(\varphi,-1/\varphi,0)
+\end{aligned}
+\qquad
+\text{mit}
+\quad
+\varphi=\frac{1+\sqrt{5}}2
+\]
+bekannt.
+\begin{teilaufgaben}
+\item
+Finden Sie eine Drehmatrix $R$, welche $A_{18}$ auf $A_{10}$ abbildet
+und die Seitenfläche $A_1A_9A_5A_{15}A_{13}$ unverändert lässt.
+\item
+Finden Sie den Drehwinkel der von $R$ beschriebenen Drehung.
+\end{teilaufgaben}
+
+\begin{hinweis}
+Führen sie die nötigen Matrizenrechnungen mit dem Taschenrechner durch.
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Ausser der bereits bekannten Zuordnung $A_{18}\rightarrow A_{10}$,
+können wir aus der Zeichnung zusätzlich ablesen
+$A_1\rightarrow A_{13}$
+und
+$A_{13}\rightarrow A_{15}$.
+Diese Zuordnungen können wir jetzt vektoriell schreiben:
+\begin{equation}
+R
+\underbrace{
+\begin{pmatrix}
+1&   \varphi&1/\varphi\\
+1&-1/\varphi&        0\\
+1&         0&  \varphi
+\end{pmatrix}
+}_{\displaystyle=B_1}
+=
+\underbrace{
+\begin{pmatrix}
+1/\varphi&        0&-1/\varphi\\
+        0& -\varphi&         0\\
+  \varphi&1/\varphi&   \varphi
+\end{pmatrix}
+}_{\displaystyle=B_2}
+\qquad\Rightarrow\qquad
+R=B_2B_1^{-1}.
+\label{40000056:b1}
+\end{equation}
+Die numerische Rechnung ergibt
+\begin{align*}
+B_1^{-1}
+&=
+\begin{pmatrix}
+   0.30902&  0.80902& -0.11803\\
+   0.50000& -0.30902& -0.19098\\
+  -0.19098& -0.50000&  0.69098
+\end{pmatrix}
+\\
+R
+=
+B_2B_1^{-1}
+&=
+\begin{pmatrix}
+   0.61803&  0.00000& -0.61803\\
+   0.00000& -1.61803&  0.00000\\
+   1.61803&  0.61803&  1.61803
+\end{pmatrix}
+\begin{pmatrix}
+   0.30902&  0.80902& -0.11803\\
+   0.50000& -0.30902& -0.19098\\
+  -0.19098& -0.50000&  0.69098
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+   0.30902&  0.80902& -0.50000\\
+  -0.80902&  0.50000&  0.30902\\
+   0.50000&  0.30902&  0.80902
+\end{pmatrix}
+\end{align*}
+\item
+Den Drehwinkel können wir mit der Spurformel berechnen:
+\begin{align*}
+\cos\alpha
+&=
+\frac{\operatorname{Spur}-1}{2}
+=
+\frac{\varphi-1}{2}
+=
+0.30902
+\\
+\Rightarrow\qquad
+\alpha
+&=
+72^\circ.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Die Inverse $B_1^{-1}$ in \eqref{40000056:b1}
+können wir auch exakt berechnen.
+Dazu beachten wir, dass sich alle Resultate während der Durchführung des
+Gaussalgorithmus in der Form $a+b\varphi$ geschrieben werden können,
+wobe $a$ und $b$ rationale Zahlen sind.
+Zum Beispiel ist
+\begin{align*}
+\varphi^2
+&=
+\varphi +1
+\\
+\frac1{\varphi}
+&=
+\frac{2}{1+\sqrt{5}}
+=
+\frac{2(1-\sqrt{5})}{1-5}
+=
+\frac{\sqrt{5}-1}{2}
+=
+\varphi-1
+\\
+\frac{1}{1-2\varphi}
+&=
+\frac{1}{1-1-\sqrt{5}}
+=
+\frac{\sqrt{5}}{5}
+=
+\frac{2\varphi-1}{5}
+\\
+\frac52\frac1{\varphi+2}
+&=
+\frac{3-\varphi}2
+\end{align*}
+Die zweite Beziehung erlaubt, die Terme $1/\varphi$ in $B_1$ zum Verschwinden
+zu bringen.
+Die letzten zwei Beziehungen sind die Reziproken der Pivot-Elemente, die
+bei der Durchführung des Gauss-Algorithmus zur Berechnung der Inversen
+auftreten.
+In der nachfolgenden Rechnung werden nach jedem Schritt $\varphi^2$
+durch $\varphi+1$ ersetzt:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&   \varphi&1/\varphi& 1& 0& 0\\
+1&-1/\varphi&        0& 0& 1& 0\\
+1&         0&  \varphi& 0& 0& 1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&   \varphi&\varphi-1& 1& 0& 0\\
+1&-\varphi+1&        0& 0& 1& 0\\
+1&         0&  \varphi& 0& 0& 1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&   \varphi&\varphi-1& 1& 0& 0\\
+0&1-2\varphi&1-\varphi&-1& 1& 0\\
+0& - \varphi&        1&-1& 0& 1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\varphi&     \varphi-1&             1&             0& 0\\
+0&      1& (3-\varphi)/5&(2\varphi-1)/5&(1-2\varphi)/5& 0\\
+0&      0&2(\varphi+2)/5& (\varphi-3)/5& (\varphi+2)/5& 1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\varphi&     \varphi-1&             1&             0&            0\\
+0&      1& (3-\varphi)/5&(2\varphi-1)/5&(1-2\varphi)/5&            0\\
+0&      0&             1&   \varphi/2-1&      -\frac12&(3-\varphi)/2\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\varphi&             0&(2\varphi-1)/2&(\varphi-1)/2&(4-3\varphi)/2\\
+0&      1&             0&\frac12       &(1-\varphi)/2&(\varphi-2)/2 \\
+0&      0&             1&   \varphi/2-1&      -\frac12&(3-\varphi)/2\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&0&(\varphi-1)/2&\varphi/2    &(3-2\varphi)/2\\
+0&1&0&\frac12      &(1-\varphi)/2&(\varphi-2)/2 \\
+0&0&1&  \varphi/2-1&     -\frac12&(3-\varphi)/2 \\
+\hline
+\end{tabular}
+\end{align*}
+Wir lesen ab 
+\[
+B_1^{-1}
+=
+\begin{pmatrix}
+(\varphi-1)/2&   \varphi/2 &(3-2\varphi)/2 \\
+\frac12      &(1-\varphi)/2&(\varphi-2)/2  \\
+(\varphi-2)/2&-\frac12     &(3-\varphi)/2
+\end{pmatrix}.
+\]
+Die Drehmatrix ist
+\begin{align*}
+R
+&=
+B_2B_1^{-1}
+=
+\begin{pmatrix}
+(\varphi-1)/2& \varphi/2   & -\frac12    \\
+-\varphi/2   &\frac12      &(\varphi-1)/2\\
+\frac12      &(\varphi-1)/2&\varphi/2
+\end{pmatrix}.
+\end{align*}
+Um den Drehwinkel zu bestimmen, wenden wir die Spurformel auf $R$ an:
+\begin{align*}
+\cos\alpha
+&=
+\frac{\varphi-1}{2}
+=
+\frac{\sqrt{5}-1}{2}
+\\
+\Rightarrow\qquad
+\alpha
+&=
+72^\circ.
+\end{align*}
+\end{diskussion}

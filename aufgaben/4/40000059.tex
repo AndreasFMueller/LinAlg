@@ -1,0 +1,150 @@
+Über einem gleichseitigen Sechseck in der $x$-$y$-Ebene mit Umkreisradius $1$ 
+wird eine Pyramide mit Spitze im Punkt $(0,0,1)$ errichtet.
+Der Punkt $A$ hat die Koordinaten $(\frac12,\frac{\sqrt{3}}2,0)$.
+Finden Sie eine Drehmatrix $R$, die die Pyramide links im Bild in die
+Pyramide rechts im Bild abbildet.
+Bestimmen sie ausserdem den Drehwinkel von $R$.
+
+\begin{center}
+\begin{tikzpicture}[thick,>=latex]
+
+\begin{scope}[xshift=-3.7cm]
+\node at (0,0) {\includeagraphics[width=0.4\hsize]{pyramid.jpg}};
+\node at (-3.3,-1.7) {$x$};
+\node at (3.3,-1.1) {$y$};
+\node at (0,3) {$z$};
+\node at (1.6,-2) {$A$};
+\end{scope}
+
+\begin{scope}[xshift=3.7cm]
+\node at (0,0) {\includeagraphics[width=0.4\hsize]{rotated.jpg}};
+\node at (-3.3,-1.7) {$x$};
+\node at (3.3,-1.1) {$y$};
+\node at (0,3) {$z$};
+\node at (-0.5,2.3) {$A'$};
+\end{scope}
+
+\end{tikzpicture}
+\end{center}
+
+\begin{loesung}
+Die Matrix $R$ bildet die Spitze $(0,0,1)$ auf $(1,0,0)$ ab und $A$
+auf $A'$.
+Um die Abbildungsmatrix zu bestimmen brauchen wir aber noch einen 
+weiteren Punkt.
+Man liest aus dem Bild ab, dass 
+$(1,0,0)$ abgebildet wird auf $(0, \frac{\sqrt{3}}{2},\frac12)$.
+Wir haben also die Abbildungen
+\[
+\begin{aligned}
+R
+\begin{pmatrix}
+1&\frac12         &0\\
+0&\frac{\sqrt{3}}2&0\\
+0&0               &1
+\end{pmatrix}
+&=
+\begin{pmatrix}
+0               &0&1\\
+\frac{\sqrt{3}}2&0&0\\
+\frac12         &1&0
+\end{pmatrix}
+&&\Rightarrow&
+R
+&=
+\begin{pmatrix}
+0               &0&1\\
+\frac{\sqrt{3}}2&0&0\\
+\frac12         &1&0
+\end{pmatrix}
+\begin{pmatrix}
+1&\frac12         &0\\
+0&\frac{\sqrt{3}}2&0\\
+0&0               &1
+\end{pmatrix}^{-1}
+\end{aligned}.
+\]
+Wir berechnen die inverse Matrix mit dem Gauss-Algorithmus
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac12&0&1&0&0\\
+0&\frac{\sqrt{3}}2&0&0&1&0\\
+0&0&1&0&0&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac12&0&1&0&0\\
+0&1&0&0&\frac{2}{\sqrt{3}}&0\\
+0&0&1&0&0&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&0&1&-\frac{1}{\sqrt{3}}&0\\
+0&1&0&0&\frac{2}{\sqrt{3}}&0\\
+0&0&1&0&0&1\\
+\hline
+\end{tabular}
+\end{align*}
+Kontrolle:
+\[
+\begin{pmatrix}
+1&\frac12&0\\
+0&\frac{\sqrt{3}}2&0\\
+0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+1&-\frac1{\sqrt{3}}&0\\
+0&\frac{2}{\sqrt{3}}&0\\
+0&0&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}.
+\]
+Daraus erhalten wir die Matrix 
+\[
+R=
+\begin{pmatrix}
+0               &0&1\\
+\frac{\sqrt{3}}2&0&0\\
+\frac12         &1&0
+\end{pmatrix}
+\begin{pmatrix}
+1&-\frac1{\sqrt{3}}&0\\
+0&\frac{2}{\sqrt{3}}&0\\
+0&0&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&0&1\\
+\frac{\sqrt{3}}2&-\frac12&0\\
+\frac12&\frac{\sqrt{3}}2&0
+\end{pmatrix}.
+\]
+Man kann durch nachrechnen prüfen, dass $RR^t=E$ und $\det(R)=1$, die 
+Matrix $R$ ist also tatsächlich eine Drehmatrix.
+Den Drehwinkel von $R$ erhalten wir aus der Spurformel
+\begin{align*}
+\cos\alpha &= \frac{\operatorname{Spur}A-1}{2} = -\frac{3}{4},
+\\
+\alpha &=138.59^\circ.\qedhere
+\end{align*}
+\end{loesung}
+
+\begin{bewertung}
+Abbildungspunkte $A$ und Spitze ({\bf A}) 1 Punkt,
+Dritter Abbildungspunkt ({\bf D}) 1 Punkt,
+inverse Matrix ({\bf I}) 1 Punkt,
+Matrizenprodukt ({\bf P}) 1 Punkt,
+Matrix $R$ ({\bf R}) 1 Punkt,
+Spurformel und Drehwinkel ({\bf W}) 1 Punkt.
+\end{bewertung}
+

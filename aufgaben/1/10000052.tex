@@ -1,0 +1,101 @@
+Berechnen Sie die Determinante und die inverse Matrix von
+\[
+A
+=
+\begin{pmatrix}
+2&4&6\\
+1&a&3a-3\\
+1&4&12
+\end{pmatrix}.
+\]
+Für welche Werte von $a$ existiert die inverse Matrix?
+
+\begin{loesung}
+Wir verwenden den Gauss-Algorithmus:
+\begin{align*}
+\begin{tabular}{|
+>{$}c<{$}
+>{$}c<{$}
+>{$}c<{$}|
+>{$}c<{$}
+>{$}c<{$}
+>{$}c<{$}|}
+\hline
+2&4&6   &1&0&0\\
+1&a&3a-3&0&1&0\\
+1&4&12  &0&0&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  2&3   & \frac12& 0& 0\\
+0&a-2&3a-6&-\frac12& 1& 0\\
+0&  2&9   &-\frac12& 0& 1\\
+\hline
+\end{tabular}
+\\
+\intertext{
+In der zweiten Zeile entsteht eine Nullzeile, wenn $a=2$ ist, dann existiert
+die inverse Matrix nicht.
+Wir nehmen daher für die weitere Rechnung an, dass $a\ne 0$.
+}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  2&3   & \frac12         &              0& 0\\
+0&  1&3   &-\frac1{2(a-2)}  &    \frac1{a-2}& 0\\
+0&  0&3   &-\frac{a-4}{2a-4}& -\frac{2}{a-2}& 1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  2&0   & \frac{a-3}{a-2}    & \frac{2}{a-2}       & -1     \\
+0&  1&0   & \frac{a-5}{2(a-2)} &    \frac3{a-2}      & -1     \\
+0&  0&1   &-\frac{a-4}{2a-4}   & -\frac{a-4}{6(a-2)} & \frac13\\
+\hline
+\end{tabular}
+\\
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  0&0   & \frac{2}{a-2}      & -\frac{4}{a-2}      &  1     \\
+0&  1&0   & \frac{a-5}{2(a-2)} &    \frac3{a-2}      & -1     \\
+0&  0&1   &-\frac{a-4}{6(a-2)} & -\frac{2}{3(a-2)}   & \frac13\\
+\hline
+\end{tabular}
+\end{align*}
+Die Pivot-Elemente waren $2$, $(a-2)$ und $3$, also ist die Determinante
+\[
+\det A = 6(a-2).
+\]
+Die inverse Matrix ist
+\[
+A^{-1}
+=
+\begin{pmatrix}
+\frac{2}{a-2}      & -\frac{4}{a-2}  &  1       \\
+\frac{a-5}{2a-4}   &  \frac{3}{a-2}  & -1       \\
+-\frac{a-4}{6a-12} & -\frac{2}{3a-6} & \frac13
+\end{pmatrix}
+\]
+Alternativ könnten wir die Inverse Matrix auch mit Hilfe der Adjungierten
+berechnen.
+\begin{align*}
+A^{-1}
+&=
+\frac1{6(a-2)}
+\begin{pmatrix}
+   12   &  -24  &   6(a-2) \\
+ 3(a-5) &   18  &  -6(a-2) \\
+-(a-4)  &   -4  &  2(a-2)
+\end{pmatrix}
+\end{align*}
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+
+
+

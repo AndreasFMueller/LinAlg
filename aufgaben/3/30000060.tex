@@ -1,0 +1,231 @@
+Eine sogenannte Blasenkammer kann dazu verwendet werden, 
+die Bahnen subatomarer Teilchen sichtbar zu machen.
+Sie funktioniert wie folgt.
+In eine mit flüssigem Wasserstoff gefüllte Kammer werden Elementarteilchen
+injiziert.
+Kurz zuvor wird der Druck stark reduziert, so dass die Temperatur
+der Flüssigkeit jetzt über dem Siedepunkt liegt.
+Die Teilchen ionisieren einzelne Wasserstoff-Moleküle, welche als
+Keime für Gasblasen dienen.
+Wenige Millisekunden später werden die Gasblasen mit Blitzlicht
+sichtbar gemacht und mit mehreren Kameras aufgenommen.
+Am CERN in Genf wurde 1973 mit der grossen Blasenkammer {\em Gargamelle} das
+$Z$-Boson nachgewiesen.
+
+Eine Kamera mit einem $320\times 180$-Chip und Brennweite $f=135$ 
+beobachtet eine würfelförmige Blasenkammer (Abbildung links) mit den Ecken
+$(\pm1,\pm1,\pm1)$ von einem Beobachtungsfenster im Punkt
+$P_0=(0.5,0.5,-1)$ aus und hat die nachstehende Aufnahme (rechts) gemacht.
+\begin{center}
+\begin{tikzpicture}[thick,>=latex,scale=1.1]
+
+\begin{scope}[xshift=-3cm]
+\node at (0,0) {
+\includeagraphics[width=0.33\hsize]{chamber.jpg}
+};
+\node at (-2.15,-1.00) {$x$};
+\node at ( 1.45,-1.50) {$z$};
+\node at (-0.05, 1.99) {$y$};
+\node at (-1.20,-1.05) {$I$};
+\node at ( 0.30,-1.20) {$P_0$};
+\node at ( 0.75, 0.93) {$P_1$};
+\node at (-0.60, 1.70) {$P_2$};
+\node at (-0.80, 0.40) {$S$};
+\end{scope}
+
+\begin{scope}[xshift=5cm]
+\node at (0,0) {
+\includeagraphics[width=0.583\hsize]{capture.jpg}
+};
+\node at (-4.45,-0.8) {$I$};
+\node at ( 0.10, 1.9) {$B_2$};
+\node at ( 1.50, 0.6) {$B_1$};
+\node at (-0.70, 0.3) {$S$};
+\end{scope}
+
+\end{tikzpicture}
+\end{center}
+Ein Teilchen tritt beim Punkt $I=(1,0,0)$ in die Kammer ein.
+Beim Punkt $S=(\frac18,\frac18,\frac38)$ zerfällt es.
+Auf der Aufnahme sind zwei Spuren zu sehen, die bei den Pixelkoordinaten
+$B_1=(204,114)$ und $B_2=(160,150)$ enden, weil dort die Teilchen die Kammer
+verlassen.
+Die Orientierung der Kamera wird durch die Drehmatrix
+\[
+D=\begin{pmatrix}
+0.894&\phantom{-}0.000&\phantom{-}0.447\\
+0.183&          -0.913&          -0.365\\
+0.408&\phantom{-}0.408&          -0.816
+\end{pmatrix}
+\]
+gegeben.
+\begin{teilaufgaben}
+\item
+Berechnen Sie die Koordinaten der Austrittspunkte $P_1$ und $P_2$ der Teilchen.
+\item
+Ein Physiker will wissen, welchen Winkel die Bahnen der Zerfallsprodukte
+einschliessen.
+Berechnen Sie den Winkel $\angle P_1SP_2$.
+\end{teilaufgaben}
+
+\begin{hinweis}
+Berechnen Sie die Matrizen- und Vektoroperationen mit dem Taschenrechner.
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Kameramatrix $K$ kann aus den Aufgabendaten abgelesen werden, sie ist
+\[
+K
+=
+\begin{pmatrix}
+135&  0&160\\
+  0&135& 90\\
+  0&  0&  1
+\end{pmatrix}.
+\]
+Zunächst müssen wir aus den Punkten $B_i$ dreidimensionale Vektoren
+in homogenen Koordinaten machen, also
+\[
+\begin{aligned}
+\vec b_1 &= \begin{pmatrix}204\\114\\1\end{pmatrix}
+&&\text{und}&
+\vec b_2 &= \begin{pmatrix}160\\150\\1\end{pmatrix}.
+\end{aligned}
+\]
+Mit der Formel $\vec{r} = (KD)^{-1} \vec b$ können wir zu jedem Punkt $P_i$
+den Richtungsvektor
+\[
+\begin{aligned}
+\vec r_1
+&=
+\begin{pmatrix}
+\phantom{-}0.73258 \\
+\phantom{-}0.24636 \\
+-0.73602
+\end{pmatrix}
+&&\text{und}&
+\vec r_2 &= \begin{pmatrix} 
+\phantom{-}0.48963\\
+\phantom{-}0.00283\\
+         - 0.97926
+\end{pmatrix}
+\end{aligned}
+\]
+der Geraden von der Kamera in $P_0$ aus zum Punkt $P_i$ berechnen.
+
+Der Punkt $P_1$ liegt auf der Ebene mit $x=-1$ und er erfüllt die
+Gleichung $\vec{p}_1 = \vec{p}_0 + t\vec{r}_1$.
+Wir kennen die $x$-Koordinate von $\vec{p}_0$, sie ist $0.5$.
+Die $x$-Koordinate muss daher die Gleichung 
+\[
+0.5 + t\cdot 0.73258 = -1
+\qquad\Rightarrow\qquad
+t = \frac{-1.5}{0.73258}=-2.0476.
+\]
+
+Analog gilt $\vec{p}_2=\vec{p}_0+s\vec{r}_2$.
+Die $z$-Koordinate davon ist
+\[
+1=-1+s\cdot (-0.97926)
+\qquad\Rightarrow\qquad
+s = \frac2{-0.97926}=-2.0424.
+\]
+
+Einsetzen der Werte für $t$ und $s$ ergibt
+\[
+\begin{aligned}
+P_1&=(-1, -0.004, -0.507)
+&&\text{und}&
+P_2&=(-0.5,0.494, 1)
+\end{aligned}
+\]
+für die gesuchten Punkte.
+\item
+Der Winkel kann mit der Zwischenwinkelformel berechnet werden.
+Es gilt
+\begin{align*}
+\cos\alpha
+&=
+\frac{\overrightarrow{SP_1}\cdot\overrightarrow{SP_2}}{|\overrightarrow{SP_1}|\cdot|\overrightarrow{SP_2}|}
+=
+\frac{0.73786}{1.1401\cdot 0.9579} = 0.67564,
+\\
+\Rightarrow\qquad
+\alpha
+&=
+47.496^\circ.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Man kann die Punkte $P_i$ natürlich auch mit der konventionellen Methode
+als Durchstoss\-punkte der Geraden $\vec{p}_0+t\vec{r}_i$ mit einer
+der Seitenebenen der Kammer berechnen.
+Für $P_1$ verwendet man die Ebenengleichung $x=-1$
+und für $P_2$ die Ebenengleichung $z=1$.
+So entstehen die Gleichungssysteme
+\begin{align*}
+&
+\begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}r<{$}| >{$}r<{$}|}
+\hline
+x&y&z&t&\\
+\hline
+1&0&0&-0.73258&0.5\\
+0&1&0&-0.24636&0.5\\
+0&0&1& 0.73602&-1\\
+1&0&0& 0.00000&-1\\
+\hline
+\end{tabular}
+&&
+\begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}r<{$}| >{$}r<{$}|}
+\hline
+x&y&z&s&\\
+\hline
+1&0&0&-0.48963&0.5\\
+0&1&0&-0.00283&0.5\\
+0&0&1& 0.97926&-1\\
+0&0&1& 0.00000& 1\\
+\hline
+\end{tabular}
+\\
+\intertext{mit den Lösungen}
+&
+\begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}r<{$}| >{$}r<{$}|}
+\hline
+x&y&z&t&\\
+\hline
+1&0&0&0& -1.00000\\
+0&1&0&0& -0.00444\\
+0&0&1&0& 0.50704\\
+0&0&0&1& -2.04756\\
+\hline
+\end{tabular}
+&&
+\begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}r<{$}| >{$}r<{$}|}
+\hline
+x&y&z&s&\\
+\hline
+1&0&0&0& -0.50000\\
+0&1&0&0& 0.49422\\
+0&0&1&0& 1.00000\\
+0&0&0&1& -2.04236\\
+\hline
+\end{tabular}
+\end{align*}
+in Übereinstimmung mit den oben gefundenen Daten.
+\end{diskussion}
+
+\begin{bewertung}
+Kameramatrix $K$ ({\bf K}) 1 Punkt,
+Punkte $B_i$ in homogenen Koordinaten ({\bf B}) 1 Punkt,
+Richtungsvektoren $\vec{r}_i$ ({\bf R}) 1 Punkt,
+Punkt $P_1$ ($\text{\bf P}_1$) 1 Punkt,
+Punkt $P_2$ ($\text{\bf P}_2$) 1 Punkt,
+Zwischenwinkel ({\bf W}) 1 Punkt.
+\end{bewertung}
+
+

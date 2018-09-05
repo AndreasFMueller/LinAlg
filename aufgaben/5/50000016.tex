@@ -1,0 +1,171 @@
+Können Sie die Matrix 
+\[
+A
+=
+\begin{pmatrix}
+  1&    1&1\\
+  1&a^2+1&a+1\\
+  1&a  +1&3
+\end{pmatrix}
+\]
+als Produkt $A=BB^t$ schreiben?
+Wenn ja bestimmen Sie eine solche Matrix $B$.
+
+\begin{loesung}
+Die Cholesky-Zerlegung ermöglicht, eine solche Zerlegung zu finden mit
+einer unteren Dreiecksmatrix $L$ der Stelle von $B$.
+
+Element 11:
+\[
+\begin{pmatrix}
+\color{red}1&&\\
+ &&\\
+ &&
+\end{pmatrix}
+=
+\begin{pmatrix}
+{\color{red}?}&0&0\\
+ & &0\\
+ & &
+\end{pmatrix}
+\begin{pmatrix}
+{\color{red}?}& & \\
+0& & \\
+0&0&
+\end{pmatrix}
+\quad\Rightarrow\quad
+{\color{red}?}^2 = 1
+\quad\Rightarrow\quad
+{\color{red}?}=1
+\]
+
+Element 12:
+\[
+\begin{pmatrix}
+1 & \color{red}1 & \\
+  &              & \\
+  &              &
+\end{pmatrix}
+=
+\begin{pmatrix}
+1           & 0 & 0\\
+\color{red}?&   & 0\\
+            &   &  
+\end{pmatrix}
+\begin{pmatrix}
+1 &\color{red}? &  \\
+0 &             &  \\
+0 &           0 &  
+\end{pmatrix}
+\quad\Rightarrow\quad
+1\cdot{\color{red}?} = 1
+\quad\Rightarrow\quad
+{\color{red}?} = 1
+\]
+
+Element 13:
+\[
+\begin{pmatrix}
+1 & 1 & \color{red}1\\
+  &   &             \\
+  &   &
+\end{pmatrix}
+=
+\begin{pmatrix}
+1           & 0 & 0\\
+1           &   & 0\\
+\color{red}?&   &
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 & \color{red}? \\
+0 &   &              \\
+0 &   &  
+\end{pmatrix}
+\quad\Rightarrow\quad
+1\cdot{\color{red}?} = 1
+\quad\Rightarrow\quad
+{\color{red}?} = 1
+\]
+
+Element 22:
+\[
+\begin{pmatrix}
+1&               1&1\\
+1&\color{red}a^2+1& \\
+ &                &
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&           0&0\\
+1&\color{red}?&0\\
+1&            &
+\end{pmatrix}
+\begin{pmatrix}
+1&           1&1\\
+0&\color{red}?& \\
+0&            &
+\end{pmatrix}
+\quad\Rightarrow\quad
+a^2+1=1+ {\color{red}?}^2
+\quad\Rightarrow\quad
+{\color{red}?}=a
+\]
+
+Element 23:
+\[
+\begin{pmatrix}
+1&1&1\\
+1&a^2+1&\color{red}a+1\\
+ &     &
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&0&0\\
+1&a&0\\
+1&\color{red}?&
+\end{pmatrix}
+\begin{pmatrix}
+1&1&1\\
+0&a&\color{red}?\\
+0& &
+\end{pmatrix}
+\quad\Rightarrow\quad
+a+1= 1^2 + a\cdot{\color{red}?}
+\quad\Rightarrow\quad
+{\color{red}?}=1
+\]
+
+Element 33:
+\[
+\begin{pmatrix}
+1&1&1\\
+1&a^2+1&a+1\\
+1&a+1&\color{red}3
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&0&0\\
+1&a&0\\
+1&1&\color{red}?
+\end{pmatrix}
+\begin{pmatrix}
+1&1&1\\
+0&a&1\\
+1&1&\color{red}?
+\end{pmatrix}
+\quad\Rightarrow\quad
+3=1^2+a^1+{\color{red}?}^2
+\quad\Rightarrow\quad
+{\color{red}?}=1
+\]
+Damit ist die Matrix $L$ gefunden:
+\[
+L=\begin{pmatrix}
+1&0&0\\
+1&a&0\\
+1&1&1
+\end{pmatrix},
+\]
+wie man durch nachrechnen des Produkts $LL^t$ verifizieren kann.
+\end{loesung}
+
