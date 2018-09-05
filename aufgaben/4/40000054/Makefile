@@ -11,5 +11,4 @@ tetraeder.jpg:	tetraeder.png
 	convert tetraeder.png -density 300 -units PixelsPerInch tetraeder.jpg
 
 tetraeder.png:	tetraeder.pov Makefile
-	../../../common/povray $(OPTIONS) -W1080 -H1080 -Otetraeder.png \
-		tetraeder.pov
+	povray $(OPTIONS) -W1080 -H1080 -Otetraeder.png tetraeder.pov

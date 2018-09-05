@@ -11,5 +11,4 @@ dodekaeder.jpg:	dodekaeder.png
 	convert dodekaeder.png -density 300 -units PixelsPerInch dodekaeder.jpg
 
 dodekaeder.png:	dodekaeder.pov Makefile
-	../../../common/povray $(OPTIONS) -W1080 -H1080 -Ododekaeder.png \
-		dodekaeder.pov
+	povray $(OPTIONS) -W1080 -H1080 -Ododekaeder.png dodekaeder.pov
