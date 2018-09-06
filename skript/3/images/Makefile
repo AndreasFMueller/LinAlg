@@ -3,7 +3,9 @@
 #
 # (c) 2018 Prof Dr Andreas Müller, Hochschule Rappers
 #
-all:	coordsystem.pdf ebene.pdf schnittgerade.pdf durchstosspunkt.pdf
+all:	3dimages tikzimages
+
+3dimages:	coordsystem.pdf ebene.pdf schnittgerade.pdf durchstosspunkt.pdf
 
 #
 # Coordinate system
@@ -56,4 +58,25 @@ durchstosspunkt.jpg:	durchstosspunkt.png Makefile
 
 durchstosspunkt.png:	durchstosspunkt.pov
 	povray +A0.1 -W1920 -H1080 -Odurchstosspunkt.png durchstosspunkt.pov
+
+#
+# TikZ-Images
+#
+
+tikzimages:	parallelogramm.pdf strahlensatz.pdf addition.pdf coord2d.pdf
+
+#
+# Vektorkonstruktionen
+#
+parallelogramm.pdf:	parallelogramm.tex
+	pdflatex parallelogramm.tex
+
+strahlensatz.pdf:	strahlensatz.tex
+	pdflatex strahlensatz.tex
+
+addition.pdf:	addition.tex
+	pdflatex addition.tex
+
+coord2d.pdf:	coord2d.tex
+	pdflatex coord2d.tex
 
