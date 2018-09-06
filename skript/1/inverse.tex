@@ -4,13 +4,15 @@
 % (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
 %
 \section{Inverse Matrix}
+\rhead{Inverse Matrix}
 \index{Matrix!inverse}
 Mit den neuen Notationen können wir jetzt auch das Verfahren zur simultanen
 Lösung mehrere Gleichungssysteme aus Abschnitt \ref{simultan} etwas
 übersichtlicher schreiben.
 Dazu brauchen wir die spezielle Matrix, die auf der Diagonalen Einsen hat
 und sonst nur Nullen.
-Diese Matrix heisst die Einheitsmatrix, wir bezeichnen sie mit
+Diese Matrix heisst die {\em Einheitsmatrix}, wir bezeichnen sie mit
+\index{Einheitsmatrix}
 \[
 I=
 \begin{pmatrix}1&\dots&0\\
@@ -21,7 +23,9 @@ I=
 unabhängig von der Anzahl Zeilen und Spalten, diese ist aus dem Zusammenhang
 zu entnehmen.
 
-Das Verfahren begann damit, an die gegebene Koeffizientenmatrix die Matrix $I$
+Das bereits in Abschnitt~\label{skript:subsection:standardrs}
+skizzierte
+Verfahren begann damit, an die gegebene Koeffizientenmatrix die Matrix $I$
 anzuhängen.
 Anschliessend wurde der Gauss-Algorithmus verwendet, bis in
 der linken Hälfte der Tabelle eine Einheitsmatrix stand.
@@ -86,7 +90,7 @@ b_n\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}=b,
 dieses $x$ ist also tatsächlich die gesuchte Lösung.
 
 Das Element auf Zeile $i$ in 
-\ref{zusammensetzen} ist
+\eqref{zusammensetzen} ist
 \[
 x_i=c_{i1}b_1+c_{i2}b_2+\dots+c_{in}b_n,
 \]
@@ -100,8 +104,9 @@ Die Matrix $C$ hat also offenbar eine ganz besondere Bedeutung für die
 Lösung linearer Gleichungssysteme, ist sie einmal bestimmt, kann man das
 Gleichungssystem für jede beliebige rechte Seite lösen.
 Daher definieren wir
-\begin{definition}Die Matrix $C$ aus \ref{gaussinverse} heisst inverse
-Matrix von $A$, geschrieben $A^{-1}=C$, sie existiert immer, wenn $A$ regulär ist.
+\begin{definition}Die Matrix $C$ aus \eqref{gaussinverse} heisst die
+{\em inverse Matrix} von $A$, geschrieben $A^{-1}=C$.
+Sie existiert immer, wenn $A$ regulär ist.
 \end{definition}
 Den Algorithmus zur Bestimmung der inversen Matrix kann also symbolisch
 als
