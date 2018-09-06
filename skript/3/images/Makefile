@@ -63,7 +63,8 @@ durchstosspunkt.png:	durchstosspunkt.pov
 # TikZ-Images
 #
 
-tikzimages:	parallelogramm.pdf strahlensatz.pdf addition.pdf coord2d.pdf
+tikzimages:	parallelogramm.pdf strahlensatz.pdf addition.pdf coord2d.pdf \
+	spiegelung.pdf drehung.pdf
 
 #
 # Vektorkonstruktionen
@@ -79,4 +80,10 @@ addition.pdf:	addition.tex
 
 coord2d.pdf:	coord2d.tex
 	pdflatex coord2d.tex
+
+spiegelung.pdf:	spiegelung.tex
+	pdflatex spiegelung.tex
+
+drehung.pdf:	drehung.tex
+	pdflatex drehung.tex
 
