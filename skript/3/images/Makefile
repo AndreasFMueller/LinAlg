@@ -64,7 +64,7 @@ durchstosspunkt.png:	durchstosspunkt.pov
 #
 
 tikzimages:	parallelogramm.pdf strahlensatz.pdf addition.pdf coord2d.pdf \
-	spiegelung.pdf drehung.pdf
+	spiegelung.pdf drehung.pdf schnittpunkttableau.pdf geradeabb.pdf
 
 #
 # Vektorkonstruktionen
@@ -86,4 +86,10 @@ spiegelung.pdf:	spiegelung.tex
 
 drehung.pdf:	drehung.tex
 	pdflatex drehung.tex
+
+schnittpunkttableau.pdf:	schnittpunkttableau.tex
+	pdflatex schnittpunkttableau.tex
+
+geradeabb.pdf:	geradeabb.tex
+	pdflatex geradeabb.tex
 
