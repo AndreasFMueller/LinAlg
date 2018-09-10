@@ -240,10 +240,67 @@ zusammensetzen.
 % Komposition linearer Abbildungen
 %
 \subsection{Zusammensetzung linearer Abbildungen}
+Was für eine Matrix erhält man, wenn man zwei lineare Abbildungen,
+je beschrieben durch Matrizen $A$ und $B$ nacheinander ausführt?
+Sei also
+\[
+\mathbb R^n 
+\to
+\mathbb R^m
+\to
+\mathbb R^l
+\]
 
 %
 % Basiswechsel
 %
 \subsection{Basiswechsel}
+Eine lineare Abbildung wird in einer Basis $\mathcal{B}$ durch
+eine Matrix $A$ beschrieben, in den Spalten stehen die Bilder
+der Standardbasisvektoren.
+Sowohl die Standardbasisvektoren wie auch die Komponenten in den
+Spalten sind von der Basis abhängig, die Abbildungsmatrix $A$
+ist also ebenfalls basisabhängig.
+Damit stellt sich die Frage, wie sich die Matrix ändert, wenn
+man die Basis wechselt.
+
+Wir möchten jetzt eine neue Basis $\mathcal{C}$ verwenden, die
+Basistransformationsmatrix $T$ sei gegeben.
+Die Matrix $T$ rechnet die Koordinaten eines Vektors in der Basis
+$\mathcal{B}$ um in Koordinaten in der Basis $\mathcal{C}$.
+Um das Bild eines Vektors $\vec{u}$ in der Basis $\mathcal{C}$ 
+zu berechnen, muss man ihn erst in $\mathcal{B}$ umrechnen, was
+mit der inversen Matrix $T^{-1}$ geschehen kann.
+Dann erst kann man $A$ anwenden, erhält dann aber einen Vektor
+in der Basis $\mathcal{B}$, man muss ihn also erst wieder mit $T$ in die
+Basis $\mathcal{C}$ umrechnen.
+Alles zusammen ist in der Basis $\mathcal{C}$ der Bildvektor 
+$TAT^{-1}u$.
+Wir fassen das Resultat zusammen im folgenden Satz.
+
+\begin{satz}
+Sei $T$ die Transformationsmatrix, die Koordinaten von der Basis
+$\mathcal{B}$ in die Basis $\mathcal{C}$ umrechnet.
+Die lineare Abbildung, die in der Basis $\mathcal{B}$ durch die
+Matrix $A$ beschrieben wird, wird in der Basis $\mathcal{C}$ durch
+die Matrix
+\[
+A'=TAT^{-1}
+\]
+beschrieben.
+\end{satz}
+
+%\[
+%\begin{tikzcd}
+%\mathbb R^n \arrow{r}{A} \arrow{d}{T}
+%	& \mathbb R^n \arrow{d}{T}
+%\\
+%\mathbb R^n \arrow{r}{A'}
+%	& \mathbb R^n
+%\end{tikzcd}
+%\]
+
+
+
 
 

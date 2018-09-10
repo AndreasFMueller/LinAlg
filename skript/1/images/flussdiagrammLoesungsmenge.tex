@@ -1,0 +1,50 @@
+%
+% flussdiagrammLoesungsmenge.tex -- Entscheidungsdiagram über Lösbarkeit
+%
+% (c) 2017 Tabea Méndez, Hochschule Rapperswil
+%
+\documentclass[tikz]{standalone}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{pifont}
+\usetikzlibrary{arrows,shapes.geometric}
+\begin{document}
+
+\definecolor{greenT}	{RGB}{0,170,0}
+
+\begin{tikzpicture}[>=latex, scale=1,
+    connection/.style={draw=black,thick},
+	processStep/.style={rectangle,inner sep=3pt,minimum height=1cm,minimum width=3cm,draw=black,semithick},	
+	decision/.style={diamond,inner sep=-1pt,minimum height=1.5cm,minimum width=3cm,draw=black,semithick,aspect=2.5},	
+	start/.style={circle,inner sep=0pt,minimum size=16.5pt, draw=black,fill=black,semithick},	
+   connection/.style={draw=black,thick,->},
+]	
+
+	\def\step{2.3};
+	\def\shift{5};
+
+
+
+	\node[start](begin) at(0,-0.2*\step){ };
+	\node[decision](s0) at(0,-1*\step){\textcolor{red}{$\ast=0\,?$}};
+	\node[decision,inner sep=1pt](s1) at(0,-2*\step){\textcolor{greenT}{\parbox{3cm}{\centering Hat es frei wähl-\\ bare Variabeln?}}};
+
+	\node[processStep](s2) at(\shift,-1*\step){Keine Lösung};
+	\node[processStep](s3) at(\shift,-2*\step){Eine Lösung};
+	\node[processStep](s4) at(0,-2.9*\step){$\infty$-viele Lösungen};
+
+
+	\draw[connection](begin)--(s0);
+	\draw[connection](s0)--node[right,yshift=2pt]{\footnotesize Ja}(s1);
+	\draw[connection](s0)--node[above]{\footnotesize Nein}(s2);
+	\draw[connection](s1)--node[above]{\footnotesize Nein}(s3);
+	\draw[connection](s1)--node[right,yshift=2pt]{\footnotesize Ja}(s4);
+
+\end{tikzpicture}
+
+\end{document}
+
