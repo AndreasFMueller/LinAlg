@@ -1,53 +1,146 @@
-Berechnen Sie $A^{47}e_1$ für die Matrix
+Betrachten Sie die Matrix
 \[
-A=\begin{pmatrix}
-3&1\\
-1&3
+A=
+\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+0&-\frac1{\sqrt{2}}&\frac1{\sqrt{2}}\\
+\frac2{\sqrt{6}}&-\frac1{\sqrt{6}}&-\frac1{\sqrt{6}}
 \end{pmatrix}
 \]
+\begin{teilaufgaben}
+\item
+Ist $A$ orthogonal?
+\item
+Bestimmen Sie die Determinante von $A$.
+\item
+Falls $A$ eine  Drehmatrix ist: wie gross ist der Drehwinkel?
+\end{teilaufgaben}
 
-\thema{Eigenvektoren}
-\thema{Eigenwerte}
-\thema{charakteristisches Polynom}
-\thema{Matrixpotenzen}
+\thema{orthogonale Matrix}
+\thema{Determinante}
+\thema{Drehwinkel}
 
 \begin{loesung}
-Die Wirkung von $A$ auf Eigenvektoren ist einfach zu ermitteln,
-denn es gilt $Av_{\pm}=\lambda_{\pm}v_{\pm}$.
-Das charakteristische Polynom ist
+\begin{teilaufgaben}
+\item
+Um nachzuprüfen, dass die Matrix orthogonal ist, muss das Produkt
+$A^tA$ berechnet werden:
 \begin{align*}
-\left|\,\begin{matrix}3-\lambda&1\\1&3-\lambda\end{matrix}\,\right|
+A^tA
 &=
-(3-\lambda)^2-1=\lambda^2-6\lambda+8=0
+\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+0&-\frac1{\sqrt{2}}&\frac1{\sqrt{2}}\\
+\frac2{\sqrt{6}}&-\frac1{\sqrt{6}}&-\frac1{\sqrt{6}}
+\end{pmatrix}^t
+\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+0&-\frac1{\sqrt{2}}&\frac1{\sqrt{2}}\\
+\frac2{\sqrt{6}}&-\frac1{\sqrt{6}}&-\frac1{\sqrt{6}}
+\end{pmatrix}
 \\
-\lambda_{\pm}&=3\pm\sqrt{9-8}=3\pm1.
+&=
+\begin{pmatrix}
+\frac1{\sqrt{3}}&0&\frac2{\sqrt{6}}\\
+\frac1{\sqrt{3}}&-\frac1{\sqrt{2}}&-\frac1{\sqrt{6}}\\
+\frac1{\sqrt{3}}&\frac1{\sqrt{2}}&-\frac1{\sqrt{6}}
+\end{pmatrix}
+\begin{pmatrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+0&-\frac1{\sqrt{2}}&\frac1{\sqrt{2}}\\
+\frac2{\sqrt{6}}&-\frac1{\sqrt{6}}&-\frac1{\sqrt{6}}
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\frac13+\frac46 & \frac13-\frac26         & \frac12 -\frac26       \\
+\frac13-\frac26 & \frac13+\frac12+\frac16 & \frac13-\frac12+\frac16\\
+\frac13-\frac26 & \frac13-\frac12+\frac16 & \frac13+\frac12+\frac16
+\end{pmatrix}
+\\
+&=\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}
+=E
 \end{align*}
-Für die Eigenwert $\lambda_+=4$ und $\lambda_-=2$ ergeben sich die
-Eigenvektoren
-\[
-v_+=\begin{pmatrix}1\\1\end{pmatrix},\qquad
-v_-=\begin{pmatrix}1\\-1\end{pmatrix}
-\]
-Jetzt kann man
-\[
-e_1=\frac12(v_++v_-)
-\]
-schreiben, und damit $A^{47}e_1$ ausrechnen
-\[
-A^{47}e_1=\frac12( \lambda_+^{47}v_++\lambda_-^{47}v_-)
-=\frac12\begin{pmatrix}
-4^{47}+2^{47}\\
-4^{47}-2^{47}
+Somit ist $A^tA=E$, $A$ ist also orthogonal.
+\item
+Eine orthogonale Matrix kann nur die Determinante $1$ oder $-1$ haben.
+Sie hat Determinante $1$, wenn der dritte Vektor das Vektorprodukt der
+ersten zwei ist, also
+\begin{align*}
+\begin{pmatrix}
+\frac1{\sqrt{3}}\\0\\\frac{2}{\sqrt{6}}
+\end{pmatrix}\times\begin{pmatrix}
+\frac1{\sqrt{3}}\\-\frac1{\sqrt{2}}\\-\frac1{\sqrt{6}}
 \end{pmatrix}
-=\frac{2^{47}}2\begin{pmatrix}
-2^{47}+1\\
-2^{47}-1
+&=
+\begin{pmatrix}
+0\cdot\bigl(-\frac1{\sqrt{6}}\bigr)-\bigl(-\frac1{\sqrt{2}}\bigr)\cdot\frac2{\sqrt{6}}\\
+\frac2{\sqrt{6}}\cdot\frac1{\sqrt{3}}-\bigl(-\frac1{\sqrt{6}} \bigr)\cdot\frac1{\sqrt{3}}\\
+\frac1{\sqrt{3}}\cdot\bigl(-\frac1{\sqrt{2}}\bigr)-\frac1{\sqrt{3}}\cdot 0
 \end{pmatrix}
-=2^{46}\begin{pmatrix}
-2^{47}+1\\
-2^{47}-1
-\end{pmatrix}.
+\\
+&=\begin{pmatrix}
+\frac1{\sqrt{3}}\\
+\frac23\cdot\frac1{\sqrt{2}}+\frac13\cdot\frac1{\sqrt{2}}\\
+-\frac1{\sqrt{6}}
+\end{pmatrix}
+\\
+&=\begin{pmatrix}
+\frac1{\sqrt{3}}\\
+\frac1{\sqrt{2}}\\
+-\frac1{\sqrt{6}}
+\end{pmatrix}
+\\
+\end{align*}
+Das Vektorprodukt der ersten zwei Spalten ist also tatsächlich
+identisch mit dem dritten Vektor, die Determinante muss also $1$ sein.
+
+Natürlich kann man die Determinante auch mit der Sarrusschen Formel ermitteln:
+\begin{align*}
+\left|
+\begin{matrix}
+\frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
+0&-\frac1{\sqrt{2}}&\frac1{\sqrt{2}}\\
+\frac2{\sqrt{6}}&-\frac1{\sqrt{6}}&-\frac1{\sqrt{6}}
+\end{matrix}
+\right|
+&=
+\frac1{\sqrt{3}}\cdot\biggl(-\frac1{\sqrt{2}}\biggr)\cdot\biggl(-\frac1{\sqrt{6}}\biggr)
++
+\frac1{\sqrt{3}}\cdot\frac1{\sqrt{2}}\cdot\frac2{\sqrt{6}}
+\\
+&\qquad 
++
+\frac1{\sqrt{3}}\cdot0\cdot\biggl(-\frac1{\sqrt{6}}\biggr)
+-
+\frac2{\sqrt{6}}\cdot\biggl(-\frac1{\sqrt{2}}\biggr)\cdot\frac1{\sqrt{3}}
+\\
+&\qquad
+-
+\biggl(-\frac1{\sqrt{6}}\biggr)\cdot\frac1{\sqrt{2}}\cdot \frac1{\sqrt{3}}
+-
+\biggl(-\frac1{\sqrt{6}}\biggr)\cdot0\cdot\frac1{\sqrt{3}}
+\\
+&=
+\frac16+\frac26+0+\frac26+\frac16+0=1
+\end{align*}
+\item
+Der Drehwinkel kann jetzt mit der Spurformel ermittelt werden:
+\begin{align*}
+\cos \alpha
+&=\frac{\operatorname{Spur}(A)-1}2
+=\frac{\frac1{\sqrt{3}}-\frac1{\sqrt{2}}-\frac1{\sqrt{6}}-1}2
+=\frac{\sqrt{2}-\sqrt{3}-1-\sqrt{6}}{2\sqrt{6}}
+\\
+&=-0.7690024
+\\
+\alpha&=140.264^\circ.
 \qedhere
-\]
+\end{align*}
+\end{teilaufgaben}
 \end{loesung}
 

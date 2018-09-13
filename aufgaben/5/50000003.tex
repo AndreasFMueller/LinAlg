@@ -1,89 +1,173 @@
-Gegeben sind
+Die Punkte
+\begin{align*}
+P_1&=(1,0),
+&P_2&=\biggl(\frac{-1+\sqrt{5}}4, \frac{\sqrt{10+2\sqrt{5}}}4 \biggr),
+&P_3&=\biggl(\frac{-1-\sqrt{5}}4, \frac{\sqrt{10-2\sqrt{5}}}4 \biggr),\\
+&&P_5&=\biggl(\frac{-1+\sqrt{5}}4,-\frac{\sqrt{10+2\sqrt{5}}}4 \biggr),
+&P_4&=\biggl(\frac{-1-\sqrt{5}}4,-\frac{\sqrt{10-2\sqrt{5}}}4 \biggr)
+\end{align*}
+bilden in der $x$-$y$-Ebene ein regelmässiges Fünfeck mit Seitenlänge
 \[
-A=\begin{pmatrix}1&2\\2&1\\2&1\end{pmatrix},\qquad
-b=\begin{pmatrix}2\\2\\2\end{pmatrix}.
+a=\sqrt{\frac{5-\sqrt{5}}2}.
 \]
-Das Gleichungssystem $Ax=b$ ist überbestimmt, es wurde früher
-gezeigt, dass die beste Lösung aus dem (nicht überbestimmten)
-Gleichungssystem
-\[
-A^tAx=A^tb
-\]
-bestimmt werden kann.
+Es ist dem Einheitskreis einbeschrieben.
+"Uber diesem Fünfeck  soll jetzt eine fünfseitige Pyramide mit
+Spitze $S$ errichtet werden.
+Die Kanten der Pyramide sollen alle die gleiche Länge haben.
 \begin{teilaufgaben}
-\item Bestimmen Sie $A^tA$ und $A^tb$.
-\item $A^tA$ ist eine symmetrische Matrix, finden Sie die
-Cholesky-Zerlegung $A^tA=LL^t$.
-\item Lösen Sie $Ly=A^tb$.
-\item Lösen Sie $L^tx=y$.
+\item
+Wie hoch ist die Pyramide?
+\item
+Bestimmen Sie die Normale der Ebene durch die Punkte
+$S$, $P_3$ und $P_4$?
+\item
+Wie weit ist der Punkt $P_1$ von der Ebene durch die Punkte
+$S$, $P_3$ und $P_4$ entfernt?
 \end{teilaufgaben}
 
-\thema{Cholesky-Zerlegung}
+\thema{Vektorprodukt}
+\thema{Abstand}
+
+\begin{hinweis}
+Für die Normale in Teilaufgabe b) reicht ein numerisches Resultat
+mit 5 Stellen Genauigkeit.
+\end{hinweis}
+
 
 \begin{loesung}
 \begin{teilaufgaben}
-\item
-\begin{align*}
-A^tA&=
-\begin{pmatrix}1&2&2\\2&1&1\end{pmatrix}
-\begin{pmatrix}1&2\\2&1\\2&1\end{pmatrix}
+\item Die Höhe kann mit dem Satz von Pythagoras ausgerechnet werden:
+\[
+h^2+1^2=a^2\quad a=\sqrt{a^2-1}
 =
+\sqrt{\frac{5-\sqrt{5}}2-1}
+=
+\sqrt{\frac{3-\sqrt{5}}2}.
+\]
+Wegen 
+\[
+\biggl(\frac{\sqrt{5}-1}2\biggr)^2=\frac{5-2\sqrt{5}+1}{4}=\frac{3-\sqrt{5}}2
+\]
+ist auch $a=(\sqrt{5}-1)/2$.
+\item
+Wir brauchen die Normale der Ebene durch die genannten Punkte.
+Wir bekommen Sie als Vektorprodukt der Vektoren
+$\overrightarrow{SP_3}$
+und
+$\overrightarrow{SP_4}$:
+\begin{align*}
+\vec n
+&=
+\left(
 \begin{pmatrix}
-9&6\\
-6&6
+\frac{-1-\sqrt{5}}4\\
+\frac{\sqrt{10-2\sqrt{5}}}4\\
+0
+\end{pmatrix}
+-
+\begin{pmatrix}
+0\\0\\\sqrt{\frac{3-\sqrt{5}}2}
+\end{pmatrix}
+\right)
+\times
+\left(
+\begin{pmatrix}
+\frac{-1-\sqrt{5}}4\\
+-\frac{\sqrt{10-2\sqrt{5}}}4\\
+0
+\end{pmatrix}
+-
+\begin{pmatrix}
+0\\0\\\sqrt{\frac{3-\sqrt{5}}2}
+\end{pmatrix}
+\right)
+\\
+&=
+\begin{pmatrix}
+\frac{-1-\sqrt{5}}4\\
+\frac{\sqrt{10-2\sqrt{5}}}4\\
+-\sqrt{\frac{3-\sqrt{5}}2}
+\end{pmatrix}
+\times
+\begin{pmatrix}
+\frac{-1-\sqrt{5}}4\\
+-\frac{\sqrt{10-2\sqrt{5}}}4\\
+-\sqrt{\frac{3-\sqrt{5}}2}
 \end{pmatrix}
 \\
-A^tb&=
-\begin{pmatrix}1&2&2\\2&1&1\end{pmatrix}
-\begin{pmatrix}2\\2\\2\end{pmatrix}
+&=\begin{pmatrix}
+  -0.80902\\
+  \phantom{-}0.58779\\
+  -0.61803   
+\end{pmatrix}
+\times
+\begin{pmatrix}
+  -0.80902\\
+  -0.58779\\
+  -0.61803
+\end{pmatrix}
+=\begin{pmatrix}
+  -0.72654\\
+   0\\
+   0.95106    
+\end{pmatrix}.
+\end{align*}
+Die Normierung der Normalen ist nicht wichtig, wir hätten für die
+Berechnung auch Vielfache der Faktoren im Vektorprodukt verwenden können.
+\item
+Die Abstandsformel liefert:
+\begin{align*}
+d&=\frac{\vec n\cdot \overrightarrow{SP_1}}{|\vec n|}
 =
 \begin{pmatrix}
-10\\8
+-0.60706\\
+\phantom{-}0.00000\\
+\phantom{-}0.79465
 \end{pmatrix}
-\end{align*}
-\item Nach dem in der Vorlesung besprochenen Algorithmus für die
-Cholesky-Zerlegung bestimmt man zuerst das Element in der Ecke
-links oben:
-\[
-L=\begin{pmatrix}
-3&0\\
-2&?
-\end{pmatrix}
-\]
-Aus der Gleichung
-\[
-LL^t=\begin{pmatrix}9&6\\6&1+?^2\end{pmatrix}=\begin{pmatrix}9&6\\6&6\end{pmatrix}
-\]
-schliesst man dann, dass $?=\sqrt{2}$, also
-\[
-L=\begin{pmatrix}
-3&0\\2&\sqrt{2}
-\end{pmatrix}.
-\]
-\item $y$ ist Lösung des Gleichungssystems
-\[
+\cdot
 \begin{pmatrix}
-3&0\\
-2&\sqrt{2}
-\end{pmatrix}y=\begin{pmatrix}10\\8\end{pmatrix}
-\quad
-\Rightarrow
-\quad
-y_1=\frac{10}{3},\quad y_2=\frac{4}{3\sqrt{2}}
-\]
-\item $x$ ist Lösung des Gleichungsystems
-\[
-\begin{pmatrix}
-3&2\\
-0&\sqrt{2}
-\end{pmatrix}x=\begin{pmatrix}
-\frac{10}{3}\\
-\frac{4}{3\sqrt{2}}
+-1\\0\\\sqrt{\frac{3-\sqrt{5}}2}
 \end{pmatrix}
-\quad\Rightarrow\quad
-x_2=\frac23,\quad x_1=\frac23
+=
+\begin{pmatrix}
+-0.60706\\
+\phantom{-}0.00000\\
+\phantom{-}0.79465
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+-1.00000\\
+\phantom{-}0.00000\\
+\phantom{-}0.61803
+\end{pmatrix}
+\\
+&=
+0.60706+0.49112
+=
+1.0982.
 \qedhere
-\]
+\end{align*}
 \end{teilaufgaben}
 \end{loesung}
+
+\begin{diskussion}
+Solche fünfseitigen Pyramiden enstehen als Ecken eines Ikosaeders.
+\end{diskussion}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Höhe der Pyramide ({\bf H}) 1 Punkt,
+\item
+Normale mit Hilfe des Vektorproduktes ({\bf N}) 1 Punkt,
+Vektorproduktformel ({\bf V}) 1 Punkt,
+Korrektes Resultat der Rechnung ({\bf R}) 1 Punkt,
+\item
+Abstandsformel ({\bf F}) 1 Punkt,
+Abstand ({\bf A}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
+
+
 

@@ -1,0 +1,103 @@
+Finden Sie die LU- und LR-Zerlegung der Matrix
+\[
+A=\begin{pmatrix}
+2&1\\
+3&4
+\end{pmatrix}.
+\]
+
+\thema{LU-Zerlegung}
+\thema{LR-Zerlegung}
+\thema{Gauss-Algorithmus}
+
+\begin{loesung}
+Für die LU-Zerlegung muss der Gauss-Algorithmus durchgeführt werden:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+2\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+&1\\
+3%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,-2)(-8,10)(1,10)(1,-2)
+\end{picture}
+&4\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac12\\
+0&\frac52
+\begin{picture}(0,0)
+\color{red}\put(-3,3){\circle{15}}
+\end{picture}\\
+\hline
+\end{tabular}
+\]
+Daraus liest man 
+\[
+L=\begin{pmatrix}
+2\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+&0\\3%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,-2)(-8,10)(1,10)(1,-2)
+\end{picture}
+&\frac52
+\begin{picture}(0,0)
+\color{red}\put(-3,3){\circle{15}}
+\end{picture}
+\end{pmatrix}\qquad\text{und}\qquad
+U=\begin{pmatrix}
+1&\frac12\\0&1
+\end{pmatrix}
+\]
+ab.
+Man kann durch Nachrechnen prüfen, dass $A=LU$.
+
+In der LR-Zerlegung möchte man die Diagonal-Elemente, die jetzt in
+der Matrix $L$ stehen, in die Matrix $U$ verschieben. Die Diagonalelemente
+sind
+\[
+D=\begin{pmatrix}2&0\\0&\frac52\end{pmatrix}.
+\]
+Die neue Zerlegung ist damit:
+\begin{align*}
+L_0&=LD^{-1}=
+\begin{pmatrix}
+1&0\\
+\frac32&1
+\end{pmatrix}
+\\
+R&=DU=
+\begin{pmatrix}
+2&1\\
+0&\frac52
+\end{pmatrix}
+\\
+L_0R&=
+\begin{pmatrix}
+1&0\\
+\frac32&1
+\end{pmatrix}
+\begin{pmatrix}
+2&1\\
+0&\frac52
+\end{pmatrix}
+=\begin{pmatrix}
+1\cdot 2+0\cdot 0 & 1 \cdot 1+0\cdot \frac52\\
+\frac32\cdot 2+1\cdot 0&\frac32\cdot 1+1\cdot\frac52
+\end{pmatrix}
+=
+\begin{pmatrix}
+2&1\\3&4
+\end{pmatrix}.
+\qedhere
+\end{align*}
+\end{loesung}
+
+

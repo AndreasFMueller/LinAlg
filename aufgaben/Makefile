@@ -6,7 +6,7 @@
 all:	aufgabensammlung.pdf
 
 TEXFILES = aufgabensammlung.tex uebungen.tex \
-	1.tex 2.tex 3.tex 4.tex 5.tex 6.tex o.tex
+	1.tex 2.tex 3.tex 4.tex 5.tex 6.tex 7.tex 8.tex o.tex
 
 aufgabensammlung.pdf:	$(TEXFILES) aufgabensammlung.ind thema.tex
 	pdflatex aufgabensammlung.tex
@@ -46,6 +46,12 @@ clean:
 
 6.tex:	buildchapter.sh 6/*.tex
 	./buildchapter.sh 6 > 6.tex
+
+7.tex:	buildchapter.sh 7/*.tex
+	./buildchapter.sh 7 > 7.tex
+
+8.tex:	buildchapter.sh 8/*.tex
+	./buildchapter.sh 8 > 8.tex
 
 o.tex:	buildchapter.sh o/*.tex
 	./buildchapter.sh o > o.tex

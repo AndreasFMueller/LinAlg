@@ -1,135 +1,98 @@
-Können Sie die symmetrische Matrix
+Die Vektoren
 \[
-A=\begin{pmatrix}
-9&6&3\\
-6&8&4\\
-3&4&3
-\end{pmatrix}
+\vec u=\begin{pmatrix}1\\1\\1\end{pmatrix}
+\qquad\text{und}\qquad
+\vec v=\begin{pmatrix}1\\-1\\1\end{pmatrix}
 \]
-als Produkt $A=BB^t$ schreiben? Geben Sie eine mögliche Matrix $B$ an.
+liegen in einer Ebene $\sigma$. Der Punkt $P$ hat die Koordinaten $(1,2,3)$.
+\begin{teilaufgaben}
+\item Wie weit ist $P$ von der Ebene $\sigma$ entfernt?
+\item Wie weit ist $P$ von jeder der Geraden durch $0$ mit Richtungsvektor
+$\vec{u}$ bzw.~$\vec{v}$ entfernt?
+\end{teilaufgaben}
 
-\thema{Cholesky-Zerlegung}
+\thema{Abstand}
+\thema{Vektorprodukt}
 
 \begin{loesung}
-Man kann sogar eine untere Dreiecksmatrix $L$ mit dieser Eigesnchaft finden,
-dies ist die Cholesky-Zerlegung von $A$.
-
-Im ersten Schritt sucht man die erste Spalte von $L$ zu bestimmen.
-Es muss gelten
+\begin{teilaufgaben}
+\item Wir verwenden die hessesche Normalform, um den Abstand zu bestimmen.
+Dazu brauchen wir die Normale, sie ist
 \[
-LL^t=
+\vec n=\vec u\times \vec v=
+\begin{pmatrix}1\\1\\1\end{pmatrix}
+\times
+\begin{pmatrix}1\\-1\\1\end{pmatrix}
+=
 \begin{pmatrix}
-l_{11}&  0&  0\\
-l_{21}&  ?&  0\\
-l_{31}&  ?&  ?
-\end{pmatrix}
-\begin{pmatrix}
-l_{11}&l_{21}&l_{31}\\
-     0&     ?&     ?\\
-     0&     0&     ?
+1\cdot 1-(-1)\cdot 1\\
+1\cdot 1-1\cdot 1\\
+1\cdot (-1)-1\cdot 1
 \end{pmatrix}
 =
 \begin{pmatrix}
-    l_{11}^2&l_{11}l_{21}&l_{11}l_{31}\\
-l_{21}l_{11}&           *&           *\\
-l_{31}l_{11}&           *&           *
+2\\0\\-2
 \end{pmatrix}
+\quad\Rightarrow\quad
+\vec{n}^0
 =
-\begin{pmatrix}
-9&6&3\\
-6&8&4\\
-3&4&3
-\end{pmatrix}
+\frac{\sqrt{2}}2
+\begin{pmatrix}1\\0\\-1\end{pmatrix}.
 \]
-Daraus kann man ablesen, dass $l_{11}=3$ sein muss, und weiter,
-dass
-$l_{21}=2$ und $l_{31}=1$. Damit ist die erste Spalte bestimmt.
-
-Im zweiten Schritt versucht man, die zweite Spalte zu bestimmen.
-Dazu schreibt man wieder
+Der Abstand wird mit Hilfe des Skalarproduktes gefunden:
 \[
-LL^t
+d
 =
-\begin{pmatrix}
-3&     0&0\\
-2&l_{22}&0\\
-1&l_{32}&?
-\end{pmatrix}
-\begin{pmatrix}
-3&     2&     1\\
-0&l_{22}&l_{32}\\
-0&     0&?
-\end{pmatrix}
+\vec{n}^0\cdot \vec{p}
 =
-\begin{pmatrix}
-9&6           &           0\\
-6&4+l_{22}^2  &l_{22}l_{32}\\
-3&l_{32}l_{22}&         *
-\end{pmatrix}
+\frac{\sqrt{2}}2
+\begin{pmatrix}1\\0\\-1\end{pmatrix}
+\begin{pmatrix}1\\2\\3\end{pmatrix}
 =
-\begin{pmatrix}
-9&6&3\\
-6&8&4\\
-3&4&3
-\end{pmatrix}
+\frac{\sqrt{2}}2(1-3)=-\sqrt{2}.
 \]
-Daraus liest man ab $4+l_{22}^2=8$ und damit $l_{22}=2$, und weiter
-$l_{32}=1$.
-
-Im dritten Schritt ist jetzt nur noch das Element unten rechts zu bestimmen:
-\[
-LL^t=
-\begin{pmatrix}
-3&0&     0\\
-2&2&     0\\
-1&1&l_{33}
-\end{pmatrix}
-\begin{pmatrix}
-3&2&     1\\
-0&2&     1\\
-0&0&l_{33}
-\end{pmatrix}
+\item
+Die Abstandsformel Punkt-Gerade löst dieses Problem:
+\begin{align*}
+d_{\vec{u}}
+&=
+\frac{|\vec{p}\times \vec{u}|}{|\vec{u}|}
+&
+d_{\vec{v}}
+&=
+\frac{|\vec{p}\times \vec{v}|}{|\vec{v}|}
+\\
+&=
+\frac{1}{\sqrt{3}}
+\left|
+\begin{pmatrix}1\\2\\3\end{pmatrix}
+\times
+\begin{pmatrix}1\\1\\1\end{pmatrix}
+\right|
 =
-\begin{pmatrix}
-9&6&3\\
-6&8&4\\
-3&4&2+l_{33}^2
-\end{pmatrix}
+\frac{1}{\sqrt{3}}
+\left|\begin{pmatrix}-1\\2\\-1\end{pmatrix}\right|
+&
+&=
+\frac{1}{\sqrt{3}}
+\left|
+\begin{pmatrix}1\\2\\3\end{pmatrix}
+\times
+\begin{pmatrix}1\\-1\\1\end{pmatrix}
+\right|
 =
-\begin{pmatrix}
-9&6&3\\
-6&8&4\\
-3&4&3
-\end{pmatrix}
-\]
-woraus man ablesen kann: $2+l_{33}^2=3$ oder $l_{33}=1$. Die gesuchte
-Matrix $L$ ist also
-\[
-L=
-\begin{pmatrix}
-3&0&0\\
-2&2&0\\
-1&1&1
-\end{pmatrix}.
-\]
-Kontrolle:
-\[
-\begin{pmatrix}
-3&0&0\\
-2&2&0\\
-1&1&1
-\end{pmatrix}
-\begin{pmatrix}
-3&2&1\\
-0&2&1\\
-0&0&1
-\end{pmatrix}
+\frac{1}{\sqrt{3}}
+\left|\begin{pmatrix}5\\2\\-3\end{pmatrix}\right|
+\\
+&=
+\frac{\sqrt{6}}{\sqrt{3}}=\sqrt{2},
+&
+&=
+\frac{\sqrt{25+4+9}}{\sqrt{3}}
 =
-\begin{pmatrix}
-9&6&3\\
-6&8&4\\
-3&4&3
-\end{pmatrix}.
+\frac{\sqrt{38}}{\sqrt{3}}.
 \qedhere
-\]
+\end{align*}
+\end{teilaufgaben}
 \end{loesung}
+
