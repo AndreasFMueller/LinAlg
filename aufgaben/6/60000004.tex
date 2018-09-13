@@ -1,171 +1,117 @@
-Ein wesentlicher Schritt des Jacobi-Algorithmus ist, den Winkel
-$\alpha$ so zu bestimmen, dass die symmetrische Matrix $A$ durch eine Drehung
-um den Winkel $\alpha$ diagonalisiert wird:
-\[
-\begin{pmatrix}
- \cos\alpha&\sin\alpha\\
--\sin\alpha&\cos\alpha
-\end{pmatrix}
-\begin{pmatrix}
-a_{11}&a_{12}\\
-a_{21}&a_{22}
-\end{pmatrix}
-\begin{pmatrix}
- \cos\alpha&-\sin\alpha\\
- \sin\alpha& \cos\alpha
-\end{pmatrix}
-=
-\begin{pmatrix}
-\lambda_1&0\\
-0&\lambda_2
-\end{pmatrix}.
-\]
-\begin{teilaufgaben}
-\item Bestimmen Sie eine Gleichung für $\alpha$.
-\item Lösen Sie die Gleichung in dem Spezialfall
+Bei den Tests einer Trägheitsplattform lieferte diese die folgende Matrix,
+die die Lage der Achsen der Trägheitsplattform beschreiben.
+% 0.650501 0.090217 -0.754128
+% -0.719082 0.392770 -0.573283
+% 0.244479 0.915201 0.320371
+% A=[ 0.650501,0.090217,-0.754128; -0.719082,0.392770,-0.573283; 0.244479,0.915201,0.320371]
 \[
 A=\begin{pmatrix}
-3&1\\
-1&1
+\phantom{-}0.650501&0.090217&          -0.754128\\
+  -0.719082&0.392770&          -0.573283\\
+\phantom{-}0.244479&0.915201&\phantom{-}0.320371
 \end{pmatrix}
 \]
-\item Bestimmen Sie Eigenwerte und Eigenvektoren für den
-Spezialfall b) mit dem Jacobi-Algorithmus.
-\item "Uberprüfen Sie Eigenwerte und Eigenvektoren mit dem klassischen
-Algorithmus.
+\begin{teilaufgaben}
+\item Ist $A$ orthogonal (im Rahmen der angegebenen Genauigkeit)?
+\item Bestimmen Sie die Determinante von $A$.
+\item Ist $A$ eine Drehmatrix? Wenn ja, bestimmen Sie den Drehwinkel.
 \end{teilaufgaben}
 
-\thema{Jacobi-Algorithmus}
-\thema{Eigenwerte}
-\thema{Eigenvektoren}
+\thema{orthogonale Matrix}
+\thema{Determinante}
+\thema{Drehwinkel}
+\thema{Sarrus-Formel}
 
 \begin{loesung}
 \begin{teilaufgaben}
-\item Zunächst sind die Matrizenprodukte auf der linken Seite zu berechnen
+\item Es ist zu überprüfen, ob $A^tA=E$ ist, was man direkt nachrechnen kann:
 \begin{align*}
-D_{-\alpha}AD_{\alpha}
+AA^t&=
+\begin{pmatrix}
+\phantom{-}0.650501&0.090217&          -0.754128\\
+  -0.719082&0.392770&          -0.573283\\
+\phantom{-}0.244479&0.915201&\phantom{-}0.320371
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+\phantom{-}0.650501&           -0.719082& \phantom{-}0.244479\\
+\phantom{-}0.090217& \phantom{-}0.392770& \phantom{-}0.915201\\
+  -0.754128&           -0.573283& \phantom{-}0.320371\\
+\end{pmatrix}
+\\
 &=
 \begin{pmatrix}
- a_{11}\cos\alpha+a_{21}\sin\alpha & a_{12}\cos\alpha + a_{22}\sin\alpha\\
--a_{11}\sin\alpha+a_{21}\cos\alpha &-a_{12}\sin\alpha + a_{22}\cos\alpha
+\phantom{-}1.000000455166&          -0.000000163144&0.000000449787\\
+  -0.000000163144&\phantom{-}1.000000250390&0.000000329885\\
+\phantom{-}0.000000449787&\phantom{-}0.000000329885&1.000000016114
 \end{pmatrix}
+\simeq E.
+\end{align*}
+Im Rahmen der Genauigkeit von 6 Stellen, mit denen die Matrix die
+Matrix $A$ angegeben wurde, stimmt $A^tA$ mit $E$ überein.
+\item Eine orthogonale Matrix hat Determinante $+1$ oder $-1$. Man muss
+also nur noch herausfinden, welcher der Fälle eingetreten ist.
+
+Die Determinante kann in diesem Fall mit der Sarrusschen Regel
+berechnet werden, es ergibt sich ein Wert nahe bei 1.
+Alternativ kann man auch testen, ob die Determinante $+1$ ist,
+indem man nachrrechnet, ob die drei Spaltenvektoren eine
+Rechts-System bilden, oder ob die ersten zwei Spalten als Vektorprodukt
+die dritte Spalte ergeben. Dies kann man direkt nachrechnen:
+\begin{align*}
 \begin{pmatrix}
- \cos\alpha&-\sin\alpha\\
- \sin\alpha& \cos\alpha
+\phantom{-}0.650501\\
+  -0.719082\\
+\phantom{-}0.244479
 \end{pmatrix}
-\end{align*}
-Für die Gleichung für $\alpha$ brauchen wir nur das Matrixelement
-in der rechten oberen Ecke, also
-\begin{align*}
-0
-&=
--a_{11}\sin\alpha\cos\alpha -a_{21}\sin^2\alpha+a_{12}\cos^2\alpha+a_{22}\sin\alpha\cos\alpha
-\\
-&=
-(a_{22}-a_{11})\sin\alpha\cos\alpha+a_{12}(\cos^2\alpha-\sin^2\alpha)
-\\
-&=
-\frac{a_{22}-a_{11}}2\sin2\alpha +a_{12}\cos 2\alpha
-\\
-\frac{2a_{12}}{a_{11}-a_{22}}
-&=
-\tan2\alpha
-\\
-\alpha&=\frac12\arctan\frac{2a_{12}}{a_{11}-a_{22}}
-\end{align*}
-\item
-In diesem Spezialfall gilt
-\[
-\alpha=\frac12\arctan\frac{2\cdot 1}{3 - 1}=\frac12\arctan 1=\frac{\pi}8.
-\]
-\item
-Die Spalten der Drehmatrix sind Eigenvektoren:
-\[
-D_{\frac{\pi}8}=\begin{pmatrix}
-   0.92388& -0.38268\\
-   0.38268&  0.92388
-\end{pmatrix}
-\]
-Transformiert man die Matrix $A$ damit, erhält man
-\[
-D^tAD=
+\times
 \begin{pmatrix}
-   3.41421&  0.00000\\
-   0.00000&  0.58579
+0.090217\\
+0.392770\\
+0.915201
 \end{pmatrix}
-\]
-\item
-Die Eigenwerte werden mit dem charakteristischen Polynom bestimmt:
-\begin{align*}
-0&=\left|\,\begin{matrix}3-\lambda&1\\1&1-\lambda\end{matrix}\,\right|
-\\
-&=(3-\lambda)(1-\lambda)-1=\lambda^2-4\lambda+2
-\\
-\lambda_{\pm}
 &=
-2\pm\sqrt{4-2}=2\pm\sqrt{2}=\begin{cases}
-2+\sqrt{2}=3.41421\\
-2-\sqrt{2}=0.58579
-\end{cases}
-\end{align*}
-Die Eigenvektoren bestimmt man mit dem Gauss-Algorithmus.
-Für $\lambda_+$ erhält man
-\begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
-\hline
-3-\lambda_+ & 1\\
-1&1-\lambda+\\
-\hline
-\end{tabular}
-&=
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
-\hline
-1-\sqrt{2} & 1\\
-1&-(1+\sqrt{2})\\
-\hline
-\end{tabular}
-=
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
-\hline
-1&\frac{1}{1-\sqrt{2}}\\
-1&-\sqrt{2}\\
-\hline
-\end{tabular}
+\begin{pmatrix}
+-0.719082\cdot 0.915201 - 0.244479\cdot 0.392770\\
+\phantom{-}0.244479\cdot 0.090217 - 0.650501\cdot 0.915201\\
+\phantom{-}0.650501\cdot 0.392770 + 0.719082\cdot 0.090217\\
+\end{pmatrix}
 \\
-&
-=
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
-\hline
-1&\frac{1+\sqrt{2}}{-1}\\
-1&-(1+\sqrt{2})\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
-\hline
-1&-1-\sqrt{2}\\
-0&0\\
-\hline
-\end{tabular}
+&=
+\begin{pmatrix}
+%-0.719082 * 0.915201 - 0.244479 * 0.392770
+%0.244479 * 0.090217 - 0.650501 * 0.915201
+%0.650501 * 0.392770 + 0.719082 * 0.090217
+%
+-0.754128582312\\
+-0.573283003758\\
+\phantom{-}0.320370698564
+\end{pmatrix}
+\simeq
+\begin{pmatrix}
+-0.754128\\
+-0.573283\\
+\phantom{-}0.320371
+\end{pmatrix}
 \end{align*}
-Die zweite Variable ist also frei wählbar, und damit ist
+Somit bilden die Spalten der Matrix $A$ ein Rechtssystem, die Determinante
+ist $\det(A)=+1$.
+\item Wegen $\det(A)=1$ ist die orthogonale Matrix $A$ eine Drehmatrix,
+der Drehwinkel $\alpha$ kann aus der Spur mit Hilfe der Formel
 \[
-v_+=\begin{pmatrix}1+\sqrt{2}\\1\end{pmatrix}
+\operatorname{Spur}(A)=1+2\cos\alpha\qquad\Rightarrow\qquad
+\cos\alpha=\frac{\operatorname{Spur}(A)-1}2
 \]
-ein Eigenvektor. Octave hat auf Länge 1 normierte Eigenvektoren
-geliefert, tut man dies hier auch, mit $|v_+|=\sqrt{4+2\sqrt{2}}$
-bekommt man den Vektor
+gefunden werden. Der Wert der Spur ist
 \[
-\frac{v_+}{|v_+|}=\frac{1}{\sqrt{4+2\sqrt{2}}}\begin{pmatrix}
-1+\sqrt{2}\\1\end{pmatrix}
-=\begin{pmatrix}
-0.92388\\
-0.38268
-\end{pmatrix},
+\operatorname{Spur}(A) = 0.650501  + 0.392770  + 0.320371 = 1.363642.
 \]
-also genau der Vektor aus der ersten Spalte der Drehmatrix.
-Die Berechnung für $\lambda_-$ und $v_-$ verläuft analog.
+Also folgt für den Drehwinkel:
+\[
+\cos\alpha=\frac{1.363642-1}2= 0.181821\qquad\Rightarrow\qquad
+\alpha=79.5242^\circ.
 \qedhere
+\]
 \end{teilaufgaben}
 \end{loesung}
 

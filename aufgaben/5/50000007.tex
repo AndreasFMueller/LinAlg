@@ -1,117 +1,243 @@
-Gegeben sind
+Gegeben sind die beiden Vektoren
 \[
-A=\begin{pmatrix}1&2\\2&3\\2&4\end{pmatrix},\qquad
-b=\begin{pmatrix}2\\2\\2\end{pmatrix}.
+\vec a
+=
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+,\qquad
+\vec b
+=
+\begin{pmatrix}
+1\\1\\0
+\end{pmatrix}.
 \]
-Das Gleichungssystem $Ax=b$ ist überbestimmt, finden Sie die Least-Squares
-Lösung mit Hilfe der QR-Zerlegung.
+Finden Sie eine Basis aus aufeinander senkrecht stehenden
+Einheitsvektoren so, dass der erste Basisvektor parallel zu
+$\vec a$ ist und der dritte auf der von $\vec a$ und $\vec b$
+aufgespannten Ebenen senkrecht steht.
 
-\thema{QR-Zerlegung}
+\thema{Basis}
 
 \begin{loesung}
-Für die Matrix $A$ muss zunächst eine QR-Zerlegung gefunden werden.
-Mit Octave findet man zum Beispiel
-\verbatimainput{qroctave}
-Die rechte Seite des Gleichungssystems nach dem Lösungsverfahren 
-unter Verwendung der QR-Zerlegung ist $Q^tb$:
-\verbatimainput{qrb}
-Das Gleichungssystem wird damit zu
+Der erste Basisvektor muss offenbar ein Vielfaches von $\vec a$ sein.
+Da $\vec a$ kein Einheitsvektor ist, muss man ihn durch seine Länge
+teilen:
 \[
-\begin{linsys}{3}
--3.00000x&-&5.33333y&=&-3.33333\\
-         & &0.74536y&=&\phantom{-}0.29814
-\end{linsys}
-\]
-mit der Lösung
-\[
+|\vec a|=\sqrt{1^2+4^2+8^1}=\sqrt{1+16+64}=\sqrt{81}=9
+\quad
+\Rightarrow
+\quad
+\frac19
 \begin{pmatrix}
-0.4\\
-0.4
+1\\4\\8
 \end{pmatrix}.
 \]
-Man kann die QR-Zerlegung natürlich auch mit dem Verfahren von Gram-Schmidt
-von Hand bestimmen. Dazu orthonormalisiert man die Vektoren
+Der dritte Basisvektor muss auf $\vec a$ und $\vec b$ senkrecht stehen,
+das Vektorprodukt der beiden Basisvektoren tut dies:
 \[
-b_1=\begin{pmatrix}1\\2\\2\end{pmatrix}
-\quad\text{und}\quad
-b_2=\begin{pmatrix}2\\3\\4\end{pmatrix}.
+\vec a\times\vec b=
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+\times
+\begin{pmatrix}
+1\\1\\0
+\end{pmatrix}
+=
+\begin{pmatrix}
+4\cdot 0-1\cdot 8\\
+8\cdot 1-0\cdot 1\\
+1\cdot 1-1\cdot 4
+\end{pmatrix}
+=
+\begin{pmatrix}
+-8\\
+8\\
+-3
+\end{pmatrix}
 \]
-Man findet:
+Da dies ebenfalls kein Einheitsvektor ist, müssen wir ihn auch noch
+normieren, seine Länge ist
+\[
+\sqrt{8^2+8^2+ 3^2}=\sqrt{64+64+9}=\sqrt{137}.
+\]
+Jetzt fehlt nur noch der zweite Basisvektor.
+Da dieser auf den bereits
+gefundenen senkrecht stehen muss, kann man ihn ebenfalls mit 
+dem Vektorprodukt finden. Da die beiden Faktoren bereits senkrecht
+stehen und Länge $1$ haben, wird das Vektorprodukt automatisch
+Länge $1$ haben:
+\[
+\frac19
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+\times
+\frac1{\sqrt{137}}\begin{pmatrix}-8\\8\\-3\end{pmatrix}
+=
+\frac1{9\sqrt{137}}
+\begin{pmatrix}
+4\cdot(-3)-8\cdot 8\\
+8\cdot(-8)-(-3)\cdot1\\
+1\cdot 8-(-8)\cdot 4
+\end{pmatrix}
+=
+\frac1{9\sqrt{137}}
+\begin{pmatrix}
+-76\\
+-61\\
+40\\
+\end{pmatrix}
+\]
+Tatsächlich ist dies ein Einheitsvektor:
+\[
+\sqrt{76^2+61^2+40^2}=\sqrt{11097}=9\sqrt{137}.
+\]
+Die gesuchten Baisvektoren sind also: 
+\[
+\frac19
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+,
+\qquad
+\frac1{9\sqrt{137}}
+\begin{pmatrix}
+-76\\
+-61\\
+40\\
+\end{pmatrix},
+\qquad
+\frac1{\sqrt{137}}
+\begin{pmatrix}
+-8\\
+8\\
+-3
+\end{pmatrix}
+\]
+
+Alternativ kann man die Vektoren auch mit Hilfe des
+Orthonormalisierungsverfahrens von Gram-Schmidt bestimmen.
+Die Vektoren $\vec b_1=\vec a$ und $\vec b_2=\vec b$ sind 
+zu orthonormalisieren.
+Der Vektor $\vec b_1'$ ist wie in der ersten Lösung der auf Länge 1 normierte
+Vektor $\vec a$:
+\[
+\vec b_1' 
+=
+\frac19
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+\]
+Die Formel für den zweiten Vektor lautet
+\[
+\vec b_2'=\frac{
+\vec b_2-(\vec b_1'\cdot \vec b_2)\vec b_1'
+}{
+|\vec b_2-(\vec b_1'\cdot \vec b_2)\vec b_1'|
+}
+\]
+Setzt man die Vektoren ein, wird der Zähler zu
+\[
+\vec b_2-(\vec b_1'\cdot \vec b_2)b_1'
+=
+\begin{pmatrix}
+1\\1\\0
+\end{pmatrix}
+-\left(
+\frac19
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+1\\1\\0
+\end{pmatrix}
+\right)
+\frac19
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+=
+\begin{pmatrix}
+1\\1\\0
+\end{pmatrix}
+-
+\frac5{81}
+\begin{pmatrix}
+1\\4\\8
+\end{pmatrix}
+=
+\frac1{81}\begin{pmatrix}
+76\\
+61\\
+-40
+\end{pmatrix}
+\]
+Dieser Vektor muss jetzt noch normiert werden, seien Länge ist
+\[
+\frac1{81}\sqrt{76^2+61^2+40^2}
+=
+\frac1{81}\sqrt{11097}
+=
+\frac19
+\sqrt{137}.
+\]
+Der Vektor $\vec b_2'$ wird dadurch zu
+\[
+\vec b_2'
+=
+\frac1{9\sqrt{137}}\begin{pmatrix}
+76\\
+61\\
+-40
+\end{pmatrix}
+\]
+Der dritte Vektor kann nicht durch das Orthonormalisierungsverfahren
+gewonnen werden, weil dieses ja nur gegebene Vektoren orthonormalisiert.
+Gegeben sind jedoch nur gerade zwei Vektoren. Man muss daher den dritten
+Vektor wieder mit dem Vektorprodukt ausrechnen:
 \begin{align*}
-b_1'&=\frac{b_1}{|b_1|}=\frac13\begin{pmatrix}1\\2\\2\end{pmatrix}\\
-b_2'&
-=\frac{b_2 - (b_2\cdot b_1') b_1'}{\dots}
-=\frac{b_2 - \frac{16}{3} b_1'}{\dots}
-=\frac{\displaystyle\begin{pmatrix}2\\3\\4\end{pmatrix}-\frac{16}9\begin{pmatrix}1\\2\\2\end{pmatrix}
-}{\dots}
-=\frac{\displaystyle\frac19\begin{pmatrix}18-16\\27-32\\36-32\end{pmatrix}}{\dots}
-=\frac{\displaystyle\frac19\begin{pmatrix}2\\-5\\4\end{pmatrix}}{\sqrt{\frac{5}{9}}}
-=\frac1{\sqrt{45}}\begin{pmatrix}2\\-5\\4\end{pmatrix}
-\end{align*}
-Daraus findet man zunächst die Matrix 
-\[
-Q
+\vec b_3'
 =
+\vec b_1'\times\vec b_2'
+&=
+\frac19
 \begin{pmatrix}
-\frac13&\frac{ 2}{\sqrt{45}}\\
-\frac23&\frac{-4}{\sqrt{45}}\\
-\frac23&\frac{ 5}{\sqrt{45}}
+1\\4\\8
 \end{pmatrix}
-\]
-Man kann aus dem Ausdruck auch ablesen, dass
-\[
-\frac{16}{3}b_1'+\sqrt{\frac{5}{9}}b_2'=b_2,
-\]
-also ist die $R$-Matrix
-\[
-R
+\times
+\frac1{9\sqrt{137}}\begin{pmatrix}
+76\\
+61\\
+-40
+\end{pmatrix}
 =
+\frac1{9^2\sqrt{137}}
 \begin{pmatrix}
-3&\frac{16}{3}\\
-0&\sqrt{\frac{5}{9}}
+4\cdot (-40)-61\cdot 8\\
+8\cdot 76-(-40)\cdot 1\\
+1\cdot 61-4\cdot 76
+\end{pmatrix}
+\\
+&=
+\frac1{9^2\sqrt{137}}
+\begin{pmatrix}
+-648\\
+648\\
+-243
+\end{pmatrix}
+=
+\frac1{\sqrt{137}}
+\begin{pmatrix}
+-8\\
+8\\
+-3
 \end{pmatrix}.
-\]
-Dies deckt sich bis auf die Wahl des Vorzeichens von $b_1'$ mit der
-maschinell gefundenen Lösung.
-Wir berechnen zur Kontrolle das Produkt $QR$:
-\[
-QR=
-\begin{pmatrix}
-\frac13&\frac{ 2}{\sqrt{45}}\\
-\frac23&\frac{-4}{\sqrt{45}}\\
-\frac23&\frac{ 5}{\sqrt{45}}
-\end{pmatrix}
-\begin{pmatrix}
-3&\frac{16}{3}\\
-0&\sqrt{\frac{5}{9}}
-\end{pmatrix}
-=
-\begin{pmatrix}
-1&\frac13\cdot \frac{16}{3}+\frac{2}{\sqrt{45}}\cdot\sqrt{\frac{5}{9}}\\
-2&\frac23\cdot \frac{16}{3}-\frac{5}{\sqrt{45}}\cdot\sqrt{\frac{5}{9}}\\
-2&\frac23\cdot \frac{16}{3}+\frac{4}{\sqrt{45}}\cdot\sqrt{\frac{5}{9}}
-\end{pmatrix}
-=
-\begin{pmatrix}
-1&\frac{16}{9}+\frac{2}{9}\\
-2&\frac{32}{9}-\frac{5}{9}\\
-2&\frac{32}{9}+\frac{3}{9}
-\end{pmatrix}
-=
-\begin{pmatrix}
-1&\frac{18}{9}\\
-2&\frac{27}{9}\\
-2&\frac{36}{9}
-\end{pmatrix}
-=
-\begin{pmatrix}
-1&2\\
-2&3\\
-2&4
-\end{pmatrix}
-=A.
-\]
-Damit ist bestätigt, dass die Matrizen $Q$ und $R$ die QR-Zerlegung der
-Matrix $A$ bilden.
+\end{align*}
+Bis auf die Vorzeichen der Vektoren, an die die Aufgabe keine Bedingungen
+gestellt hat, sind die Lösungen identisch.
 \end{loesung}
 

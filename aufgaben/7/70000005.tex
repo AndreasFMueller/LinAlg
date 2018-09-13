@@ -1,0 +1,60 @@
+Finden Sie eine QR-Zerlegung für die Matrix
+\[
+A=\begin{pmatrix}
+3&5\\
+4&7
+\end{pmatrix}.
+\]
+
+\thema{QR-Zerlegung}
+\thema{Orthonormalisierung}
+
+\begin{loesung}
+Zunächst muss die Orthonormalisierung für die Spalten von $A$
+durchgeführt werden, wir bezeichnen die Spalten von $A$ mit $a_i$,
+die orthonormalisierten Spalten mit $a_i'$. Im ersten Schritt muss man
+den Vektor $a_1$ auf Länge $1$ bringen:
+\[
+a_1'=\frac{a_1}{|a_1|}=\frac15\begin{pmatrix}3\\4\end{pmatrix}.
+\]
+Im zweiten Schritt muss man erreichen, dass er Vektor $a_2'$ senkrecht
+auf $a_1$ steht:
+\begin{align*}
+a_2'&=\frac{a_2-(a_2\cdot a_1')a_1'}{|a_2-(a_2\cdot a_1')a_1'|}\\
+a_2\cdot a_1'&=\frac15(3\cdot 5+7\cdot 4)=\frac{43}{5},\\
+a_2-(a_2\cdot a_1')a_1'&=
+\begin{pmatrix}5\\7\end{pmatrix}
+-\frac{43}{25}\begin{pmatrix}3\\4\end{pmatrix}
+=\frac{1}{25}\begin{pmatrix}-4\\3\end{pmatrix},
+\\
+a_2'&=\frac15\begin{pmatrix}-4\\3\end{pmatrix}.
+\end{align*}
+Daraus lässt sich jetzt die Matrix $Q$ der QR-Zerlegung ablesen:
+\[
+Q=\frac15
+\begin{pmatrix}
+3&-4\\
+4& 3
+\end{pmatrix}.
+\]
+Die Bestimmung der Matrix $R$ ist jetzt mit dem Matrizenprodukt möglich:
+\begin{align*}
+A&=QR&&\Rightarrow&R&=Q^tA=\frac15\begin{pmatrix}3&4\\-4&3\end{pmatrix}
+\begin{pmatrix}3&5\\4&7\end{pmatrix}
+=\frac15\begin{pmatrix}
+25&43\\
+ 0&1
+\end{pmatrix}
+=\begin{pmatrix}
+5&\frac{43}{5}\\
+0&\frac{1}{5}
+\end{pmatrix}.
+\end{align*}
+Kontrolle:
+\begin{align*}
+QR&=\frac15\begin{pmatrix}3&-4\\4&3\end{pmatrix}\frac15\begin{pmatrix}25&43\\0&1\end{pmatrix}
+=\frac1{25}\begin{pmatrix}75&125\\100&175\end{pmatrix}
+=\begin{pmatrix}3&5\\4&7\end{pmatrix}=A.
+\qedhere
+\end{align*}
+\end{loesung}

@@ -1,103 +1,77 @@
-Gegeben sei
-\[
-A=\begin{pmatrix}
-   2&  8&  8\\
-   1&  5&  7\\
-   0&  1&  5\\
-\end{pmatrix},
-\qquad
-b=\begin{pmatrix}
-10\\10\\9
-\end{pmatrix}
-\]
-\begin{teilaufgaben}
-\item Finden Sie die $LU$-Zerlegung von $A$.
-\item Berechnen Sie $\det(A)$.
-\item Lösen Sie das Gleichungssystem $Ly=b$.
-\item Lösen Sie das Gleichungssystem $Ux=y$.
-\end{teilaufgaben}
+Auf den Koordinatenachsen werden jeweils in positiver und
+negativer Richtung Strecken gleicher Länge abgetragen. Für die
+$x$-Achse ist die Länge $2$, für die $y$-Achse $3$ und für die
+$z$-Achse $5$. Durch Verbinden der Endpunkte entsteht ein
+unregelmässiges Oktaeder. Sei $g$ die
+Gerade durch die beiden Punkte auf der positiven $x$- und $y$-Achse,
+und $h$ die Gerade durch den Punkte auf der negativen $x$-Achse
+und auf der $z$-Achse. Bestimmen Sie den Abstand von $g$ und $h$.
 
-\thema{LU-Zerlegung}
+\thema{Abstand windschiefer Geraden}
+\thema{Vektorprodukt}
 
 \begin{loesung}
-\begin{teilaufgaben}
-\item Die LU-Zerlegung wird mit dem Gauss-Algorithmus gefunden
+Die beiden Kanten sind windschiefe Geraden, deren Abstand mit
+der Abstandsformel gefunden werden kann. Dazu benötigt man zunächst die
+Richtungsvektoren
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-   2&  8&  8\\
-   1&  5&  7\\
-   0&  1&  5\\
-\hline
-\end{tabular}
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-   1&  4&  4\\
-   0&  1&  3\\
-   0&  1&  5\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-   1&  4&  4\\
-   0&  1&  3\\
-   0&  0&  2\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-   1&  4&  4\\
-   0&  1&  3\\
-   0&  0&  1\\
-\hline
-\end{tabular}
+\vec r_1&=\begin{pmatrix}2\\0\\0\end{pmatrix}-\begin{pmatrix}0\\3\\0\end{pmatrix}
+=
+\begin{pmatrix}2\\-3\\0\end{pmatrix}
+,\\
+\vec r_2&=\begin{pmatrix}-2\\0\\0\end{pmatrix}-\begin{pmatrix}0\\0\\5\end{pmatrix}
+=
+\begin{pmatrix}-2\\0\\-5\end{pmatrix}
+.
 \end{align*}
-Im Tableau ganz rechts steht $U$, die Pivotspalten bilden $L$, also
+Daraus berechnet man jetzt das Vektorprodukt
 \[
-L=\begin{pmatrix}
-2&0&0\\
-1&1&0\\
-0&1&2
+\vec r_1\times \vec r_2
+=
+\begin{pmatrix}2\\-3\\0\end{pmatrix}
+\times
+\begin{pmatrix}-2\\0\\-5\end{pmatrix}
+=
+\begin{pmatrix}
+15\\10\\ -6
+\end{pmatrix},
+\]
+welchse wir auch noch normieren müssen:
+\begin{align*}
+|\vec r_1\times\vec r_2|^2
+&=15^2+10^2+6^2=225+100+36=19^2
+\\
+\vec n&=
+\frac{\vec r_1\times\vec r_2}{|\vec r_1\times\vec r_2|}=
+\frac1{19}
+\begin{pmatrix}
+15\\10\\ -6
+\end{pmatrix}.
+\end{align*}
+Ausserdem braucht man die Differenz zweier Punkte,
+wir nehmen die Punkte auf der $x$-Achse
+\[
+\vec q_1-\vec q_2
+=
+\begin{pmatrix}2\\0\\0\end{pmatrix}
+-
+\begin{pmatrix}-2\\0\\0\end{pmatrix}
+=
+\begin{pmatrix}4\\0\\0\end{pmatrix}
+\]
+Die Abstandsformel liefert dann
+\[
+d=\vec n\cdot (\vec q_1-\vec q_2)=
+\frac1{19}
+\begin{pmatrix}
+15\\10\\ -6
 \end{pmatrix}
-,\qquad
-U=\begin{pmatrix}
-   1&  4&  4\\
-   0&  1&  3\\
-   0&  0&  1\\
-\end{pmatrix}
-\]
-Kontrolle:
-\[
-LU=\begin{pmatrix}
-2&8&8\\
-1&5&7\\
-0&1&5
-\end{pmatrix}=A.
-\]
-\item $\det(A)=\det(L)\det(U)=\det(L)=4$.
-\item Es ist $Ly=b$ zu lösen. Da $L$ eine Dreicksmatrix ist, kann
-man die $y$ direkt bestimmen
-\[
-\begin{linsys}{5}
-2y_1& &   & &    &=&10&\qquad\Rightarrow&y_1&=&5\\
- y_1&+&y_2& &    &=&10&\qquad\Rightarrow&y_2&=&5\\
-    & &y_2&+&2y_3&=& 9&\qquad\Rightarrow&y_3&=&2\\
-\end{linsys}
-\]
-\item
-Ebenso kann man aus der Dreiecksmatrix $U$ die Lösung $x$ für
-$Ux=b$ von unten nach oben bestimmen:
-\[
-\begin{linsys}{5}
- x_1&+&4x_2&+&4x_3&=& 5&\qquad\Rightarrow&x_1&=& 1\\
-    & & x_2&+&3x_3&=& 5&\qquad\Rightarrow&x_2&=&-1\\
-    & &    & & x_3&=& 2&\qquad\Rightarrow&x_3&=& 2\\
-\end{linsys}
+\cdot
+\begin{pmatrix}4\\0\\0\end{pmatrix}
+=\frac{60}{19}
+=
+3.15789473684210526315.
 \qedhere
 \]
-\end{teilaufgaben}
 \end{loesung}
 

@@ -1,0 +1,32 @@
+Finden Sie Eigenwerte und Eigenvektoren der Matrix
+\[
+\begin{pmatrix}
+3&1\\
+1&3
+\end{pmatrix}.
+\]
+
+\thema{Eigenwerte}
+\thema{Eigenvektoren}
+\thema{charakteristisches Polynom}
+
+\begin{loesung}
+Wir beginnen damit die Eigenwerte zu ermitteln.
+Die charakteristische Gleichung ist
+\[
+(3-\lambda)^2-1=0\quad\Rightarrow\quad\lambda_{\pm}=3\pm 1,
+\]
+die möglichen Eigenwerte sind also $2$ und $4$. Die Eigenvektoren sind
+Lösungen der Gleichungen
+\begin{align*}
+\begin{pmatrix}1&1\\1&1\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}&=0
+&
+\begin{pmatrix}-1&1\\1&-1\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}&=0
+\\
+\begin{pmatrix}x\\y\end{pmatrix}&=\begin{pmatrix}1\\-1\end{pmatrix}
+&
+\begin{pmatrix}x\\y\end{pmatrix}&=\begin{pmatrix}1\\1\end{pmatrix}
+\qedhere
+\end{align*}
+\end{loesung}
+

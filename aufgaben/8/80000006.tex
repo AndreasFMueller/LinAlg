@@ -1,0 +1,25 @@
+$A$ ist eine $n\times n$-Matrix mit Eigenwerten
+$\lambda_1,\lambda_2,\dots,\lambda_n$.
+Berechnen Sie die Determinante von $A$.
+
+\thema{Determinante}
+\thema{Eigenwerte}
+\thema{Basistransformation}
+
+\begin{loesung}
+Verwendet man die Eigenvektoren als Basis, gibt es eine Basistransformation
+\[
+TAT^{-1}=\operatorname{diag}(\lambda_1,\dots,\lambda_n)
+\]
+Dann ist die Determinante
+\[
+\lambda_1\cdot \dots\cdot\lambda_n
+=
+\det(TAT^{-1})
+=
+\det(T)\det(A)\det(T^{-1})
+=
+\det(A).
+\qedhere
+\]
+\end{loesung}
