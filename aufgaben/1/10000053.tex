@@ -1,0 +1,197 @@
+Berechnen Sie die Determinante und die inverse Matrix von
+\[
+A
+=
+\begin{pmatrix}
+1&1&1\\
+1&2&2\\
+1&2&a+1
+\end{pmatrix}.
+\]
+Für welche Werte von $a$ existiert die inverse Matrix?
+
+\thema{inverse Matrix}
+\thema{Gauss-Algorithmus}
+
+\begin{loesung}
+Wir verwenden den Gauss-Algorithmus:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1&  1&1&0&0\\
+1& 2&  2&0&1&0\\
+1& 2&a+1&0&0&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1&  1&1&0&0\\
+0& 1&  1&-1&1&0\\
+0& 1&a  &-1&0&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1&  1& 1& 0&0\\
+0& 1&  1&-1& 1&0\\
+0& 0&a-1& 0&-1&1\\
+\hline
+\end{tabular}
+\\
+\rightarrow
+{
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1& 0& 1&  \frac1{a-1}& -\frac1{a-1}\\
+0& 1& 0&-1&\frac{a}{a-1}& -\frac1{a-1}\\
+0& 0& 1& 0& -\frac1{a-1}&  \frac1{a-1}\\[2pt]
+\hline
+\end{tabular}
+}
+&
+\rightarrow
+{
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1& 0& 2&      -1     &            0\\
+0& 1& 0&-1&\frac{a}{a-1}& -\frac1{a-1}\\
+0& 0& 1& 0& -\frac1{a-1}&  \frac1{a-1}\\[2pt]
+\hline
+\end{tabular}
+}
+\end{align*}
+Der dritte Schritt ist allerdings nur möglich, wenn 
+$a-1\ne 0$, oder $a\ne 1$.
+Das bestätigt auch ein Blick auf die ursprüngliche Matrix $A$: wenn $a=1$ ist,
+sind die letzten zwei Zeilen gleich, die Matrix ist dann nicht mehr regulär.
+
+Die Determinente ergibt sich jetzt als Produkt der Pivot-Elemente.
+Die Pivot-Elemente sind $1$, $1$ und $a-1$, so dass wir schliessen
+können, dass $\det A=a-1$.
+
+Die inverse Matrix existert also genau dann, wenn $a\ne 1$ ist und in diesem
+Fall gilt
+\[
+A^{-1}
+=
+{
+\renewcommand{\arraystretch}{1.15}
+\begin{pmatrix}
+ 2&      -1     &            0\\
+-1&\frac{a}{a-1}& -\frac1{a-1}\\
+ 0& -\frac1{a-1}&  \frac1{a-1}\\
+\end{pmatrix}
+}
+=
+\frac1{a-1}
+\begin{pmatrix}
+2(a-1)& -a+1 &  0\\
+ -a+1 &  a   & -1\\
+    0 &   -1 &  1
+\end{pmatrix}.
+\]
+Kontrolle:
+{
+\renewcommand{\arraystretch}{1.15}
+\begin{align*}
+AA^{-1}
+&=
+\begin{pmatrix}
+1&1&1\\
+1&2&2\\
+1&2&a+1
+\end{pmatrix}
+\begin{pmatrix}
+ 2&      -1     &            0\\
+-1&\frac{a}{a-1}& -\frac1{a-1}\\
+ 0& -\frac1{a-1}&  \frac1{a-1}\\
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+2-1 & -1+\frac{a}{a-1}-\frac{1}{a-1}   & -\frac1{a-1}+\frac1{a-1}     \\
+2-2 & -1+2\frac{a}{a-1}-\frac{2}{a-1}  & -\frac{2}{a-1}+\frac{2}{a-1} \\
+2-2 & -1+\frac{2a}{a-1}-\frac{a+1}{a-1}& -\frac2{a-1}+\frac{a+1}{a-1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}.
+\end{align*}%
+}%
+Alternativ kann die inverse Matrix auch mit Hilfe von Minoren
+berechnet werden.
+Dazu braucht man zunächst die Determinante, die man zum Beispiel
+durch Zeilenoperationen wie folgt berechnen kann:
+\begin{align*}
+\det A
+&=
+\left|\begin{matrix}
+1&1&1\\
+1&2&2\\
+1&2&a+1
+\end{matrix}\right|
+=
+\left|\begin{matrix}
+1&1&1\\
+0&1&1\\
+0&1&a
+\end{matrix}\right|
+=
+\left|\begin{matrix}
+1&1&1\\
+0&1&1\\
+0&0&a-1
+\end{matrix}\right|
+=
+a-1.
+\end{align*}
+Die inverse Matrix kann also nur dann bestimmt werden, wenn $a\ne 1$.
+Sie ist 
+\begin{align*}
+A^{-1}
+&=
+\frac1{a-1}
+{
+\renewcommand{\arraystretch}{1.15}
+\begin{pmatrix}
+\left|\begin{matrix}2&2\\2&a\end{matrix}\right|
+&-\left|\begin{matrix}1&1\\2&a+1\end{matrix}\right|
+&\left|\begin{matrix}1&1\\2&2\end{matrix}\right|
+\\
+-\left|\begin{matrix}1&2\\1&a+1\end{matrix}\right|
+&\left|\begin{matrix}1&1\\1&a+1\end{matrix}\right|
+&-\left|\begin{matrix}1&1\\1&2\end{matrix}\right|
+\\
+\left|\begin{matrix}1&2\\1&2\end{matrix}\right|
+&-\left|\begin{matrix}1&1\\1&2\end{matrix}\right|
+&\left|\begin{matrix}1&1\\1&2\end{matrix}\right|
+\end{pmatrix}
+}
+=
+\frac1{a-1}
+\begin{pmatrix}
+2a-2&-a+1&0\\
+-a+1&a  &-1\\
+   0& -1&1
+\end{pmatrix},
+\end{align*}
+in Übereinstimmung mit dem Resultat, das mit dem Gauss-Algorithmus
+gefundenen wurde.
+\end{loesung}
+
+\begin{bewertung}
+Berechnungsmethode für die inverse Matrix ({\bf M}) 1 Punkt,
+Durchführung des Gauss-Algorithmus ({\bf G}) 2 Punkt,
+Bedingung $a\ne 1$ ({\bf B}) 1 Punkt,
+Determinante ({\bf D}) 1 Punkt,
+inverse Matrix ({\bf I}) 1 Punkt.
+\end{bewertung}
+
+

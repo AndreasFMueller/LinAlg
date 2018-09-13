@@ -1,0 +1,171 @@
+Bestimmen Sie alle Eigenwerte und die zugehörigen Eigenvektoren der Matrix
+\[
+A=\begin{pmatrix}
+1&1&0\\
+1&0&1\\
+0&1&1
+\end{pmatrix}.
+\]
+
+\thema{Eigenwerte}
+\thema{Eigenvektoren}
+\thema{charakteristisches Polynom}
+
+\begin{loesung}
+Das charakteristische Polynom ist
+\begin{align*}
+\left|\;\begin{matrix}
+1-\lambda&1&0\\
+1&-\lambda&1\\
+0&1&1-\lambda
+\end{matrix}\;\right|
+&=
+-(1-\lambda)^2\lambda-(1-\lambda)-(1-\lambda)\\
+&=
+-(1-\lambda)^2\lambda-2(1-\lambda)\\
+&=
+(1-\lambda)(-\lambda(1-\lambda)-2)\\
+&=
+(1-\lambda)(\lambda^2-\lambda-2)\\
+&=
+(1-\lambda)(\lambda -2 )(\lambda+1)
+\end{align*}
+Dieses Polynom hat die Nullstellen $\lambda_1=-1$, $\lambda_2=1$
+und $\lambda_3=2$. Für jeden dieser Werte müssen jetzt auch noch
+Eigenvektoren gefunden werden.
+
+Für $\lambda=-1$ muss das homogene Gleichungssystem mit der Matrix
+$A-\lambda E=A+E$ gelöst werden:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+2&1&0\\
+1&1&1\\
+0&1&2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac12&0\\
+0&\frac12&1\\
+0&      1&2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac12&0\\
+0&      1&2\\
+0&      1&2\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac12&0\\
+0&      1&2\\
+0&      0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&-1\\
+0&1&2\\
+0&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Die dritte Variable ist frei wählbar, man kann sie zum Beispiel
+willkürlich auf $1$ festlegen, und erhält als Eigenvektor
+\[
+v_1=\begin{pmatrix}1\\-2\\1\end{pmatrix}.
+\]
+Tatsächlich ergibt
+\[
+Av_1
+=
+\begin{pmatrix}1&1&0\\1&0&1\\0&1&1\end{pmatrix}
+\begin{pmatrix}1\\-2\\1\end{pmatrix}
+=
+\begin{pmatrix}
+-1\\2\\-1
+\end{pmatrix}=-v_1,
+\]
+$v_1$ ist also wirklich ein Eigenvektor zum Eigenwert $\lambda_1=-1$.
+
+Analog kann man Eigenvektoren für die anderen Eigenwerte finden.
+Für $\lambda_2=1$ gilt
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+0&1&0\\
+1&-1&1\\
+0&1&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1&1\\
+0&1&0\\
+0&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&1\\
+0&1&0\\
+0&0&0\\
+\hline
+\end{tabular},
+\end{align*}
+was auf den Eigenvektor
+\[
+v_2=\begin{pmatrix}-1\\0\\1\end{pmatrix}
+\]
+führt.
+
+Oder für $\lambda_3=2$ findet man das Gleichungssystem
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+-1&1&0\\
+1&-2&1\\
+0&1&-1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1&0\\
+0&-1&1\\
+0&1&-1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1&0\\
+0&1&-1\\
+0&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&-1\\
+0&1&-1\\
+0&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+mit dem Eigenvektor
+\[
+v_3=\begin{pmatrix}1\\1\\1\end{pmatrix}.
+\qedhere
+\]
+\end{loesung}
+

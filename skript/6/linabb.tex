@@ -1,0 +1,78 @@
+%
+% linabb.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Lineare Abbildungen}
+\rhead{Lineare Abbildungen}
+\subsection{Definition}
+Eine $m\times n$-Matrix $A$ berechnet aus einem gegeben Vektor
+$v\in\mathbb R^n$ mit Hilfe des
+Matrizenproduktes einen neuen Vektor $Av\in\mathbb R^m$.
+$A$ definiert also auch eine Abbildung
+\[
+A\colon\mathbb R^n\to\mathbb R^m:v\mapsto Av
+\]
+mit den Eigenschaften
+\[
+\left.
+\begin{aligned}
+A(u+v)&=Au+Av\\
+A(\lambda u)&=\lambda Au
+\end{aligned}\right\}\quad
+\Rightarrow\quad
+A(\lambda u+\mu v)=\lambda Au+\mu Av.
+\]
+Eine solche Abbildung heisst linear.
+\index{lineare Abbildung}
+
+\subsection{Matrix einer linearen Abbildung}
+Umgekehrt definiert jede lineare Abbildung $V\to V$ mit Hilfe einer
+Basis auch eine Matrix.
+Sei $\varphi\colon V\to V$ eine Abbildung
+mit $\varphi(\lambda u+\mu v)=\lambda \varphi(u)+\mu\varphi(v)$,
+und $B=\{b_1,\dots,b_n\}$ eine Basis.
+Dann genügt die Kenntnis
+von $\varphi(b_i)$ für alle $i$, um die lineare Abbildung für
+jeden beliebigen Vektor berechnen zu können.
+
+Man kann nämlich jeden Vektor mit Hilfe seiner Koordinanten aus
+den Basisvektoren linear kombinieren, also gilt auch
+\[
+\varphi(v)
+=
+\varphi(\xi_1b_1+\dots+\xi_nb_n)
+=
+\xi_1\varphi(b_1)+\dots+\xi_n\varphi(b_n).
+\]
+Ausserdem kann man die Koordinaten von $\varphi(b_i)$ in der Basis
+$B$ ermitteln, und diese Koordinatenvektoren in eine Matrix $A$
+schreiben.
+Dann ist $A\xi$ der Koordinatenvektor von $\varphi(v)$.
+Die Matrix $A$ enthält also in den Spalten die Bilder der Basisvektoren.
+
+\subsection{Basiswechsel}
+Wie sieht die Matrix einer linearen Abbildung aus, wenn man statt
+der Basis $B$ die Basis $B'$ verwendet? Sei $T$ die Transformationsmatrix,
+die Koordinaten bezüglich $B$ in Koordinaten bezüglich $B'$ umrechnet.
+Die lineare Abbildung hat bezüglich der Basis $B$ die Matrix $A$, wir
+suchen aber die Matrix $A'$, die die lineare Abbildung bezüglich der
+Basis $B'$ beschreibt:
+\[
+\xymatrix{
+\mathbb R^n\ar[r]^{A} \ar[d]_{T}
+	&\mathbb R^n \ar[d]^{T}
+\\
+\mathbb R^n\ar[r]^{A'}
+	&\mathbb R^n
+}
+\]
+Aus dem Diagramm können wir ablesen, dass $A'$ gleichbedeutend
+ist damit, die Koordinaten zuerst mit $T^{-1}$ von der Basis $B'$
+auf die Basis $B$ umzurechnen, dort die Matrix $A$ anzuwenden, und
+dann erneut mit $T$ in die Basis $B'$ zurückzukehren:
+\begin{equation}
+A'=TAT^{-1}.
+\label{abbildung-basiswechsel}
+\end{equation}
+

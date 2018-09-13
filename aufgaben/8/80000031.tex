@@ -1,0 +1,167 @@
+Ist die Matrix
+\[
+A
+=
+\begin{pmatrix}
+3&0&0\\
+0&22&-6\\
+0&-6&13
+\end{pmatrix}
+\]
+diagonalisierbar?
+Wenn ja finden Sie eine Basis, in der $A$ diagonal ist.
+
+\thema{Eigenwerte}
+\thema{Eigenvektoren}
+\thema{charakteristisches Polynom}
+\thema{diagonalisierbar}
+
+\begin{loesung}
+Der Standardbasisvektor $e_1$ ist offensichtlich ein Eigenvektor zum Eigenwert
+$\lambda_1=3$, wir nennen ihn auch $v_1$.
+Zur Bestimmung der verbleibenden Eigenwerte und Eigenvektoren verwenden wir
+das charakteristische Polynom:
+\begin{align*}
+\chi_A(\lambda)
+&=
+\left|\begin{matrix}
+3-\lambda& 0 & \\
+0&22-\lambda&-6\\
+0&-6&13-\lambda
+\end{matrix}\right|
+=
+(3-\lambda)
+\bigl((22-\lambda)(13-\lambda)-36)\bigr)
+=
+(3-\lambda)(\lambda^2 - 35\lambda + 250)
+=
+0
+\end{align*}
+Der quadratische Faktor lässt sich faktorisieren in
+\[
+\lambda^2-35\lambda+250
+=
+(\lambda-10)(\lambda-25),
+\]
+woraus man die Eigenwerte $\lambda_2=10$ und $\lambda_3=25$ ablesen kann.
+Diese kann man natürlich auch mit Hilfe der Lösungsformel für quadratische
+Gleichungen finden:
+\[
+\lambda_{2,3}
+=
+\frac{35\pm\sqrt{35^2-4\cdot 250}}{2}
+=
+\frac{35\pm\sqrt{225}}2
+=
+\frac{35\pm15}2
+=
+\begin{cases}
+25&\\
+10.&
+\end{cases}
+\]
+Die zugehörigen Eigenvektoren können wir mit dem Gauss-Algorithmus
+bestimmen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+22-\lambda_2&          -6&0\\
+          -6&13-\lambda_2&0\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-3&-6&0\\
+-6&-12&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&2&0\\
+0&0&0\\
+\hline
+\end{tabular}
+&&\Rightarrow&
+v_2
+&=
+\begin{pmatrix}0\\-2\\1\end{pmatrix}
+\\
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+22-\lambda_3&          -6&0\\
+          -6&13-\lambda_3&0\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+12&-6&0\\
+-6& 3&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-\frac12&0\\
+0&0&0\\
+\hline
+\end{tabular}
+&&\Rightarrow&
+v_3
+&=
+\begin{pmatrix}0\\1\\2\end{pmatrix}
+\end{align*}
+Zur Kontrolle rechnen wir nach:
+\begin{align*}
+Av_2
+&=
+\begin{pmatrix}
+3&0&0\\
+0&22&-6\\
+0&-6&13
+\end{pmatrix}
+\begin{pmatrix}0\\-2\\1\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+-50\\
+ 25
+\end{pmatrix}
+=
+25\,v_2
+=
+\lambda_2v_2,
+&
+Av_3
+&=
+\begin{pmatrix}
+3&0&0\\
+0&22&-6\\
+0&-6&13
+\end{pmatrix}
+\begin{pmatrix}0\\1\\2\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+10\\
+20
+\end{pmatrix}
+=
+10\,v_3
+=
+\lambda_3v_3.
+\end{align*}
+Also sind die Vektoren $v_2$ und $v_3$ Eigenvektoren.
+In der Basis $\{v_1,v_2,v_3\}$ hat die Matrix $A$ Diagonalform.
+\end{loesung}
+
+\begin{bewertung}
+Charakteristisches Polynom ({\bf X}) 1 Punkt,
+Nullstellen ({\bf N}) 1 Punkt,
+Gleichungssystem für jeden Eigenwert ({\bf G}) 1 Punkt,
+Eigenvektor zu $\lambda = 3$ ($\text{\bf E}_3$) 1 Punkt,
+Eigenvektor zu $\lambda = 10$ ($\text{\bf E}_{10}$) 1 Punkt,
+Eigenvektor zu $\lambda = 25$ ($\text{\bf E}_{25}$) 1 Punkt.
+\end{bewertung}

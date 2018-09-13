@@ -1,0 +1,161 @@
+Ein Schmidt-Cassegrain-Teleskop hat einen gefalteten Strahlengang,
+man kann daher die Brennweite nicht direkt messen.
+Um die Brennweite $f$ zu bestimmen, verwendet man folgende Methode:
+Man richtet das Teleskop auf einen Stern am Himmelsäquator.
+Durch die Erddrehung bewegt
+er sich mit einer Winkelgeschwindigkeit von
+$\omega=360^\circ/24\,h=2\pi/86400\,s$.
+Mit einem Okular mit einer eingebauten Messplatte (Abbildung)
+beobachtet man die Bewegung des Sterns entlang der horizontalen Skala
+in der Mitte.
+Er bewegt sich mit der Geschwindigkeit $v = f\omega$.
+Ein Teilstrich dieser Skala ist 0.1\,mm.
+In regelmässigen Zeitabständen liest man die Position des Sterns ab
+und erhält die folgenden Datenpunkte:
+\begin{center}
+\begin{tabular}{ccc}
+\begin{minipage}{0.25\hsize}
+\includeagraphics[width=\hsize]{20040512Micro3.jpg}
+\end{minipage}&\qquad\qquad\qquad&
+\begin{minipage}{0.2\hsize}
+\begin{tabular}{>{$}c<{$}|>{$}r<{$}|>{$}c<{$}}
+i& t_i\,[\text{s}]&x_i\,[\text{mm}]\\
+\hline
+1& 0&1.30\\
+2&10&2.24\\
+3&20&3.21\\
+4&30&4.02\\
+5&40&5.05
+\end{tabular}
+\end{minipage}
+\end{tabular}
+\end{center}
+Man würde erwarten, dass die Position $x$ linear von der Zeit abhängt,
+also $x=x_0 + vt$.
+Nun wurde aber experimentell festgestellt, dass die Abbildungsfehler
+von Teleskop und Okular zusammenwirken und dafür sorgen, dass die
+Bewegung des Sterns nicht linear ist.
+Wir nehmen daher in nächster Näherung an, dass $x$ durch ein
+quadratisches Polynom
+\begin{equation}
+x=x_0+vt + bt^2
+\label{40000058:quadratisch}
+\end{equation}
+beschrieben wird.
+
+\begin{teilaufgaben}
+\item
+Stellen Sie ein Gleichungssystem auf, mit dem sich die bestmöglichen
+Werte für $x_0$, $v$ und $b$ bestimmen lassen.
+\item
+Bestimmen Sie die Brennweite $f$ in mm.
+\end{teilaufgaben}
+
+\begin{hinweis}
+Verwenden Sie den Taschenrechner, um das in a) gefundene Gleichungssystem
+zu lösen.
+\end{hinweis}
+
+\thema{Least Squares}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir möchten gerne $x_0$, $v$ und $b$ bestimmen, so dass für
+jeden Index $i$ die Gleichung
+\[
+x_i = {\color{red}x_0} + {\color{red}v}t_i + {\color{red}b}t_i^2
+\]
+möglichst gut erfüllt ist.
+Dies liefert uns das Gleichungssystem
+\begin{equation}
+\begin{linsys}{3}
+{\color{red}x_0}&+&t_1{\color{red}v}&+&t_1^2{\color{red}b}&=&x_1\phantom{,}\\
+{\color{red}x_0}&+&t_2{\color{red}v}&+&t_2^2{\color{red}b}&=&x_2\phantom{,}\\
+{\color{red}x_0}&+&t_3{\color{red}v}&+&t_3^2{\color{red}b}&=&x_3\phantom{,}\\
+{\color{red}x_0}&+&t_4{\color{red}v}&+&t_4^2{\color{red}b}&=&x_4\phantom{,}\\
+{\color{red}x_0}&+&t_5{\color{red}v}&+&t_5^2{\color{red}b}&=&x_5,
+\end{linsys}
+\label{40000058:gl}
+\end{equation}
+welches im Sinne der kleinsten Quadrate gelöst werden muss.
+In Matrixform ist dies das Gleichungssystem
+\[
+\underbrace{
+\begin{pmatrix}
+1& 0&   0\\
+1&10& 100\\
+1&20& 400\\
+1&30& 900\\
+1&40&1600
+\end{pmatrix}
+}_{\displaystyle=A}
+\underbrace{
+\begin{pmatrix}
+\color{red}x_0\\
+\color{red}v\\
+\color{red}b
+\end{pmatrix}
+}_{\displaystyle=x}
+=
+\underbrace{
+\begin{pmatrix}
+1.30\\
+2.24\\
+3.21\\
+4.02\\
+5.05
+\end{pmatrix}
+}_{\displaystyle=b}.
+\]
+Um die Unbekannten $x_0$, $v$ und $b$ zu bestimmen, muss das
+Gleichungssystem $A^tAx=A^tb$ gelöst werden.
+Die Matrizenprodukte sind
+\[
+A^tA
+=
+\begin{pmatrix}
+   5&   100&   3000\\
+ 100&  3000& 100000\\
+3000&100000&3540000
+\end{pmatrix},
+\qquad
+A^tb
+=
+\begin{pmatrix}
+\phantom{000}15.82\\
+\phantom{00}409.2\phantom{0}\\
+13206.\phantom{00}
+\end{pmatrix}.
+\]
+Die Lösung dieses Gleichungssystems mit dem Taschenrechner liefert
+\[
+x_0 = 1.3109,\quad
+v=0.09222,\quad
+b=0.000014287.
+\]
+\item
+Aus dem Wert von $v=0.09222$ erhalten wir für die Brennweite
+\[
+f
+=
+v/\omega
+=
+0.09222\cdot \frac{86400}{2\pi}
+=
+1268.1\, \text{mm}
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\thema{Least Squares}
+
+\begin{bewertung}
+Least-Squares Gleichungen \eqref{40000058:gl} ({\bf G}) 1 Punkt,
+Matrix $A$ ({\bf A}) 1 Punkt,
+Matrix $A^tA$ ({\bf C}) 1 Punkt,
+Vektor $A^tb$ ({\bf B}) 1 Punkt,
+Wert $v$ ({\bf V}) 1 Punkt,
+Brennweite $f$ ({\bf F}) 1 Punkt.
+\end{bewertung}

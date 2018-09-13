@@ -1,60 +1,68 @@
-Finden Sie eine QR-Zerlegung für die Matrix
-\[
-A=\begin{pmatrix}
-3&5\\
-4&7
-\end{pmatrix}.
-\]
+Um die Position eines Objekts im Raum zu bestimmen, werden zwei Kameras
+verwendet.
+Die Software erkennt das Objekt auf beiden Bildern und berechnet
+die Gerade von der Kamera durch das Objekt.
+Die Position des Objektes ist also der Schnittpunkt der Geraden.
 
-\thema{QR-Zerlegung}
-\thema{Orthonormalisierung}
+Wegen Ungenauigkeiten in der Kamerakalibrierung schneiden sich die Geraden
+nicht. 
+Um den Fehler abzuschätzen, sollen sie den Abstand der beiden Geraden
+\[
+\begin{pmatrix} 100\\0\\0 \end{pmatrix}
++
+t\begin{pmatrix} 1\\7\\ 101\end{pmatrix}
+\qquad\text{und}\qquad
+\begin{pmatrix} 0\\0\\ 100 \end{pmatrix}
++
+t\begin{pmatrix} 99\\7\\1 \end{pmatrix}
+\]
+berechnen.
+
+\thema{Abstand windschiefer Geraden}
+\thema{Vektorprodukt}
 
 \begin{loesung}
-Zunächst muss die Orthonormalisierung für die Spalten von $A$
-durchgeführt werden, wir bezeichnen die Spalten von $A$ mit $a_i$,
-die orthonormalisierten Spalten mit $a_i'$. Im ersten Schritt muss man
-den Vektor $a_1$ auf Länge $1$ bringen:
+Dazu kann man die Formel für den windschiefen Abstand verwenden.
+Das Vektorprodukt der beiden Richtungsvektoren ist
 \[
-a_1'=\frac{a_1}{|a_1|}=\frac15\begin{pmatrix}3\\4\end{pmatrix}.
+\vec n
+=
+\vec r_1
+\times
+\vec r_2
+=
+\begin{pmatrix} 1\\7\\ 101\end{pmatrix}
+\times
+\begin{pmatrix} 99\\7\\1 \end{pmatrix}
+=
+\begin{pmatrix} -700\\9998\\-686 \end{pmatrix}
 \]
-Im zweiten Schritt muss man erreichen, dass er Vektor $a_2'$ senkrecht
-auf $a_1$ steht:
-\begin{align*}
-a_2'&=\frac{a_2-(a_2\cdot a_1')a_1'}{|a_2-(a_2\cdot a_1')a_1'|}\\
-a_2\cdot a_1'&=\frac15(3\cdot 5+7\cdot 4)=\frac{43}{5},\\
-a_2-(a_2\cdot a_1')a_1'&=
-\begin{pmatrix}5\\7\end{pmatrix}
--\frac{43}{25}\begin{pmatrix}3\\4\end{pmatrix}
-=\frac{1}{25}\begin{pmatrix}-4\\3\end{pmatrix},
-\\
-a_2'&=\frac15\begin{pmatrix}-4\\3\end{pmatrix}.
-\end{align*}
-Daraus lässt sich jetzt die Matrix $Q$ der QR-Zerlegung ablesen:
+Die Differenz der Stützvektoren
 \[
-Q=\frac15
-\begin{pmatrix}
-3&-4\\
-4& 3
-\end{pmatrix}.
+\vec p_1-\vec p_2
+=
+\begin{pmatrix} 100\\0\\0 \end{pmatrix}
+-
+\begin{pmatrix} 0\\0\\ 100 \end{pmatrix}
+=
+\begin{pmatrix} 100\\0\\-100 \end{pmatrix}
 \]
-Die Bestimmung der Matrix $R$ ist jetzt mit dem Matrizenprodukt möglich:
-\begin{align*}
-A&=QR&&\Rightarrow&R&=Q^tA=\frac15\begin{pmatrix}3&4\\-4&3\end{pmatrix}
-\begin{pmatrix}3&5\\4&7\end{pmatrix}
-=\frac15\begin{pmatrix}
-25&43\\
- 0&1
-\end{pmatrix}
-=\begin{pmatrix}
-5&\frac{43}{5}\\
-0&\frac{1}{5}
-\end{pmatrix}.
-\end{align*}
-Kontrolle:
-\begin{align*}
-QR&=\frac15\begin{pmatrix}3&-4\\4&3\end{pmatrix}\frac15\begin{pmatrix}25&43\\0&1\end{pmatrix}
-=\frac1{25}\begin{pmatrix}75&125\\100&175\end{pmatrix}
-=\begin{pmatrix}3&5\\4&7\end{pmatrix}=A.
-\qedhere
-\end{align*}
+muss jetzt darauf projiziert werden, es ist
+\[
+d
+=
+\frac{\vec n}{|\vec n|}\cdot (\vec p_1-\vec p_2)
+=
+\frac{1}{|\vec n|}(-1400)=-0.13936.
+\]
+Der Abstand der beiden Geraden ist also $0.13936$.
 \end{loesung}
+
+\begin{bewertung}
+Abstandsformel ({\bf F}) 1 Punkt,
+Vektorprodukt ({\bf P}) 1 Punkt,
+Länge des Vektorproduktes ({\bf L}) 1 Punkt,
+Differenz der Stützpunkte ({\bf D}) 1 Punkt,
+Abstand ({\bf A}) 2 Punkte.
+\end{bewertung}
+

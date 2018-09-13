@@ -1,0 +1,524 @@
+%
+% abbildungen.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Orthogonale Abbildungen\label{section:orthabb}}
+\rhead{Orthogonale Abbildungen}
+Wenn eine affine Abbildung die Längen nicht verändert, wenn sie also
+längentreu ist, dann bleiben in einem Dreieck auch alle Winkel bei
+der Abbildung unverändert, also ist auch das Skalarprodukt unverändert.
+In diesem Abschnitt untersuchen wir die Eigenschaften von linearen
+Abbildungen, die das Skalarprodukt nicht verändern.
+
+\subsection{Definition}
+Lineare Abbildungen, welche Längen und Winkel nicht ändern, beschreiben
+sogenannte {\em Bewegungen} des Raumes.
+Damit zwei Vektoren $u$ und $v$ sollen nach Abbildung
+mit der Matrix $A$ immer noch das gleiche Skalarprodukt haben, muss
+\[
+u^tv=(Au)^tAv=u^tA^tAv
+\]
+gelten.
+Dies ist jedoch nur dann für alle Vektoren $u$ und $v$ möglich,
+wenn $A^tA$ die Einheitsmatrix ist, also $A^tA=E$.
+Das ist aber gleichbedeutend damit, dass $A^t=A^{-1}$.
+Lineare Abbildungen, die Längen und
+Winkel erhalten, haben also besonders einfach zu invertieren Matrizen.
+
+\index{Matrix!orthognale}
+\begin{definition}
+\index{orthogonal}
+Eine Matrix $A$ heisst orthogonal, wenn $A^tA=AA^t=E$.
+\end{definition}
+
+\begin{beispiel}
+Die Matrix 
+\[
+A=
+\begin{pmatrix}
+\frac{\sqrt{2}}2& \frac{\sqrt{2}}2\\
+-\frac{\sqrt{2}}2& \frac{\sqrt{2}}2
+\end{pmatrix}
+\]
+ist orthogonal:
+\[
+A^tA=
+\begin{pmatrix}
+\frac{\sqrt{2}}2&-\frac{\sqrt{2}}2\\
+\frac{\sqrt{2}}2& \frac{\sqrt{2}}2
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\sqrt{2}}2& \frac{\sqrt{2}}2\\
+-\frac{\sqrt{2}}2& \frac{\sqrt{2}}2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac24+\frac24&\frac24-\frac12\\
+\frac24-\frac24&\frac24+\frac12
+\end{pmatrix}
+=E.
+\qedhere
+\]
+\end{beispiel}
+
+\subsection{Drehungen im zweidimensionalen Raum}
+Die Matrix
+\[
+D_\alpha
+=
+\begin{pmatrix}
+\cos\alpha&-\sin\alpha\\
+\sin\alpha& \cos\alpha
+\end{pmatrix}
+\]
+ist orthogonal:
+\[
+D_\alpha^tD_\alpha
+=
+\begin{pmatrix}
+ \cos\alpha&\sin\alpha\\
+-\sin\alpha&\cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+\cos\alpha&-\sin\alpha\\
+\sin\alpha& \cos\alpha
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos^2\alpha+\sin^2\alpha&0\\
+0&\sin^2\alpha+\cos^2\alpha
+\end{pmatrix}
+=E.
+\]
+Diese Matrix beschreibt eine Drehung um den Winkel $\alpha$
+in zwei Dimensionen.
+
+\subsection{Spiegelungen}
+\index{Spiegelung}
+Die Matrix einer Spiegelung an einer Geraden ist orthogonal.
+
+\smallskip
+
+{\parindent 0pt
+Sei} $v$ ein zweidimensionaler Vektor der Länge $1$.
+Dann ist die Abbildung 
+\[
+u\mapsto u-2v(v\cdot u)
+\]
+die Spiegelung an der Geraden mit der Normalen $u$.
+Ist nämlich
+ein Vektor $u\perp v$, ist das Skalarprodukt $0$, und $u\mapsto u$
+bleibt unverändert.
+Andererseits wird der Vektor $v$ auf
+$v-2v(v\cdot v)=v-2v=-v$ abgebildet.
+Vektoren senkrecht auf $v$
+werden also belassen, solche parallel zu $v$ werden umgekehrt.
+
+Die Matrix dieser linearen Abbildung ist
+\[
+S_v=\begin{pmatrix}1&0\\0&1\end{pmatrix}
+-
+2\begin{pmatrix}v_1\\v_2\end{pmatrix}
+\begin{pmatrix}v_1&v_2\end{pmatrix}
+=
+\begin{pmatrix}
+1-2v_1^2&-2v_1v_2\\
+-2v_1v_2&1-2v_2^2
+\end{pmatrix},
+\]
+wir wollen nachrechnen, dass sie orthogonal ist.
+Dabei beachten
+wir, dass $1-v_1^2=v_2^2$ ist, weil ja $|v|=1$, also kann man $S_v$
+auch schreiben
+\[
+S_v=\begin{pmatrix}
+v_2^2-v_1^2&-2v_1v_2\\
+-2v_1v_2&v_1^2-v_2^2
+\end{pmatrix}
+\]
+
+\begin{align*}
+S_v^tS_v
+&=
+\begin{pmatrix}
+v_2^2-v_1^2&-2v_1v_2\\
+-2v_1v_2&v_1^2-v_2^2
+\end{pmatrix}
+\begin{pmatrix}
+v_2^2-v_1^2&-2v_1v_2\\
+-2v_1v_2&v_1^2-v_2^2
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+v_2^4-2v_1^2v_2^2+v_1^4+4v_1^2v_2^2&
+-2(v_2^2-v_1^2)v_1v_2
++
+-2(v_1^2-v_2^2)v_1v_2
+\\
+-2(v_1^2-v_2^2)v_1v_2
++
+-2(v_2^2-v_1^2)v_1v_2
+&
+v_2^4-2v_1^2v_2^2+v_1^4+4v_1^2v_2^2
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+v_1^4+2v_1^2v_2^2+v_2^4&0\\
+0&v_1^4+2v_1^2v_2^2+v_2^4\\
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+(v_1^2+v_2^2)^2&0\\
+0&(v_1^2+v_2^2)^2
+\end{pmatrix}=E
+\end{align*}
+Die Matrix $S_v$ ist also tatsächlich immer orthogonal.
+
+Analog gilt in beliebig vielen Dimensionen, dass die Matrix
+$S_v=E-2v v^t$  für einen Vektor $v$ der Länge $1$ eine orthogonale
+Matrix ist, die die Spiegelung an einer Ebene mit Normale $v$
+beschreibt.
+
+\subsection{Eigenschaften orthogonaler Matrizen}
+Eine besondere Eigenschaft orthogonaler Matrize ist, dass sich die
+inverse Matrix ganz besonders leicht berechnen lässt, wie der folgende
+Satz zeigt.
+\begin{satz}
+Die Spalten einer orthogonale Matrix $A$ sind orthonormiert, sie sind
+orthogonale Vektoren der Länge 1.
+Ausserdem ist $A^{-1}=A^t$.
+\end{satz}
+
+\begin{proof}[Beweis]
+Multipliziert man $A^tA=E$ von rechts mit $A^{-1}$, bekommt man
+$A^tAA^{-1}=A^t=A^{-1}$.
+
+Wir interpretieren die Bedingung $A^tA=E$.
+Für ein beliebiges $i$
+bedeutet sie, dass Zeile $i$ von $A^t$ mal Spalte $i$ von $A$ $1$ ergibt.
+Dies ist aber das Skalarprodukt von Spalte $i$ von $A$ mit Spalte $i$
+von $A$, also die Länge vom Spaltenvektor mit der Nummer $i$.
+
+Seien jetzt $i\ne j$ zwei verschiedene Indizes.
+Dann bedeutet $A^tA=E$,
+dass Zeile $i$ von $A^t$ mal Spalte $j$ von $A$ $0$ ergibt.
+Oder das
+Skalarprodukt von Spalte $i$ von $A$ mit Spalte $j$ von $A$ ist $0$.
+Dies wiederum heisst, dass die Spaltenvektoren senkrecht stehen.
+\end{proof}
+
+%
+% Vertauschung der Koordinatenachsen
+%
+\subsection{Vertauschung der Koordinatenachsen also orthogonale Abbildung}
+Für Transformation, die die Koordinatenachsen vertauscht, ist
+die Transformationsmatrix ebenfalls leicht zu ermitteln.
+In der Basis
+\[
+\left\{
+b_1'=\begin{pmatrix}0\\0\\1\end{pmatrix},
+b_2'=\begin{pmatrix}0\\1\\0\end{pmatrix},
+b_3'=\begin{pmatrix}1\\0\\0\end{pmatrix},
+\right\}
+\]
+sind die $x$- und die $z$-Achse vertauscht worden.
+die zugehörige Transformationsmatrix ist
+\begin{equation}
+T=\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}.
+\label{transformation-vertauschung}
+\end{equation}
+
+%
+% Drehung des dreidimensionalen Raumes
+%
+\subsection{Drehungen des dreidimensionalen Raumes}
+Die Drehungen des Raumes sind etwas komplizierter als die Drehungen der
+Ebene, da jede beliebige Richtung als Drehachse auftreten kann.
+Wir beginnen daher damit, Drehungen um die Koordinatenachsen zu beschreiben
+und leiten daraus eine Methode her, den Drehwinkel zu bestimmen.
+Die Bestimmung der Drehachse werden wir im Zusammenhang mit dem
+Eigenwertproblem in Kapitel~\ref{chapter-eigen} genauer untersuchen.
+
+\subsubsection{Drehungen um die Koordinatenachsen}
+Drehungen um die Koordinatenachsen können mit Hilfe der zweidimensionalen
+Drehmatrix $D_\alpha$ gefunden werden.
+Die Drehung um die $x$-Achse um den
+Winkel $\alpha$ ändert die $x$-Koordinate nicht, hat also die
+Matrix
+\[
+D_{x,\alpha}=
+\begin{pmatrix}
+1&0&0\\
+0&\cos\alpha&-\sin\alpha\\
+0&\sin\alpha&\cos\alpha
+\end{pmatrix}
+\]
+Analog können Drehungen um die anderen zwei Achsen formuliert werden:
+\[
+D_{y,\alpha}=\begin{pmatrix}
+\cos\alpha&0&-\sin\alpha\\
+0&1&0\\
+\sin\alpha&0&\cos\alpha
+\end{pmatrix}
+,\qquad
+D_{z,\alpha}=\begin{pmatrix}
+\cos\alpha&-\sin\alpha&0\\
+\sin\alpha&\cos\alpha&0\\
+0&0&1
+\end{pmatrix}
+\]
+Man kann diese Matrizen aus $D_{x,\alpha}$ aber auch mit Hilfe einer
+Koordinatentransformation bekommen.
+Die Transformationsmatrix
+haben wir in (\ref{transformation-vertauschung}) gefunden:
+\[
+T=
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}
+=T^{-1}
+\]
+Mit der Basiswechsel-Formel (\ref{abbildung-basiswechsel}) kann
+man jetzt die Drehmatrix um die $z$-Achse aus der Drehmatrix um die
+$x$-Achse berechnen:
+\begin{align*}
+D_{z,-\alpha}=TD_{x,\alpha}T^{-1}
+&=
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}
+\begin{pmatrix}
+1&0&0\\
+0&\cos\alpha&-\sin\alpha\\
+0&\sin\alpha&\cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+0&\sin\alpha&\cos\alpha\\
+0&\cos\alpha&-\sin\alpha\\
+1&0&0
+\end{pmatrix}
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos\alpha&\sin\alpha&0\\
+-\sin\alpha&\cos\alpha&0\\
+0&0&1
+\end{pmatrix}.
+\end{align*}
+\subsubsection{Drehwinkel ermitteln}
+Für die Standard-Drehmatrizen $D_{x,\alpha}$ ist der Drehwinkel 
+leicht mit Hilfe der Spur zu ermitteln.
+Die Spur ist die Summe der
+Diagonalelemente einer Matrix:
+\[
+\operatorname{Spur}
+\begin{pmatrix}
+a_{11}&\dots &a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{n1}&\dots &a_{nn}\\
+\end{pmatrix}
+=a_{11}+a_{22}+\dots+a_{nn}
+\quad
+\Rightarrow
+\quad
+\operatorname{Spur}D_{x,\alpha}=1+2\cos\alpha.
+\]
+Die Spur hat aber interessante algebraische Eigenschaften, welche
+die Berechnung des Drehwinkels auch für beliebige Drehmatrizen
+erlauben:
+\begin{satz}
+\label{spursatz}
+Seinen $A$, $B$ und $C$ beliebige $n\times n$-Matrizen.
+Dann gilt
+\begin{compactenum}
+\item $\operatorname{Spur}(ABC)=\operatorname{Spur}(BCA)=\operatorname{Spur}(CAB)$
+\item $\operatorname{Spur}(AB)=\operatorname{Spur}(BA)$
+\end{compactenum}
+\end{satz}
+Wir zeigen zunächst, wie man damit den Drehwinkel einer beliebigen
+Drehung $D$ des dreidimensionalen Raumes bestimmen kann.
+Sei $T$ eine Koordinatentransformation, welche die Drehachse der Drehung in die
+$x$-Achse transformiert.
+Dann hat die transformierte Drehmatrix die Form $D_{x,\alpha}$:
+\[
+TDT^{-1}= D_{x,\alpha}
+\]
+Für die Spur gilt dann
+\begin{align*}
+\operatorname{Spur}(TDT^{-1})
+&=
+\operatorname{Spur}(DT^{-1}T)
+=
+\operatorname{Spur}(D)
+\\
+\operatorname{Spur}(TDT^{-1})
+&=
+\operatorname{Spur}(D_{x,\alpha})=1+2\cos\alpha
+\end{align*}
+Aufgelöst nach $\cos\alpha$:
+\begin{satz}\label{drehwinkelsatz}
+Der Drehwinkel einer Drehung des $\mathbb R^3$ mit Matrix $D$ ist
+\[
+\cos\alpha =\frac{\operatorname{Spur}(D) -1 }2.
+\]
+\end{satz}
+
+\begin{proof}[Beweis des Satzes \ref{spursatz}]
+Die zweite Aussage folgt aus der ersten, indem man $C=E$ setzt:
+\[
+\operatorname{Spur}(AB)=\operatorname{Spur}(ABE)=\operatorname{Spur}(BEA)=
+\operatorname{Spur}(BA).
+\]
+Die zyklische Vertauschung der Faktoren folgt aus den Formeln für die
+Matrix-Multiplikation.
+Das Element $ik$ der Matrix $AB$ ist
+\[
+\sum_{j=1}^na_{ij}b_{jk}
+\]
+und entsprechend ist das Matrixelement $il$ von $ABC$ 
+\[
+\sum_{j=1, k=1}^na_{ij}b_{jk}c_{kl}
+\]
+Die Diagonalelemente sind jene mit $i=l$, die Spur ist deren Summe:
+\[
+\operatorname{Spur}(ABC)
+=\sum_{i,j,k=1}^na_{ij}b_{jk}c_{ki}
+=\sum_{i,j,k=1}^nc_{ki}a_{ij}b_{jk}
+=\sum_{j,k,i=1}^nc_{ij}a_{jk}b_{ki}
+=\operatorname{Spur}(CAB)
+\qedhere
+\]
+\end{proof}
+
+\subsubsection{Euler-Winkel}
+Um die Lage eines Körpers im Raum festzulegen wurde schon früh
+die folgende nach Euler benannte  Parametrisierung verwendet.
+Die Lage wird durch drei aufeinanderfolgende Drehungen um die $z$-,
+die $x$- und dann nochmals die $z$-Achse herbeigeführt.
+Die drei
+Drehungen sind
+\begin{compactenum}
+\item eine Drehung um die $z$-Achse um den Winkel $\alpha$
+\item eine Drehung um die $x$-Achse um den Winkel $\beta$
+\item eine Drehung um die $z$-Achse um den Winkel $\gamma$
+\end{compactenum}
+Mit der Matrizen-Darstellung der einzelnen Drehungen kann auch
+die Matrix der gesamten Drehung berechnet werden.
+Wir schreiben
+$D_{x,\alpha}$ für eine Drehung um die $x$-Achse um den Winkel
+$\alpha$, und sinngemäss für die anderen Achsen.
+Es ist
+\begin{align*}
+O(\alpha,\beta,\gamma)
+&=
+D_{z,\gamma}
+D_{x,\beta}
+D_{z,\alpha}
+\\
+&=
+\begin{pmatrix}
+\cos\gamma&-\sin\gamma&0\\
+\sin\gamma&\cos\gamma&0\\
+0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+1&0&0\\
+0&\cos\beta&-\sin\beta\\
+0&\sin\beta&\cos\beta
+\end{pmatrix}
+\begin{pmatrix}
+\cos\alpha&-\sin\alpha&0\\
+\sin\alpha&\cos\alpha&0\\
+0&0&1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\cos\gamma&-\sin\gamma&0\\
+\sin\gamma&\cos\gamma&0\\
+0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+\cos\alpha&-\sin\alpha&0\\
+\sin\alpha\cos\beta&\cos\alpha\cos\beta&-\sin\beta\\
+\sin\alpha\sin\beta&\cos\alpha\sin\beta&\cos\beta
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\cos\alpha\cos\gamma+\sin\alpha\cos\beta\sin\gamma
+        &-\sin\alpha\cos\gamma-\cos\alpha\cos\beta\sin\gamma
+                &\sin\beta\sin\gamma\\
+\cos\alpha\sin\gamma+\sin\alpha\cos\beta\cos\gamma
+        &-\sin\alpha\sin\gamma+\cos\alpha\cos\beta\cos\gamma
+                &-\sin\beta\cos\gamma\\
+\sin\alpha\sin\beta&\cos\alpha\sin\beta&\cos\beta
+\end{pmatrix}
+\end{align*}
+In der Astronomie und der Raumfahrt sind die Winkel sehr gebräuchlich.
+Der Winkel $\beta$ ist die Neigung der Bahn gegenüber der Referenzebene,
+bei Satellitenbahnen um die Erde ist dies die Äquatorebene,
+bei interplanetaren Missionen die Ebene der Erdbahn.
+Der Winkel $\gamma$ ist der Winkel zwischen einer Referenzrichtung
+und der Schnittgeraden der Bahnebene mit der Referenzebene.
+Diese Schnittgerade heisst auch die Knotenlinie.
+Bei Planetenbahnen ist die Referenzrichtung die Richtung des Frühlingspunktes.
+Der Winkel $\alpha$ ist der Winkel zwischen der Knotenlinie und dem
+erd- oder sonnennächsten Punkt.
+
+%
+% Die orthogonale Gruppe
+%
+\subsection{Die orthogonale Gruppe\label{subsection:orthogonale gruppe}}
+Die orthogonalen Matrizen bilden eine wichtige Teilmenge der invertierbaren
+Matrizen, die sogenante orthogonale Gruppe.
+
+\begin{definition}
+Die Menge aller orthogonalen Matrizen
+\[
+\operatorname{O}(n) = \{ A\in M_n(\mathbb R)\;|\; AA^t = E \}
+\subset \operatorname{GL}_n(\mathbb R)
+\]
+heisst die orthogonale Gruppe.
+\end{definition}
+Die orthogonale Gruppe enthält einerseits alle Drehmatrizen, aber auch
+alle Spiegelungen, da diese ebenfalls das Skalarprodukt erhalten.
+Des Weiteren sind Produkte von Drehmatrizen und Spiegelungsmatrizen
+ebenfalls in $\operatorname{O}(n)$.
+Wir verfügen im Moment nicht nicht über die notwendigen Hilfsmittel,
+Drehmatrizen von Abbildungen mit einer Spiegelungskomponente zu 
+unterscheiden, dies wird im nächsten Kapitel anchgeholt.
+
+
+
+
+

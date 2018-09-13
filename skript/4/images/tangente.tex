@@ -1,0 +1,86 @@
+%
+% tangente.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\documentclass[tikz]{standalone}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{color}
+\usetikzlibrary{arrows,intersections,math}
+\begin{document}
+
+\def\a{25}
+\def\b{110}
+\def\r{3}
+\def\l{1.3}
+
+\def\punkt#1{
+	\fill[color=white] #1 circle[radius=0.07];
+	\draw #1 circle[radius=0.07];
+}
+
+\begin{tikzpicture}[>=latex,thick]
+
+\begin{scope}
+	\clip (-3.5,-4) rectangle ({1.7*\r},{1.2*\r});
+	\draw ({\r*(cos(\a)-2*sin(\a))},{\r*(sin(\a)+2*cos(\a))})
+		--({\r*(cos(\a)+2*sin(\a))},{\r*(sin(\a)-2*cos(\a))});
+\end{scope}
+
+
+% Nullpunkt
+\node at (-3.5,-4) [left] {$O$};
+
+% radius
+\draw (0,0)--({\r*cos(\b)},{\r*sin(\b)});
+\node at ({\r*cos(\b)/2},{\r*sin(\b)/2}) [above left] {$r$};
+
+% normale
+\draw[->,line width=1.4pt] ({\r*cos(\a)},{\r*sin(\a)}) --({1.6*\r*cos(\a)},{1.6*\r*sin(\a)});
+\node at ({1.6*\r*cos(\a)},{1.6*\r*sin(\a)}) [above] {$\vec{n}$};
+\draw[line width=0.5pt] (0,0)-- ({\r*cos(\a)},{\r*sin(\a)});
+
+% rechter winkel
+\draw ({(\r+0.5)*cos(\a)},{(\r+0.5)*sin(\a)}) arc (\a:{\a+90}:0.5);
+\fill ({\r*cos(\a)+0.28*cos(45+\a)},{\r*sin(\a)+0.28*sin(45+\a)}) circle[radius=0.07];
+
+% Punkt P0
+\node at ({\r*cos(\a)+0.1},{\r*sin(\a)-0.1}) [right] {$P_0$};
+\draw[->,line width=1.4pt,color=gray] (-3.5,-4)--({\r*cos(\a)},{\r*sin(\a)});
+\node at ({(-3.5+\r*cos(\a))/2},{(-4+\r*sin(\a))/2}) [below right] {$\vec{p}_0$};
+
+% Punkt P
+\draw[->,line width=1.4pt] ({\r*cos(\a)},{\r*sin(\a)})
+		--({\r*(cos(\a)+\l*sin(\a))},{\r*(sin(\a)-\l*cos(\a))});
+
+\draw[->,line width=1.4pt,color=gray] (-3.5,-4)
+		--({\r*(cos(\a)+\l*sin(\a))},{\r*(sin(\a)-\l*cos(\a))});
+\node at ({(-3.5+\r*(cos(\a)+\l*sin(\a)))/2},{(-4+\r*(sin(\a)-\l*cos(\a)))/2})
+	[below] {$\vec{p}$};
+\node at ({\r*(cos(\a)+\l*sin(\a))},{\r*(sin(\a)-\l*cos(\a))}) [right] {$P$};
+
+
+\node at ({\r*(cos(\a)+\l*sin(\a)/2)},{\r*(sin(\a)-\l*cos(\a)/2)}) [right] {$\vec{p}-\vec{p}_0$};
+
+% vektor m
+\node at (0,0) [left] {$M$};
+\draw[->,line width=1.4pt,color=gray] (-3.5,-4)--(0,0);
+\node at ({-3.5*0.3},{-4*0.3}) [above left] {$\vec{m}$};
+
+% Kreis
+\draw (0,0) circle[radius=\r];
+
+% Punkte
+\punkt{(0,0)}                                                 % M
+\punkt{({\r*(cos(\a)+\l*sin(\a))},{\r*(sin(\a)-\l*cos(\a))})} % P
+\punkt{(-3.5,-4)}                                             % O
+\punkt{({\r*cos(\a)},{\r*sin(\a)})}                           % P0
+
+\end{tikzpicture}
+
+\end{document}
+

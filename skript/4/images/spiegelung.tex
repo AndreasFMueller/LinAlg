@@ -1,0 +1,58 @@
+%
+% spiegelung.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\documentclass[tikz]{standalone}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{color}
+\usetikzlibrary{arrows,intersections,math}
+\begin{document}
+
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\definecolor{rot}{rgb}{0.8,0,0}
+
+\begin{tikzpicture}[>=latex,thick]
+
+\def\x{3}
+\def\y{2}
+
+% Vektor v
+\draw[->,line width=1.2pt] (0,0)--(\x,\y);
+\node at ({\x/2},{\y/2}) [above left] {$\vec{v}$};
+
+% Vektor v'
+\draw[->,line width=1.2pt] (0,0)--(-\x,\y);
+\node at ({-\x/2},{\y/2}) [above right] {$\vec{v}'$};
+
+% parallele Komponente
+\draw[->,line width=1.2pt,color=blue] (\x,0)--(\x,\y);
+\draw[->,line width=1.2pt,color=blue] (-\x,0)--(-\x,\y);
+\node[color=blue] at (\x,{\y/2}) [right] {$\vec{v}_{\|}$};
+\node[color=blue] at (-\x,{\y/2}) [left] {$\vec{v}_{\|}$};
+
+% orthogonale Komponente
+\draw[->,line width=1.2pt,color=rot] (0,0)--(\x,0);
+\draw[->,line width=1.2pt,color=rot] (0,0)--(-\x,0);
+\node[color=rot] at ({\x/2},0) [below] {$\vec{v}_{\perp}$};
+\node[color=rot] at ({-\x/2},0) [below] {$-\vec{v}_{\perp}$};
+
+% Nullpunkt
+\fill (0,0) circle[radius=0.08];
+
+% Normalevektor
+\draw[->,line width=1.2pt,color=darkgreen] (0,-1.5)--(2,-1.5);
+\node at (2,-1.5) [right] {$\vec{n}$};
+
+% Ebene
+\draw[line width=0.7pt] (0,{-\y-0.5})--(0,{\y+0.5});
+\node at (0,{\y}) [above right] {$\sigma$};
+
+\end{tikzpicture}
+
+\end{document}
+

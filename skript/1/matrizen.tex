@@ -3,10 +3,11 @@
 %
 % (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
 %
-\section{Bezeichnungen: Matrizen und Vektoren}
+\section{Notation: Matrizen und Vektoren}
+\rhead{Notation: Matrizen und Vektoren}
 Viele der Operationen im Lösungsverfahren für lineare Gleichungssysteme,
 sind unabhängig von ihrem Bezug zu einem Gleichungssystem sinnvoll.
-In der Tabellendarstellung haben wir auch einen Notation verwendet,
+In der Tableaudarstellung haben wir auch einen Notation verwendet,
 in der die Unbekannten überhaupt nicht mehr vorkommen.
 Dies kann jedoch nicht nur ein praktische Abkürzung sein, es muss mehr
 dahinter stecken.
@@ -528,4 +529,101 @@ aufpassen, dass man nie die Reihenfolge der Matrizen vertauscht.
     A(u+v)&=Au+Av     &\Rightarrow&&A(B+C)&=AB+AC,    &(A+B)C&=AC+BC\\
 A\lambda v&=\lambda Av&\Rightarrow&&A\lambda B&=\lambda AB
 \end{align*}
+
+\subsubsection{Matrixnotation für Gleichungssyteme}
+Lineare Gleichungssysteme können jetzt mit Hilfe der Matrixnotation
+sehr kompakt geschrieben werden.
+Das Gleichungssytem
+\[
+\begin{linsys}{3}
+a_{11}x_1&+&\dots &+&a_{1n}x_n&=&b_1\\
+\vdots\hspace*{1em}& &\ddots& &\vdots\hspace*{1em}& &\vdots\hspace*{1mm}\\
+a_{m1}x_1&+&\dots &+&a_{mn}x_n&=&b_1\\
+\end{linsys}
+\]
+wird geschrieben als
+\[
+\begin{aligned}
+Ax&=b
+&&\text{mit}&
+A&=\begin{pmatrix}
+a_{11}&\dots &a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{m1}&\dots &a_{mn}
+\end{pmatrix},&
+x&=\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}
+&&\text{und}&
+b&=\begin{pmatrix}b_1\\\vdots\\b_m\end{pmatrix}.
+\end{aligned}
+\]
+$A$ ist eine $m\times n$-Matrix, $x$ ist ein $n$-dimensionaler Vektor
+und $b$ ist $m$-dimensional.
+
+\begin{beispiel}
+Das Gleichungssystem
+von Abschnitt~\label{skript:subsection:iedreiunbekannte}
+kann geschrieben werden als
+\[
+\underbrace{
+\begin{pmatrix}
+1&2&3\\
+6&5&4\\
+1&-1&1
+\end{pmatrix}
+}_{\displaystyle=A}
+x
+=
+\underbrace{
+\begin{pmatrix}10\\32\\2\end{pmatrix}
+}_{\displaystyle=b},
+\]
+die in Abschnitt~\label{skript:subsection:iedreiunbekannte} gefundene
+Lösung war
+\[
+x=\begin{pmatrix}3\\2\\1\end{pmatrix}.
+\qedhere
+\]
+\end{beispiel}
+
+
+\begin{beispiel}
+Das Gleichungssystem 
+\[
+\begin{linsys}{4}
+3x_1&+&4x_2&=& 9y_1&+4y_2\\
+5x_1&+&7x_2&=&20y_1&+9y_2
+\end{linsys}
+\]
+kann geschrieben werden als
+\[
+Ax=By
+\]
+mit
+\[
+\begin{aligned}
+A&=\begin{pmatrix}3&4\\5&7\end{pmatrix},&
+x&=\begin{pmatrix}x_1\\x_2\end{pmatrix},&
+B&=\begin{pmatrix}9&4\\20&9\end{pmatrix}&
+ &\text{und}&
+y&=\begin{pmatrix}y_1\\y_2\end{pmatrix}.
+\end{aligned}
+\]
+In Abschnitt~\label{subsection:rechte seite linear} haben wir ausgerechnet,
+dass die Lösung $x$ geschrieben werden kann als
+\[
+x
+=
+\begin{pmatrix}x_1\\x_2\end{pmatrix}
+=
+Cy
+=
+\begin{pmatrix}
+-17&-8\\15&7
+\end{pmatrix}
+\begin{pmatrix}
+y_1\\y_2
+\end{pmatrix}.
+\qedhere
+\]
+\end{beispiel}
 

@@ -1,0 +1,65 @@
+%
+% loesungen.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Lösungen von linearen Gleichungen}
+\rhead{Lösungen von linearen Gleichungen}
+Die Sprache der linearen Räume erlaubt uns, die Erkenntnisse über
+lineare Gleichungssysteme jetzt etwas geometrischer zu formulieren.
+
+Sei $A$ eine $m\times n$-Matrix, $b$ ein $m$-dimensionaler Vektor und $x$
+ein Vektor von $n$ Unbekannten.
+Dann ist $Ax=b$ ein lineares Gleichungssystem
+mit $m$ Gleichungen für $n$ Unbekannte.
+Natürlich ist das Gleichungssystem
+nur dann lösbar, wenn der Vektor $b$ im Bild der Matrix $A$ drin liegt.
+
+Falls also $b\in\operatorname{im}A$ ist, gibt es auf jeden Fall mindestens
+eine Lösung $x\in\mathbb R^n$ mit $Ax=b$.
+Kann es auch mehrere geben? Nehmen
+wir an, $x$ und $y$ seien beides solche Lösungen, dann ist
+\[
+\left.
+\begin{aligned}
+Ax&=b\\
+Ay&=b
+\end{aligned}
+\right\}
+\qquad\Rightarrow\qquad
+Ax-Ay=A(x-y)=0
+\qquad\Rightarrow\qquad
+x-y\in\operatorname{ker}A.
+\]
+Der Nullraum von $A$ gibt also darüber Auskunft, ob ein Gleichungssystem
+eine oder mehrere Lösungen hat:
+\begin{satz}
+Sei $A$ eine $m\times n$-Matrix und $b\in\mathbb R^m$.
+Dann gilt:
+\begin{enumerate}
+\item Das Gleichungssystem hat keine Lösung, wenn $b\not\in \operatorname{im}A$.
+\item Falls $b\in\operatorname{im}A$, und $x_p$ eine Lösung des Gleichungssystems
+$Ax=b$ ist, dann ist jede andere Lösung von der Form $x=x_p+x_h$, wobei
+$x_h\in\operatorname{ker}A$ ist.
+\item Das Gleichungssystem hat genau dann nur eine Lösung, wenn $\operatorname{ker}A=0$
+\end{enumerate}
+\end{satz}
+Das Gleichungssystem $Ax=0$ heisst das zu $Ax=b$ gehörige homogene System.
+Der Satz sagt also, dass man eine einzige Lösung von $Ax=b$ finden muss,
+dies ist das $x_p$, und die Lösungen von $Ax=0$, dass sind die Elemente
+des Kerns von $A$, die im Satz mit $x_h$ bezeichnet werden.
+Eine Lösung von $Ax=b$ ist dann immer von der Form $x_p+x_h$.
+In der Tat bekommt
+man 
+\[
+Ax=A(x_p+x_h)=Ax_p+Ax_h=b+0=b,
+\]
+also ist jedes solche $x$ tatsächlich eine Lösung.
+
+Wie entscheidet man, ob $b\not\in\operatorname{im}A$? Natürlich mit
+Hilfe des Gauss-Algorithmus, der ja klärt, ob das Gleichungssystem
+$Ax=b$ eine Lösung hat.
+Wie findet man die Vektoren in $ker A$?
+Natürlich auch mit dem Gauss-Algorithmus, der ja auch die Lösungsmenge
+von $Ax=0$ berechnen kann.
+

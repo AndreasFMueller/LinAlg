@@ -1,0 +1,116 @@
+Gegeben sind die Punkte 
+\[
+\begin{aligned}
+A&=(-1,-2,-3)&
+B&=(1,1,2)   &
+C&=(-2,3,-4) \\
+D&=(0,0,-3)  &
+E&=(12,9,1)  &
+F&=(9,13,-9)
+\end{aligned}
+\]
+\begin{teilaufgaben}
+\item
+Finden Sie Normalenform der Gleichung einer Ebene durch den Punkt $E$,
+die zu den Geraden $AB$ und $CD$ parallel ist.
+\item
+Wie weit ist der Punkt $F$ von der Ebene entfernt?
+\end{teilaufgaben}
+
+\thema{Normalenform}
+\thema{Hessesche Normalform}
+\thema{Abstand}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Ebenengleichung ist in Parameterdarstellung 
+\[
+\vec{p}
+=
+\vec{e}+t(\vec{b}-\vec{a})+s(\vec{d}-\vec{c})
+=
+\begin{pmatrix}12\\9\\1\end{pmatrix}
++t
+\begin{pmatrix}2\\3\\5\end{pmatrix}
++s
+\begin{pmatrix}2\\-3\\1\end{pmatrix}.
+\]
+Die Ebene hat als Normale das Vektorprodukt der Vektoren $\overrightarrow{AB}$
+und $\overrightarrow{CD}$:
+\begin{align*}
+\vec{n}
+&=
+\overrightarrow{AB}
+\times
+\overrightarrow{CD}
+=
+\begin{pmatrix}2\\3\\5\end{pmatrix}
+\times
+\begin{pmatrix}2\\-3\\1\end{pmatrix}
+=
+\begin{pmatrix} 18\\8\\-12 \end{pmatrix}.
+\end{align*}
+Die Normalenform der Ebenengleichung ist daher
+\begin{equation}
+\vec{n}\cdot (\vec{p}-\vec{e})=0.
+\label{30000061:normalenform}
+\end{equation}
+\item
+Um den Abstand zu berechnen, brauchen wir die Hessesche Normalform
+von \eqref{30000061:normalenform}.
+Dazu multiplizieren wir aus
+\[
+\vec{n}\cdot (\vec{p}-\vec{e})
+=
+\begin{pmatrix} 18\\8\\-12 \end{pmatrix}
+\cdot\left(
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+-
+\begin{pmatrix}12\\9\\1\end{pmatrix}
+\right)
+=
+18x+8y-12z-276.
+\]
+Die Hessesche Normalform erhalten wir, indem wir durch die Norm
+\[
+|\vec{n}|
+=
+\sqrt{18^2+8^2+12^2}
+=
+\sqrt{532}
+\]
+der Koeffizenten der Koordinaten dividieren.
+Die Entfernung des Punktes $F$ von der Ebene ist daher
+\[
+d
+=
+\frac{1}{|\vec{n}|}
+(\vec{n}\cdot\vec{f}-\vec{n}\cdot\vec{e})
+=
+\frac{1}{|\vec{n}|}
+\vec{n}\cdot(\vec{f}-\vec{e})
+=
+\frac1{\sqrt{532}}
+\begin{pmatrix}18\\8\\-12\end{pmatrix}
+\cdot
+\begin{pmatrix}-3\\4\\-10\end{pmatrix}
+=
+\frac{98}{\sqrt{532}}
+=
+4.2488.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Richtungsvektoren ({\bf R}) 1 Punkt,
+Normale ({\bf N}) 1 Punkt,
+Ebenengleichung ({\bf E}) 1 Punkt,
+Länge von $\vec{n}$ ({\bf L}) 1 Punkt,
+Hessesche Normalform ({\bf H}) 1 Punkt,
+Abstand ({\bf A}) 1 Punkt.
+\end{bewertung}
+
+

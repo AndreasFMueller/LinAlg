@@ -1,0 +1,58 @@
+%
+% kamera.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Anwendung: Kamera-Geometrie\label{section:kamera}}
+\rhead{Anwendung: Kamera-Geometrie}
+\index{Kamera}%
+\index{Brennweite}%
+Die rasante Entwicklung der Mikroelektronik und vor allem der
+allgegenwärtigen Kameras in Mobiltelefonen hat dazu geführt, dass 
+Bildsensoren heute klein, billig und mit wenig Software-Aufwand
+einsetzbar sind.
+Zwar muss für die Verarbeitung der ein etwas höherer Aufwand geleistet
+werden, doch die ebenfalls gestiegene Prozessorleistung ermöglicht
+Bildanalysen, die vor wenigen Jahren noch undenkbar waren.
+Standard-Schnittstellen und Bibliotheken für die Bildverarbeitung
+haben Kameras sind zu Allzweck-Sensoren geworden.
+Mit der gleichen, massenproduzierbaren Hardware können mit
+verschiedener Software die unterschiedlichsten Anwendungsprobleme
+gelöst werden.
+
+Kameras können zum Beispiel verwendet werden, um Objekte im Raum
+zu lokalisieren.
+Dazu muss die Software die Objekte im Bild erst finden.
+Die klassische Bildverarbeitung hat auf diese Aufgabe spezialisierte
+Methoden entwickelt.
+Wir können also davon ausgehen, dass wir die Pixel-Koordinaten eines
+Objektes aus einem Bild herauslesen können.
+Die geometrische Aufgabe, die jetzt gelöst werden muss, ist, die
+Raumkoordinaten des Objektes zu bestimmen.
+Mit nur einer Kamera ist das natürlich nicht möglich, im besten Fall kann
+eine Gerade bestimmt werden, auf der das Objekt zu finden ist.
+Mit zusätzlichen Kameras kann dann mittels Triangulation eine mehr
+oder weniger genaue Position bestimmt werden.
+
+Das umgekehrte Problem ist etwas einfacher: Gegeben ein Punkt im Raum,
+finde die Pixelkoordinaten, auf die der Punkt durch die Kamera
+abgebildet wird.
+Um diese Aufgabe zu lösen, muss man natürlich einiges über die Kamera
+wissen.
+Zum Beispiel sollte die Kamera ungefähr auf das Objekt ausgerichtet sein,
+wir brauchen also Position und Orientierung der Kamera.
+Die Brennweite hat einen Einfluss auf des Gesichtsfeld der Kamera.
+
+In den folgenden Abschnitten wird schrittweise ein Formalismus
+aufgebaut, mit dem sich alle diese Probleme mit den Werkzeugen der
+linearen Algebra behandeln lassen.
+
+\input{applications/kamera/funktion.tex}
+\input{applications/kamera/homogen.tex}
+\input{applications/kamera/kmatrix.tex}
+\input{applications/kamera/drehung.tex}
+%\input{applications/kamera/triangulation.tex}
+
+
+
+

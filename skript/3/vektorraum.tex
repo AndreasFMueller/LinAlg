@@ -1,0 +1,107 @@
+%
+% vektorraum.tex
+%
+% (c) 2018 Prof Dr Andreas Müller
+%
+
+\section{Vektorräume \texorpdfstring{$\mathbb R^n$}{R hoch n} und Unterräume}
+\rhead{Vektorräume}
+\index{Vektorraum@Vektorraum $\mathbb R^n$}
+Die Menge $V$ der $n$-dimensionalen Spaltenvektoren bildet was man
+einen Vektorraum nennt: Spaltenvektoren können addiert und mit
+einem Skalar multipliziert werden.
+Die beiden Operationen sind
+miteinander verträglich, was durch die Distributivgesetze ausgedrückt
+wird.
+Intuitiv sagen diese, dass die ``übliche Algebra funktioniert'',
+man kann mit diesen Vektoren genau so rechnen, wie man sich das von
+der Algebra mit gewöhnlichen Zahlen gewohnt ist, wenigstens solange
+man nicht versucht, Vektoren miteinander zu multiplizieren oder zu
+dividieren.
+Es gibt auch einen Nullvektor, der bei Addition nichts ändert,
+also die Funktion der Null übernimmt.
+
+Es gibt aber auch Teilmengen von $\mathbb R^n$, die vergleichbare
+Eigenschaften haben.
+Typischerweise können diese durch lineare Gleichungen definiert werden.
+Die Menge
+\[
+V=\left\{\left.\begin{pmatrix}x\\y\end{pmatrix}\,\right|\,x=y\right\}
+\subset\mathbb R^2
+\]
+besteht aus Vektoren der Form $\begin{pmatrix}x\\x\end{pmatrix}$,
+es ist also ziemlich offensichtlich, dass die Summe und die skalaren
+Vielfachen von  Vektoren aus $V$ wieder in $V$ liegen.
+$V$ ist
+bezüglich der Rechenoperationen abgeschlossen, und auch der Nullvektor
+$0\in V$.
+
+\index{Unterraum}
+\begin{definition}
+Eine Teilmenge $V\subset\mathbb R^n$ heisst Unterraum von $\mathbb R^n$,
+wenn für zwei Vektoren
+$u,v\in V$ und zwei reelle Zahlen $\lambda,\mu\in\mathbb R$
+auch die daraus gebildete Linearkombination
+$\lambda u+\mu v\in V$ ist.
+\end{definition}
+
+Der kleinste mögliche Unterraum ist $\{0\}$, also der Vektorraum, der nur aus
+dem Nullvektor besteht.
+Für diesen Raum schreibt man manchmal auch nur $0$.
+
+\subsubsection{Beispiel: Nullraum}
+\index{Nullraum}
+\index{Kern|see{Nullraum}}
+\index{ker|see{Nullraum}}
+Sei $A$ eine $m\times n$-Matrix.
+Die Menge
+\[
+U=\{v\in\mathbb R^n\,|\,Av=0\}
+\]
+ist ein Unterraum, der Nullraum oder Kern von $A$, geschrieben
+$\operatorname{ker}A$.
+Tatsächlich gilt für $u,v\in\operatorname{ker}A$
+\[
+A(\lambda v+\mu u)=\lambda Av+\mu Au=0,
+\]
+also ist $\lambda v+\mu u\in\operatorname{ker}A$.
+
+\begin{satz} Sind $U$ und $V$ Unterräume, dann auch $U\cap V$ und
+\[
+U+V=\{u+v\,|\,u\in U,v\in V\}.
+\]
+\end{satz}
+
+Sind $U$ und $V$ Unterräume von $\mathbb R^n$, dann ist auch
+$U\cap V$ ein Unterraum.
+Dazu ist zu prüfen, dass die Linearkombinationen
+von zwei Vektoren $u,v\in U\cap V$ wieder in $U\cap V$ sind.
+Da beide Vektoren aus $U$ sind, muss auch jede Linearkombination in $U$ sein.
+Dasselbe gilt für $V$, also ist jede Linearkombination in $U\cap V$.
+
+\begin{satz}
+Sei $A$ eine $m\times n$-Matrix und $V$ ein Unterraum von $\mathbb R^n$.
+Dann ist
+\[
+AV=\{ Av\,|v\in V\}\subset\mathbb R^m
+\]
+ein Unterraum von $\mathbb R^m$.
+\end{satz}
+\begin{proof}[Beweis]
+Sind zwei Vektoren $u_1$ und $u_2$ in $AV$, dann gibt es $v_1,v_2\in V$ mit
+$u_1=Av_1$ und $u_2=Av_2$.
+Also ist
+\[
+\lambda_1u_1+\lambda_2u_2
+=
+\lambda_1Av_1+\lambda_2Av_2
+=
+A(\lambda_1v_1+\lambda_2v_2)\in AV,
+\]
+also ist $AV$ ein Unterraum.
+\end{proof}
+Falls $V=\mathbb R^n$ schreibt man auch $A\mathbb R^n=\operatorname{im}A$
+und nennt $\operatorname{im}A$ das Bild von $A$.
+\index{Bild}
+\index{im@$\operatorname{im}A$|see{Bild}}
+

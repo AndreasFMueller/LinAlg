@@ -3,7 +3,20 @@
 %
 % (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
 %
-\section{Mehrere Gleichungssysteme simultan lösen\label{simultan}}
+\section{Mehrere rechte Seiten\label{section:mehrere rechte seiten}}
+\rhead{Simultane Lösung mit mehreren rechten Seiten}
+Bis jetzt wurde der Gauss-Algorithmus immer nur auf Gleichungen mit
+einer konstanten rechten Seite angewendet.
+Der Gauss-Algorithmus kann noch wesentlich mehr.
+Er kann in einem Durchgang ein Gleichungssysteme für mehrere verschiedene
+rechte Seiten lösen, die wird in Abschnitt~\ref{simultan} gezeigt.
+Er kann aber auch Gleichungssysteme lösen, in denen die rechte
+Seite eine Linearform ist (Abschnitt~\ref{subsection:rechte seite linear}).
+
+%
+% Mehrere Gleichungssysteme simultan lösen
+%
+\subsection{Mehrere Gleichungssysteme simultan lösen\label{simultan}}
 Mit dem Gauss-Algorithmus kann man gleichzeitig mehrere Gleichungssysteme
 lösen, die sich nur in den rechten Seiten unterscheiden.
 Die rechten Seiten haben nämlich auf den Gang der Rechnung keinen
@@ -91,6 +104,236 @@ x=\frac12b_1-\frac{\sqrt{3}}2b_2,\qquad y=\frac{\sqrt{3}}2b_1+\frac12b_2.
 Durch Einsetzen in die ursprüngliche Gleichung kann man die
 Lösung überprüfen.
 
+%
+% Linearform als rechte Seite
+%
+\subsection{Linearform als rechte Seite\label{subsection:rechte seite linear}}
+Das Gauss-Tableau ist nur eine abgekürzte Schreibweise für ein Gleichungssystem.
+In Abschnitt~\ref{subsection:sonderfaelle} haben wir die Spalten mit
+den Variablennamen beschriftete, so dass wir sogar die Variablennamen
+aus dem Tableau wieder bekommen können.
+Die Übersetzungsregel können wir schematisch als
+\[
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+x_1&x_2&\dots&x_n\\
+\hline
+a_{11}&a_{12}&\dots&a_{1n}\\
+\vdots&\vdots&\ddots&\vdots\\
+a_{m1}&a_{m2}&\dots&a_{mn}\\
+\hline
+\end{tabular}
+\quad
+\leftrightarrow
+\quad
+\begin{linsys}{3}
+a_{11}x_1&+&a_{12}x_2&+&\dots &+&a_{1n}x_n\\
+\vdots\hspace*{1em} & &\vdots\hspace*{1em} & &\ddots& &\vdots\hspace*{1em}\\
+a_{m1}x_1&+&a_{m2}x_2&+&\dots &+&a_{mn}x_n\\
+\end{linsys}
+\]
+darstellen.
+Damit lässt sich aber auch ein Gleichungssystem in ein Tableau übersetzen,
+welches Linearformen auf der rechten Seite hat.
+Das Gleichheitszeichen wird zum Vertikalstrich wie früher, und die
+Linearformen auf der rechten Seite werden zu Spalten, die mit den
+Variablen der Linearformen beschriftet sind.
+
+\begin{beispiel}
+\label{skript:lingl:simultan-beispiel}
+Als Beispiel übersetzen wir
+\begin{equation}
+\begin{linsys}{4}
+3x_1&+&4x_2&=& 9y_1&+4y_2\\
+5x_1&+&7x_2&=&20y_1&+9y_2
+\end{linsys}
+\quad\leftrightarrow\quad
+\begin{tabular}{| >{$}c<{$} >{$}c<{$}| >{$}c<{$} >{$}c<{$}|}
+\hline
+x_1&x_2&y_1&y_3\\
+\hline
+3&4&9&4\\
+5&7&20&9\\
+\hline
+\end{tabular}
+\label{skript:rechtslinearubers}
+\end{equation}
+
+Die Lösung des Gleichungssystems~\eqref{skript:rechtslinearubers} 
+funktioniert mit dem Gaussalgorithmus wie bisher.
+Wir führen den Gauss-Algorithmus durch:
+\begin{align*}
+\begin{tabular}{| >{$}c<{$} >{$}c<{$}| >{$}c<{$} >{$}c<{$}|}
+\hline
+x_1&x_2&y_1&y_3\\
+\hline
+3&4&9&4\\
+5&7&20&9\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{| >{$}c<{$} >{$}c<{$}| >{$}c<{$} >{$}c<{$}|}
+\hline
+x_1&x_2&y_1&y_3\\
+\hline
+1&\frac{4}{3}&3&\frac{4}{3}\\
+0&\frac{1}{3}&5&\frac{7}{3}\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{| >{$}c<{$} >{$}c<{$}| >{$}c<{$} >{$}c<{$}|}
+\hline
+x_1&x_2&y_1&y_3\\
+\hline
+1&0&-17&-8\\
+0&1& 15& 7\\
+\hline
+\end{tabular}
+\end{align*}
+Die Rückübersetzung davon ergibt
+\[
+\begin{linsys}{3}
+x_1& &   &=&-17y_1&-&8y_2\\
+   & &x_2&=& 15y_1&+&7y_2
+\end{linsys}
+\]
+Setzen wir diese Linearformen für $x_1$ und $x_2$ in die ursprünglichen
+Gleichungen~\eqref{skript:rechtslinearubers} ein, erhalten
+wir
+\begin{align*}
+3x_1+4x_2
+&=
+3(-17y_1-8y_2)+4(15y_1+7y_2)
+=
+-51y_1-24y_2+60y_1+28y_2
+=
+9y_1+4y_2
+\\
+5x_1+7x_1
+&=
+5(-17y_1-8y_2)+7(15y_1+7y_2)
+=
+-85y_1-40y_2+105y_1+49y_2
+=
+20y_1+9y_2,
+\end{align*}
+also genau die ursprünglichen Gleichungen.
+Der Gauss-Algorithmus hat also tatsächlich die Lösungen des
+Gleichungssystems~\eqref{skript:rechtslinearubers} als
+Linearformen in den Variablen $y_1$ und $y_2$ der rechten Seite
+geliefert.
+\end{beispiel}
+
+Dies gilt natürlich ganz allgemein.
+Auf der rechten Seite des Tableaus finden während des Gauss-Algorithmus
+nur Multiplikationen mit Zahlen und Additionen statt.
+Diese Operationen kann man getrennt für jeden einzelnen Term der
+Form $b_{ij}y_j$ auf der rechten Seite durchführen.
+In diesem Lichte sind die Spalten auf der rechten Seite des Tableaus
+nur ein ``Buchhaltungshilfsmittel'', mit dem wir sicherstellen, dass
+die Variablen auf der rechten Seite nicht durcheinander geraten.
+
+Es gibt keinen Grund, warum die Anzahl der Variablen auf der rechten
+Seite genau $n$ sein soll.
+Ganz allgemein können wir ein Gleichungssystem mit $m$ Gleichungen
+und $n$ unbekannten sowie $l$ Variablen auf der  rechten Seite
+in ein Tableau mit $m$ Zeilen und $n$ Spalten links und $l$
+Spalten rechts vom Vertikalstrich übersetzen:
+\[
+\begin{linsys}{5}
+a_{11}x_1&+&\dots&+&a_{1n}x_n&=&b_{11}y_1&+&\dots&+&b_{1l}y_l\\
+\vdots*\hspace{1em}&&\ddots&&\vdots\hspace*{1em}&&\vdots\hspace*{1em}&&\ddots&&\vdots\hspace*{1em}\\
+a_{m1}x_1&+&\dots&+&a_{mn}x_n&=&b_{m1}y_1&+&\dots&+&b_{ml}y_l\\
+\end{linsys}
+\quad\rightarrow\quad
+\begin{tabular}{| >{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+x_1&\dots&x_n&y_1&\dots&y_l\\
+\hline
+a_{11}&\dots&a_{1n}&b_{11}&\dots&b_{1l}\\
+\vdots&\ddots&\vdots&\vdots&\ddots&\vdots\\
+a_{m1}&\dots&a_{mn}&b_{m1}&\dots&b_{ml}\\
+\hline
+\end{tabular}
+\]
+Das Schlusstableau nach Anwendung des Gauss-Algorithmus ist dann
+\begin{equation}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}:>{$}c<{$}>{$}c<{$}>{$}c<{$}|
+>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+x_{i_1}&\dots&x_{i_r}
+	&x_{i_{r+1}}&\dots&x_{i_n}
+		&y_1&\dots&y_l\\
+\hline
+1&\dots &0     
+	&\color{green}c_{1,r+1}&\color{green}\dots &\color{green}c_{1n}
+		&d_{11}&\dots&d_{1l}\\
+\vdots&\ddots&\vdots
+	&\color{green}\vdots&\color{green}\ddots&\color{green}\vdots
+		&\vdots&\ddots&\vdots\\
+0&\dots &1
+	&\color{green}c_{r,r+1}&\color{green}\dots &\color{green}c_{rn}
+		&d_{r1}&\dots&d_{rl}\\
+\hdashline
+0&\dots &0     
+	&0&\dots &0
+		&\color{red}d_{r+1,1}&\color{red}\dots&\color{red}d_{r+1,l}\\
+\vdots&\ddots&\vdots
+	&\vdots&\ddots&\vdots
+		&\color{red}\vdots&\color{red}\ddots&\color{red}\vdots\\
+0&\dots &0
+	&0&\dots &0
+		&\color{red}d_{m1}&\color{red}\dots&\color{red}d_{ml}\\
+\hline
+\end{tabular}
+\label{skript:simultan:schluss}
+\end{equation}
+Dabei ist zu beachten, dass Infolge möglicher Spaltenvertauschungen
+die Variablen $x_i$ nicht mehr ihre ursprünglichen Plätze haben,
+sondern, dies wird durch die neuen Indizes $i_1,\dots,i_n$
+ausgedrückt.
+
+Die {\color{red}roten} Koeffizienten bestimmen, ob das Gleichungssystem
+überhaupt eine Lösung hat.
+Wenn eine der Linearformen gebildet aus den {\color{red}roten} Koeffizienten
+einen Wert $\mathstrut \ne 0$ liefert für die gegebenen Werte der
+$y$-Variablen, dann ist das Gleichungssystem nicht lösbar.
+Wenn man also wissen will, für welche Werte von $y_i$ das Gleichungssystem
+überhaupt lösbar ist, muss man das kleiner Gleichungssystem
+\[
+\begin{linsys}{3}
+{\color{red}d_{r+1,1}}y_1&+&\dots&+&{\color{red}d_{r+1,l}}y_l&=&0\\
+\vdots\hspace*{1em}&&\ddots&&\vdots\hspace*{1em}&&\vdots\hspace*{0.7mm}\\
+{\color{red}d_{m1}}y_1&+&\dots&+&{\color{red}d_{ml}}y_l&=&0\\
+\end{linsys}
+\]
+lösen, was natürlich wiederum mit dem Gauss-Algorithmus geschehen kann.
+Insbesondere ist es für $l>m-r$ immer möglich, eine Kombination von $y_i$
+zu finden, für die der {\color{red}rote} Teil des Gleichungssystems
+verschwindet.
+
+Wenn der {\color{red}rote} Teil verschwindet, hat das Gleichungssystem
+mindestens eine Lösung.
+Wenn $n>r$ ist, dann sind die {\color{green}grünen} Variablen $x_{i_{r+1}}$
+bis $x_{i_n}$ frei wählbar, es gibt also unendlich viele Lösungen.
+die ersten $r$ Variablen $x_{i_1}$ bis $x_{i_r}$ sind dann durch die
+{\color{green}frei wählbaren} Variablen eindeutig bestimmt.
+Aus dem Tableau~\eqref{skript:simultan:schluss} kann man die Gleichungen
+\[
+\begin{linsys}{6}
+x_{i_1}&=&d_{11}y_1&+&\dots&+&d_{1l}y_l&-&{\color{green}c_{1,r+1}}x_{i_{r+1}}&-&\dots&-&{\color{green}c_{1n}}x_{i_n}\\
+\vdots\hspace*{0.5em} && \vdots\hspace*{1em} && \ddots && \vdots\hspace*{1em} && \vdots\hspace*{1em} && \ddots && \vdots\hspace*{1em}\\
+x_{i_r}&=&d_{r1}y_1&+&\dots&+&d_{rl}y_l&-&{\color{green}c_{r,r+1}}x_{i_{r+1}}&-&\dots&-&{\color{green}c_{rn}}x_{i_n}\\
+\end{linsys}
+\]
+für die Variablen $x_{i_1}$ bis $x_{i_r}$ ablesen.
+Dies lässt sich natürlich auch in der Form einer Lösungsmenge schreiben.
+
+%
+% Standardbasisvektoren
+%
+\subsection{Standardbasisvektoren als rechte Seiten%
+\label{skript:subsection:standardrs}}
 Ein interessanter Spezialfall liegt vor, wenn man ein Gleichungssystem
 für die rechten Seiten 
 \[
@@ -119,12 +362,62 @@ b_3 \begin{pmatrix}0\\0\\1\end{pmatrix}
 =
 b_1 e_1 + b_2 e_2 + b_3 e_3
 \]
-geschrieben werden kann, kann auch die Lösung aus den Teillösungen
-zusammengesetzt werden:
+als Linearkombination der Standardbasisvektoren $e_i$ geschrieben
+werden kann, kann man die Lösung des Gleichungssystems mit rechter
+Seite $b$ auch als ein Beispiel für ein Gleichungssystem mit rechten
+Seiten betrachten, die Linearformen in den `Variablen' $b_i$ sind.
+Das Tableau dazu ist
 \[
-x = b_1 c_1 + b_2 c_2 + b_3 c_3.
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x_1&x_2&x_3&\\
+\hline
+a_{11}&a_{12}&a_{13}&b_1\\
+a_{21}&a_{22}&a_{23}&b_2\\
+a_{31}&a_{32}&a_{33}&b_3\\
+\hline
+\end{tabular}
+\quad\rightarrow\quad
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+x_1&x_2&x_3&b_1&b_2&b_3\\
+\hline
+a_{11}&a_{12}&a_{13}&1&0&0\\
+a_{21}&a_{22}&a_{23}&0&1&0\\
+a_{31}&a_{32}&a_{33}&0&0&1\\
+\hline
+\end{tabular}
 \]
-Man kann also ein allgemeines Lösungsverfahren auch wie folgt konzipieren.
+Wendet man darauf den Gauss-Algorithmus an, bekommt man das
+Tableau
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+x_1&x_2&x_3&b_1&b_2&b_3\\
+\hline
+1&0&0&c_{11}&c_{12}&c_{13}\\
+0&1&0&c_{21}&c_{22}&c_{23}\\
+0&0&1&c_{31}&c_{32}&c_{33}\\
+\hline
+\end{tabular},
+\]
+welches mit den Gleichungen
+\[
+\begin{linsys}{3}
+x_1&=&c_{11}b_1&+&c_{12}b_2&+&c_{13}b_3\\
+x_2&=&c_{21}b_1&+&c_{22}b_2&+&c_{23}b_3\\
+x_3&=&c_{31}b_1&+&c_{32}b_2&+&c_{33}b_3\\
+\end{linsys}
+\]
+gleichbedeutend ist.
+Diese kann man auch vektoriell als
+\[
+x = b_1 c_1 + b_2 c_2 + b_3 c_3
+\]
+schreiben.
+
+Man kann also ein allgemeines Lösungsverfahren für lineare Gleichungssysteme
+mit wie folgt konzipieren.
 Zunächst bildet man das Gauss-Tableau
 \begin{center}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
@@ -151,5 +444,4 @@ Seite $b$ zusammen.
 Die Berechnung der $c_{ij}$ muss nur einmal
 erfolgen, danach kann die Lösung mit verschiedenen rechten Seiten
 $b$ bestimmt werden.
-
 

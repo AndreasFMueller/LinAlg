@@ -1,0 +1,133 @@
+Können Sie die Matrix
+\[
+A
+=
+\begin{pmatrix}
+a^2&a^2&ab\\
+a^2&2a^2&ab+a^2\\
+ab&ab+a^2&b^2+2a^2
+\end{pmatrix}
+\]
+als Produkt $A=BB^t$ schreiben?
+Wenn ja bestimmen Sie eine solche Matrix $B$.
+
+\thema{Cholesky-Zerlegung}
+
+\begin{loesung}
+Wir verwenden den Algorithmus für die Cholesky-Zerlegung, er liefert
+eine untere Dreiecksmatrix $L$ mit $A=LL^t$.
+
+Im ersten Schritt versucht man die erste Spalte von $L$ zu bestimmen:
+\[
+LL^t
+=
+\begin{pmatrix}
+l_{11}&0&0\\
+l_{21}&?&0\\
+l_{31}&?&?
+\end{pmatrix}
+\begin{pmatrix}
+l_{11}&l_{21}&l_{31}\\
+0&?&?\\
+0&0&?
+\end{pmatrix}
+=
+\begin{pmatrix}
+l_{11}^2&l_{11}l_{21}&l_{11}l_{31}\\
+&&\\
+&&
+\end{pmatrix}
+=
+A
+\qquad\Rightarrow\qquad
+\left\{
+\begin{aligned}
+l_{11}&=a\\
+l_{21}&=a\\
+l_{31}&=b
+\end{aligned}
+\right.
+\]
+Diese Daten können wir jetzt verwenden, um die zweite Spalte zu bestimmen:
+\[
+LL^t
+=
+\begin{pmatrix}
+a&0&0\\
+a&l_{22}&0\\
+b&l_{32}&?
+\end{pmatrix}
+\begin{pmatrix}
+a&a&b\\
+0&l_{22}&l_{32}\\
+0&0&?
+\end{pmatrix}
+=
+\begin{pmatrix}
+a^2&a^2&ab\\
+a^2&a^2+l_{22}^2& ab+l_{22}l_{32}\\
+ab &ab+l_{22}l_{32} &?
+\end{pmatrix}
+=
+A
+\qquad\Rightarrow\qquad
+\left\{
+\begin{aligned}
+l_{22}&=a\\
+l_{32}&=a
+\end{aligned}
+\right.
+\]
+Somit bleibt nur noch das Element $l_{33}$ zu bestimmen:
+\[
+LL^t
+=
+\begin{pmatrix}
+a&0&0\\
+a&a&0\\
+b&a&l_{33}
+\end{pmatrix}
+\begin{pmatrix}
+a&a&b\\
+0&a&a\\
+0&0&l_{33}
+\end{pmatrix}
+=
+\begin{pmatrix}
+a^2&a^2&ab\\
+a^2&2a^2& ab+a^2\\
+ab &ab+a^2&a^2+b^2 +l_{33}^2
+\end{pmatrix}
+=
+A
+\qquad\Rightarrow\qquad
+l_{33}=a
+\]
+Kontrolle:
+\[
+\begin{pmatrix}
+a&0&0\\
+a&a&0\\
+b&a&a
+\end{pmatrix}
+\begin{pmatrix}
+a&a&b\\
+0&a&a\\
+0&0&a
+\end{pmatrix}
+=
+\begin{pmatrix}
+a^2&a^2&ab\\
+a^2&2a^2&ab+a^2\\
+ab&ab+a^2&b^2+2a^2
+\end{pmatrix}
+=A.
+\qedhere
+\]
+\end{loesung}
+
+\begin{bewertung}
+Cholesky-Zerlegung ({\bf C}) 1 Punkt, pro richtigem nicht verschwindendem
+Matrix-Element in $B$ ein Punkt, maximal 6 Punkte.
+\end{bewertung}
+

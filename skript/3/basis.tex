@@ -1,0 +1,734 @@
+%
+% basis.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rappers2il
+%
+\section{Basis}
+\rhead{Basis}
+\index{Basis}
+In den bisherigen Beispielen sind Vektorräume entweder als Nullräume oder
+als Bildräume einer Matrix entstanden.
+Der Test, ob ein Vektor in einem
+Vektorraum drin ist, muss entsprechend auf verschiedene Art erfolgen:
+\begin{enumerate}
+\item Ist $V=\operatorname{ker}A$, berechnet man einfach $Av$, falls $Av=0$
+kann man schliessen, dass $v\in V$.
+\item Ist $V=\operatorname{im}A$, dann muss man einen Vektor $u\in\mathbb R^n$
+finden mit $v=Au$, man muss also ein lineares Gleichungssystem lösen.
+\end{enumerate}
+Der zweite Fall ist also deutlich aufwendiger.
+Schreibt man die Bedingung
+$v=Au$ als Gleichung von Spaltenvektoren von $A$, bekommt man
+\[
+\begin{pmatrix}v_1\\\vdots\\v_m\end{pmatrix}
+=
+\begin{pmatrix}a_{11}\\\vdots\\a_{m1}\end{pmatrix}u_1+\dots+
+\begin{pmatrix}a_{1n}\\\vdots\\a_{mn}\end{pmatrix}u_n.
+\]
+Man muss also entscheiden, ob sich $v$ durch die Spaltenvektoren von
+$A$ ausdrücken lässt.
+Selbst wenn $\operatorname{im}A$ nur ein
+relativ kleiner Raum ist, zum Beispiel weil alle Spalten von $A$
+Vielfache eines
+einzigen Vektors sind, gibt dies ziemlich viel Arbeit.
+Wir möchten
+daher einen Vektorraum als Bildraum einer möglichst kleinen Matrix
+schreiben können.
+Gleichbedeutend damit ist, dass wir die Vektoren
+des Raumes aus einer möglichst kleinen Zahl von Vektoren linear
+kombinieren können möchten.
+
+Diese Art von Darstellung beliebiger Vektoren mit Hilfe einer
+ausgewählten Familie von Vektoren liegt dem Koordinaten-Systemen
+zu Grunde.
+Um die Koordinaten eines Punktes zu finden, zerlegt
+man seinen Ortsvektor in die Vektoren entlang der Koordinatenachsen:
+\[
+\begin{pmatrix}2\\3\\5\end{pmatrix}
+=
+2\begin{pmatrix}1\\0\\0\end{pmatrix}+
+3\begin{pmatrix}0\\1\\0\end{pmatrix}+
+5\begin{pmatrix}0\\0\\1\end{pmatrix}
+\]
+Es müssen aber zwei Dinge sichergestellt werden:
+\begin{enumerate}
+\item Jeder Vektor muss in dieser Form darstellbar sein.
+Für die
+Standardbasisvektoren ist dies offensichtlich, aber wie findet man
+dies bei einer beliebigen Menge von Vektoren heraus?
+\item Die Darstellung muss eindeutig sein, sonst hat man offensichtlich
+mehrere Beschreibungen des gleichen Punktes.
+Wie kann man entscheiden,
+ob ein Vektor nur auf eine Art aus den Vektoren kombiniert werden kann?
+\end{enumerate}
+Die nächsten zwei Abschnitte adressieren diese Fragen.
+
+\subsection{Aufgespannter Raum}
+\index{aufspannter Raum}
+Wir müssen also zunächst klären, was es heisst, dass wir ``genügend''
+Vektoren haben, um den Unterraum $V$ zu bilden.
+
+\begin{definition}
+\index{erzeugen}
+Eine Menge $B=\{b_1,b_2,\dots,b_n\}$ von Vektoren erzeugt den
+linearen Raum
+\[
+\langle B\rangle =
+\langle b_1,\dots , b_n\rangle =
+\{\lambda_1b_1+\dots+\lambda_nb_n\,|\,\lambda_i\in\mathbb R\}.
+\]
+Man sagt auch, $B$ spannt den Raum $\langle B\rangle$ auf.
+\end{definition}
+
+\begin{beispiel}[Beispiel: Standardbasisvektoren]
+\index{Standardbasisvektoren}
+Die speziellen Vektoren
+\[
+e_1=\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix},\quad
+e_2=\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix},
+\dots,
+e_n=\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}
+\]
+erzeugen den ganzen Raum $\mathbb R^n$, denn jeder Vektor $v\in\mathbb R^n$
+lässt sich schreiben als
+\[
+v=\begin{pmatrix}v_1\\v_2\\\vdots\\v_n\end{pmatrix}
+=
+v_1\begin{pmatrix}1\\0\\\vdots\\0\end{pmatrix}+
+v_2\begin{pmatrix}0\\1\\\vdots\\0\end{pmatrix}+
+\dots+
+v_n\begin{pmatrix}0\\0\\\vdots\\1\end{pmatrix}.
+\]
+Somit ist $\mathbb R^n=\langle e_1,e_2,\dots,e_n\rangle$.
+die Vektoren $e_i$ heissen die Standardbasisvektoren.
+\end{beispiel}
+
+\begin{beispiel}
+Gegeben seien die Vektoren
+\[
+a_1=\begin{pmatrix}1\\4\\7\end{pmatrix},\quad
+a_2=\begin{pmatrix}2\\5\\8\end{pmatrix},\quad
+a_3=\begin{pmatrix}3\\6\\9\end{pmatrix}
+\]
+Spannen diese drei Vektoren den ganzen Raum $\mathbb R^3$ auf,
+oder anders ausgedrückt, kann man damit jeden Vektor in $\mathbb R^3$
+linear kombinieren?
+
+Dies wäre möglich, wenn die offensichtlich ganz $\mathbb R^3$
+aufspannenden Vektoren $e_1,e_2,e_3$ durch $a_i$ ausgedrückt werden
+können.
+Also testen wir, ob $e_i\in \operatorname{im}A$, wobei
+\[
+A=\begin{pmatrix}
+1&2&3\\
+4&5&6\\
+7&8&9
+\end{pmatrix}
+\]
+ist.
+Der Gauss-Algorithmus gibt folgende Tableaus:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+&2&3&1&0&0\\
+4&5&6&0&1&0\\
+7%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,-2)(-8,25)(1,25)(1,-2)
+\end{picture}%
+&8&9&0&0&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&3&1&0&0\\
+0&-3%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+&-6&-4&1&0\\
+0&-6%
+\begin{picture}(0,0)
+\color{blue}\drawline(-15,-2)(-15,10)(1,10)(1,-2)
+\end{picture}%
+&-12&-7&0&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&2&3&1&0&0\\
+0&1&2&\frac43&-\frac13&0\\
+0&0&0&1&-2&1\\
+\hline
+\end{tabular}
+\end{align*}
+Man kann also keinen einzigen der Vektoren $e_i$ mit den Vektoren $a_i$
+darstellen, die Vektoren $a_i$ können also unmöglich den ganzen
+$\mathbb R^3$ aufspannen.
+\end{beispiel}
+
+\subsection{Basis}
+\index{Basis}
+Eine Menge von Vektoren, mit denen man alle Vektoren eines Unterraums
+linear kombinieren kann, muss linear unabhängig sein.
+Sonst könnte
+man nämlich einen der Vektoren durch die anderen ausdrücken, damit
+wird er selbst unnötig.
+
+\begin{definition}
+\index{Basis}
+Ein Menge $B\subset V$ von Vektoren in einem linearen Raum $V$ heisst
+Basis, wenn gilt:
+\begin{enumerate}
+\item $B$ spannt $V$ auf: $V=\langle B\rangle$.
+\item Die Vektoren in $B$ sind linear unabhängig.
+\end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+Der Raum
+\[
+\left\{\left.\begin{pmatrix}x\\y\end{pmatrix}\,\right|\, x=y\right\}
+\]
+wird aufgespannt von 
+\[
+B=\left\{\begin{pmatrix}1\\1\end{pmatrix}\right\}.
+\]
+\end{beispiel}
+
+Wie kann man testen, ob eine Menge von Vektoren eine Basis ist?
+Schreibt man die Vektoren der Basis $B$ als Spalten in eine Matrix
+$\tilde B$, müssen wir offenbar zwei Dinge testen:
+\begin{enumerate}
+\item $V = \operatorname{im}\tilde B$: das Gleichungssystem $\tilde Bx=b$
+muss für jeden Vektor $b\in V$ lösbar sein.
+\item Die Vektoren von $B$ sind linear unabhängig: die Spalten sind
+linear unabhängig.
+Dies kann auf zwei Arten geschehen:
+\begin{enumerate}
+\item Der Gauss-Algorithmus, angewendet auf $\tilde B^t$, liefert eine
+Nullzeile genau dann, wenn die Zeilen von $\tilde B^t$ linear abhängig sind,
+das sind aber genau die Spalten von $\tilde B$.
+Wenn also keine Nullzeile
+auftritt, sind die Vektoren linear unabhängig.
+\item Falls der Gauss-Algorithmus für das homogene Gleichungssystem
+$\tilde B x=0$ nur die Lösung $x=0$ findet, sind die Spalten linear
+unabhängig.
+Anders ausgedrückt: wenn das Gleichungssystem $\tilde Bx=b$
+für jedes in Frage kommende $b$ genau eine Lösung hat, sind die
+Spalten von $\tilde B$ linear unabhängig.
+\end{enumerate}
+\end{enumerate}
+
+
+\begin{satz}
+\index{Standardbasis}
+Die Standardbasisvektoren bilden eine Basis von $\mathbb R^n$,
+die Standardbasis.
+\end{satz}
+
+\begin{proof}[Beweis]
+Wir wissen bereits, dass die Standardbasisvektoren $\mathbb R^n$ aufspannen,
+wir müssen aber nur noch erkennen, dass sie auch linear unabhängig sind.
+Schreibt man die Vektoren als Spalten in eine Matrix $\tilde B$, entsteht die
+Einheitsmatrix, und ein Gleichungssystem $Ex=b$ hat immer genau die eine
+Lösung $x=b$, also ist 
+\end{proof}
+
+\begin{beispiel}
+Die Vektoren 
+\[
+b_1=\begin{pmatrix}1\\0\\0\end{pmatrix},\quad
+b_2=\begin{pmatrix}1\\1\\0\end{pmatrix},\quad
+b_3=\begin{pmatrix}1\\1\\1\end{pmatrix},\quad
+\]
+bilden eine Basis von $\mathbb R^3$.
+Zwei Dinge sind zu prüfen:
+spannen sie den ganzen Raum auf und sind sie linear unabhängig.
+Da man alle Standardbasisvektoren durch die $b_i$ ausdrücken kann, nämlich
+durch
+\[
+e_1=b_1,\qquad e_2=b_2-b_1,\qquad\text{und}\qquad e_3=b_3-b_2-b_1,
+\]
+ist jeder Vektor durch die $b_i$ ausdrückbar.
+Lineare Abhängigkeit kann
+man mit dem Gauss-Algorithmus testen.
+Wir schreiben dazu die Vektoren
+als Zeilen in ein Gauss-Tableau:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&0\\
+1&1&0\\
+1&1&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&0\\
+0&1&0\\
+0&0&1\\
+\hline
+\end{tabular}
+\]
+Da keine Nullzeile entstanden ist, sind die Zeilen linear unabhängig.
+Die Zeilen waren aber genau die Vektoren $b_i$.
+Damit ist klar, dass
+die Vektoren $b_i$ eine Basis bilden.
+\end{beispiel}
+
+\begin{definition}
+\index{Dimension}
+Die Dimension $\dim V$ eines Vektorraumes $V$ ist die Zahl der
+Basisvektoren einer Basis von $V$.
+\end{definition}
+
+\begin{beispiel} Man finde eine Basis des Nullraumes der Matrix
+\[
+A=\begin{pmatrix}
+1&2&3\\
+4&5&6\\
+7&8&9
+\end{pmatrix}.
+\]
+Wendet man den Gauss-Algorithmus für das homogene Gleichungssystem
+an, findet man:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+& 2& 3&0\\
+ 4& 5& 6&0\\
+ 7%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,-2)(-8,24)(1,24)(1,-2)
+\end{picture}%
+& 8& 9&0\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 2&  3&0\\
+ 0&-3%
+\begin{picture}(0,0)
+\color{red}\put(-6,4){\circle{15}}
+\end{picture}%
+& -6&0\\
+ 0&-6%
+\begin{picture}(0,0)
+\color{blue}\drawline(-15,-2)(-15,10)(2,10)(2,-2)
+\end{picture}%
+&-12&0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 2%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,10)(-8,-2)(2,-2)(2,10)
+\end{picture}%
+&  3&0\\
+ 0& 1&  2&0\\
+ 0& 0&  0&0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 0& -1&0\\
+ 0& 1&  2&0\\
+ 0& 0&  0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Offenbar gibt es genau eine frei wählbare Variable $z$, und
+die Lösungsmenge ist 
+\[
+t\begin{pmatrix}
+1\\-2\\1
+\end{pmatrix}
+\]
+Der Nullraum wird also vom Vektor
+\[
+\begin{pmatrix}
+1\\-2\\1
+\end{pmatrix}
+\]
+aufgespannt.
+\end{beispiel}
+
+\begin{beispiel}
+Man finde eine Basis des Bildraumes $\operatorname{im}A$ mit der gleichen
+Matrix wie im vorangegangenen Beispiel.
+
+Die Basis besteht aus so wenigen linear unabhängigen Vektoren wie
+möglich, aber alle Spaltenvektoren von $A$ müssen damit erzeugt
+werden können.
+Dazu nehmen wir einfach einen Vektor um den anderen
+hinzu, solange die Menge der Vektoren linear unabhängig bleibt.
+
+Der erste Spaltenvektor ist nicht der Nullvektor, also können wir
+den in die Basis hinein nehmen.
+Der zweite ist nicht proportional,
+also sind die ersten beiden Spalten linear unabhängig.
+Als
+Basis könnten wir daher
+\[
+\left\{
+\begin{pmatrix}1\\4\\7\end{pmatrix}
+,
+\begin{pmatrix}2\\5\\8\end{pmatrix}
+\right\}
+\]
+nehmen.
+Den dritten Spaltenvektor dürfen wir nicht hinzunehmen.
+Aus dem letzten Beispiel wissen wir ja, dass die Matrix singulär
+ist.
+Es kann also höchstens zwei linear unabhängige Vektoren haben.
+\end{beispiel}
+
+\subsection{Koordinaten}
+\index{Koordinaten}
+Gibt man eine Basis $B=\{b_1,\dots,b_k\}$ von $V$ vor,
+dann kann man die Vektoren
+in $V$ in der Basis $B$ ausdrücken.
+Dazu muss man zu einem 
+Vektor $v\in V$ Zahlen $\xi_i$ finden mit
+\[
+v=\xi_1 b_1+\dots +\xi_k b_k.
+\]
+Schreiben wir wieder die Basisvektoren von $B$ als Spaltenvektoren in 
+eine Matrix $\tilde B$, dann ist 
+\[
+v=\tilde B\begin{pmatrix}\xi_1\\\vdots\\\xi_n\end{pmatrix}.
+\]
+Eine Basis eines $k$-dimensionalen Raumes $V$ ermöglicht also,
+die Vektoren von $V$ mit Hilfe von $k$-Tupeln, bestehend
+aus den Zahlen $\xi_i$, darzustellen.
+Die $\xi_i$ heissen
+Koordinaten eines Vektors $v$ in der Basis $B$, wir schreiben
+oft auch einfach $\xi$ für den Vektor mit Komponenten $\xi_i$.
+Das Finden der Koordinaten eines Vektors $v$ läuft immer auf die Lösung
+des Gleichungssystems $\tilde B\xi=v$ hinaus.
+
+\begin{beispiel}
+Die Basis \[
+B=\left\{
+\begin{pmatrix}1\\2\\3\end{pmatrix},
+\begin{pmatrix}3\\2\\1\end{pmatrix}
+\right\}
+\]
+spannt einen zweidimensionalen Unterraum von $\mathbb R^3$ auf.
+Man finde
+die Koordinaten des Vektors 
+\[
+v=
+\begin{pmatrix}
+0\\4\\8
+\end{pmatrix}
+\]
+in der Basis $B$.
+
+Dazu muss man das Gleichungssystem $v=\tilde B\xi$ lösen:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1%
+\begin{picture}(0,0)
+\color{red}\put(-3,4){\circle{12}}
+\end{picture}%
+&3&0\\
+2&2&4\\
+3%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,-2)(-8,25)(2,25)(2,-2)
+\end{picture}%
+&1&8\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&3&0\\
+0&-4%
+\begin{picture}(0,0)
+\color{red}\put(-7,4){\circle{15}}
+\end{picture}%
+&4\\
+0&-8%
+\begin{picture}(0,0)
+\color{blue}\drawline(-15,-2)(-15,10)(1,10)(1,-2)
+\end{picture}%
+&8\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&3%
+\begin{picture}(0,0)
+\color{blue}\drawline(-8,10)(-8,-2)(1,-2)(1,10)
+\end{picture}%
+&0\\
+0&1&-1\\
+0&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&3\\
+0&1&-1\\
+0&0&0\\
+\hline
+\end{tabular}
+\]
+man kann also die Koordinaten $3$ und $-1$ ablesen.
+Kontrolle:
+\[
+\tilde B\xi
+=
+\begin{pmatrix}
+1&3\\
+2&2\\
+3&1\end{pmatrix}
+\begin{pmatrix}3\\-1\end{pmatrix}
+=\begin{pmatrix}
+0\\4\\8
+\end{pmatrix}
+=v.
+\]
+\end{beispiel}
+
+\subsection{Basiswechsel}
+\index{Basiswechsel}
+Jede beliebige linear unabhängige Teilmenge von $V$, welche ganz $V$
+aufspannt, kann als Basis verwendet werden.
+Oft ist es praktischer,
+statt der Standardbasis eine andere Basis zu verwenden, zum Beispiel
+um die Koordinatenachsen parallel zu den Kanten eines Werkstücks zu
+bekommen, oder um eine spezielle Symmetrie des Problems einfacher
+ausdrücken zu können.
+Wie sind die Koordinaten zwischen zwei Basen $B$ und $B'$ umzurechnen?
+
+Zu jeder Basis $B$ gibt es die Matrix $\tilde B$, die aus den
+Koordinaten $\xi$ eines Vektors $v$ den Vektor mittels $v=\tilde B\xi$
+berechnet.
+Hat man zwei Basen $B$ und $B'$, hat auch jeder Vektor
+in $V$ zwei verschiedene Koordinaten-Vektoren $\xi$ und $\xi'$:
+\[
+v=\tilde B\xi =\tilde B'\xi'.
+\]
+Wie kann man $\xi'$ aus $\xi$ berechnen?
+
+\subsubsection{Spezialfall $\mathbb R^n$}
+In diesem Fall sind die beiden Matrizen $\tilde B$ und $\tilde B'$
+reguläre $n\times n$-Matrizen.
+Die Gleichung
+\[
+v=\tilde B\xi =\tilde B'\xi'.
+\]
+Kann dann durch Multiplikation mit $\tilde B^{-1}$ oder $\tilde B^{\prime-1}$
+von links aufgelöst werden:
+\begin{align*}
+\tilde B^{\prime-1}\tilde B\xi&= \tilde B^{\prime -1}\tilde B'\xi'=E\xi'=\xi'\\
+\xi=\tilde B^{-1}B\tilde B\xi&=\tilde B^{-1}\tilde B'\xi'
+\end{align*}
+Daraus können wir die Matrix zur Berechnung von $\xi'$ aus $\xi$
+ablesen: 
+\[
+T=\tilde B^{\prime-1}B \quad\Rightarrow\quad
+\xi'=T\xi.
+\]
+
+\subsubsection{Allgemeiner Fall}
+Im allgemeinen Fall eines beliebigen Unterraumes funktioniert diese
+Methode nicht.
+$\tilde B$ und $\tilde B'$ sind keine quadratischen
+Matrizen, also können Sie auch nicht invertiert werden.
+Vielmehr sind sie jetzt $n\times m$-Matrizen mit $m<n$.
+
+Wenn $B$ und $B'$ Basen sind, dann lässt sich jeder Vektor $v\in
+\operatorname{im}\tilde B=\operatorname{im}\tilde B'$ 
+sowohl mit $\xi$-Koordinaten als auch mit $\xi'$-Koordinaten
+beschreiben:
+\[
+v=\tilde B\xi=\tilde B'\xi'.
+\]
+Darin sind die $\xi$- und $\xi'$-Vektoren sind Vektoren in $\mathbb R^m$.
+
+Speziell könnte man für die $\xi$-Vektoren die Standardbasisvektoren
+in $R^m$ wählen.
+Mit dem ersten Standardbasisvektor bekäme man
+das Gleichungssystem
+\begin{equation}
+\tilde B\begin{pmatrix} 1\\0\\\vdots\\0\end{pmatrix}
+=\tilde B'\xi'
+\label{t-gleichung}
+\end{equation}
+Dieses Gleichungssystem kann man mit dem Gauss-Algorithmus auflösen,
+und $\xi'$ finden.
+Dasselbe kann man natürlich auch für den
+zweiten Standardbasis-Vektor machen, und auch für alle folgenden.
+
+Wir können alle diese Gleichungen zusammen in eine einzige
+Matrixgleichung schreiben:
+\[
+\tilde B\begin{pmatrix}
+1&0&\dots&0\\
+0&1&\dots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\dots&1
+\end{pmatrix}
+=B'\begin{pmatrix}
+\mathstrut t_{11}&t_{12}&\dots&t_{1m}\\
+\mathstrut t_{21}&t_{22}&\dots&t_{2m}\\
+\mathstrut \vdots&\vdots&\ddots&\vdots\\
+\mathstrut t_{m1}&t_{m2}&\dots&t_{mm}\\
+\end{pmatrix}
+\]
+Die Matrix $T$ auf der rechten Seite enthält als Spalten
+die Lösungen der Gleichungen (\ref{t-gleichung}).
+
+Da die Spalten von $T$ Lösungen eines linearen Gleichungssystems
+mit Koeffizienten $\tilde B'$ und rechten Seiten $B$ ist, können
+wir das Verfahren zur simultanen Lösung anwenden.
+Das zugehörige Gauss-Tableau ist:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+\quad\mathstrut&         &\quad\mathstrut&\quad\mathstrut&        &\quad\mathstrut\\
+      &         &      &      &        &      \mathstrut\\
+      &         &      &      &        &      \mathstrut\\
+      &\tilde B'&      &      &\tilde B&      \mathstrut\\
+      &         &      &      &        &      \mathstrut\\
+      &         &      &      &        &      \mathstrut\\
+      &         &      &      &        &      \mathstrut\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1     &     0&\dots   &0      & &                   & \\
+0     &     1&\dots   &0      & &                   & \\
+\vdots&\vdots&\ddots  &\vdots & &\raisebox{7pt}{$T$}& \\
+0     &     0&\dots   &1      & &                   & \\
+\hline
+0     &     0&\dots   &0      &*&                   &*\\
+0     &     0&\dots   &0      &*&                   &*\\
+\hline
+\end{tabular}
+\]
+Weil wir wissen, dass die Gleichungen immer eine Lösung haben, finden
+wir an den Plätzen der Sterne unten rechts immer $0$, also steht im
+Feld oben rechts genau die Transformationsmatrix $T$.
+
+\begin{beispiel}
+In der Ebene aufgespannt von den Vektoren 
+\[
+b_1=\begin{pmatrix}1\\1\\0 \end{pmatrix}
+,\qquad
+b_2=\begin{pmatrix}0\\1\\1 \end{pmatrix}
+\]
+möchte man die Basis aus den Basisvektoren
+\[
+b_1'=\begin{pmatrix}1\\2\\1\end{pmatrix}
+,\qquad
+b_2'=\begin{pmatrix}1\\0\\-1\end{pmatrix}
+\]
+Finden Sie die Koordinatentransformationsmatrix $T$, mit der
+man von den Parameter $t$ $s$ in der Parameterdarstellung
+mit Richtungsvektoren $b_1$ und $b_2$ auf die Koordinaten in
+der Basis $B'$ umrechnen kann.
+Man finde ausserdem die 
+Koordinaten in der Basis $B'$ des Vektors, der in der Basis $B$
+die Koordinaten $(2,-1)$ hat.
+
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1&1&0\\
+2& 0&1&1\\
+1&-1&0&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1& 1&0\\
+0&-2&-1&1\\
+0&-2&-1&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 1&      1&       0\\
+0& 1&\frac12&-\frac12\\
+\hline
+0& 0&      0&       0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 0& \frac12& \frac12\\
+0& 1& \frac12&-\frac12\\
+\hline
+0& 0&      0&       0\\
+\hline
+\end{tabular}
+\end{align*}
+Die Transformationsmatrix ist also 
+\[
+T=
+\frac12\begin{pmatrix} 1&1\\1&-1 \end{pmatrix}.
+\]
+Die Koordinaten $(2,-1)$ ergeben nach Umrechnung mit $T$ 
+\[
+\xi'=
+T\begin{pmatrix}2\\-1\end{pmatrix}
+=
+\frac12\begin{pmatrix} 1&1\\1&-1 \end{pmatrix}
+\begin{pmatrix}2\\-1\end{pmatrix}
+=\frac12\begin{pmatrix}1\\3\end{pmatrix}.
+\]
+Zur Kontrolle berechnen wir den zugehörigen Vektor in $\mathbb R^3$:
+\[
+\tilde B\xi=
+\begin{pmatrix}
+1&0\\
+1&1\\
+0&1
+\end{pmatrix}
+\begin{pmatrix}2\\-1\end{pmatrix}
+=\begin{pmatrix} 2\\1\\-1 \end{pmatrix}
+,\qquad
+\tilde B' \xi'
+=
+\begin{pmatrix}
+1& 1\\
+2& 0\\
+1&-1
+\end{pmatrix}\begin{pmatrix}\frac12\\\frac32\end{pmatrix}
+=\begin{pmatrix}2\\1\\-1 \end{pmatrix},
+\]
+beide stimmen überein.
+\end{beispiel}
+

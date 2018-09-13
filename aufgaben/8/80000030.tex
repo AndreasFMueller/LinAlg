@@ -1,0 +1,113 @@
+Ist die Matrix
+\[
+A=
+\begin{pmatrix}
+2&-2&0\\
+3& 7&0\\
+0& 0&2
+\end{pmatrix}
+\]
+diagonalisierbar? Wenn ja finden Sie eine Basis, in der $A$ diagonal ist.
+
+\thema{Eigenwerte}
+\thema{Eigenvektoren}
+\thema{charakteristisches Polynom}
+\thema{diagonalisierbar}
+
+\begin{loesung}
+Ein Eigenvektor ist $e_3$ mit dem Eigenwert $2$. Es muss also nur noch
+der $2\times 2$-Block in der linken oberen Ecke untersucht werden.
+Das charakteristische Polynom desselben ist
+\begin{align*}
+\det(A-\lambda E)
+&=
+(\lambda -2)\left|\,\begin{matrix}2-\lambda&-2\\3&7-\lambda\end{matrix}\,\right|
+\\
+&=(2-\lambda)\bigl( (2-\lambda)(7-\lambda)+6 \bigr)
+\\
+&=(2-\lambda)(\lambda^2-9\lambda+20)
+\\
+&=(2-\lambda)(\lambda-4)(\lambda -5)
+\end{align*}
+Die Matrix hat also noch die zwei Eigenwert $\lambda=4$ und $\lambda=5$.
+Die Eigenvektoren für diese beiden Eigenwerte finden wir mit dem
+Gauss-Algorithmus.
+
+Für $\lambda=4$ finden wir
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2-4&-2 &0\\
+3  &7-4&0\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-2&-2 &0\\
+3  &3&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&1&0\\
+0&0&0\\
+\hline
+\end{tabular}
+&&\Rightarrow&
+v&=\begin{pmatrix}1\\-1\end{pmatrix}
+%\end{align*}
+\intertext{%
+Für $\lambda=5$ finden wir
+}
+%\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+2-5&-2 &0\\
+3  &7-5&0\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-3&-2 &0\\
+3  &2&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&\frac23&0\\
+0&      0&0\\
+\hline
+\end{tabular}
+&&\Rightarrow&
+v&=\begin{pmatrix}2\\-3\end{pmatrix}
+\end{align*}
+Die Matrix $A$ wird daher in der Basis aus den Vektoren
+\[
+\begin{aligned}
+v_1&=\begin{pmatrix}1\\-1\\0\end{pmatrix},\qquad
+&
+v_2&=\begin{pmatrix}2\\-3\\0\end{pmatrix}\qquad\text{und}\qquad
+&
+v_3&=\begin{pmatrix}0\\0\\1\end{pmatrix}
+\end{aligned}
+\]
+diagonal sein.
+\end{loesung}
+
+\begin{bewertung}
+Charakteristisches Polynom ({\bf X}) 1 Punkt,
+Nullstellen ({\bf N}) 1 Punkt,
+Gleichungssystem für jeden Eigenwert ({\bf G}) 1 Punkt,
+Eigenvektor zu $\lambda=4$ ($\text{\bf E}_4$) 1 Punkt,
+Eigenvektor zu $\lambda=5$ ($\text{\bf E}_5$) 1 Punkt,
+EIgenvektor zu $\lambda=2$ ($\text{\bf E}_2$) 1 Punkt.
+\end{bewertung}
+
+
+

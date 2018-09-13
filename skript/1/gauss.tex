@@ -4,6 +4,7 @@
 % (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
 %
 \section{Das Gauss-Verfahren}
+\rhead{Gauss-Algorithmus}
 \index{Gauss-Verfahren}
 \index{Gauss-Elimination|see{Gauss-Verfahren}}
 Für die Anwendung brauchen wir ein effizientes Verfahren zur
@@ -205,7 +206,8 @@ genau gleich wie {\bf F}.
 Da {\bf F} und {\bf R} offenbar identisch sind, fassen wir diese
 Operationen unter dem Namen {\bf E} zusammen.
 
-\subsection{Operationen I und E für drei Unbekannte}
+\subsection{Operationen I und E für drei Unbekannte%
+\label{skript:subsection:iedreiunbekannte}}
 Als Beispiel führen wir das Verfahren auch noch für die drei Unbekannten
 des Gleichungssystems
 \begin{equation}
@@ -448,7 +450,7 @@ Für die dritte Spalte beispielsweise bedeutet dies bildlich:
 \end{tabular}
 \end{gather*}
 In Formeln bedeutet dies für die {\bf E}-Operation, bei der die
-Spalte mit der Nummer $i$ ``leergeräumt'' wird:
+Spalte mit der Nummer $i$ ``leer geräumt'' wird:
 \begin{align}
 a_{kj}'&=a_{kj}- a_{ki} a_{ij}
 &
@@ -456,7 +458,7 @@ b_k'&=b_k- a_{ki}b_i
 \label{rueckwaertseinsetzen}
 \end{align}
 Dieser Schritt muss für $i=m,\dots,2$ wiederholt werden.
-\subsection{Sonderfälle}
+\subsection{Sonderfälle\label{subsection:sonderfaelle}}
 Nicht immer kann das Verfahren so problemlos durchgeführt werden.
 Es kann vorkommen, dass eines der Pivot-Elemente $a_{ii}=0$ ist.
 Da beim Vorwärtsreduzieren immer durch das Pivot-Element geteilt

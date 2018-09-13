@@ -1,0 +1,697 @@
+%
+% skalarprodukt.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Skalarprodukt}
+\index{Skalarprodukt}
+\subsection{Skalarprodukte und symmetrische Matrizen}
+Das in der Vektorgeometrie definiert Skalarprodukt kann in beliebig
+vielen Dimensionen definiert werden.
+Zwei Vektoren $v$ und $u$ haben
+das Skalarprodukt
+\[
+u\cdot v=
+\begin{pmatrix}u_1\\\vdots\\u_n\end{pmatrix}
+\cdot
+\begin{pmatrix}v_1\\\vdots\\v_n\end{pmatrix}
+=u_1v_1+\dots+u_nv_n=u^tv.
+\]
+In den Anwendungen findet man aber weitere Beispiel von
+Skalarprodukt-ähnlichen Grössen, zum Beispiel das Trägheitsmoment.
+Die Rotationsenergie eines starren Körpers kann aus dem Vektor $\omega$
+der Winkelgeschwindigkeit mit der (symmetrischen) Matrix des
+Trägheitsmomentes $\Theta$
+berechnet werden:
+$
+E=\frac12 \omega^t\Theta \omega.
+$
+Die allgemeinste Form eines Skalarproduktes verwendet daher eine
+symmetrische Matrix $M$, also eine Matrix mit der Eigenschaft
+$M=M^t$, und berechnet das Skalarprodukt zweier Vektoren $u$ und $v$
+als $u^tMv$.
+
+Mit dem Skalarprodukt kann auch die Länge eines Vektors definiert 
+werden, wir schreiben
+\[
+|v|=\sqrt{v^tv}
+\]
+für die Länge.
+
+\subsection{Basiswechsel}
+Sei wieder $T$ die Matrix, die Koordinaten von der Basis $B'$ in die
+Basis $B$ umrechnet.
+Um das Skalarprodukt bezüglich der Basis $B'$ zu berechnen,
+müssen die Vektoren zuerst mit $T$ in die Basis $B$ umgerechnet werden,
+so dass dann die Formel für das Skalarprodukt in der Basis $B$
+verwendet werden kann:
+\[
+(T\xi)^tT\eta=\xi^tT^tT\eta
+\]
+Die Matrix $T^tT$ ist symmetrisch, der ``Spezialfall'' eines Skalarproduktes,
+welches mit Hilfe einer symmetrischen Matrix definiert worden ist,
+ist also unvermeidlich, wenn man die Basis wechseln will.
+
+\subsection{Orthogonale Matrizen}
+\index{Matrix!orthognale}
+\subsubsection{Definition}
+Das Skalarprodukt erlaubt, Längen und Winkel zu berechnen.
+Lineare Abbildungen, welche Längen und Winkel nicht ändern, beschreiben
+Bewegungen des Raumes.
+Damit zwei Vektoren $u$ und $v$ sollen nach Abbildung
+mit der Matrix $A$ immer noch das gleiche Skalarprodukt haben, muss
+\[
+u^tv=(Au)^tAv=u^tA^tAv
+\]
+gelten.
+Dies ist jedoch nur dann für alle Vektoren $u$ und $v$ möglich,
+wenn $A^tA$ die Einheitsmatrix ist, also $A^tA=E$.
+Das ist aber gleichbedeutend damit, dass $A^t=A^{-1}$.
+Lineare Abbildungen, die Längen und
+Winkel erhalten, haben also besonders einfach zu invertieren Matrizen.
+
+\begin{definition}
+\index{orthogonal}
+Eine Matrix $A$ heisst orthogonal, wenn $A^tA=AA^t=E$.
+\end{definition}
+
+\begin{beispiel}
+Die Matrix 
+\[
+A=
+\begin{pmatrix}
+\frac{\sqrt{2}}2& \frac{\sqrt{2}}2\\
+-\frac{\sqrt{2}}2& \frac{\sqrt{2}}2
+\end{pmatrix}
+\]
+ist orthogonal:
+\[
+A^tA=
+\begin{pmatrix}
+\frac{\sqrt{2}}2&-\frac{\sqrt{2}}2\\
+\frac{\sqrt{2}}2& \frac{\sqrt{2}}2
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\sqrt{2}}2& \frac{\sqrt{2}}2\\
+-\frac{\sqrt{2}}2& \frac{\sqrt{2}}2
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac24+\frac24&\frac24-\frac12\\
+\frac24-\frac24&\frac24+\frac12
+\end{pmatrix}
+=E.
+\]
+\end{beispiel}
+
+\subsubsection{Drehungen im zweidimensionalen Raum}
+Die Matrix
+\[
+D_\alpha
+=
+\begin{pmatrix}
+\cos\alpha&-\sin\alpha\\
+\sin\alpha& \cos\alpha
+\end{pmatrix}
+\]
+ist orthogonal:
+\[
+D_\alpha^tD_\alpha
+=
+\begin{pmatrix}
+ \cos\alpha&\sin\alpha\\
+-\sin\alpha&\cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+\cos\alpha&-\sin\alpha\\
+\sin\alpha& \cos\alpha
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos^2\alpha+\sin^2\alpha&0\\
+0&\sin^2\alpha+\cos^2\alpha
+\end{pmatrix}
+=E.
+\]
+Diese Matrix beschreibt eine Drehung um den Winkel $\alpha$
+in zwei Dimensionen.
+
+\subsubsection{Spiegelungen}
+\index{Spiegelung}
+Die Matrix einer Spiegelung an einer Geraden ist orthogonal.
+
+\smallskip
+
+{\parindent 0pt
+Sei} $v$ ein zweidimensionaler Vektor der Länge $1$.
+Dann ist die Abbildung 
+\[
+u\mapsto u-2v(v\cdot u)
+\]
+die Spiegelung an der Geraden mit der Normalen $u$.
+Ist nämlich
+ein Vektor $u\perp v$, ist das Skalarprodukt $0$, und $u\mapsto u$
+bleibt unverändert.
+Andererseits wird der Vektor $v$ auf
+$v-2v(v\cdot v)=v-2v=-v$ abgebildet.
+Vektoren senkrecht auf $v$
+werden also belassen, solche parallel zu $v$ werden umgekehrt.
+
+Die Matrix dieser linearen Abbildung ist
+\[
+S_v=\begin{pmatrix}1&0\\0&1\end{pmatrix}
+-
+2\begin{pmatrix}v_1\\v_2\end{pmatrix}
+\begin{pmatrix}v_1&v_2\end{pmatrix}
+=
+\begin{pmatrix}
+1-2v_1^2&-2v_1v_2\\
+-2v_1v_2&1-2v_2^2
+\end{pmatrix},
+\]
+wir wollen nachrechnen, dass sie orthogonal ist.
+Dabei beachten
+wir, dass $1-v_1^2=v_2^2$ ist, weil ja $|v|=1$, also kann man $S_v$
+auch schreiben
+\[
+S_v=\begin{pmatrix}
+v_2^2-v_1^2&-2v_1v_2\\
+-2v_1v_2&v_1^2-v_2^2
+\end{pmatrix}
+\]
+
+\begin{align*}
+S_v^tS_v
+&=
+\begin{pmatrix}
+v_2^2-v_1^2&-2v_1v_2\\
+-2v_1v_2&v_1^2-v_2^2
+\end{pmatrix}
+\begin{pmatrix}
+v_2^2-v_1^2&-2v_1v_2\\
+-2v_1v_2&v_1^2-v_2^2
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+v_2^4-2v_1^2v_2^2+v_1^4+4v_1^2v_2^2&
+-2(v_2^2-v_1^2)v_1v_2
++
+-2(v_1^2-v_2^2)v_1v_2
+\\
+-2(v_1^2-v_2^2)v_1v_2
++
+-2(v_2^2-v_1^2)v_1v_2
+&
+v_2^4-2v_1^2v_2^2+v_1^4+4v_1^2v_2^2
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+v_1^4+2v_1^2v_2^2+v_2^4&0\\
+0&v_1^4+2v_1^2v_2^2+v_2^4\\
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+(v_1^2+v_2^2)^2&0\\
+0&(v_1^2+v_2^2)^2
+\end{pmatrix}=E
+\end{align*}
+Die Matrix $S_v$ ist also tatsächlich immer orthogonal.
+
+Analog gilt in beliebig vielen Dimensionen, dass die Matrix
+$S_v=E-2v v^t$  für einen Vektor $v$ der Länge $1$ eine orthogonale
+Matrix ist, die die Spiegelung an einer Ebene mit Normale $v$
+beschreibt.
+
+\subsubsection{Eigenschaften orthogonaler Matrizen}
+
+\begin{satz}
+Die Spalten einer orthogonale Matrix $A$ sind orthonormiert, sie sind
+orthogonale Vektoren der Länge 1.
+Ausserdem ist $A^{-1}=A^t$.
+\end{satz}
+
+\begin{proof}[Beweis]
+Multipliziert man $A^tA=E$ von rechts mit $A^{-1}$, bekommt man
+$A^tAA^{-1}=A^t=A^{-1}$.
+
+Wir interpretieren die Bedingung $A^tA=E$.
+Für ein beliebiges $i$
+bedeutet sie, dass Zeile $i$ von $A^t$ mal Spalte $i$ von $A$ $1$ ergibt.
+Dies ist aber das Skalarprodukt von Spalte $i$ von $A$ mit Spalte $i$
+von $A$, also die Länge vom Spaltenvektor mit der Nummer $i$.
+
+Seien jetzt $i\ne j$ zwei verschiedene Indizes.
+Dann bedeutet $A^tA=E$,
+dass Zeile $i$ von $A^t$ mal Spalte $j$ von $A$ $0$ ergibt.
+Oder das
+Skalarprodukt von Spalte $i$ von $A$ mit Spalte $j$ von $A$ ist $0$.
+Dies wiederum heisst, dass die Spaltenvektoren senkrecht stehen.
+\end{proof}
+
+\subsubsection{Vertauschung der Koordinatenachsen}
+Für Transformation, die die Koordinatenachsen vertauscht, ist
+die Transformationsmatrix ebenfalls leicht zu ermitteln.
+In der Basis
+\[
+\left\{
+b_1'=\begin{pmatrix}0\\0\\1\end{pmatrix},
+b_2'=\begin{pmatrix}0\\1\\0\end{pmatrix},
+b_3'=\begin{pmatrix}1\\0\\0\end{pmatrix},
+\right\}
+\]
+sind die $x$- und die $z$-Achse vertauscht worden.
+die zugehörige Transformationsmatrix ist
+\begin{equation}
+T=\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}.
+\label{transformation-vertauschung}
+\end{equation}
+
+\subsection{Drehungen des dreidimensionalen Raumes}
+\subsubsection{Drehungen um die Koordinatenachsen}
+Drehungen um die Koordinatenachsen können mit Hilfe der zweidimensionalen
+Drehmatrix $D_\alpha$ gefunden werden.
+Die Drehung um die $x$-Achse um den
+Winkel $\alpha$ ändert die $x$-Koordinate nicht, hat also die
+Matrix
+\[
+D_{x,\alpha}=
+\begin{pmatrix}
+1&0&0\\
+0&\cos\alpha&-\sin\alpha\\
+0&\sin\alpha&\cos\alpha
+\end{pmatrix}
+\]
+Analog können Drehungen um die anderen zwei Achsen formuliert werden:
+\[
+D_{y,\alpha}=\begin{pmatrix}
+\cos\alpha&0&-\sin\alpha\\
+0&1&0\\
+\sin\alpha&0&\cos\alpha
+\end{pmatrix}
+,\qquad
+D_{z,\alpha}=\begin{pmatrix}
+\cos\alpha&-\sin\alpha&0\\
+\sin\alpha&\cos\alpha&0\\
+0&0&1
+\end{pmatrix}
+\]
+Man kann diese Matrizen aus $D_{x,\alpha}$ aber auch mit Hilfe einer
+Koordinatentransformation bekommen.
+Die Transformationsmatrix
+haben wir in (\ref{transformation-vertauschung}) gefunden:
+\[
+T=
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}
+=T^{-1}
+\]
+Mit der Basiswechsel-Formel (\ref{abbildung-basiswechsel}) kann
+man jetzt die Drehmatrix um die $z$-Achse aus der Drehmatrix um die
+$x$-Achse berechnen:
+\begin{align*}
+D_{z,-\alpha}=TD_{x,\alpha}T^{-1}
+&=
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}
+\begin{pmatrix}
+1&0&0\\
+0&\cos\alpha&-\sin\alpha\\
+0&\sin\alpha&\cos\alpha
+\end{pmatrix}
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+0&\sin\alpha&\cos\alpha\\
+0&\cos\alpha&-\sin\alpha\\
+1&0&0
+\end{pmatrix}
+\begin{pmatrix}
+0&0&1\\
+0&1&0\\
+1&0&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos\alpha&\sin\alpha&0\\
+-\sin\alpha&\cos\alpha&0\\
+0&0&1
+\end{pmatrix}.
+\end{align*}
+\subsubsection{Drehwinkel ermitteln}
+Für die Standard-Drehmatrizen $D_{x,\alpha}$ ist der Drehwinkel 
+leicht mit Hilfe der Spur zu ermitteln.
+Die Spur ist die Summe der
+Diagonalelemente einer Matrix:
+\[
+\operatorname{Spur}
+\begin{pmatrix}
+a_{11}&\dots &a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{n1}&\dots &a_{nn}\\
+\end{pmatrix}
+=a_{11}+a_{22}+\dots+a_{nn}
+\quad
+\Rightarrow
+\quad
+\operatorname{Spur}D_{x,\alpha}=1+2\cos\alpha.
+\]
+Die Spur hat aber interessante algebraische Eigenschaften, welche
+die Berechnung des Drehwinkels auch für beliebige Drehmatrizen
+erlauben:
+\begin{satz}
+\label{spursatz}
+Seinen $A$, $B$ und $C$ beliebige $n\times n$-Matrizen.
+Dann gilt
+\begin{compactenum}
+\item $\operatorname{Spur}(ABC)=\operatorname{Spur}(BCA)=\operatorname{Spur}(CAB)$
+\item $\operatorname{Spur}(AB)=\operatorname{Spur}(BA)$
+\end{compactenum}
+\end{satz}
+Wir zeigen zunächst, wie man damit den Drehwinkel einer beliebigen
+Drehung $D$ des dreidimensionalen Raumes bestimmen kann.
+Sei $T$ eine Koordinatentransformation, welche die Drehachse der Drehung in die
+$x$-Achse transformiert.
+Dann hat die transformierte Drehmatrix die Form $D_{x,\alpha}$:
+\[
+TDT^{-1}= D_{x,\alpha}
+\]
+Für die Spur gilt dann
+\begin{align*}
+\operatorname{Spur}(TDT^{-1})
+&=
+\operatorname{Spur}(DT^{-1}T)
+=
+\operatorname{Spur}(D)
+\\
+\operatorname{Spur}(TDT^{-1})
+&=
+\operatorname{Spur}(D_{x,\alpha})=1+2\cos\alpha
+\end{align*}
+Aufgelöst nach $\cos\alpha$:
+\begin{satz}\label{drehwinkelsatz}
+Der Drehwinkel einer Drehung des $\mathbb R^3$ mit Matrix $D$ ist
+\[
+\cos\alpha =\frac{\operatorname{Spur}(D) -1 }2.
+\]
+\end{satz}
+
+\begin{proof}[Beweis des Satzes \ref{spursatz}]
+Die zweite Aussage folgt aus der ersten, indem man $C=E$ setzt:
+\[
+\operatorname{Spur}(AB)=\operatorname{Spur}(ABE)=\operatorname{Spur}(BEA)=
+\operatorname{Spur}(BA).
+\]
+Die zyklische Vertauschung der Faktoren folgt aus den Formeln für die
+Matrix-Multiplikation.
+Das Element $ik$ der Matrix $AB$ ist
+\[
+\sum_{j=1}^na_{ij}b_{jk}
+\]
+und entsprechend ist das Matrixelement $il$ von $ABC$ 
+\[
+\sum_{j=1, k=1}^na_{ij}b_{jk}c_{kl}
+\]
+Die Diagonalelemente sind jene mit $i=l$, die Spur ist deren Summe:
+\[
+\operatorname{Spur}(ABC)
+=\sum_{i,j,k=1}^na_{ij}b_{jk}c_{ki}
+=\sum_{i,j,k=1}^nc_{ki}a_{ij}b_{jk}
+=\sum_{j,k,i=1}^nc_{ij}a_{jk}b_{ki}
+=\operatorname{Spur}(CAB)
+\]
+\end{proof}
+
+\subsubsection{Euler-Winkel}
+Um die Lage eines Körpers im Raum festzulegen wurde schon früh
+die folgende nach Euler benannte  Parametrisierung verwendet.
+Die Lage wird durch drei aufeinanderfolgende Drehungen um die $z$-,
+die $x$- und dann nochmals die $z$-Achse herbeigeführt.
+Die drei
+Drehungen sind
+\begin{compactenum}
+\item eine Drehung um die $z$-Achse um den Winkel $\alpha$
+\item eine Drehung um die $x$-Achse um den Winkel $\beta$
+\item eine Drehung um die $z$-Achse um den Winkel $\gamma$
+\end{compactenum}
+Mit der Matrizen-Darstellung der einzelnen Drehungen kann auch
+die Matrix der gesamten Drehung berechnet werden.
+Wir schreiben
+$D_{x,\alpha}$ für eine Drehung um die $x$-Achse um den Winkel
+$\alpha$, und sinngemäss für die anderen Achsen.
+Es ist
+\begin{align*}
+O(\alpha,\beta,\gamma)
+&=
+D_{z,\gamma}
+D_{x,\beta}
+D_{z,\alpha}
+\\
+&=
+\begin{pmatrix}
+\cos\gamma&-\sin\gamma&0\\
+\sin\gamma&\cos\gamma&0\\
+0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+1&0&0\\
+0&\cos\beta&-\sin\beta\\
+0&\sin\beta&\cos\beta
+\end{pmatrix}
+\begin{pmatrix}
+\cos\alpha&-\sin\alpha&0\\
+\sin\alpha&\cos\alpha&0\\
+0&0&1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\cos\gamma&-\sin\gamma&0\\
+\sin\gamma&\cos\gamma&0\\
+0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+\cos\alpha&-\sin\alpha&0\\
+\sin\alpha\cos\beta&\cos\alpha\cos\beta&-\sin\beta\\
+\sin\alpha\sin\beta&\cos\alpha\sin\beta&\cos\beta
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\cos\alpha\cos\gamma+\sin\alpha\cos\beta\sin\gamma
+        &-\sin\alpha\cos\gamma-\cos\alpha\cos\beta\sin\gamma
+                &\sin\beta\sin\gamma\\
+\cos\alpha\sin\gamma+\sin\alpha\cos\beta\cos\gamma
+        &-\sin\alpha\sin\gamma+\cos\alpha\cos\beta\cos\gamma
+                &-\sin\beta\cos\gamma\\
+\sin\alpha\sin\beta&\cos\alpha\sin\beta&\cos\beta
+\end{pmatrix}
+\end{align*}
+In der Astronomie und der Raumfahrt sind die Winkel sehr gebräuchlich.
+Der Winkel $\beta$ ist die Neigung der Bahn gegenüber der Referenzebene,
+bei Satellitenbahnen um die Erde ist dies die Äquatorebene,
+bei interplanetaren Missionen die Ebene der Erdbahn.
+Der Winkel $\gamma$ ist der Winkel zwischen einer Referenzrichtung
+und der Schnittgeraden der Bahnebene mit der Referenzebene.
+Diese Schnittgerade heisst auch die Knotenlinie.
+Bei Planetenbahnen ist die Referenzrichtung die Richtung des Frühlingspunktes.
+Der Winkel $\alpha$ ist der Winkel zwischen der Knotenlinie und dem
+erd- oder sonnennächsten Punkt.
+
+
+
+\subsection{Orthonormalisierung}
+\index{Orthonormalisierung}
+\index{Gram-Schmidt-Prozess|see{Orthonormalisierung}}
+Orthogonale Vektoren sind besonders gut als Basis geeignet, weil
+sich dann das Skalarprodukt am einfachsten ausdrücken lässt.
+Dies ist der eigentliche Inhalt des Satzes von Pythagoras: wenn
+\index{Pythagoras}
+man die Achsen orthogonal wählt, kann man die Länge mit Hilfe
+einer Quadratsumme der Koordinaten ausrechnen.
+Daher stellt sich 
+das Problem, aus einer gegebenen Menge von Vektoren eine Menge
+von orthogonalen Vektoren zu machen.
+
+Sei also $V=\{b_1,\dots,b_n\}$ eine linear unabhängige Menge von
+Vektoren.
+Gesucht ist eine ebenfalls linear unabhängige Menge 
+von Vektoren $B'=\{b_1',\dots,b_n'\}$, die den gleichen Unterraum
+aufspannen.
+Ausserdem soll gelten:
+\begin{enumerate}
+\item $b_i'^tb_j'=0$ falls $i\ne j$: Vektoren von $B'$ sind orthogonal.
+\item $|b_i'|=1$ für alle $i$: Vektoren von $B'$ sind normiert.
+\end{enumerate}
+Eine Menge von Vektoren $B'$ mit diesen Eigenschaften heisst
+{\it orthonormiert}.
+Man beachte, dass $B$ keine Basis sein muss, die Vektoren sind zwar
+linear unabhängig, müssen aber nicht den ganzen Vektorraum erzeugen.
+Falls $B$ eine Basis ist, dann wird auch $B'$ eine Basis sein, beide
+Vektormengen erzeugen den ganzen Raum.
+
+Wir konstruieren jetzt schrittweise die Menge $B'$.
+Der Vektor $b_1$ hat als schlimmsten möglichen Fehler, dass er
+nicht die richtige Länge hat, also setzen wir
+\[
+b_1' = \frac{b_1}{|b_1|}.
+\]
+Der zweite Vektor $b_2$ hat möglicherweise nicht die richtige Länge,
+aber noch viel schwerer wiegt, dass er nicht senkrecht auf $b_1'$
+steht.
+Man kann jedoch die zu $b_1'$ parallele Komponente mit Hilfe
+des Skalarproduktes finden: $(b_1'\cdot b_2)b_1'$ ist ein Vektor
+parallel zu $b_1'$.
+Subtrahieren wir dieses Stück von $b_2$ bekommen
+wir einen Vektor, der senkrecht auf $b_1'$ steht:
+\[
+b_1'\cdot(b_2-(b_1'\cdot b_2)b_1')=
+b_1'\cdot b_2-(b_1'\cdot b_2)(\underbrace{b_1'\cdot b_1'}_{=1})
+=
+b_1'\cdot b_2-
+b_1'\cdot b_2=0.
+\]
+Bringen wir ihn noch auf Länge $1$, bekommen wir den Vektor
+\[
+b_2'=\frac{
+b_2-(b_2\cdot b_1')b_1'
+}{
+|b_2-(b_2\cdot b_1')b_1'|
+}
+\]
+Im nächsten Schritt gehen wir im Prinzip gleich vor, müssen aber
+auch noch $b_2$ hinzuziehen:
+\begin{align*}
+b_3'&=\frac{
+b_3-(b_3\cdot b_1')b_1'-(b_3\cdot b_2')b_2'
+}{
+|b_3-(b_3\cdot b_1')b_1'-(b_3\cdot b_2')b_2'|
+}
+\\
+&\vdots
+\\
+b_n'&=\frac{
+b_n-(b_n\cdot b_1')b_1'-\dots-(b_n\cdot b_{n-1}')b_{n-1}'
+}{
+|b_n-(b_n\cdot b_1')b_1'-\dots-(b_n\cdot b_{n-1}')b_{n-1}'|
+}
+\end{align*}
+
+Damit haben wir einen rekursiven Algorithmus gefunden,
+der das gestellt Problem löst:
+
+\begin{satz}[Gram-Schmidt] Ist $B$ eine linear unabhängige Menge von Vektoren,
+dann gibt es eine orthonormierte Menge von Vektoren $B'$ so, dass
+$\langle b_1,\dots,b_k\rangle=\langle b_1',\dots,b_k'\rangle$.
+Die
+Vektoren $b_i'$ sind
+\begin{align*}
+b_1'&=\frac{b_1}{|b_1|}\\
+b_k'&=\frac{b_k-(b_k\cdot b_1')b_1'-\dots -(b_k\cdot b_{k-1}')b_{k-1}'}%
+{|b_k-(b_k\cdot b_1')b_1'-\dots -(b_k\cdot b_{k-1}')b_{k-1}'|}
+\end{align*}
+\end{satz}
+
+\begin{beispiel}
+Man orthonormalisiere die Menge 
+\[
+B=\left\{
+b_1=\begin{pmatrix}1\\1\\1\end{pmatrix},
+b_2=\begin{pmatrix}0\\1\\1\end{pmatrix},
+b_3=\begin{pmatrix}0\\0\\1\end{pmatrix}
+\right\}.
+\]
+Die Rekursionsformeln liefern nacheinander
+\begin{align*}
+b_1'&=\frac{b_1}{|b_1|}=\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}
+\\
+b_2\cdot b_1'&=\frac2{\sqrt{3}}
+\\
+b_2'&=\frac{
+b_2-\frac2{\sqrt{3}}b_1'
+}{
+|b_2-\frac2{\sqrt{3}}b_1'|
+}
+=
+\frac{
+\begin{pmatrix}0\\1\\1\end{pmatrix}-\frac23\begin{pmatrix}1\\1\\1\end{pmatrix}
+}{
+|b_2-\frac2{\sqrt{3}}b_1'|
+}
+=
+\frac{\begin{pmatrix}-\frac23\\\frac13\\\frac13\end{pmatrix}}{
+\sqrt{\frac19+\frac19+\frac49}}
+=\frac1{\sqrt{6}}\begin{pmatrix}-2\\1\\1\end{pmatrix}
+\\
+b_3\cdot b_1'&=\frac1{\sqrt{3}}
+\\
+b_3\cdot b_2'&=\frac1{\sqrt{6}}
+\\
+b_3'&=\frac{
+b_3-(b_3\cdot b_1')b_1'-(b_3\cdot b_2')b_2'
+}{
+|b_3-(b_3\cdot b_1')b_1'-(b_3\cdot b_2')b_2'|
+}
+=
+\frac{
+\begin{pmatrix}0\\0\\1\end{pmatrix}
+-\frac1{\sqrt{3}}\cdot\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}
+-\frac1{\sqrt{6}}\cdot\frac1{\sqrt{6}}\begin{pmatrix}-2\\1\\1\end{pmatrix}
+}{
+|b_3-(b_3\cdot b_1')b_1'-(b_3\cdot b_2')b_2'|
+}
+\\
+&
+=
+\frac{
+\begin{pmatrix}0\\0\\1\end{pmatrix}
+-\frac13\begin{pmatrix}1\\1\\1\end{pmatrix}
+-\frac16\begin{pmatrix}-2\\1\\1\end{pmatrix}
+}{
+|b_3-(b_3\cdot b_1')b_1'-(b_3\cdot b_2')b_2'|
+}
+=
+\frac{
+\begin{pmatrix}0\\-\frac12\\\frac12\end{pmatrix}
+}{
+\sqrt{\frac14+\frac14}
+}
+=\sqrt{2}
+\begin{pmatrix}0\\-\frac12\\\frac12\end{pmatrix}
+\end{align*}
+Die gesuchte Menge $B'$ ist also
+\[
+B'=\left\{
+b_1'=\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix},
+b_2'=\frac1{\sqrt{6}}\begin{pmatrix}-2\\1\\1\end{pmatrix},
+b_3'=\frac1{\sqrt{2}}\begin{pmatrix}0\\-1\\1\end{pmatrix}
+\right\}
+\]
+Man kann leicht verifizieren, dass diese Menge die verlangten
+Orthogonalitätseigenschaften erfüllt, die Vektoren haben
+alle die Länge $1$ und sie sind paarweise senkrecht.
+\end{beispiel}
+

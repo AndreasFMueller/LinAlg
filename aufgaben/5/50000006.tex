@@ -1,142 +1,105 @@
-Können Sie die symmetrische Matrix
+Die Ebene $\sigma_1$ sei die Ebene durch die Punkte $(1,0,0)$,
+$(0,1,0)$ und $(0,0,1)$.
+Die Ebene $\sigma_2$ hat die Gleichung
 \[
-A=\begin{pmatrix}
-1& 2&1\\
-2&13&8\\
-1& 8&6
-\end{pmatrix}
+x+2y+3z=4.
 \]
-als Produkt $A=BB^t$ schreiben? Geben Sie eine mögliche Matrix $B$ an.
+Die Ebene $\sigma_3$ steht auf beiden Ebenen senkrecht und geht
+durch den Nullpunkt des Koordinatensystems.
+\begin{teilaufgaben}
+\item
+Finden Sie den Fusspunkt $F$ des Lotes vom Punkt $P=(10,-1,6)$ auf die
+Ebene $\sigma_3$.
+\item
+Bestimmen Sie ausserdem die Länge des Lotes von $P$ auf die Ebene $\sigma_3$.
+\end{teilaufgaben}
 
-\thema{Cholesky-Zerlegung}
+\thema{Vektorprodukt}
+\thema{Abstand}
 
 \begin{loesung}
-Man kann sogar eine untere Dreiecksmatrix $L$ mit dieser Eigesnchaft finden,
-dies ist die Cholesky-Zerlegung von $A$.
-
-Im ersten Schritt sucht man die erste Spalte von $L$ zu bestimmen.
-Es muss gelten
+\begin{teilaufgaben}
+\item
+Die Normale $\vec n_3$ von $\sigma_3$ steht auf den Normalen
+$\vec n_1$ von $\sigma_1$ und $\vec n_2$ von $\sigma_2$.
+Sie kann mit dem Vektorprodukt gefunden werden:
+\begin{align*}
+\vec n_3
+&=
+\vec n_1 \times \vec n_2
+=
+\begin{pmatrix}1\\1\\1\end{pmatrix}
+\times
+\begin{pmatrix}1\\2\\3\end{pmatrix}
+=
+\begin{pmatrix}
+1\\-2\\1
+\end{pmatrix},
+\\
+|\vec n_3|^2
+&=
+1+2^2 + 1=6.
+\end{align*}
+Da die Ebene $\sigma_3$ durch den Nullpunkt geht, ist ihre Gleichung
+$\vec n_3\cdot\vec r=0$.
+Der Fusspunkt $F$ des Lotes liegt auf der Ebene $\sigma_3$, es gilt
+daher $\vec f\cdot \vec n_3 = 0$.
+Ausserdem muss $\overrightarrow{PF}$ parallel zu $\vec n_3$ sein,
+oder 
 \[
-LL^t=
-\begin{pmatrix}
-l_{11}&  0&  0\\
-l_{21}&  ?&  0\\
-l_{31}&  ?&  ?
-\end{pmatrix}
-\begin{pmatrix}
-l_{11}&l_{21}&l_{31}\\
-     0&     ?&     ?\\
-     0&     0&     ?
-\end{pmatrix}
-=
-\begin{pmatrix}
-    l_{11}^2&l_{11}l_{21}&l_{11}l_{31}\\
-l_{21}l_{11}&           *&           *\\
-l_{31}l_{11}&           *&           *
-\end{pmatrix}
-=
-\begin{pmatrix}
-1& 2&1\\
-2&13&8\\
-1& 8&6
-\end{pmatrix}
+\vec f = \vec p + t\vec n_3
 \]
-Daraus kann man ablesen, dass $l_{11}=1$ sein muss, und weiter,
-dass
-$l_{21}=2$ und $l_{31}=1$. Damit ist die erste Spalte bestimmt.
-
-Im zweiten Schritt versucht man, die zweite Spalte zu bestimmen.
-Dazu schreibt man wieder
+mit noch zu bestimmendem  Parameter $t$.
+Multiplizieren wir diese Gleichung skalar mit $\vec n_3$ erhält man
+\begin{align*}
+\vec f\cdot \vec n_3
+&=
+\vec p\cdot\vec n_3 + t\vec n_3\cdot\vec n_3
+\\
+0
+&=
+\vec p\cdot\vec n_3 + t|\vec n_3|^2
+\\
+t
+&=
+-\frac{\vec p\cdot\vec n_3}{|\vec n_3|^2}
+=
+-\frac{10+2+6}{6}=-3
+\end{align*}
+Somit ist
+\begin{align*}
+\vec f
+&=
+\vec p -3\vec n_3
+=
+\begin{pmatrix}10\\-1\\6\end{pmatrix}
+-3
+\begin{pmatrix}1\\-2\\1\end{pmatrix}
+=
+\begin{pmatrix}7\\5\\3\end{pmatrix}
+\end{align*}
+\item
+Die Strecke $PF$ ist dreimal so lang wie der Vektor $\vec n_3$, also ist
 \[
-LL^t
+\overline{PF}
 =
-\begin{pmatrix}
-1&     0&0\\
-2&l_{22}&0\\
-1&l_{32}&?
-\end{pmatrix}
-\begin{pmatrix}
-1&     2&     1\\
-0&l_{22}&l_{32}\\
-0&     0&?
-\end{pmatrix}
+3|\vec n_3|
 =
-\begin{pmatrix}
-1&2           &           1\\
-2&4+l_{22}^2  &2+l_{22}l_{32}\\
-1&2+l_{32}l_{22}&         *
-\end{pmatrix}
+3\sqrt{6}
 =
-\begin{pmatrix}
-1& 2&1\\
-2&13&8\\
-1& 8&6
-\end{pmatrix}
-\]
-Daraus liest man ab $4+l_{22}^2=13$ und damit $l_{22}=3$, und weiter
-$l_{32}=2$.
-
-Im dritten Schritt ist jetzt nur noch das Element unten rechts zu bestimmen:
-\[
-LL^t=
-\begin{pmatrix}
-1&0&     0\\
-2&3&     0\\
-1&2&l_{33}
-\end{pmatrix}
-\begin{pmatrix}
-1&2&     1\\
-0&3&     2\\
-0&0&l_{33}
-\end{pmatrix}
-=
-\begin{pmatrix}
-1& 2&1\\
-2&13&8\\
-1& 8&5+l_{33}^2
-\end{pmatrix}
-=
-\begin{pmatrix}
-1& 2&1\\
-2&13&8\\
-1& 8&6
-\end{pmatrix}
-\]
-woraus man ablesen kann: $5+l_{33}^2=6$ oder $l_{33}=1$. Die gesuchte
-Matrix $L$ ist also
-\[
-L=
-\begin{pmatrix}
-1&0&0\\
-2&3&0\\
-1&2&1
-\end{pmatrix}.
-\]
-Kontrolle:
-\[
-\begin{pmatrix}
-1&0&0\\
-2&3&0\\
-1&2&1
-\end{pmatrix}
-\begin{pmatrix}
-1&2&1\\
-0&3&2\\
-0&0&1
-\end{pmatrix}
-=
-\begin{pmatrix}
-1& 2&1\\
-2&13&8\\
-1& 8&6
-\end{pmatrix}.
+7.348469.
 \qedhere
 \]
+\end{teilaufgaben}
 \end{loesung}
 
 \begin{bewertung}
-Cholesky-Zerlegung ({\bf C}) 1 Punkt,
-Pro richtigem nicht verschwindendem Matrix-Element in $B$ ein Punkt,
-maximal 6 Punkte.
+Normale $\vec n_1$ ({\bf N}) 1 Punkt,
+Normale $\vec n_3$ (Vektorprodukt) ({\bf V}) 1 Punkt,
+Geradengleichung für Lot ({\bf G}) 1 Punkt,
+Ebenengleichung für $\sigma_3$ ($\mathbf{\Sigma}$) 1 Punkt,
+Fusspunkt ({\bf F}) 1 Punkt,
+Länge des Lotes ({\bf L}) 1 Punkt,
 \end{bewertung}
+
 

@@ -4,6 +4,7 @@
 % (c) 2009 Prof Dr Andreas Mueller, Hochschule Rapperswil
 %
 \section{Lösungsmenge und Rang}
+\rhead{Lösungsmenge und Rang}
 Was passiert, wenn im Gauss-Algorithmus die Anzahl der Gleichungen
 nicht mit der Anzahl der Unbekannten übereinstimmt? Oder wenn
 plötzlich alle Folgezeilen nur noch Koeffizienten $0$ enthalten,
@@ -23,7 +24,7 @@ Das Rückwärtseinsetzen kann dann auch nicht alle Spalten ``reinigen'',
 so dass rechts einige Spalten stehen bleiben:
 \begin{gather}
 \definecolor{greenT}{rgb}{0,0.666,0}
-\begin{array}{|ccccccc|c|}
+\begin{array}{|ccc:cccc|c|}
 \hline
 1&\dots&0&\color{greenT}*&\dots&\color{greenT}*&&*\\
 \vdots&\ddots&\vdots&\vdots&\ddots&\vdots&&\vdots\\
@@ -38,7 +39,7 @@ Diese können frei gewählt werden, und bestimmen dann die Unbekannten
 $x_1$ bis $x_m$.
 Konkreter: haben wir das Koeffizientenschema
 \begin{gather}
-\begin{array}{|ccccccc|c|}
+\begin{array}{|ccc:cccc|c|}
 \hline
 1&\dots&0&a_{1,m+1}&\dots&a_{1,n}&&b_1\\
 \vdots&\ddots&\vdots&\vdots&\ddots&\vdots&&\vdots\\
@@ -237,7 +238,7 @@ Man bestimme die Lösungsmenge des Gleichungssystems
 \\
 &
 \rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}:>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
    1&  0&  0& -2& -2&  2\\
    0&  1&  0&  2&  7& -4\\
@@ -271,7 +272,7 @@ das Gleichungssystem bestenfalls in die Form
 1&\dots&0&*\\
 \vdots&\ddots&\vdots&\vdots\\
 0&\dots&1&*\\
-\hline
+\hdashline
 0&\dots&0&\color{red}*\\
 \vdots&\ddots&\vdots&\color{red}\vdots\\
 0&\dots&0&\color{red}*\\
@@ -292,12 +293,12 @@ Es kann auch passieren, dass das Gauss-Verfahren abbricht, bevor alle
 Gleichungen aufgebraucht sind, das Schema sieht dann wie folgt aus:
 \begin{equation}
 \definecolor{greenT}{rgb}{0,0.666,0}
-\begin{array}{|cccccc|c|}
+\begin{array}{|ccc:ccc|c|}
 \hline
 1&\dots&0 &\color{greenT}*&\dots&\color{greenT}*&*\\
 \vdots&\ddots&\vdots &\vdots&\ddots&\vdots&\vdots\\
 0&\dots&1 &\color{greenT}*&\dots&\color{greenT}*&*\\
-\hline
+\hdashline
 0&\dots&0 &0&\dots&0&\color{red}*\\
 \vdots&\ddots&\vdots &\vdots&\ddots&\vdots&\color{red}\vdots\\
 0&\dots&0 &0&\dots&0&\color{red}*\\
@@ -386,10 +387,11 @@ Der Gauss-Algorithmus liefert:
 \hline
 \end{tabular}
 \rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}:>{$}c<{$}|>{$}c<{$}|}
 \hline
 1&0&1&0\\
 0&1&1&\frac12\\
+\hdashline
 0&0&0&\color{red}0\\
 \hline
 \end{tabular}
@@ -447,7 +449,7 @@ Das allgemeine Schlusstableau der Form (\ref{rangdef}) kann im Allgemeinen nur
 erreicht werden, indem nach Bedarf Zeilen- und Spaltenvertauschungen vorgenommen
 werden.
 Während Zeilenvertauschungen unproblematisch sind, muss man bei
-Spaltenvertauschungen sorgfältig darüber Buchführen, zu welcher Variablen
+Spaltenvertauschungen sorgfältig darüber Buch führen, zu welcher Variablen
 die Spalten gehören.
 Dadurch wird der Algorithmus wesentlich komplizierter.
 Gewünscht ist eine Variante des Algorithmus, die ohne Zeilenvertauschungen
@@ -477,7 +479,7 @@ Tableau sieht also ungefähr so aus:
 0     &0     &0     &0     &0     &0     &1     &\dots &0     &*     &*\\
 \vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\ddots&\vdots&\vdots&\vdots\\
 0     &0     &0     &0     &0     &0     &0     &\dots &1     &*     &*\\
-\hline
+\hdashline
 0     &0     &0     &0     &0     &0     &0     &\dots &0     &0     &\color{red}*\\
 \vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\vdots&\ddots&\vdots&\vdots&\color{red}\vdots\\
 0     &0     &0     &0     &0     &0     &0     &\dots &0     &0     &\color{red}*\\

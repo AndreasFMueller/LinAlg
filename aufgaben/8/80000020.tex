@@ -1,0 +1,269 @@
+Ist die Matrix
+\[
+A=\begin{pmatrix}
+4&-2\\
+2&10
+\end{pmatrix}
+\]
+diagonalisierbar? Wenn ja, geben Sie eine Basis an, in der $A$ diagonal
+ist.
+
+\thema{Eigenwerte}
+\thema{Eigenvektoren}
+\thema{charakteristisches Polynom}
+\thema{diagonalisierbar}
+
+\begin{loesung}
+Zunächst sind die Eigenwerte mit Hilfe des charakteristischen Polynoms
+zu bestimmen:
+\begin{align*}
+\chi_A(\lambda)
+&=
+\left|
+\begin{matrix}
+4-\lambda&-2\\
+2&10-\lambda
+\end{matrix}
+\right|
+=
+(4-\lambda)(10-\lambda)+4
+=
+\lambda^2-14\lambda+44
+=0
+\\
+\lambda_{\pm}
+&=
+7\pm\sqrt{49-44}=7\pm\sqrt{5}.
+\end{align*}
+Wir haben zwei verschiedene Eigenwerte, wir werden also auch zwei
+verschiedene Eigenvektoren finden, und können damit die Frage, ob 
+die Matrix $A$ diagonalisierbar ist, bereits mit ``ja'' beantworten.
+
+Um eine Basis zu finden, in der $A$ diagonal ist, müssen wir jetzt
+noch die Eigenvektoren ausrechen.
+
+Für $\lambda=\lambda_+=7+\sqrt{5}$ finden wir
+\begin{align}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+4-\lambda&-2\\
+2&10-\lambda\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-3-\sqrt{5}&-2\\
+2&3-\sqrt{5}\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{2}{3+\sqrt{5}}\\
+2&3-\sqrt{5}\\
+\hline
+\end{tabular}
+\label{80000020:gaussrechnung}
+\end{align}
+Den Ausdruck in der rechten oberen Ecke können wir mit $3-\sqrt{5}$ 
+erweitern und erhalten
+\begin{align*}
+\frac{2}{3+\sqrt{5}}
+\cdot
+\frac{3-\sqrt{5}}{3-\sqrt{5}}
+&=
+\frac{2(3-\sqrt{5})}{9-5}
+=
+\frac{3-\sqrt{5}}2.
+\end{align*}
+Eingesetzt in die begonnene Gauss-Rechnung (\ref{80000020:gaussrechnung}):
+\begin{align*}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{3-\sqrt{5}}2\\
+2&3-\sqrt{5}\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{3-\sqrt{5}}2\\
+0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus können wir zum Eigenwert $\lambda=\lambda_+=7+\sqrt{5}$ 
+den Eigenvektor
+\[
+v_+
+=
+\begin{pmatrix}
+\frac{3-\sqrt{5}}2\\-1
+\end{pmatrix}
+=
+\begin{pmatrix}
+\phantom{-}0.38197\\
+-1.00000
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+\phantom{-}0.35682\\
+-0.93417
+\end{pmatrix}
+\]
+ablesen.
+
+Für den Eigenwert $\lambda=\lambda_-=7-\sqrt{5}$ folgt analog:
+\begin{align}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+4-\lambda&-2\\
+2&10-\lambda\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-3+\sqrt{5}&-2\\
+2&3+\sqrt{5}\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{2}{3-\sqrt{5}}\\
+2&3+\sqrt{5}\\
+\hline
+\end{tabular}
+\label{80000020:gaussrechnung2}
+\end{align}
+Den Ausdruck in der rechten oberen Ecke können wir mit $3+\sqrt{5}$ 
+erweitern und erhalten
+\begin{align*}
+\frac{2}{3-\sqrt{5}}
+\cdot
+\frac{3+\sqrt{5}}{3+\sqrt{5}}
+&=
+\frac{2(3+\sqrt{5})}{9-5}
+=
+\frac{3+\sqrt{5}}2.
+\end{align*}
+Eingesetzt in die begonnene Gauss-Rechnung
+(\ref{80000020:gaussrechnung2}):
+\begin{align*}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{3+\sqrt{5}}2\\
+2&3+\sqrt{5}\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac{3+\sqrt{5}}2\\
+0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus können wir zum Eigenwert $\lambda=\lambda_-=7-\sqrt{5}$ 
+den Eigenvektor
+\[
+v_-
+=
+\begin{pmatrix}
+\frac{3+\sqrt{5}}2\\-1
+\end{pmatrix}
+=
+\begin{pmatrix}
+\phantom{-}2.61803\\
+-1.00000
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+\phantom{-}0.93417\\
+-0.35682
+\end{pmatrix}
+\]
+ablesen.
+
+Zur Kontrolle rechnen wir die Wirkung von $A$ auf den beiden Eigenvektoren
+nach:
+\begin{align*}
+Av_+
+&=
+\begin{pmatrix}4&-2\\2&10\end{pmatrix}
+\begin{pmatrix}
+\frac{3-\sqrt{5}}2\\-1
+\end{pmatrix}
+=
+\begin{pmatrix}
+6-2\sqrt{5}+2\\
+3-\sqrt{5}-10
+\end{pmatrix}
+=
+\begin{pmatrix}
+8-2\sqrt{5}\\
+-7-\sqrt{5}
+\end{pmatrix}
+=
+(7+\sqrt{5})
+\begin{pmatrix}
+\frac{3-\sqrt{5}}2\\
+-1
+\end{pmatrix}
+=
+\lambda_+v_+
+\\
+Av_-
+&=
+\begin{pmatrix}4&-2\\2&10\end{pmatrix}
+\begin{pmatrix}
+\frac{3+\sqrt{5}}2\\-1
+\end{pmatrix}
+=
+\begin{pmatrix}
+6+2\sqrt{5}+2\\
+3+\sqrt{5}-10
+\end{pmatrix}
+=
+\begin{pmatrix}
+8+2\sqrt{5}\\
+-7+\sqrt{5}
+\end{pmatrix}
+=
+(7-\sqrt{5})
+\begin{pmatrix}
+\frac{3+\sqrt{5}}2\\
+-1
+\end{pmatrix}
+=
+\lambda_-v_-
+\end{align*}
+Die Vektoren $\{v_+,v_-\}$ bilden also eine Basis, in der $A$ diagonal ist.
+\end{loesung}
+
+\begin{bewertung}
+Ansatz charakteristisches Polynom ({\bf X}) 1 Punkt,
+ausmultipiziertes Polynome ({\bf P}) 1 Punkt,
+Nullstellen ({\bf N}) 1 Punkt,
+Berechnung der Eigenvektoren ($\textbf{E}_1$ und $\textbf{E}_2$) je 1 Punkt,
+Basis ({\bf B}) 1 Punkt.
+\end{bewertung}
+
+\begin{diskussion}
+Resultate können insbesondere dadurch von der Musterlösung abweichen,
+dass die Ausdrücke wie $2/(3+\sqrt{5})$ auftauchen. Es ist aber
+\[
+\frac{2}{3\pm \sqrt{5}}
+=
+\frac{2}{3\pm \sqrt{5}}\frac{3\mp\sqrt{5}}{3\mp\sqrt{5}}
+=
+\frac{6\mp2\sqrt{5}}{3^2-5}
+=
+\frac{3\mp\sqrt{5}}2.
+\]
+\end{diskussion}
+
