@@ -1,0 +1,31 @@
+%
+% vektor.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\documentclass[tikz]{standalone}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{pifont}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+
+\def\punkt#1{
+        \fill[color=white] #1 circle[radius=0.08];
+        \draw #1 circle[radius=0.08];
+}
+
+\begin{tikzpicture}[>=latex,thick]
+\coordinate (O) at (0,0);
+\coordinate (P) at (6,1);
+\draw[->] (O)--(P);
+\punkt{(O)} \node at (O) [left] {$O$};
+\punkt{(P)} \node at (P) [right] {$P$};
+\end{tikzpicture}
+
+\end{document}
+
