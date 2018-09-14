@@ -1,0 +1,91 @@
+%
+% durchstosspunkttableau.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\documentclass[tikz]{standalone}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{pifont}
+\usepackage{ifthen}
+\usepackage{array}
+\usepackage{arydshln}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+
+\def\punkt#1{
+        \fill[color=white] #1 circle[radius=0.08];
+        \draw #1 circle[radius=0.08];
+}
+
+\newboolean{showgrid}
+\setboolean{showgrid}{false}
+
+\begin{tikzpicture}[>=latex,thick]
+
+\node at (0,0) {
+$
+\displaystyle
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\color{red}x&\color{red}y&\color{red}z&\color{red}w&\color{red}t&\color{red}s&\\
+\hline
+1&0&0&-r_1&   0&   0&q_1\\
+0&1&0&-r_2&   0&   0&q_2\\
+0&0&1&-r_3&   0&   0&q_3\\
+1&0&0&   0&-u_1&-v_1&p_1\\
+0&1&0&   0&-u_2&-v_2&p_2\\
+0&0&1&   0&-u_3&-v_3&p_3\\
+\hline
+\end{tabular}
+\quad
+\text{oder schematisch}
+\quad
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+&\color{red}\vec{r}&&\color{red}w&\color{red}t&\color{red}s&\\
+\hline
+ & & &        &        &        &\\
+ &I& &-\vec{r}&        &        &\vec{q}\\
+ & & &        &        &        &\\
+ & & &        &        &        &\\
+ &I& &        &-\vec{u}&-\vec{v}&\vec{p}\\
+ & & &        &        &        &\\
+\hline
+\end{tabular}
+$
+};
+
+% Gitter
+\ifthenelse{\boolean{showgrid}}{
+\draw[step=0.1,line width=0.1pt] (-7,-3) grid (7, 3);
+\draw[step=0.5,line width=0.4pt] (-7,-3) grid (7, 3);
+\draw (-7,-3) grid (7, 3);
+\fill (0,0) circle[radius=0.05];
+}{}
+
+\def\t{0.95}
+\def\h{1.125}
+\def\b{-1.4}
+
+\draw[rounded corners] (2.15,{\t-\h}) rectangle (3.35,0.95);
+\draw[rounded corners] (3.6,{\t-\h}) rectangle (4.2,0.95);
+%\draw[rounded corners] (4.3,{\t-\h}) rectangle (4.85,0.95);
+\draw[rounded corners] (5.975,{\t-\h}) rectangle (6.40,0.95);
+
+\draw[rounded corners] (2.15,-1.4) rectangle (3.35,{\b+\h});
+%\draw[rounded corners] (3.5,-1.4) rectangle (4.1,{\b+\h});
+\draw[rounded corners] (4.4,-1.4) rectangle (4.95,{\b+\h});
+\draw[rounded corners] (5.2,-1.4) rectangle (5.75,{\b+\h});
+\draw[rounded corners] (5.975,-1.4) rectangle (6.40,{\b+\h});
+
+\draw[rounded corners, color=red] (2.15,1.1) rectangle (3.35,1.45);
+
+\end{tikzpicture}
+
+\end{document}
+

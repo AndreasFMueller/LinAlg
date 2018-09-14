@@ -1,0 +1,75 @@
+%
+% durchstosspunkttableau.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\documentclass[tikz]{standalone}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{pifont}
+\usepackage{ifthen}
+\usepackage{array}
+\usepackage{arydshln}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+
+\def\punkt#1{
+        \fill[color=white] #1 circle[radius=0.08];
+        \draw #1 circle[radius=0.08];
+}
+
+\newboolean{showgrid}
+\setboolean{showgrid}{false}
+
+\begin{tikzpicture}[>=latex,thick]
+
+\node at (0,0) {
+$
+\displaystyle
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+&\color{red}\vec{p}&&\color{red}t_1&\color{red}s_1&\color{red}t_2&\color{red}s_2&\\
+\hline
+ & & &          &          &          &          &\\
+ &I& &-\vec{u}_1&-\vec{v}_1&          &          &\vec{p}_1\\
+ & & &          &          &          &          &\\
+ & & &          &          &          &          &\\
+ &I& &          &          &-\vec{u}_2&-\vec{v}_2&\vec{p}_2\\
+ & & &          &          &          &          &\\
+\hline
+\end{tabular}
+$
+};
+
+% Gitter
+\ifthenelse{\boolean{showgrid}}{
+\draw[step=0.1,line width=0.1pt] (-3,-3) grid (3, 3);
+\draw[step=0.5,line width=0.4pt] (-3,-3) grid (3, 3);
+\draw (-3,-3) grid (3, 3);
+\fill (0,0) circle[radius=0.05];
+}{}
+
+\def\t{0.95}
+\def\h{1.125}
+\def\b{-1.4}
+
+\draw[rounded corners] (-2.9,{\t-\h}) rectangle (-1.7,0.95); % I
+\draw[rounded corners] (-1.45,{\t-\h}) rectangle (-0.75,0.95); % u_1
+\draw[rounded corners] (-0.5,{\t-\h}) rectangle (0.2,0.95); % v_1
+\draw[rounded corners] (2.4,{\t-\h}) rectangle (2.9,0.95); % p_1
+
+\draw[rounded corners] (-2.9,-1.4) rectangle (-1.7,{\b+\h}); % I
+\draw[rounded corners] (0.45,-1.4) rectangle (1.15,{\b+\h}); % u_2
+\draw[rounded corners] (1.4,-1.4) rectangle (2.1,{\b+\h}); % v_2
+\draw[rounded corners] (2.4,-1.4) rectangle (2.9,{\b+\h}); % p_2
+
+\draw[rounded corners, color=red] (-2.9,1.1) rectangle (-1.7,1.45);
+
+\end{tikzpicture}
+
+\end{document}
+

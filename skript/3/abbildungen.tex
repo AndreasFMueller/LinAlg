@@ -162,6 +162,18 @@ Eine lineare Abbildung wird durch die Matrix $A$ vollständig beschrieben,
 die Spalten enthalten die Bilder der Standardbasisvektoren.
 \end{satz}
 
+\subsubsection{Beispiel: Vertauschung der Achsen}
+Wir suchen die Matrix der linearen Abbildung, die die beiden Achsrichtungen
+$\vec{e}_1$ und $\vec{e}_2$ verauscht.
+In den Spalten von $A$ stehen die Bilder der Standardbasisvektoren,
+daher muss in der ersten Spalte das Bild von $\vec{e}_1$ stehen, also
+der Vektor $\vec{e}_2$.
+In der zweiten Spalte muss dagegen $\vec{e}_1$ stehen.
+Die gesuchte Matrix ist daher
+\[
+A=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
+\]
+
 \subsubsection{Beispiel: Matrix einer Spiegelung}
 \begin{figure}
 \centering
@@ -214,6 +226,10 @@ S
 Der Vektor in der zweiten Zeile steht senkrecht auf der Geraden $g$ 
 und wird durch die Spiegelung mit $-1$ multipliziert.
 
+Natürlich ist dies genau die gleiche Matrix wie im vorangegangenen
+Beispiel, denn die Spiegelung vertauscht natürlich die beiden
+Basisvektoren.
+
 \subsubsection{Beispiel: Matrix einer Drehung}
 \begin{figure}
 \centering
@@ -250,6 +266,7 @@ Sei also
 \to
 \mathbb R^l
 \]
+TODO: Komposition = Matrixmultiplikation
 
 %
 % Basiswechsel

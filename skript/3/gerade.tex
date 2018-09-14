@@ -5,6 +5,7 @@
 %
 \section{Geraden%
 \label{skript:section:geraden}}
+\rhead{Geraden}
 Die affine Geometrie definiert Geraden und Ebenen als die primären Objekte
 sowie Schnittpunkte und Schnittgerade und mithin die Parallelität als die
 zentralen Eigenschaften, mit denen die Geometrie aufgebaut werden soll.
@@ -530,9 +531,174 @@ spielen.
 %
 %
 \subsection{Gerade in der Ebene als Nullmenge}
+Eine einzelne lineare Gleichung der Form 
+\[
+ax+by=c
+\]
+kann mit dem Gauss-Algorithmus
+\[
+\begin{tabular}{|>{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&\\
+\hline
+a&b&c\\
+\hline
+\end{tabular}
+\quad\rightarrow\quad
+{
+\def\arraystretch{1.2}
+\begin{tabular}{|>{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&\\
+\hline
+1&\frac{b}{a}&\frac{c}{a}\\
+\hline
+\end{tabular}
+}
+\]
+Daraus liest man die Lösungsmenge
+\[
+\mathbb L
+=
+\left\{
+\left.
+\begin{pmatrix} x\\ y \end{pmatrix}
+=
+\begin{pmatrix} \frac{c}{a}\\0 \end{pmatrix}
++
+y\begin{pmatrix} -\frac{b}{a} \\ 1 \end{pmatrix}
+\right|
+\;
+y\in\mathbb R
+\right\}.
+\]
+In der Mengenklammer steht aber gerade die Parameterdarstellung
+einer Gerade mit dem Parameter $y$.
+
+Umgekehrt kann man zu jeder Parameterdarstellung
+$
+\vec{p} + t\vec{r}
+$
+einer Geraden
+in der Ebene eine lineare Gleichung angeben.
+Dazu muss man die Konstanten $a$, $b$ und $c$ so bestimmen,
+dass die Gleichung zum Beispiel für den Stützvektor $\vec{p}$ und 
+für den Punkt $\vec{p}+\vec{r}$ erfüllt ist.
+Indem man die Koordinaten dieser Punkte einsetzt, erhält man
+zwei Gleichungen
+\[
+\begin{linsys}{2}
+p_1 a&+&p_2b&=&c\\
+(p_1+q_1)a&+&(p_2+q_2)b&=&c
+\end{linsys}
+\]
+für die drei Unbekannten $a$, $b$ und $c$.
+In ein Tableau übertragen
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+a&b&c&\\
+\hline
+p_1 & p_2 & -1&0\\
+p_1+q_1&p_2+q_1&-1&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+a&b&c&\\
+\hline
+p_1&p_2&-1&0\\
+q_1&q_2&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+a&b&c&\\
+\hline
+1&0&u_1&0\\
+0&1&u_2&0\\
+\hline
+\end{tabular}
+\]
+Daraus liest man ab, dass $c$ eine frei wählbare Variable ist und dass
+man $a=u_1c$ und $b=u_2c$ verwenden muss.
+
+\begin{beispiel}
+Man finde eine lineare Gleichung, deren Lösungsmenge die Gerade mit
+Parameterdarstellung
+\[
+\begin{pmatrix} 1\\2\end{pmatrix} + t\begin{pmatrix}2\\1\end{pmatrix}
+\]
+ist.
+\smallskip
+
+Wir müssen das Gleichungssystem
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+a&b&c&\\
+\hline
+1&2&-1&0\\
+2&1&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+a&b&c&\\
+\hline
+1&0& \frac13&0\\
+0&1&-\frac23&0\\
+\hline
+\end{tabular}
+\]
+Daraus lesen wir ab, dass wir mit $c=3$ die Gleichung mit $a=-1$ und $b=2$
+verwenden können, also
+\[
+-x+2y=3.
+\]
+Durch Einsetzen der Punkte $(1,2)$ und $(3,3)$ kann man sich überzeugen,
+dass die Lösungsmenge dieser Gleichung mit der Geraden zusammenfällt.
+\qedhere
+\end{beispiel}
 
 %
 % Parallele Geraden
 %
 \subsection{Parallele Geraden}
+Wie kann man herausfinden, ob zwei Geraden in der Ebene parallel sind?
+
+\begin{aufgabe}
+Gegeben zwei Geraden in Parameterdarstellung
+\[
+\vec{r} = \vec{p} + t\vec{r}
+\qquad\text{und}\qquad
+\vec{r} = \vec{q} + t\vec{v},
+\]
+entscheide, ob die Geraden parallel sind.
+\end{aufgabe}
+Die Geraden sind parallel, wenn sie keine Schnittpunkte haben, oder
+wenn das Gleichungssystem
+\[
+\vec{p} + t\vec{r}
+=
+\vec{q} + s\vec{v}
+\qquad\Leftrightarrow\qquad
+t\vec{r}
+-
+s\vec{v}
+=
+\vec{q}
+-
+\vec{p}
+\]
+keine Lösung hat.
+Dies ist ein Gleichungssystem mit zwei Gleichungen für zwe Unbekannte.
+Es kann nur im singulären Fall keine Lösung haben.
+Dieser tritt ein, wenn die Vektoren $\vec{r}$ und $\vec{v}$
+linear abhängig sind.
+Dieses Kriterium funktioniert aber auch im Raum: zwei Geraden sind
+genau dann parallel, wenn die Richtungsvektoren linear abhängig sind.
 

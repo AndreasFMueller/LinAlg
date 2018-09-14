@@ -5,7 +5,8 @@
 #
 all:	3dimages tikzimages
 
-3dimages:	coordsystem.pdf ebene.pdf schnittgerade.pdf durchstosspunkt.pdf
+3dimages:	coordsystem.pdf ebene.pdf schnittgerade.pdf \
+		durchstosspunkt.pdf abb.pdf
 
 #
 # Coordinate system
@@ -59,13 +60,32 @@ durchstosspunkt.jpg:	durchstosspunkt.png Makefile
 durchstosspunkt.png:	durchstosspunkt.pov
 	povray +A0.1 -W1920 -H1080 -Odurchstosspunkt.png durchstosspunkt.pov
 
+
+#
+# Ebene als Bild einer linearen Abbildung
+#
+standardebene.jpg:	standardebene.png Makefile
+	convert -extract 640x640+370+400 standardebene.png \
+		-density 300 -units PixelsPerInch standardebene.jpg
+standardebene.png:	standardebene.pov
+	povray +A0.1 -W1920 -H1080 -Ostandardebene.png standardebene.pov
+
+abbebene.jpg:	abbebene.png Makefile
+	convert -extract 1010x640+450+400 abbebene.png \
+		-density 300 -units PixelsPerInch abbebene.jpg
+abbebene.png:	abbebene.pov
+	povray +A0.1 -W1920 -H1080 -Oabbebene.png abbebene.pov
+
+abb.pdf:	abb.tex standardebene.jpg abbebene.jpg
+	pdflatex abb.tex
+
 #
 # TikZ-Images
 #
 
 tikzimages:	parallelogramm.pdf strahlensatz.pdf addition.pdf coord2d.pdf \
 	spiegelung.pdf drehung.pdf schnittpunkttableau.pdf geradeabb.pdf \
-	vektor.pdf
+	vektor.pdf durchstosspunkttableau.pdf schnittgeradetableau.pdf
 
 #
 # Vektorkonstruktionen
@@ -90,6 +110,12 @@ drehung.pdf:	drehung.tex
 
 schnittpunkttableau.pdf:	schnittpunkttableau.tex
 	pdflatex schnittpunkttableau.tex
+
+durchstosspunkttableau.pdf:	durchstosspunkttableau.tex
+	pdflatex durchstosspunkttableau.tex
+
+schnittgeradetableau.pdf:	schnittgeradetableau.tex
+	pdflatex schnittgeradetableau.tex
 
 geradeabb.pdf:	geradeabb.tex
 	pdflatex geradeabb.tex
