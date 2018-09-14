@@ -9,7 +9,7 @@ Bis jetzt wurde der Gauss-Algorithmus immer nur auf Gleichungen mit
 einer konstanten rechten Seite angewendet.
 Der Gauss-Algorithmus kann noch wesentlich mehr.
 Er kann in einem Durchgang ein Gleichungssysteme für mehrere verschiedene
-rechte Seiten lösen, die wird in Abschnitt~\ref{simultan} gezeigt.
+rechte Seiten lösen, dies wird in Abschnitt~\ref{simultan} gezeigt.
 Er kann aber auch Gleichungssysteme lösen, in denen die rechte
 Seite eine Linearform ist (Abschnitt~\ref{subsection:rechte seite linear}).
 
@@ -110,7 +110,7 @@ Lösung überprüfen.
 \subsection{Linearform als rechte Seite\label{subsection:rechte seite linear}}
 Das Gauss-Tableau ist nur eine abgekürzte Schreibweise für ein Gleichungssystem.
 In Abschnitt~\ref{subsection:sonderfaelle} haben wir die Spalten mit
-den Variablennamen beschriftete, so dass wir sogar die Variablennamen
+den Variablennamen beschriftet, so dass wir sogar die Variablennamen
 aus dem Tableau wieder bekommen können.
 Die Übersetzungsregel können wir schematisch als
 \[
@@ -135,7 +135,7 @@ a_{m1}x_1&+&a_{m2}x_2&+&\dots &+&a_{mn}x_n\\
 darstellen.
 Damit lässt sich aber auch ein Gleichungssystem in ein Tableau übersetzen,
 welches Linearformen auf der rechten Seite hat.
-Das Gleichheitszeichen wird zum Vertikalstrich wie früher, und die
+Das Gleichheitszeichen wird zum Vertikalstrich wie früher und die
 Linearformen auf der rechten Seite werden zu Spalten, die mit den
 Variablen der Linearformen beschriftet sind.
 
@@ -236,7 +236,7 @@ die Variablen auf der rechten Seite nicht durcheinander geraten.
 Es gibt keinen Grund, warum die Anzahl der Variablen auf der rechten
 Seite genau $n$ sein soll.
 Ganz allgemein können wir ein Gleichungssystem mit $m$ Gleichungen
-und $n$ unbekannten sowie $l$ Variablen auf der  rechten Seite
+und $n$ Unbekannten sowie $l$ Variablen auf der  rechten Seite
 in ein Tableau mit $m$ Zeilen und $n$ Spalten links und $l$
 Spalten rechts vom Vertikalstrich übersetzen:
 \[
@@ -288,9 +288,10 @@ x_{i_1}&\dots&x_{i_r}
 \end{tabular}
 \label{skript:simultan:schluss}
 \end{equation}
+Die Zahl $r$ ist der Rang der Matrix $A$.
 Dabei ist zu beachten, dass Infolge möglicher Spaltenvertauschungen
-die Variablen $x_i$ nicht mehr ihre ursprünglichen Plätze haben,
-sondern, dies wird durch die neuen Indizes $i_1,\dots,i_n$
+die Variablen $x_i$ nicht mehr ihre ursprünglichen Plätze haben.
+Dies wird durch die neuen Indizes $i_1,\dots,i_n$
 ausgedrückt.
 
 Die {\color{red}roten} Koeffizienten bestimmen, ob das Gleichungssystem
@@ -299,7 +300,7 @@ Wenn eine der Linearformen gebildet aus den {\color{red}roten} Koeffizienten
 einen Wert $\mathstrut \ne 0$ liefert für die gegebenen Werte der
 $y$-Variablen, dann ist das Gleichungssystem nicht lösbar.
 Wenn man also wissen will, für welche Werte von $y_i$ das Gleichungssystem
-überhaupt lösbar ist, muss man das kleiner Gleichungssystem
+überhaupt lösbar ist, muss man das kleinere Gleichungssystem
 \[
 \begin{linsys}{3}
 {\color{red}d_{r+1,1}}y_1&+&\dots&+&{\color{red}d_{r+1,l}}y_l&=&0\\
@@ -316,7 +317,7 @@ Wenn der {\color{red}rote} Teil verschwindet, hat das Gleichungssystem
 mindestens eine Lösung.
 Wenn $n>r$ ist, dann sind die {\color{green}grünen} Variablen $x_{i_{r+1}}$
 bis $x_{i_n}$ frei wählbar, es gibt also unendlich viele Lösungen.
-die ersten $r$ Variablen $x_{i_1}$ bis $x_{i_r}$ sind dann durch die
+Die ersten $r$ Variablen $x_{i_1}$ bis $x_{i_r}$ sind dann durch die
 {\color{green}frei wählbaren} Variablen eindeutig bestimmt.
 Aus dem Tableau~\eqref{skript:simultan:schluss} kann man die Gleichungen
 \[
@@ -417,7 +418,7 @@ x = b_1 c_1 + b_2 c_2 + b_3 c_3
 schreiben.
 
 Man kann also ein allgemeines Lösungsverfahren für lineare Gleichungssysteme
-mit wie folgt konzipieren.
+wie folgt konzipieren.
 Zunächst bildet man das Gauss-Tableau
 \begin{center}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}

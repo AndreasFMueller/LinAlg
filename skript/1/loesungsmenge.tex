@@ -48,7 +48,20 @@ Konkreter: haben wir das Koeffizientenschema
 \end{array}
 \end{gather}
 gefunden, bedeutet dies, dass die Unbekannten $x_1$ bis $x_m$ bestimmt
-sind durch die Gleichungen
+sind durch die Gleichungen%
+\footnote{Normalerweise werden Doppelindizes wie in $a_{ij}$ einfach
+nebeneinander geschrieben.
+Wenn man jedoch Rechenoperationen in Indizes durchführen will, dann 
+führt diese abgekürzte Schreibweise zu Verwirrung, zum Beispiel
+könnte man $a_{ilj}$ interpretieren so interpretieren, dass der erste
+Index mit $l$ multipliziert worden ist. 
+Genausogut könnte man aber auch vermuten, dass der zweite Index mit
+$l$ multipliziert worden ist.
+Daher trennt man die Indizes in solchen Fällen (und nur in solchen)
+die beiden Indizes mit Kommas, also $a_{il,j}$ bzw.~$a_{i,lj}$.
+Im folgenden Gleichungssystem ist daher $a_{m,m+1}$ zu lesen als
+Matrixelement von $A$ in Zeile $m$ und Spalte $m+1$.
+}
 {
 \definecolor{greenT}{rgb}{0,0.666,0}
 \begin{align*}
