@@ -27,6 +27,14 @@ welcher das Rechnen mit Zahlen und Vektoren, das vielen
 Studierenden bereits bekannt ist, auf beliebige Dimensionen erweitert,
 und zudem ein Produkt einführt.
 
+Es geht nicht darum, mit ein paar zusätzlichen Variablen umgehen
+zu können.
+Moderne Strömungsmodelle beschreiben die Strömung durch die
+Geschwindigkeitsvektoren an jedem Punkt eines Millionen von Punkte
+umfassenden räumlichen Gitters.
+Gesucht werden also Lösungsverfahren, die mit $n>10^6$ Unbekannten
+umgehen können.
+
 \subsection*{Kapitel 2: Determinanten}
 Für Gleichungssysteme mit gleich vielen Gleichungen wie Unbekannten
 kann man ein Art Kennzahl finden, welche direkt Aussagen kann,
@@ -77,6 +85,13 @@ lassen
 und so etwas Ordnung in die Menge der linearen Transformationen
 gebracht werden kann.
 
+In der Praxis werden damit Transformationen des Raumes beschrieben
+z.~B.~für Computergraphik (Games) oder die Robotik.
+Auch Computer-Vision verwendet sie zur Analyse von Kamerabildern
+(siehe auch den Abaschnitt Kamerageometrie weiter unten).
+3D-Graphikkarten implementieren diese Operationen in der Hardware.
+
+
 \subsection*{Kapitel 7: Matrixzerlegungen}
 Der Gauss-Algorithmus aus Kapitel~1 kann auch als eine
 Zerlegung einer Matrix in zwei Dreiecksmatrizen formuliert werden.
@@ -101,9 +116,10 @@ Anwendungen der Theorie des Kapitels.
 Die Kirchhoffschen Gesetze erlauben die Ströme in einem Netzwerk
 zu berechnen.
 Dieses Problem wurde ursprünglich von Gustav Robert Kirchhoff
-formuliert und gelöst, aber als Nebenresultate seiner Theorie
-entstand auch eine ganze Menge von Resultaten über Netzwerke,
-zum Beispiel zeigt sich, wie man mit Hilfe von Determinanten
+formuliert und gelöst.
+Als Nebenresultate seiner Theorie
+entstand auch eine ganze Menge von Resultaten über Netzwerke.
+Zum Beispiel zeigt sich, wie man mit Hilfe von Determinanten
 die Zahl der möglichen Spannbäume eines Graphen zählen kann.
 
 \subsection*{Kurvenanpassung}
@@ -114,8 +130,18 @@ Funktion finden kann.
 \subsection*{Wavelets}
 Die Orthogonalisierungsmethode erlaubt eine Menge von
 Basisfunktionen zu finden, nach denen man eine gesamplete Funktion
-besonders effizient entwickeln kann, und deren Weiterentwicklung
-zu den Wavelets von grosser praktischer Bedeutung ist.
+besonders effizient entwickeln kann.
+Sie bildet die Grundlage für Wavelets, die in der modernen Signalverarbeitung
+eine bedeutende Rolle spielen.
+
+\subsection*{Kamerageometrie}
+Nicht zuletzt dank der Verbreitung von Kameras in Mobiltelefonen hat
+sich die Kamera als optischer Universalsensor etabliert.
+Die Verarbeitung der Information in einem Bild ist zwar aufwendig,
+aber auch Rechenleistung steht heute fast immer in ausreichendem Masse 
+zur Verfügung.
+Die Umrechnung zwischen dem dreidimensionalen Raum und dem zweidimensionalen
+Bild führt auf eine interessante Anwendung der linearen Algebra.
 
 \subsection*{Google Pagerank}
 Suchmaschinen im Internet müssen aus einer potentiell sehr grossen Zahl

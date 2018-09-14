@@ -8,15 +8,15 @@
 \subsection{Begriffe und Notation}
 \index{Linearform}
 \begin{definition}
-Eine Linearform $l(x_1,\dots,x_2)$ über $\mathbb R$ in den $n$
+Eine Linearform $l(x_1,x_2,\dots,x_n)$ über $\mathbb R$ in den $n$
 Variablen $x_1,\dots,x_n$
 ist eine Funktion der Form
 \[
-l(x_1,\dots,x_2)=a_1x_1+a_2x_2+\dots+a_nx_n,
+l(x_1,x_2,\dots,x_n)=a_1x_1+a_2x_2+\dots+a_nx_n,
 \]
 wobei $a_i\in\mathbb R$ für alle $i$.
 \end{definition}
-Ist $(x_1',\dots,x_n')$ ein zweiter Satz Variablen, und $\lambda\in\mathbb R$,
+Ist $(x_1',\dots,x_n')$ ein zweiter Satz Variablen und $\lambda\in\mathbb R$,
 dann gilt
 \begin{equation}
 \begin{aligned}
@@ -25,11 +25,12 @@ l(\lambda x_1, \dots ,\lambda x_n)&=\lambda l(x_1,\dots,x_n)
 \end{aligned}
 \label{linearitaet-linearformen}
 \end{equation}
-Man nennt diese Eigenschaft {\em Linearität}, die Linearformen sind
+Man nennt diese Eigenschaft {\em Linearität}.
+Die Linearformen sind
 {\em lineare} Funktionen.
 \index{linear}%
-Etwas salopp ausgedrückt sind lineare Funktionen, solche, die sich
-auf die einzelnen Summanden einer Summe verteilen lassen, und für
+Etwas salopp ausgedrückt sind lineare Funktionen solche, die sich
+auf die einzelnen Summanden einer Summe verteilen lassen und für
 die sich Faktoren aus den Argumenten vor die Funktion ziehen lassen.
 Multiplikation aller Argumente mit einer Zahl und Additionen aller
 Argumente lassen sich also ``auflösen''.
@@ -99,8 +100,8 @@ b_1\\b_2\\\vdots\\b_m
 \]
 
 \subsection{Eine Unbekannte}
-Der Fall einer Unbekannten ist besonders einfach, wir diskutieren die
-Gleichungen
+Der Fall einer Unbekannten ist besonders einfach.
+Wir diskutieren die Gleichungen
 \[
 ax=b
 \]
@@ -120,8 +121,8 @@ Der singuläre Fall ist $a=0$, die Gleichung wird dann zu
 Offenbar ist diese Gleichung überhaupt nicht erfüllbar, wenn $b\ne 0$
 ist.
 Falls jedoch $b=0$, dann ist die Gleichung $0\cdot x=0$, die
-zutrifft was immer wir für Werte für $x$ einsetzen, in diesem
-Fall haben wir also unendlich viele Lösungen.
+zutrifft was immer wir für Werte für $x$ einsetzen.
+In diesem Fall haben wir also unendlich viele Lösungen.
 Zusammengefasst
 bekommen wird
 \begin{enumerate}
@@ -132,6 +133,9 @@ bekommen wird
 \item $b\ne0\Rightarrow$ keine Lösungen
 \end{enumerate}
 \end{enumerate}
+Wichtig: die linke Seite (das $a$) entscheidet über regulär/singulär,
+die rechte Seite entscheidet im singulären Fall über keine oder
+undendlich viele Lösungen.
 
 \subsection{Zwei Unbekannte}
 Eine einzelne Gleichung mit zwei Unbekannten 
@@ -156,7 +160,7 @@ ein Gleichungssystem
 \[
 \begin{linsys}{2}
 ax&+&by&=&e\\
-cx&+&dy&=&f
+cx&+&dy&=&f.
 \end{linsys}
 \]
 \index{Loesungsmenge@L\ösungsmenge}
@@ -178,11 +182,11 @@ Zwei Geraden in der Ebene
 können höchstens in den drei folgenden Lagen angeordnet sein:
 \begin{enumerate}
 \item Die Geraden sind nicht parallel, dann schneiden sie sich in
-genau einem Punkt, das Gleichungssystem hat eine einzige Lösung.
+genau einem Punkt und das Gleichungssystem hat eine einzige Lösung.
 \item Die Geraden sind parallel, dann gibt es zwei mögliche Unterfälle:
 \begin{enumerate}
 \item Die Geraden haben einen positiven Abstand, dann gibt es keine
-gemeinsamen Punkte, also hat das Gleichungssystem auch keine Lösung
+gemeinsamen Punkte, also hat das Gleichungssystem auch keine Lösung.
 \item Der Abstand der Geraden ist $0$, dann sind die Geraden deckungsgleich,
 jeder Punkt der beiden Geraden ist Lösung des Gleichungssystems, es hat
 also unendlich viele Lösungen.
@@ -208,7 +212,8 @@ x&+&y&=&1\\
 \]
 kann keine Lösung haben.
 Multipliziert man die erste Gleichung mit $2$
-und subtrahiert die zweite Gleichung erhält man $0=2$, dies kann natürlich
+und subtrahiert die zweite Gleichung erhält man $0=2$.
+Dies kann natürlich
 nie erfüllt werden, insbesondere gibt es kein Zahlenpaar $(x,y)$, für
 welches die beiden Gleichungen wahr würden.
 \end{beispiel}
