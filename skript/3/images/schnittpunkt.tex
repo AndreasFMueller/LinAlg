@@ -1,0 +1,58 @@
+%
+% schnittpunkt.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\documentclass[tikz]{standalone}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{pifont}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+
+\def\punkt#1{
+        \fill[color=white] #1 circle[radius=0.08];
+        \draw #1 circle[radius=0.08];
+}
+
+\begin{tikzpicture}[>=latex,thick]
+
+\coordinate (O) at (0,0);
+\coordinate (P) at (-1,5);
+\coordinate (Q) at (7,1);
+\coordinate (R) at (2,-3);
+\coordinate (V) at (2,-0.2);
+
+\coordinate (S) at (1.28571,1.57143);
+
+\draw[->,line width=1.5pt] (O)--(P);
+\draw[->,line width=1.5pt] (O)--(Q);
+
+\begin{scope}
+\clip (-3,-1) rectangle (11,7);
+\draw[color=red] ($(P)-8*(R)$)--($(P)+8*(R)$);
+\draw[color=blue] ($(Q)-8*(V)$)--($(Q)+8*(V)$);
+\end{scope}
+
+\draw[->,line width=1.5pt] (P)--($(P)+(R)$);
+\draw[->,line width=1.5pt] (Q)--($(Q)+(V)$);
+\node at ($(P)+0.5*(R)$) [above right] {$\vec{r}$};
+\node at ($(Q)+0.5*(V)$) [below] {$\vec{v}$};
+
+\node at ($0.7*(P)$) [left] {$\vec{p}$};
+\node at ($0.7*(Q)$) [below] {$\vec{q}$};
+
+\punkt{(O)} \node at (O) [below left] {$O$};
+\punkt{(P)} \node at (P) [below left] {$P$};
+\punkt{(Q)} \node at (Q) [above right] {$Q$};
+
+\punkt{(S)} \node at (S) [above right] {$S$};
+
+\end{tikzpicture}
+
+\end{document}
+

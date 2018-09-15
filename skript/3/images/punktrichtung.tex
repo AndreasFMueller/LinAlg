@@ -1,0 +1,47 @@
+%
+% punktrichtung.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\documentclass[tikz]{standalone}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{pifont}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+
+\def\punkt#1{
+        \fill[color=white] #1 circle[radius=0.08];
+        \draw #1 circle[radius=0.08];
+}
+
+\begin{tikzpicture}[>=latex,thick]
+
+\coordinate (O) at (0,0);
+\coordinate (P0) at (3,5);
+\coordinate (R) at (4,1);
+\coordinate (P) at ($(P0)+(R)$);
+
+\begin{scope}
+\clip(-1,-0.2) rectangle (10,7.1);
+\draw[color=red] ($(P0)-3*(R)$)--($(P0)+3*(R)$);
+\end{scope}
+
+\draw[->,line width=1.5pt] (O)--(P0);
+\draw[->,line width=1.5pt] (P0)--(P);
+
+\punkt{(O)} \node at (O) [above left] {$O$};
+\punkt{(P0)} \node at (P0) [above left] {$P_0$};
+\punkt{($(P0)+1.3*(R)$)} \node at ($(P0)+1.3*(R)$) [below right] {$P$};
+
+\node at ($(P0)+0.5*(R)$) [above] {$\vec{r}$};
+\node at ($0.5*(P0)$) [above left] {$\vec{p}_0$};
+
+\end{tikzpicture}
+
+\end{document}
+

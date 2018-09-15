@@ -5,7 +5,7 @@
 #
 
 all:	projektion.pdf linearitaet.pdf skalarprodukt.pdf spiegelung.pdf \
-	tangente.pdf thales.pdf \
+	tangente.pdf thales.pdf tangentepunkt.pdf \
 	normalenform.pdf
 
 projektion.pdf:	projektion.tex
@@ -35,3 +35,6 @@ normalenform.jpg:	normalenform.png Makefile
 
 normalenform.pdf:	normalenform.tex normalenform.jpg
 	pdflatex normalenform.tex
+
+tangentepunkt.pdf:	tangentepunkt.tex
+	pdflatex tangentepunkt.tex

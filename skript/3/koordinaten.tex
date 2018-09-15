@@ -155,7 +155,7 @@ $\mathcal{B}=\{\vec{b}_1,\dots,\vec{b}_n\}$ von Vektoren vorgegeben ist.
 Wir sagen, der Punkt $P$ hat die Koordinaten $(x_1,\dots,x_n)$, wenn 
 gilt
 \[
-\vec{p}=\operatorname{OP} = x_1\vec{b}_1+\dots+x_n\vec{b}_n.
+\vec{p}=\overrightarrow{OP} = x_1\vec{b}_1+\dots+x_n\vec{b}_n.
 \]
 Meist geht man intuitiv davon aus, dass die Vektoren von $\mathcal{B}$
 aufeinander senkrecht stehen und Länge $1$ haben, diese Bedingung
@@ -309,12 +309,11 @@ A\vec{\xi}
 Die Bedeutung des Produktes Matrix mal Vektor ist also die Linearkombination
 der Spaltenvektoren der Matrix mit den Koeffizienten des Spaltenvektors.
 
-\subsubsection{Aufgespannter Raum und Bildraum}
-Die Vektoren $\mathcal{A}=\{\vec{a}_1,\dots,\vec{a}_l\}$ müssen nicht
-unbedingt eine Basis bilden.
-Es ist also durchaus möglich, dass die Menge aller Linearkombinationen
-nur eine Telmenge des Raums aller Vektoren ausmacht.
-Man nennt
+\subsubsection{Aufgespannter Raum}
+Sei wieder eine Menge $\mathcal{A}=\{\vec{a}_1,\dots,\vec{a}_l\}$
+von Vektoren in $\mathbb R^n$ gegeben.
+Man nennt die Menge aller Linearkombinationen von Vektoren aus
+$\mathcal{A}$
 \[
 \langle
 \mathcal{A}
@@ -329,11 +328,38 @@ Man nennt
 \}
 \]
 den von den Vektoren in $\mathcal{A}$ {\em aufgespannten Raum}.
+\label{skript:affin:koordinaten:aufgespannt}
 \index{aufgespannter Raum}
-Da $\langle\mathcal{A}\rangle$ auch die Menge aller Vektoren der
-Form $A\vec{\xi}$ ist, heisst $\langle\mathcal{A}\rangle$
-auch der {\em Bildraum} $\operatorname{im}A$ der Matrix $A$.
-\index{Bildraum}
+Die Standardbasisvektoren im $\mathbb R^n$ spannen den ganzen Raum
+auf:
+\[
+\mathbb R^n = \langle \vec{e}_1,\dots,\vec{e}_n\rangle.
+\]
+Die Menge $\langle\mathcal{A}\rangle$ hat die Eigenschaft, dass die
+Vektor-Operationen darin unbeschränkt ausgeführt werden können.
+Eine Linearkombination von zwei 
+Vektoren $A\vec{\xi}$ und $A\vec{\eta}$ in $\langle\mathcal{A}\rangle$
+ist wegen
+\[
+\lambda A\vec{\xi} + \mu A\vec{\eta}
+=
+A(\lambda\vec{\xi} + \mu\vec{\eta})
+\]
+wieder eine Linearkombination in $\langle\mathcal{A}\rangle$.
+Man nennt $\langle\mathcal{A}\rangle$ einen Vektorrraum, er ist
+ein Unterraum des Vektorraums $\mathbb R^n$: $\langle\mathcal{A}\rangle
+\subset\mathbb R^n$.
+Wenn die Vektoren in $\mathcal{A}$ linear unabhängig sind, dann lässt
+sich ein Vektor in $\langle\mathcal{A}\rangle$ auf eindeutige Weise
+durch die Vektoren ausdrücken.
+Man sagt auch, $\langle\mathcal{A}\rangle$ habe die Dimension $l$.
+
+\begin{definition}
+Die Dimension $\dim U$ eines Unterraumes $U$ ist die maximale Anzahl
+linear unabhängiger Vektoren in diesem Unterraum.
+Es ist $\dim\mathbb R^n=n$.
+\end{definition}
+\index{Dimension}
 
 \begin{beispiel}
 Die Vektoren \[
@@ -436,6 +462,87 @@ A\vec{\xi}
 \]
 \end{beispiel}
 
+\subsubsection{Dimension eines Unterraums}
+Die Vektoren $\mathcal{A}=\{\vec{a}_1,\dots,\vec{a}_l\}$ müssen nicht
+unbedingt eine Basis bilden.
+Es ist also durchaus möglich, dass die Menge aller Linearkombinationen
+nur eine Telmenge des Raums aller Vektoren ausmacht.
+Indem man linear abhängige Vektoren weglässt, kann man die Menge der
+Vektoren $\mathcal{A}$ soweit verkleinern, dass eine Basis des 
+Vektorraumes übrig bleibt.
+
+\begin{beispiel}
+Man finde eines Basis des von den Vektoren 
+\[
+\begin{pmatrix}
+  -43\\  -22\\  -44
+\end{pmatrix},\quad
+\begin{pmatrix}
+  -26\\  -12\\  -26
+\end{pmatrix}
+\qquad\text{und}\qquad
+\begin{pmatrix}
+   56\\   28\\   57
+\end{pmatrix}
+\]
+aufgespannten Raumes.
+
+\smallskip
+
+{\parindent=0pt Wir} gehen der Reihe nach durch die Vektoren und untersuchen,
+ob sich der nächste Vektor bereits durch die früheren Vektoren 
+ausdrücken lässt.
+Der Gauss-Algorithmus macht genau das für die Zeilen einer Matrix.
+Wir füllen die daher die Vektoren als Zeilen in ein Tableau ein führen
+den Gaussalgorithmus aus:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+  -43&  -22&  -44\\
+  -26&  -12&  -26\\
+\hline
+\end{tabular}
+\quad\rightarrow\quad
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&\frac{22}{28}\\
+0&1&\frac{13}{28}\\
+\hline
+\end{tabular}
+\]
+die ersten beiden Vektoren sind also linear unabhängig, die Dimension
+ist mindestens $2$.
+
+Nehmen wir den dritten Vektor hinzu, erhalten wir
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+  -43&  -22&  -44\\
+  -26&  -12&  -26\\
+   56&   28&   57\\
+\hline
+\end{tabular}
+\quad\rightarrow\quad
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&\frac{22}{28}\\
+0&1&\frac{13}{28}\\
+\hdashline
+0&0&0\\
+\hline
+\end{tabular}
+\]
+der dritte Vektor ist also nicht mehr linear unabhängig. 
+Die Dimension des aufgespannten Raumes ist daher
+$\dim\langle\mathcal{A}\rangle=2$ und die ersten
+beiden Vektoren bilden eine Basis.
+
+Natürlich hätte man auch mit zwei beliebigen anderen Vektoren
+beginnen können und hätte jedesmal eine andere Basis des gleichen
+Unterraumes erhalten.
+\end{beispiel}
+
+
 %
 % Basistransformation
 %
@@ -445,7 +552,8 @@ Wenn wir aber mit jeder beliebigen Basis rechnen können müssen, dann
 brauchen wir eine Methode, wie wir Koordinaten zwischen verschiedenen
 Basen umrechnen können.
 
-\subsubsection{Problemstellung}
+\begin{aufgabe}
+\label{skript:affin:basiswechsel:aufgabe}
 Wenn ein Vektor $\vec{v}$ in der Basis
 $\mathcal{B}=\{\vec{b}_1,\dots,\vec{b}_n\}$
 die Koordinaten $(x_1,\dots,x_n)$, welche Koordinaten hat er dann in
@@ -462,6 +570,7 @@ x_1\vec{b}_1 + \dots + x_n\vec{b}_n
 gelten.
 Darin sind die $y_i$ die Unbekannten, die wir durch die Variablen $x_i$
 ausdrücken sollen.
+\end{aufgabe}
 
 \subsubsection{Lösbarkeit}
 Wenn $\mathcal{B}$ und $\mathcal{C}$ Basen sind, wissen wir, dass

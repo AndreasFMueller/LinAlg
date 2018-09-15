@@ -17,9 +17,19 @@ und Schnittgeraden auf rechnerische Art ermöglichen.
 % Geraden in der Ebene und im Raum
 %
 \subsection{Geraden in der Ebene und im Raum}
+\begin{figure}
+\centering
+\includegraphics{3/images/geradeaxb.pdf}
+\caption{Beschreibung einer Gerade als Graph einer linearen Funktion
+$y=ax+b$ (rote Gerade $\color{red}g_1$).
+$a$ ist die Steigung, $b$ der Achsabschnitt auf der $y$-Achse.
+Vertikale Geraden wie die blaue Gerade $\color{blue}g_2$ können auf diese
+Art nicht beschrieben werden.
+\label{skript:affin:geradeaxb}}
+\end{figure}
 Die erste Beschreibung einer Geraden mit Hilfe von Koordinaten, die man in
 der Schule normalerweise kennenlernt, die des Graphs einer Funktion
-$y=ax+b$.
+$y=ax+b$ (Abbildung~\ref{skript:affin:geradeaxb}).
 Diese Beschreibung hat aber mindestens zwei Schwächen, die sie für eine
 weiterführende Theorie ungeeignet macht.
 \begin{enumerate}
@@ -27,11 +37,19 @@ weiterführende Theorie ungeeignet macht.
 dreidimensionale Situation verallgemeinern.
 \item Vertikale Geraden lassen sich damit nicht beschreiben.
 Damit wird die Vertikale zu einer speziellen Richtung, so etwas darf
-es in der affinen Geometrie nicht geben.
+es in der affinen Geometrie nicht geben (Gerade $\color{blue}g_2$ in
+Abbildung~\ref{skript:affin:geradeaxb}).
 \end{enumerate}
 Wir sind daher gezwungen, eine verallgemeinerungsfähigere und symmetrischere
 Beschreibung einer Geraden zu finden.
 
+\begin{figure}
+\centering
+\includegraphics{3/images/punktrichtung.pdf}
+\caption{Parameterdarstellung einer Gerade mit Stützvektor $\vec{p}_0$ und
+Richtungsvektor $\vec{r}$
+\label{skript:affin:punktrichtung}}
+\end{figure}
 Parallele Geraden haben alle die gleiche Richtung, sie enthalten alle
 den gleichen Vektor.
 Ausgehend von einem Punkt ausserhalb einer gegebenen Geraden kann eine
@@ -47,7 +65,7 @@ Der Vektor von $P_0$ nach $P$ muss daher ein Vielfaches des
 \[
 \overrightarrow{P_0P} = t\vec{r}.
 \]
-Der Ortsvektor $\vec{p}$ von $P$ erfüllt daher die Gleicung
+Der Ortsvektor $\vec{p}$ von $P$ erfüllt daher die Gleichung
 \begin{equation}
 \vec{p} = \vec{p}_0 + t\vec{r}.
 \label{skript:punktrichtung}
@@ -215,6 +233,8 @@ bedeutet das
 t_1
 \begin{pmatrix}-2\\4\\5\end{pmatrix}
 &=
+\vec{u}
+=
 \begin{pmatrix}5\\-3\\-1\end{pmatrix}
 &
 \qquad
@@ -223,6 +243,8 @@ t_1
 t_2
 \begin{pmatrix}-2\\4\\5\end{pmatrix}
 &=
+\vec{v}
+=
 \begin{pmatrix}7\\-7\\-7\end{pmatrix}
 \\
 t_1
@@ -254,6 +276,13 @@ Es folgt, dass $U$ auf der Geraden liegt, $V$ aber nicht.
 % Schnittpunkte
 %
 \subsection{Schnittpunkte}
+\begin{figure}
+\centering
+\includegraphics{3/images/schnittpunkt.pdf}
+\caption{Schnittpunkt zweier Geraden mit den Parmeterdarstellungen
+$\vec{p}+t\vec{r}$ und $\vec{q}+t\vec{v}$.
+\label{skript:affin:schnittpunkt}}
+\end{figure}
 
 \begin{aufgabe}
 Gegeben zwei Geraden $g_1$ und $g_2$ mit Parameterdarstellungen
@@ -262,7 +291,7 @@ Gegeben zwei Geraden $g_1$ und $g_2$ mit Parameterdarstellungen
 \qquad\text{und}\qquad
 \vec{r} = \vec{q} + t\vec{v},
 \]
-finde ihren Schnittpunkt.
+finde ihren Schnittpunkt (Abbildung~\ref{skript:affin:schnittpunkt}).
 \end{aufgabe}
 
 \begin{proof}[Lösungen]
@@ -485,16 +514,16 @@ Sei die Gerade $g$ mit der Parameterdarstellung
 \vec{q} + t\vec{r}
 \]
 gegeben.
-Wir wählen die Vektoren $\vec{r}$ und $\vec{p}$ als Bilder der
+Wir wählen die Vektoren $\vec{r}$ und $\vec{q}$ als Bilder der
 Standardbasisvektoren der linearen Abbildung $\varphi$ ihre Matrix ist
 daher 
 \[
 A=
 \begin{pmatrix}
-q_1   &r_1   \\
-q_2   &r_2   \\
+r_1   &q_1   \\
+r_2   &q_2   \\
 \vdots&\vdots\\
-q_n   &r_n   
+r_n   &q_n   
 \end{pmatrix}.
 \]
 Die Abbildung bildet die Vektoren der roten Geraden in
@@ -507,7 +536,14 @@ Geraden $g$ in der Abbildung rechts ab:
 t\\1
 \end{pmatrix}
 \mapsto
-\vec{q}+t\vec{r}.
+t\vec{r}
++
+\vec{q}
+=
+A
+\begin{pmatrix}
+t\\1
+\end{pmatrix}
 \]
 Wir lernen zwei Dinge aus dieser Beobachtung:
 \begin{enumerate}
@@ -530,11 +566,19 @@ spielen.
 %
 %
 %
-\subsection{Gerade in der Ebene als Nullmenge}
+\subsection{Gerade in der Ebene als Lösungsmenge}
+\begin{figure}
+\centering
+\includegraphics{3/images/geradeloesung.pdf}
+\caption{Geraden in der der Ebene also Lösungsmengen der Gleichung
+$0.3x+0.4y=c$ mit verschiedenen Werten von $c$.
+\label{skript:affin:geradeloesung}}
+\end{figure}
 Eine einzelne lineare Gleichung der Form 
 \[
 ax+by=c
 \]
+(Abbildung~\ref{skript:affin:geradeloesung})
 kann mit dem Gauss-Algorithmus
 \[
 \begin{tabular}{|>{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
@@ -556,6 +600,7 @@ x&y&\\
 \end{tabular}
 }
 \]
+gelöst werden.
 Daraus liest man die Lösungsmenge
 \[
 \mathbb L
