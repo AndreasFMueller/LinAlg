@@ -6,7 +6,7 @@
 all:	3dimages tikzimages
 
 3dimages:	coordsystem.pdf ebene.pdf schnittgerade.pdf \
-		durchstosspunkt.pdf abb.pdf
+		durchstosspunkt.pdf ebene3punkte.pdf abb.pdf
 
 #
 # Coordinate system
@@ -60,6 +60,18 @@ durchstosspunkt.jpg:	durchstosspunkt.png Makefile
 durchstosspunkt.png:	durchstosspunkt.pov
 	povray +A0.1 -W1920 -H1080 -Odurchstosspunkt.png durchstosspunkt.pov
 
+#
+# Ebene durch 3 Punkte
+#
+ebene3punkte.pdf:	ebene3punkte.tex ebene3punkte.jpg
+	pdflatex ebene3punkte.tex
+
+ebene3punkte.jpg:	ebene3punkte.png Makefile
+	convert -extract 1200x780+200+200 ebene3punkte.png \
+		-density 300 -units PixelsPerInch ebene3punkte.jpg
+
+ebene3punkte.png:	ebene3punkte.pov
+	povray +A0.1 -W1920 -H1080 -Oebene3punkte.png ebene3punkte.pov
 
 #
 # Ebene als Bild einer linearen Abbildung
