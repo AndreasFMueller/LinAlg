@@ -1,69 +1,283 @@
-Wir betrachten Matrizen der Form
-\[
-A=\begin{pmatrix}a&b\\-b&a\end{pmatrix}
-=aE+bJ=a\begin{pmatrix}1&0\\0&1\end{pmatrix}+b\begin{pmatrix}0&1\\-1&0\end{pmatrix}.
+Betrachten Sie das Gleichungssystem \[
+\begin{linsys}{3}
+ x_1&+&ux_2&+&vx_3&=&1\\
+vx_1&+& x_2&+&ux_3&=&2\\
+ux_1&+&vx_2&+& x_3&=&1
+\end{linsys}
 \]
+für die Unbekannten $x_1$, $x_2$ und $x_3$ mit den Parametern $u$ und $v$.
 \begin{teilaufgaben}
 \item
-Berechnen Sie $A^{-1}$.
+Finden Sie eine Gleichung für die Parameter $u$ und $v$, für die das
+Gleichungssystem nicht eindeutig lösbar ist.
 \item
-Drücken Sie $A^{-1}$ in der Form $cE+dJ$ aus.
+Der Punkt $(1,1)$ der $u$-$v$-Ebene erfüllt die in a) gefundene Bedingung. 
+Welchen Rang hat die Koeffizientenmatrix, wenn man diese Werte einsetzt?
 \item
-Berechnen Sie $AA^{-1}=(aE+bJ)(cE+dJ)$ unter Verwendung der Identität
-$J^2=-E$.
+Die Punkte $(-1,0)$ und $(0,-1)$ der $u$-$v$-Ebene erfüllen die Bedingung
+ebenfalls.
+Welchen Rang hat die Koeffizientenmatrix für diese Werte?
+\item
+Lösen Sie das Gleichungssystem für diejenigen Werte von $u$ und $v$,
+für die eine eindeutige Lösung existiert.
 \end{teilaufgaben}
 
 \thema{Matrix mit Parameter}
-\thema{Matrizenprodukt}
-\thema{inverse Matrix}
+\thema{Determinante}
+\thema{Rang}
 
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-Die Inverse kann mit Minoren berechnet werden.
-Dazu wird zunächst die Determinante von $A$ benötigt:
+Wir berechnen die Determinante der Koeffizientenmatrix
 \[
-\det(A)=\left|\,\begin{matrix}a&b\\-b&a\end{matrix}\,\right|=a^2+b^2.
+A=\begin{pmatrix}
+1&u&v\\
+v&1&u\\
+u&v&1
+\end{pmatrix}
 \]
-Die Inverse wird damit
+des Gleichungssystems mit Hilfe der Sarrus-Formel:
 \[
-A^{-1}=\frac1{a^2+b^2}\begin{pmatrix}a&-b\\b&a\end{pmatrix}.
-\]
-Kontrolle:
-\[
-AA^{-1}
+\det(A)
 =
-\begin{pmatrix}a&b\\-b&a\end{pmatrix}
-\frac{1}{a^2+b^2}
-\begin{pmatrix}a&-b\\b&a\end{pmatrix}
-=
-\frac{1}{a^2+b^2}
-\begin{pmatrix}a^2+b^2&0\\0&a^2+b^2 \end{pmatrix}=E
+1+u^3+v^3-3uv.
 \]
+Wenn die Determinante verschwindet, ist die Matrix singulär und es kann
+keine eindeutige Lösung existieren.
+Die gesuchte Gleichung ist also
+\begin{equation}
+u^3+v^3-3uv+1=0.
+\label{20000033:bedingung}
+\end{equation}
+Wir kürzen im folgenden die linke Seite von (\ref{20000033:bedingung})
+als $p(u,v)$ ab.
 \item
-Die Inverse $A^{-1}$ kann geschrieben werden als
+Für $u=1$ und $v=1$ wird die Koeffizientenmatrix zu
 \[
-A^{-1}
-=
-\frac{a}{a^2+b^2}E
-+
-\frac{-b}{a^2+b^2}J.
+\begin{pmatrix}
+1&1&1\\
+1&1&1\\
+1&1&1
+\end{pmatrix},
 \]
-\item Unter Verwendung von $J^2=-E$ findet man
+die den Rang 1 hat.
+\item
+Setzt man die Werte ein, erhält man die Matrizen
 \begin{align*}
-AA^{-1}&=(aE+bJ)\frac1{a^2+b^2}(aE-bJ)
-=\frac1{a^2+b^2}(a^2EE-abEJ+baJE-b^2J^2)
-\\
-&=\frac1{a^2+b^2}(a^2E+b^2E)=E.
-\qedhere
+&\begin{pmatrix}
+1&-1&0\\
+0&1&-1\\
+-1&0&1
+\end{pmatrix}
+&
+&\text{und}&
+&\begin{pmatrix}
+1&0&-1\\
+-1&1&0\\
+0&-1&1
+\end{pmatrix},
 \end{align*}
+die Transponierte voneinander sind.
+Es reicht also, den Rang einer der beiden Matrizen zu bestimmen.
+
+Die Summe der drei Zeilen ist 0, der Rang muss also kleiner als 3 sein,
+was wir ja auch erwarten, $u$ und $v$ waren so gewählt, dass eine singuläre
+Matrix entsteht.
+Da aber auch die ersten zwei Zeilen linear unabhängig sind, muss der
+Rang 2 sein.
+\item
+Das Gleichungsystem kann jetzt mit der Kramerschen Regel gelöst werden:
+\begin{align*}
+x_1&=\frac1{p(u,v)}\left|\,\begin{matrix}
+\color{green}1&u&v\\
+\color{green}2&1&u\\
+\color{green}1&v&1
+\end{matrix}\,\right|
+=\frac1{p(u,v)}
+(1+u^2+2v^2-v-uv-2u)
+=\frac{1+u^2+2v^2-v-uv-2u}{u^3+v^3-3uv+1},
+%\label{20000033:x1}
+\\
+x_2&=\frac1{p(u,v)}\left|\,\begin{matrix}
+1&\color{green}1&v\\
+v&\color{green}2&u\\
+u&\color{green}1&1
+\end{matrix}\,\right|
+=\frac1{p(u,v)}
+(2+u^2+v^2-2uv-u-v)
+=\frac{2+u^2+v^2-2uv-u-v}{u^3+v^3-3uv+1},
+%\label{20000033:x2}
+\\
+x_3&=\frac1{p(u,v)}\left|\,\begin{matrix}
+1&u&\color{green}1\\
+v&1&\color{green}2\\
+u&v&\color{green}1
+\end{matrix}\,\right|
+=\frac1{p(u,v)}
+(1+2u^2+v^2-u-2v-uv)
+=\frac{1+2u^2+v^2-u-2v-uv}{u^3+v^3-3uv+1}.
+%\label{20000033:x3}
+\end{align*}
+Wir kontrollieren die Lösung durch Einsetzen in das Gleichungssystem.
+Setzt man den Klammerausdruck in der Formel für $x_1$ in die erste Gleichung
+ein, sollte $p(u,v)$ entstehen:
+\begin{align*}
+&(1+u^2+2v^2-v-uv-2u)
++
+u(2+u^2+v^2-2uv-u-v)
++
+v(1+2u^2+v^2-u-2v-uv)
+\\
+&=
+1+u^2+2v^2-v-uv-2u
++
+2u+u^3+uv^2-2u^2v-u^2-uv
++
+v+2u^2v+v^3-uv-2v^2-uv^2
+\\
+&=u^3+v^3-3uv+1=p(u,v).
+\end{align*}
+Analog folgt durch Einsetzen in die zweite und dritte Gleichung:
+\begin{align*}
+&
+v(1+u^2+2v^2-v-uv-2u)
++
+(2+u^2+v^2-2uv-u-v)
++
+u(1+2u^2+v^2-u-2v-uv)
+\\
+&=
+v+u^2v+2v^3-v^2-uv^2-2uv
++
+2+u^2+v^2-2uv-u-v
++
+u+2u^3+uv^2-u^2-2uv-u^2v
+\\
+&=
+2u^3+2v^3-6uv+2=2p(u,v)
+\\
+&
+u(1+u^2+2v^2-v-uv-2u)
++
+v(2+u^2+v^2-2uv-u-v)
++
+(1+2u^2+v^2-u-2v-uv)
+\\
+&=
+u+u^3+2uv^2-uv-u^2v-2u^2
++
+2v+u^2v+v^3-2uv^2-uv-v^2
++
+1+2u^2+v^2-u-2v-uv
+\\
+&=
+u^3+v^3-3uv+1=p(u,v).
+\end{align*}
+
 \end{teilaufgaben}
 \end{loesung}
 
 \begin{diskussion}
-Die Algebra der Matrizen $E$ und $J$ ist die Algebra der komplexen Zahlen.
-Die Aufgabe zeigt, dass die zu $aE+bJ$ reziproke komplexe Zahl
-$(aE-bJ)/(a^2+b^2)$ ist.
-$aE-bJ$ heisst auch die zu $aE+bJ$ konjugiert komplexe Zahl.
+Die Gleichung (\ref{20000033:bedingung}) definiert eine Menge von Punkten
+in der $u$-$v$-Ebene.
+Diese Menge zu finden ist nicht trivial, und auch nicht unbedingt Gegenstand
+der linearen Algebra, sondern eher der algebraischen Geometrie, die sich
+mit den Eigenschaften von Lösungsmengen von solchen Polynomgleichungen befasst.
+Trotzdem sei hier ein Argument angegeben, wie man diese Menge finden kann.
+
+Man kann durch Probieren die Punkte $(-1,0)$, $(0,-1)$ und $(1,1)$ als Lösungen
+der Gleichung (\ref{20000033:bedingung}) finden.
+Da die Gleichung symmetrisch in $u$ und $v$ ist, muss die Lösung
+spiegelungssymmetrisch bezüglich der Geraden $x=y$ sein, und man kann
+vermuten, dass die Lösung ein Kurvenstück enthalten muss, welches
+die ersten beiden Punkte verbindet.
+Dieses Kurvenstück muss eine Gerade, eine Parabel (quadratische Kurve) oder
+eine kubische Kurve sein. 
+Wir probieren eine Gerade durch die beiden Punkte, sie hat die Gleichung $u=-1-v$.
+Setzt man dies in (\ref{20000033:bedingung}) ein, findet man
+\begin{align*}
+(-1-v)^3+v^3-3(-1-v)v+1
+&=
+-1-3v-3v^2-v^3+v^3+3v+3v^2+1=0.
+\end{align*}
+Die Punkte auf der genannten Geraden mit der Gleichung
+$u+v+1=0$
+erfüllen die Gleichung also automatisch.
+
+Da das Polynom $p(u,v)$ immer dann verschwindet, wenn das Polynom $q(u,v)=u+v+1$
+verschwindet, muss das Polynom $q(u,v)$ ein Teiler von $p(u,v)$ sein.
+Nach einer etwas mühsamen Rechnung findet man 
+\[
+\frac{p(u,v)}{q(u,v)}= u^2 - uv + v^2-u-v+1=r(u,v).
+\]
+Ausser aus der Geraden $u+v+1=0$ muss die gesuchte Lösungsmenge also auch noch aus
+der Lösungsmenge von $r(u,v)=0$ bestehen.
+
+$r(u,v)$ ist ein quadratisches Polynom, und die Koeffizienten der quadratischen
+Terme sind positiv, also muss die Lösungsmenge eine Ellipse sein.
+Wegen der Symmetrieeigenschaften der Lösungsmenge müssen die Halbachsen der 
+Ellipse gegenüber dem $u$-$v$-Koordinatensystem um $45^\circ$ verdreht sein,
+wir ersetzen daher $u$ und $v$ durch
+\begin{equation}
+%\left.
+\begin{aligned}
+u&=x+y
+\\
+v&=x-y.
+\end{aligned}
+%\quad
+%\right\}
+%\qquad
+%\Rightarrow
+%\qquad
+%\left\{
+%\quad
+%\begin{aligned}
+%x&=\frac12(u+v)
+%\\
+%y&=\frac12(u-v)
+%\end{aligned}
+%\right.
+\label{20000033:transformation}
+\end{equation}
+Setzt man diese Ausdrücke für $u$ und $v$ in $r(u,v)$ ein erhält man
+\begin{align*}
+r(u,v)
+&=(x+y)^2-(x+y)(x-y)+(x-y)^2-(x+y)-(x-y)+1\\
+&=x^2+2xy+y^2-x^2+y^2+x^2-2xy+y^2-x-y-x+y+1\\
+&=x^2-2x+1+3y^2\\
+&=(x-1)^2+3y^2.
+\end{align*}
+Jeder Term im letzten Ausdruck ist positiv, die Gleichung $r(u,v)=0$ kann
+also nur dann erfüllt sein, wenn beide Terme verschwinden, oder $x=1$ und $y=0$.
+Setzt man diese Werte wieder in (\ref{20000033:transformation}) ein,
+erhält man $u=1$ und $v=1$, also genau den dritten der geratenen Punkte.
+Die erwartete Ellipse ist also zu einem Punkt entartet.
+
+Die Lösungsmenge der Gleichung $p(u,v)=0$ besteht also aus der Geraden
+mit der Gleichung $u+v+1=0$ und dem Punkt $(1,1)$.
+Sie ist in der Abbildung~\ref{20000033:loesungsmenge} dargestellt.
+\begin{figure}
+\centering
+\includeagraphics[]{kubisch-1.pdf}
+\caption{Lösungsmenge der Gleichung $p(u,v) = u^3+v^3-3uv+1=0$
+in Aufgabe~\ref{20000033}. Sie besteht aus der Geraden durch die
+Punkte $(-1,0)$ und $(0,-1)$ sowie dem isolierten Punkt $(1,1)$.
+\label{20000033:loesungsmenge}}
+\end{figure}
+
+Alternativ kann man die Lösungsmenge auch dadurch finden, dass man die
+Funktion $p(u,v)$ als Fläche über der $u$-$v$-Ebene darstellt, und die
+Schnittmenge mit der $u$-$v$-Ebene sucht.
+Dies  ist in Abbildung~\ref{20000033:flaeche} dargestellt.
+\begin{figure}
+\centering
+\includeagraphics[width=0.7\hsize]{cubic.jpg}
+\caption{Graph der Funktion $p(u,v)=u^3+v^3-3uv+1$ für $-2\le u,v\le 2$ (rot),
+die Fläche schneidet die $u$-$v$-Ebene in der Geraden durch $(-1,0)$ und
+$(0,-1)$, und berührt die $u$-$v$-Ebene im Punkt $(1,1)$ (beide gelb).
+\label{20000033:flaeche}}
+\end{figure}
 \end{diskussion}
 

@@ -1,53 +1,113 @@
-Berechnen Sie die Determinante der Matrix
+Betrachten Sie die Matrizen
 \[
 A=\begin{pmatrix}
-    4 &  0 &  7 &  0 \\
-    5 &  8 &  5 &  1 \\
-    4 &  7 &  4 &  1 \\
-    8 &  8 & 10 &  1 
+13& 9&-3&15\\
+ 0&11& 7& 5\\
+ 0& 0&17&13\\
+ 0& 0& 0&19
 \end{pmatrix}
+\qquad\text{und}\qquad
+B
+=
+\begin{pmatrix}
+   0&  1&  0&  0\\
+  -1&  0& -2&  0\\
+   0&  2&  0&  1\\
+   0&  0&  1&  0
+\end{pmatrix}.
 \]
-mit Hilfe des Entwicklungssatzes. Ist die Matrix $A$ singulär oder regulär?
+\begin{teilaufgaben}
+\item Berechnen Sie $\det(A)$.
+\item Berechnen Sie $C=BAB^t$.
+\item Berechnen Sie $\det(C)$.
+\end{teilaufgaben}
 
-\thema{Determinante}
-\thema{Entwicklungssatz}
+\thema{Produktsatz}
+\thema{Matrizenprodukt}
 
 \begin{loesung}
-Subtrahiert man das achtfache der letzten Spalte in der zweiten Spalte,
-entsteht eine Determinante, die sich mit dem Entwicklungssatz leicht
-ausrechnen lässt:
-\begin{align*}
-\det A
-&=
+\begin{teilaufgaben}
+\item $A$ ist eine Dreiecksmatrix, die Determinante ist das Produkt der
+Diagonalelemente:
+\[
+\det(A) = 13\cdot 11 \cdot 17\cdot 19=46189.
+\]
+\item Die Matrix $C$ ist
+\[
+C
+=
+BAB^t
+=
+\begin{pmatrix}
+  0& 11&  7&  5\\
+-13& -9&-31&-41\\
+  0& 22& 14& 29\\
+  0&  0& 17& 13
+\end{pmatrix}
+\begin{pmatrix}
+   0& -1&  0&  0\\
+   1&  0&  2&  0\\
+   0& -2&  0&  1\\
+   0&  0&  1&  0
+\end{pmatrix}
+=
+\begin{pmatrix}
+   11& -14&  27&   7\\
+   -9&  75& -59& -31\\
+   22& -28&  73&  14\\
+    0& -34&  13&  17
+\end{pmatrix}.
+\]
+\item Aus der Produktformel für Determinanten folgt
+\[
+\det(C)
+=
+\det(BAB^t)
+=
+\det(B)\det(A)\det(B^t)
+=
+\det(B)\det(A)\det(B)
+=
+\det(A)\det(B)^2.
+\]
+Im letzten Schritt wurde $\det(B)=\det(B^t)$ verwendet.
+Die Determinante $\det(A)$ auf der rechten Seite wurde in Teilaufgabe a)
+bereits berechnet.
+Es muss also nur noch $\det(B)$ berechnet werden.
+Dies kann mit dem Entwicklungssatz geschehen
+\[
+\det(B)
+=
+\left|
+\begin{matrix}
+ 0&  1&  0&  0\\
+-1&  0& -2&  0\\
+ 0&  2&  0&  1\\
+ 0&  0&  1&  0
+\end{matrix}\right|
+=
+-1\cdot
 \left|\begin{matrix}
-    4 &  0 &  7 &  0 \\
-    5 &  0 &  5 &  1 \\
-    4 & -1 &  4 &  1 \\
-    8 &  0 & 10 &  1 
+-1& -2&  0\\
+ 0&  0&  1\\
+ 0&  1&  0
 \end{matrix}\right|
 =
--(-1)\left|\begin{matrix}
-    4 &  7 &  0 \\
-    5 &  5 &  1 \\
-    8 & 10 &  1 
+(-1)\cdot(-1)\cdot
+\left|\begin{matrix}
+0&  1\\
+1&  0
 \end{matrix}\right|
-\\
-&=
--\left|\begin{matrix}
-    4 &  7\\
-    8 & 10
-\end{matrix}\right|
-+\left|\begin{matrix}
-    4 &  7\\
-    5 &  5
-\end{matrix}\right|
+=(-1)\cdot(-1)\cdot(-1)=-1.
+\]
+Damit folgt
+\[
+\det(BAB^t)
 =
--(4\cdot 10-7\cdot 8)+(4\cdot 5-5\cdot 7)
+\det(A)\det(B)^2
 =
-16-15=1.
-\end{align*}
-Dabei wurde die $3\times 3$-Determinante durch Entwicklung nach der letzten
-Spalte berechnet. Da $\det A \neq 0$ ist, ist $A$ eine reguläre Matrix.
+46189\cdot(-1)^2=46189.\qedhere
+\]
+\end{teilaufgaben}
 \end{loesung}
-
 

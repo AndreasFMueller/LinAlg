@@ -1,81 +1,143 @@
-Berechnen Sie die Determinante der Matrix
+Betrachten Sie die Matrizen
 \[
-A
+A=\begin{pmatrix}
+13& 9&-3&15\\
+ 0&11& 7& 5\\
+ 0& 0&17&13\\
+ 0& 0& 0&19
+\end{pmatrix}
+\qquad\text{und}\qquad
+B
 =
 \begin{pmatrix}
--2& 5&-2&-1\\
- 1& 1& 1& 4\\
- 5&-2& 3& 5\\
- 6& 1& 1&-1
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1\\
+1&0&0&0
 \end{pmatrix}.
 \]
+\begin{teilaufgaben}
+\item Berechnen Sie $\det(A)$.
+\item Berechnen Sie $C=BAB^t$.
+\item Berechnen Sie $\det(C)$.
+\end{teilaufgaben}
 
-\thema{Determinante}
-\thema{Entwicklungssatz}
-\thema{Sarrus-Formel}
+\thema{Produktsatz}
+\thema{Matrizenprodukt}
 
 \begin{loesung}
-Damit der Rechenaufwand bei der Anwendung des Entwicklungssatzes gering bleibt, subtrahieren wir die zweite Zeile von der letzten und entwickeln dann
-nach der letzten Zeile:
-\begin{align*}
-\det(A)
-&=
-\left|\begin{matrix}
--2& 5&-2&-1\\
- 1& 1& 1& 4\\
- 5&-2& 3& 5\\
- 5& 0& 0&-5
+\begin{teilaufgaben}
+\item $A$ ist eine Dreiecksmatrix, die Determinante ist das Produkt der
+Diagonalelemente:
+\[
+\det(A) = 13\cdot 11 \cdot 17\cdot 19=46189.
+\]
+\item Die Matrix $C$ ist
+\[
+C
+=
+BAB^t
+=
+\begin{pmatrix}
+    0&  11&   7&   5\\
+    0&   0&  17&  13\\
+    0&   0&   0&  19\\
+   13&   9&  -3&  15
+\end{pmatrix}
+\begin{pmatrix}
+0&0&0&1\\
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+  11&   7&   5&   0\\
+   0&  17&  13&   0\\
+   0&   0&  19&   0\\
+   9&  -3&  15&  13
+\end{pmatrix}.
+\]
+\item Aus der Produktformel für Determinanten folgt
+\[
+\det(C)
+=
+\det(BAB^t)
+=
+\det(B)\det(A)\det(B^t)=\det(B)\det(A)\det(B).
+\]
+Im letzten Schritt wurde $\det(B)=\det(B^t)$ verwendet.
+Die Determinante $\det(A)$ auf der rechten Seite wurde in Teilaufgabe a)
+bereits berechnet.
+Es muss also nur noch $\det(B)$ berechnet werden.
+Da in jeder Zeile von $B$ genau eine Eins vorkommt und sonst nur Nullen,
+kann man durch Zeilenvertauschungen die Determinante immer in Diagonalform
+bringen.
+\[
+\det(B)
+=
+\left|
+\begin{matrix}
+   0&  1&  0&  0\\
+   0&  0&  1&  0\\
+   0&  0&  0&  1\\
+   1&  0&  0&  0
 \end{matrix}\right|
 =
--5\cdot
+-
 \left|\begin{matrix}
- 5&-2&-1\\
- 1& 1& 4\\
--2& 3& 5
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1
 \end{matrix}\right|
-+(-5)\cdot
-\left|\begin{matrix}
--2& 5&-2\\
- 1& 1& 1\\
- 5&-2& 3
-\end{matrix}\right|
-\end{align*}
-Die einzelnen Determinanten können mit der Sarrus-Regel ausgwertet werden:
-\begin{align*}
-\left|\begin{matrix}
- 5&-2&-1\\
- 1& 1& 4\\
--2& 3& 5
-\end{matrix}\right|
-&=
-25+16-3 -2-60+10
+=-1.
+\]
+Damit folgt
+\[
+\det(BAB^t)
 =
--14,
-\\
-\left|\begin{matrix}
--2& 5&-2\\
- 1& 1& 1\\
- 5&-2& 3
-\end{matrix}\right|
-&=
--6+25+4+10-4-15
+\det(A)\det(B)^2
 =
-14.
-\end{align*}
-Damit kann man jetzt die Determinante berechnen:
-\begin{align*}
-\det(A)
-&=
--5\cdot (-14)+(-5)\cdot 14
-=
-5\cdot 14 - 5\cdot 14 =0.
-\end{align*}
-Die Matrix $A$ ist also singulär.
+46189\cdot(-1)^2=46189.\qedhere
+\]
+\end{teilaufgaben}
 \end{loesung}
 
-\begin{bewertung}
-Entwicklungssatz ({\bf E}) 2 Punkte,
-Berechnung der $3\times 3$-Matrizen mit Sarrus ({\bf S}) 3 Punkte,
-korrekter Wert für die Determinante ({\bf D}) 1 Punkt.
-\end{bewertung}
+\begin{diskussion}
+Man könnte die Determinante von $C$ auch direkt mit dem Entwicklungssatz
+berechnen.
+Hier ist diese Lösung:
+\begin{align*}
+\det(C)
+&=
+\left|\begin{matrix}
+  11&   7&   5&   0\\
+   0&  17&  13&   0\\
+   0&   0&  19&   0\\
+   9&  -3&  15&  13
+\end{matrix}\right|
+%\\
+%&
+=
+13\cdot
+\left|\begin{matrix}
+  11&   7&   5\\
+   0&  17&  13\\
+   0&   0&  19
+\end{matrix}\right|
+=
+13\cdot 11\cdot
+\left|\begin{matrix}
+17&  13\\
+ 0&  19
+\end{matrix}\right|
+=
+13\cdot 11\cdot 17\cdot 19
+=
+46189.
+\end{align*}
+Im ersten Schritt wird nach der letzten Spalte entwickelt, im zweiten
+nach der erste Spalte.
+\end{diskussion}
 

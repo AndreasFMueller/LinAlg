@@ -14,13 +14,13 @@ Die Knotengleichungen werden zu $\partial I=0$, wobei zu beachten ist,
 dass $\partial$ den Rang $k-1$ hat, eine der Gleichungen in $\partial I=0$ 
 ist also redundant.
 
-In einer früheren Aufgaben wurden die Zyklen in einem Tetraeder berechnet.
-Wir nehmen an, dass alle Kanten des Tetraeder den gleichen Widerstand von
+In einer früheren Aufgaben wurden die Zyklen in einem Oktaeder berechnet.
+Wir nehmen an, dass alle Kanten des Oktaeders den gleichen Widerstand von
 $R_0=1\Omega$ haben. Bestimmen Sie den Widerstand zwischen zwei benachbarten
-Punkten des Tetraeders.
+Punkten des Oktaeders.
 
-\thema{Gauss-Algorithmus}
 \thema{Zyklen}
+\thema{rref}
 
 \begin{hinweis}
 Gehen Sie dazu wie folgt vor.
@@ -28,54 +28,66 @@ Zunächst wird die Schaltung modifiziert: zwischen Punkte 1 und 2 wird eine
 Spannungsquelle mit Innenwiderstand $R_0$ angeschlossen,
 die eine Spannung von einem Volt liefert.
 Welcher Strom fliesst aus durch die Spannungsquelle? Welchen Widerstand
-hat ein Tetraeder zwischen zwei benachbarten Ecken?
+hat ein Oktaeder zwischen zwei benachbarten Ecken?
 \end{hinweis}
 
 \begin{loesung}
-Die $\partial$-Matrix des erweiterten Tetraeders hat eine Spalte mehr,
+\setcounter{MaxMatrixCols}{20}
+Die $\partial$-Matrix des erweiterten Oktaeders hat eine Spalte mehr
 für die neue Kante $13$:
 \[
 \partial = \begin{pmatrix}
--1&-1&-1& 0& 0& 0&-1\\
- 1& 0& 0&-1&-1& 0& 1\\
- 0& 1& 0& 1& 0&-1& 0\\
- 0& 0& 1& 0& 1& 1& 0
+-1&-1&-1&-1& 0& 0& 0& 0& 0& 0& 0& 0&-1\\
+ 1& 0& 0& 0&-1&-1&-1& 0& 0& 0& 0& 0& 1\\
+ 0& 1& 0& 0& 1& 0& 0&-1&-1& 0& 0& 0& 0\\
+ 0& 0& 1& 0& 0& 0& 0& 1& 0&-1&-1& 0& 0\\
+ 0& 0& 0& 1& 0& 1& 0& 0& 0& 1& 0&-1& 0\\
+ 0& 0& 0& 0& 0& 0& 1& 0& 1& 0& 1& 1& 0
 \end{pmatrix}
 \]
 %
 %[
-%-1,-1,-1, 0, 0, 0,-1;
-% 1, 0, 0,-1,-1, 0, 1;
-% 0, 1, 0, 1, 0,-1, 0;
-% 0, 0, 1, 0, 1, 1, 0
+%-1,-1,-1,-1, 0, 0, 0, 0, 0, 0, 0, 0,-1;
+% 1, 0, 0, 0,-1,-1,-1, 0, 0, 0, 0, 0, 1;
+% 0, 1, 0, 0, 1, 0, 0,-1,-1, 0, 0, 0, 0;
+% 0, 0, 1, 0, 0, 1, 0, 0, 0,-1,-1, 0, 0;
+% 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0,-1, 0;
+% 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0
 %]
 %
 Der Gauss-Algorithmus liefert das Schlusstableau
 \begin{center}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-x_1&x_2&x_3&x_4&x_5&x_6&x_7\\
+x_1&x_2&x_3&x_4&x_5&x_6&x_7&x_8&x_9&x_{10}&x_{11}&x_{12}&x_{13}\\
 \hline
-   1&  0&  0& -1& -1&  0&  1\\
-   0&  1&  0&  1&  0& -1&  0\\
-   0&  0&  1&  0&  1&  1&  0\\
-%   0&  0&  0&  0&  0&  0&  0\\
+   1&  0&  0&  0& -1& -1&  0&  0&  1&  0&  1&  1&  1\\
+   0&  1&  0&  0&  1&  0&  0& -1& -1&  0&  0&  0&  0\\
+   0&  0&  1&  0&  0&  0&  0&  1&  0& -1& -1&  0&  0\\
+   0&  0&  0&  1&  0&  1&  0&  0&  0&  1&  0& -1&  0\\
+   0&  0&  0&  0&  0&  0&  1&  0&  1&  0&  1&  1&  0\\
 \hline
-    &   &   &  \color{green}*&  \color{green}*&   \color{green}*&  \color{green}*\\
+    &   &   &   &  \color{green}*&  \color{green}*&   &  \color{green}*&  \color{green}*&  \color{green}*&  \color{green}*&  \color{green}*&\color{green}*\\
 \hline
 \end{tabular}
 \end{center}
 Die zusätzliche frei wählbare Variable für
-die neue Kante $x_7$ liefert auch einen
-neuen Zyklus $z_4$, der durch die Wahl $x_7=1$ und alle anderen
+die neue Kante $x_{13}$ liefert auch einen
+neuen Zyklus $z_8$, der durch die Wahl $x_{13}=1$ und alle anderen
 frei wählbaren Variablen $=0$ festgelegt ist. Er verläuft durch die
 neue Kante und die erste Kante, zu der die neue Kante parallel
 verläuft:
 \[
-z_4=\begin{pmatrix}
+z_8=\begin{pmatrix}
              -1\\
               0\\
               0\\
+              0\\
+\color{green} 0\\
+\color{green} 0\\
+              0\\
+\color{green} 0\\
+\color{green} 0\\
 \color{green} 0\\
 \color{green} 0\\
 \color{green} 0\\
@@ -85,10 +97,14 @@ z_4=\begin{pmatrix}
 Damit kann man jetzt die $Z$-Matrix aufstellen:
 \[
 Z^t=\begin{pmatrix}
- 1&-1& 0& 1& 0& 0& 0\\
- 1& 0&-1& 0& 1& 0& 0\\
- 0& 1&-1& 0& 0& 1& 0\\
--1& 0& 0& 0& 0& 0& 1
+-1& 1& 0& 0& 1& 0& 0& 0& 0& 0& 0& 0& 0\\
+-1& 0& 0& 1& 0& 1& 0& 0& 0& 0& 0& 0& 0\\
+ 0&-1& 1& 0& 0& 0& 0& 1& 0& 0& 0& 0& 0\\
+ 1&-1& 0& 0& 0& 0& 1& 0& 1& 0& 0& 0& 0\\
+ 0& 0&-1& 1& 0& 0& 0& 0& 0& 1& 0& 0& 0\\
+ 1& 0&-1& 0& 0& 0& 1& 0& 0& 0& 1& 0& 0\\
+ 1& 0& 0&-1& 0& 0& 1& 0& 0& 0& 0& 1& 0\\
+ 1& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 0& 1
 \end{pmatrix}
 \]
 Damit kann man jetzt die Maschengleichungen aufstellen. Da $R=R_0E$ ist,
@@ -97,74 +113,74 @@ erhält man:
 \[
 Z^tR_0EI=R_0Z^tI=Z^te
 \]
-Die einzige Spannungsquelle ist die in der Kante $x_7$, der Vektor
-ist $e$ ist also der Standardbasisvektor $e_7$. Dann ist aber
-$Z^te=Z^te_7$ die letzte Spalte von $Z^t$, also der $4$-dimensionale
-Standardbasisvektor $e_4$. Die Maschengleichungen sind damit:
+Die einzige Spannungsquelle ist die in der Kante $x_{13}$, der Vektor
+ist $e$ ist also der Standardbasisvektor $e_{13}$. Dann ist aber
+$Z^te=Z^te_{13}$ die letzte Spalte von $Z^t$, also der $8$-dimensionale
+Standardbasisvektor $e_{8}$. Die Maschengleichungen sind damit:
 \[
-R_0Z^tI=e_4.
+R_0Z^tI=e_8.
 \]
 Dazu kommen noch die Knotengleichungen $\partial I=0$, wobei wir die letzte
 Gleichung weglassen können. Setzen wir zudem $R_0=1$, dann hat das
 gesamte Gleichungssystem die Koeffizientenmatrix
 \[
 A=\begin{pmatrix}
- 1&-1& 0& 1& 0& 0& 0\\
- 1& 0&-1& 0& 1& 0& 0\\
- 0& 1&-1& 0& 0& 1& 0\\
--1& 0& 0& 0& 0& 0& 1\\
--1&-1&-1& 0& 0& 0&-1\\
- 1& 0& 0&-1&-1& 0& 1\\
- 0& 1& 0& 1& 0&-1& 0
-% 1& 0& 0&-1&-1& 0& 1\\
-% 0& 1& 0& 1& 0&-1& 0\\
-% 0& 0& 1& 0& 1& 1& 0
+   1& -1&  0&  0&  1&  0& -0&  0&  0&  0&  0&  0&  0\\
+   1& -0& -0& -1&  0&  1& -0&  0&  0&  0&  0&  0&  0\\
+   0&  1& -1&  0&  0&  0&  0&  1&  0&  0&  0&  0&  0\\
+  -1&  1& -0& -0&  0&  0& -1&  0&  1&  0&  0&  0&  0\\
+   0&  0&  1& -1&  0&  0&  0&  0&  0&  1&  0&  0&  0\\
+  -1&  0&  1& -0&  0&  0& -1&  0&  0&  0&  1&  0&  0\\
+  -1&  0&  0&  1&  0&  0& -1&  0&  0&  0&  0&  1&  0\\
+  -1&  0&  0&  0&  0&  0&  0&  0&  0&  0&  0&  0&  1\\
+  -1& -1& -1& -1&  0&  0&  0&  0&  0&  0&  0&  0& -1\\
+   1&  0&  0&  0& -1& -1& -1&  0&  0&  0&  0&  0&  1\\
+   0&  1&  0&  0&  1&  0&  0& -1& -1&  0&  0&  0&  0\\
+   0&  0&  1&  0&  0&  0&  0&  1&  0& -1& -1&  0&  0\\
+   0&  0&  0&  1&  0&  1&  0&  0&  0&  1&  0& -1&  0
 \end{pmatrix}
 \]
 %
 %[
-% 1,-1, 0, 1, 0, 0, 0;
-% 1, 0,-1, 0, 1, 0, 0;
-% 0, 1,-1, 0, 0, 1, 0;
-%-1, 0, 0, 0, 0, 0, 1;
-% 1, 0, 0,-1,-1, 0, 1;
-% 0, 1, 0, 1, 0,-1, 0;
-% 0, 0, 1, 0, 1, 1, 0
+% 1,-1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0;
+% 1, 0,-1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0;
+% 0, 1, 0,-1, 0, 0, 0, 1, 0, 0, 0, 0, 0;
+%-1, 1, 0, 0, 0, 0,-1, 0, 1, 0, 0, 0, 0;
+% 0, 0, 1,-1, 0, 0, 0, 0, 0, 1, 0, 0, 0;
+%-1, 0, 1, 0, 0, 0,-1, 0, 0, 0, 1, 0, 0;
+%-1, 0, 0, 1, 0, 0,-1, 0, 0, 0, 0, 1, 0;
+%-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1;
+%-1,-1,-1,-1, 0, 0, 0, 0, 0, 0, 0, 0,-1;
+% 1, 0, 0, 0,-1,-1,-1, 0, 0, 0, 0, 0, 1;
+% 0, 1, 0, 0, 1, 0, 0,-1,-1, 0, 0, 0, 0;
+% 0, 0, 1, 0, 0, 1, 0, 0, 0,-1,-1, 0, 0;
+% 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0,-1, 0
 %]
 %
-und die rechte Seite $e_4$. Die Lösung dieses Gleichungssystems liefert die
+und die rechte Seite $e_8$. Die Lösung dieses Gleichungssystems liefert die
 Ströme, wir interessieren uns aber nur für den Strom durch die
-Kante $x_7$. Die numerische Lösung liefert
+Kante $x_{13}$. Die numerische Lösung liefert
 \[
 I=\begin{pmatrix}
-          -0.33333\\
-          -0.16667\\
-          -0.16667\\
-\phantom{-}0.16667\\
-\phantom{-}0.16667\\
-\phantom{-}0.00000\\
-\phantom{-}0.66667\\
+  -0.294118\\
+  -0.147059\\
+  -0.147059\\
+  -0.117647\\
+   0.147059\\
+   0.147059\\
+   0.117647\\
+   0.029412\\
+  -0.029412\\
+   0.029412\\
+  -0.029412\\
+  -0.058824\\
+   0.705882
 \end{pmatrix}
 \]
-Daraus lässt sich ablesen, dass ein Strom von 666.666mA fliesst,
-der Widerstand ist also 1.5$\Omega$. Da der Innenwiderstand
+Daraus lässt sich ablesen, dass ein Strom von 705mA fliesst,
+der Widerstand ist also 1.4167$\Omega$. Da der Innenwiderstand
 der Spannungsquelle auch 1$\Omega$ war, folgt, dass der "Aquivalentwiderstand
-eines Oktaeders zwischen zwei benachbarten Punkten 0.5$\Omega$ ist.
-
-Dieses Resultat kann man natürlich auch direkt enthalten. Da die beiden
-nicht angeschlossenen Ecken des Tetraeders auf gleichem Potential liegen,
-fliesst durch diese Kante kein Strom. Damit ist das Tetraeder äquivalent
-zu einer Parallelschaltung eines $R_1=1\Omega$-Widerstands mit zwei
-Serienschaltungen von $R_{2,3}=2\Omega$-Widerständen.
-Deren Gesamtwiderstand $R$
-ist
-\[
-\frac1R=\frac1{R_1}+\frac1{R_2}+\frac1{R_3}=\frac1{1\Omega}+2\frac1{2\Omega}=\frac2{1\Omega}
-\quad
-\Rightarrow
-\quad
-R=\frac12\Omega.
-\qedhere
-\]
+eines Oktaeders zwischen zwei benachbarten Punkten 0.4167$\Omega$ ist.
 \end{loesung}
+
 

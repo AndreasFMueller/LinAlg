@@ -1,0 +1,35 @@
+#! /bin/bash
+#
+# renumber -- renumber the problems in a directory
+#
+# (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+#
+if [ $# -lt 1 ]
+then
+	echo "must specify directory"
+	exit 1
+fi
+
+dir=${1}
+cd ${dir}
+
+counter=1
+ECHO=echo
+ECHO=
+
+for f in *.tex
+do
+	number=`basename $f .tex`
+	newnumber=`printf "%s%07d" ${dir} ${counter}`
+	if [ ${number} != ${newnumber} ]
+	then
+		${ECHO} git mv ${number}.tex ${newnumber}.tex
+		if [ -d ${number} ]
+		then
+			${ECHO} git mv ${number} ${newnumber}
+		fi
+	fi
+	counter=`expr ${counter} + 1`
+done
+
+

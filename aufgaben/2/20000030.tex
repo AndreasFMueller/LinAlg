@@ -1,101 +1,96 @@
 Berechnen Sie die Inverse der Matrix
 \[
-A
-=
+A=
 \begin{pmatrix}
-t&0&1\\
-1&t&0\\
-0&1&t
+a&b&0\\
+c&a&b\\
+0&c&a
 \end{pmatrix}.
 \]
-Kontrollieren Sie Ihr Resultat durch Ausrechnen des Produktes $AA^{-1}$.
+Kontrollieren Sie Ihr Resultat, indem Sie $AA^{-1}$ ausmultiplizieren.
 
-\thema{Matrizenprodukt}
-\thema{Matrix mit Parameter}
 \thema{inverse Matrix}
+\thema{Matrix mit Parameter}
 
 \begin{loesung}
-Wir bestimmen die Inverse mit Hilfe von Determinanten.
-Dazu brauchen wir zunächst die Determinaten von $A$, die wir durch Entwicklung
-nach der ersten Spalte berechnen:
+Die Inverse kann mit Hilfe der Determinanten und der Minoren gefunden werden.
+Wir berechnen dazu zunächst die Determinate von $A$ durch Entwicklung
+nach der ersten Zeile:
 \begin{align*}
-\det(A)
-&=
-\left|\,\begin{matrix}
-t&0&1\\
-1&t&0\\
-0&1&t
+\det(A)=\left|\,\begin{matrix}
+a&b&0\\
+c&a&b\\
+0&c&a
 \end{matrix}\,\right|
 =
-t\cdot\left|\,\begin{matrix}t&0\\1&t\end{matrix}\,\right|
--1\cdot\left|\,\begin{matrix}0&1\\1&t\end{matrix}\,\right|
+a
+\cdot
+\left|\,\begin{matrix}a&b\\c&a\end{matrix}\,\right|
+-b
+\cdot
+\left|\,\begin{matrix}c&b\\0&a\end{matrix}\,\right|
 =
-t\cdot t^2-1\cdot(-1)=t^3+1.
+a(a^2-bc)-b\cdot ac=a^3-2abc.
 \end{align*}
-Jetzt können wir die inverse Matrix mit Hilfe der Minoren berechnen:
+Jetzt kann die inverse Matrix mit Hilfe der Minoren hingeschrieben werden
 \begin{align}
 A^{-1}
 &=
-\frac1{\det{A}}\begin{pmatrix}
-\phantom{-}\left|\,\begin{matrix}t&0\\1&t\end{matrix}\,\right|
-	&-\left|\,\begin{matrix}0&1\\1&t\end{matrix}\,\right|
-		&\phantom{-}\left|\,\begin{matrix}0&1\\t&0\end{matrix}\,\right|
-			\\[11pt]
--\left|\,\begin{matrix}1&0\\0&t\end{matrix}\,\right|
-	&\phantom{-}\left|\,\begin{matrix}t&1\\0&t\end{matrix}\,\right|
-		&-\left|\,\begin{matrix}t&1\\1&0\end{matrix}\,\right|
-			\\[11pt]
-\phantom{-}\left|\,\begin{matrix}1&t\\0&1\end{matrix}\,\right|
-	&-\left|\,\begin{matrix}t&0\\0&1\end{matrix}\,\right|
-		&\phantom{-}\left|\,\begin{matrix}t&0\\1&t\end{matrix}\,\right|
+\frac1{a^3-2abc}\begin{pmatrix}
+\phantom{-}\left|\,\begin{matrix}a&b\\c&a\end{matrix}\,\right|
+	&-\left|\,\begin{matrix}b&0\\c&a\end{matrix}\,\right|
+		&\phantom{-}\left|\,\begin{matrix}b&0\\a&b\end{matrix}\,\right|
+			\\[13pt]
+-\left|\,\begin{matrix}c&b\\0&a\end{matrix}\,\right|
+	&\phantom{-}\left|\,\begin{matrix}a&0\\0&a\end{matrix}\,\right|
+		&-\left|\,\begin{matrix}a&0\\c&b\end{matrix}\,\right|
+			\\[13pt]
+\phantom{-}\left|\,\begin{matrix}c&a\\0&c\end{matrix}\,\right|
+	&-\left|\,\begin{matrix}a&b\\0&c\end{matrix}\,\right|
+		&\phantom{-}\left|\,\begin{matrix}a&b\\c&a\end{matrix}\,\right|
 \end{pmatrix}
-=\frac1{t^3+1}
-\renewcommand{\arraystretch}{1}
-\begin{pmatrix}
-t^2&  1& -t\\
- -t&t^2&  1\\
-  1& -t&t^2
-\end{pmatrix}
-\label{20000030:inverse}
+=
+\frac1{a^3-2abc}\begin{pmatrix}
+a^2-bc&-ab&b^2\\
+-ac&a^2&-ab\\
+c^2&-ac&a^2-bc
+\end{pmatrix}.
+\label{20000032:inverse}
 \end{align}
 Kontrolle:
 \begin{align*}
 AA^{-1}
 &=
+\frac1{a^3-2abc}
 \begin{pmatrix}
-t&0&1\\
-1&t&0\\
-0&1&t
+a&b&0\\
+c&a&b\\
+0&c&a
 \end{pmatrix}
-\frac{1}{t^3+1}
 \begin{pmatrix}
-t^2&  1& -t\\
- -t&t^2&  1\\
-  1& -t&t^2
-\end{pmatrix}
-\\
-&=
-\frac{1}{t^3+1}
-\begin{pmatrix}
-t\cdot t^2+1\cdot 1
-	&t\cdot 1+1\cdot(-t)
-		&t\cdot(-t)+1\cdot t^2\\
-1\cdot t^2+t\cdot (-t)
-	&1\cdot 1+t\cdot t^2
-		&1\cdot(-t)+t\cdot 1\\
-t\cdot (-t)+t\cdot 1§
-	&t^2\cdot 1+t\cdot (-t)
-		&1\cdot 1+t\cdot t^2
+a^2-bc&-ab&b^2\\
+-ac&a^2&-ab\\
+c^2&-ac&a^2-bc
 \end{pmatrix}
 \\
 &=
-\frac1{t^3+1}
+\frac1{a^3-2abc}
 \begin{pmatrix}
-t^3+1&    0&    0\\
-    0&t^3+1&    0\\
-    0&    0&t^3+1
-\end{pmatrix}=E.
+a(a^2-bc)-abc      &-a^2b+a^2b  &ab^2-ab^2          \\
+c(a^2-bc)-a^2b+bc^2&-abc+a^3-abc&b^2c-a^2b+b(a^2-bc)\\
+-ac^2+ac^2         &a^2c-a^2c   &-abc+a(a^2-bc)
+\end{pmatrix}
+\\
+&=
+\frac1{a^3-2abc}
+\begin{pmatrix}
+a^3-2abc&0&0\\
+0&a^3-2abc&0\\
+0&0&a^3-2abc
+\end{pmatrix}
+=E.
 \end{align*}
-Damit ist gezeigt, dass (\ref{20000030:inverse}) tatsächlich die inverse Matrix
-von $A$ ist.
+Damit ist gezeigt, dass die Matrix (\ref{20000032:inverse}) tatsächlich
+die Inverse von $A$ ist.
 \end{loesung}
+

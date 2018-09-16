@@ -1,167 +1,52 @@
-Berechnen Sie die Determinante der Matrix $A$,
+Gegeben ist das Gleichungssystem
 \[
-A=\begin{pmatrix}
-4&3&2&1\\
-3&4&3&2\\
-2&3&4&3\\
-1&2&3&4
-\end{pmatrix}.
+\begin{linsys}{3}
+ x&-&t y&=&t\\
+tx&+&  y&=&t^2.
+\end{linsys}
 \]
+\begin{teilaufgaben}
+\item Für welche Werte von $t$ ist die Matrix dieses Gleichungssystems
+regulär?
+\item
+Verwenden Sie die Kramersche Regel, um 
+eine Formel für $x$ und $y$ in Abhängigkeit von $t$ anzugeben.
+\end{teilaufgaben}
 
-\thema{Determinante}
-\thema{Entwicklungssatz}
-\thema{Sarrus-Formel}
+\thema{Kramersche Regel}
+\thema{Determinante mit Parameter}
 
 \begin{loesung}
-Wenn man die erste Zeile zur letzten Zeile hinzuaddiert, bekommt man eine
-Zeile, in der alle Elemente $5$ sind, 
-\[
-\det(A)
-=
-\left|\,
-\begin{matrix}
- 4& 3& 2& 1\\
- 3& 4& 3& 2\\
- 2& 3& 4& 3\\
- 5& 5& 5& 5
-\end{matrix}
-\,\right|
-=5
-\left|\,
-\begin{matrix}
-4&3&2&1\\
-3&4&3&2\\
-2&3&4&3\\
-1&1&1&1
-\end{matrix}
-\,\right|
-\]
-Jetzt kann man durch Subtrahieren von Vielfachen der letzten Zeile in
-der letzten Spalte Nullen erzeugen:
-\[
-\det(A)
-=
-5
-\left|\,
-\begin{matrix}
- 3&2&1&0\\
- 1&2&1&0\\
--1&0&1&0\\
- 1&1&1&1
-\end{matrix}
-\,\right|
-=
-5
-\left|\,
-\begin{matrix}
- 3&2&1\\
- 1&2&1\\
--1&0&1
-\end{matrix}
-\,\right|
-\]
-Jetzt kann man die zweite Zeile von der ersten subtrahieren
-\[
-\det(A)
-=
-5
-\left|\,
-\begin{matrix}
- 3&2&1\\
- 1&2&1\\
--1&0&1
-\end{matrix}
-\,\right|
-=
-5
-\left|\,
-\begin{matrix}
- 2&0&0\\
- 1&2&1\\
--1&0&1
-\end{matrix}
-\,\right|
-=
-10
-\left|\,
-\begin{matrix}
-1&0&0\\
-0&2&1\\
-0&0&1
-\end{matrix}
-\,\right|
-=20.
-\]
-
-Alternativ kann die Determinante auch mit dem Entwicklungssatz berechnen:
+\begin{teilaufgaben}
+\item
+Die Determinante der Koeffizientenmatrix gibt darüber Auskunft, ob die
+Matrix regulär ist. Sie ist
 \begin{align*}
-\det(A)
-&=
-4
-\left|\,
-\begin{matrix}
-4&3&2\\
-3&4&3\\
-2&3&4
-\end{matrix}
-\,\right|
--3
-\left|\,
-\begin{matrix}
-3&3&2\\
-2&4&3\\
-1&3&4
-\end{matrix}
-\,\right|
-+2
-\left|\,
-\begin{matrix}
-3&4&2\\
-2&3&3\\
-1&2&4
-\end{matrix}
-\,\right|
--1
-\left|\,
-\begin{matrix}
-3&4&3\\
-2&3&4\\
-1&2&3
-\end{matrix}
-\,\right|
+\left|\,\begin{matrix}1&-t\\t&1\end{matrix}\,\right|
+&=1\cdot 1-(-t)\cdot t=1+t^2.
 \end{align*}
-Die einzelnen $3\times 3$-Determinanten kann man jetzt mit der Sarrus-Formel
-ausrechnen:
+Da $1+t^2>0$ für alle $t\in\mathbb R$ ist die Matrix immer regulär und
+damit das Gleichungssystem immer eindeutig lösbar.
+\item
+Wir verwenden die Kramersche Formel, dazu brauchen wir einerseits die bereits
+berechnete Determinante der Koeffizientenmatrix des Gleichungssystems
+und andererseits die Determinanten von Matrizen, die daraus durch Ersetzen
+einer Spalte entstehen:
 \begin{align*}
-\det(A)
-&=
-4(4\cdot 4\cdot 4 + 3\cdot 3\cdot 2 +2\cdot 3 \cdot 3
--2\cdot 4\cdot 2-3\cdot 3\cdot 4-4\cdot 3\cdot 3)
+&\text{1.~Spalte ersetzt:}&
+\left|\,\begin{matrix}t&-t\\t^2&1\end{matrix}\,\right|
+&=t+t^3
 \\
-&\quad-3(3\cdot 4\cdot 4+3\cdot 3\cdot 1+2\cdot 2\cdot 3
--1\cdot 4\cdot 2-3\cdot 3\cdot 3-4\cdot 2\cdot 3)
-\\
-&\quad+2(3\cdot 3\cdot 4+4\cdot 3\cdot 1+2\cdot 2\cdot 2
--1\cdot 3\cdot 2-2\cdot 3\cdot 3-4\cdot 2\cdot 4)
-\\
-&\quad-1(3\cdot 3\cdot 3+4\cdot 4\cdot 1+3\cdot 2\cdot 2
--1\cdot 3\cdot 3-2\cdot 4\cdot 3 - 3\cdot 2\cdot 4)
-\\
-&=
-4(64 + 18 + 18 -16-36-36)
-\\
-&\quad-3(48+9+12 -8-27-24)
-\\
-&\quad+2(36+12+8 -6-18-32)
-\\
-&\quad-1(27+16+12 -9-24 - 24)
-\\
-&=
-4\cdot 12
--3\cdot 10
-+2\cdot 0
--1\cdot (-2)
-=48-30+2=20.
+&\text{2.~Spalte ersetzt:}&
+\left|\,\begin{matrix}1&t\\t&t^2\end{matrix}\,\right|
+&=t^2-t^2=0
+\end{align*}
+Daraus kann man mit Hilfe der Kramerschen Formel die Lösung des
+Gleichungssystems ableiten:
+\begin{align*}
+x&=\frac{t+t^3}{1+t^2}=t,&
+y&=0.
+\end{align*}
 \qedhere
-\end{align*}
+\end{teilaufgaben}
 \end{loesung}

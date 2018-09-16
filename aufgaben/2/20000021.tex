@@ -1,156 +1,286 @@
-Hans kritzelt ein paar bedeutende Jahreszahlen aus seinem Leben
-auf ein Papier:
+Ist die Matrix
 \[
-\begin{matrix}
-1&9&9&9\\
-2&0&0&0\\
-2&0&0&7\\
-2&0&1&4
-\end{matrix}
+A=\begin{pmatrix}
+0&1&1&1&0&0\\
+0&1&0&1&0&1\\
+0&0&0&1&1&1\\
+1&1&1&0&0&0\\
+1&0&1&0&1&0\\
+1&0&0&0&1&1
+\end{pmatrix}
 \]
-Sofort stellt er sich die naheliegenden Fragen:
-\begin{teilaufgaben}
-\item Bilden diese Zahlen eine reguläre Matrix? 
-\item Welchen Wert hat die Determinante?
-\item Was ändert sich, wenn Hans seine Zahlen rückwärts und in
-umgekehrter zeitlicher Reihenfolge hinkritzelt?
-\end{teilaufgaben}
+regulär?
 
+\thema{Entwicklungssatz}
 \thema{Determinante}
 
 \begin{loesung}
-\begin{teilaufgaben}
-\item
-Die Teilaufgabe a) lässt sich sofort lösen, wenn man b) gelöst
-hat. Wenn die Determinate nicht verschwindet, ist die Matrix regulär.
+Die Zeilen 2 und 5 haben die gleiche Summe wie die Zeilen 3 und 4,
+die sechs Zeilen der Matrix $A$ sind also nicht linear unabhängig,
+daher ist die Matrix nicht regulär.
 
-Natürlich kann die Regularität auch mit Hilfe des Gauss-Algorithmus
-festgestellt werden, was aber etwas mehr Arbeit gibt:
+Man kann dieses Resultat auch dadurch finden, dass man den Gauss-Algorithmus
+darauf anwendet. Allerdings ist es zweckmässig, die Zeilen etwas umzustellen:
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-1&9&9&9\\
-2&0&0&0\\
-2&0&0&7\\
-2&0&1&4\\
+0&1&1&1&0&0\\
+0&1&0&1&0&1\\
+0&0&0&1&1&1\\
+1&1&1&0&0&0\\
+1&0&1&0&1&0\\
+1&0&0&0&1&1\\
 \hline
 \end{tabular}
 &\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-1&  9&  9&  9\\
-0&-18&-18&-18\\
-0&-18&-18&-11\\
-0&-18&-17&-14\\
+1&0&0&0&1&1\\
+0&1&0&1&0&1\\
+0&1&1&1&0&0\\
+0&0&0&1&1&1\\
+1&1&1&0&0&0\\
+1&0&1&0&1&0\\
 \hline
 \end{tabular}
+\\
 \rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-1&  9&  9&  9\\
-0&  1&  1&  1\\
-0&  0&  0&  7\\
-0&  0&  1&  4\\
+ 1& 0& 0& 0& 1& 1\\
+ 0& 1& 0& 1& 0& 1\\
+ 0& 1& 1& 1& 0& 0\\
+ 0& 0& 0& 1& 1& 1\\
+ 0& 1& 1& 0&-1&-1\\
+ 0& 0& 1& 0& 0&-1\\
 \hline
 \end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ 1& 0& 0& 0& 1& 1\\
+ 0& 1& 0& 1& 0& 1\\
+ 0& 0& 1& 0& 0&-1\\
+ 0& 0& 0& 1& 1& 1\\
+ 0& 0& 1&-1&-1&-2\\
+ 0& 0& 1& 0& 0&-1\\
+\hline
+\end{tabular}
+\end{align*}
+In der letzten Matrix sind die Zeilen 3 und 6 identisch, die Matrix kann
+also nicht regulär sein.
+
+Die Berechnung der Determinante mit dem Entwicklungssatz ist etwas unhandlich
+aber nicht unmöglich:
+\begin{align*}
+\det(A)&=
+-\left|\begin{matrix}
+0&0&1&0&1\\
+0&0&1&1&1\\
+1&1&0&0&0\\
+1&1&0&1&0\\
+1&0&0&1&1\\
+\end{matrix}\right|
++\left|\begin{matrix}
+0&1&1&0&1\\
+0&0&1&1&1\\
+1&1&0&0&0\\
+1&0&0&1&0\\
+1&0&0&1&1\\
+\end{matrix}\right|
+-\left|\begin{matrix}
+0&1&0&0&1\\
+0&0&0&1&1\\
+1&1&1&0&0\\
+1&0&1&1&0\\
+1&0&0&1&1\\
+\end{matrix}\right|
+\\
+&=
+-\left|\begin{matrix}
+0&0&1&1\\
+1&1&0&0\\
+1&1&1&0\\
+1&0&1&1\\
+\end{matrix}\right|
+-\left|\begin{matrix}
+0&0&1&1\\
+1&1&0&0\\
+1&1&0&1\\
+1&0&0&1\\
+\end{matrix}\right|
+%
++\left|\begin{matrix}
+1&1&0&1\\
+0&1&1&1\\
+0&0&1&0\\
+0&0&1&1\\
+\end{matrix}\right|
+-\left|\begin{matrix}
+0&1&0&1\\
+0&1&1&1\\
+1&0&1&0\\
+1&0&1&1\\
+\end{matrix}\right|
+%
++\left|\begin{matrix}
+0&0&1&1\\
+1&1&0&0\\
+1&1&1&0\\
+1&0&1&1\\
+\end{matrix}\right|
+-\left|\begin{matrix}
+0&0&0&1\\
+1&1&1&0\\
+1&0&1&1\\
+1&0&0&1\\
+\end{matrix}\right|
+\\
+&=
+\left(
+-\left|\begin{matrix}
+1&1&0\\
+1&1&0\\
+1&0&1\\
+\end{matrix}\right|
++\left|\begin{matrix}
+1&1&0\\
+1&1&1\\
+1&0&1\\
+\end{matrix}\right|
+\right)
+%
++
+\left(
+-\left|\begin{matrix}
+1&1&0\\
+1&1&1\\
+1&0&1\\
+\end{matrix}\right|
+%
++\left|\begin{matrix}
+1&1&1\\
+0&1&0\\
+0&1&1\\
+\end{matrix}\right|
+\right)
+%
++
+\left(
+\left|\begin{matrix}
+0&1&1\\
+1&1&0\\
+1&1&1\\
+\end{matrix}\right|
++\left|\begin{matrix}
+0&1&1\\
+1&0&1\\
+1&0&1\\
+\end{matrix}\right|
+\right)
 \\
 &
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&  9&  9&  9\\
-0&  1&  1&  1\\
-0&  0&  1&  4\\
-0&  0&  0&  7\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&  9&  9&  9\\
-0&  1&  1&  1\\
-0&  0&  1&  4\\
-0&  0&  0&  1\\
-\hline
-\end{tabular}
-\end{align*}
-Offenbar kann der Gaussalgorithmus ohne verschwindende Pivot-Elemente
-durchgeführt werden, die Matrix ist also regulär. Die Pivot-Elemente
-waren der Reihe nach: $1$, $-18$, $1$ und $7$.
-Ausserdem wurde eine Zeilenvertauschung vorgenommen.
-\item
-Wir berechnen zunächst die Determinante durch Entwicklung
-nach der zweiten Zeile:
-\begin{align*}
-\left|\;
-\begin{matrix}
-1&9&9&9\\
-2&0&0&0\\
-2&0&0&7\\
-2&0&1&4
-\end{matrix}
-\;\right|
-&=
--2\cdot
-\left|\;\begin{matrix}
-9&9&9\\
-0&0&7\\
-0&1&4
-\end{matrix}\;\right|
-=-2\cdot 9\cdot
-\left|\;\begin{matrix}
+\quad
++
+\left(
+\left|\begin{matrix}
+1&1&0\\
+1&1&0\\
+1&0&1\\
+\end{matrix}\right|
+-\left|\begin{matrix}
+1&1&0\\
 1&1&1\\
-0&0&7\\
-0&1&4
-\end{matrix}\;\right|
+1&0&1\\
+\end{matrix}\right|
+\right)
+%
++
+\left(
+\left|\begin{matrix}
+1&1&1\\
+1&0&1\\
+1&0&0\\
+\end{matrix}\right|
+\right)
 \\
 &=
--2\cdot 9\cdot(-7)\cdot
-\left|\;\begin{matrix}
+\left(
+0
++\left|\begin{matrix}
 1&1\\
-0&1
-\end{matrix}\;\right|
-=
--2\cdot 9\cdot(-7)=126.
-\end{align*}
-Da die Determinanten nicht verschwindet, ist die Matrix regulär.
-
-Die Determinante kann auch aus den Pivot-Elementen des oben durchgeführten
-Gauss-Algorithmus abgeleitet werden. Dabei muss allerdings beachtet werden,
-dass dazu auch eine Zeilenvertauschung notwendig war, d.~h.~die Determinante
-ist 
-\[
-\det(A)=\underbrace{1\cdot (-18)\cdot 1\cdot 7}_{\text{Produkt der Pivotelemente}}\cdot \underbrace{(-1)}_{\text{Zeilenvertauschung}}
-\]
-\item Rückwärts geschriebene Zahlen in umgekehrter Reihenfolge 
-ergeben die Matrix
-\[
-A'=\begin{pmatrix}
-4&1&0&2\\
-7&0&0&2\\
-0&0&0&2\\
-9&9&9&1
-\end{pmatrix}
-\]
-Durch 6 Vertauschungen von aufeinanderfolgenden Zeilen und 6
-Vertauschungen aufeinanderfolgender Spalten kann $A$ in $A'$
-übergeführt werden. Da sich bei Zeilen- oder Spaltenvertauschungen
-nur das Vorzeichen der Determinate ändert, ändert sich bei
-einer geraden Zahl von Vertauschungen wie beim "Ubergang von $A$
-zu $A'$ nichts.
+0&1\\
+\end{matrix}\right|
+-\left|\begin{matrix}
+1&1\\
+1&1\\
+\end{matrix}\right|
+\right)
+%
++
+\left(
+-\left|\begin{matrix}
+1&1\\
+0&1\\
+\end{matrix}\right|
++\left|\begin{matrix}
+1&1\\
+1&1\\
+\end{matrix}\right|
+%
++\left|\begin{matrix}
+1&1\\
+0&1\\
+\end{matrix}\right|
+\right)
+%
++
+\left(
+-
+\left|\begin{matrix}
+1&0\\
+1&1\\
+\end{matrix}\right|
++
+\left|\begin{matrix}
+1&1\\
+1&1\\
+\end{matrix}\right|
++0
+\right)
+\\
+&
+\quad
++
+\left(
+0
+-\left|\begin{matrix}
+1&1\\
+0&1\\
+\end{matrix}\right|
++\left|\begin{matrix}
+1&1\\
+1&1\\
+\end{matrix}\right|
+\right)
+%
++
+\left(
+\left|\begin{matrix}
+1&1\\
+0&1\\
+\end{matrix}\right|
+\right)
+\\
+&=
+\left( 0 +1 -0 \right)
++ \left( -1 +0 +1 \right)
++ \left( - 1 + 0 +0 \right)
++ \left( 0 -1 +0 \right)
++ \left( 1 \right)
+=0
 \qedhere
-\end{teilaufgaben}
+\end{align*}
+Die Determinante ist also $0$, die Matrix ist singulär.
 \end{loesung}
-
-\begin{bewertung}
-Entwicklungssatz ({\bf E}) 1 Punkt,
-rekursive Berechnung der Determinanten ({\bf B}) 1 Punkt,
-Wert der Determinanten ({\bf D}) 1 Punkt,
-Regularität ({\bf R}) 1 Punkt, 
-Rechenregeln für Vertauschungen von Zeilen und Spalten ({\bf V}) 1 Punkt,
-Resultat $\det A=\det A'$ ({\bf A}) 1 Punkt.
-\end{bewertung}
-
-
-
 

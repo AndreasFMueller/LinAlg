@@ -1,96 +1,47 @@
-Berechnen Sie die Inverse der Matrix
+Die $n\times n$-Matrix $A_n$ hat die Form
 \[
-A=
-\begin{pmatrix}
-a&b&0\\
-c&a&b\\
-0&c&a
+A_n=\begin{pmatrix}
+     1&     0&     0&     0&\dots &     0\\
+     1&     2&     0&     0&\dots &     0\\
+     1&     2&     3&     0&\dots &     0\\
+     1&     2&     3&     4&\dots &     0\\
+\vdots&\vdots&\vdots&\vdots&\ddots&\vdots\\
+     1&     2&     3&     4&\dots &     n
 \end{pmatrix}.
 \]
-Kontrollieren Sie Ihr Resultat, indem Sie $AA^{-1}$ ausmultiplizieren.
+Die Matrix $A_nA_n^t$ hat die Form
+\[
+A_nA_n^t
+=
+\begin{pmatrix}
+     1&     1&     1&     1& \dots&      1&      1\\
+     1&     5&     5&     5& \dots&      5&      5\\
+     1&     5&    14&    14& \dots&     14&     14\\
+     1&     5&    14&    30& \dots&     30&     30\\
+\vdots&\vdots&\vdots&\vdots&\ddots& \vdots& \vdots\\
+     1&     5&    14&    30& \dots&q_{n-1}&q_{n-1}\\
+     1&     5&    14&    30& \dots&q_{n-1}&    q_n
+\end{pmatrix},
+\]
+darin ist $q_k$ die Summe der ersten $k$ Quadratzahlen:
+\[
+q_k=\sum_{i=1}^ki^2=\frac{k(k+1)(2k+1)}6.
+\qquad
+\text{(Wikipedia)}
+\]
+Berechnen Sie die Determinante von $A_nA^t_n$.
 
-\thema{inverse Matrix}
-\thema{Matrix mit Parameter}
+\thema{Produktsatz}
 
 \begin{loesung}
-Die Inverse kann mit Hilfe der Determinanten und der Minoren gefunden werden.
-Wir berechnen dazu zunächst die Determinate von $A$ durch Entwicklung
-nach der ersten Zeile:
-\begin{align*}
-\det(A)=\left|\,\begin{matrix}
-a&b&0\\
-c&a&b\\
-0&c&a
-\end{matrix}\,\right|
-=
-a
-\cdot
-\left|\,\begin{matrix}a&b\\c&a\end{matrix}\,\right|
--b
-\cdot
-\left|\,\begin{matrix}c&b\\0&a\end{matrix}\,\right|
-=
-a(a^2-bc)-b\cdot ac=a^3-2abc.
-\end{align*}
-Jetzt kann die inverse Matrix mit Hilfe der Minoren hingeschrieben werden
-\begin{align}
-A^{-1}
-&=
-\frac1{a^3-2abc}\begin{pmatrix}
-\phantom{-}\left|\,\begin{matrix}a&b\\c&a\end{matrix}\,\right|
-	&-\left|\,\begin{matrix}b&0\\c&a\end{matrix}\,\right|
-		&\phantom{-}\left|\,\begin{matrix}b&0\\a&b\end{matrix}\,\right|
-			\\[13pt]
--\left|\,\begin{matrix}c&b\\0&a\end{matrix}\,\right|
-	&\phantom{-}\left|\,\begin{matrix}a&0\\0&a\end{matrix}\,\right|
-		&-\left|\,\begin{matrix}a&0\\c&b\end{matrix}\,\right|
-			\\[13pt]
-\phantom{-}\left|\,\begin{matrix}c&a\\0&c\end{matrix}\,\right|
-	&-\left|\,\begin{matrix}a&b\\0&c\end{matrix}\,\right|
-		&\phantom{-}\left|\,\begin{matrix}a&b\\c&a\end{matrix}\,\right|
-\end{pmatrix}
-=
-\frac1{a^3-2abc}\begin{pmatrix}
-a^2-bc&-ab&b^2\\
--ac&a^2&-ab\\
-c^2&-ac&a^2-bc
-\end{pmatrix}.
-\label{20000032:inverse}
-\end{align}
-Kontrolle:
-\begin{align*}
-AA^{-1}
-&=
-\frac1{a^3-2abc}
-\begin{pmatrix}
-a&b&0\\
-c&a&b\\
-0&c&a
-\end{pmatrix}
-\begin{pmatrix}
-a^2-bc&-ab&b^2\\
--ac&a^2&-ab\\
-c^2&-ac&a^2-bc
-\end{pmatrix}
-\\
-&=
-\frac1{a^3-2abc}
-\begin{pmatrix}
-a(a^2-bc)-abc      &-a^2b+a^2b  &ab^2-ab^2          \\
-c(a^2-bc)-a^2b+bc^2&-abc+a^3-abc&b^2c-a^2b+b(a^2-bc)\\
--ac^2+ac^2         &a^2c-a^2c   &-abc+a(a^2-bc)
-\end{pmatrix}
-\\
-&=
-\frac1{a^3-2abc}
-\begin{pmatrix}
-a^3-2abc&0&0\\
-0&a^3-2abc&0\\
-0&0&a^3-2abc
-\end{pmatrix}
-=E.
-\end{align*}
-Damit ist gezeigt, dass die Matrix (\ref{20000032:inverse}) tatsächlich
-die Inverse von $A$ ist.
+Da $A_n$ eine Dreiecksmatrix ist, ist die Determinante das Produkt der
+Diagonalelement, also $\det(A_n)=n!$. 
+Die Determinante bleibt beim Transponieren gleich, also folgt aus der
+Produktformel
+\[
+\det(A_nA_n^t)=\det(A_n)\det(A_n^t)=\det(A_n)^2=(n!)^2.
+\qedhere
+\]
 \end{loesung}
+
 

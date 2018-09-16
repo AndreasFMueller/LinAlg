@@ -1,63 +1,101 @@
-Berechnen Sie die Determinante der $n\times n$-Matrix 
+Berechnen Sie die Inverse der Matrix
 \[
-A_n=\begin{pmatrix}
-\frac1n& \frac1n& \frac1n&\dots & \frac1n& \frac1n\\
-     -1&       1&       0&\dots &       0&       0\\
-      0&      -1&       1&\dots &       0&       0\\
-\vdots &\vdots  &\ddots  &\ddots& \vdots & \vdots \\
-      0&       0&       0&\dots &      -1&       1
+A
+=
+\begin{pmatrix}
+t&0&1\\
+1&t&0\\
+0&1&t
 \end{pmatrix}.
 \]
+Kontrollieren Sie Ihr Resultat durch Ausrechnen des Produktes $AA^{-1}$.
 
-\thema{Entwicklungssatz}
+\thema{Matrizenprodukt}
+\thema{Matrix mit Parameter}
+\thema{inverse Matrix}
 
 \begin{loesung}
-Die erste Zeile von $A_n$ hat den gemeinsamen Faktor $\frac1n$, den
-wir aus der Determinante ausklammern können.
-Wir erhalten dann $\det A_n =\frac1n\det B_n $, wobei 
-\[
-B_n=\begin{pmatrix}
-      1&       1&       1&\dots &       1&       1\\
-     -1&       1&       0&\dots &       0&       0\\
-      0&      -1&       1&\dots &       0&       0\\
-\vdots &\vdots  &\ddots  &\ddots& \vdots & \vdots \\
-      0&       0&       0&\dots &      -1&       1
-\end{pmatrix}
-\]
-ist.
-Die Determinante von $B_n$ können wir durch Entwicklung nach der ersten
-Spalte bestimmen:
-\[
-\det B_n
+Wir bestimmen die Inverse mit Hilfe von Determinanten.
+Dazu brauchen wir zunächst die Determinaten von $A$, die wir durch Entwicklung
+nach der ersten Spalte berechnen:
+\begin{align*}
+\det(A)
+&=
+\left|\,\begin{matrix}
+t&0&1\\
+1&t&0\\
+0&1&t
+\end{matrix}\,\right|
 =
-\underbrace{
-\left|\begin{matrix}
-       1&       0&\dots &       0&       0\\
-      -1&       1&\dots &       0&       0\\
-\vdots  &\ddots  &\ddots& \vdots & \vdots \\
-       0&       0&\dots &      -1&       1
-\end{matrix}\right|}_{=1}
--(-1)\cdot
-\underbrace{
-\left|\begin{matrix}
-       1&       1&\dots &       1&       1\\
-      -1&       1&\dots &       0&       0\\
-\vdots  &\ddots  &\ddots& \vdots & \vdots \\
-       0&       0&\dots &      -1&       1
-\end{matrix}\right|}_{=\det B_{n-1}}.
-\]
-Damit haben wir eine Rekursionsformel für $\det B_n$ erhalten:
-\[
-\det B_n = 1 + \det B_{n-1}
-\]
-Da $B_1$ die Einheitsmatrix ist, gilt $\det B_1=1$ und damit folgt
-\[
-\det B_n=n,
-\]
-und schliesslich
-\[
-\det A_n=\frac1n\det B_n=\frac1n\cdot n=1.
-\]
-Die Matrix $A_n$ ist also unimodular, $A_n\in\operatorname{SL}_n(\mathbb R)$.
+t\cdot\left|\,\begin{matrix}t&0\\1&t\end{matrix}\,\right|
+-1\cdot\left|\,\begin{matrix}0&1\\1&t\end{matrix}\,\right|
+=
+t\cdot t^2-1\cdot(-1)=t^3+1.
+\end{align*}
+Jetzt können wir die inverse Matrix mit Hilfe der Minoren berechnen:
+\begin{align}
+A^{-1}
+&=
+\frac1{\det{A}}\begin{pmatrix}
+\phantom{-}\left|\,\begin{matrix}t&0\\1&t\end{matrix}\,\right|
+	&-\left|\,\begin{matrix}0&1\\1&t\end{matrix}\,\right|
+		&\phantom{-}\left|\,\begin{matrix}0&1\\t&0\end{matrix}\,\right|
+			\\[11pt]
+-\left|\,\begin{matrix}1&0\\0&t\end{matrix}\,\right|
+	&\phantom{-}\left|\,\begin{matrix}t&1\\0&t\end{matrix}\,\right|
+		&-\left|\,\begin{matrix}t&1\\1&0\end{matrix}\,\right|
+			\\[11pt]
+\phantom{-}\left|\,\begin{matrix}1&t\\0&1\end{matrix}\,\right|
+	&-\left|\,\begin{matrix}t&0\\0&1\end{matrix}\,\right|
+		&\phantom{-}\left|\,\begin{matrix}t&0\\1&t\end{matrix}\,\right|
+\end{pmatrix}
+=\frac1{t^3+1}
+\renewcommand{\arraystretch}{1}
+\begin{pmatrix}
+t^2&  1& -t\\
+ -t&t^2&  1\\
+  1& -t&t^2
+\end{pmatrix}
+\label{20000030:inverse}
+\end{align}
+Kontrolle:
+\begin{align*}
+AA^{-1}
+&=
+\begin{pmatrix}
+t&0&1\\
+1&t&0\\
+0&1&t
+\end{pmatrix}
+\frac{1}{t^3+1}
+\begin{pmatrix}
+t^2&  1& -t\\
+ -t&t^2&  1\\
+  1& -t&t^2
+\end{pmatrix}
+\\
+&=
+\frac{1}{t^3+1}
+\begin{pmatrix}
+t\cdot t^2+1\cdot 1
+	&t\cdot 1+1\cdot(-t)
+		&t\cdot(-t)+1\cdot t^2\\
+1\cdot t^2+t\cdot (-t)
+	&1\cdot 1+t\cdot t^2
+		&1\cdot(-t)+t\cdot 1\\
+t\cdot (-t)+t\cdot 1§
+	&t^2\cdot 1+t\cdot (-t)
+		&1\cdot 1+t\cdot t^2
+\end{pmatrix}
+\\
+&=
+\frac1{t^3+1}
+\begin{pmatrix}
+t^3+1&    0&    0\\
+    0&t^3+1&    0\\
+    0&    0&t^3+1
+\end{pmatrix}=E.
+\end{align*}
+Damit ist gezeigt, dass (\ref{20000030:inverse}) tatsächlich die inverse Matrix
+von $A$ ist.
 \end{loesung}
-

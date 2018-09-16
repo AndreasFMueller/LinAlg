@@ -1,103 +1,40 @@
-Berechnen Sie die Determinante 
+Betrachten Sie die Matrix
 \[
-A=\left|\,\begin{matrix}
- 1& 0&-1&0\\
- 2&-2& 0&4\\
- 0&-3& 3&0\\
--2& 0&-1&3
-\end{matrix}\,\right|
+A=\begin{pmatrix}
+1&2\\
+9&1
+\end{pmatrix}
 \]
+Berechnen Sie $\det(A^{47})$.
 
+\thema{Produktsatz}
 \thema{Determinante}
-\thema{Entwicklungssatz}
 
 \begin{loesung}
-Zunächst kann man die gemeinsamen Faktoren $2$ und $3$ in den Zeilen 2 und 3
-herausziehen:
-\begin{align*}
-\det(A)
-&=
-2\cdot 3\cdot
-\left|\,\begin{matrix}
- 1& 0&-1&0\\
- 1&-1& 0&2\\
- 0&-1& 1&0\\
--2& 0&-1&3
-\end{matrix}\,\right|
-\end{align*}
-Indem man die zweite Zeile zur dritten addiert und das resultate fon der zweiten
-zweiten subtrahiert,
-kann man die Zahl der Nullen in der zweiten Zeile weiter reduzieren und
-nochmals einen Faktor 2 herausziehen:
-\begin{align*}
-\det(A)
-&=
-2\cdot 3\cdot
-\left|\,\begin{matrix}
- 1& 0&-1&0\\
- 0& 0& 0&2\\
- 1&-1& 0&0\\
--2& 0&-1&3
-\end{matrix}\,\right|
+Zunächst berechnen wir die Determinante von $A$:
+\[
+\det(A)=
+\left|
+\begin{matrix}
+1&2\\
+9&1
+\end{matrix}
+\right|
+=1\cdot 1 - 2 \cdot 9 = -17
+\]
+Aus der Produktformel folgt:
+\[
+\det(A^{47})
 =
-2\cdot 3\cdot2\cdot
-\left|\,\begin{matrix}
- 1& 0&-1&0\\
- 0& 0& 0&1\\
- 1&-1& 0&0\\
--2& 0&-1&3
-\end{matrix}\,\right|
-\end{align*}
-Entwicklung nach der zweiten Zeile gibt
-\begin{align*}
-\det(A)
-&=
-2\cdot 3\cdot2\cdot
-\left|\,\begin{matrix}
- 1& 0&-1\\
- 1&-1& 0\\
--2& 0&-1
-\end{matrix}\,\right|
+\det(A)^{47}
 =
-12\cdot \biggl(
-1\cdot
-\left|\,\begin{matrix}-1& 0\\ 0&-1\end{matrix}\,\right|
-+
-(-1)\cdot
-\left|\,\begin{matrix} 1&-1\\-2& 0\end{matrix}\,\right|
-\biggr)
-\\
-&=12\cdot(1-(-2))=3\cdot 12=36.
+(-17)^{47}
+=
+-6.7780\cdot 10^{57}.
 \qedhere
-\end{align*}
-
-Natürlich kann man die Determinante auch durch direkte Anwendung des
-Entwicklungssatzes bestimmen.
-Die letzte Spalte enthält zwei Nullen, daher bietet sie sich für die
-Entwicklung an:
-\begin{align*}
-\det a
-&=
-4\cdot
-\left|\begin{matrix}
- 1& 0&-1\\
- 0&-3& 3\\
--2& 0&-1
-\end{matrix}\right|
-+3\cdot
-\left|\begin{matrix}
- 1& 0&-1\\
- 2&-2& 0\\
- 0&-3& 3
-\end{matrix}\right|
-\\
-&=
-4\cdot(3+6)+3\cdot(-6+6)=4\cdot 9=36.
-\qedhere
-\end{align*}
+\]
 \end{loesung}
 
-\begin{bewertung}
-6 Punkte.
-\end{bewertung}
+
+
 

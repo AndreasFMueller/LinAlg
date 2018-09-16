@@ -1,85 +1,51 @@
 Berechnen Sie die Determinante der Matrix
 \[
-A=\begin{pmatrix}
-1&2&0&0&0\\
-2&0&3&4&0\\
-0&3&0&0&5\\
-0&4&0&0&6\\
-0&0&5&6&0
+B
+=
+\begin{pmatrix}
+a-3&  1&  1\\
+a-3&a-1&  2\\
+a-3&a-1&a+1
 \end{pmatrix}.
 \]
+Für welche Werte von $a$ ist $B$ nicht regulär?
 
 \thema{Determinante}
 \thema{Entwicklungssatz}
 
 \begin{loesung}
-Wir entwickeln nach der ersten Spalte
+Wir formen mit Hilfe der Rechenregeln für Determinanten um:
 \begin{align*}
-\det(A)
+\det B
 &=
-1\cdot
-\left|\,\begin{matrix}
-0&3&4&0\\
-3&0&0&5\\
-4&0&0&6\\
-0&5&6&0
-\end{matrix}\,\right|
--2\cdot
-\left|\,\begin{matrix}
-2&0&0&0\\
-3&0&0&5\\
-4&0&0&6\\
-0&5&6&0
-\end{matrix}\,\right|
+(a-3)\left|\begin{matrix}
+1&  1&  1\\
+1&a-1&  2\\
+1&a-1&a+1
+\end{matrix}\right|
+=
+(a-3)\left|\begin{matrix}
+1&  1&  1\\
+0&a-2&  1\\
+0&a-2&a
+\end{matrix}\right|
+=
+(a-3)\cdot 1\cdot
+\left|\begin{matrix}
+a-2&  1\\
+a-2&  a
+\end{matrix}\right|
 \\
 &=
--3\cdot
-\left|\,\begin{matrix}
-3&4&0\\
-0&0&6\\
-5&6&0
-\end{matrix}\,\right|
-+4\cdot
-\left|\,\begin{matrix}
-3&4&0\\
-0&0&5\\
-5&6&0
-\end{matrix}\,\right|
--2\cdot
-2\cdot
-\underbrace{
-\left|\,\begin{matrix}
-0&0&5\\
-0&0&6\\
-5&6&0
-\end{matrix}\,\right|
-}_{\displaystyle =0}
-\\
-&=
-3\cdot6\cdot
-\left|\,\begin{matrix}
-3&4\\
-5&6
-\end{matrix}\,\right|
--4\cdot 5\cdot
-\left|\,\begin{matrix}
-3&4\\
-5&6
-\end{matrix}\,\right|
-\\
-&=(3\cdot 6-4\cdot 5)(3\cdot 6-4\cdot 5)=(-2)^2=4.
+(a-3)(a-2)\cdot
+\left|\begin{matrix}
+1&  1\\
+1&  a
+\end{matrix}\right|
+=
+(a-3)(a-2)(a-1).
 \end{align*}
-Die erste $4\times 4$-Determinante wird nach der ersten Spalte entwickelt,
-die zweite nach der ersten Zeile.
-Die letzte $3\times 3$ Determinante verschwindet, weil die
-ersten zwei Zeilen linear abhängig sind.
-Die ersten beiden $3\times 3$-Determinanten werden nach der letzten Spalte entwickelt.
-\qedhere
+Die Matrix ist also nicht regulär für $a\in\{1,2,3\}$.
 \end{loesung}
 
 
-\begin{bewertung}
-Wahl einer geeigneten Berechnungsmethode ({\bf M}) 1 Punkt,
-Teilresultate ({\bf T}) 4 Punkte,
-Korrektes Resultat ({\bf D}) 1 Punkt.
-\end{bewertung}

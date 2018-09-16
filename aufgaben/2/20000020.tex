@@ -1,52 +1,156 @@
-Gegeben ist das Gleichungssystem
+Hans kritzelt ein paar bedeutende Jahreszahlen aus seinem Leben
+auf ein Papier:
 \[
-\begin{linsys}{3}
- x&-&t y&=&t\\
-tx&+&  y&=&t^2.
-\end{linsys}
+\begin{matrix}
+1&9&9&9\\
+2&0&0&0\\
+2&0&0&7\\
+2&0&1&4
+\end{matrix}
 \]
+Sofort stellt er sich die naheliegenden Fragen:
 \begin{teilaufgaben}
-\item Für welche Werte von $t$ ist die Matrix dieses Gleichungssystems
-regulär?
-\item
-Verwenden Sie die Kramersche Regel, um 
-eine Formel für $x$ und $y$ in Abhängigkeit von $t$ anzugeben.
+\item Bilden diese Zahlen eine reguläre Matrix? 
+\item Welchen Wert hat die Determinante?
+\item Was ändert sich, wenn Hans seine Zahlen rückwärts und in
+umgekehrter zeitlicher Reihenfolge hinkritzelt?
 \end{teilaufgaben}
 
-\thema{Kramersche Regel}
-\thema{Determinante mit Parameter}
+\thema{Determinante}
 
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-Die Determinante der Koeffizientenmatrix gibt darüber Auskunft, ob die
-Matrix regulär ist. Sie ist
+Die Teilaufgabe a) lässt sich sofort lösen, wenn man b) gelöst
+hat. Wenn die Determinate nicht verschwindet, ist die Matrix regulär.
+
+Natürlich kann die Regularität auch mit Hilfe des Gauss-Algorithmus
+festgestellt werden, was aber etwas mehr Arbeit gibt:
 \begin{align*}
-\left|\,\begin{matrix}1&-t\\t&1\end{matrix}\,\right|
-&=1\cdot 1-(-t)\cdot t=1+t^2.
-\end{align*}
-Da $1+t^2>0$ für alle $t\in\mathbb R$ ist die Matrix immer regulär und
-damit das Gleichungssystem immer eindeutig lösbar.
-\item
-Wir verwenden die Kramersche Formel, dazu brauchen wir einerseits die bereits
-berechnete Determinante der Koeffizientenmatrix des Gleichungssystems
-und andererseits die Determinanten von Matrizen, die daraus durch Ersetzen
-einer Spalte entstehen:
-\begin{align*}
-&\text{1.~Spalte ersetzt:}&
-\left|\,\begin{matrix}t&-t\\t^2&1\end{matrix}\,\right|
-&=t+t^3
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&9&9&9\\
+2&0&0&0\\
+2&0&0&7\\
+2&0&1&4\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  9&  9&  9\\
+0&-18&-18&-18\\
+0&-18&-18&-11\\
+0&-18&-17&-14\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  9&  9&  9\\
+0&  1&  1&  1\\
+0&  0&  0&  7\\
+0&  0&  1&  4\\
+\hline
+\end{tabular}
 \\
-&\text{2.~Spalte ersetzt:}&
-\left|\,\begin{matrix}1&t\\t&t^2\end{matrix}\,\right|
-&=t^2-t^2=0
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  9&  9&  9\\
+0&  1&  1&  1\\
+0&  0&  1&  4\\
+0&  0&  0&  7\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&  9&  9&  9\\
+0&  1&  1&  1\\
+0&  0&  1&  4\\
+0&  0&  0&  1\\
+\hline
+\end{tabular}
 \end{align*}
-Daraus kann man mit Hilfe der Kramerschen Formel die Lösung des
-Gleichungssystems ableiten:
+Offenbar kann der Gaussalgorithmus ohne verschwindende Pivot-Elemente
+durchgeführt werden, die Matrix ist also regulär. Die Pivot-Elemente
+waren der Reihe nach: $1$, $-18$, $1$ und $7$.
+Ausserdem wurde eine Zeilenvertauschung vorgenommen.
+\item
+Wir berechnen zunächst die Determinante durch Entwicklung
+nach der zweiten Zeile:
 \begin{align*}
-x&=\frac{t+t^3}{1+t^2}=t,&
-y&=0.
+\left|\;
+\begin{matrix}
+1&9&9&9\\
+2&0&0&0\\
+2&0&0&7\\
+2&0&1&4
+\end{matrix}
+\;\right|
+&=
+-2\cdot
+\left|\;\begin{matrix}
+9&9&9\\
+0&0&7\\
+0&1&4
+\end{matrix}\;\right|
+=-2\cdot 9\cdot
+\left|\;\begin{matrix}
+1&1&1\\
+0&0&7\\
+0&1&4
+\end{matrix}\;\right|
+\\
+&=
+-2\cdot 9\cdot(-7)\cdot
+\left|\;\begin{matrix}
+1&1\\
+0&1
+\end{matrix}\;\right|
+=
+-2\cdot 9\cdot(-7)=126.
 \end{align*}
+Da die Determinanten nicht verschwindet, ist die Matrix regulär.
+
+Die Determinante kann auch aus den Pivot-Elementen des oben durchgeführten
+Gauss-Algorithmus abgeleitet werden. Dabei muss allerdings beachtet werden,
+dass dazu auch eine Zeilenvertauschung notwendig war, d.~h.~die Determinante
+ist 
+\[
+\det(A)=\underbrace{1\cdot (-18)\cdot 1\cdot 7}_{\text{Produkt der Pivotelemente}}\cdot \underbrace{(-1)}_{\text{Zeilenvertauschung}}
+\]
+\item Rückwärts geschriebene Zahlen in umgekehrter Reihenfolge 
+ergeben die Matrix
+\[
+A'=\begin{pmatrix}
+4&1&0&2\\
+7&0&0&2\\
+0&0&0&2\\
+9&9&9&1
+\end{pmatrix}
+\]
+Durch 6 Vertauschungen von aufeinanderfolgenden Zeilen und 6
+Vertauschungen aufeinanderfolgender Spalten kann $A$ in $A'$
+übergeführt werden. Da sich bei Zeilen- oder Spaltenvertauschungen
+nur das Vorzeichen der Determinate ändert, ändert sich bei
+einer geraden Zahl von Vertauschungen wie beim "Ubergang von $A$
+zu $A'$ nichts.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}
+
+\begin{bewertung}
+Entwicklungssatz ({\bf E}) 1 Punkt,
+rekursive Berechnung der Determinanten ({\bf B}) 1 Punkt,
+Wert der Determinanten ({\bf D}) 1 Punkt,
+Regularität ({\bf R}) 1 Punkt, 
+Rechenregeln für Vertauschungen von Zeilen und Spalten ({\bf V}) 1 Punkt,
+Resultat $\det A=\det A'$ ({\bf A}) 1 Punkt.
+\end{bewertung}
+
+
+
+

@@ -1,112 +1,81 @@
-Berechnen Sie die Determinante der folgenden Matrizen mit Hilfe des
-Gauss-Algorithmus
-\begin{teilaufgaben}
-\item
-$
-\displaystyle
-A_1 = \begin{pmatrix}2&0\\3&5\end{pmatrix}
-\qquad\text{und}\qquad
-A_2 = \begin{pmatrix}2&3\\0&5\end{pmatrix}
-$
-\item
-$\displaystyle
-B=\begin{pmatrix}
-3&21& 6\\
-4&30&14\\
-5&41&29
-\end{pmatrix}$
-\end{teilaufgaben}
+Berechnen Sie die Determinante der Matrix
+\[
+A
+=
+\begin{pmatrix}
+-2& 5&-2&-1\\
+ 1& 1& 1& 4\\
+ 5&-2& 3& 5\\
+ 6& 1& 1&-1
+\end{pmatrix}.
+\]
 
 \thema{Determinante}
-\thema{Gauss-Algorithmus}
+\thema{Entwicklungssatz}
+\thema{Sarrus-Formel}
 
 \begin{loesung}
-\begin{teilaufgaben}
-\item
-Wir verwenden den Gauss-Algorithmus
+Damit der Rechenaufwand bei der Anwendung des Entwicklungssatzes gering bleibt, subtrahieren wir die zweite Zeile von der letzten und entwickeln dann
+nach der letzten Zeile:
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
-\hline
-2 \color{red}\put(-3,4){\circle{12}}
-&0\\
-3\color{blue}\drawline(-8,-1)(-8,10)(1,10)(1,-1)&5\\
-\hline
-\end{tabular}
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
-\hline
-1&0\\
-0&5\color{red}\put(-3,4){\circle{12}}\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
-\hline
-1&0\\
-0&1\\
-\hline
-\end{tabular}
+\det(A)
+&=
+\left|\begin{matrix}
+-2& 5&-2&-1\\
+ 1& 1& 1& 4\\
+ 5&-2& 3& 5\\
+ 5& 0& 0&-5
+\end{matrix}\right|
+=
+-5\cdot
+\left|\begin{matrix}
+ 5&-2&-1\\
+ 1& 1& 4\\
+-2& 3& 5
+\end{matrix}\right|
++(-5)\cdot
+\left|\begin{matrix}
+-2& 5&-2\\
+ 1& 1& 1\\
+ 5&-2& 3
+\end{matrix}\right|
+\end{align*}
+Die einzelnen Determinanten können mit der Sarrus-Regel ausgwertet werden:
+\begin{align*}
+\left|\begin{matrix}
+ 5&-2&-1\\
+ 1& 1& 4\\
+-2& 3& 5
+\end{matrix}\right|
+&=
+25+16-3 -2-60+10
+=
+-14,
 \\
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
-\hline
-2 \color{red}\put(-3,4){\circle{12}}
-&3\\
-0\color{blue}\drawline(-8,-1)(-8,10)(1,10)(1,-1)&5\\
-\hline
-\end{tabular}
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
-\hline
-1&\frac{3}{2}\\
-0&5\color{red}\put(-3,4){\circle{12}}\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
-\hline
-1&0\\
-0&1\\
-\hline
-\end{tabular}
+\left|\begin{matrix}
+-2& 5&-2\\
+ 1& 1& 1\\
+ 5&-2& 3
+\end{matrix}\right|
+&=
+-6+25+4+10-4-15
+=
+14.
 \end{align*}
-Die Pivot-Elemente sind also in beiden Fällen $\color{red}2$
-und $\color{red}5$, die Determinante ist $\det A_1=\det A_2=2\cdot 5=10$.
-\item
-Der Gauss-Algorithmus
+Damit kann man jetzt die Determinante berechnen:
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-3\color{red}\put(-3,4){\circle{12}}&21& 6\\
-4&30&14\\
-5
-\begin{picture}(0,0)
-\color{blue}\drawline(-8,-1)(-8,25)(1,25)(1,-1)
-\end{picture}%
-&41&29\\
-\hline
-\end{tabular}
-&
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1& 7& 2\\
-0& 2\color{red}\put(-3,4){\circle{12}}& 6\\
-0& 6\color{blue}\drawline(-8,-1)(-8,10)(1,10)(1,-1)&19\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1& 7& 2\\
-0& 1& 3\\
-0& 0& 1\color{red}\put(-3,4){\circle{12}}\\
-\hline
-\end{tabular}
+\det(A)
+&=
+-5\cdot (-14)+(-5)\cdot 14
+=
+5\cdot 14 - 5\cdot 14 =0.
 \end{align*}
-liefert die Pivots $\color{red}3$, $\color{red}2$ und $\color{red}1$,
-also ist die Determinante $\det B = 3\cdot 2 \cdot 1=6$.
-\qedhere
-\end{teilaufgaben}
+Die Matrix $A$ ist also singulär.
 \end{loesung}
 
+\begin{bewertung}
+Entwicklungssatz ({\bf E}) 2 Punkte,
+Berechnung der $3\times 3$-Matrizen mit Sarrus ({\bf S}) 3 Punkte,
+korrekter Wert für die Determinante ({\bf D}) 1 Punkt.
+\end{bewertung}
 

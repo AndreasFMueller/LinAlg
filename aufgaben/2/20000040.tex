@@ -1,40 +1,53 @@
-Betrachten Sie die Matrix
+Berechnen Sie die Determinante der Matrix
 \[
 A=\begin{pmatrix}
-1&2\\
-9&1
+    4 &  0 &  7 &  0 \\
+    5 &  8 &  5 &  1 \\
+    4 &  7 &  4 &  1 \\
+    8 &  8 & 10 &  1 
 \end{pmatrix}
 \]
-Berechnen Sie $\det(A^{47})$.
+mit Hilfe des Entwicklungssatzes. Ist die Matrix $A$ singulär oder regulär?
 
-\thema{Produktsatz}
 \thema{Determinante}
+\thema{Entwicklungssatz}
 
 \begin{loesung}
-Zunächst berechnen wir die Determinante von $A$:
-\[
-\det(A)=
-\left|
-\begin{matrix}
-1&2\\
-9&1
-\end{matrix}
-\right|
-=1\cdot 1 - 2 \cdot 9 = -17
-\]
-Aus der Produktformel folgt:
-\[
-\det(A^{47})
+Subtrahiert man das achtfache der letzten Spalte in der zweiten Spalte,
+entsteht eine Determinante, die sich mit dem Entwicklungssatz leicht
+ausrechnen lässt:
+\begin{align*}
+\det A
+&=
+\left|\begin{matrix}
+    4 &  0 &  7 &  0 \\
+    5 &  0 &  5 &  1 \\
+    4 & -1 &  4 &  1 \\
+    8 &  0 & 10 &  1 
+\end{matrix}\right|
 =
-\det(A)^{47}
+-(-1)\left|\begin{matrix}
+    4 &  7 &  0 \\
+    5 &  5 &  1 \\
+    8 & 10 &  1 
+\end{matrix}\right|
+\\
+&=
+-\left|\begin{matrix}
+    4 &  7\\
+    8 & 10
+\end{matrix}\right|
++\left|\begin{matrix}
+    4 &  7\\
+    5 &  5
+\end{matrix}\right|
 =
-(-17)^{47}
+-(4\cdot 10-7\cdot 8)+(4\cdot 5-5\cdot 7)
 =
--6.7780\cdot 10^{57}.
-\qedhere
-\]
+16-15=1.
+\end{align*}
+Dabei wurde die $3\times 3$-Determinante durch Entwicklung nach der letzten
+Spalte berechnet. Da $\det A \neq 0$ ist, ist $A$ eine reguläre Matrix.
 \end{loesung}
-
-
 
 

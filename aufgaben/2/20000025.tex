@@ -1,0 +1,191 @@
+Berechnen Sie die Determinante der folgenden ``Schnecken''-Matrix
+\[
+A=
+\begin{pmatrix}
+1&1&1&2\\
+4&5&5&2\\
+4&6&5&2\\
+4&3&3&3
+\end{pmatrix}.
+\]
+
+\thema{Entwicklungssatz}
+\thema{Determinante}
+\thema{Sarrus-Formel}
+
+\begin{loesung}
+Die Berechnung der Determinanten wird einfacher, wenn sich darin viele
+Nullen befinden.
+Daher subtrahieren wir zunächst die erste Zeile in jeder weiteren Zeile
+so viele Male, wie die Zahlen in der zweiten Spalte angeben.
+Die Determinanten ändert dabei ihren Wert nicht:
+\begin{align*}
+\det(A)
+&=
+\left|
+\begin{matrix}
+1&1&1&2\\
+-1&0&0&-8\\
+-2&0&-1&-10\\
+1&0&0&-3
+\end{matrix}\right|
+=
+-
+\left|
+\begin{matrix}
+1& 1& 1&  2\\
+0&-1&-2&-10\\
+0& 0&-1& -8\\
+0& 0& 1& -3
+\end{matrix}\right|
+=
+\left|
+\begin{matrix}
+1& 1& 1&  2\\
+0& 1& 2& 10\\
+0& 0& 1&  8\\
+0& 0&-1&  3
+\end{matrix}\right|
+\\
+&=
+\left|
+\begin{matrix}
+1&8\\-1&3
+\end{matrix}\right|
+=1\cdot 3-8\cdot(-1)=3+8=11.
+\end{align*}
+Beim zweiten Gleichheitszeichen haben wir Zeilen und spalten so umgeordnet,
+dass die Nullen nach links unten kommen, dies ist mit drei Vertauschungen
+möglich, so dass das Vorzeichen dreimal ändert.
+Beim dritten Gleichheitszeichen haben wir aus allen Zeilen ausser der ersten
+eine Minuszeichen ausgeklammert, das gibt erneut drei Vorzeichenwechsel.
+Nach dem Entwicklungssatz ist die Determinante dann durch die
+$2\times 2$-Determinante rechts unten gegeben.
+
+Natürlich kann man auch den Gauss-Algorithmus verwenden:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&1&1&2\\
+4&5&5&2\\
+4&6&5&2\\
+4&3&3&3\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&1&1&2\\
+0&1&1&-6\\
+0&2&1&-6\\
+0&-1&-1&-5\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&1&1&2\\
+0&1&1&-6\\
+0&0&-1&6\\
+0&0&0&-11\\
+\hline
+\end{tabular}
+\end{align*}
+Die Determinante ist dann das Produkt der Pivot-Elemente, die in diesem Fall
+$1$, $1$, $-1$ und $-11$ sind, also
+\[
+\det(A)=1\cdot 1\cdot (-1)\cdot (-11)=11.
+\]
+
+Natürlich kann man die Determinante auch mit dem Entwicklungssatz ausrechnen:
+\begin{align*}
+\det(A)
+&=
+1\cdot\left|\begin{matrix}
+5&5&2\\
+6&5&2\\
+3&3&3
+\end{matrix}\right|
+-
+1\cdot\left|\begin{matrix}
+4&5&2\\
+4&5&2\\
+4&3&3
+\end{matrix}\right|
++
+1\cdot\left|\begin{matrix}
+4&5&2\\
+4&6&2\\
+4&3&3
+\end{matrix}\right|
+-
+2\cdot\left|\begin{matrix}
+4&5&5\\
+4&6&5\\
+4&3&3
+\end{matrix}\right|
+\end{align*}
+Die $3\times 3$-Determinanten können zum Beispiel mit der Sarrus-Formel
+ausgerechnet werden:
+\begin{align*}
+\left|\begin{matrix}
+5&5&2\\
+6&5&2\\
+3&3&3
+\end{matrix}\right|
+&=
+5\cdot 5\cdot 3 + 5\cdot 2 \cdot3 + 2\cdot 6\cdot 3
+-3\cdot 5\cdot 2-3\cdot 2\cdot 5-3\cdot 6\cdot5
+\\
+&=
+75+30+36-30-30-90=-9
+\\
+\left|\begin{matrix}
+4&5&2\\
+4&5&2\\
+4&3&3
+\end{matrix}\right|
+&=0
+\\
+\left|\begin{matrix}
+4&5&2\\
+4&6&2\\
+4&3&3
+\end{matrix}\right|
+&=
+4\cdot 6\cdot 3 + 5\cdot 2\cdot4+2\cdot 4\cdot 3
+-4\cdot 6\cdot 2-3\cdot 2\cdot 4-3\cdot 4\cdot 5
+\\
+&=72+40+24-48-24-60=4
+\\
+\left|\begin{matrix}
+4&5&5\\
+4&6&5\\
+4&3&3
+\end{matrix}\right|
+&=
+4\cdot 6\cdot 3+5\cdot 5\cdot 4 +5\cdot 4\cdot 3
+-4\cdot 6\cdot 5-3\cdot 5\cdot 4-3\cdot 4\cdot 5
+\\
+&= 72+100+60-120-60-60
+=-8
+\end{align*}
+Damit kann man jetzt die  Determinante ausrechnung:
+\begin{align*}
+\det(A)
+&=
+1\cdot (-9)
+-1\cdot 0
++1\cdot 4
+-2\cdot (-8)
+\\
+&=-9+4+16=11.
+\qedhere
+\end{align*}
+\end{loesung}
+
+\begin{bewertung}
+Wahl einer geeigneten Berechnungsmethode ({\bf M}) 1 Punkt,
+Teilresultate ({\bf T}) 4 Punkte,
+Korrektes Resultate ({\bf D}) 1 Punkt.
+\end{bewertung}

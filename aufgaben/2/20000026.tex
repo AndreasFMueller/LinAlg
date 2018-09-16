@@ -1,68 +1,63 @@
-Ist die Matrix
+Berechnen Sie die Determinante der $n\times n$-Matrix 
 \[
-A=
-\begin{pmatrix}
-  -4 & 3 & 1 & 1\\
-   2 & 0 & 3 & 4\\
-   2 & 0 &-5 & 4\\
-  -2 & 1 & 4 &-1
-\end{pmatrix}
+A_n=\begin{pmatrix}
+\frac1n& \frac1n& \frac1n&\dots & \frac1n& \frac1n\\
+     -1&       1&       0&\dots &       0&       0\\
+      0&      -1&       1&\dots &       0&       0\\
+\vdots &\vdots  &\ddots  &\ddots& \vdots & \vdots \\
+      0&       0&       0&\dots &      -1&       1
+\end{pmatrix}.
 \]
-regulär?
 
-\thema{Determinante}
 \thema{Entwicklungssatz}
-\thema{Sarrus-Formel}
 
 \begin{loesung}
-Wir berechnen die Determinante mit Hilfe des Entwicklungssatzes
-\begin{align*}
-\det(A)
-&=
--
-3\cdot\left|
-\begin{matrix}
- 2& 3& 4\\
- 2&-5& 4\\
--2& 4&-1
-\end{matrix}
-\right|
-+
-1\cdot\left|
-\begin{matrix}
--4& 1& 1\\
- 2& 3& 4\\
- 2&-5& 4
-\end{matrix}
-\right|
-\end{align*}
-Die beiden $3\times 3$-Determinaten können wir mit der Sarrus-Formel
-auswerten:
-\begin{align*}
-\det(A)
-&=
--3\cdot(
-2\cdot(-5)\cdot(-1) + 3\cdot 4\cdot(-2)+4\cdot 2\cdot 4
--(-2)\cdot(-5)\cdot 4-4\cdot 4\cdot 2 - (-1)\cdot 2\cdot 3
-)
-\\
-&\quad+
-(-4)\cdot 3\cdot 4+1\cdot 4\cdot 2+1\cdot 2\cdot(-5)
--2\cdot 3\cdot 1-(-5)\cdot 4\cdot(-4) -4\cdot 2\cdot 1
-\\
-&=-3(10-24+32-40-32+6)-48+8-10-6-80-8
-\\
-&=-3\cdot (-48)-144=0.
-\end{align*}
-Die Matrix ist also singulär.
+Die erste Zeile von $A_n$ hat den gemeinsamen Faktor $\frac1n$, den
+wir aus der Determinante ausklammern können.
+Wir erhalten dann $\det A_n =\frac1n\det B_n $, wobei 
+\[
+B_n=\begin{pmatrix}
+      1&       1&       1&\dots &       1&       1\\
+     -1&       1&       0&\dots &       0&       0\\
+      0&      -1&       1&\dots &       0&       0\\
+\vdots &\vdots  &\ddots  &\ddots& \vdots & \vdots \\
+      0&       0&       0&\dots &      -1&       1
+\end{pmatrix}
+\]
+ist.
+Die Determinante von $B_n$ können wir durch Entwicklung nach der ersten
+Spalte bestimmen:
+\[
+\det B_n
+=
+\underbrace{
+\left|\begin{matrix}
+       1&       0&\dots &       0&       0\\
+      -1&       1&\dots &       0&       0\\
+\vdots  &\ddots  &\ddots& \vdots & \vdots \\
+       0&       0&\dots &      -1&       1
+\end{matrix}\right|}_{=1}
+-(-1)\cdot
+\underbrace{
+\left|\begin{matrix}
+       1&       1&\dots &       1&       1\\
+      -1&       1&\dots &       0&       0\\
+\vdots  &\ddots  &\ddots& \vdots & \vdots \\
+       0&       0&\dots &      -1&       1
+\end{matrix}\right|}_{=\det B_{n-1}}.
+\]
+Damit haben wir eine Rekursionsformel für $\det B_n$ erhalten:
+\[
+\det B_n = 1 + \det B_{n-1}
+\]
+Da $B_1$ die Einheitsmatrix ist, gilt $\det B_1=1$ und damit folgt
+\[
+\det B_n=n,
+\]
+und schliesslich
+\[
+\det A_n=\frac1n\det B_n=\frac1n\cdot n=1.
+\]
+Die Matrix $A_n$ ist also unimodular, $A_n\in\operatorname{SL}_n(\mathbb R)$.
 \end{loesung}
-
-\begin{bewertung}
-Entwicklungssatz: Zeile oder Spalte ({\bf Z}) 1 Punkt,
-Vorzeichen ({\bf V}) 1 Punkt,
-Unterdeterminanten ({\bf U}) 1 Punkt,
-Sarrus-Formel ({\bf S}) 1 Punkt,
-Determinatenwert ({\bf D}) 1 Punkt,
-Schlussfolgerung singulär ({\bf R}) 1 Punkt.
-\end{bewertung}
 
