@@ -1,0 +1,279 @@
+%
+% gruppen.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Gruppen\label{section:gruppen}}
+\rhead{Gruppen}
+Gleichungen lösen beruht darauf, dass sich Rechenoperationen rückgängig
+machen lassen.
+Zum Beispiel kann man in den reellen Zahlen Additionen und Multiplikationen
+rückgängig machen, wenigstens wenn der Faktor nicht $0$ ist.
+Im Vektorraum $\mathbb R^n$ können Additionen und
+Multiplikationen mit reellen Zahlen rückgängig gemacht werden.
+Das Vektorprodukt in $\mathbb R^3$ kann jedoch nicht rückgängig gemacht
+werden, da verschiedene Vektoren Faktoren auf das gleichen Produkt
+führen können.
+Es gilt zum Beispiel
+\[
+\vec{a} \times (\vec{b} + t\vec{a})
+=
+\vec{a} \times \vec{b} + t(\underbrace{\vec{a}\times\vec{a}}_{=0})
+=
+\vec{a} \times \vec{b},
+\]
+für beliebige Werte von $t$ entsteht also immer das gleiche Produkt.
+Daher ist es nicht möglich, aus dem Produkt mit $\vec{a}$ den
+zweiten Faktor zurückzugewinnen.
+Eine Gruppe ist eine Menge von mathematischen Objekten mit einer
+Operation, die sich immer rückgängig machen lässt.
+
+In diesem Abschnitt beschreiben wir die Eigenschaften der linearen
+Abbildungen, die wir in früheren Kapiteln kennengelernt haben und
+zeigen, dass sie alle Gruppen bilden.
+
+%
+% Was ist eine Gruppe
+%
+\subsection{Was ist eine Gruppe?}
+\begin{definition}
+Eine Gruppe $G$ ist eine Menge mit einer Verknüpfung, die meistens
+multiplikativ geschrieben wird, und die folgende Eigenschaften hat:
+\begin{enumerate}
+\item Die Verknüpfung ist assoziativ: $a(bc)=(ab)c$ für alle $a,b,c\in G$.
+\item Es gibt ein Element $e\in G$, genannt das neutrale Element,
+mit der Eigenschaft $ae=ea=a$ für alle
+Elemente $a\in G$.
+\item Zu jedem Element $a$ gibt es ein Element $a^{-1}\in G$, genannt
+das inverse Element von $a$, mit der
+Eigenschaft, dass $a^{-1}a=e$.
+\end{enumerate}
+\end{definition}
+
+\begin{beispiel}
+Die nicht verschwindenden reellen Zahlen
+$\mathbb R^*=\{x\in\mathbb R\;|\; x\ne 0\}$
+ist eine Gruppe mit der Multiplikation als Verknüpfung.
+
+\smallskip
+
+{\parindent0pt Das neutrale} Element ist die Zahl $1$, das inverse Element
+von $a\in\mathbb R^*$ ist $1/a$.
+\end{beispiel}
+
+Schreibt man die Verknüpfung additiv, dann können die Axiome für
+eine Gruppe wie folgt geschrieben werden.
+\begin{enumerate}
+\item Die Verknüpfung ist assoziativ:
+$a+(b+c)=(a+b)+c$ für $a,b,c\in G$.
+\item Es gibt ein Element $0\in G$, genannt das neutrale Element oder
+das Nullelement, mit der Eigenschaft $0+a=a+0=a$ für alle Elemente $a\in G$.
+\item Zu jedem Element $a\in G$ gibt es ein Element $-a\in G$, genant
+das negative Element von $a$, mit der Eigenschaft, dass $-a + a=0$.
+\end{enumerate}
+
+\begin{beispiel}
+Die reellen Zahlen $\mathbb R$ mit der Addition als Verknüpfung ist eine
+Gruppe.
+\end{beispiel}
+
+\begin{beispiel}
+Ein Vektorraum $V$ ist eine Gruppe bezüglich der Verknüpfung der Addition
+von Vektoren.
+\end{beispiel}
+
+%
+% die allgemeine lineare Gruppe
+%
+\subsection{Die allgemeine lineare Gruppe $\operatorname{GL}_n(\mathbb R)$}
+Die Menge der Matrizen $M_{mn}(\mathbb R)$ bildet keine Gruppe.
+Zunächst ist die Multiplikation von Matrizen in $M_{mn}(\mathbb R)$
+nicht definiert, ausser wenn $m=n$ gilt.
+Für $m=n$ ist ein neutrales Element leicht zu finden.
+Die Einheitsmatrix $I$ hat die Eigenschaft $AI=IA=A$.
+Um eine Gruppe zu erhalten, muss man sich zusätzlich auf die 
+Matrizen beschränken, welche invertierbar sind.
+
+\begin{definition}
+Die allgemeine lineare Gruppe ist die Menge
+\[
+\operatorname{GL}_n(\mathbb R)
+=
+\{ A\in M_n(\mathbb R)\;|\; \text{$A$ ist invertierbar}\}.
+\]
+\end{definition}
+
+Für $n=1$ ist $\operatorname{GL}_1(\mathbb R) = \mathbb R^*$.
+Um zu entscheiden, ob eine Matrix invertierbar ist, kann die Determinante
+verwendet werden.
+Die Determinante ist eine Abbildung
+\[
+\det
+\colon
+M_n(\mathbb R) \to \mathbb R
+:
+A \mapsto \det(A).
+\]
+Die allgemeine lineare Gruppe besteht aus denjenigen Matrizen,
+die eine von $0$ verschiedene Determinante haben.
+Das sind genau die Matrizen, die von der Determinante
+auf einen Wert in $\mathbb R^*$ abgebildet werden.
+Die Determinante ist daher eine surjektive Abbildung
+\[
+\det
+\colon
+\operatorname{GL}_n(\mathbb R)
+\to
+\mathbb R^*.
+\]
+
+Die Produktregel für die Determinante besagt, dass 
+\begin{align*}
+\det(AB)&=\det(A)\det(B),
+\\
+\det(A^{-1})&=\det(A)^{-1}.
+\end{align*}
+Die Determinante ist daher verträglich mit den Gruppenoperationen
+von $\operatorname{GL}_n(\mathbb R)$ und $\mathbb R^*$.
+
+%
+% orthogonale Gruppe
+%
+\subsection{Die orthogonale Gruppe $\operatorname{O}(n)$
+\label{subsection:orthogonale gruppe}}
+Orthogonale Matrizen sind immer invertierbar, denn $A^t$ ist die 
+inverse Matrix zu einer orthogonalen Matrix $A$.
+Die orthogonalen Matrizen bilden daher eine Teilmenge der invertierbaren
+Matrizen, die sogenante orthogonale Gruppe.
+
+\begin{definition}
+Die Menge aller orthogonalen Matrizen
+\[
+\operatorname{O}(n) = \{ A\in M_n(\mathbb R)\;|\; AA^t = E \}
+\subset \operatorname{GL}_n(\mathbb R)
+\]
+heisst die orthogonale Gruppe.
+\end{definition}
+Die orthogonale Gruppe enthält einerseits alle Drehmatrizen, aber auch
+alle Spiegelungen, da diese ebenfalls das Skalarprodukt erhalten.
+Des Weiteren sind Produkte von Drehmatrizen und Spiegelungsmatrizen
+ebenfalls in $\operatorname{O}(n)$.
+
+Aus der Produktformel für die Determinante folgt
+\[
+A^tA=E
+\quad\Rightarrow\quad
+1
+=
+\det(E)
+=
+\det(A^tA)
+=
+\det(A^t)\det(A)
+=
+\det(A)^2
+\quad\Rightarrow\quad
+\det(A)=\pm 1.
+\]
+Orthogonale Matrizen haben also immer Determinante $\pm 1$, sie erhalten
+also auf jeden Fall das Volumen, aber nicht unbedingt das orientiert
+Volumen.
+Spiegelungen kehren offensichtlich das Volumen um, sie haben Determinante
+$-1$.
+
+%
+% spezielle lineare Gruppe
+%
+\subsection{Die spezielle lineare Gruppe $\operatorname{SL}_n(\mathbb R)$}
+Matrizen in der allgemeinen linearen Gruppe $\operatorname{GL}_n(\mathbb R)$
+können das Volumn verändern oder die Orientierung umkehren.
+Die Orientierung oder das orientiert Volumen werden nur dann erhalten
+sein, wenn die Determinante $1$ ist.
+
+\begin{definition}
+Die spezielle lineare Gruppe ist
+\[
+\operatorname{SL}_n(\mathbb R)
+=
+\{ A\in\operatorname{GL}_n(\mathbb R) \;|\; \det (A)=1\}.
+\]
+\end{definition}
+
+Tatsächlich ist diese Menge eine Gruppe.
+Dazu müssen wir überprüfen, dass das Produkt von Matrizen in
+$\operatorname{SL}_n(\mathbb R)$
+wieder in
+$\operatorname{SL}_n(\mathbb R)$
+ist.
+Dies folgt aber aus der Produkteigenschaft der Determinanten:
+\[
+\det(AB) 
+=
+\det(A) \det(B)
+=
+1\cdot 1
+=
+1
+\]
+für $A,B\in\operatorname{SL}_n(R)$.
+Analog folgt auch, dass $A^{-1}\in\operatorname{SL}_n(\mathbb R)$ wenn
+$A\in\operatorname{SL}_n(\mathbb R)$.
+
+%
+% Gruppe der Drehmatrizen
+%
+\subsection{Die Drehgruppe $\operatorname{SO}(n)$}
+Drehungen des Raumes sind Abbildungen, den Nullpunkt auf sich selbst
+abbilden, das Skalarprodukt und die Orientierung erhalten.
+Sie bilden die {\em spezielle orthogonale Gruppe}
+\[
+\operatorname{SO}(n) 
+=
+\operatorname{O}(n) \cap \operatorname{SL}_n(\mathbb R)
+=
+\{
+A\in M_n(\mathbb R)\;|\; A^tA=E\wedge \det(A) = 1
+\}.
+\]
+
+Die Differenz $\operatorname{O}(n) \setminus \operatorname{SO}(n)$
+besteht aus Matrizen, die zwar das Skalarprodukt erhalten, aber die
+Orientierung umkehren.
+Ist $S_x$ die Spiegelung an der Ebene senkrecht zur $x$-Achse und ist
+$A\in \operatorname{O}(n) \setminus \operatorname{SO}(n)$, dann ist
+\[
+\det(S_xA)= \det(S_x)\det(A) = (-1)\cdot(-1)=1
+\qquad\Rightarrow\qquad
+S_xA\in\operatorname{SO}(n).
+\]
+Dies bedeutet, dass die Multiplikation mit $S_x$ eine bijektive Abbildung
+\[
+\operatorname{SO}(n) \to \operatorname{O}(n)\setminus\operatorname{SO}(n)
+:
+A\mapsto S_xA
+\]
+definiert.
+Die Gruppe $\operatorname{O}(n)$ besteht also aus zwei gleichartig gebauten
+Teilmengen, $\operatorname{SO}(n)$  und
+$\operatorname{O}(n)\setminus\operatorname{SO}(n)$.
+
+Man kann die Gruppe $\operatorname{SO}(3)$ die Gruppe der Robotik nennen,
+denn bei allen Bewegungen, die in Roboter im Raum ausführen kann,
+bleiben die Abmessungen erhalten (er soll ja nicht deformiert werden)
+und die Orientierung kann nicht umkehren.
+Die Bewegung eines Roboters besteht daher immer aus einer
+Translationskomponenten und einer Drehung in $\operatorname{SO}(3)$.
+Die Herausforderung dabei ist natürlich, dass die Gruppe
+$\operatorname{SO}(3)$ ziemlich kompliziert und vor allem nicht
+kommutativ ist.
+
+Für die Beschreibung einer Drohne ist es unabdingbar, in der
+Gruppe $\operatorname{SO}(3)$ arbeiten zu können.
+Wenn man die Bewegung eines Roboters aber weiter einschränken kann,
+zum Beispiel indem man nur Bewegungen in der Ebene und Drehungen
+um eine vertikale Achse zulässt, wie dies zum Beispiel bei
+Eurobot gemacht wird, dann reicht es mit der Gruppe der Verschiebungen
+und zweidimensionalen Drehungen um $\operatorname{SO}(2)$ zu arbeiten.
+Diese letzte Gruppe ist viel einfacher, da sich Drehungen in der Ebene
+durch den Drehwinkel beschreiben lassen und die Gruppe daher kommutativ ist.
+

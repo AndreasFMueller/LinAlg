@@ -5,74 +5,322 @@
 %
 \section{Lineare Abbildungen}
 \rhead{Lineare Abbildungen}
-\subsection{Definition}
-Eine $m\times n$-Matrix $A$ berechnet aus einem gegeben Vektor
-$v\in\mathbb R^n$ mit Hilfe des
-Matrizenproduktes einen neuen Vektor $Av\in\mathbb R^m$.
-$A$ definiert also auch eine Abbildung
-\[
-A\colon\mathbb R^n\to\mathbb R^m:v\mapsto Av
-\]
-mit den Eigenschaften
-\[
-\left.
-\begin{aligned}
-A(u+v)&=Au+Av\\
-A(\lambda u)&=\lambda Au
-\end{aligned}\right\}\quad
-\Rightarrow\quad
-A(\lambda u+\mu v)=\lambda Au+\mu Av.
-\]
-Eine solche Abbildung heisst linear.
-\index{lineare Abbildung}
-
-\subsection{Matrix einer linearen Abbildung}
-Umgekehrt definiert jede lineare Abbildung $V\to V$ mit Hilfe einer
-Basis auch eine Matrix.
-Sei $\varphi\colon V\to V$ eine Abbildung
-mit $\varphi(\lambda u+\mu v)=\lambda \varphi(u)+\mu\varphi(v)$,
-und $B=\{b_1,\dots,b_n\}$ eine Basis.
-Dann genügt die Kenntnis
-von $\varphi(b_i)$ für alle $i$, um die lineare Abbildung für
-jeden beliebigen Vektor berechnen zu können.
-
-Man kann nämlich jeden Vektor mit Hilfe seiner Koordinanten aus
-den Basisvektoren linear kombinieren, also gilt auch
-\[
-\varphi(v)
-=
-\varphi(\xi_1b_1+\dots+\xi_nb_n)
-=
-\xi_1\varphi(b_1)+\dots+\xi_n\varphi(b_n).
-\]
-Ausserdem kann man die Koordinaten von $\varphi(b_i)$ in der Basis
-$B$ ermitteln, und diese Koordinatenvektoren in eine Matrix $A$
-schreiben.
-Dann ist $A\xi$ der Koordinatenvektor von $\varphi(v)$.
-Die Matrix $A$ enthält also in den Spalten die Bilder der Basisvektoren.
-
-\subsection{Basiswechsel}
-Wie sieht die Matrix einer linearen Abbildung aus, wenn man statt
-der Basis $B$ die Basis $B'$ verwendet? Sei $T$ die Transformationsmatrix,
-die Koordinaten bezüglich $B$ in Koordinaten bezüglich $B'$ umrechnet.
-Die lineare Abbildung hat bezüglich der Basis $B$ die Matrix $A$, wir
-suchen aber die Matrix $A'$, die die lineare Abbildung bezüglich der
-Basis $B'$ beschreibt:
-\[
-\xymatrix{
-\mathbb R^n\ar[r]^{A} \ar[d]_{T}
-	&\mathbb R^n \ar[d]^{T}
-\\
-\mathbb R^n\ar[r]^{A'}
-	&\mathbb R^n
-}
-\]
-Aus dem Diagramm können wir ablesen, dass $A'$ gleichbedeutend
-ist damit, die Koordinaten zuerst mit $T^{-1}$ von der Basis $B'$
-auf die Basis $B$ umzurechnen, dort die Matrix $A$ anzuwenden, und
-dann erneut mit $T$ in die Basis $B'$ zurückzukehren:
+Wir erinnern daran, dass eine lineare Abbildung $\varphi$ eine
+Abbildung von Vektoren mit den Eigenschaften
 \begin{equation}
-A'=TAT^{-1}.
-\label{abbildung-basiswechsel}
+\begin{aligned}
+\varphi(u+v)&=\varphi(u)+\varphi(v)   &&\forall\;u,v\in\mathbb R^n
+\\
+\varphi(\lambda v)&=\lambda\varphi(v) &&\forall\;v\in\mathbb R^n,\;\lambda\in\mathbb R.
+\end{aligned}
+\label{skript:linabb:def}
 \end{equation}
+Die Beschränkung auf Vektoren in $\mathbb R^n$ erscheint aber etwas
+künstlich, denn die Eigenschaften
+\eqref{skript:linabb:def}
+findet man zum Beispiel auch erfüllt bei der Ableitung von Funktionen:
+\begin{equation}
+\begin{aligned}
+\frac{d}{dx} ( f(x) + g(x)) &= \frac{d}{dx}f(x) + \frac{d}{dx}g(x)
+\\
+\frac{d}{dx}(\lambda f(x)) &= \lambda\frac{d}{dx}f(x)
+\end{aligned}
+\label{skript:linabb:abl}
+\end{equation}
+für differenzierbare Funktionen $f(x)$ und $g(x)$ und jede relle Zahl
+$\lambda\in\mathbb R$.
+
+%
+% Vektorraum
+%
+\subsection{Abstrakter Vektorraum}
+Wir erweitern daher den Begriff des Vektorraumes wie folgt:
+
+\begin{definition}
+Ein Vektorraum über den rellen Zahlen ist eine Menge $V$, genannt
+Vektoren, mit zwei Operationen,
+der Addition von Vektoren und der Multiplikation mit Zahlen aus $\mathbb R$,
+die folgende Regeln erfüllen:
+\begin{enumerate}
+\item Die Addition ist kommutativ: $u+v=v+u$ für alle $u,v\in V$.
+\item Die Addition ist assoziativ: $(u+v)+w=u+(v+w)$ für alle $u,v,w\in V$.
+\item Es gibt einen speziellen Vektor $0\in V$ mit $0+v=v$ und $v+0=v$
+für alle $v\in V$, genannt der Nullvektor.
+\item Zu jedem Vektor $u$ gibt es einen Vektor $-u$ mit der Eigenschaft
+$u+(-u)=0$.
+\item Die Multiplikation ist assoziativ: $\lambda(\mu v) = (\lambda\mu)v$
+für alle $v\in V$.
+\item Es gelten die Distributivgesetze:
+\begin{align*}
+\lambda(u+v) &= \lambda u + \lambda v
+\\
+(\lambda + \mu)u&=\lambda u + \mu u
+\end{align*}
+für $u,v\in V$ und $\lambda,\mu\in\mathbb R$.
+\end{enumerate}
+\end{definition}
+
+%
+% Beispiele von Vektorraume
+%
+\subsection{Beispiele von Vektorräumen}
+Wir zeigen einige Beispiele von Vektorräumen.
+
+\subsubsection{Signale}
+Ein gesampletes Signal ist eine Folge von Sample-Werten 
+\[
+\bm{s} = (s_0,s_1,s_2,s_3,\dots)
+\]
+mit $s_i\in\mathbb R$.
+Ein Verstärker mit Verstärkungsfaktor $\lambda\in\mathbb R$ erzeugt daraus
+das Signal
+\[
+\lambda\bm{s} = (\lambda s_0,\lambda s_1,\lambda s_2,\lambda s_3\dots).
+\]
+Mit einem Operationsverstärker kann man eine Addierschaltung realisieren,
+die aus zwei Signalen $\boldsymbol{s}$ und $\boldsymbol{r}$ das Signal
+\[
+\bm{s} + \bm{r}
+=
+(s_0+r_0,
+s_1+r_1,
+s_2+r_2,
+s_3+r_3,\dots).
+\]
+Die Menge der Signale ist daher auf natürliche Art und Weise ein Vektorraum.
+
+Lineare Schaltungen zeichnen sich dadurch aus, dass sie auf Signalen
+wie lineare Abbildungen operieren.
+Ein linearer Filter $F$ zum Beispiel wirkt auf Signalen
+$\bm{s}$ und $\bm{r}$ nach den Regeln
+\begin{align*}
+F(\bm{s} + \bm{r})&=F(\bm{s}) + F(\bm{r})
+\\
+F(\lambda \bm{s})&=\lambda F(\bm{s}).
+\end{align*}
+Mit Operationsverstärkern und passiven Komponenten implementierte
+Schaltungen funktionieren genau so.
+
+\subsubsection{Bilder}
+Digitale Bilder bestehen aus einem Pixelwert für jeden Punkt eines
+rechteckigen Gitters.
+Sie können also durch eine Matrix beschrieben werden.
+Das Matrixelement $b_{ij}$ entspricht dem Wert an Pixelposition $(i,j)$.
+Die Menge
+\[
+M_{mn}(\mathbb R)
+=
+\{
+A\;|\;
+\text{$A$ ist eine reelle $m\times n$ Matrix}
+\}
+\]
+ist ein Vektorraum.
+Man kann auch eine Basis für $M_{mn}(\mathbb R)$ angeben:
+die Matrizen $E_{ij}$, die eine $1$ in Zeile $i$ und Spalte $j$
+enthalten und sonst lauter Nullen, bilden eine Basis.
+
+Viele Operationen der Bildverarbeitung sind linear.
+Die von vielen Bildverarbeitungsprogrammen implementierten
+Glättungsalgorithmen, mit denen man zum Beispiel das Rauschen reduzieren
+kann oder Scanning-Artefakte reduzieren kann, arbeiten linear.
+
+Auch Bilder auf einer Kugeloberfläche bilden einen Vektorraum.
+Die Méndez-Transformation ist eine lineare Abbildung, mit deren Hilfe
+das sogenannte Registrierungsproblem für Bilder auf der Kugeloberfläche
+gelöst werden kann: es verlangt, die Drehung zu finden, die zwei Bilder
+zur Deckung bringt.
+
+\subsubsection{Polynome mit reellen Koeffizienten}
+Die Menge der Polynome mit reellen Koeffizienten
+\[
+\mathbb R[X]
+=
+\{
+a_0 + a_1X + a_2X^2 + \dots + a_nX^n
+\;|\;
+a_i\in\mathbb R
+\}
+\]
+ist ein Vektorraum.
+Man beachte, dass $n$ beleibig gross werden kann, Polynome werden durch
+eine beliebig grosse Anzahl von Koeffizienten $a_i$ beschrieben.
+Die Polynome $\mathbb R[X]$ können daher nicht ein endlichdimensionaler
+Vektorraum sein.
+Die unendlich vielen Monome $1$, $X$, $X^2$,\dots sind linear unabhängig
+und jedes Polynom kann auf eindeutige Weise als Linearkombination dieser
+Monome geschrieben werden.
+Die Monome bilden daher eine Basis
+\[
+\mathbb R[X] = \langle 1,X,X^2,X^3,\dots\rangle.
+\]
+
+In der Menge $\mathbb R[X]$ gibt es auch noch eine Multiplikation, man
+kann Polynome miteinander multiplizeren.
+Eine solche Operation ist in einem Vektorraum nicht nötig, man spricht
+von einer {\em Algebra}.
+\index{Algebra}%
+
+In $\mathbb R[x]$ kann man Ableiten.
+Der Ableitungsoperator
+\[
+D\colon \mathbb R[X] \to \mathbb R[X]:
+a_0+a_1X+a_2X^2+\dots +a_nX^n
+\mapsto
+a_1+2a_2X+3a_3X^2\dots +na_nX^{n-1}
+\]
+ist linear.
+Die konstanten Polynome werden von $D$ auf $0$ abgebildet.
+
+Man kann ausserdem sehen, dass jedes beliebige Polynom als Resultat
+einer Ableitung entstehen kann.
+Dazu konstruiert man die lineare Abbildung $I$, welche den Basisvektor
+$X^k$ auf
+\[
+I\colon X^k \to \frac{1}{k+1} X^{k+1}
+\]
+abbildet.
+Wegen
+\[
+DIX^k = D\frac{1}{k+1}X^{k+1}=X^k
+\]
+kann man folgern, dass $DIp(X)=p(X)$ gilt, für jedes Polynom
+$p(X)\in\mathbb R[X]$.
+Insbesondere ist das Polynom $p(X)$ die Ableitung des Polynoms $Ip(X)$.
+Die lineare Abbildung $I$ bestimmt natürlich eine Stammfunktion von $p(X)$.
+
+
+\subsubsection{Stetige Funktionen}
+Die Menge
+\[
+C_{\mathbb R}([a,b]) = \{f:[a,b]\to\mathbb R\;|\; \text{$f(x)$ ist stetig}\}
+\]
+der stetigen Funktionen auf einem Interval $[a,b]$ bilden einen
+Vektorraum.
+Die Stammfunktion
+\[
+I
+\colon
+C_{\mathbb R}([a,b]) \to C_{\mathbb R}([a,b])
+:
+f(x) \mapsto If(x) = \int_a^x f(\xi)\,d\xi
+\]
+ist eine lineare Abbildung, denn es gilt
+\[
+\int f(x)+g(x)\,dx = \int f(x)\,dx + \int g(x)\,dx,
+\qquad
+\int \lambda f(x)\,dx = \lambda\int f(x)\,dx.
+\]
+Die Stammfunktionen sind differenzierbar, man könnte sie also wieder ableiten,
+es gibt aber auch stetige Funktionen in $C_{\mathbb R}([a,b])$, die nicht
+differenzierbar sind.
+Es ist also nicht möglich einen Ableitungsoperator in $C_{\mathbb R}([a,b])$
+zu definieren.
+
+Man beachte auch, dass der Operator $I$ aus dem Beispiel über Polynome
+$\mathbb R[X]$ nicht mit dem $I$ für stetige Funktionen übereinstimmt,
+ausser wenn $a=0$ ist.
+
+\subsubsection{Glatte Funktionen}
+Die Menge
+\[
+C^{\infty}_{\mathbb R}([a,b])
+=
+\{ f\colon [a,b]\to\mathbb R\;|\;
+\text{$f$ ist beliebig oft stetig differenzierbar}\}
+\]
+der glatten, reellwertigen Funktionen auf dem Interval $[a,b]$
+ist ein Vektorraum, denn die Summe glatter Funktionen ist wieder
+eine glatte Funktion.
+
+Die Polynome sind natürlich glatte Funktionen, also
+$\mathbb R[X]\subset C^{\infty}_{\mathbb R}([a,b])$,
+aber es gibt auch glatte Funktionen, die sich nicht als Polynome
+darstellen lassen, zum Beispiel die Funktione
+$\sin x$, $\cos x$ und $e^x$.
+
+In $C^{\infty}_{\mathbb R}([a,b])$ kann man beliebig integrieren und
+differenzieren.
+Es gibt daher zwei lineare Operatoren $D$ und $I$ mit den Eigenschaften
+\[
+Df(x) = f'(x),
+\qquad
+DIf(x) = f(x).
+\]
+$IDf(x)$ ist jedoch nicht das selbe wie $f(x)$.
+Aus der Analysis ist bekannt, dass eine Stammfunktion nur bis auf
+eine Konstanten definiert ist.
+Addiert man eine Konstante $c$ zur Funktion $f(x)$ hinzu, folgt
+\[
+ID(f(x)+c) = IDf(x) + \underbrace{IDc}_{=0} =  IDf(x).
+\]
+Funktionen, die sich um eine Konstante unterschieden, werden von $ID$ auf
+die gleiche Funktion abgebildet.
+Man kann also schliessen, dass $D$ zwar surjektiv, aber nicht injektiv ist,
+dass aber $I$ injektiv aber nicht surjektiv ist.
+
+Hier sieht man einen wesentlichen Unterschied zu endlichdimensionalen
+Vektorräumen.
+Eine lineare Abbildung $\mathbb R^n\to\mathbb R^n$, die injektiv ist, ist
+auch surjektiv und damit invertierbar.
+In einem unendlichdimensionalen Vektorraum braucht das nicht mehr zu
+gelten.
+
+
+%
+% Lineare Abbildungen
+%
+\subsection{Lineare Abbildungen}
+Der Vollständigkeit halber erwähnen wir noch die abstrakte Definition
+einer linearen Abbildung.
+
+\begin{definition}
+Seien zwei Vektorräume $U$ und $V$ gegeben.
+Eine lineare Abbildung ist eine Abbildung
+$\varphi\colon U\to V$ die zusätzlich
+\begin{equation}
+\varphi(\lambda u+\mu v) = \lambda \varphi(u) + \mu \varphi(v)
+\label{skript:linabb:def:linkomb}
+\end{equation}
+für alle $u,v\in U$ und $\lambda,\mu\in\mathbb R$ erfüllt.
+\end{definition}
+
+Man kann die Bedingung der Definition interpretieren als die Forderung,
+dass $\varphi$ mit Linearkombinationen verträglich sein soll.
+Diese einzige Bedingung kann auch als zwei separate Bedingungen
+formulieren:
+\begin{align}
+\varphi(u+v)&=\varphi(u)+\varphi(v)
+\label{skript:linabb:def:summe}
+\\
+\varphi(\lambda u)&=\lambda \varphi(u)
+\label{skript:linabb:def:produkt}
+\end{align}
+Die Bedingung~\eqref{skript:linabb:def:summe} besagt, dass die Abbildung
+$\varphi$ mit Additionen verträglich ist, und 
+\eqref{skript:linabb:def:produkt} besagt, dass $\varphi$ mit skalaren
+Multiplikationen verträglich ist.
+Die beiden Bedingungen sind natürlich äquivalent.
+Zum Beispiel erhält man aus \eqref{skript:linabb:def:linkomb}
+mit $\lambda=1$ und $\mu=0$ die Bedingung \eqref{skript:linabb:def:summe},
+und mit $\mu =0$ erhält man
+\eqref{skript:linabb:def:produkt}.
+Umgekehrt berechnet man mit Hilfe von
+\eqref{skript:linabb:def:summe}
+und
+\eqref{skript:linabb:def:produkt}
+den Wert von $\varphi$ auf einer Linearkombination berechnen:
+\[
+\varphi(\lambda u + \mu v)
+\overset{\eqref{skript:linabb:def:summe}}{=}
+\varphi(\lambda u) + \varphi(\mu v)
+\overset{\eqref{skript:linabb:def:produkt}}{=}
+\lambda \varphi( u) + \mu \varphi( v).
+\]
+
+
+
+
+
+
 

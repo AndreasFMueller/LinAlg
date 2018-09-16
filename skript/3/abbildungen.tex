@@ -545,249 +545,249 @@ Faktoren im Matrizenprodukt ankommt.
 Könnte man $A$ und $T$ vertauschen, wäre $TAT^{-1}=ATT^{-1}=AI=A$,
 die Abbildungsmatrix würde als gar nicht von der Basis abhängen.
 
+%%
+%% Bildraum und Kern
+%%
+%\subsection{Bildraum und Kern\label{subsection:affin:bildraumundkern}}
+%In Kapitel~\ref{chapter-lingl} wurde die Lösungsmenge eines linearen
+%Gleichungssystems mit der Matrix $A$ untersucht.
+%Inzwischen haben wir einer Matrix $A$ auch eine geometrische Bedeutung
+%als Abbildungsmatrix gegeben.
+%Die Frage der Lösbarkeit von Gleichungssystemen und der Begriff des
+%Ranges sollten daher auch eine geometrische Aussage übersetzt
+%werden können, was wir in diesem Abschnitt tun wollen.
 %
-% Bildraum und Kern
+%\subsubsection{Bildraum}
+%Die Matrix $A$ einer linearen Abbildung $\varphi$ enthält in den Spalten
+%die Bilder der Standardbasisvektoren.
+%Vektoren, die als Bilder der Abbildung $\varphi$ auftreten können,
+%müssen Linearekombinationen der Spaltenvektoren von $A$ sein.
+%\begin{definition}
+%Die {\em Bildmenge} $\operatorname{im}\varphi$ einer linearen Abbildung
+%$\varphi$ ist der Vektorraum
+%\[
+%\operatorname{im}\varphi
+%=
+%\{\varphi(v)\;|\;v\in\mathbb R^n\}.
+%\]
+%\end{definition}
 %
-\subsection{Bildraum und Kern\label{subsection:affin:bildraumundkern}}
-In Kapitel~\ref{chapter-lingl} wurde die Lösungsmenge eines linearen
-Gleichungssystems mit der Matrix $A$ untersucht.
-Inzwischen haben wir einer Matrix $A$ auch eine geometrische Bedeutung
-als Abbildungsmatrix gegeben.
-Die Frage der Lösbarkeit von Gleichungssystemen und der Begriff des
-Ranges sollten daher auch eine geometrische Aussage übersetzt
-werden können, was wir in diesem Abschnitt tun wollen.
-
-\subsubsection{Bildraum}
-Die Matrix $A$ einer linearen Abbildung $\varphi$ enthält in den Spalten
-die Bilder der Standardbasisvektoren.
-Vektoren, die als Bilder der Abbildung $\varphi$ auftreten können,
-müssen Linearekombinationen der Spaltenvektoren von $A$ sein.
-\begin{definition}
-Die {\em Bildmenge} $\operatorname{im}\varphi$ einer linearen Abbildung
-$\varphi$ ist der Vektorraum
-\[
-\operatorname{im}\varphi
-=
-\{\varphi(v)\;|\;v\in\mathbb R^n\}.
-\]
-\end{definition}
-
-Die Bildmenge $\operatorname{im}\varphi$ der Abbildung $\varphi$ ist
-daher nichts anderes als die Menge aller möglichen Linearkombinationen
-von Spaltenvektoren.
-Diese haben wir Seite \pageref{skript:affin:koordinaten:aufgespannt}
-als den erzeugten Raum der Spaltenvektoren kennengelernt.
-Wir fassen zusammen:
-\begin{satz}
-Die Bildmenge einer linearen Abbildung $\varphi$ ist der von den
-Spaltenvektoren der zugehörigen Abbildungsmatrix $A$ aufgespannte Raum:
-\[
-\operatorname{im}\varphi
-=
-\langle\vec{a}_1,\dots,\vec{a}_n\rangle
-=
-\langle\mathcal{A}\rangle,
-\]
-wobei $\mathcal{A}$ für die Menge der Spaltenvektoren von $A$ geschrieben
-haben.
-\end{satz}
-
-\subsubsection{Lösbarkeit von Gleichungssystemen}
-Ein Gleichungssystem mit Koeffizientenmatrix $A$ und rechter Seite $b$
-ist lösbar genau dann, wenn es einen Spaltenvektor $x$ gibt, derart 
-dass $Ax=b$.
-Das Gleichungssystem ist also genau dann lösbar, wenn die rechte Seite
-im Bildraum von $A$ liegt.
-
-\begin{beispiel}
-Ist der Vektor
-\[
-b=\begin{pmatrix}4\\2\\4\end{pmatrix}
-\qquad\text{im Bildraum der Abbildung mit Matrix}\qquad
-A=
-\begin{pmatrix}
-  -43& -26&  56\\
-  -22& -12&  28\\
-  -44& -26&  57
-\end{pmatrix}\text{?}
-\]
-Die Frage ist gleichbedeutend damit, ob das Gleichungsystem mit
-Koeffizientenmatrix $A$ und rechter Seite $b$ lösbar ist.
-Das Gauss-Tableau
-\[
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
-  -43& -26&  56&4\\
-  -22& -12&  28&2\\
-  -44& -26&  57&4\\
-\hline
-\end{tabular}
-\quad\rightarrow\quad
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
-   1&  0& -1&  0\\
-   0&  1& -\frac12&   0\\
-\hdashline
-   0&  0&  0&  1\\
-\hline
-\end{tabular}
-\]
-zeigt, dass dies wegen der $1$ in der rechten unteren Ecke nicht möglich
-ist.
-\end{beispiel}
-
-\subsubsection{Dimension des Bildraumes}
-Der Bildraum ist der von den Spaltenvektoren der Abbildungsmatrix
-aufgespannte Raum.
-Es kann durchaus sein, dass nicht alle Spaltenvektoren linear unabhängig
-sind, die Dimension des Bildraumes kann also auch kleiner sein also die
-Anzahl der Spaltenvektoren.
-
-\begin{aufgabe}
-Wie gross ist die Dimension des Bildraumes einer linearen Abbildung
-$\varphi$ mit Abbildungsmatrix $A$?
-\end{aufgabe}
-Die Dimension eines Vektorraumes ist die maximale Anzahl linear
-unabhängiger Vektoren einer Basis.
-Da die Spaltenvektoren von $A$ alles erzeugen, müssen wir nur noch
-ein paar Vektoren weglassen, welche nicht linear unabhängig sind von
-den anderen.
-In Kapitel~\ref{chapter-lingl} haben wir gelernt, dass der Rang der
-Matrix $A$ genau die Anzahl der linear unabhängigen Spalten ist.
-er ist daher auch die Dimension des Bildraumes.
-
-\begin{satz}
-Ist $A$ die Abbildungsmatrix einer linearen Abbildung $\varphi$, dann
-gilt
-\[
-\dim\operatorname{im}\varphi = \operatorname{Rang}A.
-\]
-\end{satz}
-
-\subsubsection{Nullmenge}
-\begin{definition}
-Sei $\varphi$ eine lineare Abbildung.
-Die Menge
-\[
-\operatorname{ker}\varphi = \{\vec{v}\;|\; \varphi(\vec{v}) = 0\}
-\]
-heisst {\em Nullmenge}, {\em Nullraum} oder {\em Kern} der Abbildung 
-$\varphi$.
-\end{definition}
-
-Der Kern von $\varphi$ ist ein Vektorraum, denn wenn zwei Vektoren
-$\vec{u},\vec{v}\in\ker\varphi$ im Kern sind, dann gilt dies
-auch für die Summe und für die Vielfachen:
-\[
-\begin{aligned}
-\varphi(\vec{u}+\vec{v})
-&=
-\varphi(\vec{u})+\varphi(\vec{v})
-=
-0+0=0
-&&\Rightarrow&
-\vec{u}+\vec{v}&\in\ker\varphi
-\\
-\varphi(\lambda\vec{u})
-&=
-\lambda\varphi(\vec{u}) = \lambda\cdot 0=0
-&&\Rightarrow&
-\lambda\vec{u}&\in\ker\varphi
-\end{aligned}
-\]
-Damit stellt sich automatisch die folgende Aufgabe.
-
-\begin{aufgabe}
-Sei $\varphi$ eine lineare Abbildung mit Abbildungsmatrix $A$.
-Man finde eine Basis von $\ker\varphi$.
-\end{aufgabe}
-
-Der Kern besteht aus denjenigen Vektoren $\vec{x}$, die $A\vec{x}=0$
-erfüllen.
-Der Kern von $\varphi$ ist daher nichts anderes als die Lösungsmenge
-des Gleichungssystems $Ax=0$, welche man mit dem Gauss-Algorithmus
-bestimmen kann, wie in Abschnitt~\ref{section:loesungsmenge} gezeigt
-wurde.
-Dort wurde auch gezeigt, dass die Anzahl der frei wählbaren Variablen
-auch die Anzahl der Basisvektoren der Lösungsmenge ist.
-Wenn $A$ eine $m\times n$-Matrix ist mit $\operatorname{Rang}A=r$,
-dann ist die Anzahl der frei wählbaren Variablen $n-r$, es gilt
-also
-\[
-\dim\ker \varphi = n -\operatorname{Rang}A.
-\]
-
-\begin{beispiel}
-Man finde eine Basis des Kernes der linearen Abbildung mit Matrix
-\[
-A=\begin{pmatrix}
-    9& -31& -26&   0\\
-    2& -10& -12& -28\\
-    8& -29& -26& -13
-\end{pmatrix}
-\]
-\smallskip
-
-{\parindent0pt Das} zugehörige Tableau ist
-\begin{equation}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
-    9& -31& -26&   0&0\\
-    2& -10& -12& -28&0\\
-    8& -29& -26& -13&0\\
-\hline
-\end{tabular}
-\quad\rightarrow\quad
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
-    1&   0&   4&  31&0\\
-    0&   1&   2&   9&0\\
-\hdashline
-    0&   0&   0&   0&0\\
-\hline
-\end{tabular}
-\label{skript:affin:kern:tableau}
-\end{equation}
-Die letzten zwei Variablen sind frei wählbar, wir nennen sie $x_3$ und $x_4$,
-dann wird die Lösungsmenge
-\[
-\ker\varphi
-=
-\mathbb L
-=
-\left\{
-\left.
-x_3
-\begin{pmatrix}
--4\\-2\\1\\0
-\end{pmatrix}
-+
-x_4
-\begin{pmatrix}
--31\\-9\\0\\1
-\end{pmatrix}
-\;
-\right|
-\;
-x_3,x_4\in\mathbb R
-\right\}.
-\]
-Der Kern von $\varphi$ ist also ein zweidimensionaler Raum mit der Basis
-\[
-\mathcal{B} = \left\{
-\begin{pmatrix}
--4\\-2\\1\\0
-\end{pmatrix},
-\begin{pmatrix}
--31\\-9\\0\\1
-\end{pmatrix}
-\right\}.
-\]
-Das Tableau \eqref{skript:affin:kern:tableau} zeigt auch, dass
-$\operatorname{Rang}A=2$,
-passend zur Dimension $\dim\ker\varphi = n - \operatorname{Rang}A = 4-2=2$ von
-$\ker\varphi$.
-\end{beispiel}
+%Die Bildmenge $\operatorname{im}\varphi$ der Abbildung $\varphi$ ist
+%daher nichts anderes als die Menge aller möglichen Linearkombinationen
+%von Spaltenvektoren.
+%Diese haben wir Seite \pageref{skript:affin:koordinaten:aufgespannt}
+%als den erzeugten Raum der Spaltenvektoren kennengelernt.
+%Wir fassen zusammen:
+%\begin{satz}
+%Die Bildmenge einer linearen Abbildung $\varphi$ ist der von den
+%Spaltenvektoren der zugehörigen Abbildungsmatrix $A$ aufgespannte Raum:
+%\[
+%\operatorname{im}\varphi
+%=
+%\langle\vec{a}_1,\dots,\vec{a}_n\rangle
+%=
+%\langle\mathcal{A}\rangle,
+%\]
+%wobei $\mathcal{A}$ für die Menge der Spaltenvektoren von $A$ geschrieben
+%haben.
+%\end{satz}
+%
+%\subsubsection{Lösbarkeit von Gleichungssystemen}
+%Ein Gleichungssystem mit Koeffizientenmatrix $A$ und rechter Seite $b$
+%ist lösbar genau dann, wenn es einen Spaltenvektor $x$ gibt, derart 
+%dass $Ax=b$.
+%Das Gleichungssystem ist also genau dann lösbar, wenn die rechte Seite
+%im Bildraum von $A$ liegt.
+%
+%\begin{beispiel}
+%Ist der Vektor
+%\[
+%b=\begin{pmatrix}4\\2\\4\end{pmatrix}
+%\qquad\text{im Bildraum der Abbildung mit Matrix}\qquad
+%A=
+%\begin{pmatrix}
+%  -43& -26&  56\\
+%  -22& -12&  28\\
+%  -44& -26&  57
+%\end{pmatrix}\text{?}
+%\]
+%Die Frage ist gleichbedeutend damit, ob das Gleichungsystem mit
+%Koeffizientenmatrix $A$ und rechter Seite $b$ lösbar ist.
+%Das Gauss-Tableau
+%\[
+%\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+%\hline
+%  -43& -26&  56&4\\
+%  -22& -12&  28&2\\
+%  -44& -26&  57&4\\
+%\hline
+%\end{tabular}
+%\quad\rightarrow\quad
+%\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+%\hline
+%   1&  0& -1&  0\\
+%   0&  1& -\frac12&   0\\
+%\hdashline
+%   0&  0&  0&  1\\
+%\hline
+%\end{tabular}
+%\]
+%zeigt, dass dies wegen der $1$ in der rechten unteren Ecke nicht möglich
+%ist.
+%\end{beispiel}
+%
+%\subsubsection{Dimension des Bildraumes}
+%Der Bildraum ist der von den Spaltenvektoren der Abbildungsmatrix
+%aufgespannte Raum.
+%Es kann durchaus sein, dass nicht alle Spaltenvektoren linear unabhängig
+%sind, die Dimension des Bildraumes kann also auch kleiner sein also die
+%Anzahl der Spaltenvektoren.
+%
+%\begin{aufgabe}
+%Wie gross ist die Dimension des Bildraumes einer linearen Abbildung
+%$\varphi$ mit Abbildungsmatrix $A$?
+%\end{aufgabe}
+%Die Dimension eines Vektorraumes ist die maximale Anzahl linear
+%unabhängiger Vektoren einer Basis.
+%Da die Spaltenvektoren von $A$ alles erzeugen, müssen wir nur noch
+%ein paar Vektoren weglassen, welche nicht linear unabhängig sind von
+%den anderen.
+%In Kapitel~\ref{chapter-lingl} haben wir gelernt, dass der Rang der
+%Matrix $A$ genau die Anzahl der linear unabhängigen Spalten ist.
+%er ist daher auch die Dimension des Bildraumes.
+%
+%\begin{satz}
+%Ist $A$ die Abbildungsmatrix einer linearen Abbildung $\varphi$, dann
+%gilt
+%\[
+%\dim\operatorname{im}\varphi = \operatorname{Rang}A.
+%\]
+%\end{satz}
+%
+%\subsubsection{Nullmenge}
+%\begin{definition}
+%Sei $\varphi$ eine lineare Abbildung.
+%Die Menge
+%\[
+%\operatorname{ker}\varphi = \{\vec{v}\;|\; \varphi(\vec{v}) = 0\}
+%\]
+%heisst {\em Nullmenge}, {\em Nullraum} oder {\em Kern} der Abbildung 
+%$\varphi$.
+%\end{definition}
+%
+%Der Kern von $\varphi$ ist ein Vektorraum, denn wenn zwei Vektoren
+%$\vec{u},\vec{v}\in\ker\varphi$ im Kern sind, dann gilt dies
+%auch für die Summe und für die Vielfachen:
+%\[
+%\begin{aligned}
+%\varphi(\vec{u}+\vec{v})
+%&=
+%\varphi(\vec{u})+\varphi(\vec{v})
+%=
+%0+0=0
+%&&\Rightarrow&
+%\vec{u}+\vec{v}&\in\ker\varphi
+%\\
+%\varphi(\lambda\vec{u})
+%&=
+%\lambda\varphi(\vec{u}) = \lambda\cdot 0=0
+%&&\Rightarrow&
+%\lambda\vec{u}&\in\ker\varphi
+%\end{aligned}
+%\]
+%Damit stellt sich automatisch die folgende Aufgabe.
+%
+%\begin{aufgabe}
+%Sei $\varphi$ eine lineare Abbildung mit Abbildungsmatrix $A$.
+%Man finde eine Basis von $\ker\varphi$.
+%\end{aufgabe}
+%
+%Der Kern besteht aus denjenigen Vektoren $\vec{x}$, die $A\vec{x}=0$
+%erfüllen.
+%Der Kern von $\varphi$ ist daher nichts anderes als die Lösungsmenge
+%des Gleichungssystems $Ax=0$, welche man mit dem Gauss-Algorithmus
+%bestimmen kann, wie in Abschnitt~\ref{section:loesungsmenge} gezeigt
+%wurde.
+%Dort wurde auch gezeigt, dass die Anzahl der frei wählbaren Variablen
+%auch die Anzahl der Basisvektoren der Lösungsmenge ist.
+%Wenn $A$ eine $m\times n$-Matrix ist mit $\operatorname{Rang}A=r$,
+%dann ist die Anzahl der frei wählbaren Variablen $n-r$, es gilt
+%also
+%\[
+%\dim\ker \varphi = n -\operatorname{Rang}A.
+%\]
+%
+%\begin{beispiel}
+%Man finde eine Basis des Kernes der linearen Abbildung mit Matrix
+%\[
+%A=\begin{pmatrix}
+%    9& -31& -26&   0\\
+%    2& -10& -12& -28\\
+%    8& -29& -26& -13
+%\end{pmatrix}
+%\]
+%\smallskip
+%
+%{\parindent0pt Das} zugehörige Tableau ist
+%\begin{equation}
+%\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+%\hline
+%    9& -31& -26&   0&0\\
+%    2& -10& -12& -28&0\\
+%    8& -29& -26& -13&0\\
+%\hline
+%\end{tabular}
+%\quad\rightarrow\quad
+%\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+%\hline
+%    1&   0&   4&  31&0\\
+%    0&   1&   2&   9&0\\
+%\hdashline
+%    0&   0&   0&   0&0\\
+%\hline
+%\end{tabular}
+%\label{skript:affin:kern:tableau}
+%\end{equation}
+%Die letzten zwei Variablen sind frei wählbar, wir nennen sie $x_3$ und $x_4$,
+%dann wird die Lösungsmenge
+%\[
+%\ker\varphi
+%=
+%\mathbb L
+%=
+%\left\{
+%\left.
+%x_3
+%\begin{pmatrix}
+%-4\\-2\\1\\0
+%\end{pmatrix}
+%+
+%x_4
+%\begin{pmatrix}
+%-31\\-9\\0\\1
+%\end{pmatrix}
+%\;
+%\right|
+%\;
+%x_3,x_4\in\mathbb R
+%\right\}.
+%\]
+%Der Kern von $\varphi$ ist also ein zweidimensionaler Raum mit der Basis
+%\[
+%\mathcal{B} = \left\{
+%\begin{pmatrix}
+%-4\\-2\\1\\0
+%\end{pmatrix},
+%\begin{pmatrix}
+%-31\\-9\\0\\1
+%\end{pmatrix}
+%\right\}.
+%\]
+%Das Tableau \eqref{skript:affin:kern:tableau} zeigt auch, dass
+%$\operatorname{Rang}A=2$,
+%passend zur Dimension $\dim\ker\varphi = n - \operatorname{Rang}A = 4-2=2$ von
+%$\ker\varphi$.
+%\end{beispiel}
 
 
 

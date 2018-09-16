@@ -56,79 +56,79 @@ Volumen $V$ auf einen Körper mit Volumen $\det(A)\cdot V$.
 Eine Abbildung $A$ erhält das Volumen, wenn $\det(A)=\pm 1$,
 die Orientierung bleibt ebenfalls erhalten, wenn $\det(A)=1$.
 
-\subsection{Spezielle lineare und orthogonale Gruppe}
-Die orientientierungserhaltenden Abbildungen bilden die Teilmenge
-\[
-\operatorname{SL}_n(\mathbb R)
-=
-\{
-A\in M_n(\mathbb R)
-\;|\;
-\det(A) = 1
-\}.
-\]
-Für $A,B\in\operatorname{SL}_n(\mathbb R)$ lässt die
-Produktformel
-\[
-\det(AB)=\det(A)\det(B) = 1
-\]
-die Schlussfolgerung zu, dass auch $AB\in\operatorname{SL}_n(\mathbb R)$.
-Die Menge $\operatorname{SL}_n(\mathbb R)$ ist daher eine Gruppe, sie
-heisst die {\em spezielle lineare Gruppe}.
-
-Abbildungen $A$, die das Skalarprodukt erhalten, sind in $\operatorname{O}(n)$ und erfüllen
-\[
-A^tA=E
-\quad\Rightarrow\quad
-1
-=
-\det(E)
-=
-\det(A^tA)=\det(A^t)\det(A)=\det(A)^2
-\quad\Rightarrow\quad
-\det(A) = \pm 1.
-\]
-Die Abbildungen, die sowohl das Skalarprodukt als auch die Orientierung
-erhalten, zeichnen sich also dadurch aus, dass sie sowohl in
-$\operatorname{O}(n)$ als auch in $\operatorname{SL}_n(\mathbb R)$ sein, wir nennen diese
-Gruppe
-\[
-\operatorname{SO}(n) 
-=
-\operatorname{O}(n) \cap \operatorname{SL}_n(\mathbb R)
-=
-\{
-A\in M_n(\mathbb R)\;|\; A^tA=E\wedge \det(A) = 1
-\}
-\]
-die spezielle orthogonale Gruppe.
-Dies sind die Bewegungen, die den Nullpunkt unverändert lassen,
-Längen und Winkel erhalten und die Orientierung nicht ändern.
-Dies sind genau die Drehmatrizen.
-Die Determinante ist also das in Abschnitt~\ref{subsection:orthogonale gruppe}
-angekündigte Kriterium, mit welchem wir Drehmatrizen von Matrizen
-unterscheiden können, die eine Spiegelungskomponente enhalten.
-
-Die Differenz $\operatorname{O}(n) \setminus \operatorname{SO}(n)$
-besteht aus Matrizen, die zwar das Skalarprodukt erhalten, aber die
-Orientierung umkehren.
-Ist $S_x$ die Spiegelung an der Ebene senkrecht zur $x$-Achse und ist
-$A\in \operatorname{O}(n) \setminus \operatorname{SO}(n)$, dann ist
-\[
-\det(S_xA)= \det(S_x)\det(A) = (-1)\cdot(-1)=1
-\qquad\Rightarrow\qquad
-S_xA\in\operatorname{SO}(n).
-\]
-Dies bedeutet, dass die Multiplikation mit $S_x$ eine bijektive Abbildung
-\[
-\operatorname{SO}(n) \to \operatorname{O}(n)\setminus\operatorname{SO}(n)
-:
-A\mapsto S_xA
-\]
-definiert.
-Die Gruppe $\operatorname{O}(n)$ besteht also aus zwei gleichartig gebauten
-Teilmengen, $\operatorname{SO}(n)$  und
-$\operatorname{O}(n)\setminus\operatorname{SO}(n)$.
-
-
-
+%\subsection{Spezielle lineare und orthogonale Gruppe}
+%Die orientientierungserhaltenden Abbildungen bilden die Teilmenge
+%\[
+%\operatorname{SL}_n(\mathbb R)
+%=
+%\{
+%A\in M_n(\mathbb R)
+%\;|\;
+%\det(A) = 1
+%\}.
+%\]
+%Für $A,B\in\operatorname{SL}_n(\mathbb R)$ lässt die
+%Produktformel
+%\[
+%\det(AB)=\det(A)\det(B) = 1
+%\]
+%die Schlussfolgerung zu, dass auch $AB\in\operatorname{SL}_n(\mathbb R)$.
+%Die Menge $\operatorname{SL}_n(\mathbb R)$ ist daher eine Gruppe, sie
+%heisst die {\em spezielle lineare Gruppe}.
+%
+%Abbildungen $A$, die das Skalarprodukt erhalten, sind in $\operatorname{O}(n)$ und erfüllen
+%\[
+%A^tA=E
+%\quad\Rightarrow\quad
+%1
+%=
+%\det(E)
+%=
+%\det(A^tA)=\det(A^t)\det(A)=\det(A)^2
+%\quad\Rightarrow\quad
+%\det(A) = \pm 1.
+%\]
+%Die Abbildungen, die sowohl das Skalarprodukt als auch die Orientierung
+%erhalten, zeichnen sich also dadurch aus, dass sie sowohl in
+%$\operatorname{O}(n)$ als auch in $\operatorname{SL}_n(\mathbb R)$ sein, wir nennen diese
+%Gruppe
+%\[
+%\operatorname{SO}(n) 
+%=
+%\operatorname{O}(n) \cap \operatorname{SL}_n(\mathbb R)
+%=
+%\{
+%A\in M_n(\mathbb R)\;|\; A^tA=E\wedge \det(A) = 1
+%\}
+%\]
+%die spezielle orthogonale Gruppe.
+%Dies sind die Bewegungen, die den Nullpunkt unverändert lassen,
+%Längen und Winkel erhalten und die Orientierung nicht ändern.
+%Dies sind genau die Drehmatrizen.
+%Die Determinante ist also das in Abschnitt~\ref{subsection:orthogonale gruppe}
+%angekündigte Kriterium, mit welchem wir Drehmatrizen von Matrizen
+%unterscheiden können, die eine Spiegelungskomponente enhalten.
+%
+%Die Differenz $\operatorname{O}(n) \setminus \operatorname{SO}(n)$
+%besteht aus Matrizen, die zwar das Skalarprodukt erhalten, aber die
+%Orientierung umkehren.
+%Ist $S_x$ die Spiegelung an der Ebene senkrecht zur $x$-Achse und ist
+%$A\in \operatorname{O}(n) \setminus \operatorname{SO}(n)$, dann ist
+%\[
+%\det(S_xA)= \det(S_x)\det(A) = (-1)\cdot(-1)=1
+%\qquad\Rightarrow\qquad
+%S_xA\in\operatorname{SO}(n).
+%\]
+%Dies bedeutet, dass die Multiplikation mit $S_x$ eine bijektive Abbildung
+%\[
+%\operatorname{SO}(n) \to \operatorname{O}(n)\setminus\operatorname{SO}(n)
+%:
+%A\mapsto S_xA
+%\]
+%definiert.
+%Die Gruppe $\operatorname{O}(n)$ besteht also aus zwei gleichartig gebauten
+%Teilmengen, $\operatorname{SO}(n)$  und
+%$\operatorname{O}(n)\setminus\operatorname{SO}(n)$.
+%
+%
+%
