@@ -3,7 +3,7 @@
 %
 % (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
-\documentclass[tikz]{standalone}
+\documentclass[tikz,12pt]{standalone}
 \usepackage{times}
 \usepackage{amsmath}
 \usepackage{txfonts}
@@ -47,27 +47,27 @@ $
 
 % Gitter
 \ifthenelse{\boolean{showgrid}}{
-\draw[step=0.1,line width=0.1pt] (-3,-3) grid (3, 3);
-\draw[step=0.5,line width=0.4pt] (-3,-3) grid (3, 3);
-\draw (-3,-3) grid (3, 3);
+\draw[step=0.1,line width=0.1pt] (-4,-2) grid (4, 2);
+\draw[step=0.5,line width=0.4pt] (-4,-2) grid (4, 2);
+\draw (-4,-2) grid (4, 2);
 \fill (0,0) circle[radius=0.05];
 }{}
 
-\def\t{0.95}
-\def\h{1.125}
-\def\b{-1.4}
+\def\t{1.2}
+\def\h{1.4}
+\def\b{-1.7}
 
-\draw[rounded corners] (-2.9,{\t-\h}) rectangle (-1.7,0.95); % I
-\draw[rounded corners] (-1.45,{\t-\h}) rectangle (-0.75,0.95); % u_1
-\draw[rounded corners] (-0.5,{\t-\h}) rectangle (0.2,0.95); % v_1
-\draw[rounded corners] (2.4,{\t-\h}) rectangle (2.9,0.95); % p_1
+\draw[rounded corners] (-3.2,{\t-\h}) rectangle (-1.7,\t); % I
+\draw[rounded corners] (-1.6,{\t-\h}) rectangle (-0.9,\t); % u_1
+\draw[rounded corners] (-0.55,{\t-\h}) rectangle (0.15,\t); % v_1
+\draw[rounded corners] (2.6,{\t-\h}) rectangle (3.1,\t); % p_1
 
-\draw[rounded corners] (-2.9,-1.4) rectangle (-1.7,{\b+\h}); % I
-\draw[rounded corners] (0.45,-1.4) rectangle (1.15,{\b+\h}); % u_2
-\draw[rounded corners] (1.4,-1.4) rectangle (2.1,{\b+\h}); % v_2
-\draw[rounded corners] (2.4,-1.4) rectangle (2.9,{\b+\h}); % p_2
+\draw[rounded corners] (-3.2,\b) rectangle (-1.7,{\b+\h}); % I
+\draw[rounded corners] (0.5,\b) rectangle (1.2,{\b+\h}); % u_2
+\draw[rounded corners] (1.55,\b) rectangle (2.25,{\b+\h}); % v_2
+\draw[rounded corners] (2.6,\b) rectangle (3.1,{\b+\h}); % p_2
 
-\draw[rounded corners, color=red] (-2.9,1.1) rectangle (-1.7,1.45);
+\draw[rounded corners, color=red] (-3.2,1.3) rectangle (-1.7,1.75);
 
 \end{tikzpicture}
 

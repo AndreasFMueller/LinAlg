@@ -3,7 +3,7 @@
 %
 % (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
-\documentclass[tikz]{standalone}
+\documentclass[tikz,12pt]{standalone}
 \usepackage{times}
 \usepackage{amsmath}
 \usepackage{txfonts}
@@ -68,22 +68,22 @@ $
 \fill (0,0) circle[radius=0.05];
 }{}
 
-\def\t{0.95}
-\def\h{1.125}
-\def\b{-1.4}
+\def\t{1.20}
+\def\h{1.4}
+\def\b{-1.7}
 
-\draw[rounded corners] (2.15,{\t-\h}) rectangle (3.35,0.95);
-\draw[rounded corners] (3.6,{\t-\h}) rectangle (4.2,0.95);
+\draw[rounded corners] (2.5,{\t-\h}) rectangle (3.9,\t);
+\draw[rounded corners] (4.0,{\t-\h}) rectangle (4.65,\t);
 %\draw[rounded corners] (4.3,{\t-\h}) rectangle (4.85,0.95);
-\draw[rounded corners] (5.975,{\t-\h}) rectangle (6.40,0.95);
+\draw[rounded corners] (6.65,{\t-\h}) rectangle (7.10,\t);
 
-\draw[rounded corners] (2.15,-1.4) rectangle (3.35,{\b+\h});
-%\draw[rounded corners] (3.5,-1.4) rectangle (4.1,{\b+\h});
-\draw[rounded corners] (4.4,-1.4) rectangle (4.95,{\b+\h});
-\draw[rounded corners] (5.2,-1.4) rectangle (5.75,{\b+\h});
-\draw[rounded corners] (5.975,-1.4) rectangle (6.40,{\b+\h});
+\draw[rounded corners] (2.5,\b) rectangle (3.9,{\b+\h});
+%\draw[rounded corners] (3.5,\b) rectangle (4.1,{\b+\h});
+\draw[rounded corners] (4.85,\b) rectangle (5.55,{\b+\h});
+\draw[rounded corners] (5.75,\b) rectangle (6.4,{\b+\h});
+\draw[rounded corners] (6.65,\b) rectangle (7.10,{\b+\h});
 
-\draw[rounded corners, color=red] (2.15,1.1) rectangle (3.35,1.45);
+\draw[rounded corners, color=red] (2.5,1.35) rectangle (3.9,1.75);
 
 \end{tikzpicture}
 
