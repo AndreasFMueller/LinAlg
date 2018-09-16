@@ -15,7 +15,7 @@ cd ${dir}
 
 counter=1
 ECHO=echo
-ECHO=
+#ECHO=
 
 for f in *.tex
 do
