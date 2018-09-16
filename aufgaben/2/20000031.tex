@@ -48,9 +48,9 @@ keine eindeutige Lösung existieren.
 Die gesuchte Gleichung ist also
 \begin{equation}
 u^3+v^3-3uv+1=0.
-\label{20000033:bedingung}
+\label{20000031:bedingung}
 \end{equation}
-Wir kürzen im folgenden die linke Seite von (\ref{20000033:bedingung})
+Wir kürzen im folgenden die linke Seite von (\ref{20000031:bedingung})
 als $p(u,v)$ ab.
 \item
 Für $u=1$ und $v=1$ wird die Koeffizientenmatrix zu
@@ -97,7 +97,7 @@ x_1&=\frac1{p(u,v)}\left|\,\begin{matrix}
 =\frac1{p(u,v)}
 (1+u^2+2v^2-v-uv-2u)
 =\frac{1+u^2+2v^2-v-uv-2u}{u^3+v^3-3uv+1},
-%\label{20000033:x1}
+%\label{20000031:x1}
 \\
 x_2&=\frac1{p(u,v)}\left|\,\begin{matrix}
 1&\color{green}1&v\\
@@ -107,7 +107,7 @@ u&\color{green}1&1
 =\frac1{p(u,v)}
 (2+u^2+v^2-2uv-u-v)
 =\frac{2+u^2+v^2-2uv-u-v}{u^3+v^3-3uv+1},
-%\label{20000033:x2}
+%\label{20000031:x2}
 \\
 x_3&=\frac1{p(u,v)}\left|\,\begin{matrix}
 1&u&\color{green}1\\
@@ -117,7 +117,7 @@ u&v&\color{green}1
 =\frac1{p(u,v)}
 (1+2u^2+v^2-u-2v-uv)
 =\frac{1+2u^2+v^2-u-2v-uv}{u^3+v^3-3uv+1}.
-%\label{20000033:x3}
+%\label{20000031:x3}
 \end{align*}
 Wir kontrollieren die Lösung durch Einsetzen in das Gleichungssystem.
 Setzt man den Klammerausdruck in der Formel für $x_1$ in die erste Gleichung
@@ -179,7 +179,7 @@ u^3+v^3-3uv+1=p(u,v).
 \end{loesung}
 
 \begin{diskussion}
-Die Gleichung (\ref{20000033:bedingung}) definiert eine Menge von Punkten
+Die Gleichung (\ref{20000031:bedingung}) definiert eine Menge von Punkten
 in der $u$-$v$-Ebene.
 Diese Menge zu finden ist nicht trivial, und auch nicht unbedingt Gegenstand
 der linearen Algebra, sondern eher der algebraischen Geometrie, die sich
@@ -187,7 +187,7 @@ mit den Eigenschaften von Lösungsmengen von solchen Polynomgleichungen befasst.
 Trotzdem sei hier ein Argument angegeben, wie man diese Menge finden kann.
 
 Man kann durch Probieren die Punkte $(-1,0)$, $(0,-1)$ und $(1,1)$ als Lösungen
-der Gleichung (\ref{20000033:bedingung}) finden.
+der Gleichung (\ref{20000031:bedingung}) finden.
 Da die Gleichung symmetrisch in $u$ und $v$ ist, muss die Lösung
 spiegelungssymmetrisch bezüglich der Geraden $x=y$ sein, und man kann
 vermuten, dass die Lösung ein Kurvenstück enthalten muss, welches
@@ -195,7 +195,7 @@ die ersten beiden Punkte verbindet.
 Dieses Kurvenstück muss eine Gerade, eine Parabel (quadratische Kurve) oder
 eine kubische Kurve sein. 
 Wir probieren eine Gerade durch die beiden Punkte, sie hat die Gleichung $u=-1-v$.
-Setzt man dies in (\ref{20000033:bedingung}) ein, findet man
+Setzt man dies in (\ref{20000031:bedingung}) ein, findet man
 \begin{align*}
 (-1-v)^3+v^3-3(-1-v)v+1
 &=
@@ -239,7 +239,7 @@ v&=x-y.
 %y&=\frac12(u-v)
 %\end{aligned}
 %\right.
-\label{20000033:transformation}
+\label{20000031:transformation}
 \end{equation}
 Setzt man diese Ausdrücke für $u$ und $v$ in $r(u,v)$ ein erhält man
 \begin{align*}
@@ -251,33 +251,33 @@ r(u,v)
 \end{align*}
 Jeder Term im letzten Ausdruck ist positiv, die Gleichung $r(u,v)=0$ kann
 also nur dann erfüllt sein, wenn beide Terme verschwinden, oder $x=1$ und $y=0$.
-Setzt man diese Werte wieder in (\ref{20000033:transformation}) ein,
+Setzt man diese Werte wieder in (\ref{20000031:transformation}) ein,
 erhält man $u=1$ und $v=1$, also genau den dritten der geratenen Punkte.
 Die erwartete Ellipse ist also zu einem Punkt entartet.
 
 Die Lösungsmenge der Gleichung $p(u,v)=0$ besteht also aus der Geraden
 mit der Gleichung $u+v+1=0$ und dem Punkt $(1,1)$.
-Sie ist in der Abbildung~\ref{20000033:loesungsmenge} dargestellt.
+Sie ist in der Abbildung~\ref{20000031:loesungsmenge} dargestellt.
 \begin{figure}
 \centering
 \includeagraphics[]{kubisch-1.pdf}
 \caption{Lösungsmenge der Gleichung $p(u,v) = u^3+v^3-3uv+1=0$
-in Aufgabe~\ref{20000033}. Sie besteht aus der Geraden durch die
+in Aufgabe~\ref{20000031}. Sie besteht aus der Geraden durch die
 Punkte $(-1,0)$ und $(0,-1)$ sowie dem isolierten Punkt $(1,1)$.
-\label{20000033:loesungsmenge}}
+\label{20000031:loesungsmenge}}
 \end{figure}
 
 Alternativ kann man die Lösungsmenge auch dadurch finden, dass man die
 Funktion $p(u,v)$ als Fläche über der $u$-$v$-Ebene darstellt, und die
 Schnittmenge mit der $u$-$v$-Ebene sucht.
-Dies  ist in Abbildung~\ref{20000033:flaeche} dargestellt.
+Dies  ist in Abbildung~\ref{20000031:flaeche} dargestellt.
 \begin{figure}
 \centering
 \includeagraphics[width=0.7\hsize]{cubic.jpg}
 \caption{Graph der Funktion $p(u,v)=u^3+v^3-3uv+1$ für $-2\le u,v\le 2$ (rot),
 die Fläche schneidet die $u$-$v$-Ebene in der Geraden durch $(-1,0)$ und
 $(0,-1)$, und berührt die $u$-$v$-Ebene im Punkt $(1,1)$ (beide gelb).
-\label{20000033:flaeche}}
+\label{20000031:flaeche}}
 \end{figure}
 \end{diskussion}
 
