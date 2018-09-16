@@ -1,7 +1,13 @@
 #
-# Makefile
+# Makefile -- build plan for least squares fit
 #
-# (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+# (c) 2015 Prof Dr Andreas Mueller, Hochschule Rapperswil
 #
-all:
-	octave < k.m
+bild = plan-1.pdf
+
+$(bild): plan.mp
+	TEX=latex mpost plan.mp
+	for f in plan.?; \
+	do \
+		mptopdf $${f}; \
+	done
