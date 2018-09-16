@@ -254,6 +254,130 @@ Die Zwischenwinkelformel liefert jetzt
 \end{align*}
 \end{beispiel}
 
+\subsubsection{Die Schuhbändel-Formel für den Flächeninhalt eines Polygons}
+\begin{figure}
+\centering
+\includegraphics{5/images/schuhbaendel.pdf}
+\caption{Schuhbändel-Formel zur Berechnung des Flächeninhalts eines
+Polygons
+\label{skript:orientierung:schuhbaendel}}
+\end{figure}
+Der orientierte Flächeninhalt eines Dreiecks $OAB$ in der Ebene wir durch
+die halbe Determinante
+\[
+F(OAB)
+=
+\frac12\left|\,\begin{matrix} x_A&x_B\\y_A&y_B\end{matrix}\,\right|
+=
+\frac12\left|\,\begin{matrix} x_A&y_A\\x_B&y_B\end{matrix}\,\right|
+\]
+der Ortsvektoren $\vec{a}$ und $\vec{b}$ gegeben.
+Kompliziertere Polygone können in Dreiecke zerlegt werden.
+Der Flächeninhalt des Dreiecks $\triangle ABC$ in
+Abbildung~\ref{skript:orientierung:schuhbaendel} zum 
+Beispiel kann berechnet werden aus den orientierten Flächeninhalten
+\begin{align*}
+F(ABC)
+&=
+{\color{red}F(OAB)} + {\color{blue}F(OBC)} - {\color{green}F(OAC)}
+\\
+&=
+{\color{red}F(OAB)} + {\color{blue}F(OBC)} + {\color{green}F(OCA)}
+\\
+&
+=
+\frac12 \left|\,\begin{matrix} x_A&x_B\\y_A&y_B\end{matrix}\,\right|
++
+\frac12 \left|\,\begin{matrix} x_B&x_C\\y_B&y_C\end{matrix}\,\right|
++
+\frac12 \left|\,\begin{matrix} x_C&x_A\\y_C&y_A\end{matrix}\,\right|
+\\
+&
+=
+\frac12 \left|\,\begin{matrix} x_A&y_A\\x_B&y_B\end{matrix}\,\right|
++
+\frac12 \left|\,\begin{matrix} x_B&y_B\\x_C&y_C\end{matrix}\,\right|
++
+\frac12 \left|\,\begin{matrix} x_C&y_C\\x_A&y_A\end{matrix}\,\right|.
+\end{align*}
+\begin{satz}{Schuhbändel-Formel}
+Ein Polygon mit den Ecken $P_1,P_2,\dots,P_n$ hat den orientierten 
+Flächeninhalt
+\begin{equation}
+F(P_1P_2\dots P_n) =
+\frac12\left|\,\begin{matrix}x_1&y_1\\x_2&y_2\end{matrix}\,\right|
++
+\frac12\left|\,\begin{matrix}x_2&y_2\\x_3&y_3\end{matrix}\,\right|
++\dots+
+\frac12\left|\,\begin{matrix}x_n&y_n\\x_1&y_1\end{matrix}\,\right|
+\label{skript:orientierung:schuhbaendel:satz}
+\end{equation}
+\end{satz}
+\index{Schuhbändel-Formel}
+Der Name Schuhbändel-Formel für
+\eqref{skript:orientierung:schuhbaendel:satz}
+kommt von der folgenden Erweiterung der Determinanten-Notation her:
+\[
+\left|\,
+\begin{matrix}
+x_1
+\begin{picture}(0,0)
+\color{red}
+\drawline(1,-2)(8,-9)
+\drawline(1,-9)(8,-2)
+\end{picture}
+&y_1\\
+x_2
+\begin{picture}(0,0)
+\color{red}
+\drawline(1,-2)(8,-9)
+\drawline(1,-9)(8,-2)
+\end{picture}
+&y_2\\
+x_3
+\begin{picture}(0,0)
+\color{red}
+\drawline(1,-2)(8,-9)
+\drawline(1,-9)(8,-2)
+\end{picture}
+&y_3\\
+\vdots&\vdots\\
+x_n
+\begin{picture}(0,0)
+\color{red}
+\drawline(1,-2)(8,-9)
+\drawline(1,-9)(8,-2)
+\drawline(1,5.5)(8,12.5)
+\drawline(1,12.5)(8,5.5)
+\end{picture}
+&y_n
+\end{matrix}
+\,\right|
+=
+\left|\,\begin{matrix}x_1
+&y_1\\x_2&y_2\end{matrix}\,\right|
++
+\left|\,\begin{matrix}x_2&y_2\\x_3&y_3\end{matrix}\,\right|
++
+\dots
++
+\left|\,\begin{matrix}x_n&y_n\\x_1&y_1\end{matrix}\,\right|.
+\]
+Der orientiert Flächeninhalt des Polygons kann damit als
+\[
+F(P_1P_2\dots P_n)
+=
+\frac12\left|\,
+\begin{matrix}
+x_1&y_1\\
+x_2&y_2\\
+x_3&y_3\\
+\vdots&\vdots\\
+x_n&y_n
+\end{matrix}\,\right|
+\]
+geschriebenwerden.
+
 \subsubsection{Abstand Punkt--Gerade}
 \begin{figure}
 \begin{center}

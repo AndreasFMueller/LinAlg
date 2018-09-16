@@ -1,4 +1,10 @@
-\subsection{Wavelets\label{subsection-wavelets}}
+%
+% wavelets.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Anwendung: Wavelets\label{section-wavelets}}
+\rhead{Anwendung: Wavelets}
 Die Erfindung der Fourier-Reihen durch Jean-Baptiste Fourier erm"oglichte,
 beliebige periodische Funktionen in ihre Frequenzkomponenten zu zerlegen,
 diese einzeln zu studieren, zu modifizieren und daraus eine neue Funktion
@@ -33,7 +39,7 @@ Das Prinzip der Analyse eines Signals mit Wavelets kann jedoch
 auch mit der Haar-Basis illustriert werden. Dies wird in diesem
 Abschnitt unternommen.
 
-\subsubsection{Signale}
+\subsection{Signale}
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.9\hsize]{images/signal-1}
@@ -70,7 +76,7 @@ Wir schreiben die Komponenten dieser Vektoren auch $x(i)$ um
 eine Schreibweise zu erhalten, die "ahnlich ist der Funktionsschreibweise
 f"ur eine Zeitabh"angige Funktion.
 
-\subsubsection{Anforderungen an eine Basis}
+\subsection{Anforderungen an eine Basis}
 Die Standardbasis $e_i$ passt nicht zu der Art und Weise, wie ein
 Ingenieur das Signal studiert. Der Standardbasis-Vektor $e_i$
 entspricht einem Peak zur Zeit $i$, zu allen anderen Zeiten
@@ -117,7 +123,7 @@ gewisse Offsets.
 In den folgenden Abschnitten sollen diese Forderungen nach und
 nach erf"ullt werden.
 
-\subsubsection{Eine skaleninvariante Vektorfamilie}
+\subsection{Eine skaleninvariante Vektorfamilie}
 Wir konstruieren jetzt eine Familie von Vektoren $\varphi_{i,j}$
 wie folgt. $\varphi_{0,0}$ besteht aus lauter Einsen. In $\varphi_{1,j}$
 ist die H"alfte der Komponenten $0$, die andere H"alfte hat den
@@ -183,7 +189,7 @@ $$
 $$
 linear unabh"angige Vektoren.
 
-\subsubsection{Orthonormierung}
+\subsection{Orthonormierung}
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.45\hsize]{images/w-8}
@@ -303,7 +309,7 @@ ebenfalls ein Einheitsvektor und orthonormiert, das Resultat ist in Abbildung
 Analog kann man f"ur $\psi_{3,j}$ mit $0\le j\le 3$ vorgehen, und
 erh"alt vier orthogonale Vektoren wie in Abbildung \ref{psi3}.
 
-\subsubsection{Analyse}
+\subsection{Analyse}
 Da die Vektoren $\psi_{i,j}$ mit $0\le i\le k$ und
 $0\le j< 2^i$ eine orthonormierte Basis von $V$ bilden, man kann also
 jeden beliebigen Vektor $v$ in dieser Basis zerlegen.
@@ -370,7 +376,7 @@ daf"ur, wie stark verschieden hohe Frequenzen im Signal
 vertreten sind. Trotzdem geht die Information nicht verloren,
 wann eine Signal"anderung passiert.
 
-\subsubsection{Synthese}
+\subsection{Synthese}
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.8\hsize]{images/signal-3}
@@ -410,7 +416,7 @@ kann, steuert man die Amplitude der $\psi_{i,j}$-Komponente.
 \caption{Die Basisfunktionen $\psi_{i,j}$, $0\le i\le 3$ und $0\le j<2^{i-1}$.}
 \end{figure}
 
-\subsubsection{Wavelet Transformation}
+\subsection{Wavelet Transformation}
 Das Resultat der Analyse ist ein Vektor bestehend aus den Koeffizienten
 $a_{i,j}$:
 $$
@@ -462,7 +468,7 @@ $$
 \end{pmatrix}
 $$
 
-\subsubsection{Anwendungen}
+\subsection{Anwendungen}
 \begin{figure}
 \begin{center}
 \includegraphics[width=\hsize]{graphics/wavelet-sin3}

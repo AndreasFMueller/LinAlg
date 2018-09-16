@@ -3,10 +3,14 @@
 #
 # (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
 #
-all:	flaeche.pdf volumen.pdf vektorprodukt.pdf windschief.pdf abstand.pdf
+all:	flaeche.pdf volumen.pdf vektorprodukt.pdf windschief.pdf \
+	abstand.pdf schuhbaendel.pdf
 
 flaeche.pdf:	flaeche.tex
 	pdflatex flaeche.tex
+
+schuhbaendel.pdf:	schuhbaendel.tex
+	pdflatex schuhbaendel.tex
 
 #
 # Volumen
