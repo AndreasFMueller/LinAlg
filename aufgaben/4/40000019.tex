@@ -1,0 +1,50 @@
+In der Vorlesung wurde gezeigt, dass die Spiegelung an einer Ebene
+mit der Normalen $\vec n$ mit $|\vec n|=1$ durch die Matrix
+\[
+S=E-2\vec n\vec n^t
+\]
+gegeben ist.
+\begin{teilaufgaben}
+\item Kontrollieren Sie durch nachrechnen, dass zweimalige Spiegelung einen
+Vektor nicht ändert.
+\item Ist die Matrix $S$ symmetrisch?
+\item Ist $S$ orthogonal?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir müssen $S^2$ berechnen:
+\begin{align*}
+S^2
+&=
+(E-2\vec n\vec n^t) (E-2\vec n\vec n^t)
+=
+E-4\vec n\vec n^t +4\vec n\underbrace{\vec n^t \vec  n}_{\displaystyle=1}\vec n^t
+=
+E-4\vec n\vec n^t +4\vec n \vec n^t
+=
+E.
+\end{align*}
+\item
+Die Matrix ist symmetrisch, wenn $S^t=S$ ist.
+Also
+\[
+S^t
+=
+(E-2\vec n\vec n^t)^t
+=
+E^t - 2(\vec n^t)^t\vec n^t
+=
+E-2\vec n\vec n^t
+=
+S.
+\]
+Die Matrix $S$ ist daher symmetrisch.
+\item
+Eine Matrix ist orthogonal, wenn $A^tA=E$ ist.
+Da $S$ symmetrisch ist, ist $S^t=S$ und damit
+$S^tS=SS=E$ nach a).
+\end{teilaufgaben}
+\end{loesung}
+

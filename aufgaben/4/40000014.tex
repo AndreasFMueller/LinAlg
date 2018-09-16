@@ -1,0 +1,153 @@
+Statt der Standardbasis $B$ möchte man in einer Anwendung die Basis
+$B'$ aus den Basisvektoren
+\[
+\begin{aligned}
+b_1'
+&=
+\begin{pmatrix}1\\0\end{pmatrix}
+&
+&\text{und}
+&
+b_2'
+&=
+\begin{pmatrix}\frac12\\\frac{\sqrt{3}}2\end{pmatrix}
+\end{aligned}
+\]
+verwenden.
+Dies entspricht einem Koordinatensystem mit Achsen, die einen Winkel
+von $60^\circ$ ein\-schliessen.
+\begin{teilaufgaben}
+\item
+Berechnen Sie die Transformationsmatrix $T$, die $B$-Koordinaten
+in $B'$-Koordinaten umrechnet.
+\item
+Berechnen Sie die $B'$-Koordinaten der beiden Vektoren
+\[
+\begin{aligned}
+u&=\begin{pmatrix}1\\1\end{pmatrix}
+&&\text{und}&
+v&=\begin{pmatrix}1\\-1\end{pmatrix}
+\end{aligned}
+\]
+Die Vektoren stehen senkrecht aufeinander.
+\item
+Das Skalarprodukt hat in $B'$-Koordinaten nicht mehr die einfache
+Formel $u^{\prime t}v'$.
+Aus der Matrix $T$ lässt sich aber auch eine Formel für die
+Koordinatenumrechnung von $B'$-Koordinaten in $B$-Koordinaten finden,
+die dazu verwendet werden kann, eine Formel für das Skalarprodukt in
+$B'$-Koordinaten aufzustellen.
+Dabei stellt sich heraus, dass das Skalarprodukt
+als $u'^tGv'$ geschrieben werden kann.
+Berechnen Sie die Matrix $G$.
+\item 
+Berechnen Sie das Skalarprodukt von $u'$ und $v'$ in den $B'$-Koordinaten.
+\end{teilaufgaben}
+
+\thema{Basis}
+\thema{Basistransformation}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item 
+Die Transformationsmatrix kann wie üblich mit dem Gauss-Algorithmus
+ermittelt werden.
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac12         &1&0\\
+0&\frac{\sqrt{3}}2&0&1\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&1&-\frac{1}{\sqrt{3}}\\
+0&1&0& \frac{2}{\sqrt{3}}\\
+\hline
+\end{tabular}
+\end{align*}
+Daher ist die Koordinatentransformationsmatrix
+\[
+T
+=
+\begin{pmatrix}1&-\frac1{\sqrt{3}}\\0&\frac2{\sqrt{3}}\end{pmatrix}.
+\]
+\item
+Anwendung der Transformationsmatrix auf die gegebenen Vektoren $u$
+und $v$ liefert
+\[
+\begin{aligned}
+u'
+=
+Tu
+&=
+\begin{pmatrix}1&-\frac1{\sqrt{3}}\\0&\frac2{\sqrt{3}}\end{pmatrix}
+\begin{pmatrix}1\\1\end{pmatrix}
+=
+\begin{pmatrix} 1-\frac1{\sqrt{3}}\\\frac2{\sqrt{3}} \end{pmatrix}
+&
+&\text{und}&
+v'
+=
+Tv
+&=
+\begin{pmatrix}1&-\frac1{\sqrt{3}}\\0&\frac2{\sqrt{3}}\end{pmatrix}
+\begin{pmatrix}1\\-1\end{pmatrix}
+=
+\begin{pmatrix} 1+\frac1{\sqrt{3}}\\-\frac2{\sqrt{3}} \end{pmatrix}.
+\end{aligned}
+\]
+\item
+Die Matrix $T$ rechnet von $B$- auf $B'$-Koordinaten um, die Matrix $T^{-1}$
+liefert die Umrechnung in umgekehrter Richtung.
+Für das Skalarprodukt gilt
+\[
+u^t v
+=
+(T^{-1}u')^t(T^{-1}v')
+=
+u'^t
+\underbrace{ (T^{-1})^t T^{-1}}_{\displaystyle =G} v'
+\]
+Wenden wir dies auf die oben berechnete Matrix $T$ an, erhalten wir:
+\[
+G
+=
+(T^{-1})^tT^{-1}
+=
+\begin{pmatrix}1&\frac12\\0&\frac{\sqrt{3}}2\end{pmatrix}
+\begin{pmatrix}1&0\\\frac12&\frac{\sqrt{3}}2\end{pmatrix}
+=
+\begin{pmatrix} 1&\frac12\\\frac12&1 \end{pmatrix}.
+\]
+\item
+Unter Verwendung der Matrix $G$ lässt sich das Skalarprodukt jetzt auch
+in $B'$-Koordinaten berechnen:
+\begin{align*}
+u^tv
+&=
+u'^tGv'
+=
+\begin{pmatrix} 1-\frac1{\sqrt{3}}&\frac2{\sqrt{3}} \end{pmatrix}
+\begin{pmatrix} 1&\frac12\\\frac12&1 \end{pmatrix}
+\begin{pmatrix} 1+\frac1{\sqrt{3}}\\-\frac2{\sqrt{3}} \end{pmatrix}
+=
+\begin{pmatrix} 1-\frac1{\sqrt{3}}&\frac2{\sqrt{3}} \end{pmatrix}
+\begin{pmatrix} 1\\
+\frac12+\frac1{2\sqrt{3}}-\frac2{\sqrt{3}}
+\end{pmatrix}
+\\
+&=
+1-\frac1{\sqrt{3}}
++
+\frac1{\sqrt{3}}+\frac13-\frac43
+=
+0.
+\end{align*}
+Wie vorhin schon erkannt, stehen, die Vektoren senkrecht aufeinander.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+

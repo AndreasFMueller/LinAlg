@@ -1,160 +1,137 @@
-Finden Sie eine Parameterdarstellung der Schnittgeraden der Ebenen
-durch die Punkte $A=(6,4,7)$, $B=(9,2,9)$ und $C=(1,7,0)$ bzw.~$P=(2,2,4)$,
-$Q=(6,13,4)$, und $R=(1,3,7)$.
+Liegt der Ursprung  auf der Ebene durch die Punkte
+$A=(-2, 0, 1)$, $B=(4,0,-2)$ und $C=(-1,-4,3)$?
 
-\thema{Schnittgerade}
+\thema{Ebene}
 
 \begin{loesung}
-Wir benötigen zunächst Parameterdarstellungen für die Ebenen:
-\[
-\begin{pmatrix}6\\4\\7\end{pmatrix}
-+t
-\begin{pmatrix}3\\-2\\2\end{pmatrix}
-+s
-\begin{pmatrix}-5\\3\\-7\end{pmatrix}
-,\qquad
-\begin{pmatrix}2\\2\\4\end{pmatrix}
-+u
-\begin{pmatrix}4\\11\\0\end{pmatrix}
-+v
-\begin{pmatrix}-1\\1\\3\end{pmatrix}
-\]
-Dies sind 
-sechs Gleichungen mit sieben Unbekannten $x,y,z,u,v,s,t$:
+Dieser Fall tritt ein, wenn die Ortsvektoren der drei Punkte
+in einer Ebene liegen, die drei Ortsvektoren also linear abhängig
+sind. Dies kann man zum Beispiel mit dem Gaussalgorithmus testen:
 \begin{align*}
-\begin{pmatrix}
-{\color{red}x}\\
-{\color{red}y}\\
-{\color{red}z}
-\end{pmatrix}=
-\begin{pmatrix}6\\4\\7\end{pmatrix}
-+{\color{red}t}
-\begin{pmatrix}3\\-2\\2\end{pmatrix}
-+{\color{red}s}
-\begin{pmatrix}-5\\3\\-7\end{pmatrix}
+\begin{tabular}{|ccc|}
+\hline
+$-2$&4&$-1$\\
+0&0&$-4$\\
+1&$-2$&3\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|ccc|}
+\hline
+1&$-2$&3\\
+0&0&$-4$\\
+$-2$&4&$-1$\\
+\hline
+\end{tabular}
 \\
-\begin{pmatrix}
-{\color{red}x}\\
-{\color{red}y}\\
-{\color{red}z}
-\end{pmatrix}=
-\begin{pmatrix}2\\2\\4\end{pmatrix}
-+{\color{red}u}
-\begin{pmatrix}4\\11\\0\end{pmatrix}
-+{\color{red}v}
-\begin{pmatrix}-1\\1\\3\end{pmatrix}
+&\rightarrow
+\begin{tabular}{|ccc|}
+\hline
+1&$-2$&3\\
+0&0&$-4$\\
+0&0&5\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|}
+\hline
+1&$-2$&3\\
+0&0&1\\
+0&0&0\\
+\hline
+\end{tabular}
 \end{align*}
-Das zugehörige Gauss-Tableau ist:
-\begin{center}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-\hline
-{\color{red} x} &  {\color{red}y} &  {\color{red}z} &  {\color{red}t} &  {\color{red}s} &  {\color{red}u} &  {\color{red}v} &\\
-\hline
-1&0&0& -3 &  5 &   0 &  0 &6\\
-0&1&0&  2 & -3 &   0 &  0 &4\\
-0&0&1& -2 &  7 &   0 &  0 &7\\
-1&0&0&  0 &  0 &  -4 &  1 &2\\
-0&1&0&  0 &  0 & -11 & -1 &2\\
-0&0&1&  0 &  0 &   0 & -3 &4\\
-\hline
-\end{tabular}
-\end{center}
-Wendet man den Gauss-Algorithmus darauf an, ergibt sich
-\begin{center}
-\begin{tabular}{|ccccccc|c|}
-\hline
-$x$& $y$& $z$& $t$& $s$& $u$& $v$&\\
-\hline
-1&0&0&0&0&0&$ 1$&$\frac{10}{3}$\\
-0&1&0&0&0&0&$-1$&$\frac{17}{3}$\\
-0&0&1&0&0&0&$-3$&$4$\\
-0&0&0&1&0&0&$ 2$&$-\frac{1}{3}$\\
-0&0&0&0&1&0&$ 1$&$ \frac{1}{3}$\\
-0&0&0&0&0&1&$ 0$&$ \frac{1}{3}$\\
-\hline
-\end{tabular}
-\end{center}
-Aus den ersten drei Zeilen kann man die Lösung ablesen:
-\[
-\left\{\left.
-\begin{pmatrix}\frac{10}{3}\\\frac{17}{3}\\4\end{pmatrix}
-+v
-\begin{pmatrix}-1\\1\\3\end{pmatrix}
-\right|
-v\in\mathbb R
-\right\}.
-\]
+Die Matrix hat also nur den Rang $2$, insbesondere ist sie singulär,
+die Vektoren sind linear abhängig, der Ursprung ist also ein Punkt
+der Ebene.
 
-Die unteren drei Zeilen braucht man
-nicht, sie geben die Abhängigkeit der Variablen $t$, $s$ und $u$
-von $v$ wieder, welche zwar auch mit denjenigen im ersten Lösungsweg
-übereinstimmen, aber bei diesem zweiten Lösungsweg nicht
-explizit benötig werden. In der ersten Lösung waren diese
-Abhängigkeiten nur benötigt werden, um sie später in die
-Ebenengleichungen einsetzen zu können. In der zweiten Lösung
-hat das der Gauss-Algorithmus bereits übernommen.
-
-Die konventionelle Methode, diese Aufgabe zu lösen, setzt die beiden 
-Parameterdarstellungen gleich, also
+Alternativ kann man die Ebene in Parameterdarstellung finden:
 \begin{align*}
-\begin{pmatrix}6\\4\\7\end{pmatrix}
-+t
-\begin{pmatrix}3\\-2\\2\end{pmatrix}
-+s
-\begin{pmatrix}-5\\3\\-7\end{pmatrix}
+\vec r&=\overrightarrow{OA}+\lambda \overrightarrow{AB}+\mu\overrightarrow{AC}\\
 &=
-\begin{pmatrix}2\\2\\4\end{pmatrix}
-+u
-\begin{pmatrix}4\\11\\0\end{pmatrix}
-+v
-\begin{pmatrix}-1\\1\\3\end{pmatrix}
-\\
-t
-\begin{pmatrix}3\\-2\\2\end{pmatrix}
-+s
-\begin{pmatrix}-5\\3\\-7\end{pmatrix}
-+u
-\begin{pmatrix}-4\\-11\\0\end{pmatrix}
-+v
-\begin{pmatrix}1\\-1\\-3\end{pmatrix}
-&=
-\begin{pmatrix}2\\2\\4\end{pmatrix}
--
-\begin{pmatrix}6\\4\\7\end{pmatrix}
+\begin{pmatrix}
+-2\\0\\1
+\end{pmatrix}
++
+\lambda
+\begin{pmatrix}
+6\\0\\-3
+\end{pmatrix}
++
+\mu
+\begin{pmatrix}
+1\\-4\\2
+\end{pmatrix}
+\end{align*}
+und $\lambda$ und $\mu$ so zu bestimmen versuchen, dass
+der Nullvektor entsteht, also
+\[
+\begin{pmatrix}
+-2\\0\\1
+\end{pmatrix}
++
+\lambda
+\begin{pmatrix}
+6\\0\\-3
+\end{pmatrix}
++
+\mu
+\begin{pmatrix}
+1\\-4\\2
+\end{pmatrix}
 =
-\begin{pmatrix}-4\\-2\\-3\end{pmatrix}
-\end{align*}
-Es ist also das lineare Gleichungssystem
-\begin{center}
-\begin{tabular}{|cccc|c|}
-\hline
-$ 3$&$-5$&$ -4$&$ 1$&$-4$\\
-$-2$&$ 3$&$-11$&$-1$&$-2$\\
-$ 2$&$-7$&$  0$&$-3$&$-3$\\
-\hline
-\end{tabular}
-\end{center}
-Dieses Gleichungssystem löst man am einfachsten mit Octave oder
-einem leistungsfähigen Taschenrechner, und findet
-\verbatiminput{1.m}
-also
-\begin{align*}
-t&=-\frac13-2v\\
-s&=\frac13-v\\
-u&=\frac13
-\end{align*}
-Setzt man die Beziehung für $u$ in die Parameterdarstellung der
-zweiten Ebene  ein, findet man wieder als Parameterdarstellung für die
-Schnittgerade:
-\[
-\left\{\left.
-\begin{pmatrix}\frac{10}{3}\\\frac{17}{3}\\4\end{pmatrix}
-+v
-\begin{pmatrix}-1\\1\\3\end{pmatrix}
-\right|
-v\in\mathbb R
-\right\}.
-\qedhere
+\begin{pmatrix}
+0\\0\\0
+\end{pmatrix}.
 \]
+Dies führt auf das überbestimmte Gleichungssystem
+\[
+\begin{linsys}{3}
+6\lambda&+&\mu&=&2\\
+&-&\mu&=&0\\
+-3\lambda&+&2\mu&=&-1\\
+\end{linsys}
+\]
+Aus der zweiten Gleichung folgt $\mu=0$. Damit werden die anderen
+zwei Gleichungen zu $3\lambda=1$ oder $\lambda=\frac13$. Die Gleichungen
+sind also lösbar, somit liegt der Nullpunkt auf der Ebene.
+
+Schliesslich kann auch der Normalenvektor bestimmt werden:
+\[
+\vec n=
+\begin{pmatrix}
+6\\0\\-3
+\end{pmatrix}
+\times
+\begin{pmatrix}
+1\\-4\\2
+\end{pmatrix}
+=\begin{pmatrix}
+0\cdot 2-(-4)\cdot(-3)\\
+(-3)\cdot 1-2\cdot 6\\
+6\cdot(-4)-1\cdot 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+-12\\
+-15\\
+-24
+\end{pmatrix}
+\]
+Der Ursprung liegt in der Ebene, wenn $\overrightarrow{OA}$ auf
+$\vec n$ senkrecht steht:
+\[
+\vec n\cdot\overrightarrow{OA}
+=
+\begin{pmatrix}
+-12\\ -15\\ -24 \end{pmatrix}
+\cdot
+\begin{pmatrix}
+-2\\0\\1
+\end{pmatrix}
+=(-12)\cdot(-2)+(-15)\cdot 0+(-24)\cdot 1=0,
+\]
+der Ursprung liegt also tatsächlich auf der Ebenen.
 \end{loesung}
 

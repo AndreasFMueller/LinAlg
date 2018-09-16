@@ -1,0 +1,167 @@
+Das Tetraeder hat die Ecken
+\[
+A=(1,1,1),\quad
+B=(-1,-1,1),\quad
+C=(1,-1,-1),\quad
+D=(-1,1,-1).
+\]
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\node at (0,0) {\includeagraphics[width=6cm]{tetraeder.jpg}};
+\node at (3,0) {$x$};
+\node at (0.2,3.1) {$z$};
+\node at (-0.1,-0.4) {$y$};
+\node at (2.4,2.4) {$A$};
+\node at (-2.9,2.3) {$B$};
+\node at (2.4,-2.7) {$C$};
+\node at (-1.1,-1) {$D$};
+\end{tikzpicture}
+\end{center}
+\begin{teilaufgaben}
+\item Finden Sie eine Drehmatrix, die den Punkt $A$ fest lässt und $B$ in $C$
+überführt.
+\item Rechnen Sie nach, dass der Drehwinkel dieser Drehmatrix $120^\circ$ ist.
+\end{teilaufgaben}
+
+\thema{Abbildungsmatrix}
+\thema{Drehmatrix}
+\thema{Drehwinkel}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Aus der Zeichnung können wir ablesen, dass die gesuchte Drehung den Punkt $C$
+auf $D$ abbilden muss.
+Die gesuchte Abbildungsmatrix $A$ muss daher die Bedingungen
+\[
+A
+\begin{pmatrix}1\\1\\1\end{pmatrix}
+=
+\begin{pmatrix}1\\1\\1\end{pmatrix},
+\qquad
+A
+\begin{pmatrix}-1\\-1\\1\end{pmatrix}
+=
+\begin{pmatrix}1\\-1\\-1\end{pmatrix}
+\qquad\text{und}\qquad
+A
+\begin{pmatrix}1\\-1\\-1\end{pmatrix}
+=
+\begin{pmatrix}-1\\1\\-1\end{pmatrix}
+\]
+erfüllen.
+Als Matrixgleichung geschrieben bedeutet dies
+\[
+A
+\underbrace{
+\begin{pmatrix}
+1&-1& 1\\
+1&-1&-1\\
+1& 1&-1
+\end{pmatrix}
+}_{\displaystyle=B_1}
+=
+\underbrace{
+\begin{pmatrix}
+1& 1&-1\\
+1&-1& 1\\
+1&-1&-1
+\end{pmatrix}
+}_{\displaystyle=B_2}
+\qquad\Rightarrow\qquad
+A=B_2B_1^{-1}
+\]
+Die inverse Matrix von $B_1$ kann mit dem Gaussalgorithmus berechnet werden:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1& 1&1&0&0\\
+1&-1&-1&0&1&0\\
+1& 1&-1&0&0&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1& 1& 1&0&0\\
+0& 0&-2&-1&1&0\\
+0& 2&-2&-1&0&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1& 1&       1&0&      0\\
+0& 1&-1&-\frac12&0&\frac12\\
+0& 0&-2&      -1&1&      0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1& 0& \frac12&       0&      0\\
+0& 1& 0&       0&-\frac12&\frac12\\
+0& 0& 1& \frac12&-\frac12&      0\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 0& 0& \frac12&       0&\frac12\\
+0& 1& 0&       0&-\frac12&\frac12\\
+0& 0& 1& \frac12&-\frac12&      0\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus liest man ab
+\[
+B_1^{-1}=
+\begin{pmatrix}
+\frac12&       0&\frac12\\
+      0&-\frac12&\frac12\\
+\frac12&-\frac12&      0
+\end{pmatrix}.
+\]
+Jetzt muss nur noch das Matrixprodukt $B_2B_1^{-1}$ mit Hilfe der
+Regel ``$\text{Zeile}\times\text{Spalte}$'' berechnet werden:
+\[
+A
+=
+B_2B_1^{-1}
+=
+\begin{pmatrix}
+1& 1&-1\\
+1&-1& 1\\
+1&-1&-1
+\end{pmatrix}
+\begin{pmatrix}
+\frac12&       0&\frac12\\
+      0&-\frac12&\frac12\\
+\frac12&-\frac12&      0
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&0&1\\
+1&0&0\\
+0&1&0
+\end{pmatrix}.
+\]
+Dies ist die gesuchte Drehmatrix.
+\item
+Der Drehwinkel kann mit der Drehwinkelformel für eine Drehmatrix
+gefunden werden:
+\begin{align*}
+\cos\alpha
+&=
+\frac{\operatorname{Spur}A-1}{2}
+=
+-\frac12
+\\
+\alpha&=120^\circ.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}

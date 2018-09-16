@@ -1,100 +1,139 @@
-Finden Sie die Abbildungsmatrix der Projektion auf die Winkelhalbierende
-des ersten und dritten Quadranten auf zwei verschiedene Arten:
-\begin{teilaufgaben}
-\item Direkt
-\item Unter Verwendung einer Basistransformation und der Projektion auf
-die $x$-Achse, die in der Vorlesung behandelt wurde.
-\end{teilaufgaben}
+In Zaouit Massa in Marokko auf $30^\circ$ nördlicher Breite steht abends
+um 20:00 Uhr ein Stern im Zenit (genau über dem Beobachter). Wann geht
+dieser Stern unter?
 
-\thema{Basis}
-\thema{Abbildungsmatrix}
+\thema{Drehmatrix}
 
 \begin{loesung}
-\begin{teilaufgaben}
-\item Es müssen die Bilder der Basisvektoren $e_1$ und $e_2$ ermittelt
-werden:
+Es ist zu berechnen, welcher Drehwinkel der Himmelskugel dazu führt,
+dass der Stern auf Horizonthöhe zu liegen kommt. Zu Beginn hat der
+Stern in einem Koordinatensystem mit vertikaler $z$-Achse den
+Ortsvektor
 \[
-e_1\mapsto\begin{pmatrix}\frac{1}2\\\frac{1}2\end{pmatrix}
-,\qquad
-e_2\mapsto\begin{pmatrix}\frac{1}2\\\frac{1}2\end{pmatrix}
-\quad
-\Rightarrow
-\quad
-A=\begin{pmatrix}
-\frac{1}2&
-\frac{1}2\\
-\frac{1}2&
-\frac{1}2\\
-\end{pmatrix}
+\vec s=\begin{pmatrix}0\\0\\1\end{pmatrix}=\vec e_3.
 \]
-\item
-Wir wollen die Vektoren
+Wir legen die $x$-Achse des Koordinatensystems in Richtung Osten.
+
+Die Drehung der Himmelskugel lässt sich aber viel leichter in einem
+Koordinatensystem beschreiben, welches eine Gerade parallel zur Erdachse
+als $z$-Achse verwendet. Wir bezeichnen Vektoren in diesem Koordinatensystem
+mit Strichen. Es ist gegenüber dem ursprünglichen Koordinatensystem
+um einen Winkel $\alpha=60^\circ$ verdreht, Drehachse ist die $x$-Achse.
+Die Umrechnung eines Vektors $\vec v$ in dieses Koordinatensystem
+erfolgt mit Hilfe einer Drehmatrix.
+Die Matrix
 \[
-\begin{pmatrix}1\\1\end{pmatrix}
-\quad\text{und}\quad
-\begin{pmatrix}-1\\1\end{pmatrix}
-\]
-als Basisvektoren verwenden. Die zugehörige Matrix $B'$ ist
-\[
-B'=
-\begin{pmatrix}
-1&-1\\
-1&1
+T=D_{x,\alpha}=\begin{pmatrix}
+1&          0&          0\\
+0& \cos\alpha&-\sin\alpha\\
+0& \sin\alpha& \cos\alpha
 \end{pmatrix}
-\]
-und die Transformationsmatrix ist $T=B'^{-1}$
-\[
-T=
-\frac12\begin{pmatrix}
-1&1\\
--1&1
-\end{pmatrix}
-,\qquad
-T^{-1}=
-\begin{pmatrix}
-1&-1\\
-1&1
-\end{pmatrix}
-\]
-Die Abbildungsmatrix $A'$ ist die Projektion auf die $x$-Achse,
-also
-\[
-A'=
-\begin{pmatrix}
-1&0\\
-0&0
-\end{pmatrix}
-\]
-Mit der Transformationsformel kann man jetzt auch $A$ ausrechnen:
-\[
-A=T^{-1}A'T
 =
 \begin{pmatrix}
-1&-1\\
-1&1
+1& 0&0\\
+0&\frac12&-\frac{\sqrt{3}}2\\
+0&\frac{\sqrt{3}}2&\frac12\\
+\end{pmatrix}
+\]
+transformiert den Vektor $\vec e_3$ in den Vektor
+\[
+\vec v'=T\vec v=
+\begin{pmatrix}
+0\\-\frac{\sqrt{3}}2\\\frac12 
+\end{pmatrix}
+\]
+die Darstellung der Sternposition im gestrichenen Koordinatensystem.
+
+Jetzt erfolgt die Drehung um den unbekannten Winkel $\varphi$ um
+die $z'$-Achse im gestrichenen Koordinatensystem, dies kann durch die
+Drehmatrix
+\[
+D_{z',\varphi}
+=
+\begin{pmatrix}
+\cos\varphi&-\sin\varphi&0\\
+\sin\varphi& \cos\varphi&0\\
+0&0&1
+\end{pmatrix}
+\]
+Nach der Drehung hat der Stern im gestrichenen Koordinatensystem die
+Koordinaten:
+\[
+D_{z',\varphi}\vec v'
+=
+\begin{pmatrix}
+\cos\varphi&-\sin\varphi&0\\
+\sin\varphi& \cos\varphi&0\\
+0&0&1
 \end{pmatrix}
 \begin{pmatrix}
-1&0\\
-0&0
-\end{pmatrix}
-\frac12\begin{pmatrix}
-1&1\\
--1&1
+0\\-\frac{\sqrt{3}}2\\\frac12 
 \end{pmatrix}
 =
-\begin{pmatrix}1&0\\1&0\end{pmatrix}
-\frac12\begin{pmatrix}
-1&1\\
--1&1
-\end{pmatrix}
-=
+\begin{pmatrix}
+\frac{\sqrt{3}}2\sin\varphi\\
+-\frac{\sqrt{3}}2\cos\varphi\\
 \frac12
-\begin{pmatrix}
-1&1\\
-1&1
-\end{pmatrix}
-\qedhere
+\end{pmatrix}.
 \]
-\end{teilaufgaben}
+
+Ob der Stern sich genau auf Horizonthöhe befindet, kann nur im ungestrichen
+Koordinatensystem entschieden werden.
+Man muss daher wieder mit $T^{-1}$ zurücktransformieren:
+\[
+T^{-1}D_{z',\varphi}Te_3 = 
+\begin{pmatrix}
+1& 0&0\\
+0&\frac12&\frac{\sqrt{3}}2\\
+0&-\frac{\sqrt{3}}2&\frac12\\
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\sqrt{3}}2\sin\varphi\\
+-\frac{\sqrt{3}}2\cos\varphi\\
+\frac12
+\end{pmatrix}.
+=
+\begin{pmatrix}
+\frac{\sqrt{3}}2\sin\varphi\\
+-\frac{\sqrt{3}}4\cos\varphi+\frac{\sqrt{3}}4\\
+\frac{\sqrt{3}}4\cos\varphi+\frac14
+\end{pmatrix}
+\]
+Jetzt muss $\varphi$ so gewählt werden, dass die $z$-Komponente dieses
+Vektors verschwindet:
+\begin{align*}
+\frac{3}4\cos\varphi+\frac14&=0\\
+\cos\varphi&=-\frac1{3}\\
+\varphi&=\pm 109.47^\circ.
+\end{align*}
+Die Antwort ist aber in Stunden gesucht, wir müssen also den Winkel
+noch mit dem Faktor $\frac{24}{360}=\frac1{15}$ multiplizieren:
+\[
+\varphi=7.298\text{h}=7\text{h} 17.8\text{min}.
+\]
+Der Stern wird also um 03:18 Uhr untergehen.
 \end{loesung}
+
+\begin{diskussion}
+Die Berechnung der Untergangszeit ist nicht ganz korrekt. Die Erde dreht
+sich nämlich nicht einmal in 24 Stunden, sondern einmal in 23.9345 Stunden,
+dem siderischen Tag.
+Der korrekte Umrechungsfaktor ist daher $\frac{23.9245}{360}$, damit
+wird die Untergangszeit 03:16:30.
+
+Ausserdem bewirkt das Phänomen der atmosphärischen Refraktion, dass
+Sterne in Horizontnähe höher erscheinen, als sie tatsächlich
+sind, ein Stern ist also noch sichtbar, wenn die Gerade zum Stern bereits
+unter dem Horizont liegt.
+Sterne gehen also später unter, also die Geometrie alleine vorhersagen
+würde.
+\end{diskussion}
+
+\begin{bewertung}
+Richtung der Drehachse (\textbf{A}) 1 Punkt,
+Drehmatrix (\textbf{D}) 1 Punkt,
+Umrechnung zwischen den Koordinatensystemen (\textbf{U}) 2 Punkt,
+Ermittelung Drehwinkel (\textbf{W}) 1 Punkt,
+Berechnung der Untergangszeit (\textbf{Z}) 1 Punkt.
+\end{bewertung}
 

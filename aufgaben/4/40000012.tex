@@ -1,0 +1,108 @@
+Die Erde führt wie jeder Kreisel unter Einfluss der Schwerkraft von
+Sonne und Mond eine Präzessionsbewegung aus.
+Die unregelmässige Gestalt der Erde sowie die komplizierten Prozesse
+im Erdinneren verkomplizieren die Bewegung weiter.
+Eine präzise Bestimmung dieser Bewegung ist zum Beispiel nötig, um
+die Genauigkeit des GPS aufrecht zu erhalten.
+
+Die Website \texttt{maia.usno.navy.mil} bietet
+ein Formular an, mit dem man die aktuelle Verdrehung eines
+mit der Erde verbundenen Koordinatensystems gegenüber einem als
+ruhend angenommenen, mit Hilfe von fernen Radiogalaxien definierten
+Koordinatensystem berechnen lassen kann.
+Die genaue Definition des Koordinatensystems ignorieren wir.
+Der Output hat die Form einer Drehmatrix.
+Für den 14.~September 2015 um 08:10 (erste Lektion des Herbstsemsters 2015)
+und den 5.~Februar 2016 um 14:30 (Prüfungsende) bekommt man die Matrizen
+\begin{align*}
+R_1 &= \begin{pmatrix}
+\phantom{-}0.999992660750488&0.003513977186741&\phantom{-}0.001526567879330\\
+          -0.003513912955321&0.999993825187267&          -0.000044755791542\\
+          -0.001526715723890&0.000039391236420&\phantom{-}0.999998833793034
+\end{pmatrix},
+\tag{2015-09-14 08:10}
+\\
+R_2 &= \begin{pmatrix}
+\phantom{-}0.999992309138471&0.003597169715623&\phantom{-}0.001562700849799\\
+          -0.003597099287045&0.999993529271332&          -0.000047876764841\\
+          -0.001562862958834&0.000042255206515&\phantom{-}0.999998777836188
+\end{pmatrix}.
+\tag{2016-02-05 14:30}
+\end{align*}
+\begin{teilaufgaben}
+\item
+Wie kann man überprüfen, ob die Matrizen $R_1$ und $R_2$ tatsächlich
+Drehmatrizen sind?
+\item
+Um welchen Winkel in Winkelsekunden hat sich das Koordinatensystem
+zwischen Semesterbeginn und LinAlg-Prüfung gedreht?
+\end{teilaufgaben}
+
+\thema{Matrizenprodukt}
+\thema{Drehmatrix}
+
+\begin{hinweis}
+Führen Sie eventuelle Matrizenoperationen mit dem Taschenrechner
+mit mindestens zehn Stellen Genauigkeit aus.
+Sie müssen die "Uberprüfung in a) nicht durchführen, sondern nur
+beschreiben, was gemacht werden muss.
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Drehmatrizen sind orthogonale Matrizen mit Determinaten $+1$.
+Man muss also nachrechnen, dass $R_1R_1^t=E$ und $\det R_1=1$
+im Rahmen der Rechengenauigkeit gilt. (Es war nicht verlangt,
+dass diese Rechnungen durchgeführt werden.)
+\item
+Wir gehen davon aus, dass beide Matrizen Drehmatrizen sind.
+Die Matrix $R=R_2R_1^{-1}$ beschreibt die Drehung vom Zustand zu Beginn
+des Semsters bis heute.
+\[
+R = \begin{pmatrix}
+\phantom{-}0.999999995886644& 0.000083191633558&\phantom{-}0.000036136742198\\
+          -0.000083191525418& 0.999999996535103&          -0.000002993979435\\
+          -0.000036136991146& 0.000002990973152&\phantom{-}0.999999999342587
+\end{pmatrix}
+\]
+Den Drehwinkel können wir mit der Spurformel für den Drehwinkel ermitteln:
+\begin{align*}
+\cos\alpha
+&=
+\frac{\operatorname{Spur}R-1}2=\frac{2.999999991764334-1}2
+=
+0.999999995882167
+\\
+\alpha&=18.7''
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Es ist nicht ganz korrekt, den zu den Matrizen $R_i$ gehörenden Drehwinkel
+$\alpha_i$ mit der Spurformel zu berechnen und anzunehmen, dass deren
+Differenz der gesuchte Winkel sei.
+Dazu müssen alle Drehungen die gleiche Drehachse haben, was nicht
+vorausgesetzt werden kann.
+
+Richtet man eine Spiegelreflexkamera mit einem Normalobjektiv gegen den
+Himmel, dann entspricht dieser Winkel ungefähr dem Durchmesser eines Pixel.
+Messungen dieser Genauigkeit sind heutzutage Standard in der Astronomie.
+Der 1989 gestartete Hipparcos Satellit hat im Laufe seiner dreijährigen
+Mission 118000 Sterne mit einer Genauigkeit $0.001''$ vermessen.
+Die aktuell laufende Gaia-Mission der ESA soll von etwa einer Milliarde
+Sternen die Position mit einer Genauigkeit von ewa $0.000025''$ messen.
+\end{diskussion}
+
+\begin{bewertung}
+Charakterisierung einer Drehmatrix durch Orthogonalität ({\bf O}) 1 Punkt
+und Determinante ({\bf D}) 1 Punkt,
+Matrix $R$ für die zwischen den zwei Zeitpunkten erfolgte Drehung ({\bf Z})
+1 Punkt,
+Berechnung von $R$ ({\bf R}) 1 Punkt,
+Spurformel ({\bf S}) 1 Punkt,
+Drehwinkel $\alpha$ ({\bf A}) 1 Punkt.
+\end{bewertung}
+

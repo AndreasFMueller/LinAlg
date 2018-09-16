@@ -1,131 +1,22 @@
-Die Zeitschrift {\em The Economist} hat 1986 den Big Mac Index geschaffen,
-angeblich um die Theorie der Wechselkurse ebenso ``leicht verdaulich''
-zu machen wie das namensgebende Produkt.
-Unter anderem wird regelmässig die Abhängigkeit des Big Mac Preises
-vom Bruttoinlandprodukt (BIP) pro Person ermittelt und publiziert.
-\begin{center}
-\begin{tabular}{|l|r|r|}
-\hline
-Land&BIP pro Person USD&Big Mac Preis USD\\
-\hline
-Norwegen&96930&5.21\\
-USA&54370&4.93\\
-%Euro Raum&40001&4.00\\
-Indien&1608&1.90\\
-\hline
-\end{tabular}
-\end{center}
-Es wird postuliert, dass es einen linearen Zusammenhang der Form $f(x)=ax+b$
-zwischen BIP pro Person und Big Mac Preis gäbe.
+Seien $a$ und $b$ zwei beliebige von $0$ verschiedene Vektoren gleicher Länge.
+Berechnen Sie den Zwischenwinkel der Vektoren
+\[
+v_+=a+b
+\qquad\text{und}\qquad
+v_-=a -b
+\]
 
-\thema{Least Squares}
-
-\begin{teilaufgaben}
-\item Stellen Sie ein Gleichungssystem auf, mit dem Sie die Koeffizienten
-einer Funktion berechnen können, die den postulierten linearen Zusammenhang
-wiedergibt.
-\item Lösen das Gleichungssystem (mit dem Taschenrechner).
-\item Die Schweiz hat eine BIP pro Kopf von 86468USD, ein Big Mac kostet
-in der Schweiz 6.44USD.
-Zahlt man in der Schweiz zu viel für einen Big Mac?
-\end{teilaufgaben}
+\thema{Skalarprodukt}
 
 \begin{loesung}
-\begin{teilaufgaben}
-\item
-Es wird behauptet, es gäbe einen Zusammenhang zwischen BIP pro Person $x$
-und Big Mac Preis $y$ in der Form
-\[
-y={\color{red}a}x+{\color{red}b}
-\]
-Aus den angegebenen Daten können wir das Gleichungssystem
-\[
-\begin{linsys}{2}
-96930\color{red}a&+&\color{red}b&=&5.21\\
-54370\color{red}a&+&\color{red}b&=&4.93\\
- 1608\color{red}a&+&\color{red}b&=&1.90
-\end{linsys}
-\]
-aufstellen.
-Es ist ein überbestimmtes Gleichungssstem mit
-\[
-A=\begin{pmatrix}
-96930&1\\
-54270&1\\
-\phantom{0}1608&1
-\end{pmatrix}
-\qquad
-\text{und}
-\qquad
-b=\begin{pmatrix}
-5.21\\
-4.93\\
-1.90
-\end{pmatrix}
-\]
-Das Lösungsverfahren für überbestimmte Gleichungssysteme besagt,
-dass man stattdessen das Gleichungssystem 
-\[
-A^tA\begin{pmatrix}\color{red}a\\\color{red}b\end{pmatrix}
+Der Zwischenwinkel  $\alpha$ kann aus dem Skalarprodukt ermittelt werden:
+\begin{align*}
+v_+\cdot v_-
+&=
+(a+b) \cdot (a-b)
 =
-A^tb
-\]
-lösen muss.
-Die Berechnung liefert 
-\[
-A^tA=\begin{pmatrix}
-          12354107464&          152908\\
-\phantom{00000}152908&\phantom{00000}3
-\end{pmatrix}
-\qquad
-\text{und}
-\qquad
-A^tb=\begin{pmatrix}
-          77610.46\\
-\phantom{000}12.04
-\end{pmatrix}.
-\]
-\item
-Die Lösung mit dem Computer oder Taschenrechner liefert
-\[
-{\color{red}a}=0.000035618
-\qquad
-\text{und}
-\qquad
-{\color{red}b}=2.1979
-\]
-\item
-Setzt man das BIP pro Person der Schweiz in den linearen Zusammenhang
-ein, erhält man für den geschätzten Big Mac Preis 
-\[
-86468
-{\color{red}a}
-+
-{\color{red}b}
-=
-5.2777,
-\]
-der Big Mac Preis in der Schweiz ist also deutlich höher, also die
-Theorie vermuten lässt.
+a\cdot a-b\cdot b=|a|^2-|b|^2=0\quad\Rightarrow\quad \alpha=\frac{\pi}2
 \qedhere
-\end{teilaufgaben}
+\end{align*}
 \end{loesung}
-
-\begin{diskussion}
-Die Antwort in c) lässt sich auch finden, indem man den Big Mac Preis
-als unabhängige Variable (das ``$x$'') und das BIP pro Person als
-abhängige Variable wählt. 
-Es ist jedoch etwas verwegen davon auszugehen, dass das BIP durch den
-Big Mac Preis bestimmt wird\dots
-\end{diskussion}
-
-\begin{bewertung}
-"Uberbestimmtes Gleichungssystem ({\bf "U}) 1 Punkt (es muss darauf hingewiesen
-worden sein, dass dies ein überbestimmtes Gleichungssystem ist),
-Lösungsverfahren für überbestimmte Gleichungssysteme ({\bf L}) 1 Punkt,
-Matrix $A$ und Vektor $b$ ({\bf M}) 1 Punkt,
-Matrix $A^tA$ und Vektor $A^tb$ ({\bf A}) 1 Punkt,
-Lösung für $a$ und $b$ ({\bf X}) 1 Punkt,
-Theoretischer Big Mac Preis ({\bf T}) 1 Punkt.
-\end{bewertung}
 

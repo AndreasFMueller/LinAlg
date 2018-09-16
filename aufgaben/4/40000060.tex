@@ -1,38 +1,260 @@
-Orthonormalisieren Sie die folgenden Vektoren
-\[
-\vec a_1=\begin{pmatrix}1\\1\\1\end{pmatrix},\quad
-\vec a_2=\begin{pmatrix}0\\1\\1\end{pmatrix},\quad
-\vec a_3=\begin{pmatrix}0\\0\\1\end{pmatrix}
-\]
+Gegeben sind die Punkte $A=(10,5,-7)$ und $B=(1,2,-7)$.
+%
+% 3, 4, 12, 13
+% 5, 12, 13
+% P = (5,5,5)
+%
+\begin{teilaufgaben}
+\item
+Finden Sie eine Ebene $\sigma$ in Normalenform, so dass für jeden Punkt $P$
+auf der Ebene gilt, dass die Winkel $\angle ABP$ und $\angle BAP$ gleich
+gross sind.
+\item
+Finden Sie einen Punkt $P$ auf der Geraden
+\begin{equation}
+\vec{p}
+=
+\vec{p}_0 + t\vec{r}
+=
+\begin{pmatrix}2\\6\\3\end{pmatrix}
++
+t
+\begin{pmatrix}3\\-1\\2\end{pmatrix},
+\label{30000059:gerade}
+\end{equation}
+der von $A$ und $B$ gleich weit entfernt ist.
+\item
+Berechnen Sie den Winkel $\angle ABP$.
+\end{teilaufgaben}
 
-\thema{Orthonormalisierung}
+\thema{Normalenform}
+\thema{Durchstosspunkt}
+\thema{Zwischenwinkel}
 
 \begin{loesung}
-Wir verwenden die Formeln des Gram-Schmidtschen Orthogonalisierungsverfahrens:
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=1]
+\node at (0,0) {
+\includeagraphics[width=0.6\hsize]{ebene.png}
+};
+\node at (-0.1,-1.9) {$S$};
+\node at (2.4,-2.5) {$A$};
+\node at (-2.3,-2.9) {$B$};
+\node at (+0.1,3.9) {$P$};
+\node at (5.1,0.1) {$x$};
+%\node at (-1.4,2.0) {$y$};
+\node at (-1.6,1.8) {$y$};
+\node at (-1.0,3.4) {$\vec{r}$};
+\node at (-1.9,2.9) {$P_0$};
+\node at (-3.6,4.8) {$z$};
+\node at (+0.5,-4.0) {$\sigma$};
+\end{tikzpicture}
+\caption{Lage der Ebene in Aufgabe~\ref{30000059}
+\label{30000059:bild}}
+\end{figure}
+\begin{teilaufgaben}
+\item
+Die Punkte $P$ liegen auf der mittelhalbierenden Ebene der Punte $A$ und $B$,
+wie in Abbildung~\ref{30000059:bild} dargestellt.
+Die Normale dieser Ebene ist der Vektor
+\[
+\vec{n}
+=
+\overrightarrow{AB}
+=
+\begin{pmatrix}
+-9\\-3\\0
+\end{pmatrix}
+\]
+Ausserdem enthält die Ebene den Punkt
+\[
+S = \biggl( \frac{11}2, \frac72, -7 \biggr).
+\]
+Damit können wir die Ebenengleichung in Normalenform aufstellen:
+\begin{equation}
+0
+=
+\vec{n}\cdot (\vec{p}-\vec{s})
+=
+\begin{pmatrix}-9\\-3\\0\end{pmatrix}
+\cdot
+\begin{pmatrix}
+x-\frac{11}2\\
+y-\frac72\\
+z+7
+\end{pmatrix}
+=
+-9x-3y
++\frac{99}2
++\frac{21}2
+=
+-9x-3y+60.
+\label{30000059:ebene}
+\end{equation}
+\item
+Einen Schnittpunkt der Geraden
+\eqref{30000059:gerade} und der Ebene \eqref{30000059:ebene}
+finden wir mit dem Gauss-Tableau:
 \begin{align*}
-\vec b_1&=\frac{\vec a_1}{|\vec a_1|}=\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\color{red}x&\color{red}y&\color{red}z&\color{red}t&\\
+\hline
+ 1& 0& 0&-3&  2\\
+ 0& 1& 0& 1&  6\\
+ 0& 0& 1&-2&  3\\
+-9&-3& 0& 0&-60\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\color{red}x&\color{red}y&\color{red}z&\color{red}t&\\
+\hline
+ 1& 0& 0& -3&  2\\
+ 0& 1& 0&  1&  6\\
+ 0& 0& 1& -2&  3\\
+ 0&-3& 0&-27&-42\\
+\hline
+\end{tabular}
 \\
-\vec b_2&=\frac{\vec a_2-(\vec a_2\cdot\vec b_1)\vec b_1}{\dots}
-=
-\frac{\begin{pmatrix}0\\1\\1\end{pmatrix}-\frac{2}{\sqrt{3}}\cdot\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}}{\dots}
-=
-\frac1{\sqrt{6}}\begin{pmatrix}-2\\1\\1\end{pmatrix}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\color{red}x&\color{red}y&\color{red}z&\color{red}t&\\
+\hline
+ 1& 0& 0& -3&  2\\
+ 0& 1& 0&  1&  6\\
+ 0& 0& 1& -2&  3\\
+ 0& 0& 0&-24&-24\\
+\hline
+\end{tabular}
 \\
-\vec b_3
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\color{red}x&\color{red}y&\color{red}z&\color{red}t&\\
+\hline
+ 1& 0& 0&  0&  5\\
+ 0& 1& 0&  0&  5\\
+ 0& 0& 1&  0&  5\\
+ 0& 0& 0&  1&  1\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus lesen wir ab, dass $P=(5,5,5)$ ist.
+
+Man kann diesen Punkt auch ohne Verwendung der Ebene aus Teilaufgabe a)
+bestimmen.
+Dazu setze man an, dass die beiden Entferungen gleich sein
+müssen, also
+
+
+%(%i2) a:[10,5,-7]
+%(%o2)                            [10, 5, - 7]
+%(%i3) b:[1,2,-7]
+%(%o3)                             [1, 2, - 7]
+%(%i4) p:[2,6,3]+t*[3,-1,2]
+%(%o4)                      [3 t + 2, 6 - t, 2 t + 3]
+%(%i5) da:a-p
+%(%o5)                   [8 - 3 t, t - 1, (- 2 t) - 10]
+%(%i6) db:b-p
+%(%o6)                 [(- 3 t) - 1, t - 4, (- 2 t) - 10]
+%(%i7) da . da
+%                           2                 2            2
+%(%o7)               (t - 1)  + ((- 2 t) - 10)  + (8 - 3 t)
+%(%i8) ratsimp(da . da)
+%                                  2
+%(%o8)                         14 t  - 10 t + 165
+%(%i9) db . db
+%                         2                 2                2
+%(%o9)             (t - 4)  + ((- 2 t) - 10)  + ((- 3 t) - 1)
+%(%i10) ratsimp(db . db)
+%                                  2
+%(%o10)                        14 t  + 38 t + 117
+%(%i11) ratsimp(da . da-db . db)
+%(%o11)                             48 - 48 t
+
+
+\begin{align*}
+|\vec{a} - \vec{p}(t)|^2&=|\vec{b}-\vec{p}(t)|^2
+\\
+\left|
+\begin{pmatrix}
+8-3t\\t-1\\-10-2t
+\end{pmatrix}
+\right|^2
 &=
-\frac{\vec a_3-(\vec a_3\cdot\vec b_1)\vec b_1-(\vec a_3\cdot\vec b_2)\vec b_2}{\dots}
-=
-\frac{\begin{pmatrix}0\\0\\1\end{pmatrix}
--\frac1{\sqrt{3}}\cdot\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}
--\frac1{\sqrt{6}}\cdot\frac1{\sqrt{6}}\begin{pmatrix}-2\\1\\1\end{pmatrix}}{\dots}\\
+\left|
+\begin{pmatrix}
+-1-3t\\-4+t\\-10-2t
+\end{pmatrix}
+\right|^2
+\\
+(8-3t)^2+(t-1)^2+(10+2t)^2
+&=
+(1+3t)^2 + (t-4)^2+(10+2t)^2
+\\
+14t^2-10t+165
+&=
+14t^2+38t+117
+\\
+28
+&=
+28t
+\qquad\Rightarrow\qquad
+t=1
+\end{align*}
+Setze man dies in die Geradengleichung ein, findet man wieder den Punkt
+$P=(5,5,5)$.
+\item
+Der gesuchte Winkel kann mit der Zwischenwinkelformel bestimmt werden:
+\begin{align*}
+\cos\alpha
 &=
 \frac{
-\begin{pmatrix}0\\0\\1\end{pmatrix}
--\frac13\begin{pmatrix}1\\1\\1\end{pmatrix}
--\frac16\begin{pmatrix}-2\\1\\1\end{pmatrix}}{\dots}
+\overrightarrow{BA}\cdot \overrightarrow{BP}
+}{
+|\overrightarrow{BA}|\cdot |\overrightarrow{BP}|
+}
 =
-\frac1{\sqrt{2}}\begin{pmatrix}0\\-1\\1\end{pmatrix}
+\frac{
+\begin{pmatrix}9\\3\\0\end{pmatrix}
+\cdot
+\begin{pmatrix}4\\3\\12\end{pmatrix}
+}{
+\sqrt{90}\cdot 13
+}
+=
+\frac{45}{13\cdot\sqrt{90}}
+=
+0.36488
+\\
+\alpha
+&=
+68.6^\circ.
 \qedhere
 \end{align*}
+\end{teilaufgaben}
 \end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Stützpunkt der Ebene ({\bf S}) 1 Punkt,
+Normale ({\bf N}) 1 Punkt,
+\item
+Abstandsbedingung (entweder als Punkt liegt auf der Ebene aus a) oder
+aus Abstandsformel) ({\bf A}) 1 Punkt,
+Bestimmung des Punktes ({\bf P}) 1 Punkt,
+\item
+Zwischenwinkelformel ({\bf Z}) 1 Punkt,
+Winkel ({\bf W}) 1 Punit.
+\end{teilaufgaben}
+\end{bewertung}
+
+
+
+
 

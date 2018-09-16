@@ -1,167 +1,158 @@
-Das Tetraeder hat die Ecken
-\[
-A=(1,1,1),\quad
-B=(-1,-1,1),\quad
-C=(1,-1,-1),\quad
-D=(-1,1,-1).
-\]
-\begin{center}
-\begin{tikzpicture}[scale=1]
-\node at (0,0) {\includeagraphics[width=6cm]{tetraeder.jpg}};
-\node at (3,0) {$x$};
-\node at (0.2,3.1) {$z$};
-\node at (-0.1,-0.4) {$y$};
-\node at (2.4,2.4) {$A$};
-\node at (-2.9,2.3) {$B$};
-\node at (2.4,-2.7) {$C$};
-\node at (-1.1,-1) {$D$};
-\end{tikzpicture}
-\end{center}
+Gesucht ist eine Ebene $\sigma$, die durch die Punkt $A=(1,0,0)$
+und $B=(0,1,0)$ geht 
+und zu den Punkten $C=(c_x,c_y,c_z)$ und $D=(d_x,d_y,d_z)$
+den gleichen Abstand hat.
 \begin{teilaufgaben}
-\item Finden Sie eine Drehmatrix, die den Punkt $A$ fest lässt und $B$ in $C$
-überführt.
-\item Rechnen Sie nach, dass der Drehwinkel dieser Drehmatrix $120^\circ$ ist.
+\item Welche Vorausetzung an die gegenseitige Lage von $C$ und $D$
+muss erfüllt sein, damit die Aufgabe nur endlich viele Lösungen hat?
+\item Wieviele Lösungen hat die Aufgabe, wenn die in a) gefundene
+Voraussetzung erfüllt ist?
+\item Erfüllen die Punkte $(2,0,0)$ und $(0,0,2)$ diese Vorausssetzung,
+und wenn ja, welche Ebene(n) erfüllen die Bedingung gleichen Abstandes?
 \end{teilaufgaben}
 
-\thema{Abbildungsmatrix}
-\thema{Drehmatrix}
-\thema{Drehwinkel}
+\thema{Hessesche Normalform}
 
 \begin{loesung}
 \begin{teilaufgaben}
 \item
-Aus der Zeichnung können wir ablesen, dass die gesuchte Drehung den Punkt $C$
-auf $D$ abbilden muss.
-Die gesuchte Abbildungsmatrix $A$ muss daher die Bedingungen
+Wir suchen die Ebene in Hessescher Normalform, und verwenden daher einen
+Ansatz der Form
 \[
-A
-\begin{pmatrix}1\\1\\1\end{pmatrix}
-=
-\begin{pmatrix}1\\1\\1\end{pmatrix},
-\qquad
-A
-\begin{pmatrix}-1\\-1\\1\end{pmatrix}
-=
-\begin{pmatrix}1\\-1\\-1\end{pmatrix}
-\qquad\text{und}\qquad
-A
-\begin{pmatrix}1\\-1\\-1\end{pmatrix}
-=
-\begin{pmatrix}-1\\1\\-1\end{pmatrix}
+ax+by+cz+d=0.
 \]
-erfüllen.
-Als Matrixgleichung geschrieben bedeutet dies
+Die beiden Punkte $A$ und $B$ müssen auf der Ebene liegen,
+was auf die Gleichungen
 \[
-A
-\underbrace{
-\begin{pmatrix}
-1&-1& 1\\
-1&-1&-1\\
-1& 1&-1
-\end{pmatrix}
-}_{\displaystyle=B_1}
-=
-\underbrace{
-\begin{pmatrix}
-1& 1&-1\\
-1&-1& 1\\
-1&-1&-1
-\end{pmatrix}
-}_{\displaystyle=B_2}
-\qquad\Rightarrow\qquad
-A=B_2B_1^{-1}
+\begin{linsys}{4}
+a& & & &   &+&d&=&0\\
+ & &b& &   &+&d&=&0
+\end{linsys}
 \]
-Die inverse Matrix von $B_1$ kann mit dem Gaussalgorithmus berechnet werden:
+führt.
+Ausserdem müssen die Abstände zu den beiden Punkten $C$ und $D$ gleich
+sein:
+\[
+\begin{linsys}{7}
+ac_x&+&bc_y&+&cc_y&+&d&=&\pm ad_x&\pm&bd_y&\pm&cd_z&\pm&d\\
+\end{linsys}
+\]
+oder
+\begin{equation}
+\begin{linsys}{4}
+(c_x\pm d_x)a&+& (c_y\pm d_y)b&+& (c_z\pm d_z)c&+& v_\pm d&=&0\\
+\end{linsys}
+\label{30000032:vorzeichen}
+\end{equation}
+wobei
+\[
+v_\pm=\begin{cases}
+2&\\
+0&
+\end{cases}
+\]
+Insgesamt haben wir also das Gleichungsystem
+\[
+\begin{linsys}{4}
+a& & & &   &+&d&=&0\\
+ & &b& &   &+&d&=&0\\
+(c_x\pm d_x)a&+& (c_y\pm d_y)b&+& (c_z\pm d_z)c&+&v_\pm d&=&0
+\end{linsys}
+\]
+mit drei Gleichungen für vier Unbekannte. Wir schreiben die letzte
+Gleichung etwas kompakter mit $\delta_i = c_i\pm d_i$:
+\[
+\begin{linsys}{4}
+a& & & &   &+&d&=&0\\
+ & &b& &   &+&d&=&0\\
+\delta_x a&+& \delta_y b&+& \delta_z c&+&v_\pm d&=&0
+\end{linsys}
+\]
+Das Gausstableau davon ist 
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-1&-1& 1&1&0&0\\
-1&-1&-1&0&1&0\\
-1& 1&-1&0&0&1\\
+       1&       0&       0&    1&0\\
+       0&       1&       0&    1&0\\
+\delta_x&\delta_y&\delta_z&v_\pm&0\\
 \hline
 \end{tabular}
 &\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-1&-1& 1& 1&0&0\\
-0& 0&-2&-1&1&0\\
-0& 2&-2&-1&0&1\\
-\hline
-\end{tabular}
-\\
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&-1& 1&       1&0&      0\\
-0& 1&-1&-\frac12&0&\frac12\\
-0& 0&-2&      -1&1&      0\\
-\hline
-\end{tabular}
-\\
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&-1& 0& \frac12&       0&      0\\
-0& 1& 0&       0&-\frac12&\frac12\\
-0& 0& 1& \frac12&-\frac12&      0\\
-\hline
-\end{tabular}
-\\
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1& 0& 0& \frac12&       0&\frac12\\
-0& 1& 0&       0&-\frac12&\frac12\\
-0& 0& 1& \frac12&-\frac12&      0\\
+       1&       0&       0&1                 &0\\
+       0&       1&       0&1                 &0\\
+       0&       0&\delta_z&v_\pm-\delta_x-\delta_y&0\\
 \hline
 \end{tabular}
 \end{align*}
-Daraus liest man ab
+Diese Gleichung ist nicht mehr (bis auf Vielfache) eindeutig lösbar, wenn
+\begin{align*}
+\delta_z&=0\\
+\delta_x+\delta_y&=v_\pm
+\end{align*}
+gilt.
+Die Bedingung kann man auch so formulieren:
+Zwei Punkte mit Ortsvektoren $\vec c$ und $\vec d$ erlauben unendlich viele
+Lösungen, wenn die Differenz $\vec\delta =\vec c-\vec d$ horizontal
+ist und ausserdem die $x$- und $y$-Komponenten entgegengesetzt 
+gleich gross sind. Das sind genau die Vektoren der Geraden
 \[
-B_1^{-1}=
-\begin{pmatrix}
-\frac12&       0&\frac12\\
-      0&-\frac12&\frac12\\
-\frac12&-\frac12&      0
-\end{pmatrix}.
+\left\{\left .
+\lambda \begin{pmatrix}1\\-1\\0\end{pmatrix}\,\right| \lambda\in\mathbb R\right\}.
 \]
-Jetzt muss nur noch das Matrixprodukt $B_2B_1^{-1}$ mit Hilfe der
-Regel ``$\text{Zeile}\times\text{Spalte}$'' berechnet werden:
-\[
-A
-=
-B_2B_1^{-1}
-=
-\begin{pmatrix}
-1& 1&-1\\
-1&-1& 1\\
-1&-1&-1
-\end{pmatrix}
-\begin{pmatrix}
-\frac12&       0&\frac12\\
-      0&-\frac12&\frac12\\
-\frac12&-\frac12&      0
-\end{pmatrix}
-=
-\begin{pmatrix}
-0&0&1\\
-1&0&0\\
-0&1&0
-\end{pmatrix}.
-\]
-Dies ist die gesuchte Drehmatrix.
 \item
-Der Drehwinkel kann mit der Drehwinkelformel für eine Drehmatrix
-gefunden werden:
+Dazu kommt aber noch die
+Bedingung an die Hessesche Normalform, dass $\sqrt{a^2+b^2+c^2}=1$ sein
+muss.  Die Koeffizienten sind daher bis auf ein Vorzeichen durch die
+drei Gleichungen bereits eindeutig bestimmt.
+Somit ist für jede Wahl des Vorzeichens in (\ref{30000032:vorzeichen})
+die Ebene eindeutig bestimmt, es gibt also zwei Lösungen.
+\item
+Das Punktepaar $(2,0,0)$ und $(0,0,2)$ erfüllt die Bedingung, es sollte
+also zwei Lösungesebenen geben, die man als Lösungen der Tableaux
 \begin{align*}
-\cos\alpha
-&=
-\frac{\operatorname{Spur}A-1}{2}
-=
--\frac12
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+       1&       0&       0&1&0\\
+       0&       1&       0&1&0\\
+       0&       0&      -2&2&0\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+       1&       0&       0& 1&0\\
+       0&       1&       0& 1&0\\
+       0&       0&       1&-1&0\\
+\hline
+\end{tabular}
 \\
-\alpha&=120^\circ.
-\qedhere
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+       1&       0&       0&1&0\\
+       0&       1&       0&1&0\\
+       0&       0&       2&0&0\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+       1&       0&       0& 1&0\\
+       0&       1&       0& 1&0\\
+       0&       0&       1& 0&0\\
+\hline
+\end{tabular}
 \end{align*}
+bestimmen kann.
+Zusammen mit der Bedingung $\sqrt{a^2+b^2+c^2}=1$ findet man die Ebenen
+\[
+\begin{linsys}{4}
+\frac1{\sqrt{3}}x&+&\frac1{\sqrt{3}}y&-&\frac1{\sqrt{3}}z&-&\frac1{\sqrt{3}}&=&0
+\\
+\frac1{\sqrt{2}}x&+&\frac1{\sqrt{2}}y& &                 &-&\frac1{\sqrt{2}}&=&0
+\end{linsys}
+\qedhere
+\]
 \end{teilaufgaben}
 \end{loesung}

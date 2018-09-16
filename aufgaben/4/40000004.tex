@@ -1,0 +1,184 @@
+Sei $\vec u$ ein Einheitsvektor und $\varphi$ ein beliebiger Winkel.
+Wir setzen $s=\sin\varphi$ und $c=\cos\varphi$. Betrachten Sie jetzt
+die Matrix
+\[
+O=\begin{pmatrix}
+c+(1-c)u_1^2    &(1-c)u_1u_2-u_3s   &(1-c)u_1u_3+u_2s\\
+(1-c)u_1u_2+u_3s&c+(1-c)u_2^2       &(1-c)u_2u_3-u_1s\\
+(1-c)u_1u_3-u_2s&(1-c)u_2u_3+u_1s   &c+(1-c)u_3^2
+\end{pmatrix}
+\]
+Man kann nachrechnen, dass dies eine Drehmatrix ist (nicht verlangt).
+\begin{teilaufgaben}
+\item Bestimmen Sie den Drehwinkel.
+\item Zeigen sie, dass $\vec u$ die Richtung der Drehachse ist.
+\end{teilaufgaben}
+
+\thema{Drehwinkel}
+\thema{Drehachse}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Der Drehwinkel kann mit der Spurformel bestimmt werden. Dazu berechnen
+wir zunächst die Spur von $O$
+\[
+\operatorname{Spur}O=
+c+(1-c)u_1^2+c+(1-c)u_2^2+c+(1-c)u_3^2=3c+(1-c)(u_1^2+u_2^2+u_3^2)=1+2c
+\]
+Jetzt wenden wir die Spurformel an:
+\[
+\cos\alpha=\frac{\operatorname{Spur}O-1}2=c=\cos\varphi,
+\]
+Der Drehwinkel ist also gerade der Winkel $\varphi.$
+\item
+Die Richtung $\vec v$ der Drehachse erfüllt die Bedingung $O\vec v=\vec v$,
+wir müssen also nachprüfen, ob $O\vec u=\vec u$.
+Dazu setzen wir ein:
+\begin{align*}
+O\vec u
+&=
+\begin{pmatrix}
+c+(1-c)u_1^2    &(1-c)u_1u_2-u_3s   &(1-c)u_1u_3+u_2s\\
+(1-c)u_1u_2+u_3s&c+(1-c)u_2^2       &(1-c)u_2u_3-u_1s\\
+(1-c)u_1u_3-u_2s&(1-c)u_2u_3+u_1s   &c+(1-c)u_3^2
+\end{pmatrix}
+\begin{pmatrix}u_1\\u_2\\u_3\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+cu_1+(1-c)u_1^3 +(1-c)u_1u_2^2-u_2u_3s+(1-c)u_1u_3^2+u_2u_3s\\
+(1-c)u_1^2u_2+u_1u_3s+cu_2+(1-c)u_2^3+(1-c)u_2u_3^2-u_1u_3s\\
+(1-c)u_1^2u_3-u_1u_2s+(1-c)u_2^2u_3+u_1u_2s+cu_3+(1-c)u_3^3
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+cu_1+(1-c)u_1(u_1^2+u_2^2+u_3^2)\\
+(1-c)u_2(u_1^2+u_2^2+u_3^2)+cu_2\\
+(1-c)u_3(u_1^2+u_2^2+u_3^2)+cu_3
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+cu_1+(1-c)u_1\\
+(1-c)u_2+cu_2\\
+(1-c)u_3+cu_3
+\end{pmatrix}
+=\begin{pmatrix}u_1\\u_2\\u_3\end{pmatrix}.
+\end{align*}
+Im letzten Schritt haben wir verwendet, dass $\vec u$ ein Einheitsvektor
+ist, dass also insbesondere $u_1^2 + u_2^2 + u_3^2=1$ gilt.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Die Aufgabe hat sich nicht um die Frage gekümmert, wie man die Matrix $O$
+finden kann.
+Dies soll hier nachgeholt werden.
+Der Vektor $\vec r$ soll um die Achse $\vec u$ und den Winkel $\varphi$
+gedreht werden.
+Dazu zerlegen wir $\vec r$ zuerst die Komponenten $\vec r_{\|}$ parallel
+und $\vec r_{\perp}$ senkrecht auf $\vec u$.
+Die Komponenten $\vec r_{\|}$ ändert sich bei der Drehung nicht, also
+$\vec r_{\|}'=\vec r_{\|}$.
+
+Die Komponenten $\vec r_{\perp}$ wird in der Ebene senkrecht auf
+$\vec u$ gedreht.
+Diese Drehung ist einfach zu beschreiben, wenn wir einen Vektor senkrecht auf
+$\vec u$ und $\vec r_{\perp}$ finden können.
+Ein solcher Vektor ist $\vec u\times \vec r$, er hat gerade die richtige 
+Länge $|\vec r_{\perp}|$.
+Daraus können wir jetzt den gedrehten Vektor 
+\[
+\vec r' = \vec r_{\|} + c \vec r_{\perp} + s \vec u\times \vec r
+\]
+zusammensetzen.
+
+Als letzten Schritt müssen wir $\vec r'$ als $O\vec r$ ausdrücken.
+Dazu verwenden wir zuerst die bereits bekannten Ausdrücke für $\vec r_{\|}$
+und $\vec r_{\perp}$, nämlich
+\begin{align*}
+\vec r_{\|}
+&=
+\vec u\vec u^t\vec r
+&
+&\text{und}&
+\vec r_{\perp}
+&=
+\vec r - \vec u\vec u^t\vec r
+=
+(E-\vec u\vec u^t)\vec r
+\end{align*}
+Die Komponente $\vec u\times \vec r$ können wir ebenfalls als Matrix schreiben,
+nämlich
+\[
+\begin{pmatrix}u_1\\u_2\\u_3\end{pmatrix}
+\times
+\begin{pmatrix}r_1\\r_2\\r_3\end{pmatrix}
+=
+\begin{pmatrix}
+u_2r_3-u_3r_2\\
+u_3r_1-u_1r_3\\
+u_1r_2-u_2r_1
+\end{pmatrix}
+=
+\begin{pmatrix}
+   0&-u_3& u_2\\
+ u_3&   0&-u_1\\
+-u_2& u_1&   0
+\end{pmatrix}
+\begin{pmatrix}r_1\\r_2\\r_3\end{pmatrix}.
+\]
+Jetzt kann man alle drei Matrizen zusammensetzen:
+\begin{align*}
+\vec r'
+&=
+\left(
+(\vec u\vec u^t) + c(E-\vec u\vec u^t) + 
+s
+\begin{pmatrix}
+   0&-u_3& u_2\\
+ u_3&   0&-u_1\\
+-u_2& u_1&   0
+\end{pmatrix}
+\right)
+\vec r
+\\
+&=
+\left(
+\begin{pmatrix}
+u_1^2&u_1u_2&u_1u_3\\
+u_2u_1&u_2^2&u_2u_3\\
+u_3u_1&u_3u_2&u_3^2
+\end{pmatrix}
++c
+\left(E-
+\begin{pmatrix}
+u_1^2&u_1u_2&u_1u_3\\
+u_2u_1&u_2^2&u_2u_3\\
+u_3u_1&u_3u_2&u_3^2
+\end{pmatrix}
+\right)
++s
+\begin{pmatrix}
+   0&-u_3& u_2\\
+ u_3&   0&-u_1\\
+-u_2& u_1&   0
+\end{pmatrix}
+\right)
+\vec r
+\\
+&=
+\begin{pmatrix}
+(1-c)u_1^2+c    &(1-c)u_1u_2-su_3&(1-c)u_1u_3+su_2\\
+(1-c)u_1u_2+su_3&(1-c)u_2^2+c    &(1-c)u_2u_3-su_1\\
+(1-c)u_1u_3-su_2 &(1-c)u_2u_3+su_1&(1-c)u_3^2+c
+\end{pmatrix}  
+\vec r.
+\end{align*}
+Dies ist genau die Matrix der Aufgabenstellung.
+\end{diskussion}
+
+

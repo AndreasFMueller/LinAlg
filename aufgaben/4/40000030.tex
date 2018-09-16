@@ -1,139 +1,48 @@
-In Zaouit Massa in Marokko auf $30^\circ$ nördlicher Breite steht abends
-um 20:00 Uhr ein Stern im Zenit (genau über dem Beobachter). Wann geht
-dieser Stern unter?
+Ortonormalisieren Sie die drei Vektoren
+\[
+\vec{a}_1=\begin{pmatrix}1\\1\\0\end{pmatrix},\qquad
+\vec{a}_2=\begin{pmatrix}0\\1\\1\end{pmatrix},\qquad
+\vec{a}_3=\begin{pmatrix}1\\0\\1\end{pmatrix}.
+\]
 
-\thema{Drehmatrix}
+\thema{Orthonormalisierung}
 
 \begin{loesung}
-Es ist zu berechnen, welcher Drehwinkel der Himmelskugel dazu führt,
-dass der Stern auf Horizonthöhe zu liegen kommt. Zu Beginn hat der
-Stern in einem Koordinatensystem mit vertikaler $z$-Achse den
-Ortsvektor
-\[
-\vec s=\begin{pmatrix}0\\0\\1\end{pmatrix}=\vec e_3.
-\]
-Wir legen die $x$-Achse des Koordinatensystems in Richtung Osten.
-
-Die Drehung der Himmelskugel lässt sich aber viel leichter in einem
-Koordinatensystem beschreiben, welches eine Gerade parallel zur Erdachse
-als $z$-Achse verwendet. Wir bezeichnen Vektoren in diesem Koordinatensystem
-mit Strichen. Es ist gegenüber dem ursprünglichen Koordinatensystem
-um einen Winkel $\alpha=60^\circ$ verdreht, Drehachse ist die $x$-Achse.
-Die Umrechnung eines Vektors $\vec v$ in dieses Koordinatensystem
-erfolgt mit Hilfe einer Drehmatrix.
-Die Matrix
-\[
-T=D_{x,\alpha}=\begin{pmatrix}
-1&          0&          0\\
-0& \cos\alpha&-\sin\alpha\\
-0& \sin\alpha& \cos\alpha
-\end{pmatrix}
-=
-\begin{pmatrix}
-1& 0&0\\
-0&\frac12&-\frac{\sqrt{3}}2\\
-0&\frac{\sqrt{3}}2&\frac12\\
-\end{pmatrix}
-\]
-transformiert den Vektor $\vec e_3$ in den Vektor
-\[
-\vec v'=T\vec v=
-\begin{pmatrix}
-0\\-\frac{\sqrt{3}}2\\\frac12 
-\end{pmatrix}
-\]
-die Darstellung der Sternposition im gestrichenen Koordinatensystem.
-
-Jetzt erfolgt die Drehung um den unbekannten Winkel $\varphi$ um
-die $z'$-Achse im gestrichenen Koordinatensystem, dies kann durch die
-Drehmatrix
-\[
-D_{z',\varphi}
-=
-\begin{pmatrix}
-\cos\varphi&-\sin\varphi&0\\
-\sin\varphi& \cos\varphi&0\\
-0&0&1
-\end{pmatrix}
-\]
-Nach der Drehung hat der Stern im gestrichenen Koordinatensystem die
-Koordinaten:
-\[
-D_{z',\varphi}\vec v'
-=
-\begin{pmatrix}
-\cos\varphi&-\sin\varphi&0\\
-\sin\varphi& \cos\varphi&0\\
-0&0&1
-\end{pmatrix}
-\begin{pmatrix}
-0\\-\frac{\sqrt{3}}2\\\frac12 
-\end{pmatrix}
-=
-\begin{pmatrix}
-\frac{\sqrt{3}}2\sin\varphi\\
--\frac{\sqrt{3}}2\cos\varphi\\
-\frac12
-\end{pmatrix}.
-\]
-
-Ob der Stern sich genau auf Horizonthöhe befindet, kann nur im ungestrichen
-Koordinatensystem entschieden werden.
-Man muss daher wieder mit $T^{-1}$ zurücktransformieren:
-\[
-T^{-1}D_{z',\varphi}Te_3 = 
-\begin{pmatrix}
-1& 0&0\\
-0&\frac12&\frac{\sqrt{3}}2\\
-0&-\frac{\sqrt{3}}2&\frac12\\
-\end{pmatrix}
-\begin{pmatrix}
-\frac{\sqrt{3}}2\sin\varphi\\
--\frac{\sqrt{3}}2\cos\varphi\\
-\frac12
-\end{pmatrix}.
-=
-\begin{pmatrix}
-\frac{\sqrt{3}}2\sin\varphi\\
--\frac{\sqrt{3}}4\cos\varphi+\frac{\sqrt{3}}4\\
-\frac{\sqrt{3}}4\cos\varphi+\frac14
-\end{pmatrix}
-\]
-Jetzt muss $\varphi$ so gewählt werden, dass die $z$-Komponente dieses
-Vektors verschwindet:
+Wir verwenden das Gram-Schmidtsche Orthogonalisierungsverfahren:
 \begin{align*}
-\frac{3}4\cos\varphi+\frac14&=0\\
-\cos\varphi&=-\frac1{3}\\
-\varphi&=\pm 109.47^\circ.
+\vec{b}_1
+&=
+\frac{\vec{a}_1}{|\vec{a}_1|}
+=
+\frac1{\sqrt{2}}\begin{pmatrix}1\\1\\0\end{pmatrix}
+\\
+\vec{b}_2
+&=
+\frac{\vec{a}_2 - (\vec{a}_2\cdot\vec{b}_1)\vec{b}_1}{\dots}
+=
+\frac{\displaystyle\begin{pmatrix}0\\1\\1\end{pmatrix}-\frac1{\sqrt{2}}\frac1{\sqrt{2}}\begin{pmatrix}1\\1\\0\end{pmatrix}}{\dots}
+=
+\frac{\displaystyle\frac12\begin{pmatrix}-1\\1\\2\end{pmatrix}}{\dots}
+=
+\frac{1}{\sqrt{6}}\begin{pmatrix}-1\\1\\2\end{pmatrix}
+\\
+\vec{b}_3
+&=
+\frac{\vec{a}_3-(\vec{a}_3\cdot\vec{b}_1)\vec{b}_1-(\vec{a}_3\cdot\vec{b}_2)\vec{b}_2}{\dots}
+=
+\left(
+\begin{pmatrix}1\\0\\1\end{pmatrix}
+-\frac1{\sqrt{2}}\frac1{\sqrt{2}}\begin{pmatrix}1\\1\\0\end{pmatrix}
+-\frac1{\sqrt{6}}\frac1{\sqrt{6}}\begin{pmatrix}-1\\1\\2\end{pmatrix}
+\right)^0
+=
+\begin{pmatrix}4\\-4\\4\end{pmatrix}^0
+=
+\begin{pmatrix}1\\-1\\1\end{pmatrix}^0
+\\
+&=
+\frac1{\sqrt{3}} \begin{pmatrix}1\\-1\\1\end{pmatrix}.
+\qedhere
 \end{align*}
-Die Antwort ist aber in Stunden gesucht, wir müssen also den Winkel
-noch mit dem Faktor $\frac{24}{360}=\frac1{15}$ multiplizieren:
-\[
-\varphi=7.298\text{h}=7\text{h} 17.8\text{min}.
-\]
-Der Stern wird also um 03:18 Uhr untergehen.
 \end{loesung}
-
-\begin{diskussion}
-Die Berechnung der Untergangszeit ist nicht ganz korrekt. Die Erde dreht
-sich nämlich nicht einmal in 24 Stunden, sondern einmal in 23.9345 Stunden,
-dem siderischen Tag.
-Der korrekte Umrechungsfaktor ist daher $\frac{23.9245}{360}$, damit
-wird die Untergangszeit 03:16:30.
-
-Ausserdem bewirkt das Phänomen der atmosphärischen Refraktion, dass
-Sterne in Horizontnähe höher erscheinen, als sie tatsächlich
-sind, ein Stern ist also noch sichtbar, wenn die Gerade zum Stern bereits
-unter dem Horizont liegt.
-Sterne gehen also später unter, also die Geometrie alleine vorhersagen
-würde.
-\end{diskussion}
-
-\begin{bewertung}
-Richtung der Drehachse (\textbf{A}) 1 Punkt,
-Drehmatrix (\textbf{D}) 1 Punkt,
-Umrechnung zwischen den Koordinatensystemen (\textbf{U}) 2 Punkt,
-Ermittelung Drehwinkel (\textbf{W}) 1 Punkt,
-Berechnung der Untergangszeit (\textbf{Z}) 1 Punkt.
-\end{bewertung}
 

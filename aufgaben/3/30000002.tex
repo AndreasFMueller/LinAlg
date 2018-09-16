@@ -1,41 +1,150 @@
-Man zerlege den Vektor $\vec d$ nach den Vektoren $\vec a$, $\vec b$ und
-$\vec c$:
+Wo durchstösst die Gerade durch den Punkt $(0,0,1)$ mit Richtungsvektor
 \[
-\vec a=\begin{pmatrix}3\\5\\1\end{pmatrix},\qquad
-\vec b=\begin{pmatrix}4\\-8\\6\end{pmatrix},\qquad
-\vec c=\begin{pmatrix}-16\\10\\7\end{pmatrix},\qquad
-\vec d=\begin{pmatrix}0\\0\\52\end{pmatrix}
+\begin{pmatrix}1\\1\\-1\end{pmatrix}
 \]
+die Ebene durch die Punkte $O$, $(1,0,1)$ und $(0,1,1)$?
 
-\thema{Basiszerlegung}
+\thema{Durchstosspunkt}
+\thema{Ebene}
 
 \begin{loesung}
-Zur Zerlegung suchen wir drei Zahlen $\xi$, $\eta$ und $\zeta$ mit
+Die Ortsvektoren von Punkten in der Ebene sind
 \[
-\xi \vec a
+t
+\begin{pmatrix}1\\0\\1\end{pmatrix}
 +
-\eta \vec b
-+
-\zeta \vec c
-=
-\vec d
+s
+\begin{pmatrix}0\\1\\1\end{pmatrix}
 \]
-"Ubersetzt in lineares Gleichungssystem heisst dies
+Punkte auf der Geraden haben die Form
 \[
-\begin{tabular}{|ccc|c|}
+\begin{pmatrix}0\\0\\1\end{pmatrix}+u\begin{pmatrix}1\\1\\-1\end{pmatrix}.
+\]
+Dies ist ein Gleichungssytem mit den 6 Unbekannten
+$\color{red}x$,
+$\color{red}y$,
+$\color{red}z$,
+$\color{red}t$,
+$\color{red}s$ und
+$\color{red}u$.
+Die Ebenengleichung liefert Ortsvektoren von Punkten auf der Ebene
+\[
+\begin{pmatrix}
+{\color{red}x}\\
+{\color{red}y}\\
+{\color{red}z}
+\end{pmatrix}
+=
+{\color{red}t}
+\begin{pmatrix}1\\0\\1\end{pmatrix}
++
+{\color{red}s}
+\begin{pmatrix}0\\1\\1\end{pmatrix}.
+\]
+Die Geradengleichung ist entsprechend
+\[
+\begin{pmatrix}
+{\color{red}x}\\
+{\color{red}y}\\
+{\color{red}z}
+\end{pmatrix}
+=
+\begin{pmatrix}0\\0\\1\end{pmatrix}+{\color{red}}{\color{red}u}\begin{pmatrix}1\\1\\-1\end{pmatrix}.
+\]
+Wir haben also insgesamt sechs Gleichungen mit sechs Unbekannten.
+Das Gauss-Tableau dieses Gleichungssystems ist
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-3&4&$-16$&0\\
-5&$-8$&10&0\\
-1&6&7&52\\
+{\color{red}x}&{\color{red}y}&{\color{red}z}&{\color{red}t}&{\color{red}s}&{\color{red}u}&\\
+\hline
+1&0&0&-1& 0& 0& 0\\
+0&1&0& 0&-1& 0& 0\\
+0&0&1&-1&-1& 0& 0\\
+1&0&0& 0& 0&-1& 0\\
+0&1&0& 0& 0&-1& 0\\
+0&0&1& 0& 0& 1& 1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+{\color{red}x}&{\color{red}y}&{\color{red}z}&{\color{red}t}&{\color{red}s}&{\color{red}u}&\\
+\hline
+1&0&0&0&0&0&\frac13\\
+0&1&0&0&0&0&\frac13\\
+0&0&1&0&0&0&\frac23\\
+0&0&0&1&0&0&\frac13\\
+0&0&0&0&1&0&\frac13\\
+0&0&0&0&0&1&\frac13\\
 \hline
 \end{tabular}
 \]
-für welches man folgende Lösung findet:
+Daraus liest man ab, dass $(\frac13,\frac13,\frac23)$ der Schnittpunkt ist,
+und dass er auf der Ebene mit den Parameterwerten $t=\frac13$  und $s=\frac13$
+und auf der Geraden mit dem Parameterwert $u=\frac13$ erreicht wird.
+
+Die konventionelle Lösungsmethode setzt die beiden Parameterdarstellungen
+gleich.
+Der Durchstosspunkt kann also als Lösung der Gleichung
 \begin{align*}
-\xi&=4.33333333\\
-\eta&=5.41666666\\
-\zeta&=2.16666666
-\qedhere
+t\begin{pmatrix}1\\0\\1\end{pmatrix}
++
+s\begin{pmatrix}0\\1\\1\end{pmatrix}
+&=
+\begin{pmatrix}0\\0\\1\end{pmatrix}+u\begin{pmatrix}1\\1\\-1\end{pmatrix}
+\\
+t\begin{pmatrix}1\\0\\1\end{pmatrix}
++
+s\begin{pmatrix}0\\1\\1\end{pmatrix}
+-u\begin{pmatrix}1\\1\\-1\end{pmatrix}
+&=
+\begin{pmatrix}0\\0\\1\end{pmatrix}
 \end{align*}
+gefunden werden.
+Man muss also das folgende Gleichungssystem lösen:
+\begin{align*}
+\begin{tabular}{|ccc|c|}
+\hline
+1&0&-1&0\\
+0&1&-1&0\\
+1&1&1&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&0&-1&0\\
+0&1&-1&0\\
+0&1&2&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&0&-1&0\\
+0&1&-1&0\\
+0&0&3&1\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&0&0&$\frac13$\\
+0&1&0&$\frac13$\\
+0&0&1&$\frac13$\\
+\hline
+\end{tabular}
+\end{align*}
+Somit ist $u=\frac13$, also
+\[
+\begin{pmatrix}0\\0\\1\end{pmatrix}+\frac13\begin{pmatrix}1\\1\\-1\end{pmatrix}
+=
+\begin{pmatrix}\frac13\\\frac13\\\frac23\end{pmatrix}
+\]
+der Ortsvektor des Durchstosspunktes.
+
 \end{loesung}
 

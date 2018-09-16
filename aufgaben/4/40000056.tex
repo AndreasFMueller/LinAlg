@@ -1,287 +1,194 @@
-Vom Dodekaeder
-\begin{center}
-\begin{tikzpicture}
-\node at (0,0) {\includeagraphics[width=8cm]{dodekaeder.jpg}};
+Flat-Earther glauben, die Erde sei eine Scheibe von 20'000km Radius,
+mit Zentrum im Nordpol.
+Die HSR befindet sich in diesem Modell in einem Punkt etwa 4'750km
+vom Nordpol entfernt.
 
-\node at (4.1,-0.5) {$x$};
-\node at (-3,-1.2) {$y$};
-\node at (0,3.8) {$z$};
+Den Südpol gebe es dagegen nicht, stattdessen würde dort eine Eiswand
+verhindern, dass man den Kontinent Antarctica überqueren kann.
+Die Sonne bewege sich einmal am Tag entlang eines Kreises von variablem
+Radius etwa 5'000km über der Erdscheibe.
+Die Jahreszeiten entstehen dadurch, dass der Radius dieses Kreises
+über das Jahr schwankt.
+Zur Zeit der Tag- und Nachtgleiche ist der Radius 10'000km.
 
-\node[color=orange] at ( 2.5, 1.95) {$A_1$};
-\node[color=orange] at ( 1.1, 1.7 ) {$A_2$};
-\node[color=orange] at ( 2.5,-2.1 ) {$A_3$};
-\node[color=orange] at ( 0.5,-2.7 ) {$A_4$};
-\node[color=orange] at (-0.5, 1.9 ) {$A_5$};
-\node[color=orange] at (-3.1, 1.95) {$A_6$};
-\node[color=orange] at (-0.7,-1.2 ) {$A_7$};
-\node[color=orange] at (-3.3,-2.5 ) {$A_8$};
-
-\node[color=green] at ( 0.8, 0.9 ) {$A_9$};
-\node[color=green] at (-2.1, 1.0 ) {$A_{10}$};
-\node[color=green] at ( 1.1,-1.1 ) {$A_{11}$};
-\node[color=green] at (-1.7,-2.1 ) {$A_{12}$};
-
-\node[color=blue] at ( 1.0, 3.3 ) {$A_{13}$};
-\node[color=blue] at ( 1.0,-3.8 ) {$A_{14}$};
-\node[color=blue] at (-1.2, 3.2 ) {$A_{15}$};
-\node[color=blue] at (-1.2,-3.4 ) {$A_{16}$};
-
-\node[color=red] at ( 3.6,-0.1 ) {$A_{17}$};
-\node[color=red] at ( 2.5,-0.4 ) {$A_{18}$};
-\node[color=red] at (-1.7, 0.2 ) {$A_{19}$};
-\node[color=red] at (-3.9,-0.3 ) {$A_{20}$};
-\end{tikzpicture}
-\end{center}
-sind die Punkte
-\[
-\begin{aligned}
-A_1&=(1,1,1),&
-A_{10}&=(0,-\varphi,1/\varphi),&
-A_{13}&=(1/\varphi,0,\varphi),\\
-A_{15}&=(-1/\varphi,0,\varphi),&
-A_{18}&=(\varphi,-1/\varphi,0)
-\end{aligned}
-\qquad
-\text{mit}
-\quad
-\varphi=\frac{1+\sqrt{5}}2
-\]
-bekannt.
 \begin{teilaufgaben}
 \item
-Finden Sie eine Drehmatrix $R$, welche $A_{18}$ auf $A_{10}$ abbildet
-und die Seitenfläche $A_1A_9A_5A_{15}A_{13}$ unverändert lässt.
+In diesem Modell geht die Sonne nie unter (was die Flat-Earther anscheinen
+nicht stört).
+Wie gross ist der kleinstmögliche Winkel über dem Horizont, unter dem
+man die Sonne von der HSR aus sehen kann.
 \item
-Finden Sie den Drehwinkel der von $R$ beschriebenen Drehung.
+Sei $P$ der Punkt auf dem "Aquator mit dem gleichen Längengrad wie
+die HSR.
+Am Tag der Tag- und Nachtgleiche befindet sich in diesem Modell
+die Sonne bei ``Sonnenaufgang'' morgens um 06:00 Uhr über einem Strahl
+vom Nordpol aus, der senkrecht ist auf dem Strahl vom Nordpol zu $P$.
+Um welche Zeit ist von $P$ aus gesehen der Winkel zwischen der Position
+der Sonne und der Position bei ``Sonnenaufgang'' $90^\circ$?
+Man vergleiche das mit der Realität, in der die Sonne an jedem Tag,
+nicht nur zur Tag- und Nachtgleiche, genau um 12:00 
+$90^\circ$ von der Position entfernt ist, an der sie um 06:00 am
+gleichen Tag war.
 \end{teilaufgaben}
 
-\begin{hinweis}
-Führen sie die nötigen Matrizenrechnungen mit dem Taschenrechner durch.
-\end{hinweis}
-
-\thema{Abbildungsmatrix}
 \thema{Drehmatrix}
-\thema{inverse Matrix}
-\thema{Drehwinkel}
 
 \begin{loesung}
+Wir verwenden ein Koordinatensystem mit Nullpunkt im Nordpol,
+dessen $x$-Achse durch die HSR geht, die $z$-Achse ist senkrecht
+auf der Erdscheibe im Nordpol.
+Die HSR hat in diesem Koordinatensystem den Ortsvektor
+\[
+\vec h=\begin{pmatrix}4750\\0\\0\end{pmatrix}.
+\]
 \begin{teilaufgaben}
 \item
-Ausser der bereits bekannten Zuordnung $A_{18}\rightarrow A_{10}$,
-können wir aus der Zeichnung zusätzlich ablesen
-$A_1\rightarrow A_{13}$
-und
-$A_{13}\rightarrow A_{15}$.
-Diese Zuordnungen können wir jetzt vektoriell schreiben:
-\begin{equation}
-R
-\underbrace{
-\begin{pmatrix}
-1&   \varphi&1/\varphi\\
-1&-1/\varphi&        0\\
-1&         0&  \varphi
-\end{pmatrix}
-}_{\displaystyle=B_1}
-=
-\underbrace{
-\begin{pmatrix}
-1/\varphi&        0&-1/\varphi\\
-        0& -\varphi&         0\\
-  \varphi&1/\varphi&   \varphi
-\end{pmatrix}
-}_{\displaystyle=B_2}
-\qquad\Rightarrow\qquad
-R=B_2B_1^{-1}.
-\label{40000056:b1}
-\end{equation}
-Die numerische Rechnung ergibt
-\begin{align*}
-B_1^{-1}
-&=
-\begin{pmatrix}
-   0.30902&  0.80902& -0.11803\\
-   0.50000& -0.30902& -0.19098\\
-  -0.19098& -0.50000&  0.69098
-\end{pmatrix}
-\\
-R
-=
-B_2B_1^{-1}
-&=
-\begin{pmatrix}
-   0.61803&  0.00000& -0.61803\\
-   0.00000& -1.61803&  0.00000\\
-   1.61803&  0.61803&  1.61803
-\end{pmatrix}
-\begin{pmatrix}
-   0.30902&  0.80902& -0.11803\\
-   0.50000& -0.30902& -0.19098\\
-  -0.19098& -0.50000&  0.69098
-\end{pmatrix}
-\\
-&=
-\begin{pmatrix}
-   0.30902&  0.80902& -0.50000\\
-  -0.80902&  0.50000&  0.30902\\
-   0.50000&  0.30902&  0.80902
-\end{pmatrix}
-\end{align*}
-\item
-Den Drehwinkel können wir mit der Spurformel berechnen:
-\begin{align*}
-\cos\alpha
-&=
-\frac{\operatorname{Spur}-1}{2}
-=
-\frac{\varphi-1}{2}
-=
-0.30902
-\\
-\Rightarrow\qquad
-\alpha
-&=
-72^\circ.
-\qedhere
-\end{align*}
-\end{teilaufgaben}
-\end{loesung}
-
-\begin{diskussion}
-Die Inverse $B_1^{-1}$ in \eqref{40000056:b1}
-können wir auch exakt berechnen.
-Dazu beachten wir, dass sich alle Resultate während der Durchführung des
-Gaussalgorithmus in der Form $a+b\varphi$ geschrieben werden können,
-wobe $a$ und $b$ rationale Zahlen sind.
-Zum Beispiel ist
-\begin{align*}
-\varphi^2
-&=
-\varphi +1
-\\
-\frac1{\varphi}
-&=
-\frac{2}{1+\sqrt{5}}
-=
-\frac{2(1-\sqrt{5})}{1-5}
-=
-\frac{\sqrt{5}-1}{2}
-=
-\varphi-1
-\\
-\frac{1}{1-2\varphi}
-&=
-\frac{1}{1-1-\sqrt{5}}
-=
-\frac{\sqrt{5}}{5}
-=
-\frac{2\varphi-1}{5}
-\\
-\frac52\frac1{\varphi+2}
-&=
-\frac{3-\varphi}2
-\end{align*}
-Die zweite Beziehung erlaubt, die Terme $1/\varphi$ in $B_1$ zum Verschwinden
-zu bringen.
-Die letzten zwei Beziehungen sind die Reziproken der Pivot-Elemente, die
-bei der Durchführung des Gauss-Algorithmus zur Berechnung der Inversen
-auftreten.
-In der nachfolgenden Rechnung werden nach jedem Schritt $\varphi^2$
-durch $\varphi+1$ ersetzt:
-\begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&   \varphi&1/\varphi& 1& 0& 0\\
-1&-1/\varphi&        0& 0& 1& 0\\
-1&         0&  \varphi& 0& 0& 1\\
-\hline
-\end{tabular}
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&   \varphi&\varphi-1& 1& 0& 0\\
-1&-\varphi+1&        0& 0& 1& 0\\
-1&         0&  \varphi& 0& 0& 1\\
-\hline
-\end{tabular}
-\\
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&   \varphi&\varphi-1& 1& 0& 0\\
-0&1-2\varphi&1-\varphi&-1& 1& 0\\
-0& - \varphi&        1&-1& 0& 1\\
-\hline
-\end{tabular}
-\\
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&\varphi&     \varphi-1&             1&             0& 0\\
-0&      1& (3-\varphi)/5&(2\varphi-1)/5&(1-2\varphi)/5& 0\\
-0&      0&2(\varphi+2)/5& (\varphi-3)/5& (\varphi+2)/5& 1\\
-\hline
-\end{tabular}
-\\
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&\varphi&     \varphi-1&             1&             0&            0\\
-0&      1& (3-\varphi)/5&(2\varphi-1)/5&(1-2\varphi)/5&            0\\
-0&      0&             1&   \varphi/2-1&      -\frac12&(3-\varphi)/2\\
-\hline
-\end{tabular}
-\\
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&\varphi&             0&(2\varphi-1)/2&(\varphi-1)/2&(4-3\varphi)/2\\
-0&      1&             0&\frac12       &(1-\varphi)/2&(\varphi-2)/2 \\
-0&      0&             1&   \varphi/2-1&      -\frac12&(3-\varphi)/2\\
-\hline
-\end{tabular}
-\\
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&0&0&(\varphi-1)/2&\varphi/2    &(3-2\varphi)/2\\
-0&1&0&\frac12      &(1-\varphi)/2&(\varphi-2)/2 \\
-0&0&1&  \varphi/2-1&     -\frac12&(3-\varphi)/2 \\
-\hline
-\end{tabular}
-\end{align*}
-Wir lesen ab 
+Am tiefsten Punkt befindet sich die Sonne diametral gegenüber der HSR,
+sie hat den Ortsvektor
 \[
-B_1^{-1}
-=
+\vec s_{\text{Mitternacht}}=\begin{pmatrix}-10000\\0\\5000\end{pmatrix}.
+\]
+Der gesuchte Winkel $\alpha$ kann mit einem rechtwinkligen Dreieck berechnet
+werden:
+\[
+\tan\alpha = \frac{5000}{4750-(-10000)}=0.33898
+\qquad\Rightarrow\qquad
+\alpha=18.726^\circ.
+\]
+\item
+Wir messen die Zeit mit Hilfe des Winkels $\varphi$ zwischen der Richtung
+der Sonnenposition um Mitternacht, die in Teilaufgabe a) verwendet wurde,
+und der aktuellen Position.
+Der Ortsvektor der Sonnen zur Zeit $\varphi$ ist
+\[
+\vec{s}(\varphi) =
 \begin{pmatrix}
-(\varphi-1)/2&   \varphi/2 &(3-2\varphi)/2 \\
-\frac12      &(1-\varphi)/2&(\varphi-2)/2  \\
-(\varphi-2)/2&-\frac12     &(3-\varphi)/2
+-10000\cdot\cos\varphi\\
+10000\cdot\sin\varphi\\
+5000
 \end{pmatrix}.
 \]
-Die Drehmatrix ist
+Gesucht ist dasjenige $\varphi$, für das 
+\[
+(\vec s(90^\circ) - \vec p)\cdot(\vec s(\varphi)-\vec p)=0
+\]
+gilt.
+Wir lösen das Problem gleich für beliebige Punkte auf dem Meridian
+durch die HSR, und setzen daher 
+\[
+\vec p=\begin{pmatrix}10000r\\0\\0\end{pmatrix},
+\]
+so dass für $r=1$ der in der Aufgabe verlangte Punkt auf dem "Aquator
+verwendet wird.
+
+Setzt man diese Werte in die Vektorgleichung ein, erhält man
 \begin{align*}
-R
+0
 &=
-B_2B_1^{-1}
-=
+\left(
 \begin{pmatrix}
-(\varphi-1)/2& \varphi/2   & -\frac12    \\
--\varphi/2   &\frac12      &(\varphi-1)/2\\
-\frac12      &(\varphi-1)/2&\varphi/2
-\end{pmatrix}.
-\end{align*}
-Um den Drehwinkel zu bestimmen, wenden wir die Spurformel auf $R$ an:
-\begin{align*}
-\cos\alpha
-&=
-\frac{\varphi-1}{2}
-=
-\frac{\sqrt{5}-1}{2}
+-10000\cdot\cos 90^\circ\\
+ 10000\cdot\sin 90^\circ\\
+5000
+\end{pmatrix}
+-\begin{pmatrix}10000r\\0\\0\end{pmatrix}
+\right)
+\cdot
+\left(
+\begin{pmatrix}
+-10000\cdot\cos\varphi\\
+ 10000\cdot\sin\varphi\\
+5000
+\end{pmatrix}
+-\begin{pmatrix}10000r\\0\\0\end{pmatrix}
+\right)
 \\
-\Rightarrow\qquad
-\alpha
 &=
-72^\circ.
+\begin{pmatrix}
+-10000r\\
+ 10000\\
+ 5000
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+-10000r
+ 10000\cdot\cos\varphi\\
+-10000\cdot\sin\varphi\\
+  5000
+\end{pmatrix}
+=
+10000^2
+\begin{pmatrix}
+r\\
+1\\
+0.5
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+r
++
+\cos\varphi\\
+\sin\varphi\\
+0.5
+\end{pmatrix}
+\\
+&=
+10000^2 ( r^2 + r\cos\varphi+\sin\varphi +0.25)
+\\
+&=
+10000^2 ( r^2 + r\cos\varphi\pm\sqrt{1-\cos^2\varphi}+0.25)
 \end{align*}
-\end{diskussion}
+Bringt man die Wurzel auf eine Seite
+\begin{align*}
+r\cos\varphi + 0.25+r^2&=\mp\sqrt{1-\cos^2\varphi}\\
+u\cos\varphi + v&=\mp\sqrt{1-\cos^2\varphi}
+\end{align*}
+mit
+\[
+\begin{aligned}
+u&=r,&
+v&=0.25 + r^2.
+\end{aligned}
+\]
+Quadrieren wir die Gleichung und fassen Potenzen von $\cos\varphi$
+zusammen, erhalten wir
+\begin{align*}
+u^2\cos^2\varphi + 2uv\cos\varphi+v^2&=1-\cos^2\varphi
+\\
+(u^2+1)\cos^2\varphi +2uv\cos\varphi+v^2-1&=0,
+\end{align*}
+eine quadratische Gleichung in $\cos\varphi$.
+
+Setzt man die numerischen Werte $r=1$ ein, erhält man für
+den Winkel
+\[
+\cos\varphi= -0.9557189138830738
+\qquad\Rightarrow\qquad
+\varphi = 10.859\text{h}.
+\]
+Da die Sonne um 06:00 bereits über dem Horizont ist (mehr als $18^\circ$,
+wie wir aus Teilaufgabe a) wissen), ist dies nicht die richtige Zeit.
+Wir brauchen einen Winkel, dessen $\sin\varphi<0$ ist, der aber
+den gleichen $\cos\varphi$ hat.
+Der gesuchte Winkel ist $24\text{h}-\varphi=13.141\text{h}$, die
+in der Aufgabenstellung beschriebene Situation tritt also erst um
+$13:08:28$ ein. 
+\end{teilaufgaben}
+Man müsste meinen, dass diese Unstimmigkeiten selbst einem Flat Earther 
+auffallen müssten.
+Eine schnelle Suche auf Youtube zeigt jedoch, dass Flat Earther in
+erstaunlicher Zahl Experimente genau dieser Art durchführen, und keine
+Diskrepanzen feststellen.
+
+Führt man die Rechnung für verschiedene Werte von $r$ durch erkennt man,
+dass für gemässigte Breiten (Werte um 0.5) der Fehler erstaunlich klein
+ist.
+\end{loesung}
+
+
+\begin{bewertung}
+Position der Sonne um Mitternacht ({\bf P}) 1 Punkt,
+Elevation ({\bf E}) 1 Punkt,
+Teilaufgabe b) 4 Punkte.
+\end{bewertung}
+

@@ -1,164 +1,45 @@
-Die Punkte
+Finden Sie eine Lösung des "uberbestimmten Gleichungssystems $Ax=b$ mit 
 \[
-A=( 1, 1, 1),\quad
-B=(-1,-1, 1),\quad
-C=( 1,-1,-1)
-\quad\text{und}\quad
-D=(-1, 1,-1)
+A=\begin{pmatrix}
+-1& 1& 2\\
+-4&-4& 0\\
+-3& 3&-2\\
+ 5& 0& 2
+\end{pmatrix},
+\qquad
+b=\begin{pmatrix}
+-1\\5\\-1\\15
+\end{pmatrix}
 \]
-sind die Ecken eines Tetraeders.
-\begin{teilaufgaben}
-\item
-Finden Sie eine Drehmatrix, die den Punkt $A$ fest lässt und den
-Punkt $B$ in den Punkt $C$ überführt.
-\item
-Finden Sie den Drehwinkel, der zu dieser Drehmatrix gehört.
-\end{teilaufgaben}
+im Sinne der kleinsten Quadrate.
 
-\thema{Abbildungsmatrix}
-\thema{Drehmatrix}
-\thema{Drehwinkel}
-
-\begin{hinweis}
-Die gesuchte Matrix $R$ führt auch $C$ in $D$ über.
-Schreiben Sie die Bedingung, dass $R$ die genannten Punkte in andere
-Punkte überführt, als Matrizengleichung%
-{} $RB_1=B_2$%
-.
-\end{hinweis}
+\thema{Least Squares}
 
 \begin{loesung}
-\begin{teilaufgaben}
-\item
-Da die gesuchte Matrix $R$ eine Drehmatrix ist, bleiben Längen und
-Winkel erhalten.
-Sie wird wird daher auch den Punkt $C$ in den Punkt $D$ überführen.
-Wir bezeichnen die Ortsvektoren der Punkte mit entsprechenden kleinen
-Buchstaben, also $\vec{a}=\overrightarrow{0A}$.
-
-Gesucht ist also eine Matrix $R$ mit den Eigenschaften:
-\begin{equation}
-R\vec{a}=\vec{a},\quad
-R\vec{b}=\vec{c}\quad\text{und}\quad
-R\vec{c}=\vec{d}.
-\label{40000043:vektorgleichungen}
-\end{equation}
-Schreiben wir die Vektoren $\vec{a}$, $\vec{b}$ und $\vec{c}$ in die
-Matrix $B_1$ und die Vektoren $\vec{a}$, $\vec{c}$ und $\vec{a}$ in
-die Matrix $B_2$, also
-\[
-B_1
-=
-\begin{pmatrix}
- 1&-1& 1\\
- 1&-1&-1\\
- 1& 1&-1
-\end{pmatrix}
-\qquad\text{und}\qquad
-B_2
-=
-\begin{pmatrix}
-1& 1&-1\\
-1&-1& 1\\
-1&-1&-1
-\end{pmatrix},
-\]
-dann lassen sich die
-Gleichungen~\eqref{40000043:vektorgleichungen} zusammenfassen in eine
-Matrixgleichung
-\[
-RB_1=B_2
-\qquad\Rightarrow\qquad R=B_2B_1^{-1}.
-\]
-Wir bestimmen daher zunächst die inverse Matrix $B_1^{-1}$
-mit Hilfe des Gauss-Algorithmus:
+Zur Lösung muss die Gleichung die Matrix $A^tA$ und der Vektor $A^tb$
+berechnet werden:
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
- 1&-1& 1& 1& 0& 0\\
- 1&-1&-1& 0& 1& 0\\
- 1& 1&-1& 0& 0& 1\\
-\hline
-\end{tabular}
-&
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
- 1&-1& 1& 1& 0& 0\\
- 0& 0&-2&-1& 1& 0\\
- 0& 2&-2&-1& 0& 1\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
- 1&-1& 1&      1 & 0& 0      \\
- 0& 1&-1&-\frac12& 0& \frac12\\
- 0& 0&-2&-     1 & 1& 0      \\
-\hline
-\end{tabular}
-\\
-&
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
- 1&-1& 0& \frac12& \frac12& 0      \\
- 0& 1& 0&      0 &-\frac12& \frac12\\
- 0& 0& 1& \frac12&-\frac12& 0      \\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
- 1& 0& 0& \frac12&      0 & \frac12\\
- 0& 1& 0&      0 &-\frac12& \frac12\\
- 0& 0& 1& \frac12&-\frac12& 0      \\
-\hline
-\end{tabular}
-\end{align*}
-Damit kann jetzt auch $R$ berechnet werden:
-\begin{align*}
-R
-=
-B_2B_1^{-1}
+A^tA
 &=
 \begin{pmatrix}
-1& 1&-1\\
-1&-1& 1\\
-1&-1&-1
+   51 &  6 & 14 \\
+    6 & 26 & -4 \\
+   14 & -4 & 12
 \end{pmatrix}
+\\
+A^tb
+&=
 \begin{pmatrix}
- \frac12&      0 & \frac12\\
-      0 &-\frac12& \frac12\\
- \frac12&-\frac12& 0
+59\\-24\\30
 \end{pmatrix}
-=
-\begin{pmatrix}
-0&0&1\\
-1&0&0\\
-0&1&0
-\end{pmatrix}.
 \end{align*}
-\item
-Der Drehwinkel kann mit Hilfe der Spurformel ermittelt werden:
+Die Lösung $x$ wird damit
 \[
-\cos \alpha
+x
 =
-\frac{\operatorname{Spur}R -1 }2
+(A^tA)^{-1} A^tb
 =
--\frac12
-\qquad\Rightarrow\qquad
-\alpha = 120^\circ.
-\qedhere
+\begin{pmatrix} 1\\-1\\1 \end{pmatrix}.\qedhere
 \]
-\end{teilaufgaben}
 \end{loesung}
-
-\begin{bewertung}
-Bestimmung der Matrizen $B_1$ ($\textbf{B}_1$) und $B_2$ ($\textbf{B}_2$)
-je 1 Punkt,
-Berechnung der Inversen $B_1^{-1}$  ({\bf I}) 2 Punkte,
-Berechnung des Produktes $B_2B_1^{-1}$ ({\bf P}) 1 Punkt,
-Anwendung der Spurformel und korrekter Drehwinkel ({\bf D}) 1 Punkt.
-\end{bewertung}
 

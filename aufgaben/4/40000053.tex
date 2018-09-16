@@ -1,147 +1,41 @@
-Ein Roboter bewegt sich auf der $x$-Achse mit konstanter Geschwindigkeit.
-Seine aktuelle Position wird mit Hilfe eines Ultraschall-Entfernungsmessers
-verfolgt.
-Zu den Zeitpunkten $t_i, i=1,2,3$, werden Impulse ausgesendet,
-die sich mit Geschwindigkeit $c$ ausbreiten und
-deren Echos zu den Zeiten $T_i$ empfangen werden.
-\begin{center}
-\begin{tabular}{|>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
-\hline
-i&t_i&T_i\\
-\hline
-1&0&10.06\\
-2&1&11.52\\
-3&2&13.10\\
-\hline
-\end{tabular}
-\end{center}
-Natürlich sind die Werte $T_i$ mit einem unvermeidbaren Messfehler
-behaftet.
-Stellen Sie ein Gleichungssystem auf, welches Ihnen ermöglicht, Ort und
-Geschwindigkeit des Roboters so genau wie möglich zu bestimmen.
+Ein vom Punkt $Q_1=(7,5,5)$ ausgehender Lichtstrahl wird im Punkt $P$
+einer Kugel vom Radius $3$ mit Mittelpunkt im Ursprung des Koordinatensystems
+reflektiert und trifft dann im Punkt $Q_2=(-1,7,7)$ ein.
+Bestimmen Sie den Punkt $P$.
+\begin{hinweis}
+ Berechnen Sie als erstes den Abstand von $Q_1$ und $Q_2$ zum Ursprung.
+\end{hinweis}
 
-\thema{Least Squares}
+\thema{Kugel}
 
 \begin{loesung}
-\begin{figure}
-\centering
-\begin{tikzpicture}[>= latex,thick]
-\draw[->] (-0.1,0)--(10.1,0) coordinate[label={$x$}];
-\draw[->] (0,-0.1)--(0,12.1) coordinate[label={left:$t$}];
-\draw (-0.1,1)--(0.1,1);
-\node at (0,1) [left] {$t_i$};
-\draw (-0.1,6.25)--(0.1,6.25);
-\node at (0,6.25) [left] {$t_i+\tau_i$};
-\draw (-0.1,11.5)--(0.1,11.5);
-\node at (0,11.5) [left] {$T_i=t_i+2\tau_i$};
-\draw[color=blue] (0,1)--(5.05,6.25)--(0,11.5);
-\draw[color=red] (4,0)--(6,12);
-\draw (4,-0.1)--(4,0.1);
-\node at (4,0) [below] {$\color{red}s_0$};
-\draw[line width=0.2] (0,6.25)--(5.05,6.25);
-\node at (2.625,6.25) [above] {$c\tau_i$};
-\draw[line width=0.2pt] (0,1)--(4.2,1);
-\node at (5.05,6.25) [right] {$x = {\color{red}s_0} + {\color{red}v_0}(t_i+\tau_i)$};
-\node at (4.2,1) [right] {$x = {\color{red}s_0} + {\color{red}v_0}t_i$};
-\draw[line width=0.2pt] (0,11.5)--(5.9,11.5);
-\node at (5.9,11.5) [right] {$x = {\color{red}s_0} + {\color{red}v_0}(t_i+2\tau_i)$};
-\node at (5.475,8.875) [above,rotate=78.7] {$x={\color{red}s_0}+{\color{red}v_0}t$};
-\end{tikzpicture}
-\end{figure}
-Zur Zeit befindet sich der Roboter an der $x$-Koordinate
-\begin{equation}
-x = {\color{red}s_0} + {\color{red}v_0}t,
-\label{40000053:gleichung}
-\end{equation}
-die beiden Konstanten
-$\color{red}s_0$
-und
-$\color{red}v_0$
-müssen bestimmt werden.
-Wenn das Signal, welches zur Zeit $t_i$ ausgesendet wurde, zur Zeit $T_i$
-empfangen wurde, dann hat es bis zur Rückkehr die Distanz $T_i-t_i$
-zurückgelegt.
-Sie $\tau_i$ die Zeit, die das Signal vom Nullpunkt bis zum Roboter
-braucht, also $\tau_i = (T_i-t_i)/2$.
-Zum Zeitpunkt der Reflektion des Signals befand sich der Roboter also bei
-der Koordinaten $\tau_i/c=(T_i - t_i)/2c=(T_i-t_i)/2$.
-Der Zeitpunkt der Reflektion ist etwas später als $t_i$, nämlich
-um die Zeit, die das Signal braucht, um vom Nullpunkt zum Roboter
-zu gelangen, also um $\tau_i/c$.
-Die Position zur Zeit $t=t_i + \tau_i$ ist also $x=\tau_i/c$.
-Setzen wir diese Werte in die Gleichung
-\eqref{40000053:gleichung}
-ein, erhalten wir die Gleichungen
-\begin{equation}
-{\color{red}s_0} + {\color{red}v_0}(t_i+\tau_i) = \frac1c\tau_i
-\label{40000053:glsys}
-\end{equation}
-Der Koeffizient $t_i+\tau_i$ ist
+Die beiden Punkte $Q_1$ und $Q_2$ sind gleich weit von $O$ entfernt:
+\begin{align*}
+\left|\,\begin{pmatrix} 7\\5\\5 \end{pmatrix} \,\right|
+&=\sqrt{7^2+5^2+5^2}=\sqrt{99},
+&
+\left|\,\begin{pmatrix}-1\\7\\7 \end{pmatrix} \,\right|
+&=\sqrt{1^2+7^2+7^2}=\sqrt{99}.
+\end{align*}
+Also ist der Reflexionspunkt $P$ der Durchstosspunkt der Winkelhalbierenden
+der beiden Ortsvektoren $\vec q_1=\overrightarrow{OQ}_1$ und
+$\vec q_2=\overrightarrow{OQ}_2$. Die Winkelhalbierende ist
+die Gerade mit Parameterdarstellung
 \[
-t_i+\tau_i = t_i + \frac12(T_i-t_i)=\frac12(T_i+t_i),
+\vec p(t)=t\frac{\vec q_1+\vec q_2}2=t\begin{pmatrix} 3\\6\\6 \end{pmatrix}.
 \]
-so dass das Gleichungssystem \eqref{40000053:glsys}
-zu 
-\begin{equation}
-{\color{red}s_0} + \frac{T_i+t_i}{2} {\color{red}v_0}
-=
-\frac{T_i-t_i}{2c}
-\label{40000053:glsys2}
-\end{equation}
-wird.
-Für 
-$\color{red}s_0$
-und
-$\color{red}v_0$
-finden wird damit das überbestimmte Gleichungssystem
+Der Parameter $t$ muss jetzt so bestimmt werden, dass $\vec p(t)$ die Länge
+$3$ hat:
+\begin{align*}
+|\vec p(t)|&=t\sqrt{3^2+6^2+6^2}=t\sqrt{81}=9t=3
+&&\Rightarrow&
+t&=\frac13
+\end{align*}
+Damit folgt für den Punkt:
 \[
-\underbrace{
-\begin{pmatrix}
-1&5.03\\
-1&6.26\\
-1&7.55
-\end{pmatrix}
-}_{\displaystyle=A}
-\begin{pmatrix}
-\color{red}s_0\\
-\color{red}v_0
-\end{pmatrix}
-=
-\begin{pmatrix}
-5.03\\
-5.26\\
-5.55
-\end{pmatrix}
-=
-b.
+\vec p({\textstyle\frac13})=\begin{pmatrix}1\\2\\2\end{pmatrix}
+\qquad\Rightarrow\qquad
+P=(1,2,2).
+\qedhere
 \]
-Das Gleichungssystem zur Bestimmung von $\color{red}s_0$ und $\color{red}v_0$
-hat die Matrix
-\[
-A^tA
-=
-\begin{pmatrix}
-\phantom{0}3.0000&\phantom{0}18.8400\\
-          18.8400&          121.4910
-\end{pmatrix}
-\qquad
-\text{und rechte Seite}
-\qquad
-b
-=
-\begin{pmatrix}
-   \phantom{0}15.840\\
-             100.131
-\end{pmatrix}.
-\]
-Die Lösung ist
-\[
-{\color{red}s_0} =    3.98319
-\qquad\text{und}\qquad
-{\color{red}v_0} =   0.20650.
-\]
-Der Simulation lagen die Werte $s_0=4$ und $v=0.2$ zu Grunde, die Messfehler
-waren im Mittel $1$ Zeiteinheiten, die Genauigkeit des Resultates kann sich
-also durchaus sehen lassen.
 \end{loesung}
-

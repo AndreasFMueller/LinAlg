@@ -1,50 +1,54 @@
-In der Vorlesung wurde gezeigt, dass die Spiegelung an einer Ebene
-mit der Normalen $\vec n$ mit $|\vec n|=1$ durch die Matrix
-\[
-S=E-2\vec n\vec n^t
-\]
-gegeben ist.
-\begin{teilaufgaben}
-\item Kontrollieren Sie durch nachrechnen, dass zweimalige Spiegelung einen
-Vektor nicht ändert.
-\item Ist die Matrix $S$ symmetrisch?
-\item Ist $S$ orthogonal?
-\end{teilaufgaben}
+Bestimmen Sie die Schnittpunkte des Kreises um den Punkt $M=(2,3)$
+mit Radius $5$ mit der Geraden, die durch die Punkte $(1,-4)$
+und $(5,-1)$ geht.
+
+\thema{Kreis}
 
 \begin{loesung}
-\begin{teilaufgaben}
-\item
-Wir müssen $S^2$ berechnen:
-\begin{align*}
-S^2
-&=
-(E-2\vec n\vec n^t) (E-2\vec n\vec n^t)
-=
-E-4\vec n\vec n^t +4\vec n\underbrace{\vec n^t \vec  n}_{\displaystyle=1}\vec n^t
-=
-E-4\vec n\vec n^t +4\vec n \vec n^t
-=
-E.
-\end{align*}
-\item
-Die Matrix ist symmetrisch, wenn $S^t=S$ ist.
-Also
+Der Richtungsvektor der Geraden ist $\vec r=\begin{pmatrix}4\\3\end{pmatrix}$,
+die Parameterdarstellung der Geraden ist also
 \[
-S^t
+\begin{pmatrix}x\\y\end{pmatrix}
 =
-(E-2\vec n\vec n^t)^t
+\begin{pmatrix}1\\-4\end{pmatrix}
++t
+\begin{pmatrix}4\\3\end{pmatrix}
 =
-E^t - 2(\vec n^t)^t\vec n^t
-=
-E-2\vec n\vec n^t
-=
-S.
+\begin{pmatrix}4t+1\\3t-4\end{pmatrix}
 \]
-Die Matrix $S$ ist daher symmetrisch.
-\item
-Eine Matrix ist orthogonal, wenn $A^tA=E$ ist.
-Da $S$ symmetrisch ist, ist $S^t=S$ und damit
-$S^tS=SS=E$ nach a).
-\end{teilaufgaben}
+Setzt man dies in die Kreisgleichung
+\begin{align*}
+(\vec p-\vec m)\cdot(\vec p-\vec m)&=r^2\\
+\left(
+\begin{pmatrix}x\\y\end{pmatrix}
+-
+\begin{pmatrix}2\\3\end{pmatrix}
+\right)
+\cdot
+\left(
+\begin{pmatrix}x\\y\end{pmatrix}
+-
+\begin{pmatrix}2\\3\end{pmatrix}
+\right)
+&=r^2
+\\
+(x-2)^2+(y-3)^2&=25
+\end{align*}
+ein, erhält man die quadratische Gleichung
+\begin{align*}
+(4t-1)^2+(3t-7)^2&=25
+\\
+25t^2-50t+25&=0
+\\
+t^2-2t+1&=0
+\\
+(t-1)^2&=0
+\\
+\Rightarrow\qquad t&=1
+\end{align*}
+Somit ist der Schnittpunkt gerade $(5,-1)$. Durch Einsetzen kann
+man sich überzeugen, dass dieser Punkt $5$ Einheiten vom Mittelpunkt
+entfernt ist. Da er die einzige Lösung ist, muss es sich auch um
+einen Berührpunkt handeln.
 \end{loesung}
 

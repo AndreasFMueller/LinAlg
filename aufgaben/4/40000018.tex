@@ -1,0 +1,115 @@
+Der Mittelpunkt des Würfels mit Kantenlänge $2$ befindet sich im
+Koordinatenursprung.
+Eine Drehung des Raumes führt die Punkte $A$, $B$ und $C$ in
+die Punkte $A'$, $B'=C$ bzw. $C'=B$ über.
+
+\begin{center}
+\includeagraphics[]{wuerfel.pdf}
+\end{center}
+
+\begin{teilaufgaben}
+\item
+Man finde die Drehmatrix $R$.
+\item
+Man berechne den Drehwinkel dieser Drehmatrix.
+\end{teilaufgaben}
+
+\thema{Drehmatrix}
+\thema{Drehwinkel}
+\thema{Abbildungsmatrix}
+
+\begin{loesung}
+Die Punkte haben die Koordinaten
+\begin{align*}
+A&=(\phantom{-}1,         - 1,\phantom{-}1)
+			&A'&=(\phantom{-}1,         - 1,         - 1)\\
+B&=(\phantom{-}1,\phantom{-}1,\phantom{-}1)
+			&B'&=(         - 1,         - 1,         - 1)\\
+C&=(         - 1,         - 1,         - 1)
+			&C'&=(\phantom{-}1,\phantom{-}1,\phantom{-}1)
+\end{align*}
+Durch diese Punkte ist die Drehung zwar festgelegt, aber leider liegen
+sie in einer Ebene, bilden also keine Basis.
+Wir müssen daher noch ein weiteres Punktepaar aus der Zeichnung
+herauslesen.
+Wir wählen die vordere untere Ecke
+\[
+D=(1,-1,-1) \qquad\mapsto\qquad D'=(1,-1,1).
+\]
+\begin{teilaufgaben}
+\item
+Gesucht wird eine Matrix $R$, welche die Vektoren $\overrightarrow{OX}$
+in die Vektoren $\overrightarrow{OX'}$ überführt für $X\in\{A,B,D\}$,
+also $R\overrightarrow{OX}=\overrightarrow{OX'}$.
+Schreibt man die Vektoren in eine Matrix, muss gelten
+\[
+R
+\underbrace{
+\begin{pmatrix}
+\phantom{-}1&\phantom{-}1&\phantom{-}1\\
+         - 1&\phantom{-}1&         - 1\\
+\phantom{-}1&\phantom{-}1&         - 1
+\end{pmatrix}}_{\displaystyle =B_1}
+=
+\underbrace{
+\begin{pmatrix}
+\phantom{-}1&-1&\phantom{-}1\\
+         - 1&-1&         - 1\\
+         - 1&-1&\phantom{-}1
+\end{pmatrix}}_{\displaystyle =B_2}
+\qquad \Rightarrow\qquad
+R=B_2B_1^{-1}.
+\]
+Für die Inverse von $B_1$ findet man
+%   0.00000  -0.50000   0.50000
+%   0.50000   0.50000   0.00000
+%   0.50000   0.00000  -0.50000
+%
+%ans =
+%
+%   0  -1   0
+%  -1   0   0
+%   0   0  -1
+%
+\[
+B_1^{-1}
+=
+\frac12
+\begin{pmatrix}
+\phantom{-}0&         - 1&\phantom{-}1\\
+\phantom{-}1&\phantom{-}1&\phantom{-}0\\
+\phantom{-}1&\phantom{-}0&         - 1
+\end{pmatrix}.
+\]
+Daraus berechnet man die Drehmatrix als
+\[
+R=B_2B_1^{-1}
+=
+\begin{pmatrix}
+\phantom{-}0&         - 1&\phantom{-}0\\
+         - 1&\phantom{-}0&\phantom{-}0\\
+\phantom{-}0&\phantom{-}0&         - 1
+\end{pmatrix}.
+\]
+\item
+Die Drehwinkelformel gibt für die Matrix $R$
+\begin{align*}
+\cos \alpha 
+&=
+\frac{\operatorname{Spur}R-1}2=-1
+\qquad\Rightarrow\qquad\alpha=\pi.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Matrizen $B_1$ und $B_2$ ({\bf B}) 2 Punkte,
+Inverse $B_1^{-1}$ ({\bf I}) 1 Punkt,
+Drehmatrix $R$ ({\bf R}) 1 Punkt,
+Drehwinkelformel ({\bf F}) 1 Punkt,
+Drehwinkel ({\bf W}) 1 Punkt.
+\end{bewertung}
+
+
+

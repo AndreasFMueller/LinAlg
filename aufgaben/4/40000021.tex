@@ -1,0 +1,202 @@
+Folgende Abbildungen in der Ebene sollen jeweils mit einer 
+einzigen Matrix beschreiben werden.
+\begin{teilaufgaben}
+\item
+Eine Drehung um den Winkel $30^\circ$, genannt $D$.
+\item
+Eine Verschiebung um den Vektor $\begin{pmatrix}2&1\end{pmatrix}^t$,
+genannt $T$.
+\item
+Eine Skalierung um den Faktor $\frac12$, genannt $S$.
+\item
+Die Drehung $D$ gefolgt von der Translation $T$ gefolgt von der Skalierung $S$.
+\item
+Die Translation $T$ gefolgt von der Skalierung $S$ gefolgt von der Drehung $D$.
+\item
+Die Translation $T$ gefolgt von der Drehung $D$ gefolgt von der Skalierung $S$.
+\end{teilaufgaben}
+
+\thema{Abbildungsmatrix}
+\thema{Matrizenprodukt}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Drehung kann beschrieben werden durch die Drehmatrix
+\[
+D=D_{30^\circ}
+=
+\begin{pmatrix}
+\cos 30^\circ & -\sin 30^\circ \\
+\sin 30^\circ &  \cos 30^\circ
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac{\sqrt{3}}2 & - \frac12\\
+\frac12 & \frac{\sqrt{3}}2
+\end{pmatrix}.
+\]
+\item
+Die Verschiebung um einen Vektor kann nicht mit einer $2\times 2$-Matrix
+beschrieben werden. Wir verwenden daher den Trick, den Koordinaten der
+Ebene eine dritte Komponente zu spendieren, die wir immer auf $1$ setzen.
+In diesen Koordinaten kann die Verschiebung durch die Matrix
+\[
+T=
+\begin{pmatrix}
+1&0&2\\
+0&1&1\\
+0&0&1
+\end{pmatrix}
+\]
+beschrieben werden.
+\item
+Die Skalierung um den Faktor $\frac12$ könnte zwar mit einer $2\times 2$-Matrix
+beschrieben werden, doch weil wir später die Skalierung mit der Translation
+zusammensetzen wollen, schreiben wir sie bereits jetzt als $3\times 3$-Matrix
+\[
+S
+=
+\begin{pmatrix}
+\frac12 &     0   & 0 \\
+    0   & \frac12 & 0 \\
+    0   &     0   & 1 
+\end{pmatrix}
+.
+\]
+\item
+Verlangt ist die Verknüpfung $STD$, wozu wir zunächst auch die Drehung als
+$3\times 3$-Matrix schreiben müssen:
+\[
+D =
+\begin{pmatrix}
+\frac{\sqrt{3}}2 & - \frac12        & 0 \\
+\frac12          & \frac{\sqrt{3}}2 & 0 \\
+      0          &        0         & 1
+\end{pmatrix}
+.
+\]
+Damit können wir jetzt $STD$ berechnen:
+\begin{align*}
+STD
+&=
+\begin{pmatrix}
+\frac12 &     0   & 0 \\
+    0   & \frac12 & 0 \\
+    0   &     0   & 1 
+\end{pmatrix}
+\begin{pmatrix}
+1&0&2\\
+0&1&1\\
+0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\sqrt{3}}2 & - \frac12        & 0 \\
+\frac12          & \frac{\sqrt{3}}2 & 0 \\
+      0          &        0         & 1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\frac12 &     0   & 1 \\
+    0   & \frac12 & \frac12 \\
+    0   &     0   & 1 
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\sqrt{3}}2 & - \frac12        & 0 \\
+\frac12          & \frac{\sqrt{3}}2 & 0 \\
+      0          &        0         & 1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\frac{\sqrt{3}}4 & -\frac14        & 1       \\
+\frac14          &\frac{\sqrt{3}}4 & \frac12 \\
+0                &     0           & 1 
+\end{pmatrix}.
+\end{align*}
+\item
+Verlangt ist die Verknüpfung
+\begin{align*}
+DST
+&=
+\begin{pmatrix}
+\frac{\sqrt{3}}2 & - \frac12        & 0 \\
+\frac12          & \frac{\sqrt{3}}2 & 0 \\
+      0          &        0         & 1
+\end{pmatrix}
+\begin{pmatrix}
+\frac12 &     0   & 0 \\
+    0   & \frac12 & 0 \\
+    0   &     0   & 1 
+\end{pmatrix}
+\begin{pmatrix}
+1&0&2\\
+0&1&1\\
+0&0&1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\frac{\sqrt{3}}2 & - \frac12        & 0 \\
+\frac12          & \frac{\sqrt{3}}2 & 0 \\
+      0          &        0         & 1
+\end{pmatrix}
+\begin{pmatrix}
+\frac12 &     0   & 1 \\
+    0   & \frac12 & \frac12 \\
+    0   &     0   & 1 
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\frac{\sqrt{3}}4 & -\frac14        & \frac{\sqrt{3}}2-\frac14 \\
+\frac14          &\frac{\sqrt{3}}4 & \frac12+\frac{\sqrt{3}}4 \\
+       0         &        0        & 1
+\end{pmatrix}.
+\end{align*}
+\item
+Verlangt ist die Verknüpfung
+\begin{align*}
+SDT
+&=
+\begin{pmatrix}
+\frac12 &     0   & 0 \\
+    0   & \frac12 & 0 \\
+    0   &     0   & 1 
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\sqrt{3}}2 & - \frac12        & 0 \\
+\frac12          & \frac{\sqrt{3}}2 & 0 \\
+      0          &        0         & 1
+\end{pmatrix}
+\begin{pmatrix}
+1&0&2\\
+0&1&1\\
+0&0&1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\frac{\sqrt{3}}4 & - \frac14        & 0 \\
+\frac14          & \frac{\sqrt{3}}4 & 0 \\
+      0          &        0         & 1
+\end{pmatrix}
+\begin{pmatrix}
+1&0&2\\
+0&1&1\\
+0&0&1
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+\frac{\sqrt{3}}4 & -\frac14         & \frac{\sqrt{3}}2-\frac14         \\
+\frac14          & \frac{\sqrt{3}}4 & \frac12+\frac{\sqrt{3}}4 \\
+0                & 0                & 1
+\end{pmatrix}.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+

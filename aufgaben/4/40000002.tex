@@ -1,0 +1,100 @@
+Finden Sie die Abbildungsmatrix der Projektion auf die Winkelhalbierende
+des ersten und dritten Quadranten auf zwei verschiedene Arten:
+\begin{teilaufgaben}
+\item Direkt
+\item Unter Verwendung einer Basistransformation und der Projektion auf
+die $x$-Achse, die in der Vorlesung behandelt wurde.
+\end{teilaufgaben}
+
+\thema{Basis}
+\thema{Abbildungsmatrix}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Es müssen die Bilder der Basisvektoren $e_1$ und $e_2$ ermittelt
+werden:
+\[
+e_1\mapsto\begin{pmatrix}\frac{1}2\\\frac{1}2\end{pmatrix}
+,\qquad
+e_2\mapsto\begin{pmatrix}\frac{1}2\\\frac{1}2\end{pmatrix}
+\quad
+\Rightarrow
+\quad
+A=\begin{pmatrix}
+\frac{1}2&
+\frac{1}2\\
+\frac{1}2&
+\frac{1}2\\
+\end{pmatrix}
+\]
+\item
+Wir wollen die Vektoren
+\[
+\begin{pmatrix}1\\1\end{pmatrix}
+\quad\text{und}\quad
+\begin{pmatrix}-1\\1\end{pmatrix}
+\]
+als Basisvektoren verwenden. Die zugehörige Matrix $B'$ ist
+\[
+B'=
+\begin{pmatrix}
+1&-1\\
+1&1
+\end{pmatrix}
+\]
+und die Transformationsmatrix ist $T=B'^{-1}$
+\[
+T=
+\frac12\begin{pmatrix}
+1&1\\
+-1&1
+\end{pmatrix}
+,\qquad
+T^{-1}=
+\begin{pmatrix}
+1&-1\\
+1&1
+\end{pmatrix}
+\]
+Die Abbildungsmatrix $A'$ ist die Projektion auf die $x$-Achse,
+also
+\[
+A'=
+\begin{pmatrix}
+1&0\\
+0&0
+\end{pmatrix}
+\]
+Mit der Transformationsformel kann man jetzt auch $A$ ausrechnen:
+\[
+A=T^{-1}A'T
+=
+\begin{pmatrix}
+1&-1\\
+1&1
+\end{pmatrix}
+\begin{pmatrix}
+1&0\\
+0&0
+\end{pmatrix}
+\frac12\begin{pmatrix}
+1&1\\
+-1&1
+\end{pmatrix}
+=
+\begin{pmatrix}1&0\\1&0\end{pmatrix}
+\frac12\begin{pmatrix}
+1&1\\
+-1&1
+\end{pmatrix}
+=
+\frac12
+\begin{pmatrix}
+1&1\\
+1&1
+\end{pmatrix}
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+

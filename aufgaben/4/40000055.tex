@@ -1,257 +1,128 @@
-Die Punkte
-\begin{align*}
-A&=(0,0,1),
-&
-B&=(1,0,0),
-&
-C&=(0,1,0),
-\\
-D&=(-1,0,0),
-&
-E&=(0,-1,0),
-&
-F&=(0,0,-1)
-\end{align*}
-sind Ecken des Oktaeders
+Die Cheops-Pyramide hat einen quadratischen Grundriss mit Seitenlänge
+$a=440\,\text{Ellen}$, sie ist $h=280\,\text{Ellen}$ hoch.
 \begin{center}
-\begin{tikzpicture}[scale=1]
-\node at (0,0) {\includeagraphics[width=6cm]{oktaeder.jpg}};
-\node at (3,-1.3) {$x$};
-\node at (1.5,0.4) {$y$};
-\node at (-0.1,2.9) {$z$};
-\node at (-0.6,2.0) {$A$};
-\node at (2.0, -0.8) {$B$};
-\node at (0.9,0.6) {$C$};
-\node at (-1.9,0.4) {$D$};
-\node at (-2.2,-1.2) {$E$};
-\node at (-0.0,-2.5) {$F$};
-\end{tikzpicture}
+\includeagraphics[width=0.5\hsize]{cheops.jpg}
 \end{center}
-
 \begin{teilaufgaben}
-\item Finden Sie eine Drehmatrix $R$, welche den Punkt $A$ auf den Punkt $D$
-abbildet und den Schwerpunkt der Seitenfläche $BEF$ nicht bewegt.
-\item Auf welchen Punkt wird $F$ abgebildet?
-\item Finden Sie den Drehwinkel dieser Drehung.
+\item
+Berechnen Sie den Winkel zwischen zwei Seitenflächen.
+\item
+Die Königinnenkammer befindet sich genau unter der Spitze $61\,\text{Ellen}$
+über der Grundfläche. Wieviele Ellen Stein müsste man durchbohren, wenn
+man einen Tunnel senkrecht auf die Seitenfläche bis zur Königinnenkammer
+bohren wollte?
 \end{teilaufgaben}
 
-\thema{Abbildungsmatrix}
-\thema{Drehmatrix}
-\thema{Drehwinkel}
+\thema{Zwischenwinkel}
+\thema{Abstand}
 
 \begin{loesung}
+Wir verwenden ein Koordinatensystem mit Nullpunkt im Zentrum der
+Grundfläche. Die Ecken der Pyramide sind
+\begin{align*}
+E_1&=(-220,-220, 0),&
+E_2&=( 220,-220, 0),&
+E_3&=(-220, 220, 0),&
+E_4&=( 220, 220, 0).
+\end{align*}
+Die Spitze der Pyramide ist $S=(0,0,280)$.
+Für beide Teilaufgaben brauchen wir die Normalen auf Seitenflächen.
+Wir berechnen die Normale von $\triangle E_1E_2S$:
+\begin{align*}
+\vec n
+&=
+\overrightarrow{SE_1}\times \overrightarrow{SE_2}
+=
+\begin{pmatrix}-220\\-220\\-280\end{pmatrix}
+\times
+\begin{pmatrix} 220\\-220\\-280\end{pmatrix}
+=
+\begin{pmatrix}
+220\cdot 280-220\cdot280\\
+-280\cdot220-280\cdot220\\
+220\cdot220+220\cdot 220
+\end{pmatrix}
+=
+\begin{pmatrix} 0\\ -123200\\ 96800 \end{pmatrix}
+=
+8800
+\begin{pmatrix} 0\\ -14\\ 11 \end{pmatrix}
+\end{align*}
 \begin{teilaufgaben}
 \item
-Der Schwerpunkt $S$ des Dreiecks $BEF$ hat die Koordinaten
-$S=(\frac13,-\frac13,-\frac13)$.
-Da mit $S$ auch die Gerade durch $O$ und $S$ von der Drehung nicht bewegt
-wird, können wir den Vektor $\begin{pmatrix}1&-1&-1\end{pmatrix}^t$ als
-Achsvektor verwenden.
-Um die Drehmatrix $R$ zu bestimmen, haben wir also bis jetzt:
+Der Zwischenwinkel für die Flächen $\triangle E_1E_2S$ und
+$\triangle E_2E_3S$ ist der Zwischenwinkel der Normalen der beiden
+Dreiecke, also von
 \[
-R
-\begin{pmatrix}0\\0\\1\end{pmatrix}
+\vec n_1
 =
-\begin{pmatrix}-1\\0\\0\end{pmatrix}
+\begin{pmatrix} 0\\-14\\11 \end{pmatrix}
 \qquad\text{und}\qquad
-R
-\begin{pmatrix}1\\-1\\-1\end{pmatrix}
+\vec n_2
 =
-\begin{pmatrix}1\\-1\\-1\end{pmatrix}.
-\qquad\Rightarrow\qquad
-R
-\begin{pmatrix}
-0& 1\\
-0&-1\\
-1&-1
-\end{pmatrix}
-=
-\begin{pmatrix}
--1& 1\\
- 0&-1\\
- 0&-1
-\end{pmatrix}.
+\begin{pmatrix} 14\\0\\11 \end{pmatrix}.
 \]
-Um dies nach $R$ auflösen zu können, brauchen wir aber noch die Abbildung
-eines weiteren, linear unabhängigen Vektors.
-Da das Dreieck $BEF$ auf sich selbst abgebildet wird, muss der Punkt
-$E$ auf den Punkt $F$ abgebildet werden.
-Dies liefert die zusätzliche Bedingung
-\[
-R
-\begin{pmatrix}0\\-1\\0\end{pmatrix}
-=
-\begin{pmatrix}0\\0\\-1\end{pmatrix}.
-\]
-Wir können $R$ daher als Lösung
-\[
-R
-\underbrace{
-\begin{pmatrix}
-0& 1& 0\\
-0&-1&-1\\
-1&-1& 0
-\end{pmatrix}
-}_{\displaystyle B_1}
-=
-\underbrace{
-\begin{pmatrix}
--1& 1& 0\\
- 0&-1& 0\\
- 0&-1&-1
-\end{pmatrix}
-}_{\displaystyle B_2}
-\qquad\Rightarrow\qquad
-R=B_2B_1^{-1}
-\]
-finden.
-Die inverse Matrix von $B_1$ kann mit dem Gauss-Algorithmus wie folgt
-gefunden wereen:
-\begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
- 0& 1& 0& 1& 0& 0\\
- 0&-1&-1& 0& 1& 0\\
- 1&-1& 0& 0& 0& 1\\
-\hline
-\end{tabular}
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
- 1&-1& 0& 0& 0& 1\\
- 0& 1& 0& 1& 0& 0\\
- 0&-1&-1& 0& 1& 0\\
-\hline
-\end{tabular}
-\\
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
- 1&-1& 0& 0& 0& 1\\
- 0& 1& 0& 1& 0& 0\\
- 0& 0&-1& 1& 1& 0\\
-\hline
-\end{tabular}
-\\
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
- 1&-1& 0& 0& 0& 1\\
- 0& 1& 0& 1& 0& 0\\
- 0& 0& 1&-1&-1& 0\\
-\hline
-\end{tabular}
-\\
-&\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
- 1& 0& 0& 1& 0& 1\\
- 0& 1& 0& 1& 0& 0\\
- 0& 0& 1&-1&-1& 0\\
-\hline
-\end{tabular}
-\end{align*}
-Daraus können wir $B_1^{-1}$ ablesen:
-\[
-B_1^{-1}
-=
-\begin{pmatrix}
- 1& 0& 1\\
- 1& 0& 0\\
--1&-1& 0
-\end{pmatrix}.
-\]
-Die Drehmatrix $R$ ist daher
-\[
-R
-=
-B_2B_1^{-1}
-=
-\begin{pmatrix}
--1& 1& 0\\
- 0&-1& 0\\
- 0&-1&-1
-\end{pmatrix}
-\begin{pmatrix}
- 1& 0& 1\\
- 1& 0& 0\\
--1&-1& 0
-\end{pmatrix}
-=
-\begin{pmatrix}
- 0& 0&-1\\
--1& 0& 0\\
- 0& 1& 0
-\end{pmatrix}.
-\]
-\item
-Die Matrix $R$ kann jetzt dazu verwendet werden, das Bild von $F$ zu bestimmen:
-\[
-R\vec f
-=
-\begin{pmatrix}
- 0& 0&-1\\
--1& 0& 0\\
- 0& 1& 0
-\end{pmatrix}
-\begin{pmatrix}0\\0\\-1\end{pmatrix}
-=
-\begin{pmatrix}1\\0\\0\end{pmatrix}
-=
-\vec{b}.
-\]
-Der Punkt $F$ wird also auf $B$ abgebildet.
-\item
-Die Drehwinkelformel angewendet auf die Matrix $R$ liefert
+Dieser ist nach der Zwischenwinkelformel:
 \begin{align*}
 \cos\alpha
 &=
-\frac{\operatorname{Spur}R-1}{2}
+\frac{\vec n_1\cdot \vec n_2}{|\vec n_1|\cdot|\vec n_2|}
 =
--\frac12
+\frac{11^2}{11^2+14^2}=\frac{121}{317}=0.38170
 \\
 \Rightarrow\qquad
 \alpha
 &=
-120^\circ.
-\qedhere
+67.561^\circ
 \end{align*}
+Diesem spitzen Winkel entspricht ein stumpfer Winkel von $112.44^\circ$.
+\item
+Die Königinnenkammer hat die Koordinaten $Q=(0,0,61)$.
+Wir müssen den Abstand des Punktes $Q$ von der Ebene des Dreiecks
+$\triangle SE_1E_2$ bestimmen.
+Dazu stellen wir zuerst die Ebenengleichung in hessescher Normalform
+auf:
+\[
+\vec n_1^0 \cdot (\vec p-\vec s)=0
+\]
+Setzt man darin die Königinnenkammer ein,  also $\vec p=\vec q$, dann
+erhält man den gesuchten Abstand:
+\[
+d
+=
+\vec n_1^0 \cdot (\vec q-\vec s)
+=
+\frac1{\sqrt{14^2+11^2}}
+\begin{pmatrix}0\\-14\\11 \end{pmatrix}
+\cdot
+\left(
+\begin{pmatrix}0\\0\\61\end{pmatrix}
+-
+\begin{pmatrix}0\\0\\280\end{pmatrix}
+\right)
+=
+\frac1{\sqrt{317}}
+\begin{pmatrix}0\\-14\\11 \end{pmatrix}
+\cdot
+\begin{pmatrix}0\\0\\-219\end{pmatrix}
+=
+-\frac{2409}{\sqrt{317}}=-135.30
+\]
+Da sich die Königinnenkammer im Inneren der Pyramide befindet, wir aber
+für die Ebene die nach aussen zeigende Normale verwendet haben, ergibt
+sich erwartungsgemäss ein negativer Abstand.
+Man müsste also durch $135.3\,\text{Ellen}$ Stein bohren, um die Aussenfläche
+zu erreichen.
+\qedhere
 \end{teilaufgaben}
 \end{loesung}
 
-\begin{diskussion}
-Da die Eckpunkte $B$, $C$ und $A$ des Oktaeders als Ortsvektoren die
-Standardbasisvektoren haben und wir deren Abbildung auch direkt ermitteln
-können, können wir die Drehmatrix auch direkt mit den Bildern der
-genannten Punkte füllen.
-Die Abbildung der genannten Punkte ist
-\[
-B\rightarrow E,\qquad
-C\rightarrow A,\qquad
-A\rightarrow D.
-\]
-Daraus lesen wir ab
-\[
-R
-=
-\begin{pmatrix}
- 0& 0&-1\\
--1& 0& 0\\
- 0& 1& 0
-\end{pmatrix},
-\]
-in Übereinstimmung mit obiger Lösung.
-\end{diskussion}
-
 \begin{bewertung}
-\begin{teilaufgaben}
-\item
-Berechnung der Drehmatrix ({\bf R}) 4 Punkte,
-\item
-Ermittlung des Bildpunktes ({\bf B}) 1 Punkt,
-\item
-Berechnung des Drehwinkels ({\bf D}) 1 Punkt.
-\end{teilaufgaben}
+Normale auf Seitenfläche ({\bf N}) 1 Punkt,
+Zwischenwinkelformel ({\bf ZW}) 1 Punkt,
+Berechhnung des Zwischenwinkels ({\bf A}) 1 Punkt,
+Abstandsformel oder Ebenengleichung ({\bf E}) 1 Punkt,
+Position der Königinnenkammer ({\bf Q}) 1 Punkt,
+Länge des Tunnels ({\bf L}) 1 Punkt.
 \end{bewertung}
-
 

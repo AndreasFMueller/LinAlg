@@ -1,99 +1,155 @@
-Ein neu entwickeltes Drehzahlmessgerät basiert auf einem
-3-Achs-Beschleunigungs\-sensor, der genau auf der Achse der zu
-messenden Drehung montiert wird. Diese Achse sei die $x$-Achse.
-Er misst laufend die Richtung der Erdbeschleunigung und übermittelt
-die Messresultate via Bluetooth.
+Über einem gleichseitigen Sechseck in der $x$-$y$-Ebene mit Umkreisradius $1$ 
+wird eine Pyramide mit Spitze im Punkt $(0,0,1)$ errichtet.
+Der Punkt $A$ hat die Koordinaten $(\frac12,\frac{\sqrt{3}}2,0)$.
+Finden Sie eine Drehmatrix $R$, die die Pyramide links im Bild in die
+Pyramide rechts im Bild abbildet.
+Bestimmen sie ausserdem den Drehwinkel von $R$.
 
-Der Sensor hat ein eigenes, mit dem Sensor mitdrehendes Koordinatensystem,
-dessen $z$-Achse parallel zur Drehachse verläuft.
-Ist die Drehachse horizontal, befindet sich der gemessene Vektor
-in der $x$-$y$-Ebene des drehenden Koordinatensystems.
-Der Drehwinkel ist proportional zur Zeit: $\omega t$, $\omega$ ist die
-Winkelgeschwindigkeit.
+\begin{center}
+\begin{tikzpicture}[thick,>=latex]
 
-Nun stellt sich aber heraus, dass die Drehachse
-gegen die Horizontale um den Winkel $\alpha$ geneigt ist. 
-Finden Sie die Transformationsmatrix, die gestattet, den übermittelten Vektor
-aus dem drehenden Koordinatensystem in das feste Koordinatensystem
-umzurechnen.
+\begin{scope}[xshift=-3.7cm]
+\node at (0,0) {\includeagraphics[width=0.4\hsize]{pyramid.jpg}};
+\node at (-3.3,-1.7) {$x$};
+\node at (3.3,-1.1) {$y$};
+\node at (0,3) {$z$};
+\node at (1.6,-2) {$A$};
+\end{scope}
 
+\begin{scope}[xshift=3.7cm]
+\node at (0,0) {\includeagraphics[width=0.4\hsize]{rotated.jpg}};
+\node at (-3.3,-1.7) {$x$};
+\node at (3.3,-1.1) {$y$};
+\node at (0,3) {$z$};
+\node at (-0.5,2.3) {$A'$};
+\end{scope}
+
+\end{tikzpicture}
+\end{center}
+
+\thema{Abbildungsmatrix}
 \thema{Drehmatrix}
-\thema{Koordinatentransformation}
+\thema{inverse Matrix}
+\thema{Drehwinkel}
 
 \begin{loesung}
-Zunächst sind schon zur Zeit $t=0$ die Koordinatensysteme gegeneinander
-verdreht: die $z$-Achse des rotierenden Koordinatensystems ist die 
-$x$-Achse des festen Koordinatensystems.
-Die Umrechung von rotierendem Koordinatensystem zu festem Koordinatensystem
-erfolgt mit der Matrix
+Die Matrix $R$ bildet die Spitze $(0,0,1)$ auf $(1,0,0)$ ab und $A$
+auf $A'$.
+Um die Abbildungsmatrix zu bestimmen brauchen wir aber noch einen 
+weiteren Punkt.
+Man liest aus dem Bild ab, dass 
+$(1,0,0)$ abgebildet wird auf $(0, \frac{\sqrt{3}}{2},\frac12)$.
+Wir haben also die Abbildungen
 \[
-Z
-=
+\begin{aligned}
+R
 \begin{pmatrix}
-0& 0&1\\
-0&-1&0\\
-1& 0&0
+1&\frac12         &0\\
+0&\frac{\sqrt{3}}2&0\\
+0&0               &1
 \end{pmatrix}
-\]
-
-Die Drehung um die $z$-Achse ist im rotierenden Koordinatensystem
-durch die Transformationsmatrix
-\[
-D_{z,\omega t}
-=
+&=
 \begin{pmatrix}
-\cos\omega t &-\sin\omega t & 0\\
-\sin\omega t & \cos\omega t & 0\\
-     0       &     0        & 1
+0               &0&1\\
+\frac{\sqrt{3}}2&0&0\\
+\frac12         &1&0
 \end{pmatrix}
+&&\Rightarrow&
+R
+&=
+\begin{pmatrix}
+0               &0&1\\
+\frac{\sqrt{3}}2&0&0\\
+\frac12         &1&0
+\end{pmatrix}
+\begin{pmatrix}
+1&\frac12         &0\\
+0&\frac{\sqrt{3}}2&0\\
+0&0               &1
+\end{pmatrix}^{-1}
+\end{aligned}.
 \]
-gegeben.
-Zur Zeit $\omega t$ zeigt ein Vektor mit Koordinaten $x$ im rotierenden
-Koordinatensystem in Richtung $D_{z,\omega t}^{-1}x=D_{z,-\omega t}x$,
-dargestellt im rotierenden Koordinatensystem zur Zeit $t=0$.
-Im festen Koordinatensystem ist dies $ZD_{z,-\omega t}x$.
-
-Da die Drehachse aber geneigt ist, muss diese Matrix noch mit einer
-Drehung um den Winkel $\alpha$ um die $y$-Achse multipliziert werden:
+Wir berechnen die inverse Matrix mit dem Gauss-Algorithmus
 \begin{align*}
-T&=
-D_{y,\beta}ZD_{z,-\omega t}\\
-&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac12&0&1&0&0\\
+0&\frac{\sqrt{3}}2&0&0&1&0\\
+0&0&1&0&0&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\frac12&0&1&0&0\\
+0&1&0&0&\frac{2}{\sqrt{3}}&0\\
+0&0&1&0&0&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&0&0&1&-\frac{1}{\sqrt{3}}&0\\
+0&1&0&0&\frac{2}{\sqrt{3}}&0\\
+0&0&1&0&0&1\\
+\hline
+\end{tabular}
+\end{align*}
+Kontrolle:
+\[
 \begin{pmatrix}
-\cos\alpha&0&-\sin\alpha\\
-     0    &1&     0     \\
-\sin\alpha&0& \cos\alpha
+1&\frac12&0\\
+0&\frac{\sqrt{3}}2&0\\
+0&0&1
 \end{pmatrix}
 \begin{pmatrix}
-0& 0&1\\
-0&-1&0\\
-1& 0&0
+1&-\frac1{\sqrt{3}}&0\\
+0&\frac{2}{\sqrt{3}}&0\\
+0&0&1
 \end{pmatrix}
+=
 \begin{pmatrix}
- \cos\omega t & \sin\omega t & 0\\
--\sin\omega t & \cos\omega t & 0\\
-     0       &     0        & 1
-\end{pmatrix}
-\\
-&=
-\begin{pmatrix}
-\cos\alpha&0&-\sin\alpha\\
-     0    &1&     0     \\
-\sin\alpha&0& \cos\alpha
-\end{pmatrix}
-\begin{pmatrix}
-     0        &      0       & 1\\
- \sin\omega t &-\cos\omega t & 0\\
- \cos\omega t & \sin\omega t & 0
-\end{pmatrix}
-\\
-&=
-\begin{pmatrix}
-\sin\alpha\cos\omega t & -\sin\alpha\cos\omega t &\cos\alpha\\
-\sin\omega t           & -\cos\omega t           & 0\\
-\cos\alpha\cos\omega t &  \cos\alpha\sin\omega t &\sin\alpha
+1&0&0\\
+0&1&0\\
+0&0&1
 \end{pmatrix}.
-\qedhere
+\]
+Daraus erhalten wir die Matrix 
+\[
+R=
+\begin{pmatrix}
+0               &0&1\\
+\frac{\sqrt{3}}2&0&0\\
+\frac12         &1&0
+\end{pmatrix}
+\begin{pmatrix}
+1&-\frac1{\sqrt{3}}&0\\
+0&\frac{2}{\sqrt{3}}&0\\
+0&0&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&0&1\\
+\frac{\sqrt{3}}2&-\frac12&0\\
+\frac12&\frac{\sqrt{3}}2&0
+\end{pmatrix}.
+\]
+Man kann durch nachrechnen prüfen, dass $RR^t=E$ und $\det(R)=1$, die 
+Matrix $R$ ist also tatsächlich eine Drehmatrix.
+Den Drehwinkel von $R$ erhalten wir aus der Spurformel
+\begin{align*}
+\cos\alpha &= \frac{\operatorname{Spur}A-1}{2} = -\frac{3}{4},
+\\
+\alpha &=138.59^\circ.\qedhere
 \end{align*}
 \end{loesung}
+
+\begin{bewertung}
+Abbildungspunkte $A$ und Spitze ({\bf A}) 1 Punkt,
+Dritter Abbildungspunkt ({\bf D}) 1 Punkt,
+inverse Matrix ({\bf I}) 1 Punkt,
+Matrizenprodukt ({\bf P}) 1 Punkt,
+Matrix $R$ ({\bf R}) 1 Punkt,
+Spurformel und Drehwinkel ({\bf W}) 1 Punkt.
+\end{bewertung}
 
