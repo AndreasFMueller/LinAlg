@@ -124,7 +124,7 @@ Wir illustrieren dies an einem Beispiel.
 \begin{beispiel}
 Der Gauss-Algorithmus
 erkennt die folgenden Zeilen als linear abhängig:
-\begin{align*}
+\begin{align}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
 x_1&x_2&x_3\\
@@ -177,7 +177,8 @@ x_1&x_2&x_3\\
 0&0&0\\
 \hline
 \end{tabular}
-\end{align*}
+\label{skript:linabh:xgauss}
+\end{align}
 Es gibt also Zahlen $\lambda_1$, $\lambda_2$ und $\lambda_3$,
 so dass die Summe der $\lambda_i$-fachen der $i$-ten Zeile zusammen
 die Null-Zeile ergeben:
@@ -191,13 +192,14 @@ die Null-Zeile ergeben:
 \end{tabular}
 \]
 Für die $\lambda_i$ finden wir daraus ein lineares Gleichungssystem:
-\[
+\begin{equation}
 \begin{linsys}{3}
 1\lambda_1&+&6\lambda_2&+&7\lambda_3&=&0\\
 2\lambda_1&+&5\lambda_2&+&8\lambda_3&=&0\\
 3\lambda_1&+&4\lambda_2&+&9\lambda_3&=&0
 \end{linsys}.
-\]
+\label{skript:linabh:lambdagl}
+\end{equation}
 Man beachte, dass das Koeffizientenschema 
 gegenüber dem ursprünglichen an der Diagonalen
 gespiegelt worden ist.
@@ -300,5 +302,60 @@ dass eine Lösung mit $\lambda_i\ne 0$ nur im singulären Fall gefunden
 werden kann.
 Die gespiegelten Koeffizienten sind also immer dann singulär,
 wenn auch die ungespiegelten Koeffizienten singulär sind.
+
+Man kann diese $\lambda_i$ auch direkt aus der Durchführung der
+des Gauss-Algorithmus in ableiten.
+Wir schreiben zu diesem Zwecke hin, wie der Gauss-Algorithmus die
+Linearformen $l_1$, $l_2$ und $l_3$ miteinander verrechnet.
+\begin{align}
+\begin{tabular}{|>{$}c<{$}|}
+\hline
+l_1\\
+l_2\\
+l_3\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}|}
+\hline
+l_1\\
+l_2-6l_1\\
+l_3-7l_1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}|}
+\hline
+l_1\\
+-\frac{1}{7}(l_2-6l_1)\\
+l_3-7l_1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}|}
+\hline
+l_1\\
+-\frac{1}{7}(l_2-6l_1)\\
+l_3-7l_1+6(-\frac{1}{7}(l_2-6l_1))\\
+\hline
+\end{tabular}
+\label{skript:linabh:linformabl}
+\end{align}
+Der Gaussalgorithmus hat in der dritten Zeile eine Nullzeile geliefert,
+die Linearkombination in der dritten Zeile von
+\eqref{skript:linabh:linformabl} muss daher verschwinden.
+Sie kann ausserdem vereinfacht werden zu
+\[
+0=l_3-7l_1-\frac{6}{7}l_2 +\frac{36}{7}l_1
+=
+-\frac{13}{7}l_1-\frac{6}{7}l_2+l_3.
+\]
+Multipliziert man mit 7 erhält man
+\[
+-13\lambda_1-6\lambda_2+7\lambda_3=0,
+\]
+genau wie vorher wesentlich eleganter mit dem Gleichungssystem
+\eqref{skript:linabh:lambdagl} und dem Gauss-Al\-go\-rith\-mus
+gefunden.
 \end{beispiel}
 
