@@ -106,7 +106,8 @@ union {
 	#declare vl = vl + 1;
 #end
 	pigment {
-		color blau
+		//color blau
+		color rgb<0.8,0.8,1>
 	}
 	finish {
 		specular 0.9
@@ -137,7 +138,8 @@ mesh {
 	triangle { A, B, C }
 	triangle { A, C, D }
 	pigment {
-		color rgbf<0.8, 1, 1, 0.5>
+		//color rgbf<0.8, 1, 1, 0.5>
+		color rgbt<0.8,0.8,1,0.2>
 	}
 }
 
