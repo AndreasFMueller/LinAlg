@@ -4,10 +4,10 @@
 % (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
 \section{Geraden%
-\label{skript:section:geraden}}
+\label{section:geraden}}
 \rhead{Geraden}
 Die affine Geometrie definiert Geraden und Ebenen als die primären Objekte
-sowie Schnittpunkte und Schnittgerade und mithin die Parallelität als die
+sowie Schnittpunkte und Schnittgeraden und mithin die Parallelität als die
 zentralen Eigenschaften, mit denen die Geometrie aufgebaut werden soll.
 Es ist daher höchste Zeit, dass wir auch für Geraden und Ebenen eine
 vektorielle Beschreibung finden und das Finden von Schnittpunkten
@@ -23,12 +23,12 @@ und Schnittgeraden auf rechnerische Art ermöglichen.
 \caption{Beschreibung einer Gerade als Graph einer linearen Funktion
 $y=ax+b$ (rote Gerade $\color{red}g_1$).
 $a$ ist die Steigung, $b$ der Achsabschnitt auf der $y$-Achse.
-Vertikale Geraden wie die blaue Gerade $\color{blue}g_2$ können auf diese
+Vertikale Geraden, wie die blaue Gerade $\color{blue}g_2$, können auf diese
 Art nicht beschrieben werden.
 \label{skript:affin:geradeaxb}}
 \end{figure}
 Die erste Beschreibung einer Geraden mit Hilfe von Koordinaten, die man in
-der Schule normalerweise kennenlernt, die des Graphs einer Funktion
+der Schule normalerweise kennenlernt, ist die des Graphs einer Funktion
 $y=ax+b$ (Abbildung~\ref{skript:affin:geradeaxb}).
 Diese Beschreibung hat aber mindestens zwei Schwächen, die sie für eine
 weiterführende Theorie ungeeignet macht.
@@ -36,7 +36,8 @@ weiterführende Theorie ungeeignet macht.
 \item Sie funktioniert nur in der Ebene und lässt sich nicht auf die
 dreidimensionale Situation verallgemeinern.
 \item Vertikale Geraden lassen sich damit nicht beschreiben.
-Damit wird die Vertikale zu einer speziellen Richtung, so etwas darf
+Damit wird die Vertikale zu einer speziellen Richtung.
+So etwas darf
 es in der affinen Geometrie nicht geben (Gerade $\color{blue}g_2$ in
 Abbildung~\ref{skript:affin:geradeaxb}).
 \end{enumerate}
@@ -106,26 +107,26 @@ Geraden mit der Parameterdarstellung
 \[
 \vec{p} = \vec{p}_0 + t \vec{v}
 \]
-ausgehend vom Punkt $P_0$ in einer Sekunde um $\vec v$,
-dieser Vektor stellt also die Geschwindigkeit des Punktes dar.
+ausgehend vom Punkt $P_0$ in einer Sekunde um $\vec v$.
+Dieser Vektor stellt also die Geschwindigkeit des Punktes dar.
 Die Parameterdarstellung der Geraden ist also auch eine
 Beschreibung einer gleichförmigen Bewegung mit {\em Geschwindigkeitsvektor}
 $\vec{v}$.
 
 \subsubsection{Gerade durch zwei Punkte}
 \begin{aufgabe}
-Gegeben zwei Punkte $A$ und $B$, finde die Parameterdarstellung einer
+Gegeben sind zwei Punkte $A$ und $B$, finde die Parameterdarstellung einer
 Geraden durch die beiden Punkte.
 \end{aufgabe}
 \begin{proof}[Lösung]
-Als Stützvektor kann der Ortsvektor von $A$ verwendet werden, als Richtung
-der Vektor von $A$ nach $B$:
+Als Stützvektor kann der Ortsvektor von $A$ verwendet werden,
+als Richtungsvektor der Vektor von $A$ nach $B$:
 \[
 \vec{p}
 =
 \overrightarrow{OA} + t\overrightarrow{AB}
 =
-\vec{a} + t(\vec{b}-\vec{a})
+\vec{a} + t(\vec{b}-\vec{a}).
 \]
 Allerdings kann genauso gut auch $\vec{b}$ als Stützvektor verwendet
 werden und $\vec{a}-\vec{b}$ als Richtungsvektor.
@@ -138,7 +139,7 @@ $A=(3,1,4)$ und $B=(1,5,9)$.
 \smallskip
 
 {\parindent 0pt
-Dazu} braucht man einen Vektor, der die Funktion von $\vec p$ übernehmen
+Dazu} braucht man einen Vektor, der die Funktion des Stützvektors übernehmen
 kann, wir verwenden $\vec{a}$ dafür, und als
 Richtungsvektor können wir $\vec{b}-\vec{a}$ verwenden.
 Damit wird die Geradengleichung
@@ -154,9 +155,12 @@ Wir werden diese Gerade in nachfolgenden Beispielen weiter verwenden.
 
 
 \subsubsection{Liegt ein Punkt auf einer Geraden?}
+\begin{aufgabe}
 Gegeben ist die Gerade durch $\vec p$ mit Richtungsvektor $\vec v$.
 Geht die
-Gerade durch den Punkt $\vec s$? Offenbar müssen wir herausfinden, ob es
+Gerade durch den Punkt $\vec s$?
+\end{aufgabe}
+Offenbar müssen wir herausfinden, ob es
 einen Wert des Parameters $t$ gibt, für den der Geradenpunkt mit $\vec s$
 identisch ist, also
 \[
@@ -187,21 +191,21 @@ s_3&=p_3+tv_3
 \]
 Dieses Gleichungssystem mit drei Gleichungen aber nur einer Unbekannten $t$
 wird meistens nicht lösbar sein.
-Aber es gilt natürlich die übliche Alternative
+Aber es gelten natürlich die üblichen Alternative
 für lineare Gleichungssysteme:
 \begin{itemize}
 \item Es kann keine Lösungen geben: Dieser Fall tritt ein, wenn die Gerade
-an dem Punkt vorbei geht.
+an dem Punkt $\vec{s}$ vorbei geht.
 \item Es kann unendlich viele Lösungen geben: Dieser Fall tritt ein, wenn
 $\vec v=0$ ist und $\vec p=\vec s$.
 Dann ``bleibt'' der Punkt $\vec r(t)$
 immer am Ort $\vec p$, welcher identisch ist mit dem gesuchten Punkt $\vec s$.
-\item Es kann genau eine Lösung geben: falls $\vec v\ne 0$ und der Punkt auf der
+\item Es kann genau eine Lösung geben: Falls $\vec v\ne 0$ und der Punkt auf der
 Geraden liegt, gibt es genau einen Parameterwert, für den der Punkt
 getroffen wird.
 \end{itemize}
 Den Parameterwert im Fall 3 kann man zum Beispiel finden, indem man eine
-der Gleichungen auswählt, in der der $v_i$-Koeffizient nicht $0$ ist
+der Gleichungen auswählt, in der der $v_i$-Koeffizient nicht $0$ ist.
 Diese Gleichung löst man nach $t$ auf.
 Falls $v_1\ne 0$ heisst das
 \[
@@ -321,15 +325,16 @@ r_2{\color{red}t}-v_2{\color{red}s}&= q_2-p_2\\
 r_3{\color{red}t}-v_3{\color{red}s}&= q_3-p_3.
 \end{align*}
 Dies ist ein Gleichungssystem mit zwei Unbekannten, für die Anzahl der Lösungen
-gilt wieder die bekannte Alternative:
+gelten wieder die bekannten Alternativen:
 \begin{itemize}
-\item Keine Lösungen: Die Geraden haben keinen Schnittpunkt, in der Ebene
+\item Keine Lösungen: Die Geraden haben keinen Schnittpunkt.
+In der Ebene
 kann dies zum Beispiel dadurch geschehen, dass die Geraden parallel sind.
 Im Raum können die Geraden auch windschief sein.
-In drei Dimensionen erhalten wir drei Gleichungen mit nur einer Unbekannten,
+In drei Dimensionen erhalten wir drei Gleichungen mit nur zwei Unbekannten,
 dieses System wir normalerweise nicht lösbar sein.
-\item Unendlich viele Lösungen: die Geraden sind deckungsgleich
-\item Genau eine Lösung: es gibt einen wohldefinierten Schnittpunkt.
+\item Unendlich viele Lösungen: Die Geraden sind deckungsgleich
+\item Genau eine Lösung: Es gibt einen wohldefinierten Schnittpunkt.
 \end{itemize}
 Gelöst werden kann das Gleichungssystem natürlich mit den Standardverfahren
 für lineare Gleichungssysteme.
@@ -437,7 +442,7 @@ des Schnittpunktes ist
 Die Null in der rechten unteren Ecke zeigt, dass sich die Geraden
 tatsächlich schneiden.
 In den Spalten für $t$ und $s$ lesen wir die Parameterwerte
-$t=-1$ und $s=2$ ab,
+$t=-1$ und $s=2$ ab
 und in den Spalten $x$, $y$ und $z$ die Koordinaten des
 Schnittpunktes
 $S=(-5,-2,1)$.
@@ -450,9 +455,11 @@ funktioniert auf ein Gleichungssystem mit $n+2$ Unbekannten und
 $2n$ Gleichungen führt.
 Im Falle $n=2$ hat man $4$ Gleichungen und $4$ Unbekannte.
 Der Fall, dass die Gleichungen keine Lösungen haben ist immer noch
-möglich, er tritt auf, wenn die beiden Geraden parallel sind.
+möglich.
+Er tritt auf, wenn die beiden Geraden parallel sind.
 Dies kann man wie folgt einsehen.
-Führt man die ersten zwei Schritt der Vorwärtsreduktion durch
+Führt man die ersten zwei Schritte der Vorwärtsreduktion durch,
+erhält man die Tableaux
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -485,10 +492,10 @@ Führt man die ersten zwei Schritt der Vorwärtsreduktion durch
 0&0& r_1&-v_1&q_1\\
 0&0& r_2&-v_2&q_2\\
 \hline
-\end{tabular}
+\end{tabular}\,.
 \]
 Das Gleichungssystem ist genau dann nicht lösbar, wenn in dem kleineren
-Tableau unten rechts keine Nullzeile auftritt.
+Tableau unten rechts eine Nullzeile auftritt.
 Dies passiert genau dann, wenn die Vektoren $\vec{r}$ und $\vec{v}$ 
 linear abhängig sind, wenn die Geraden also parallel sind.
 
@@ -556,7 +563,7 @@ Abbildungen zu arbeiten.
 \item
 Eine lineare Abbildung bildet den Nullpunkt wieder auf den Nullpunkt ab.
 Die Verwendung einer zusätzlichen zweiten Koordinate, die immer den
-Wert $1$ hat, ermöglicht uns, eine Verschiebungen hinzuzufügen.
+Wert $1$ hat, ermöglicht uns, eine Verschiebung hinzuzufügen.
 Diese Idee der homogenen Koordinaten wird in Abschnitt~\ref{section:kamera}
 bei der Diskussion der Abbildung durch eine Kamera eine wesentliche Rolle
 spielen.
@@ -740,10 +747,10 @@ s\vec{v}
 \vec{p}
 \]
 keine Lösung hat.
-Dies ist ein Gleichungssystem mit zwei Gleichungen für zwe Unbekannte.
+Dies ist ein Gleichungssystem mit zwei Gleichungen für zwei Unbekannte.
 Es kann nur im singulären Fall keine Lösung haben.
 Dieser tritt ein, wenn die Vektoren $\vec{r}$ und $\vec{v}$
 linear abhängig sind.
-Dieses Kriterium funktioniert aber auch im Raum: zwei Geraden sind
+Dieses Kriterium funktioniert aber auch im Raum: Zwei Geraden sind
 genau dann parallel, wenn die Richtungsvektoren linear abhängig sind.
 

@@ -98,7 +98,8 @@ abb.pdf:	abb.tex standardebene.jpg abbebene.jpg
 tikzimages:	parallelogramm.pdf strahlensatz.pdf addition.pdf coord2d.pdf \
 	spiegelung.pdf drehung.pdf schnittpunkttableau.pdf geradeabb.pdf \
 	vektor.pdf durchstosspunkttableau.pdf schnittgeradetableau.pdf \
-	geradeaxb.pdf punktrichtung.pdf schnittpunkt.pdf geradeloesung.pdf
+	geradeaxb.pdf punktrichtung.pdf schnittpunkt.pdf geradeloesung.pdf \
+	streckenvergleich.pdf streckenvervielfachung.pdf
 
 #
 # Vektorkonstruktionen
@@ -148,3 +149,8 @@ schnittpunkt.pdf:	schnittpunkt.tex
 geradeloesung.pdf:	geradeloesung.tex
 	pdflatex geradeloesung.tex
 
+streckenvergleich.pdf:	streckenvergleich.tex
+	pdflatex streckenvergleich.tex
+
+streckenvervielfachung.pdf:	streckenvervielfachung.tex
+	pdflatex streckenvervielfachung.tex

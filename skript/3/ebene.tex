@@ -30,7 +30,7 @@ So wie in der Ebene eine Gerade durch zwei Punkte gegeben ist, ist eine
 Ebene im Raum durch drei Punkte gegeben.
 
 \begin{aufgabe}
-Gegeben drei Punkte $A$, $B$ und $C$, finde die Parameterdarstellung einer
+Gegeben sind drei Punkte $A$, $B$ und $C$, finde die Parameterdarstellung einer
 Ebene durch die drei Punkte (Abbildung~\ref{skript:affin:ebene3punkte}).
 \end{aufgabe}
 
@@ -38,8 +38,8 @@ Ebene durch die drei Punkte (Abbildung~\ref{skript:affin:ebene3punkte}).
 \centering
 \includegraphics{3/images/ebene3punkte.pdf}
 \caption{Ebene $\sigma $ durch die drei Punkte $A$, $B$ und $C$.
-Als Stützvektor kann der Ortsvektor $\vec{a}$ von $A$ verwendet werden,
-die Differenzen $\vec{b}-\vec{a}$ und $\vec{c}-\vec{a}$ dienen als
+Als Stützvektor kann der Ortsvektor $\vec{a}$ von $A$ verwendet werden.
+Die Differenzen $\vec{b}-\vec{a}$ und $\vec{c}-\vec{a}$ dienen als
 Richtungsvektoren.
 \label{skript:affin:ebene3punkte}}
 \end{figure}
@@ -62,7 +62,7 @@ $C=(4,-1,0)$.
 
 {\parindent 0pt Die} Vektoren $\vec u=\overrightarrow{AB}$ und
 $\vec v=\overrightarrow{AC}$ können als Richtungsvektoren
-verwendet werden, und ergeben als Parameterdarstellung:
+verwendet werden und ergeben als Parameterdarstellung:
 \begin{equation}
 \vec r=\begin{pmatrix}1\\2\\1 \end{pmatrix}
 +
@@ -114,8 +114,8 @@ u_3&v_3&q_3-p_3\\
 \hline
 \end{tabular}
 \]
-Der rote Stern rechts unten zeigt an, ob der Punkt $Q$ auf der Ebene liegt:
-steht dort ein von Null verschiedener Wert, hat das Gleichungssystem keine
+Der rote Stern rechts unten zeigt an, ob der Punkt $Q$ auf der Ebene liegt.
+Steht dort ein von Null verschiedener Wert, hat das Gleichungssystem keine
 Lösung und der Punkt $Q$ liegt nicht auf der Ebene.
 In der rechten oberen Ecke kann man die Parameterwerte $t$ und $s$
 ablesen, für die der Punkt $Q$ erreicht wird.
@@ -154,8 +154,8 @@ Wir füllen die Daten ins Tableau ein und lösen mit dem Gauss-Algorithmus:
 \hline
 \end{tabular}
 \]
-Man kann ablesen, dass der Punkt $Q$ auf der Ebene liegt, und dass
-er den Parameterwerten $t=1$ und $s=2$ entspricht.
+Man kann ablesen, dass der Punkt $Q$ auf der Ebene liegt und dass
+er mit den Parameterwerten $t=1$ und $s=2$ erreicht wird.
 \end{beispiel}
 
 \subsubsection{Beschreiben zwei Parameterdarstellungen die gleiche Ebene?}
@@ -288,16 +288,16 @@ Wir lösen folgende Aufgabe (siehe auch
 Abbildung~\ref{skript:affin:durchstosspunkt}).
 
 \begin{aufgabe}
-Gegen eine Gerade $g$ mit Parameterdarstellen
+Gegeben ist eine Gerade $g$ mit Parameterdarstellen
 $\vec{q}_0+t\vec{r}$
 und eine Ebene $\sigma$ mit Parameterdarstellung
-$\vec{p}_0+t\vec{u}+s\vec{v}$,
-finde den Durchstosspunkt $S$ der Geraden $g$ durch die Ebenen $\sigma$
+$\vec{p}_0+t\vec{u}+s\vec{v}$.
+Finde den Durchstosspunkt $S$ der Geraden $g$ durch die Ebenen $\sigma$
 \end{aufgabe}
 
 Zur Lösung der Aufgabe müssen offenbar die Streckungsfaktoren vor den
 Richtungsvektoren so gefunden werden, dass sich auf der Geraden und
-auf der Ebene der gleiche Punkt gibt.
+auf der Ebene der gleiche Punkt ergibt.
 Wir müssen daher in der Geradengleichung einen unabhängigen Parameter
 verwenden, zum Beispiel $w$.
 Die Bedingung für den Punkt $S$ könnten wir dann als
@@ -306,7 +306,8 @@ Die Bedingung für den Punkt $S$ könnten wir dann als
 \]
 schrieben.
 Diese Vektorgleichung steht für drei Gleichungen mit den drei Unbekannten
-$w$, $t$ und $s$, im Allgemeinen wird sie genau eine Lösung haben,
+$w$, $t$ und $s$.
+Im Allgemeinen wird sie genau eine Lösung haben,
 aus der durch Einsetzen in die Parameterdarstellungen die Koordinaten
 des Punktes $S$ berechnet werden können.
 
@@ -337,7 +338,7 @@ Finde den Durchstosspunkt der Geraden mit Parameterdarstellung
 \[
 \begin{pmatrix} 5\\8\\3 \end{pmatrix}
 +
-l\begin{pmatrix} 1\\0\\1 \end{pmatrix}
+w\begin{pmatrix} 1\\0\\1 \end{pmatrix}
 \]
 durch die Ebene mit Parameterdarstellung
 \[
@@ -408,7 +409,7 @@ finde die Schnittgerade $g=\sigma_1\cap\sigma_2$ mit der Parameterdarstellung
 \[
 \vec{p}
 =
-\vec{q}_0
+\vec{q}
 +
 t\vec{r.}
 \]
@@ -426,8 +427,8 @@ Die Ebenengleichungen in Tableauform werden zu
 \includegraphics{3/images/schnittgeradetableau.pdf}
 \label{skript:affin:schnittgeradetableau}
 \end{equation}
-Dies sind sechs Gleichungen für sieben Unbekannte, im allgemeinen Fall
-wird das Schlusstableau daher die Form
+Dies sind sechs Gleichungen für sieben Unbekannte.
+Im allgemeinen Fall wird das Schlusstableau daher die Form
 \begin{equation}
 \begin{tabular}{|
 >{$}c<{$}
@@ -472,9 +473,9 @@ $t_1$, $s_1$ und $t_2$ von $s_2$ abhängen für Punkte, die auf der
 Schnittgeraden liegen, nämlich
 \begin{align*}
 t_1&=q_4+s_2r_4,&
-s_1&=q_4+s_2r_4&
+s_1&=q_5+s_2r_5&
 &\text{und}&
-t_2&=q_4+s_2r_4.
+t_2&=q_6+s_2r_6.
 \end{align*}
 Dieses Verfahren liefert also alle Informationen, die man über dieses
 Problem in Erfahrung bringen kann.
@@ -576,8 +577,8 @@ Die Parameterdarstellung
 \eqref{skript:affin:aufgabe:schnittgerade:gleichungen}
 der Ebenen
 in Aufgabe~\ref{skript:affin:aufgabe:schnittgerade}
-ändert nicht, die Vektoren sind neu
-einfach vierdimensionale Vektoren.
+ändert nicht.
+Die Vektoren sind neu einfach vierdimensionale Vektoren.
 Auch das Tableau~\eqref{skript:affin:schnittgeradetableau} bleibt gleich,
 stellt jetzt aber 8 Gleichungen für 8 Unbekannte dar.
 Das Schlusstableau hat also im Allgemeinen die Form
@@ -612,9 +613,9 @@ Das Schlusstableau hat also im Allgemeinen die Form
 0&0&0&0&0&0&1&0&p_7\\
 0&0&0&0&0&0&0&1&p_8\\
 \hline
-\end{tabular}
+\end{tabular}\,,
 \]
-woraus man den Schnittpunkt  $(p_1,p_2,p_3,p_4)$.
+woraus man den Schnittpunkt  $(p_1,p_2,p_3,p_4)$ ablesen kann.
 Zwei Ebenen im vierdimensionalen Raum schneiden sich also im Allgemeinen
 in einem Punkt, ganz ähnlich wie sich zwei Geraden in einer Ebene in
 einem Punkt schneiden.
@@ -785,8 +786,8 @@ ist.
 a&b&c&d&\\
 \hline
   -3&  1& -2& -1&  0\\
-  -7& -4& -5& -1&  0\\
-   0& -1&  0& -1&  0\\
+  -4& -5& -3&  0&  0\\
+   3& -2&  2&  0&  0\\
 \hline
 \end{tabular}
 \rightarrow

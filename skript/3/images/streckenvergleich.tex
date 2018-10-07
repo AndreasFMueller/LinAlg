@@ -27,7 +27,7 @@
 \coordinate (C) at ($(B)+1.3*(A)$);
 
 \begin{scope}
-\clip (-1,-1) rectangle (7,6);
+\clip (-0.3,-0.3) rectangle (6.6,5.0);
 
 \draw ($(B)-(A)$)--($(B)+2*(A)$);
 \draw ($(O)-(A)$)--($(A)+(A)$);
@@ -48,22 +48,27 @@
 \coordinate (S) at ($(A)+(B)$);
 
 \punkt{(S)} \node at (S) [above left] {$S$};
+\node at ($(S)+(-0.1,0.1)$) [below right] {\color{blue}\ding{184}};
 
-\node at ($0.5*(B)$) [left] {$g_1$};
-\node at ($(A)+0.5*(B)$) [right] {$g_2$};
+\node at ($0.4*(B)$) [left] {$g_1$};
+\node at ($0.6*(B)$) [left] {\color{blue}\ding{182}};
+\node at ($(A)+0.4*(B)$) [right] {$g_2$};
+\node at ($(A)+0.6*(B)$) [right] {\color{blue}\ding{183}};
 
-\node at (11,2.5) {%
-\begin{minipage}{6.0cm}
+\node at (11.0,2.5) {%
+\begin{minipage}{7.0cm}
 \parindent0pt
 \raggedright
 Gegeben: parallele Strecken $AB$ und $CD$.\\[7pt]
+Parallelogramm-Konstruktion ({\color{blue}\ding{182}}--{\color{blue}\ding{184}})
+für den Punkt $S$:\\[3pt]
 {\color{blue}\ding{182}}\quad%
-Konstruiere Gerade $g_1$ durch $A$ und $C$\\
+Konstruiere die Gerade $g_1$ durch $A$ und $C$\\
 {\color{blue}\ding{183}}\quad%
-Konstruiere Parallele $g_2$ zur Geraden $g_1$ durch $B$\\
+Konstruiere die parallele Gerade $g_2$ zur Geraden $g_1$ durch $B$\\
 {\color{blue}\ding{184}}\quad%
-$S$ ist der Schnittpunkt von $g_2$ mit der Geraden durch $C$ und $D$\\
-{\color{blue}\ding{185}}\quad%
+$S$ ist der Schnittpunkt von $g_2$ mit der Geraden durch $C$ und $D$\\[7pt]
+%{\color{blue}\ding{185}}\quad%
 Falls $S$ auf der Strecke $CD$ liegt, ist $CD$ länger als $AB$,
 andernfalls ist $CD$ kürzer als $AB$.
 \end{minipage}};
