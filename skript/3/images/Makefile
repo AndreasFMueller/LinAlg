@@ -6,7 +6,32 @@
 all:	3dimages tikzimages
 
 3dimages:	coordsystem.pdf ebene.pdf schnittgerade.pdf \
-		durchstosspunkt.pdf ebene3punkte.pdf abb.pdf
+		durchstosspunkt.pdf ebene3punkte.pdf abb.pdf \
+		basis.pdf
+
+# 
+# basis oder nicht
+#
+basis.pdf:	basis.tex basis.jpg basis2.jpg basis3.jpg
+	pdflatex basis.tex
+
+basis.png:	basis.pov basis.inc
+	povray +A0.1 -W1920 -H1080 -Obasis.png basis.pov
+basis.jpg:	basis.png Makefile
+	convert -extract 700x780+280+300 basis.png \
+		-density 300 -units PixelsPerInch basis.jpg
+
+basis2.png:	basis2.pov basis.inc
+	povray +A0.1 -W1920 -H1080 -Obasis2.png basis2.pov
+basis2.jpg:	basis2.png Makefile
+	convert -extract 700x780+280+300 basis2.png \
+		-density 300 -units PixelsPerInch basis2.jpg
+
+basis3.png:	basis3.pov basis.inc
+	povray +A0.1 -W1920 -H1080 -Obasis3.png basis3.pov
+basis3.jpg:	basis3.png Makefile
+	convert -extract 700x780+280+300 basis3.png \
+		-density 300 -units PixelsPerInch basis3.jpg
 
 #
 # Coordinate system

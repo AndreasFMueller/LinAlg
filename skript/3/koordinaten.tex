@@ -64,8 +64,8 @@ $S$ ist die vierte Ecke des Parallelogramms mit Ecken $A$, $B$ und $C$.
 Wenn $S$ auf der Strecke $CD$ liegt, ist $CD$ länger als $AB$.
 \label{skript:streckenvergleich}}
 \end{figure}
-Mit der Parallelkonstruktion kann man zwei parallele Strecken vergleichen,
-ohne ihre Länge messen zu müssen.
+Mit der Parallelogramm-Konstruktion kann man zwei parallele Strecken
+vergleichen, ohne ihre Länge messen zu müssen.
 Im Geometrieunterricht lernt man, dass man zum Abtragen von Strecken
 den Zirkel braucht.
 Ein Zirkel wird aber nur gebraucht, um eine Strecke auch drehen zu
@@ -80,7 +80,7 @@ ermittelt, ob die Strecke $AB$ länger oder kürzer ist als $CD$.
 Dazu wird zunächst das zu den Ecken $A$, $B$ und $C$ gehörende Parallelgramm 
 mit der vierten Ecke $S$ konstruiert.
 Die Strecke $CS$ ist gleich lang wie $AB$.
-Wenn die Ecke $S$ bereis auf der Strecke $CD$ liegt, ist $CD$ länger als $AB$.
+Wenn die Ecke $S$ auf der Strecke $CD$ liegt, ist $CD$ länger als $AB$.
 Wenn die beiden Strecken parallele Seiten eines Parallelogramms sind, dann
 sind sie gleich.
 
@@ -142,7 +142,7 @@ Die Geometrie macht Aussagen über Punkte in der Ebene und im Raum.
 Kein Punkt spielt eine besondere Rolle, alle Punkte sind gleichberechtigt.
 Die Algebra der Vektoren kennt dagegen einen speziellen Vektor,
 nämlich den Nullvektor, und sie kennt Operationen, die kein offensichtliches
-Gegenstück in der Geometrie haben, die Multiplikation mit Zahlen und
+Gegenstück in der Geometrie haben: Die Multiplikation mit Zahlen und
 die Addition von Vektoren.
 Es braucht daher eine Übersetzung, welche Punkte auf Vektoren
 abbildet und den algebraischen Operationen einen geometrischen
@@ -210,7 +210,8 @@ Ein Koordinatensystem ermöglicht, jeden beliebigen Punkt des Raumes mit
 Hilfe weniger Zahlen zu beschreiben.
 Der ausgezeichnete Punkt $O$ reicht dafür noch nicht. 
 Ein Koordinatensystem erhalten wir erst, wenn zusätzlich eine Menge
-$\mathcal{B}=\{\vec{b}_1,\dots,\vec{b}_n\}$ von Vektoren vorgegeben ist.
+$\mathcal{B}=\{\vec{b}_1,\dots,\vec{b}_n\}$ von Vektoren zur Beschreibung
+der Koordinatenachsen vorgegeben ist.
 Wir sagen, der Punkt $P$ hat die Koordinaten $(x_1,\dots,x_n)$, wenn 
 gilt
 \[
@@ -253,7 +254,7 @@ wenn die Vektoren linear unabhängig sind und sich damit alle Ortsvektoren
 ausdrücken lassen.
 \end{definition}
 
-Es ist aus der Parallelgramm-Konstruktion klar, dass in der Ebene zwei 
+Es ist aus der Parallelogramm-Konstruktion klar, dass in der Ebene zwei 
 Basisvektoren genügen, während für den dreidmensionalen Raum drei
 Basisvektoren nötig sind.
 \begin{figure}
@@ -391,7 +392,7 @@ den von den Vektoren in $\mathcal{A}$ {\em aufgespannten Raum}.
 \label{skript:affin:koordinaten:aufgespannt}
 \index{aufgespannter Raum}
 Die Standardbasisvektoren im $\mathbb R^n$ spannen den ganzen Raum
-auf:
+$\mathbb R^n$ auf:
 \[
 \mathbb R^n = \langle \vec{e}_1,\dots,\vec{e}_n\rangle.
 \]
@@ -441,8 +442,7 @@ Die Vektoren \[
 \right\}
 \]
 spannen einen zweidimensionalen Unterraum von $\mathbb R^3$ auf.
-Man finde
-die Koordinaten des Vektors
+Man finde die Koordinaten $\vec{\xi}$ des Vektors
 \[
 \vec{v}
 =
@@ -535,6 +535,19 @@ A\vec{\xi}
 \end{beispiel}
 
 \subsubsection{Dimension eines Unterraums}
+\begin{figure}
+\centering
+\includegraphics[width=\hsize]{3/images/basis.pdf}
+%\includegraphics{3/images/basis.pdf}
+\caption{a) Zwei linear unabhängige Vektoren bilden die Basis für einen
+zweidimensionalen Unterraum des $\mathbb R^3$, also für eine Ebene.
+b)~Fügt man einen linear abhängigen Vektor (orange) hinzu, bleibt der
+aufgespannte Unterraum zweidmensional, die drei Vektoren bilden keine
+Basis. c)~Sind die drei Vektoren linear unabhängig, erkennbar daran, dass
+der orange Vektor nicht in der Ebene enthalten ist, dann bilden alle
+drei eine Basis des ganzen Raumes.
+\label{skript:basisvektoren}}
+\end{figure}
 Die Vektoren $\mathcal{A}=\{\vec{a}_1,\dots,\vec{a}_l\}$ müssen nicht
 unbedingt eine Basis von $\langle\mathcal{A}\rangle$ bilden.
 Dieser Fall tritt ein, wenn die Vektoren $\vec{a}_1,\dots,\vec{a}_l$
@@ -542,6 +555,17 @@ nicht linear unabhängig sind.
 Indem man linear abhängige Vektoren weglässt, kann man die Menge der
 Vektoren $\mathcal{A}$ soweit verkleinern, dass eine Basis des 
 Vektorraumes übrig bleibt.
+
+Diese Situation wird illustriert von der Abbildung~\ref{skript:basisvektoren}.
+Zwei linear unabhängige Vektoren bilden eine Basis des von den beiden
+Vektoren aufgespannten zweidimensionalen Raumes.
+Fügt man einen dritten Vektor hinzu, der in der aufgespannten Ebene liegt,
+dann spannen die drei Vektoren zwar immer noch den zweidimensionalen
+Raum auf, aber die drei Vektoren bilden keine Basis.
+Liegt der dritte Vektor nicht in der Ebene, dann spannen die drei Vektoren
+den ganzen dreidimensionalen Raum auf, nicht mehr nur die Ebene, und
+die drei Vektoren sind eine Basis.
+
 
 \begin{beispiel}
 Man finde eines Basis des von den Vektoren 
@@ -567,7 +591,7 @@ ausdrücken lässt.
 Der Gauss-Algorithmus macht genau das für die Zeilen einer Matrix.
 Als Test für lineare Unabhängigkeit
 füllen wir die Vektoren als Zeilen in ein Tableau ein führen
-den Gaussalgorithmus aus:
+den Gaussalgorithmus durch:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -631,10 +655,15 @@ Wenn ein Vektor $\vec{v}$ in der Basis
 $\mathcal{B}=\{\vec{b}_1,\dots,\vec{b}_n\}$
 die Koordinaten $(x_1,\dots,x_n)$ hat, welche Koordinaten hat er dann in
 der Basis $\mathcal{C}=\{\vec{c}_1,\dots,\vec{c}_l\}$?
-Wir bezeichnen die Koordinaten mit $(y_1,\dots,y_l)$.
+\end{aufgabe}
+
+Wir bezeichnen die Koordinaten bezüglich der Basis $\mathcal{B}$
+mit $(y_1,\dots,y_l)$.
 Die beiden Sätze von Koordinaten beschreiben den gleichen Vektor,
 es muss also die lineare Gleichung
 \begin{align}
+\vec{v}
+=
 y_1\vec{c}_1 + \dots + y_l\vec{c}_l
 &=
 x_1\vec{b}_1 + \dots + x_n\vec{b}_n
@@ -643,7 +672,6 @@ x_1\vec{b}_1 + \dots + x_n\vec{b}_n
 gelten.
 Darin sind die $y_i$ die Unbekannten, die wir durch die Variablen $x_i$
 ausdrücken sollen.
-\end{aufgabe}
 
 \subsubsection{Lösbarkeit}
 Wenn $\mathcal{B}$ und $\mathcal{C}$ Basen sind, wissen wir, dass
@@ -657,18 +685,20 @@ Mengen von Vektoren sind.
 Natürlich ist dann nicht mehr sicher, ob das Problem eine Lösung hat.
 
 \subsubsection{Matrix- und Tableauform}
-Wir nehmen jetzt also an, dass noch eine zweite Basis gegeben ist,
-über die wir weiter nichts wissen müssen.
-In dieser Basis können wir alle Vektoren
-$\vec{b}_1,\dots,\vec{b}_n$ und $\vec{c}_1,\dots,\vec{c}_l$
-als Spaltenvektoren schreiben, also
+Wir nehmen jetzt an, dass die Vektoren der Basen
+$\mathcal{B}=\{\vec{b}_1,\dots,\vec{b}_n\}$
+und
+$\mathcal{C}=\{\vec{c}_1,\dots,\vec{c}_l\}$
+als Spaltenvektoren in einem $m$-dimensionalen $\mathbb R^m$
+gegeben sind.
+Wir bezeichnen die Komponente dieser Vektoren mit
 \[
-\vec{b}_i = \begin{pmatrix}b_{1i}\\\vdots\\b_{mi}\end{pmatrix}
+\vec{b}_i = \begin{pmatrix}b_{1i}\\\vdots\\b_{mi}\end{pmatrix},\;i=1,\dots,n
 \qquad\text{und}\qquad
-\vec{c}_j = \begin{pmatrix}c_{1j}\\\vdots\\c_{mj}\end{pmatrix}.
+\vec{c}_j = \begin{pmatrix}c_{1j}\\\vdots\\c_{mj}\end{pmatrix},\;j=1,\dots,l.
 \]
 Die Gleichung
-\label{skript:affin:basistransformation-ansatz}
+\eqref{skript:affin:basistransformation-ansatz}
 kann in Matrixform
 \begin{equation}
 C\vec{y} = B\vec{x}
@@ -840,7 +870,7 @@ auf der rechten Seite die Einheitsmatrix:
 \hline
 c_{11}&\dots &c_{1n}&  1   &\dots &  0   \\
 \vdots&\ddots&\vdots&\vdots&\ddots&\vdots\\
-c_{m1}&\dots &c_{mn}&  0   &\dots &  1   \\
+c_{n1}&\dots &c_{nn}&  0   &\dots &  1   \\
 \hline
 \end{tabular}\,.
 \end{equation*}

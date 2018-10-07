@@ -144,7 +144,7 @@ kann, wir verwenden $\vec{a}$ dafür, und als
 Richtungsvektor können wir $\vec{b}-\vec{a}$ verwenden.
 Damit wird die Geradengleichung
 \begin{equation}
-\vec r(t) =
+\vec{p}(t) =
 \begin{pmatrix}3\\1\\4 \end{pmatrix}
 +t
 \begin{pmatrix}-2\\4\\5\end{pmatrix}.
@@ -156,7 +156,7 @@ Wir werden diese Gerade in nachfolgenden Beispielen weiter verwenden.
 
 \subsubsection{Liegt ein Punkt auf einer Geraden?}
 \begin{aufgabe}
-Gegeben ist die Gerade durch $\vec p$ mit Richtungsvektor $\vec v$.
+Gegeben ist die Gerade durch $\vec q$ mit Richtungsvektor $\vec v$.
 Geht die
 Gerade durch den Punkt $\vec s$?
 \end{aufgabe}
@@ -164,7 +164,7 @@ Offenbar müssen wir herausfinden, ob es
 einen Wert des Parameters $t$ gibt, für den der Geradenpunkt mit $\vec s$
 identisch ist, also
 \[
-\vec s = \vec p + t\vec v.
+\vec s = \vec q + t\vec v.
 \]
 Diese Vektorgleichung ist genau genommen ein Gleichungssystem für die einzelnen
 Komponenten
@@ -174,7 +174,7 @@ s_1\\s_2\\s_3
 \end{pmatrix}
 =
 \begin{pmatrix}
-p_1\\p_2\\p_3
+q_1\\q_2\\q_3
 \end{pmatrix}
 +t
 \begin{pmatrix}
@@ -184,32 +184,32 @@ v_1\\v_2\\v_3
 \Rightarrow
 \qquad
 \begin{aligned}
-s_1&=p_1+tv_1\\
-s_2&=p_2+tv_2\\
-s_3&=p_3+tv_3
+s_1&=q_1+tv_1\\
+s_2&=q_2+tv_2\\
+s_3&=q_3+tv_3
 \end{aligned}
 \]
 Dieses Gleichungssystem mit drei Gleichungen aber nur einer Unbekannten $t$
 wird meistens nicht lösbar sein.
 Aber es gelten natürlich die üblichen Alternative
 für lineare Gleichungssysteme:
-\begin{itemize}
+\begin{enumerate}
 \item Es kann keine Lösungen geben: Dieser Fall tritt ein, wenn die Gerade
 an dem Punkt $\vec{s}$ vorbei geht.
 \item Es kann unendlich viele Lösungen geben: Dieser Fall tritt ein, wenn
-$\vec v=0$ ist und $\vec p=\vec s$.
+$\vec v=0$ ist und $\vec q=\vec s$.
 Dann ``bleibt'' der Punkt $\vec r(t)$
-immer am Ort $\vec p$, welcher identisch ist mit dem gesuchten Punkt $\vec s$.
+immer am Ort $\vec q$, welcher identisch ist mit dem gesuchten Punkt $\vec s$.
 \item Es kann genau eine Lösung geben: Falls $\vec v\ne 0$ und der Punkt auf der
 Geraden liegt, gibt es genau einen Parameterwert, für den der Punkt
 getroffen wird.
-\end{itemize}
+\end{enumerate}
 Den Parameterwert im Fall 3 kann man zum Beispiel finden, indem man eine
 der Gleichungen auswählt, in der der $v_i$-Koeffizient nicht $0$ ist.
 Diese Gleichung löst man nach $t$ auf.
 Falls $v_1\ne 0$ heisst das
 \[
-t=\frac{s_1-p_1}{v_1}.
+t=\frac{s_1-q_1}{v_1}.
 \]
 Durch Einsetzen in die anderen Gleichungen kann man anschliessend auch überprüfen,
 ob die Gerade tatsächlich durch den Punkt geht.
@@ -291,9 +291,9 @@ $\vec{p}+t\vec{r}$ und $\vec{q}+t\vec{v}$.
 \begin{aufgabe}
 Gegeben zwei Geraden $g_1$ und $g_2$ mit Parameterdarstellungen
 \[
-\vec{r} = \vec{p} + t\vec{r}
+\vec{p} = \vec{q} + t\vec{u}
 \qquad\text{und}\qquad
-\vec{r} = \vec{q} + t\vec{v},
+\vec{p} = \vec{w} + t\vec{v},
 \]
 finde ihren Schnittpunkt (Abbildung~\ref{skript:affin:schnittpunkt}).
 \end{aufgabe}
@@ -306,27 +306,27 @@ Wir müssen also zwei Variablen $t$ und $s$ bestimmen, so dass die beiden
 Parameterdarstellungen den gleichen Punkt ergeben.
 Wir müssen also die Gleichung
 \[
-\vec{p} + t\vec{r}
+\vec{q} + t\vec{u}
 =
-\vec{q} + s\vec{v}
+\vec{w} + s\vec{v}
 \]
 nach $t$ und $s$ auflösen.
 Indem man die Vektorgleichung in Komponenten schreibt
 \begin{align*}
-p_1+tr_1 &= q_1+sv_1\\
-p_2+tr_2 &= q_2+sv_2\\
-p_3+tr_3 &= q_3+sv_3
+q_1+tu_1 &= w_1+sv_1\\
+q_2+tu_2 &= w_2+sv_2\\
+q_3+tu_3 &= w_3+sv_3
 \end{align*}
 und die Unbekannten $\color{red}t$ und $\color{red}s$ auf die linke Seite bringt, erhält
 man ein lineares Gleichungssystem 
 \begin{align*}
-r_1{\color{red}t}-v_1{\color{red}s}&= q_1-p_1\\
-r_2{\color{red}t}-v_2{\color{red}s}&= q_2-p_2\\
-r_3{\color{red}t}-v_3{\color{red}s}&= q_3-p_3.
+u_1{\color{red}t}-v_1{\color{red}s}&= w_1-q_1\\
+u_2{\color{red}t}-v_2{\color{red}s}&= w_2-q_2\\
+u_3{\color{red}t}-v_3{\color{red}s}&= w_3-q_3.
 \end{align*}
 Dies ist ein Gleichungssystem mit zwei Unbekannten, für die Anzahl der Lösungen
 gelten wieder die bekannten Alternativen:
-\begin{itemize}
+\begin{enumerate}
 \item Keine Lösungen: Die Geraden haben keinen Schnittpunkt.
 In der Ebene
 kann dies zum Beispiel dadurch geschehen, dass die Geraden parallel sind.
@@ -335,7 +335,7 @@ In drei Dimensionen erhalten wir drei Gleichungen mit nur zwei Unbekannten,
 dieses System wir normalerweise nicht lösbar sein.
 \item Unendlich viele Lösungen: Die Geraden sind deckungsgleich
 \item Genau eine Lösung: Es gibt einen wohldefinierten Schnittpunkt.
-\end{itemize}
+\end{enumerate}
 Gelöst werden kann das Gleichungssystem natürlich mit den Standardverfahren
 für lineare Gleichungssysteme.
 \end{proof}
@@ -350,28 +350,32 @@ des Schnittpunktes zusammen mit den Parametern $t$ und $s$ als
 gleichberechtigte Unbekannte.
 Wir haben also die Vektorgleichungen
 \begin{equation*}
+\vec{p}
+=
 \begin{pmatrix}\color{red}x\\\color{red}y\\\color{red}z\end{pmatrix}
 =
-{\color{red}t}\begin{pmatrix}r_1\\r_1\\r_3\end{pmatrix}
+{\color{red}t}\begin{pmatrix}u_1\\u_1\\u_3\end{pmatrix}
 +
-\begin{pmatrix}p_1\\p_2\\p_3\end{pmatrix}
+\begin{pmatrix}q_1\\q_2\\q_3\end{pmatrix}
 \qquad\text{und}\qquad
+\vec{p}
+=
 \begin{pmatrix}\color{red}x\\\color{red}y\\\color{red}z\end{pmatrix}
 =
 {\color{red}s}\begin{pmatrix}v_1\\v_1\\v_3\end{pmatrix}
 +
-\begin{pmatrix}q_1\\q_2\\q_3\end{pmatrix}.
+\begin{pmatrix}w_1\\w_2\\w_3\end{pmatrix}.
 \end{equation*}
 Wir bringen alle Unbekannten auf die linke Seite und schreiben alles
 als lineares Gleichungssystem
 \begin{equation}
 \begin{linsys}{5}
-\color{red}x& & & & &-&r_1\color{red}t& &    &=&p_1\\
- & &\color{red}y& & &-&r_2\color{red}t& &    &=&p_2\\
- & & & &\color{red}z&-&r_3\color{red}t& &    &=&p_3\\
-\color{red}x& & & & & &    &-&v_1\color{red}s&=&q_1\\
- & &\color{red}y& & & &    &-&v_2\color{red}s&=&q_2\\
- & & & &\color{red}z& &    &-&v_3\color{red}s&=&q_3,
+\color{red}x& & & & &-&u_1\color{red}t& &    &=&q_1\phantom{,}\\
+ & &\color{red}y& & &-&u_2\color{red}t& &    &=&q_2\phantom{,}\\
+ & & & &\color{red}z&-&u_3\color{red}t& &    &=&q_3\phantom{,}\\
+\color{red}x& & & & & &    &-&v_1\color{red}s&=&w_1\phantom{,}\\
+ & &\color{red}y& & & &    &-&v_2\color{red}s&=&w_2\phantom{,}\\
+ & & & &\color{red}z& &    &-&v_3\color{red}s&=&w_3,
 \end{linsys}
 \end{equation}
 dem das Tableau
@@ -465,10 +469,10 @@ erhält man die Tableaux
 \hline
 \color{red}x&\color{red}y&\color{red}t&\color{red}s&\\
 \hline
-1&0&-r_1&   0&p_1\\
-0&1&-r_2&   0&p_2\\
-1&0&   0&-v_1&q_1\\
-0&1&   0&-v_2&q_2\\
+1&0&-u_1&   0&q_1\\
+0&1&-u_2&   0&q_2\\
+1&0&   0&-v_1&w_1\\
+0&1&   0&-v_2&w_2\\
 \hline
 \end{tabular}
 \rightarrow
@@ -476,10 +480,10 @@ erhält man die Tableaux
 \hline
 \color{red}x&\color{red}y&\color{red}t&\color{red}s&\\
 \hline
-1&0&-r_1&   0&p_1\\
-0&1&-r_2&   0&p_2\\
-0&0& r_1&-v_1&q_1\\
-0&1&   0&-v_2&q_2\\
+1&0&-u_1&   0&q_1\\
+0&1&-u_2&   0&q_2\\
+0&0& u_1&-v_1&w_1-q_1\\
+0&1&   0&-v_2&w_2\\
 \hline
 \end{tabular}
 \rightarrow
@@ -487,10 +491,10 @@ erhält man die Tableaux
 \hline
 \color{red}x&\color{red}y&\color{red}t&\color{red}s&\\
 \hline
-1&0&-r_1&   0&p_1\\
-0&1&-r_2&   0&p_2\\
-0&0& r_1&-v_1&q_1\\
-0&0& r_2&-v_2&q_2\\
+1&0&-r_1&   0&q_1\\
+0&1&-r_2&   0&q_2\\
+0&0& u_1&-v_1&w_1-q_1\\
+0&0& u_2&-v_2&w_2-q_2\\
 \hline
 \end{tabular}\,.
 \]
@@ -725,31 +729,31 @@ Wie kann man herausfinden, ob zwei Geraden in der Ebene parallel sind?
 \begin{aufgabe}
 Gegeben zwei Geraden in Parameterdarstellung
 \[
-\vec{r} = \vec{p} + t\vec{r}
+\vec{p} = \vec{q} + t\vec{u}
 \qquad\text{und}\qquad
-\vec{r} = \vec{q} + t\vec{v},
+\vec{p} = \vec{w} + t\vec{v},
 \]
 entscheide, ob die Geraden parallel sind.
 \end{aufgabe}
 Die Geraden sind parallel, wenn sie keine Schnittpunkte haben, oder
 wenn das Gleichungssystem
 \[
-\vec{p} + t\vec{r}
+\vec{q} + t\vec{u}
 =
-\vec{q} + s\vec{v}
+\vec{w} + s\vec{v}
 \qquad\Leftrightarrow\qquad
-t\vec{r}
+t\vec{u}
 -
 s\vec{v}
 =
-\vec{q}
+\vec{w}
 -
-\vec{p}
+\vec{q}
 \]
 keine Lösung hat.
 Dies ist ein Gleichungssystem mit zwei Gleichungen für zwei Unbekannte.
 Es kann nur im singulären Fall keine Lösung haben.
-Dieser tritt ein, wenn die Vektoren $\vec{r}$ und $\vec{v}$
+Dieser tritt ein, wenn die Vektoren $\vec{u}$ und $\vec{v}$
 linear abhängig sind.
 Dieses Kriterium funktioniert aber auch im Raum: Zwei Geraden sind
 genau dann parallel, wenn die Richtungsvektoren linear abhängig sind.

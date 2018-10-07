@@ -5,6 +5,7 @@
 %
 \section{Lineare Abbildungen%
 \label{section:lineare abbildungen}}
+\rhead{Lineare Abbildungen}
 Wie im vorangegangenen Abschnitt verwenden wir im folgenden eine Basis
 $\mathcal{B}=\{\vec{b}_1,\dots,\vec{b}_n\}$.
 Die Vektoren $\vec{b}_i$
@@ -15,15 +16,20 @@ dieser Basisvektoren schreiben.
 % Affine Abbildungen
 %
 \subsection{Affine und lineare Abbildungen}
-Wenn man von einem Problem einen Plan machen, dann darf die Perspektive
-keine Rolle spielen.
-Der Plan darf keine für das Problem wesentlichen Eigenschaften stören.
-Auf ein mathematisches Problem übertragen müssen wir in der Lage sein,
-Abbildungen auf das Problem anzuwenden, welche helfen können, das
-Problem zu lösen.
-Diese Abbildungen dürfen die wesentlichen Eigenschaften der untersuchten
-Objekte nicht verändern.
+Wenn ein Kartograph eine Karte herstellt, dann muss er sie so
+gestalten, dass die für die Anwendung der Karte wesentlichen
+Eigenschaften der Realität nicht verzerrt werden.
+Wenn es um die Bestimmung von Winkeln zwischen Geraden geht, dann
+muss die Karte winkeltreu sein.
+Wenn es um den Vergleich von Flächeninhalten geht, dann ist eine
+flächentreue Karte gewünscht.
+Es ist nicht immer möglich, solche Karten herzustellen. 
+Von der Erdoberfläche gibt es zwar flächen- und winkeltreue Karten,
+aber keine längentreuen Karten.
 
+Wenn wir eine Karte eines Problems in der affinen Geometrie machen wollen,
+dann brauchen wir eine Abbildung, welche die wesentlichen
+Elemente der affinen Geometrie respoektiert.
 Die im Abschnitt~\ref{section:koordinaten} vorgestellten Axiome
 sprechen von Geraden, Ebenen und Parallelen als den primären geometrischen
 Objekten.
@@ -43,12 +49,12 @@ konstruiert.
 Affine Abbildungen müssen also verträglich sein mit den algebraischen
 Operationen.
 Um die Geometrie mit Vektoren auszudrücken, mussten wir ausserdem
-einen ausgezeichneten Punkt $O$ haben.
+einen speziellen Punkt $O$ haben.
 Dieser muss natürlich unter Abbildungen, die uns interessieren
 ebenfalls erhalten bleiben.
 Eine affine Abbildung $\varphi$ muss also folgende Regeln erfüllen:
 \begin{align*}
-\varphi(O)&=O
+\varphi(0)&=0
 \\
 \varphi(\lambda\vec{p})&=\lambda\varphi(\vec{p})
 \\
@@ -58,11 +64,13 @@ Eine affine Abbildung $\varphi$ muss also folgende Regeln erfüllen:
 \begin{definition}
 Eine Abbildung $\varphi\colon \mathbb R^n \to \mathbb R^m$ mit den
 Eigenschaften
-\begin{align*}
+\[
+\begin{aligned}
 \varphi(\lambda\vec{p})&=\lambda\varphi(\vec{p})
 &&\text{und}&
 \varphi(\vec{u}+\vec{v})&=\varphi(\vec{u}) + \varphi(\vec{v})
-\end{align*}
+\end{aligned}
+\]
 heisst {\em linear}.
 \end{definition}
 
@@ -228,8 +236,7 @@ Der Vektor in der zweiten Zeile steht senkrecht auf der Geraden $g$
 und wird durch die Spiegelung mit $-1$ multipliziert.
 
 Natürlich ist dies genau die gleiche Matrix wie im vorangegangenen
-Beispiel, denn die Spiegelung vertauscht natürlich die beiden
-Basisvektoren.
+Beispiel, denn die Spiegelung vertauscht die beiden Basisvektoren.
 
 \subsubsection{Beispiel: Matrix einer Drehung}
 \begin{figure}
@@ -353,7 +360,7 @@ Dies ist genau die Definition des Matrizen-Produktes aus
 Abschnitt~\ref{skript:subsection:matrizen}.
 
 \begin{satz}
-Die Matrix $C$ der Abbildung zusmmengesetzt aus der Abbildung
+Die Matrix $C$ der Abbildung zusammengesetzt aus der Abbildung
 mit Matrix $A$ gefolgt von der Abbildung mit Matrix $B$ ist
 $C=BA$.
 \end{satz}

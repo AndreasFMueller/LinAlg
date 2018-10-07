@@ -104,7 +104,8 @@ union {
 	#declare vindex = vindex + 1;
 #end
 	pigment {
-		color rgb<0.2, 0.2, 1>
+		//color rgb<0.2, 0.2, 1>
+		color rgb<0.8,0.8,1>
 	}
 }
 
@@ -117,7 +118,8 @@ mesh {
 	triangle { A, B, C }
 	triangle { A, C, D }
 	pigment {
-		color rgbt<0.2, 0.2, 1, 0.5>
+		// color rgbt<0.2, 0.2, 1, 0.5>
+		color rgbt<0.8,0.8,1,0.2>
 	}
 }
 

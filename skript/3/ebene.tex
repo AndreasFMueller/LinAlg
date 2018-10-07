@@ -20,7 +20,9 @@ Die Parameterdarstellung einer Ebene verwendet daher ausser dem
 Stützvektor $\vec{p}$ zwei Richtungsvektoren $\vec{u}$ und $\vec{v}$
 und braucht zwei unabhängige Parameter $t$ und $s$:
 \begin{equation}
-\vec{p} + t\vec{u} + s\vec{v}
+\vec{p}
+=
+\vec{q} + t\vec{u} + s\vec{v}
 \label{skript:affin:ebene:parameterdarstellung}
 \end{equation}
 (Abbildung~\ref{skript:affin:ebene}).
@@ -78,16 +80,16 @@ s\begin{pmatrix}3\\-3\\-1\end{pmatrix}.
 \begin{aufgabe}
 Gegeben die Parameterdarstellung
 \eqref{skript:affin:ebene:parameterdarstellung}
-einer Ebene, entscheide, ob ein Punkt $Q$ auf der Ebene liegt.
+einer Ebene, entscheide, ob ein Punkt $P$ auf der Ebene liegt.
 \end{aufgabe}
-Der Punkt $Q$ liegt genau dann auf der Ebene, wenn sich Parameterwerte
+Der Punkt $P$ liegt genau dann auf der Ebene, wenn sich Parameterwerte
 $t$ und $s$ finden lassen derart, dass der resultierende Vektor
-der Ortsvektor $\vec{q}$ von $Q$ ist.
+der Ortsvektor $\vec{p}$ von $P$ ist.
 Dies führt auf das Gleichungssystem
 \[
-\vec{q}
+\vec{p}
 =
-\vec{p} + t\vec{u} + s\vec{v},
+\vec{q} + t\vec{u} + s\vec{v},
 \]
 ein Gleichungssystem mit drei Gleichung und zwei Unbekannten.
 In Tableauform kann man es mit dem Gauss-Algorithmus lösen und
@@ -114,11 +116,11 @@ u_3&v_3&q_3-p_3\\
 \hline
 \end{tabular}
 \]
-Der rote Stern rechts unten zeigt an, ob der Punkt $Q$ auf der Ebene liegt.
+Der rote Stern rechts unten zeigt an, ob der Punkt $P$ auf der Ebene liegt.
 Steht dort ein von Null verschiedener Wert, hat das Gleichungssystem keine
-Lösung und der Punkt $Q$ liegt nicht auf der Ebene.
+Lösung und der Punkt $P$ liegt nicht auf der Ebene.
 In der rechten oberen Ecke kann man die Parameterwerte $t$ und $s$
-ablesen, für die der Punkt $Q$ erreicht wird.
+ablesen, für die der Punkt $P$ erreicht wird.
 
 \begin{beispiel}
 Liegt der Punkt $(12,9,1)$ auf der Ebene mit der Parameterdarstellung
@@ -168,10 +170,10 @@ Ebene beschreiben?
 Gegeben zwei Parameterdarstellungen von Ebenen
 \begin{equation*}
 \sigma_1:\quad
-\vec{p}_1+t\vec{u}_1+s\vec{v}_1
+\vec{q}_1+t\vec{u}_1+s\vec{v}_1
 \qquad\text{und}\qquad
 \sigma_2:\quad
-\vec{p}_2+t\vec{u}_2+s\vec{v}_2,
+\vec{q}_2+t\vec{u}_2+s\vec{v}_2,
 \end{equation*}
 entscheide, ob sie die gleiche Ebene beschreiben.
 \end{aufgabe}
@@ -180,9 +182,9 @@ sich für jede Wahl der Parameter der einen Ebene ein Punkt ergibt,
 der sich auch auf der zweiten Ebene befindet.
 Man kann also die Vektorgleichung
 \[
-\vec{p}_1+t_1\vec{u}_1+s_1\vec{v}_1
+\vec{q}_1+t_1\vec{u}_1+s_1\vec{v}_1
 =
-\vec{p}_2+t_2\vec{u}_2+s_2\vec{v}_2
+\vec{q}_2+t_2\vec{u}_2+s_2\vec{v}_2
 \]
 für jede Wahl von $t_2$ und $s_2$ immer nach $t_1$ und $s_1$ auflösen.
 Wir können also die Unbekannten $t_1$ und $s_1$ auf die linke Seite, die
@@ -190,8 +192,8 @@ restlichen Variablen auf die rechte schaffen und erhalten das Gleichungssystem
 \[
 t_1\vec{u}_1+s_1\vec{v}_1
 =
-\vec{p}_2-
-\vec{p}_1
+\vec{q}_2-
+\vec{q}_1
 +t_2\vec{u}_2+s_2\vec{v}_2.
 \]
 In Tableauform lautet es
@@ -200,9 +202,9 @@ In Tableauform lautet es
 \hline
 t_1&s_1&&t_2&s_2\\
 \hline
-u_{11}&v_{11}&p_{21}-p_{11}&u_{21}&v_{21}\\
-u_{12}&v_{12}&p_{22}-p_{12}&u_{22}&v_{22}\\
-u_{13}&v_{13}&p_{23}-p_{13}&u_{23}&v_{23}\\
+u_{11}&v_{11}&q_{21}-q_{11}&u_{21}&v_{21}\\
+u_{12}&v_{12}&q_{22}-q_{12}&u_{22}&v_{22}\\
+u_{13}&v_{13}&q_{23}-q_{13}&u_{23}&v_{23}\\
 \hline
 \end{tabular}
 \quad\rightarrow\quad
@@ -289,7 +291,7 @@ Abbildung~\ref{skript:affin:durchstosspunkt}).
 
 \begin{aufgabe}
 Gegeben ist eine Gerade $g$ mit Parameterdarstellen
-$\vec{q}_0+t\vec{r}$
+$\vec{q}+t\vec{r}$
 und eine Ebene $\sigma$ mit Parameterdarstellung
 $\vec{p}_0+t\vec{u}+s\vec{v}$.
 Finde den Durchstosspunkt $S$ der Geraden $g$ durch die Ebenen $\sigma$
@@ -302,7 +304,7 @@ Wir müssen daher in der Geradengleichung einen unabhängigen Parameter
 verwenden, zum Beispiel $w$.
 Die Bedingung für den Punkt $S$ könnten wir dann als
 \[
-\vec{q} + w\vec{r} = \vec{p} + t\vec{u} + s\vec{v}
+\vec{q} + w\vec{r} = \vec{p}_0 + t\vec{u} + s\vec{v}
 \]
 schrieben.
 Diese Vektorgleichung steht für drei Gleichungen mit den drei Unbekannten
@@ -321,7 +323,7 @@ Wir haben die folgenden Vektorgleichungen dafür:
 =\vec{q} + w\vec{r}
 \qquad\text{und}\qquad
 \begin{pmatrix}x\\y\\z\end{pmatrix}
-=\vec{p} + t\vec{u} + s\vec{v}.
+=\vec{p}_0 + t\vec{u} + s\vec{v}.
 \]
 Dies sind sechs Gleichungen für die sechs Unbekannten $x$, $y$, $z$, $t$,
 $s$ und $w$.
@@ -636,26 +638,26 @@ $\vec{e}_2$ auf den zweiten Richtungsvektor und $\vec{e}_3$ auf den
 Stützvektor abbilden.
 Die Abbildungsmatrix muss also in der ersten Spalte den Richtungsvektor
 $\vec{u}$ enthalten, in der zweiten den Richtungsvektor $\vec{v}$ und in
-der dritten Spalten den Stütztvektor $\vec{p}$, wie in
+der dritten Spalten den Stützvektor $\vec{q}$, wie in
 \[
 A=\begin{pmatrix}
-u_1&v_1&p_1\\
-u_2&v_2&p_2\\
-u_3&v_3&p_3\\
+u_1&v_1&q_1\\
+u_2&v_2&q_2\\
+u_3&v_3&q_3\\
 \end{pmatrix}.
 \]
 Die Parameterdarstellung kann dann wieder in Matrixform geschrieben werden
 als
 \[
-t\vec{u}+s\vec{v}+\vec{p}
+t\vec{u}+s\vec{v}+\vec{q}
 =
 A
 \begin{pmatrix}t\\s\\1\end{pmatrix}
 =
 \begin{pmatrix}
-u_1&v_1&p_1\\
-u_2&v_2&p_2\\
-u_3&v_3&p_3\\
+u_1&v_1&q_1\\
+u_2&v_2&q_2\\
+u_3&v_3&q_3\\
 \end{pmatrix}
 \begin{pmatrix}t\\s\\1\end{pmatrix}.
 \]
@@ -708,17 +710,17 @@ In der Megenklammer steht die Parameterdarstellung einer Ebene.
 
 Umgekehrt kann man auch zu einer beliebigen Ebene mit Parameterdarstellung
 \[
-\vec{p}+t\vec{u}+s\vec{v}
+\vec{q}+t\vec{u}+s\vec{v}
 \]
 eine lineare Gleichung finden, die die Ebene als Lösungemenge hat.
 Dazu setzt man die Gleichung in der
 Form~\eqref{skript:affin:ebene:nullmenge} an und setzt die drei
-Punkte $\vec{p}$, $\vec{p}+\vec{u}$ und $\vec{p}+\vec{v}$ ein:
+Punkte $\vec{q}$, $\vec{q}+\vec{u}$ und $\vec{q}+\vec{v}$ ein:
 \[
 \begin{linsys}{3}
-p_1a&+&p_2b&+&p_3c&=&d\\
-(p_1+u_1)a&+&(p_2+u_2)b&+&(p_3+u_3)c&=&d\\
-(p_1+v_1)a&+&(p_2+v_2)b&+&(p_3+v_3)c&=&d\\
+ q_1     a&+& q_2     b&+& q_3     c&=&d\\
+(q_1+u_1)a&+&(q_2+u_2)b&+&(q_3+u_3)c&=&d\\
+(q_1+v_1)a&+&(q_2+v_2)b&+&(q_3+v_3)c&=&d\\
 \end{linsys}
 \]
 Wir bringen die Unbekannte $d$ ebenfalls auf die linke Seite und schreiben
@@ -728,9 +730,9 @@ das in Tableauform als
 \hline
 a&b&c&d&\\
 \hline
-p_1&p_2&p_3&-1&0\\
-p_1+u_1&p_2+u_2&p_3+u_3&-1&0\\
-p_1+v_1&p_2+v_2&p_3+v_3&-1&0\\
+q_1&q_2&q_3&-1&0\\
+q_1+u_1&q_2+u_2&q_3+u_3&-1&0\\
+q_1+v_1&q_2+v_2&q_3+v_3&-1&0\\
 \hline
 \end{tabular}
 &\rightarrow
