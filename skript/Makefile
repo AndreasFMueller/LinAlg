@@ -69,7 +69,7 @@ images:
 skript.pdf:	skript.tex $(TEXFILES) skript.ind 
 	pdflatex skript.tex
 
-skript.ind:	images skript.tex $(TEXFILES) images-subdir
+skript.ind:	images skript.tex $(TEXFILES)
 	touch skript.ind
 	pdflatex skript.tex
 	makeindex skript.idx
