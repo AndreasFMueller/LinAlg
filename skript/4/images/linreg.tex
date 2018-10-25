@@ -1,0 +1,47 @@
+%
+% linreg.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\documentclass[tikz,12pt]{standalone}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{pifont}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+
+\def\punkt#1{
+        \fill[color=white] #1 circle[radius=0.08];
+        \draw #1 circle[radius=0.08];
+}
+
+\def\p#1{
+	\fill[color=blue] #1 circle[radius=0.07];
+}
+
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+
+\begin{tikzpicture}[>=latex,thick]
+
+\coordinate (O) at (0,0);
+
+\input{linreg.pkt}
+
+\draw[->,line width=1] (-0.7, 0  )--(12,0  ) coordinate[label={$x$}];
+\draw[->,line width=1] ( 0  ,-0.5)--( 0,7.5) coordinate[label={right:$y$}];
+
+\foreach \x in {1,...,11}{
+	\draw ({\x},-0.06)--({\x},0.06);
+}
+\foreach \y in {1,...,7}{
+	\draw (-0.06,{\y})--(0.06,{\y});
+}
+
+\end{tikzpicture}
+
+\end{document}
+

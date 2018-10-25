@@ -6,7 +6,7 @@
 
 all:	projektion.pdf linearitaet.pdf skalarprodukt.pdf spiegelung.pdf \
 	tangente.pdf thales.pdf tangentepunkt.pdf \
-	normalenform.pdf
+	normalenform.pdf linreg.pdf kreis.pdf bewegung.pdf
 
 projektion.pdf:	projektion.tex
 	pdflatex projektion.tex
@@ -38,3 +38,19 @@ normalenform.pdf:	normalenform.tex normalenform.jpg
 
 tangentepunkt.pdf:	tangentepunkt.tex
 	pdflatex tangentepunkt.tex
+
+linreg.pdf:	linreg.tex linreg.pkt
+	pdflatex linreg.tex
+linreg.pkt:	linreg.m
+	octave linreg.m
+
+kreis.pdf:	kreis.tex kreis.pkt
+	pdflatex kreis.tex
+kreis.pkt:	kreis.m
+	octave kreis.m
+
+bewegung.pdf:	bewegung.tex bewegung.pkt
+	pdflatex bewegung.tex
+bewegung.pkt:	bewegung.m
+	octave bewegung.m
+

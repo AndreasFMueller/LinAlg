@@ -6,17 +6,42 @@
 \section{Überbestimmte Gleichungssysteme -- ``Least Squares''%
 \label{section:ueberbestimmt}}
 \index{Gleichungssystem!ueberbestimmtes@\überbestimmtes}
-Bei einem überbestimmten Gleichungssystem, als einem Gleichungssystem
-mit mehr Gleichungen als Unbekannten, kann man im allgemeinen nicht davon
+Bei einem überbestimmten Gleichungssystem, also einem Gleichungssystem
+mit mehr Gleichungen als Unbekannten, kann man im Allgemeinen nicht davon
 ausgehen, dass es überhaupt eine Lösung gibt.
 Ein solches Gleichungssystem hat die Form
 \[
 A v= b,
 \]
 wobei $A$ eine Matrix ist, die mehr Zeilen als Spalten hat.
-In drei Dimensionen hat $v$ also zwei oder sogar nur eine Komponenten,
-die Menge aller möglichen Vektoren $Av$ ist also eine Ebene oder
-Gerade.
+
+Betrachten wir als Beispiel das Gleichungssystem
+\[
+\begin{pmatrix}
+ 6&14\\
+12&28\\
+ 9&21
+\end{pmatrix}
+\begin{pmatrix}v_1\\v_2\end{pmatrix}
+=
+\begin{pmatrix}2\\4\\4\end{pmatrix}.
+\]
+Die Bildmenge der Abbildungsmatrix $A$ beschreibt eine Ebene durch
+den Nullpunkt mit den Parametern $v_1$ und $v_2$.
+Das Gleichungssystem sucht also nach den Parametern $v_1$ und $v_2$
+des Punktes auf der Ebene mit den Koordinaten $(2,4,4)$.
+Solche Parameterwerte müssen aber gar nicht existieren, es ist
+ja nicht klar, dass der Punkt überhaupt auf der Ebene liegt.
+
+Das Beispiel zeigt aber noch eine weitere Schwierigkeit.
+Die beiden Spaltenvektoren von $A$ sind nämlich linear abhängig,
+die zweite Spalte ist das $\frac{7}{3}$-fache der ersten Spalte.
+Der Rang der Matrix ist daher $1$, die Bildmenge ist sogar nur
+eine Gerade.
+Man erkennt zum Beispiel, dass der Punkt $(2,4,3)$ auf der Geraden
+liegt.
+Der gegebene Punkt $(2,4,4)$ kann aber nicht auf der Geraden liegen.
+Das Gleichungssystem ist nicht lösbar.
 
 \rhead{Überbestimmte Gleichungssysteme}
 %
@@ -24,14 +49,14 @@ Gerade.
 %
 \subsection{Lösung im Sinne des kleinsten Abstandes}
 Das beste, was man erwarten kann, ist ein Vektor $v_0$ so, dass
-der Abstand des Punktes $ b$ von der Ebene (Gerade) bestehende
+der Abstand des Punktes $ b$ von der Ebene (Gerade) bestehend
 aus allen $Av$ für $v=v_0$ am kleinsten wird.
-Dies geschieht
-natürlich genau dann, wenn der Differenzvektor $b-Av_0$ auf
+Dies geschieht natürlich genau dann, wenn der Differenzvektor $b-Av_0$ auf
 allen Vektoren von $Av$ senkrecht steht.
 
 Die Menge der Vektoren der Form $Av$ wird von den Spalten von $A$
-aufgespannt, es genügt also zu testen, ob $b-Av_0$ auf diesen
+aufgespannt.
+Es genügt also zu testen, ob $b-Av_0$ auf diesen
 Vektoren senkrecht steht.
 Dazu müssen die Skalarprodukte von
 Spalten von $A$ mit dem Vektor $b-Av_0$ verschwinden, oder
@@ -47,8 +72,8 @@ rechter Seite $A^tb$, welches als Lösung den gesuchten Vektor
 $v_0$ hat.
 $A^t$ hat so viele Zeilen wie $v$ Komponenten hat, also
 handelt es sich um ein Gleichungssystem mit gleich vielen Gleichungen
-wie Unbekannten, es wird im Allgemeinen eine eindeutig bestimmte
-Lösung haben.
+wie Unbekannten.
+Es wird im Allgemeinen eine eindeutig bestimmte Lösung haben.
 
 \begin{satz} Sei $A$ eine $n\times m$ Matrix und $b$ ein $n$-dimensionaler
 Vektor.
@@ -110,7 +135,7 @@ und durch Einsetzen in die Ebenengleichung den Ortsvektor des Fusspunktes
    7.4337\\
    9.0602\\
    9.1928
-\end{pmatrix}
+\end{pmatrix}.
 \]
 Man kann dieses Resultat dadurch kontrollieren, dass man nachrechnet, ob
 $\vec p-\vec f$ senkrecht auf beiden Richtungsvektoren der Ebene
@@ -128,13 +153,13 @@ den Richtungsvektoren senkrecht.
 % Alles in einem Schritt
 %
 \subsection{``Alles in einem Schritt''}
-In Abschnitt \ref{section-vereinheitlichtes-verfahren} wurde gezeigt,
-wie man Schnittprobleme mit nur einer Durchführung des Gauss-Algorithmus
+In Kapitel~\ref{chapter:affin} wurde gezeigt, wie man Probleme der
+affinen Geometrie mit nur einer Durchführung des Gauss-Algorithmus
 lösen konnte.
-Im soeben gelösten Problem musste man aber wieder
-in mehrere Schritten vorgehen.
+Bei der soeben vorgestellten Lösung des Fusspunkt-Problems
+musste man aber wieder in mehrere Schritten vorgehen.
 Zuerst wurden $s$ und $t$ bestimmt,
-und erst in einem zweiten Schritt konnte der Fusspunkt des Lotes
+erst in einem zweiten Schritt konnte der Fusspunkt des Lotes
 berechnet werden.
 
 Natürlich ist das auch für dieses Problem möglich, man behandelt
@@ -193,12 +218,12 @@ Man erhält also genau die bereits früher gefundenen Lösungen.
 Überbestimmte Gleichungssysteme sind Gleichungssysteme der Form
 $Ax=b$ mit einer $m\times n$-Matrix mit $m>n$, also mehr Gleichungen
 als Unbekannten.
-Im allgemeinen sind sie nicht lösbar, weil $b$ nicht
+Im Allgemeinen sind sie nicht lösbar, weil $b$ nicht
 im Bild von $A$ enthalten ist: $b\not\in \operatorname{im}A$.
 
 Statt einer exakten Lösung könnte man daher eine approximative
-Lösung suchen, welche die Gleichung möglichst gut erfüllt,
-der Vektor $Ax-b$ sollte also möglichst kurz sein.
+Lösung suchen, welche die Gleichung möglichst gut erfüllt.
+Der Vektor $Ax-b$ sollte also möglichst kurz sein.
 Geometrisch
 geht es also darum, das Lot vom Punkt $b$ auf den von den Spaltenvektoren
 von $A$ aufgespannten Unterraum zu fällen.
@@ -248,18 +273,32 @@ Daten hat als nötig, um die Parameter eines Problems zu bestimmen.
 Zum Beispiel genügt es, drei Punkte eines Kreises zu kennen, um
 Mittelpunkt und Radius exakt bestimmen zu können.
 Oder zwei Punkte bestimmen eine Gerade eindeutig.
-In der Praxis misst man meistens mehr Punkte, allerdings sind die Messungen
-mit Messfehlern behaftet.
+In der Praxis misst man meistens mehr Punkte.
+Allerdings sind die Messungen mit Messfehlern behaftet.
 Die Methode der kleinsten Quadrate erlaubt dann, die bestmöglichen
 Werte für die Parameter zu finden.
 Dies soll an zwei Beispielen illustriert werden.
 
 \subsubsection{Gerade durch Punkte}
+\begin{figure}
+\centering
+\includegraphics{4/images/linreg.pdf}
+\caption{Bestimmung einer Geraden, die eine Menge von Punkten am besten
+approximiert.
+Die blauen Punkte sind entstanden, indem Punkte der grünen Gerade
+mit einer zufälligen Abweichungen gestört wurden.
+Die rot eingezeichnete Regeressionsgerade approximiert die ursprüngliche
+Gerade mit grosser Genauigkeit.
+\label{skript:linreg-abb}}
+\end{figure}
 Gegeben sind Punkte $(x_i,y_i)$ mit $1\le i\le n$, die ungefähr auf
-einer Geraden $y=ax+b$ liegen.
-Gesucht sind die Werte von $a$ und $b$, zur Verdeutlichung heben wir im
+einer Geraden $y={\color{red}a}x+{\color{red}b}$ liegen.
+Gesucht sind die Werte von $\color{red}a$ und $\color{red}b$
+(Abbildung~\ref{skript:linreg-abb}).
+Zur Verdeutlichung heben wir im
 Folgenden die Unbekannten rot hervor.
-Wären die Punkte exakt auf der Geraden, würden die Gleichungen
+Wären die Punkte exakt auf der Geraden, müsste jeder die Geradengleichung
+erfüllen, wir erhielten also die Gleichungen
 \begin{equation}
 \begin{linsys}{2}
 {\color{red}a}x_1&+     &{\color{red}b}&=&y_1\\
@@ -271,7 +310,7 @@ Wären die Punkte exakt auf der Geraden, würden die Gleichungen
 \end{equation}
 Dies ist ein Gleichungssystem für die Unbekannten ${\color{red}a}$ und
 ${\color{red}b}$ mit $n$
-Gleichungen, im allgemeinen ist es also überbestimmt.
+Gleichungen, im Allgemeinen ist es also überbestimmt.
 
 Die Gleichung \eqref{leastsquares:gerade} kann mit dem Standardverfahren
 gelöst werden.
@@ -361,22 +400,46 @@ n\sum_{i=1}^n x_i^2 -\biggl(\sum_{i=1}^n x_i\biggr)^2
 \frac1n\sum_{i=1}^n x_iy_i-\frac1n\sum_{i=1}^nx_i\cdot \frac1n\sum_{i=1}^ny_i
 }{\displaystyle
 \frac1n\sum_{i=1}^n x_i^2 -\biggl(\frac1n\sum_{i=1}^n x_i\biggr)^2
-}
-\\
-\intertext{Das ursprüngliche Gleichungssystem impliziert, dass die Mittelwerte
-von $x_i$ und $y_i$ die Beziehung $y={\color{red}a}x+{\color{red}b}$ erfüllen,
-können wir auch nach ${\color{red}b}$ auflösen und erhalten.}
+}.
+\end{align*}
+Den Achsenabschnitt $\color{red}b$ könnte man natürlich auch so finden,
+es geht aber auch direkter.
+Bildet man die Summe der Gleichungen 
+\ref{leastsquares:gerade}, erhält man
+\[
+{\color{red}a}
+\sum_{i=1}^n x_i
++
+n{\color{red}b}
+=
+\sum_{i=1}^n y_i.
+\]
+Auflösen nach $\color{red}b$ ergibt
+\begin{align*}
 {\color{red}b}
 &=
 \frac1n\sum_{i=1}^n y_i
 -{\color{red}a}
 \cdot
-\frac1n\sum_{i=1}^n x_i
+\frac1n\sum_{i=1}^n x_i.
 \end{align*}
-Die so gefundene Gerade heisst auch {\em Regressionsgerade}.
+Die so gefundene Gerade  mit der Gleichung
+$y={\color{red}a}x+{\color{red}b}$
+heisst auch {\em Regressionsgerade}.
 \index{Regressionsgerade}
 
 \subsubsection{Kreis durch Punkte}
+\begin{figure}
+\centering
+\includegraphics{4/images/kreis.pdf}
+\caption{Bestimmung eines Kreises, die eine Menge von Punkten am besten
+approximiert.
+Die blauen Punkte sind entstanden, indem Punkte des grünen Kreises
+mit einer zufälligen Abweichungen gestört wurden.
+Der rot eingezeichnete Kreis approximiert den ursprünglichen
+Kreis mit grosser Genauigkeit.
+\label{skript:linreg-abb}}
+\end{figure}
 Gegeben sind die Punkte $(x_i,y_i)$ mit $1\le i\le n$, die ungefähr
 auf einem Kreis liegen.
 Gesucht sind Mittelpunkt $M=(m_x,m_y)$ und Radius $r$ dieses Kreises.
@@ -387,8 +450,8 @@ Die Gleichung eines Kreises ist
 \[
 (x_i - {\color{red}m_x})^2 + (y_i - {\color{red}m_y})^2 = {\color{red}r}^2.
 \]
-Diese Gleichungen sind allerdings nicht linear, das Standardverfahren 
-ist also nicht anwendbar.
+Diese Gleichungen sind allerdings nicht linear.
+Das Standardverfahren ist also nicht anwendbar.
 Wir multiplizieren daher aus, und erhalten
 \[
 x_i^2 - 2x_i {\color{red}m_x} + {\color{red}m_x}^2
@@ -411,7 +474,7 @@ zusammenfassen, können wir die Gleichungen in lineare Form bringen:
 \begin{equation}
 2x_i{\color{red}m_x}
 +
-2y_i{\color{red}m_x}
+2y_i{\color{red}m_y}
 +
 {\color{red}c}
 =
@@ -458,6 +521,24 @@ Aus der Lösung kann dann der Radius als
 bestimmt werden.
 
 \subsubsection{Drehung und Translation finden}
+\begin{figure}
+\centering
+\includegraphics{4/images/bewegung.pdf}
+\caption{Bestimmung von Drehwinkel und Translation einer Bewegung.
+Die ursprüngliche Bewegung bewegt das schwarze Koordinatenkreuz auf
+die grünen Achsen.
+Die blauen Punkte werden mit dieser Bewegung abgebildet aber zusätzlich
+noch mit einem zufälligen Fehler überlagert, so entstehen die grünen Punkte.
+Die kurzen grünen Linien beginnen beim exakten Bild eines blauen Punktes.
+Das im Text beschriebene Verfahren liefert den Drehwinkel und die
+Verschiebung, die das Koordinatensystem auf die roten Achsen bewegt.
+Damit werden die blauen Punkte auf die roten Punkte abgebildet.
+Es zeigt sich, dass die grünen Linien ziemlich genau dort beginnen, wo
+die gefundene Bewegung die blauen Punkte hinbewegt, das Verfahren kann
+sowohl die Bewegung als auch die Fehler (die grünen Linien)
+recht genau ermitteln.
+\label{skript:bewegung-leastsquares}}
+\end{figure}
 Das Regstrierungsproblem in der Bildverarbeitung verlangt, zwei Bilder
 der gleichen Szene mit Hilfe einer Drehung und Translation zur Deckung
 zu bringen.
@@ -546,6 +627,8 @@ Es ist nicht garantiert, dass die Lösung
 erfüllen wird, wie das für $\cos\alpha$ und $\sin\alpha$ der Fall wäre.
 Die Bedeutung von $\lambda$ ist die eines zusätzlichen Streckungsfaktors,
 dem das Bild für optimale Deckung auch noch unterworfen werden sollte.
+Abbildung~\ref{skript:bewegung-leastsquares} zeigt an einem Beispiel, wie
+das Verfahren die Bewegung aus wenigen Punkten ermitteln kann.
 
 
 

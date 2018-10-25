@@ -14,7 +14,7 @@ Abbildungen, die das Skalarprodukt nicht verändern.
 \subsection{Definition}
 Lineare Abbildungen, welche Längen und Winkel nicht ändern, beschreiben
 sogenannte {\em Bewegungen} des Raumes.
-Damit zwei Vektoren $u$ und $v$ sollen nach Abbildung
+Damit zwei Vektoren $u$ und $v$ nach Abbildung
 mit der Matrix $A$ immer noch das gleiche Skalarprodukt haben, muss
 \[
 u^tv=(Au)^tAv=u^tA^tAv
@@ -203,8 +203,8 @@ bedeutet sie, dass Zeile $i$ von $A^t$ mal Spalte $i$ von $A$ $1$ ergibt.
 Dies ist aber das Skalarprodukt von Spalte $i$ von $A$ mit Spalte $i$
 von $A$, also die Länge vom Spaltenvektor mit der Nummer $i$.
 
-Seien jetzt $i\ne j$ zwei verschiedene Indizes.
-Dann bedeutet $A^tA=E$,
+Seien jetzt $i\ne j$ zwei verschiedene Indizes,
+dann bedeutet $A^tA=E$,
 dass Zeile $i$ von $A^t$ mal Spalte $j$ von $A$ $0$ ergibt.
 Oder das
 Skalarprodukt von Spalte $i$ von $A$ mit Spalte $j$ von $A$ ist $0$.
@@ -219,6 +219,8 @@ Für Transformation, die die Koordinatenachsen vertauscht, ist
 die Transformationsmatrix ebenfalls leicht zu ermitteln.
 In der Basis
 \[
+{\mathcal{B}'}
+=
 \left\{
 b_1'=\begin{pmatrix}0\\0\\1\end{pmatrix},
 b_2'=\begin{pmatrix}0\\1\\0\end{pmatrix},
@@ -226,21 +228,44 @@ b_3'=\begin{pmatrix}1\\0\\0\end{pmatrix},
 \right\}
 \]
 sind die $x$- und die $z$-Achse vertauscht worden.
-die zugehörige Transformationsmatrix ist
+Wir bestimmen die Transformationsmatrix mit dem Verfahren von 
+Abschnitt~\ref{subsection:basistransformation}.
+Das zugehörige Tableau ist
+\[
+\begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$}| >{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+&\mathcal{B}'&&&\mathcal{B}&\\
+\hline
+0&0&1&1&0&0\\
+0&1&0&0&1&0\\
+1&0&0&0&0&1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{| >{$}c<{$} >{$}c<{$} >{$}c<{$}| >{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+&\mathcal{B}'&&&\mathcal{B}&\\
+\hline
+1&0&0&0&0&1\\
+0&1&0&0&1&0\\
+0&0&1&1&0&0\\
+\hline
+\end{tabular}
+\]
+woraus wir die Transformationsmatrix
 \begin{equation}
-T=\begin{pmatrix}
-0&0&1\\
-0&1&0\\
-1&0&0
-\end{pmatrix}^{-1}
+T
 =
 \begin{pmatrix}
 0&0&1\\
 0&1&0\\
 1&0&0
-\end{pmatrix}.
+\end{pmatrix}
 \label{transformation-vertauschung}
 \end{equation}
+ablesen können.
+Durch nachrechnen können wir überprüfen, dass $T^tT=E$ ist, dass die
+Matrix $T$ also orthogonal ist.
 
 %
 % Drehung des dreidimensionalen Raumes
@@ -485,8 +510,8 @@ D_{z,\alpha}
 \end{pmatrix}
 \end{align*}
 In der Astronomie und der Raumfahrt sind die Winkel sehr gebräuchlich.
-Der Winkel $\beta$ ist die Neigung der Bahn gegenüber der Referenzebene,
-bei Satellitenbahnen um die Erde ist dies die Äquatorebene,
+Der Winkel $\beta$ ist die Neigung der Bahn gegenüber der Referenzebene.
+Bei Satellitenbahnen um die Erde ist dies die Äquatorebene,
 bei interplanetaren Missionen die Ebene der Erdbahn.
 Der Winkel $\gamma$ ist der Winkel zwischen einer Referenzrichtung
 und der Schnittgeraden der Bahnebene mit der Referenzebene.
@@ -494,31 +519,4 @@ Diese Schnittgerade heisst auch die Knotenlinie.
 Bei Planetenbahnen ist die Referenzrichtung die Richtung des Frühlingspunktes.
 Der Winkel $\alpha$ ist der Winkel zwischen der Knotenlinie und dem
 erd- oder sonnennächsten Punkt.
-
-%
-% Die orthogonale Gruppe
-%
-%\subsection{Die orthogonale Gruppe\label{subsection:orthogonale gruppe}}
-%Die orthogonalen Matrizen bilden eine wichtige Teilmenge der invertierbaren
-%Matrizen, die sogenante orthogonale Gruppe.
-%
-%\begin{definition}
-%Die Menge aller orthogonalen Matrizen
-%\[
-%\operatorname{O}(n) = \{ A\in M_n(\mathbb R)\;|\; AA^t = E \}
-%\subset \operatorname{GL}_n(\mathbb R)
-%\]
-%heisst die orthogonale Gruppe.
-%\end{definition}
-%Die orthogonale Gruppe enthält einerseits alle Drehmatrizen, aber auch
-%alle Spiegelungen, da diese ebenfalls das Skalarprodukt erhalten.
-%Des Weiteren sind Produkte von Drehmatrizen und Spiegelungsmatrizen
-%ebenfalls in $\operatorname{O}(n)$.
-%Wir verfügen im Moment nicht nicht über die notwendigen Hilfsmittel,
-%Drehmatrizen von Abbildungen mit einer Spiegelungskomponente zu 
-%unterscheiden, dies wird im nächsten Kapitel anchgeholt.
-
-
-
-
 

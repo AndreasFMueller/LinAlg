@@ -7,7 +7,7 @@
 \rhead{Kreis und Kugel}
 Da das Skalarprodukt die Länge eines Vektors berechnet, kann man
 jetzt auch die Menge der Punkte eines Kreises in der Ebene
-oder einer Kugel im Raum vektoriell beschreiben, und damit Standardaufgaben
+oder einer Kugel im Raum vektoriell beschreiben und damit Standardaufgaben
 lösen.
 
 %
@@ -32,6 +32,21 @@ K(M,r)
 \{\vec p\;| \;(\vec p-\vec m)\cdot(\vec p-\vec m)=r^2\}.
 \]
 Die zweite Form ist für die Lösung konkreter Problem oft nützlicher.
+
+Zur Beschreibung von Kreisen oder Kugeln ist also das Skalarprodukt
+$(\vec{p}-\vec{m})\cdot(\vec{p}-\vec{m})$ eines Vektors $\vec{p}-\vec{m}$
+mit sich selbst nötig.
+Diese Notation ist etwas schwerfällig, daher kürzen wir solche Produkte
+wie folgt ab:
+
+\begin{definition}
+Das Skalarprodukt eines Vektors mit sich selbst wir abgekürzt als
+\[
+\vec{v}\cdot\vec{v} = \vec{v}^2
+\]
+geschrieben.
+Es gilt $\vec{v}^2 = |\vec{v}|^2$.
+\end{definition}
 
 %
 % Durchstosspunkt einer Geraden mit einer Kugel
@@ -81,12 +96,11 @@ Indem wir die Diskriminante berechnen,  können wir eine Kriterium
 dafür ableiten, ob die Gerade die Kugel berührt.
 Die Diskriminante
 der quadratischen Gleichung $at^2+bt+c=0$ ist $\Delta = b^2-4ac$.
-In unserem
-Fall wird daraus
+In unserem Fall wird daraus
 \[
 \Delta
 =
-4(\vec p_0\cdot(\vec p_0-\vec m))^2-
+4(\vec r\cdot(\vec p_0-\vec m))^2-
 4|\vec r|^2(
 |\vec p_0-\vec m|^2-r^2
 )
@@ -107,8 +121,8 @@ rechten Winkel erscheint, bilden den Thaleskreis.
 \label{thales-graphik}}
 \end{figure}
 Mit dem Skalarprodukt kann man ausdrücken, von welchen Punkten aus
-eine Strecke $AB$ unter einem rechten Winkel gesehen wird, es ist
-dies die Menge der Punkte $P$ mit der Eigenschaft
+eine Strecke $AB$ unter einem rechten Winkel gesehen wird.
+Es ist dies die Menge der Punkte $P$ mit der Eigenschaft
 \[
 \overrightarrow{AP}\cdot\overrightarrow{BP}=0
 \]
@@ -163,7 +177,8 @@ von $
 \vec{p}_0-\vec{m}$.
 \label{tangente-graphik}}
 \end{figure}
-Die Normale auf einen Kreis ist immer parallel zum Radiusvektor
+Die Normale $\vec{n}$ auf einen Kreis ist immer parallel zum Radiusvektor
+$\vec{r}$
 (Abbildung~\ref{tangente-graphik}),
 dasselbe gilt für eine Kugel.
 Daher kann
@@ -181,17 +196,61 @@ $\vec m$ und Radius  $r$ im Punkt mit Ortsektor $\vec p_0$ ist
 \end{satz}
 Diese Form (\ref{eqn-kugeltangente}) ist noch nicht optimal, man kann den
 Radius nicht direkt ablesen.
+
+Man kann den Punkt $P$ aber auch dadurch charakterisieren, dass die
+orthogonale Projektion des Vektors $\overrightarrow{MP}$ auf die
+Gerade $MP_0$ immer die Länge $r$ haben muss. 
+Mit dem Skalarprodukt kann man dies durch die Bedingung
+\begin{equation}
+(\vec{p}-\vec{m})\cdot \vec n = r
+\label{skript:tangente1}
+\end{equation}
+ausdrücken.
+Als Normaleneinheitsvektor kann man
+\[
+\vec{n}
+=
+\frac{\vec{p}_0-\vec{m}}{|\vec{p}_0-\vec{m}|}
+= 
+\frac{\vec{p}_0-\vec{m}}{r}
+\]
+verwenden.
+Setzt man dies in \ref{skript:tangente1} ein, erhält man
+\begin{align}
+(\vec{p}-\vec{m})\cdot
+\frac{\vec{p}_0-\vec{m}}{r}
+&=
+r
+\notag
+\\
+\Rightarrow\qquad
+(\vec{p}-\vec{m})\cdot
+(\vec{p}_0-\vec{m})
+&=
+r^2.
+\label{skript:tangente2}
+\end{align}
+Man erhält also die Tangentengleichung \ref{skript:tangente2}
+aus der Kreisgleichung, indem man eine der Variablen $\vec{p}$
+durch den Berührpunk $\vec{p}_0$ ersetzt.
+
+Man kann die Gleichung \ref{skript:tangente2} auch wie folgt erhalten.
+Für die Punkte $M$, $P$ und $P_0$ gelten einerseits die Tangentengleichung
+\label{eqn-kugeltangente} und die Kreisgleichung für den Punkt $P_0$:
 Addieren wir jedoch noch die Gleichung
 der Kugel für den Vektor $\vec p_0$, erhalten wir
 \begin{align*}
+&\text{Tangentengleichung:}
+&
 (\vec p-\vec p_0)\cdot(\vec p_0-\vec m)&=0\\
-(\vec p_0-\vec m)\cdot(\vec p_0-\vec m)&=r^2\\
-\Rightarrow\qquad
-(\vec p-\vec m)\cdot(\vec p_0-\vec m)&=r^2
+&\text{Kreisgleichung für $P_0$:}
+&
+(\vec p_0-\vec m)\cdot(\vec p_0-\vec m)&=r^2.\\
+\intertext{Addieren wir diese beiden Gleichungen, erhalten wir}
+&&(\vec{p}-\vec{p}_0+\vec{p}_0-\vec m)\cdot(\vec p_0-\vec m)&=r^2
+\\
+&&(\vec p-\vec m)\cdot(\vec p_0-\vec m)&=r^2.
 \end{align*}
-Die Tantentengleichung ist also die Kreisgleichung, in der man
-eine Kopie von $\vec p$ durch den Berührpunkt $\vec p_0$ ersetzt
-hat.
 
 %
 % Tangente/Tangentialebene von einem Punkt aus
@@ -224,13 +283,14 @@ also
 (\vec p_0-\vec m)^2=r^2.
 \]
 Ausserdem muss der Punkt $P$ auf der Tangente im Punkt $P_0$ liegen,
-also muss $MP_0$ senkrecht auf $PP_0$ stehen:
+also muss $\overrightarrow{MP_0}$ senkrecht auf $\overrightarrow{PP_0}$ stehen:
 \begin{equation}
 (\vec p_0-\vec m)\cdot(\vec p-\vec p_0)=0
 \label{thalesbedingung}
 \end{equation}
 Damit haben wir zwei Gleichungen für die beiden unbekannten Koordinaten
-von $P_0$ gefunden, im Allgemeinen werden sie die Bestimmung von $\vec p_0$
+von $P_0$ gefunden.
+Im Allgemeinen werden sie die Bestimmung von $\vec p_0$
 ermöglichen (Ausnahmen: $P$ im Inneren des Kreises).
 
 Zur Lösung multiplizieren wir die zweite Gleichung noch aus
@@ -287,7 +347,7 @@ wahrnimmt.
 Dieses Verfahren nennt man Ray Tracing.
 Offenbar ist es sehr
 aufwendig, denn Lichtstrahlen können nicht nur reflektiert, sondern auch
-gestreut werden, und sie können zum Beispiel durch Nebel abgeschwächt
+gestreut werden und sie können zum Beispiel durch Nebel oder Dunst abgeschwächt
 werden.
 Die Berechnung hochauflösender Szenen ist daher sehr aufwendig,
 die Herstellung von CG-Filmen in Spielfilm-Länge, wie Pixar sie beispielsweise
@@ -303,7 +363,7 @@ Kugeloberfläche wie in \ref{durchstosspunktkugel} beschrieben.
 \end{enumerate}
 Dieses Verfahren wird jedoch nicht nur für die Computergraphik verwendet,
 sondern auch in der Optik.
-Spiegelteleskope bestehen aus gekrümmten Spiegeln,
-durch Berechnung der Strahlen kann man erfahren, welche Abbildungsqualität
+Spiegelteleskope bestehen aus gekrümmten Spiegeln.
+Durch Berechnung der Strahlen kann man erfahren, welche Abbildungsqualität
 man von dem Teleskop erwarten kann.
 

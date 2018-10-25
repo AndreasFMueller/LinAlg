@@ -7,7 +7,8 @@
 \rhead{Orthogonale Projektion und Skalarprodukt}
 \index{Skalarprodukt}
 Abstand und Winkel spielen in der euklidischen Geometrie eine fundamentale
-Rolle, die bisher eingeführten Elemente der Vektorgeometrie erlauben
+Rolle.
+Die bisher eingeführten Elemente der Vektorgeometrie erlauben
 jedoch noch nicht, Abstände oder Winkel zu berechnen.
 Aus der elementaren Trigonometrie ist bekannt, dass der Schlüssel dazu
 das Verständnis rechtwinkliger Dreiecke ist.
@@ -34,7 +35,7 @@ zu berechnen.
 \caption{Orthogonale Projektion\label{orthproj}}
 \end{figure}
 
-Seien also $\vec u$, $\vec v$ zwei beliebige Vektoren wie in Abbildung~\ref{orthproj}, und $p_{\vec u}(\vec v)$
+Seien also $\vec u$, $\vec v$ zwei beliebige Vektoren wie in Abbildung~\ref{orthproj} und $p_{\vec u}(\vec v)$
 die Länge der Projektion des Vektors $\vec v$ auf $\vec u$.
 Wir versehen diese Länge mit einem Vorzeichen, zeigt der auf $\vec u$
 projizierte Vektor $\vec v$ in die gleiche Richtung wie $\vec u$
@@ -44,7 +45,7 @@ Gegenrichtung, ist $p_{\vec u}(\vec v)$ negativ.
 Die Länge von $\vec v$ ist $p_{\vec v}(\vec v)$, und für den Winkel
 $\alpha$ zwischen den beiden Vektoren ist
 \begin{equation}
-\cos \alpha = \frac{p_{\vec u}(\vec v)}{p_{\vec v}{\vec v}}.
+\cos \alpha = \frac{p_{\vec u}(\vec v)}{p_{\vec v}(\vec v)}.
 \label{zwischenwinkel}
 \end{equation}
 Offenbar ist die Länge der Projektion die grundlegendere Grösse,
@@ -68,8 +69,13 @@ Immerhin ist $p_{\vec u}(\vec v)$ linear in $\vec v$, wie man
 sich mit der Abbildung~\ref{projektionlinearitaet}
 sofort überzeugen kann, es ist also
 \begin{align*}
-p_{\vec u}(\vec v_1+\vec v_2)&=p_{\vec u}(\vec v_1)+p_{\vec u}(\vec v_2)\\
-p_{\vec u}(\lambda \vec v)&=\lambda p_{\vec u}(\vec v).
+p_{\vec u}(\vec v_1+\vec v_2)
+&=
+p_{\vec u}(\vec v_1)+p_{\vec u}(\vec v_2)
+\\
+p_{\vec u}(\lambda \vec v)
+&=
+\lambda p_{\vec u}(\vec v).
 \end{align*}
 
 %
@@ -125,7 +131,7 @@ p_{\vec v}(\vec v)
 \cos\alpha.
 \]
 \end{definition}
-Diese Grösse ist linear in $\vec u$ und linear in $\vec v$, und man kann
+Diese Grösse ist linear in $\vec u$ und linear in $\vec v$ und man kann
 daraus $p_{\vec u}(\vec v)$ mittels
 \[
 p_{\vec u}(\vec v)
@@ -143,17 +149,17 @@ Seien $\vec u$ und $\vec v$ zwei Vektoren, dann ist
 \[
 |\vec u|=p_{\vec u}(\vec u)=\sqrt{\vec u\cdot\vec u}
 \]
-die Länge des Vektors, und für den Zwischenwinkel $\alpha$ gilt
+die Länge des Vektors und für den Zwischenwinkel $\alpha$ gilt
 \[
-|\vec u|\,|\vec v|\cos\alpha=\vec u\cdot\vec v
+|\vec u|\,|\vec v|\cos\alpha=\vec u\cdot\vec v.
 \]
 Zwei vom Nullvektor verschiedene Vektoren  stehen genau dann senkrecht
 aufeinander, wenn $\vec u\cdot\vec v=0$.
-Die Projektion $\vec v_{\|}$ von $\vec v$ auf $\vec u$ ist
-\[
-\vec v_{\|}=\frac{\vec v\cdot\vec u}{\vec u\cdot\vec u}\vec u.
-\]
-Ist $\vec u$ ein Einheitsvektor, dann ist $\vec v_{\|}=(\vec v\cdot \vec u)\vec u$.
+%Die Projektion $\vec v_{\|}$ von $\vec v$ auf $\vec u$ ist
+%\[
+%\vec v_{\|}=\frac{\vec v\cdot\vec u}{\vec u\cdot\vec u}\vec u.
+%\]
+%Ist $\vec u$ ein Einheitsvektor, dann ist $\vec v_{\|}=(\vec v\cdot \vec u)\vec u$.
 \end{satz}
 \index{Zwischenwinkel}
 
@@ -194,10 +200,11 @@ u_3v_2\vec e_3\cdot\vec e_2+
 u_3v_3\vec e_3\cdot\vec e_3
 \end{align*}
 Die Skalarprodukte von aufeinander senkrecht stehenden Vektoren
-verschwinden, es bleiben nur die Termen mit $\vec e_i\cdot\vec e_i$,
-das Skalarprodukt eines Vektors mit sich selbst ist das Quadrat
+verschwinden.
+Es bleiben nur die Termen mit $\vec e_i\cdot\vec e_i$.
+Das Skalarprodukt eines Vektors mit sich selbst ist das Quadrat
 der Länge, also $\vec e_i\cdot \vec e_i=1$ und so erhalten wir den
-Satz
+folgenden Satz.
 \begin{satz}
 Das Skalarprodukt zweier Vektoren
 \[
