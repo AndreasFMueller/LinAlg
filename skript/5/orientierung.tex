@@ -11,7 +11,7 @@ Orthonormierte
 Vektorsysteme haben wir als sehr nützlich erkannt, aber die Bestimmung eines
 Vektors, der auf zwei gegebenen Vektoren senkrecht steht, ist eher kompliziert.
 Uns stand bislang entweder das
-aufwendige Orthogonalisierungsverfahren zur Verfügung, oder die Lösung
+aufwendige Orthogonalisierungsverfahren zur Verfügung oder die Lösung
 eines Gleichungssystems mit dem Gauss-Algorithmus.
 
 Dabei haben wir im Kapitel \ref{chapter-determinanten} bereits alles
@@ -43,7 +43,8 @@ gleichen Eigenschaften kennen.
 Wir bezeichnen den Flächeninhalt des von $\vec u$ und $\vec v$ aufgespannten
 Parallelogramms mit $A(\vec u,\vec v)$.
 Der Flächeninhalt im landläufigen
-Sinne ist natürlich immer positiv, es stellt sich jedoch als
+Sinne ist natürlich immer positiv.
+Es stellt sich jedoch als
 zweckmässig heraus, wenn wir den Flächeninhalt hier mit einem
 Vorzeichen versehen.
 Und zwar soll $A(\vec u,\vec v)$ positiv sein, wenn
@@ -52,15 +53,27 @@ $\vec v$ drehen lässt.
 Wir nennen $A(\vec u, \vec v)$ den orientierten
 Flächeninhalt.
 
+\begin{figure}
+\centering
+\includegraphics{5/images/dreieck.pdf}
+\caption{Der Flächeninhalt eines Dreiecks kann mit der Determinante
+berechnet werden.
+\label{skript:dreiecksflaeche}}
+\end{figure}
+
 Die Funktion $A(\vec u,\vec v)$ hat folgende Eigenschaften
 \begin{itemize}
 \item $A$ ändert das Vorzeichen bei Vertauschung der beiden Vektoren.
 \item $A$ ist linear im ersten Argument:
-\begin{align*}
-A(\vec u'+\vec u'',\vec v)&=A(\vec u',\vec v)+A(\vec v'',\vec u)
+\begin{align}
+A(\vec u'+\vec u'',\vec v)&=A(\vec u',\vec v)+A(\vec u'',\vec v)
+\label{skript:flaeche-linear}
 \\
 A(\lambda \vec u,\vec v)&=\lambda A(\vec u,\vec v)
-\end{align*}
+\notag
+\end{align}
+Die Additionsregel \ref{skript:flaeche-linear} wird in
+Abbildung~\ref{image-flaeche-addition} illustriert.
 \item Der Flächeninhalt eines Einheitsquadrates ist $A(\vec e_1,\vec e_2)=1$.
 \end{itemize}
 Die beiden Eigenschaften zusammen ergeben, dass $A$ auch linear im
@@ -68,6 +81,7 @@ zweiten Argument ist.
 Im Kapitel~2 haben wir gelernt, dass es nur eine
 Funktion mit diesen Eigenschaften gibt, nämlich die Determinante:
 \begin{satz}
+\label{skript:parallelogrammflaeche}
 Der orientierte Flächeninhalt des von den Vektoren $\vec u$ und $\vec v$
 aufgespannten Parallelogramms ist
 \[
@@ -76,6 +90,10 @@ A(\vec u,\vec v)=\left|\;\begin{matrix}u_1&v_1\\u_2&v_2\end{matrix}\;\right|
 .
 \]
 \end{satz}
+Die Abbildung~\ref{skript:dreiecksflaeche} zeigt, wie man den
+Satz~\ref{skript:parallelogrammflaeche} dazu verwenden kann, den Flächeninhalt
+eines Dreiecks zu berechnen.
+Das Resultat ist zusammengefasst im folgenden Satz.
 \begin{satz}
 Der Flächeninhalt eines Dreiecks mit den Ecken $(x_1,y_1)$, $(x_2,y_2)$ und
 $(x_3,y_3)$ ist
@@ -120,7 +138,7 @@ Der Flächeninhalt ist also $7$.
 %\includegraphics{images/d-2}
 \includegraphics{5/images/volumen.pdf}
 \end{center}
-\caption{Addition der Volumina von Parallelepipeds.
+\caption{Addition der Volumina von Parallelepipeden.
 Da die beiden Körper die gleiche Höhe und die gleiche (pinke) Grundfläche
 haben, haben Sie auch das gleiche Volumen.
 Daraus kann man ablesen, dass das orientierte Volumen linear ist.
@@ -188,24 +206,41 @@ Das Parallelepiped wird auch als {\em Spat} bezeichnet.
 In der Geologie werden gut spaltbare Minerale als Spate bezeichnet, zum
 Beispiel Feldspat oder Kalkspat (Abbildung~\ref{skript:orientierung:calcite}.).
 Durch Spaltung gewonnene Kristalle dieser Minerale sind gute Approximationen
-von Parallelepipeds.
+von Parallelepipeden.
 Das Volumen $V(\vec{a},\vec{b},\vec{c})$ des von $\vec{a}$, $\vec{b}$ und
 $\vec{c}$ aufgespannten Parallelepipeds heisst daher auch das
 {\em Spatvolumen}.
-\index{Spatvolumne}%
+\index{Spatvolumen}%
 
 \begin{beispiel}
-Man finde alle Parallelepipeds mit folgenden Eigenschaften:
+\label{skript:orientierung:beispiel}
+\begin{figure}
+\centering
+\includegraphics{5/images/beispiel.pdf}
+\caption{Beispiel von Seite~\pageref{skript:orientierung:beispiel}
+\label{skript:orientierung:beispiel:abb}}
+\end{figure}
+Man finde alle Parallelepipede mit folgenden Eigenschaften
+(Die Situation ist in Abbildung~\ref{skript:orientierung:beispiel:abb}
+dargestellt):
 \begin{compactenum}
-\item Zwei Kanten sind $\vec a=\overrightarrow{OA}$ und $\vec b=\overrightarrow{OB}$
-mit $A=(4,1,3)$ und $B=(5,1,2)$.
-\item Die dritte Kante ist $\overrightarrow{OC}$, wobei $C$ auf der
+\item Zwei Kanten sind $\vec a=\overrightarrow{OA}$ und
+$\vec b=\overrightarrow{OB}$ mit $A=(4,1,3)$ und $B=(5,1,2)$.
+\item Die dritte Kante ist $\overrightarrow{OC}$, wobei $C$ (orange in
+Abbildung~\ref{skript:orientierung:beispiel:abb})
+auf der
 Ebene durch $O$ mit der Normalen
 \[
 \vec n=\begin{pmatrix}1\\1\\1\end{pmatrix}
 \]
 liegt.
+Die Ebene ist in 
+Abbildung~\ref{skript:orientierung:beispiel:abb}
+grün dargestellt.
 \item Zwei Kanten stehen senkrecht aufeinander.
+Die rechten Winkel sind in
+Abbildung~\ref{skript:orientierung:beispiel:abb}
+gelb eingezeichnet.
 \item Das Volumen ist $8$.
 \end{compactenum}
 
