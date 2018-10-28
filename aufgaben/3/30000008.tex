@@ -38,6 +38,8 @@ Wir Lösen das Gleichungssystem mit dem Gauss-Algorithmus:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
+x & y & z & \\
+\hline
 4& 8&-12&16\\
 7&17&-15& 7\\
 \hline
@@ -46,12 +48,16 @@ Wir Lösen das Gleichungssystem mit dem Gauss-Algorithmus:
 \rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
+x & y & z & \\
+\hline
 1& 2&- 3&  4\\
 0& 3&  6&-21\\
 \hline
 \end{tabular}
 \rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x & y & z & \\
 \hline
 1& 0&- 7& 18\\
 0& 1&  2&- 7\\
@@ -80,6 +86,8 @@ Um den Schnittpunkt zu finden, verwenden wir das Gausstableau
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
+x & y & z & s & t&\\
+\hline
 1&0&0&-7& 0& 18\\
 0&1&0& 2& 0& -7\\
 0&0&1&-1& 0&  0\\
@@ -90,6 +98,8 @@ Um den Schnittpunkt zu finden, verwenden wir das Gausstableau
 \end{tabular}
 \rightarrow\cdots\rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x & y & z & s & t&\\
 \hline
 1&0&0& 0& 0& -3\\
 0&1&0& 0& 0& -1\\
