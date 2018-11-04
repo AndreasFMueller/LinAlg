@@ -1,14 +1,14 @@
 Statt der Standardbasis $B$ möchte man in einer Anwendung die Basis
-$B'$ aus den Basisvektoren
+$C$ aus den Basisvektoren
 \[
 \begin{aligned}
-b_1'
+\vec c_1
 &=
 \begin{pmatrix}1\\0\end{pmatrix}
 &
 &\text{und}
 &
-b_2'
+\vec c_2
 &=
 \begin{pmatrix}\frac12\\\frac{\sqrt{3}}2\end{pmatrix}
 \end{aligned}
@@ -19,29 +19,29 @@ von $60^\circ$ ein\-schliessen.
 \begin{teilaufgaben}
 \item
 Berechnen Sie die Transformationsmatrix $T$, die $B$-Koordinaten
-in $B'$-Koordinaten umrechnet.
+in $C$-Koordinaten umrechnet.
 \item
-Berechnen Sie die $B'$-Koordinaten der beiden Vektoren
+Berechnen Sie die $C$-Koordinaten ($\vec u_C$ und $\vec v_C$) der beiden Vektoren
 \[
 \begin{aligned}
-u&=\begin{pmatrix}1\\1\end{pmatrix}
+\vec u_B&=\begin{pmatrix}1\\1\end{pmatrix}
 &&\text{und}&
-v&=\begin{pmatrix}1\\-1\end{pmatrix}
+\vec v_B&=\begin{pmatrix}1\\-1\end{pmatrix}
 \end{aligned}
 \]
-Die Vektoren stehen senkrecht aufeinander.
+Die Vektoren $\vec u_B$ und $\vec v_B$ stehen senkrecht aufeinander.
 \item
-Das Skalarprodukt hat in $B'$-Koordinaten nicht mehr die einfache
-Formel $u^{\prime t}v'$.
+Das Skalarprodukt hat in $C$-Koordinaten nicht mehr die einfache
+Formel $\vec u_C\,\!\!^t \vec v_C$.
 Aus der Matrix $T$ lässt sich aber auch eine Formel für die
-Koordinatenumrechnung von $B'$-Koordinaten in $B$-Koordinaten finden,
+Koordinatenumrechnung von $C$-Koordinaten in $B$-Koordinaten finden,
 die dazu verwendet werden kann, eine Formel für das Skalarprodukt in
-$B'$-Koordinaten aufzustellen.
+$C$-Koordinaten aufzustellen.
 Dabei stellt sich heraus, dass das Skalarprodukt
-als $u'^tGv'$ geschrieben werden kann.
+als $\vec u_C\,\!\!^tG\vec v_C$ geschrieben werden kann.
 Berechnen Sie die Matrix $G$.
 \item 
-Berechnen Sie das Skalarprodukt von $u'$ und $v'$ in den $B'$-Koordinaten.
+Berechnen Sie das Skalarprodukt von $\vec u_C$ und $\vec v_C$ in den $C$-Koordinaten.
 \end{teilaufgaben}
 
 \thema{Basis}
@@ -50,7 +50,7 @@ Berechnen Sie das Skalarprodukt von $u'$ und $v'$ in den $B'$-Koordinaten.
 \begin{loesung}
 \begin{teilaufgaben}
 \item 
-Die Transformationsmatrix kann wie üblich mit dem Gauss-Algorithmus
+Die Transformationsmatrix kann mit dem Gauss-Algorithmus
 ermittelt werden.
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
@@ -68,20 +68,27 @@ ermittelt werden.
 \hline
 \end{tabular}
 \end{align*}
-Daher ist die Koordinatentransformationsmatrix
+Daher ist die Koordinaten-Transformationsmatrix
 \[
 T
 =
 \begin{pmatrix}1&-\frac1{\sqrt{3}}\\0&\frac2{\sqrt{3}}\end{pmatrix}.
 \]
+Alternativ könnte die Transformationsmatrix $T$ auch als Inverse der Matrix $C$ mit Hilfe der Minoren wie folgt gefunden werden:
+\[
+  T = C^{-1}B = C^{-1}E = C^{-1} 
+  = \begin{pmatrix}1 & \frac12\\0 & \frac{\sqrt{3}}2\end{pmatrix}^{-1} 
+  = \dfrac{2}{\sqrt{3}}\begin{pmatrix}\frac{\sqrt{3}}2 & -\frac12\\0 & 1\end{pmatrix} 
+  = \begin{pmatrix}1&-\frac1{\sqrt{3}}\\0&\frac2{\sqrt{3}}\end{pmatrix}
+\]
 \item
-Anwendung der Transformationsmatrix auf die gegebenen Vektoren $u$
-und $v$ liefert
+Anwendung der Transformationsmatrix auf die gegebenen Vektoren $\vec u_B$
+und $\vec v_B$ liefert
 \[
 \begin{aligned}
-u'
+\vec u_C
 =
-Tu
+T\vec u_B
 &=
 \begin{pmatrix}1&-\frac1{\sqrt{3}}\\0&\frac2{\sqrt{3}}\end{pmatrix}
 \begin{pmatrix}1\\1\end{pmatrix}
@@ -89,9 +96,9 @@ Tu
 \begin{pmatrix} 1-\frac1{\sqrt{3}}\\\frac2{\sqrt{3}} \end{pmatrix}
 &
 &\text{und}&
-v'
+\vec v_C
 =
-Tv
+T\vec v_B
 &=
 \begin{pmatrix}1&-\frac1{\sqrt{3}}\\0&\frac2{\sqrt{3}}\end{pmatrix}
 \begin{pmatrix}1\\-1\end{pmatrix}
@@ -100,16 +107,16 @@ Tv
 \end{aligned}
 \]
 \item
-Die Matrix $T$ rechnet von $B$- auf $B'$-Koordinaten um, die Matrix $T^{-1}$
-liefert die Umrechnung in umgekehrter Richtung.
+Die Matrix $T$ rechnet von $B$- auf $C$-Koordinaten um, die Matrix $T^{-1}$
+liefert die Umrechnung in umgekehrter Richtung, also von $C$- auf $B$-Koordinaten.
 Für das Skalarprodukt gilt
 \[
-u^t v
+\vec u_B\,\!\!^t \vec v_B
 =
-(T^{-1}u')^t(T^{-1}v')
+(T^{-1}\vec u_C)^t(T^{-1}\vec v_C)
 =
-u'^t
-\underbrace{ (T^{-1})^t T^{-1}}_{\displaystyle =G} v'
+\vec u_C\,\!\!^t
+\underbrace{ (T^{-1})^t T^{-1}}_{\displaystyle =G} \vec v_C.
 \]
 Wenden wir dies auf die oben berechnete Matrix $T$ an, erhalten wir:
 \[
@@ -117,18 +124,18 @@ G
 =
 (T^{-1})^tT^{-1}
 =
-\begin{pmatrix}1&\frac12\\0&\frac{\sqrt{3}}2\end{pmatrix}
 \begin{pmatrix}1&0\\\frac12&\frac{\sqrt{3}}2\end{pmatrix}
+\begin{pmatrix}1&\frac12\\0&\frac{\sqrt{3}}2\end{pmatrix}
 =
 \begin{pmatrix} 1&\frac12\\\frac12&1 \end{pmatrix}.
 \]
 \item
 Unter Verwendung der Matrix $G$ lässt sich das Skalarprodukt jetzt auch
-in $B'$-Koordinaten berechnen:
+in $C$-Koordinaten berechnen:
 \begin{align*}
-u^tv
+\vec u_B\,\!\!^t \vec v_B
 &=
-u'^tGv'
+\vec u_C\,\!\!^t G \vec v_C
 =
 \begin{pmatrix} 1-\frac1{\sqrt{3}}&\frac2{\sqrt{3}} \end{pmatrix}
 \begin{pmatrix} 1&\frac12\\\frac12&1 \end{pmatrix}
@@ -146,7 +153,7 @@ u'^tGv'
 =
 0.
 \end{align*}
-Wie vorhin schon erkannt, stehen, die Vektoren senkrecht aufeinander.
+Wie vorhin schon erkannt, stehen die Vektoren senkrecht aufeinander.
 \qedhere
 \end{teilaufgaben}
 \end{loesung}
