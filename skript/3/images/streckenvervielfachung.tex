@@ -1,0 +1,75 @@
+%
+% streckenvervielfachung.tex
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\documentclass[tikz,12pt]{standalone}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{pifont}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+
+\definecolor{gruen}{rgb}{0,0.6,0}
+
+\def\punkt#1{
+        \fill[color=white] #1 circle[radius=0.08];
+        \draw #1 circle[radius=0.08];
+}
+
+\begin{tikzpicture}[>=latex,thick]
+
+\coordinate (O) at (0,0);
+\coordinate (A) at (3,1);
+\coordinate (B) at ($2*(A)$);
+\coordinate (C) at (1,4);
+\coordinate (D) at ($(A)+(C)$);
+
+\begin{scope}
+\clip (-0.3,-0.3) rectangle (6.3,5.3);
+
+\draw[line width=1.5pt] (O)--(A);
+\draw[color=gruen,line width=1.5pt] (C)--(D);
+\draw[color=red,line width=1.5pt] (A)--(B);
+
+\draw[color=gruen] ($(O)-(C)$)--($2*(C)$);
+\draw[color=gruen] ($(A)-(C)$)--($(A)+2*(C)$);
+
+\draw[color=red] ($2*(C)-(A)$)--($2*(A)-(C)$);
+\draw[color=red] ($2*(C)$)--($3*(A)-(C)$);
+
+\end{scope}
+
+\punkt{(O)} \node at (O) [above left] {$O$};
+\punkt{(A)} \node at ($(A)+(0,-0.1)$) [above left] {$A$};
+\punkt{(B)} \node at (B) [right] {$B$};
+\punkt{(C)} \node at (C) [left] {$C$};
+\punkt{(D)} \node at (D) [right] {$D$};
+
+\node at ($(C)+0.5*(A)$) [above] {\color{gruen}\ding{182}};
+\node at ($1.5*(A)$) [below] {\color{red}\ding{183}};
+
+\node at (10.5,2.5) {%
+\begin{minipage}{6.1cm}
+\parindent0pt
+\raggedright
+Gegeben: Strecke $OA$\\[7pt]
+{\color{gruen}\ding{182}}\quad%
+Wähle $C$ nicht auf der Geraden durch $O$ und $A$ und
+konstruiere die Strecke $CD$ mit Hilfe der {\color{gruen}grünen}
+Parallelogramm-Konstruktion\\
+{\color{red}\ding{183}}\quad%
+Konstruiere die Strecke $AB$ mit Hilfe der {\color{red}roten}
+Parallelogramm- Konstruktion\\[7pt]
+Die Strecke $AB$ ist gleich lang wie $OA$ und liegt auf der
+selben Geraden.
+\end{minipage}};
+
+\end{tikzpicture}
+
+\end{document}
+

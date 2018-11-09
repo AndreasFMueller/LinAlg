@@ -7,6 +7,18 @@ C=( 1,-1,-1)
 D=(-1, 1,-1)
 \]
 sind die Ecken eines Tetraeders.
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\node at (0,0) {\includeagraphics[width=6cm]{tetraeder.jpg}};
+\node at (3,0) {$x$};
+\node at (0.2,3.1) {$z$};
+\node at (-0.1,-0.4) {$y$};
+\node at (2.4,2.4) {$A$};
+\node at (-2.9,2.3) {$B$};
+\node at (2.4,-2.7) {$C$};
+\node at (-1.1,-1) {$D$};
+\end{tikzpicture}
+\end{center}
 \begin{teilaufgaben}
 \item
 Finden Sie eine Drehmatrix, die den Punkt $A$ fest lässt und den
@@ -20,23 +32,62 @@ Finden Sie den Drehwinkel, der zu dieser Drehmatrix gehört.
 \thema{Drehwinkel}
 
 \begin{hinweis}
-Die gesuchte Matrix $R$ führt auch $C$ in $D$ über.
-Schreiben Sie die Bedingung, dass $R$ die genannten Punkte in andere
-Punkte überführt, als Matrizengleichung%
-{} $RB_1=B_2$%
-.
+Die gesuchte Abbildungsmatrix $R$ führt auch $C$ in $D$ über und $D$ in $B$.
+% Schreiben Sie die Bedingung, dass $R$ die genannten Punkte in andere
+% Punkte überführt, als Matrizengleichung%
+% {} $P' = RP$%
+% .
 \end{hinweis}
 
 \begin{loesung}
 \begin{teilaufgaben}
-\item
-Da die gesuchte Matrix $R$ eine Drehmatrix ist, bleiben Längen und
-Winkel erhalten.
-Sie wird wird daher auch den Punkt $C$ in den Punkt $D$ überführen.
-Wir bezeichnen die Ortsvektoren der Punkte mit entsprechenden kleinen
-Buchstaben, also $\vec{a}=\overrightarrow{0A}$.
-
-Gesucht ist also eine Matrix $R$ mit den Eigenschaften:
+\item 
+Der Punkt $A$ wird durch die Drehmatrix $R$ wieder auf $A$ abgebildet, woraus 
+wir schiessen können, dass $A$ auf der Drehachse liegt, bzw. dass der 
+Ortsvektor
+\[
+  \overrightarrow{0A}  = \vec{a}= \begin{pmatrix}1\\1\\1\end{pmatrix}.
+\]
+der Drehachse entspricht. Weiter wissen wir, dass die Punkte $B$, $C$ und $D$
+jeweils aufeinander abgebildet werden:
+\[
+  B \rightarrow C,\quad
+  C \rightarrow D,\quad
+  D \rightarrow B.
+\]
+Wenn die Drehmatrix $R$ also dreimal angewendet würde, wären alle Punkte
+wieder an ihrem ursprünglichen Platz und man hätte insgesamt um $360^\circ$ gedreht.
+Der in b) gesuchte Drehwinkel ist damit
+\[
+  \alpha = \dfrac{360^\circ}{3} = 120^\circ.
+\]
+Eine Methode um nun auch die Drehmatrix $R$ zu finden ist, zu untersuchen,
+auf welche Bildvektoren die Standardbasisvektoren $\vec e_1$, $\vec e_2$ und $\vec e_3$
+abgebildet werden. 
+Bei einer Drehung um $120^\circ$ um die Achse $\vec a = \begin{pmatrix}1&1&1\end{pmatrix}^t$
+werden diese wie folgt abgebildet:
+\[
+\begin{aligned}
+\vec e_1&\mapsto \vec e_2 = \begin{pmatrix}0\\1\\0\end{pmatrix},
+&
+\vec e_2&\mapsto \vec e_3 = \begin{pmatrix}0\\0\\1\end{pmatrix}
+&&\text{und}
+&
+\vec e_3&\mapsto \vec e_1 = \begin{pmatrix}1\\0\\0\end{pmatrix}.
+\end{aligned}
+\]
+Die gesuchte Drehmatrix ist daher
+\[
+R
+=
+\begin{pmatrix}
+0&0& 1\\
+1&0& 0\\
+0&1& 0\\
+\end{pmatrix}.
+\]
+Alternativ hätte die Aufgabe aber auch wie folgt gelöst werden können:\\
+Gesucht ist eine Matrix $R$ mit den Eigenschaften:
 \begin{equation}
 R\vec{a}=\vec{a},\quad
 R\vec{b}=\vec{c}\quad\text{und}\quad
@@ -44,10 +95,10 @@ R\vec{c}=\vec{d}.
 \label{40000016:vektorgleichungen}
 \end{equation}
 Schreiben wir die Vektoren $\vec{a}$, $\vec{b}$ und $\vec{c}$ in die
-Matrix $B_1$ und die Vektoren $\vec{a}$, $\vec{c}$ und $\vec{a}$ in
-die Matrix $B_2$, also
+Matrix $P$ und die Vektoren $\vec{a}$, $\vec{c}$ und $\vec{d}$ in
+die Matrix $P'$, also
 \[
-B_1
+P
 =
 \begin{pmatrix}
  1&-1& 1\\
@@ -55,7 +106,7 @@ B_1
  1& 1&-1
 \end{pmatrix}
 \qquad\text{und}\qquad
-B_2
+P'
 =
 \begin{pmatrix}
 1& 1&-1\\
@@ -67,10 +118,10 @@ dann lassen sich die
 Gleichungen~\eqref{40000016:vektorgleichungen} zusammenfassen in eine
 Matrixgleichung
 \[
-RB_1=B_2
-\qquad\Rightarrow\qquad R=B_2B_1^{-1}.
+RP=P'
+\qquad\Rightarrow\qquad R=P'P^{-1}.
 \]
-Wir bestimmen daher zunächst die inverse Matrix $B_1^{-1}$
+Wir bestimmen daher zunächst die inverse Matrix $P^{-1}$
 mit Hilfe des Gauss-Algorithmus:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
@@ -120,7 +171,7 @@ Damit kann jetzt auch $R$ berechnet werden:
 \begin{align*}
 R
 =
-B_2B_1^{-1}
+P'P^{-1}
 &=
 \begin{pmatrix}
 1& 1&-1\\
@@ -155,10 +206,10 @@ Der Drehwinkel kann mit Hilfe der Spurformel ermittelt werden:
 \end{loesung}
 
 \begin{bewertung}
-Bestimmung der Matrizen $B_1$ ($\textbf{B}_1$) und $B_2$ ($\textbf{B}_2$)
+Bestimmung der Matrizen $P$ ($\textbf{P}$) und $P'$ ($\textbf{P'}$)
 je 1 Punkt,
-Berechnung der Inversen $B_1^{-1}$  ({\bf I}) 2 Punkte,
-Berechnung des Produktes $B_2B_1^{-1}$ ({\bf P}) 1 Punkt,
+Berechnung der Inversen $P^{-1}$  ({\bf I}) 2 Punkte,
+Berechnung des Produktes $P'P^{-1}$ ({\bf P}) 1 Punkt,
 Anwendung der Spurformel und korrekter Drehwinkel ({\bf D}) 1 Punkt.
 \end{bewertung}
 

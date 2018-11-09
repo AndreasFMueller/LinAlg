@@ -1,0 +1,46 @@
+Gegeben sind die Vektoren
+\[
+\vec u = \begin{pmatrix}\frac12\\\frac{\sqrt{3}}2\end{pmatrix},
+\qquad
+\vec v = \begin{pmatrix}\frac{\sqrt{3}}2\\-\frac12\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item
+Finden Sie eine Matrix $A$, die die Standardbasisvektoren $\vec e_1$ und
+$\vec e_2$ auf $\vec u$ bzw.~$\vec v$ abbildet.
+\item
+Finden Sie eine Matrix $B$, die die Vektoren $\vec u$ und $\vec v$ auf
+die Standardbasisvektoren $\vec e_1$ und $\vec e_2$ abbildet.
+\end{teilaufgaben}
+
+\thema{Abbildungsmatrix}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die Spalten von $A$ sind die Bilder der Standardbasisvektoren
+\[
+A=\begin{pmatrix}
+\frac12         &\frac{\sqrt{3}}2\\
+\frac{\sqrt{3}}2&-\frac12
+\end{pmatrix} 
+\]
+\item
+Die Matrix $A$ bildet die Standardbasisvektoren auf $\vec u$ und $\vec v$
+ab, die gesuchte Matrix $B$ soll das Umgekehrte machen.
+Die inverse Matrix macht dies, also ist 
+\[
+B=A^{-1} = \dfrac{4}{-1-3}\begin{pmatrix}
+-\frac12         &-\frac{\sqrt{3}}2\\
+-\frac{\sqrt{3}}2&\frac12
+\end{pmatrix} 
+= \begin{pmatrix}
+\frac12         &\frac{\sqrt{3}}2\\
+\frac{\sqrt{3}}2&-\frac12
+\end{pmatrix} .
+\]
+Die Inverse wurde hier mit Hilfe der Minoren berechnet.
+\end{teilaufgaben}
+\end{loesung}
+
+
+

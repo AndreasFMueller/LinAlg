@@ -1,0 +1,169 @@
+Der Mittelpunkt des Würfels mit Kantenlänge $2$ befindet sich im
+Koordinatenursprung.
+Eine Drehung des Raumes führt die Punkte $A$, $B$ und $C$ in
+die Punkte $A'$, $B'$ bzw. $C'$ über.
+
+\begin{center}
+\includeagraphics[]{wuerfel.pdf}
+\end{center}
+
+\begin{teilaufgaben}
+\item Finden Sie die Drehmatrix $R$.
+\item Wie gross ist der Winkel zwischen den beiden Ortsvektoren $\overrightarrow{OA}$ und $\overrightarrow{OB}$.
+\item Wie gross ist der Winkel zwischen den Bildern der Vektoren
+\[
+  \begin{pmatrix}1\\1\\0\end{pmatrix}\quad\text{und}\quad
+  \begin{pmatrix}-1\\-1\\-1\end{pmatrix}
+\]
+\end{teilaufgaben}
+
+\thema{Drehmatrix}
+\thema{Skalarprodukt}
+\thema{Abbildungsmatrix}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die dargestellte Drehung bildet die Standardbasis-Vektoren wie folgt ab:
+\[
+\begin{aligned}
+\vec e_1&\mapsto \begin{pmatrix}0\\-1\\0\end{pmatrix},
+&
+\vec e_2&\mapsto \begin{pmatrix}-1\\0\\0\end{pmatrix}
+&&\text{und}
+&
+\vec e_3&\mapsto \begin{pmatrix}0\\0\\-1\end{pmatrix}.
+\end{aligned}
+\]
+Die gesuchte Drehmatrix ist daher
+\[
+R
+=
+\begin{pmatrix}
+0&-1& 0\\
+-1&0& 0\\
+0&0& -1\\
+\end{pmatrix}.
+\]
+Alternativ hätte die Aufgabe aber auch wie folgt gelöst werden können:\\
+Da die Punkte $A$, $B$ und $C$ mit Ortsvektoren
+\[
+  \vec a = \begin{pmatrix}1\\-1\\1\end{pmatrix},\quad
+  \vec b = \begin{pmatrix}1\\1\\1\end{pmatrix},\quad
+  \vec c = \begin{pmatrix}-1\\-1\\-1\end{pmatrix}                          
+\]
+auf die Punkte $A'$, $B'$ und $C'$ mit Ortsvektoren
+\[
+  \vec a' = \begin{pmatrix}1\\-1\\-1\end{pmatrix},\quad
+  \vec b' = \begin{pmatrix}-1\\-1\\-1\end{pmatrix},\quad
+  \vec c' = \begin{pmatrix}1\\1\\1\end{pmatrix}                          
+\]
+abgebildet werden, müssen folgende Gleichungen erfüllt sein:
+\[
+  \vec a' = R\vec a, \quad 
+  \vec b' = R\vec b, \quad 
+  \vec c' = R\vec c.
+\]
+Leider kann mit diesen Gleichungen die Drehmatrix noch nicht bestimmt werden, 
+da die Punkte $A$, $B$ und $C$ in einer Ebene liegen und damit linear abhängig sind.
+Wir müssen daher noch ein weiteres Punktepaar aus der Zeichnung herauslesen.
+Wir wählen die vordere untere Ecke
+\[
+\vec d =\begin{pmatrix}1\\-1\\-1\end{pmatrix} \quad\mapsto\quad \vec d'=\begin{pmatrix}1\\-1\\1\end{pmatrix}
+\quad\text{mit}\quad\vec d' = R\vec d.
+\]
+Die drei Gleichungen
+\[
+  \vec a' = R\vec a, \quad 
+  \vec b' = R\vec b, \quad 
+  \vec d' = R\vec d
+\]
+können nun in einer Gleichung zusammengefasst werden zu
+\[
+\underbrace{
+\begin{pmatrix}
+\phantom{-}1&-1&\phantom{-}1\\
+         - 1&-1&         - 1\\
+         - 1&-1&\phantom{-}1
+\end{pmatrix}}_{\displaystyle =P\,'}
+=
+R
+\underbrace{
+\begin{pmatrix}
+\phantom{-}1&\phantom{-}1&\phantom{-}1\\
+         - 1&\phantom{-}1&         - 1\\
+\phantom{-}1&\phantom{-}1&         - 1
+\end{pmatrix}}_{\displaystyle =P},
+\]
+wobei in den Spalten der Matrix $P$ die Vektoren $\vec a$, $\vec b$ und $\vec d$ enthalten sind
+und in den Spalten der Matrix $P'$ die Vektoren $\vec a'$, $\vec b'$ und $\vec d'$. 
+Damit kann nun die Drehmatrix gefunden werden als
+\[
+R = P'P^{-1} = 
+\begin{pmatrix}
+\phantom{-}1&-1&\phantom{-}1\\
+         - 1&-1&         - 1\\
+         - 1&-1&\phantom{-}1
+\end{pmatrix}
+\begin{pmatrix}
+\phantom{-}0&         - \frac12&\phantom{-}\frac12\\
+\phantom{-}\frac12&\phantom{-}\frac12&\phantom{-}0\\
+\phantom{-}\frac12&\phantom{-}0&         - \frac12
+\end{pmatrix}
+=
+\begin{pmatrix}
+\phantom{-}0&         - 1&\phantom{-}0\\
+         - 1&\phantom{-}0&\phantom{-}0\\
+\phantom{-}0&\phantom{-}0&         - 1
+\end{pmatrix}.
+\]
+Wie man sieht, kommt man auf das selbe Ergebnis wie oben.
+\item
+Die Zwischenwinkelformel muss auf die Vektoren $\vec a$ und
+$\vec b$ angewendet werden:
+\begin{align*}
+|\vec a| &= \sqrt{1^2+(-1)^2+1^2} = \sqrt{3}\\
+|\vec b| &= \sqrt{1^2+1^2+1^2} = \sqrt{3}\\
+\cos(\alpha)&= \dfrac{\vec a\cdot \vec b}{|\vec a|\cdot |\vec b|} = \dfrac{1\cdot 1 + (-1)\cdot 1 + 1 \cdot 1}{\sqrt{3}\cdot \sqrt{3}} = \dfrac{1}{3}\\
+\alpha&=70.529^\circ.
+\end{align*}
+\item
+Die Zwischenwinkelformel muss auf die Vektoren 
+\[
+R\begin{pmatrix}1\\1\\0\end{pmatrix}
+=
+\begin{pmatrix}
+0&-1& 0\\
+-1&0& 0\\
+0&0& -1\\
+\end{pmatrix}
+\begin{pmatrix}1\\1\\0\end{pmatrix}
+= 
+\begin{pmatrix} -1\\ -1\\ 0\end{pmatrix}
+\]
+und
+\[
+R\begin{pmatrix}-1\\-1\\-1\end{pmatrix}
+=
+\begin{pmatrix}
+0&-1& 0\\
+-1&0& 0\\
+0&0& -1\\
+\end{pmatrix}
+\begin{pmatrix}-1\\-1\\-1\end{pmatrix}
+= 
+\begin{pmatrix} 1\\ 1\\ 1\end{pmatrix}
+\]
+angewendet werden:
+\begin{align*}
+\cos(\alpha)&= \dfrac{\begin{pmatrix} -1\\ -1\\ 0\end{pmatrix}\cdot 
+\begin{pmatrix} 1\\ 1\\ 1\end{pmatrix}}
+{\left|\begin{pmatrix} -1\\ -1\\ 0\end{pmatrix}\right|\cdot \left|\begin{pmatrix} 1\\ 1\\ 1\end{pmatrix}\right|} 
+= \dfrac{(-1)\cdot 1 + (-1)\cdot 1 + 0 \cdot 1}{\sqrt{(-1)^2+(-1)^2+0^2}\cdot \sqrt{1^2+1^2+1^2}} = \dfrac{-2}{\sqrt{6}}\\
+\alpha&=144.736^\circ.
+\end{align*}
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+

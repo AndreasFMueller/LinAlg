@@ -4,44 +4,48 @@
 % (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
 \section{Koordinaten%
-\label{skript:koordinaten}}
+\label{section:koordinaten}}
 \rhead{Koordinaten}
 In diesem Abschnitt schlagen wir die Brücke zwischen der Algebra der
 Vektoren und der Geometrie.
-Dabei wir müssen natürlich gewisse Annahmen darüber machen, was
+
+\subsection{Grundkonstruktionen der affinen Geometrie}
+Wir müssen gewisse Annahmen darüber machen, was
 wir von der Geometrie benutzen wollen.
-Wir achten darauf, möglichst einfache Voraussetzungen zu machen,
-zum Beispiel möchten wir nicht voraussetzen, dass wir bereits
+Wir achten darauf, möglichst einfache Voraussetzungen zu machen.
+Zum Beispiel möchten wir nicht voraussetzen, dass wir bereits
 die Länge einer Strecke messen können (auf das dazu notwendige
-Skalarprodukte gehen wir in Kapitel~\ref{chapter:orthogonalitaet} ein).
-Wir brauchen aber mindestens den Begriff von Punkt, Gerade und Strecke
-sowie die Parallelenkonstruktion.
+Skalarprodukt gehen wir in Kapitel~\ref{chapter:orthogonalitaet} ein).
+
+\subsubsection{Axiome}
+Wir brauchen mindestens den Begriff von Punkt, Gerade und Strecke
+sowie die Eigenschaft der Parallelität.
 Dies können wir in den folgenden Axiomen zusammenfassen:
 \begin{compactenum}
 \item
 Zu zwei Punkten kann man immer eine Gerade durch die beiden Punkte
 finden.
 \item
-Zu einer Gerade in der Ebene und einem Punkt nicht auf der Geraden
-gibt es immer eine Gerade durch den Punkt, die die erste Gerade nicht
+Zu einer Gerade in der Ebene und einem Punkt, die nicht auf der Geraden
+liegt, gibt es immer eine Gerade durch den Punkt, die die erste Gerade nicht
 schneidet.
 \item
 Zu drei Punkten im Raum, die nicht auf einer Geraden liegen, gibt es
 eine Ebene, die die drei Punkte enthält.
 \item
-Zu einer Ebene im Raum und einem Punkt nicht in der Ebene gibt es eine
-zweite Ebene durch den Punkt, die die erste Ebene nicht schneidet.
+Zu einer Ebene im Raum und einem Punkt, der nicht in der Ebene liegt,
+gibt es eine zweite Ebene durch den Punkt, die die erste Ebene nicht
+schneidet.
 \end{compactenum}
-Aus den ersten zwei Punkten lässt sich zum Beispiel ableiten, dass
-man zu drei Punkten immer ein Parallelogramm konstruieren kann.
+Die Axiome 3 und 4 werden natürlich nur in der räumlichen Geometrie
+benötigt.
+
+\subsubsection{Parallelogramm-Konstruktion}
+Aus den ersten zwei Axiomen lässt sich zum Beispiel ableiten, dass
+man zu drei Punkten immer die vierte Ecke eines Parallelogramm
+konstruieren kann.
 Diese Konstruktion ist in Abbildung \ref{skript:affin:parallelogramm}
 dargestellt.
-Mit ihr kann man zwei Strecken vergleichen, ohne ihre Länge messen
-zu müssen.
-Wenn die beiden Strecken Seiten eines Parallelogramms sind, dann
-sind sie gleich.
-Man kann damit Strecken auch mehrfach aneinander hängen, was einer
-Multiplikation mit einer natürliche Zahl entspricht.
 \begin{figure}
 \centering
 \includegraphics{3/images/parallelogramm.pdf}
@@ -50,11 +54,65 @@ $A$, $B$ und $C$ die vierte Ecke $D$ eines Parallelogramms.
 \label{skript:affin:parallelogramm}}
 \end{figure}
 
+\subsubsection{Streckenvergleich}
+\begin{figure}
+\centering
+\includegraphics{3/images/streckenvergleich.pdf}
+\caption{Vergleich zweier Strekcen $AB$ und $CD$ mit Hilfe der
+Parallelogramm-Konstruktion. 
+$S$ ist die vierte Ecke des Parallelogramms mit Ecken $A$, $B$ und $C$.
+Wenn $S$ auf der Strecke $CD$ liegt, ist $CD$ länger als $AB$.
+\label{skript:streckenvergleich}}
+\end{figure}
+Mit der Parallelogramm-Konstruktion kann man zwei parallele Strecken
+vergleichen, ohne ihre Länge messen zu müssen.
+Im Geometrieunterricht lernt man, dass man zum Abtragen von Strecken
+den Zirkel braucht.
+Ein Zirkel wird aber nur gebraucht, um eine Strecke auch drehen zu
+können.
+Wir verlangen hier aber nur, dass wir parallele Strecken vergleichen
+können.
+Alle unsere Konstruktionen sollten also ganz ohne Zirkel nur mit den
+in den Axiomen erläuterten Konstruktionsschritten möglich sein.
+
+Die in Abbildung~\ref{skript:streckenvergleich} illustrierte Konstruktion
+ermittelt, ob die Strecke $AB$ länger oder kürzer ist als $CD$.
+Dazu wird zunächst das zu den Ecken $A$, $B$ und $C$ gehörende Parallelgramm 
+mit der vierten Ecke $S$ konstruiert.
+Die Strecke $CS$ ist gleich lang wie $AB$.
+Wenn die Ecke $S$ auf der Strecke $CD$ liegt, ist $CD$ länger als $AB$.
+Wenn die beiden Strecken parallele Seiten eines Parallelogramms sind, dann
+sind sie gleich.
+
+\subsubsection{Strecke vervielfachen}
+\begin{figure}
+\centering
+\includegraphics{3/images/streckenvervielfachung.pdf}
+\caption{Konstruktion, mit der die Strecke $OA$ im Punkt $A$ angehängt
+werden kann, wodurch sich der Punkt $B$ ergibt.
+Durch Iteration dieser Konstruktion kann ein beliebiges ganzzahliges
+Vielfaches der Strecke $AB$ konstruiert werden.
+\label{skript:streckenvervielfachung}}
+\end{figure}
+Man kann mit der Parallelogramm-Konstruktion Strecken mehrfach
+aneinander hängen, was einer Multiplikation mit einer natürliche
+Zahl entspricht.
+Die Idee der Konstruktion ist, dass die Parallelogramm-Konstruktion
+erlaubt, eine Strecke parallel zu verschieben, aber nicht auf der
+gleichen Gerade.
+Die Parallelogramm-Konstruktion muss daher zweimal angwendet werden,
+einmal, um die Strecke `neben' die Gerade zu verschieben, und ein
+zweites Mal, um sie so zurück zu verschieben, dass der neue Anfangspunkt
+der alte Endpunkt der Strecke wird.
+Diese Konstruktion ist in Abbildung~\ref{skript:streckenvervielfachung}
+dargestellt.
+
+\subsubsection{Strecke in einem rationalen Verhältnis teilen}
 Mit der Strahlensatz-Konstruktion in
 Abbildung~\ref{skript:affin:strahlensatz}
 kann man eine Strecke in einem beliebigen rationalen Verhältnis aufteilen.
 Man kann also eine Strecke mit einer rationalen Zahl ``multiplizieren''
-ohne dass m an ihre Länge messen kann.
+ohne dass man ihre Länge messen kann.
 \begin{figure}
 \centering
 \includegraphics{3/images/strahlensatz.pdf}
@@ -64,6 +122,7 @@ die Strecke $AB$ im Verhältnis $4:3$ geteilt.
 \label{skript:affin:strahlensatz}}
 \end{figure}
 
+\subsubsection{Affine Geometrie}
 Man beachte aber, dass es damit noch nicht möglich ist, zwei Strecken
 zu vergleichen, die nicht parallel sind.
 Dazu müsste man eine Strecke drehen können, so wie man das zum Beispiel
@@ -71,7 +130,7 @@ mit einem Zirkel machen kann.
 Die Geometrie, die wir hier entwickeln, verwendet aber keinen Zirkel,
 sondern nur Geraden, Punkte und Parallelität.
 Sie enthält also wesentlich weniger, als die euklidische Geometrie, die
-man in der Sek lernt.
+man in der Sekundarschule lernt.
 Sie heisst die {\em affine Geometrie}.
 \index{affine Geometrie}
 
@@ -81,9 +140,9 @@ Sie heisst die {\em affine Geometrie}.
 \subsection{Punkte und Vektoren}
 Die Geometrie macht Aussagen über Punkte in der Ebene und im Raum.
 Kein Punkt spielt eine besondere Rolle, alle Punkte sind gleichberechtigt.
-Die Algebra der Vektoren kennt dagegen einen ausgezeichneten Vektor,
+Die Algebra der Vektoren kennt dagegen einen speziellen Vektor,
 nämlich den Nullvektor, und sie kennt Operationen, die kein offensichtliches
-Gegenstück in der Geometrie haben, die Multiplikation mit Zahlen und
+Gegenstück in der Geometrie haben: Die Multiplikation mit Zahlen und
 die Addition von Vektoren.
 Es braucht daher eine Übersetzung, welche Punkte auf Vektoren
 abbildet und den algebraischen Operationen einen geometrischen
@@ -91,7 +150,7 @@ Sinn gibt.
 
 \subsubsection{Nullpunkt und Ortsvektoren}
 Wenn es eine Abbildung von Punkten auf Vektoren gibt, dann muss dem
-Nullvektor ein ausgezeichneter Punkt entsprechen, den wir meist mit 
+Nullvektor ein spezieller Punkt entsprechen, den wir meist mit 
 $O$ bezeichnen und {\em Nullpunkt} oder {\em Ursprung} nennen.
 Der Buchstabe $O$ kommt vom lateinischen Wort {\it origo}, welches
 Ursprung bedeutet.
@@ -101,8 +160,8 @@ von $O$ nach $P$ zuordnen.
 \index{Pfeil}
 Einen Pfeil kann man in der Ebene parallel verschieben,
 wie zum Beispiel die Parallelogramm-Konstruktion zeigt.
-Alle parallelen Pfeile sind gleichwertig, wir bezeichnen
-jeden dieser Pfeile als Vektor $\overrightarrow{OP}$, den
+Alle parallelen Pfeile sind gleichwertig.
+Wir bezeichnen jeden dieser Pfeile als Vektor $\overrightarrow{OP}$, den
 wir auch den {\em Ortsvektor} des Punktes $P$ nennen
 (Abbildung~\ref{skript:affin:ortsvektor}).
 \index{Ortsvektor}
@@ -151,14 +210,16 @@ Ein Koordinatensystem ermöglicht, jeden beliebigen Punkt des Raumes mit
 Hilfe weniger Zahlen zu beschreiben.
 Der ausgezeichnete Punkt $O$ reicht dafür noch nicht. 
 Ein Koordinatensystem erhalten wir erst, wenn zusätzlich eine Menge
-$\mathcal{B}=\{\vec{b}_1,\dots,\vec{b}_n\}$ von Vektoren vorgegeben ist.
+$\mathcal{B}=\{\vec{b}_1,\dots,\vec{b}_n\}$ von Vektoren zur Beschreibung
+der Koordinatenachsen vorgegeben ist.
 Wir sagen, der Punkt $P$ hat die Koordinaten $(x_1,\dots,x_n)$, wenn 
 gilt
 \[
 \vec{p}=\overrightarrow{OP} = x_1\vec{b}_1+\dots+x_n\vec{b}_n.
 \]
 Meist geht man intuitiv davon aus, dass die Vektoren von $\mathcal{B}$
-aufeinander senkrecht stehen und Länge $1$ haben, diese Bedingung
+aufeinander senkrecht stehen und Länge $1$ haben.
+Diese Bedingung
 ist aber unnötig, ja im Moment haben wir noch nicht einmal die
 nötigen Hilfsmittel, um Länge und Zwischenwinkel zu berechnen, diese
 werden erst im Kapitel~\ref{chapter:orthogonalitaet} bereitgestellt.
@@ -182,7 +243,7 @@ Bringt man alles auf eine Seite, erhält man die Gleichung
 (x_n-x_n')\vec{b_n}
 =0.
 \]
-Dies ist ein homogenes lineares Gleichungssystem, und wir möchten, dass
+Dies ist ein homogenes lineares Gleichungssystem und wir möchten, dass
 es nur eine Lösung hat.
 Nach Abschnitt~\ref{skript:section:linabh} ist dies genau dann der Fall,
 wenn die Vektoren $\vec{b}_1,\dots,\vec{b}_n$ linear unabhängig sind.
@@ -193,7 +254,7 @@ wenn die Vektoren linear unabhängig sind und sich damit alle Ortsvektoren
 ausdrücken lassen.
 \end{definition}
 
-Es ist aus der Parallelgramm-Konstruktion klar, dass in der Ebene zwei 
+Es ist aus der Parallelogramm-Konstruktion klar, dass in der Ebene zwei 
 Basisvektoren genügen, während für den dreidmensionalen Raum drei
 Basisvektoren nötig sind.
 \begin{figure}
@@ -261,7 +322,7 @@ Wir möchten verstehen, wie eine Linearkombination
 \xi_3\vec{a}_3
 \]
 berechnet wird.
-Wir gehen davon aus, dass eine Basis gewählt worden ist, und dass
+Wir gehen davon aus, dass eine Basis gewählt worden ist und dass
 folglich die Vektoren $\vec{a}_i$ als Spaltenvektoren geschrieben
 werden können, die wir
 \[
@@ -313,25 +374,25 @@ der Spaltenvektoren der Matrix mit den Koeffizienten des Spaltenvektors.
 Sei wieder eine Menge $\mathcal{A}=\{\vec{a}_1,\dots,\vec{a}_l\}$
 von Vektoren in $\mathbb R^n$ gegeben.
 Man nennt die Menge aller Linearkombinationen von Vektoren aus
-$\mathcal{A}$
+$\mathcal{A}$,
 \[
 \langle
 \mathcal{A}
 \rangle
 =
 \langle
-\vec{a}_1,\dots,\vec{a}_n
+\vec{a}_1,\dots,\vec{a}_l
 \rangle
 =
 \{
-\xi_1\vec{a}_1+\dots+\xi_n\vec{a}_n\;|\; \xi_i\in\mathbb R
-\}
+\xi_1\vec{a}_1+\dots+\xi_l\vec{a}_l\;|\; \xi_i\in\mathbb R
+\},
 \]
 den von den Vektoren in $\mathcal{A}$ {\em aufgespannten Raum}.
 \label{skript:affin:koordinaten:aufgespannt}
 \index{aufgespannter Raum}
 Die Standardbasisvektoren im $\mathbb R^n$ spannen den ganzen Raum
-auf:
+$\mathbb R^n$ auf:
 \[
 \mathbb R^n = \langle \vec{e}_1,\dots,\vec{e}_n\rangle.
 \]
@@ -346,12 +407,22 @@ ist wegen
 A(\lambda\vec{\xi} + \mu\vec{\eta})
 \]
 wieder eine Linearkombination in $\langle\mathcal{A}\rangle$.
-Man nennt $\langle\mathcal{A}\rangle$ einen Vektorrraum, er ist
+Man nennt $\langle\mathcal{A}\rangle$ einen Vektorrraum.
+
+\begin{definition}
+Eine Menge $U$ von Vektoren heisst ein Vektorrraum, wenn
+sich die grundlegenden Vektor-Operationen der Addition von Vektoren
+und der Multiplikation mit Zahlen unbeschränkt ausführen lassen.
+Insbesondere muss $0\in U$ sein und mit $\vec{u},\vec{v}\in U$ müssen
+auch $\vec{u}+\vec{v}$ und $\lambda\vec{u}$ in $U$ sein.
+\end{definition}
+\index{Vektorraum}%
+Der Vektorrraum $\langle\mathcal{A}\rangle$ ist
 ein Unterraum des Vektorraums $\mathbb R^n$: $\langle\mathcal{A}\rangle
 \subset\mathbb R^n$.
 Wenn die Vektoren in $\mathcal{A}$ linear unabhängig sind, dann lässt
 sich ein Vektor in $\langle\mathcal{A}\rangle$ auf eindeutige Weise
-durch die Vektoren ausdrücken.
+durch die Vektoren $\vec{a}_1,\dots,\vec{a}_l$ ausdrücken.
 Man sagt auch, $\langle\mathcal{A}\rangle$ habe die Dimension $l$.
 
 \begin{definition}
@@ -364,13 +435,14 @@ Es ist $\dim\mathbb R^n=n$.
 \begin{beispiel}
 Die Vektoren \[
 \mathcal{A}=\left\{
+\vec{a}_1=
 \begin{pmatrix}1\\2\\3\end{pmatrix},
+\vec{a}_2=
 \begin{pmatrix}3\\2\\1\end{pmatrix}
 \right\}
 \]
 spannen einen zweidimensionalen Unterraum von $\mathbb R^3$ auf.
-Man finde
-die Koordinaten des Vektors
+Man finde die Koordinaten $\vec{\xi}$ des Vektors
 \[
 \vec{v}
 =
@@ -380,7 +452,7 @@ die Koordinaten des Vektors
 \]
 als Linearkombination der Vektoren von $\mathcal{A}$.
 
-Dazu muss man das Gleichungssystem $\vec{v}=A\vec{\xi}$ lösen:
+Dazu muss man das Gleichungssystem $A\vec{\xi}=\vec{v}$ lösen:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -463,13 +535,37 @@ A\vec{\xi}
 \end{beispiel}
 
 \subsubsection{Dimension eines Unterraums}
+\begin{figure}
+\centering
+\includegraphics[width=\hsize]{3/images/basis.pdf}
+%\includegraphics{3/images/basis.pdf}
+\caption{a) Zwei linear unabhängige Vektoren bilden die Basis für einen
+zweidimensionalen Unterraum des $\mathbb R^3$, also für eine Ebene.
+b)~Fügt man einen linear abhängigen Vektor (orange) hinzu, bleibt der
+aufgespannte Unterraum zweidmensional, die drei Vektoren bilden keine
+Basis. c)~Sind die drei Vektoren linear unabhängig, erkennbar daran, dass
+der orange Vektor nicht in der Ebene enthalten ist, dann bilden alle
+drei eine Basis des ganzen Raumes.
+\label{skript:basisvektoren}}
+\end{figure}
 Die Vektoren $\mathcal{A}=\{\vec{a}_1,\dots,\vec{a}_l\}$ müssen nicht
-unbedingt eine Basis bilden.
-Es ist also durchaus möglich, dass die Menge aller Linearkombinationen
-nur eine Telmenge des Raums aller Vektoren ausmacht.
+unbedingt eine Basis von $\langle\mathcal{A}\rangle$ bilden.
+Dieser Fall tritt ein, wenn die Vektoren $\vec{a}_1,\dots,\vec{a}_l$
+nicht linear unabhängig sind.
 Indem man linear abhängige Vektoren weglässt, kann man die Menge der
 Vektoren $\mathcal{A}$ soweit verkleinern, dass eine Basis des 
 Vektorraumes übrig bleibt.
+
+Diese Situation wird illustriert von der Abbildung~\ref{skript:basisvektoren}.
+Zwei linear unabhängige Vektoren bilden eine Basis des von den beiden
+Vektoren aufgespannten zweidimensionalen Raumes.
+Fügt man einen dritten Vektor hinzu, der in der aufgespannten Ebene liegt,
+dann spannen die drei Vektoren zwar immer noch den zweidimensionalen
+Raum auf, aber die drei Vektoren bilden keine Basis.
+Liegt der dritte Vektor nicht in der Ebene, dann spannen die drei Vektoren
+den ganzen dreidimensionalen Raum auf, nicht mehr nur die Ebene, und
+die drei Vektoren sind eine Basis.
+
 
 \begin{beispiel}
 Man finde eines Basis des von den Vektoren 
@@ -493,8 +589,9 @@ aufgespannten Raumes.
 ob sich der nächste Vektor bereits durch die früheren Vektoren 
 ausdrücken lässt.
 Der Gauss-Algorithmus macht genau das für die Zeilen einer Matrix.
-Wir füllen die daher die Vektoren als Zeilen in ein Tableau ein führen
-den Gaussalgorithmus aus:
+Als Test für lineare Unabhängigkeit
+füllen wir die Vektoren als Zeilen in ein Tableau ein führen
+den Gaussalgorithmus durch:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -508,9 +605,9 @@ den Gaussalgorithmus aus:
 1&0&\frac{22}{28}\\
 0&1&\frac{13}{28}\\
 \hline
-\end{tabular}
+\end{tabular}\,.
 \]
-die ersten beiden Vektoren sind also linear unabhängig, die Dimension
+Die ersten beiden Vektoren sind also linear unabhängig, die Dimension
 ist mindestens $2$.
 
 Nehmen wir den dritten Vektor hinzu, erhalten wir
@@ -530,9 +627,9 @@ Nehmen wir den dritten Vektor hinzu, erhalten wir
 \hdashline
 0&0&0\\
 \hline
-\end{tabular}
+\end{tabular}\,.
 \]
-der dritte Vektor ist also nicht mehr linear unabhängig. 
+Der dritte Vektor ist also nicht mehr linear unabhängig. 
 Die Dimension des aufgespannten Raumes ist daher
 $\dim\langle\mathcal{A}\rangle=2$ und die ersten
 beiden Vektoren bilden eine Basis.
@@ -546,9 +643,9 @@ Unterraumes erhalten.
 %
 % Basistransformation
 %
-\subsection{Basistransformation}
+\subsection{Basistransformation\label{subsection:basistransformation}}
 Es gibt vorerst keinen Grund, irgend einer Basis den Vorzug zu geben.
-Wenn wir aber mit jeder beliebigen Basis rechnen können müssen, dann
+Wenn aber jede beliebige Basis verwendet werden darf, dann
 brauchen wir eine Methode, wie wir Koordinaten zwischen verschiedenen
 Basen umrechnen können.
 
@@ -556,21 +653,25 @@ Basen umrechnen können.
 \label{skript:affin:basiswechsel:aufgabe}
 Wenn ein Vektor $\vec{v}$ in der Basis
 $\mathcal{B}=\{\vec{b}_1,\dots,\vec{b}_n\}$
-die Koordinaten $(x_1,\dots,x_n)$, welche Koordinaten hat er dann in
+die Koordinaten $(x_1,\dots,x_n)$ hat, welche Koordinaten hat er dann in
 der Basis $\mathcal{C}=\{\vec{c}_1,\dots,\vec{c}_l\}$?
-Wir bezeichnen die Koordinaten mit $y_1,\dots,y_l$.
+\end{aufgabe}
+
+Wir bezeichnen die Koordinaten bezüglich der Basis $\mathcal{B}$
+mit $(y_1,\dots,y_l)$.
 Die beiden Sätze von Koordinaten beschreiben den gleichen Vektor,
 es muss also die lineare Gleichung
-\begin{equation}
-y_1\vec{c}_1 + \dots + y_l\vec{c}_l
+\begin{align}
+\vec{v}
 =
+y_1\vec{c}_1 + \dots + y_l\vec{c}_l
+&=
 x_1\vec{b}_1 + \dots + x_n\vec{b}_n
 \label{skript:affin:basistransformation-ansatz}
-\end{equation}
+\end{align}
 gelten.
 Darin sind die $y_i$ die Unbekannten, die wir durch die Variablen $x_i$
 ausdrücken sollen.
-\end{aufgabe}
 
 \subsubsection{Lösbarkeit}
 Wenn $\mathcal{B}$ und $\mathcal{C}$ Basen sind, wissen wir, dass
@@ -584,18 +685,20 @@ Mengen von Vektoren sind.
 Natürlich ist dann nicht mehr sicher, ob das Problem eine Lösung hat.
 
 \subsubsection{Matrix- und Tableauform}
-Wir nehmen jetzt also an, dass es noch irgend eine Basis gegeben ist,
-über die wir weiter nichts wissen müssen.
-In dieser Basis können wir alle Vektoren
-$\vec{b}_1,\dots,\vec{b}_n$ und $\vec{c}_1,\dots,\vec{c}_l$
-als Spaltenvektoren schreiben, also
+Wir nehmen jetzt an, dass die Vektoren der Basen
+$\mathcal{B}=\{\vec{b}_1,\dots,\vec{b}_n\}$
+und
+$\mathcal{C}=\{\vec{c}_1,\dots,\vec{c}_l\}$
+als Spaltenvektoren in einem $m$-dimensionalen $\mathbb R^m$
+gegeben sind.
+Wir bezeichnen die Komponente dieser Vektoren mit
 \[
-\vec{b}_i = \begin{pmatrix}b_{1i}\\\vdots\\b_{mi}\end{pmatrix}
+\vec{b}_i = \begin{pmatrix}b_{1i}\\\vdots\\b_{mi}\end{pmatrix},\;i=1,\dots,n
 \qquad\text{und}\qquad
-\vec{c}_j = \begin{pmatrix}c_{1j}\\\vdots\\c_{mj}\end{pmatrix}.
+\vec{c}_j = \begin{pmatrix}c_{1j}\\\vdots\\c_{mj}\end{pmatrix},\;j=1,\dots,l.
 \]
 Die Gleichung
-\label{skript:affin:basistransformation-ansatz}
+\eqref{skript:affin:basistransformation-ansatz}
 kann in Matrixform
 \begin{equation}
 C\vec{y} = B\vec{x}
@@ -638,7 +741,7 @@ Das Schlusstableau des Gauss-Algorithmus in der Form
 \hline
 \end{tabular}
 \]
-erlaubt abzulesen, ob das Problem lösbar ist, und wie die Koordinaten
+erlaubt abzulesen, ob das Problem lösbar ist und wie die Koordinaten
 umgerechnet werden müssen.
 Die {\color{red}roten} Sterne im rechten unteren Teil des Tableaus sagen uns,
 ob das Umrechnungsproblem überhaupt eine Lösung hat.
@@ -666,16 +769,15 @@ c_2=\begin{pmatrix}1\\0\\-1\end{pmatrix}
 \]
 verwenden.
 Finden Sie die Koordinatentransformationsmatrix $T$, mit der
-man einen Vektor $t\vec{b}_1+s\vec{b}_2$
-in die Koordinaten in
+man einen Vektor $x_1\vec{b}_1+x_2\vec{b}_2$
+in die Koordinaten $(y_1,y_2)$ in
 der Basis $\mathcal{C}$ umrechnen kann.
-Man finde ausserdem die
-Koordinaten in der Basis $\mathcal{C}$ des Vektors, der in der Basis
-$\mathcal{B}$ die Koordinaten $(2,-1)$ hat.
+Man finde ausserdem die Koordinaten des Vektors in der Basis $\mathcal{C}$,
+der in der Basis $\mathcal{B}$ die Koordinaten $(2,-1)$ hat.
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
 \hline
-y_1&y_2&t&s\\
+y_1&y_2&x_1&x_2\\
 \hline
 1& 1&1&0\\
 2& 0&1&1\\
@@ -685,7 +787,7 @@ y_1&y_2&t&s\\
 &\rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
 \hline
-y_1&y_2&t&s\\
+y_1&y_2&x_1&x_2\\
 \hline
 1& 1& 1&0\\
 0&-2&-1&1\\
@@ -695,7 +797,7 @@ y_1&y_2&t&s\\
 \rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
 \hline
-y_1&y_2&t&s\\
+y_1&y_2&x_1&x_2\\
 \hline
 1& 1&      1&       0\\
 0& 1&\frac12&-\frac12\\
@@ -707,7 +809,7 @@ y_1&y_2&t&s\\
 &\rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
 \hline
-y_1&y_2&t&s\\
+y_1&y_2&x_1&x_2\\
 \hline
 1& 0& \frac12& \frac12\\
 0& 1& \frac12&-\frac12\\
@@ -725,7 +827,7 @@ T=
 \]
 Die Koordinaten $(2,-1)$ ergeben nach Umrechnung mit $T$
 \[
-\xi'=
+\vec{y}=
 T\begin{pmatrix}2\\-1\end{pmatrix}
 =
 \frac12\begin{pmatrix} 1&1\\1&-1 \end{pmatrix}
@@ -734,7 +836,7 @@ T\begin{pmatrix}2\\-1\end{pmatrix}
 \]
 Zur Kontrolle berechnen wir den zugehörigen Vektor in $\mathbb R^3$:
 \[
-B\xi=
+B\vec{x}=
 \begin{pmatrix}
 1&0\\
 1&1\\
@@ -743,7 +845,7 @@ B\xi=
 \begin{pmatrix}2\\-1\end{pmatrix}
 =\begin{pmatrix} 2\\1\\-1 \end{pmatrix}
 ,\qquad
-C \xi'
+C \vec{y}
 =
 \begin{pmatrix}
 1& 1\\
@@ -755,48 +857,61 @@ C \xi'
 beide stimmen überein.
 \end{beispiel}
 
-
-\subsubsection{Basen}
-In der typischen Anwendungssituation sind $\mathcal{B}$ und $\mathcal{C}$
-Basen.
-Die $y_i$ sind bekannt, wir gehen also davon aus, dass wir bisher in
-der Basis $\mathcal{B}$ gearbeitet haben und jetzt in die Basis
-$\mathcal{C}$ wechseln möchten.
-Wir drücken daher alle Vektoren in der bisherigen Basis $\mathcal{B}$
-sein.
-In der rechte Hälfte des Tableaus steht dann die Einheitsmatrix, in
-der linke stehen die Komponenten der Vektoren $\vec{c}_i$ ausgedrückt
-in der Basis $\mathcal{B}$.
-
-
-Das Tableau hat also die Form
+\subsubsection{Umrechnung auf die Standardbasis}
+Sei jetzt $\mathcal{B}=\langle\vec{e}_1,\dots,\vec{e}_n\rangle$ die
+Standardbasis des Vektorraumes $\mathbb R^n$.
+In diesem Fall ist $m=n=l$.
+Im Tableau zur Bestimmung der Basistransformationsmatrix $T$ steht dann
+auf der rechten Seite die Einheitsmatrix:
 \begin{equation*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
-   y_1&\dots &   y_l&   x_1&\dots &   x_n\\
+   y_1&\dots &   y_n&   x_1&\dots &   x_n\\
 \hline
-c_{11}&\dots &c_{1l}&  1   &\dots &  0   \\
+c_{11}&\dots &c_{1n}&  1   &\dots &  0   \\
 \vdots&\ddots&\vdots&\vdots&\ddots&\vdots\\
-c_{m1}&\dots &c_{ml}&  0   &\dots &  1   \\
+c_{n1}&\dots &c_{nn}&  0   &\dots &  1   \\
 \hline
-\end{tabular}
+\end{tabular}\,.
 \end{equation*}
 Auflösung mit dem Gaussalgorithmus liefert dann
 \[
 \vec{y} = C^{-1} \vec{x}.
 \]
-Dies funktionert aber auch für jede beliebige andere Basis.
-Im Tableau 
+Die inverse Matrix von $C$ ist also die Umrechnungsformel von der
+Standardbasis auf die Basis $\mathcal{C}$.
 
-Für eine beliebige Basis ist dann $l=m=n$ und
-in der der Transformationsgleichungen
-in Matrixform~\ref{skript:affin:basistransformation-matrix}
-stehen auf beiden Seiten quadratische $n\times n$-Matrizen.
-Es ist also 
+\subsubsection{Basen von $\mathbb{R}^n$}
+In der typischen Anwendungssituation sind $\mathcal{B}$ und $\mathcal{C}$
+Basen von $\mathbb{R}^n$ und die $x_i$ sind bekannt.
+Damit ist zunächst einmal $m=n$.
+Die Anzahl der Basisvektoren in $\mathcal{B}$ und $\mathcal{C}$ muss
+auch gleich sein, also $n=l$.
+Wir gehen also davon aus, dass wir bisher in
+der Basis $\mathcal{B}$ gearbeitet haben und jetzt in die Basis
+$\mathcal{C}$ wechseln möchten.
+
+Das Tableau zur Bestimmung der Basistransformationsmatrix $T$ hat dann die
+Form
+\begin{equation*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+   y_1&\dots &   y_n&   x_1&\dots &   x_n\\
+\hline
+c_{11}&\dots &c_{1n}&b_{11}&\dots &c_{nn}\\
+\vdots&\ddots&\vdots&\vdots&\ddots&\vdots\\
+c_{n1}&\dots &c_{nn}&b_{n1}&\dots &b_{nn}\\
+\hline
+\end{tabular}
+\end{equation*}
+Da die Matrizen $B$ und $C$ quadratische Matrizen sind, lassen sich die
+Transformationsgleichungen in
+Matrixform~\eqref{skript:affin:basistransformation-matrix}
+als
 \[
 C\vec{y} = B\vec{x}
 \]
-aufzulösen.
+schreiben.
 Durch Multiplikation mit der inversen Matrix $C^{-1}$ erhalten wir
 \begin{equation}
 \vec{y} = C^{-1}B\vec{x}
@@ -806,8 +921,7 @@ T=C^{-1}B.
 \end{equation}
 
 \begin{beispiel}
-Finden Sie die Transformationsmatrix, mit der man Koordinaten von der
-Basis
+Finden Sie die Transformationsmatrix, mit der Koordinaten von der Basis
 \[
 \mathcal{B}=\left\{
 \begin{pmatrix}9\\20\end{pmatrix},
@@ -844,7 +958,7 @@ C^{-1}
 \begin{pmatrix}
 3\cdot 7-4\cdot 5&-3\cdot 4+4\cdot 3\\
 5\cdot 7-7\cdot 5&-5\cdot 4+7\cdot 3
-\end{pmatrix}.
+\end{pmatrix}=E.
 \]
 Daraus kann man jetzt die Matrix $T$ durch Multiplikation mit $B$ bekommen:
 \[

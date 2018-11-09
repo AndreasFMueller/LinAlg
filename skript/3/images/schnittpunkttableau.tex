@@ -34,12 +34,12 @@ $
 \hline
 \color{red}x&\color{red}y&\color{red}z&\color{red}t&\color{red}s&\\
 \hline
-1&0&0&-r_1&   0&p_1\\
-0&1&0&-r_2&   0&p_2\\
-0&0&1&-r_3&   0&p_3\\
-1&0&0&   0&-v_1&q_1\\
-0&1&0&   0&-v_2&q_2\\
-0&0&1&   0&-v_3&q_3\\
+1&0&0&-u_1&   0&q_1\\
+0&1&0&-u_2&   0&q_2\\
+0&0&1&-u_3&   0&q_3\\
+1&0&0&   0&-v_1&w_1\\
+0&1&0&   0&-v_2&w_2\\
+0&0&1&   0&-v_3&w_3\\
 \hline
 \end{tabular}
 \quad
@@ -47,13 +47,13 @@ $
 \quad
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-&\color{red}\vec{r}&&\color{red}t&\color{red}s&\\
+&\color{red}\vec{p}&&\color{red}t&\color{red}s&\\
 \hline
  & & &        &        &\\
- &I& &-\vec{r}&        &\vec{p}\\
+ &E& &-\vec{u}&        &\vec{q}\\
  & & &        &        &\\
  & & &        &        &\\
- &I& &        &-\vec{v}&\vec{q}\\
+ &E& &        &-\vec{v}&\vec{w}\\
  & & &        &        &\\
 \hline
 \end{tabular}
@@ -72,17 +72,17 @@ $
 \def\h{1.40}
 \def\b{-1.7}
 
-\draw[rounded corners] (2.45,{\t-\h}) rectangle (3.8,\t);
-\draw[rounded corners] (3.9,{\t-\h}) rectangle (4.6,\t);
+\draw[rounded corners] (2.40,{\t-\h}) rectangle (3.85,\t);
+\draw[rounded corners] (3.95,{\t-\h}) rectangle (4.65,\t);
 %\draw[rounded corners] (4.3,{\t-\h}) rectangle (4.85,0.95);
-\draw[rounded corners] (5.65,{\t-\h}) rectangle (6.10,\t);
+\draw[rounded corners] (5.75,{\t-\h}) rectangle (6.20,\t);
 
-\draw[rounded corners] (2.45,\b) rectangle (3.8,{\b+\h});
+\draw[rounded corners] (2.40,\b) rectangle (3.85,{\b+\h});
 %\draw[rounded corners] (3.5,-1.4) rectangle (4.1,{\b+\h});
-\draw[rounded corners] (4.8,\b) rectangle (5.4,{\b+\h});
-\draw[rounded corners] (5.65,\b) rectangle (6.10,{\b+\h});
+\draw[rounded corners] (4.9,\b) rectangle (5.5,{\b+\h});
+\draw[rounded corners] (5.75,\b) rectangle (6.20,{\b+\h});
 
-\draw[rounded corners, color=red] (2.45,1.35) rectangle (3.8,1.75);
+\draw[rounded corners, color=red] (2.40,1.32) rectangle (3.85,1.75);
 
 \end{tikzpicture}
 

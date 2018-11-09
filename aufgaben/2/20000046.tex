@@ -1,0 +1,44 @@
+Betrachten Sie die Matrix
+\[
+A=\begin{pmatrix}
+1&2\\
+9&1
+\end{pmatrix}
+\]
+Berechnen Sie $\det(A^{-47}) = \det((A^{-1})^{47})$.
+
+\thema{Produktsatz}
+\thema{Determinante}
+
+\begin{loesung}
+Zunächst berechnen wir die Determinante von $A$:
+\[
+\det(A)=
+\left|
+\begin{matrix}
+1&2\\
+9&1
+\end{matrix}
+\right|
+=1\cdot 1 - 2 \cdot 9 = -17
+\]
+Aus der Produktformel folgt:
+\[
+\det(A^{-47}) 
+= 
+\det((A^{-1})^{47})
+=
+\det(A^{-1})^{47}
+=
+\left(\dfrac{1}{\det(A)}\right)^{47}
+=
+\left(\dfrac{1}{-17}\right)^{47}
+=
+-1.4754\cdot 10^{-58}.
+\qedhere
+\]
+\end{loesung}
+
+
+
+

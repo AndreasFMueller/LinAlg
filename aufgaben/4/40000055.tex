@@ -27,7 +27,7 @@ E_4&=( 220, 220, 0).
 \end{align*}
 Die Spitze der Pyramide ist $S=(0,0,280)$.
 Für beide Teilaufgaben brauchen wir die Normalen auf Seitenflächen.
-Wir berechnen die Normale von $\triangle E_1E_2S$:
+Wir berechnen die Normale von $\triangle E_1E_2S$ mit dem Vektorprodukt:
 \begin{align*}
 \vec n
 &=
@@ -46,12 +46,50 @@ Wir berechnen die Normale von $\triangle E_1E_2S$:
 \begin{pmatrix} 0\\ -123200\\ 96800 \end{pmatrix}
 =
 8800
-\begin{pmatrix} 0\\ -14\\ 11 \end{pmatrix}
+\begin{pmatrix} 0\\ -14\\ 11 \end{pmatrix}.
 \end{align*}
+Statt dem Vektorprodukt kann man auch das Skalarprodukt verwenden.
+Mit dem Skalarprodukt müssen die beiden Gleichungen
+\[
+  \vec n\cdot \overrightarrow{SE_1} = -220\cdot n_1-220\cdot n_2-280\cdot n_3  = 0
+\]
+und
+\[
+  \vec n\cdot \overrightarrow{SE_2} = 220\cdot n_1-220\cdot n_2-280\cdot n_3  = 0
+\]
+erfüllt werden. Schreibt man diese in ein Tableau und führt den Gauss-Algorithmus durch,
+findet man folgendes Schluss-Tableau:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ -220&-220& -280& 0\\
+ 220&-220& -280& 0\\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&1& \frac{14}{11}& 0\\
+ 0&-440& -560& 0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&0& 0& 0\\
+ 0&1& \frac{14}{11}& 0\\
+\hline
+\end{tabular}
+\end{align*}
+$n_3$ ist frei wählbar. Setzt man $n_3 = 11$, ergibt sich als Normalenvektor
+\[
+  \vec n = \begin{pmatrix} 0\\ -14\\ 11 \end{pmatrix}.
+\]
 \begin{teilaufgaben}
 \item
 Der Zwischenwinkel für die Flächen $\triangle E_1E_2S$ und
-$\triangle E_2E_3S$ ist der Zwischenwinkel der Normalen der beiden
+$\triangle E_2E_4S$ ist der Zwischenwinkel der Normalen der beiden
 Dreiecke, also von
 \[
 \vec n_1
@@ -79,7 +117,7 @@ Diesem spitzen Winkel entspricht ein stumpfer Winkel von $112.44^\circ$.
 \item
 Die Königinnenkammer hat die Koordinaten $Q=(0,0,61)$.
 Wir müssen den Abstand des Punktes $Q$ von der Ebene des Dreiecks
-$\triangle SE_1E_2$ bestimmen.
+$\triangle E_1E_2S$ bestimmen.
 Dazu stellen wir zuerst die Ebenengleichung in hessescher Normalform
 auf:
 \[

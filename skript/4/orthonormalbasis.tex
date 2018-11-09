@@ -47,7 +47,7 @@ v_3\vec e_3
 +
 (\vec v\cdot \vec e_2)\vec e_2
 +
-(\vec v\cdot \vec e_3)\vec e_3
+(\vec v\cdot \vec e_3)\vec e_3.
 \]
 Dies funktioniert aber nicht nur für die Vektoren $\vec e_i$.
 Seien $\vec b_1$, $\vec b_2$ und $\vec b_3$ drei aufeinander senkrecht
@@ -60,8 +60,8 @@ Mit dem Skalarprodukt kann man dies durch
 \end{cases}
 \]
 ausdrücken.
-Versucht man den den Vektor $\vec v$ als Linearkombination
-der Vektoren $\vec b_i$ zu schreiben, also
+Nun versucht man den Vektor $\vec v$ als Linearkombination
+der Vektoren $\vec b_i$ zu schreiben, also als
 \[
 \vec v
 =
@@ -69,10 +69,10 @@ v_1'\vec b_1
 +
 v_2'\vec b_2
 +
-v_3'\vec b_3
+v_3'\vec b_3.
 \]
-Berechnet man jetzt das Skalarprodukt von $\vec v$ mit $\vec b_i$,
-findet man
+Multipliziert man jetzt beide Seiten dieser Gleichung mit $\vec{b}_i$,
+erhält man
 \begin{align*}
 \vec v\cdot \vec b_i
 &=
@@ -92,10 +92,12 @@ v_2'\vec b_2\cdot\vec b_i
 +
 v_3'\vec b_3\cdot\vec b_i
 \\
-&=v_i'
+&=v_i',
 \end{align*}
-weil alle Skalarprodukte verschwinden ausser zwischen
-zwei gleichen Vektoren.
+weil die Skalarprodukte $\vec{b}_j\cdot\vec{b}_i$ verschwinden für $i\ne j$
+und $\vec{b}_i\cdot\vec{b}_i=1$.
+Die Koordinaten $v_i'$ können also ganz einfach als Skalarprodukte 
+$\vec{v}\cdot\vec{b}_i$ berechnet werden, wenn die Basis orthonormiert ist.
 
 \begin{definition} Die Koeffizienten der Einheitsmatrix
 \[
@@ -105,7 +107,7 @@ zwei gleichen Vektoren.
 1&\qquad i=j
 \end{cases}
 \]
-heisst {\em Kronecker-Delta}.
+heissen {\em Kronecker-Delta}.
 \end{definition}
 
 \begin{definition}
@@ -117,16 +119,15 @@ $n$ Vektoren $\vec b_i$ heissen orthonormiert, wenn gilt
 
 \begin{satz}
 Sind die Vektoren $\vec b_i$ orthonormiert, dann kann man jeden
-Vektor $\vec v$ als Linearkombination der Vektoren $\vec b_i$
+Vektor $\vec v$ als Linearkombination der Vektoren $\vec b_i$ schreiben:
 \[
 \vec v=
 (\vec v\cdot\vec b_1)\vec b_1
 +
 (\vec v\cdot\vec b_2)\vec b_2
 +
-(\vec v\cdot\vec b_3)\vec b_3
+(\vec v\cdot\vec b_3)\vec b_3.
 \]
-schreiben.
 Diese Darstellung ist eindeutig.
 \end{satz}
 
@@ -140,12 +141,14 @@ Gäbe es zwei Darstellungen, also
 v_1'\vec b_1+
 v_2'\vec b_2+
 v_3'\vec b_3\\
+\text{und}\quad
+\vec v
 &=
 v_1''\vec b_1+
 v_2''\vec b_2+
 v_3''\vec b_3,
 \end{align*}
-können wir die Differenz bilden:
+könnten wir die Differenz bilden:
 \[
 0=
 (v_1'-v_1'')\vec b_1
@@ -154,11 +157,26 @@ können wir die Differenz bilden:
 +
 (v_3'-v_3'')\vec b_3
 \]
-Das Skalarprodukt mit $b_i$ ergibt dann
-\[
-0=(v_i'-v_i'')\quad\Rightarrow\quad v_i'=v_i''.
-\]
-Da wir $i$ beliebig wählen können folgt, dass die
+Multiplizieren wir diese Gleichung wieder mit $\vec{b}_i$, ergibt sich
+\begin{align*}
+0
+&=
+(v_1'-v_1'')\vec{b}_1\cdot\vec{b}_i
++
+(v_2'-v_2'')\vec{b}_2\cdot\vec{b}_i
++
+(v_3'-v_3'')\vec{b}_3\cdot\vec{b}_i
+\\
+\Rightarrow
+\quad
+0
+&=
+(v_i'-v_i'')
+\\
+\Rightarrow\quad
+v_i'&=v_i''.
+\end{align*}
+Dies muss für jedes $i$ gelten, so dass alle
 Koeffizienten $v_i'$ und $v_i''$ übereinstimmen.
 \end{proof}
 
@@ -274,7 +292,7 @@ im vorangegangenen Beispiel.
 % Skalarprodukt und Matrixprodukt
 %
 \subsection{Skalarprodukte und Matrixprodukt}
-Das in der Vektorgeometrie definiert Skalarprodukt kann in beliebig
+Das in der Vektorgeometrie definierte Skalarprodukt kann in beliebig
 vielen Dimensionen definiert werden.
 Zwei Vektoren $v$ und $u$ in $\mathbb R^n$ haben
 das Skalarprodukt
@@ -294,11 +312,11 @@ Zum Beispiel ist die Länge eines Vektors definiert als
 Programme wie Octave oder Matlab brauchen daher keine spezielle Notation
 für das Skalarprodukt, da mit Transposition und Matrixprodukt
 bereits alles vorhanden ist, um das Skalarprodukt auszurechnen.
-In Matlab-Notation ist das Skalarprodukt der Spaltenvektoren
+das Skalarprodukt der Spaltenvektoren
 \texttt{u}
 und
 \texttt{v}
-ist 
+ist in Matlab-Notation
 \texttt{u'*v}.
 
 In den Anwendungen findet man aber weitere Beispiel von
@@ -346,16 +364,21 @@ Einstein fundamentale Bedeutung.
 % Basiswechsel
 %
 \subsection{Basiswechsel}
-Sei wieder $T$ die Matrix, die Koordinaten von der Basis $B'$ in die
-Basis $B$ umrechnet.
+Sei wieder $T$ die Matrix, die Koordinaten $x$ von der Basis $B$ in die
+Koordinaten $y$ in der Basis $B'$ umrechnet, also $y=Tx$.
 Um das Skalarprodukt bezüglich der Basis $B'$ zu berechnen,
-müssen die Vektoren zuerst mit $T$ in die Basis $B$ umgerechnet werden,
+müssen die Vektoren zuerst mit $T^{-1}$ in die Basis $B$ umgerechnet werden,
 so dass dann die Formel für das Skalarprodukt in der Basis $B$
 verwendet werden kann:
 \[
-(T\xi)^tT\eta=\xi^tT^tT\eta
+T^{-1}y\cdot T^{-1}\bar y
+=
+(T^{-1}y)^tT^{-1}\bar y
+=
+y^t (T^{-1})^tT^{-1} \bar y
 \]
-Die Matrix $T^tT$ ist symmetrisch, der ``Spezialfall'' eines Skalarproduktes,
+Die Matrix $(T^{-1})^tT^{-1}$ ist symmetrisch, der
+``Spezialfall'' eines Skalarproduktes,
 welches mit Hilfe einer symmetrischen Matrix definiert worden ist,
 ist also unvermeidlich, wenn man die Basis wechseln will.
 

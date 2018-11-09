@@ -27,12 +27,10 @@ TEXFILES = linsys.tex 							\
 	2/kramer.tex							\
 	2/produktformel.tex						\
 	3/chapter.tex							\
-	3/basis.tex							\
-	3/ebenen.tex							\
-	3/geraden.tex							\
-	3/koordinatensysteme.tex					\
-	3/loesungen.tex							\
-	3/vektorraum.tex						\
+	3/koordinaten.tex						\
+	3/abbildungen.tex						\
+	3/ebene.tex							\
+	3/gerade.tex							\
 	4/chapter.tex							\
 	4/kreis.tex							\
 	4/skalar.tex							\
@@ -71,7 +69,7 @@ images:
 skript.pdf:	skript.tex $(TEXFILES) skript.ind 
 	pdflatex skript.tex
 
-skript.ind:	images skript.tex $(TEXFILES) images-subdir
+skript.ind:	images skript.tex $(TEXFILES)
 	touch skript.ind
 	pdflatex skript.tex
 	makeindex skript.idx

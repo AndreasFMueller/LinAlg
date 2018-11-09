@@ -26,23 +26,23 @@ skript-02-chapter2.pdf:	../skript.pdf Makefile
 	pdfjam --outfile skript-02-chapter2.pdf ../skript.pdf 63-88
 
 skript-03-chapter3.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-03-chapter3.pdf ../skript.pdf 89-124
+	pdfjam --outfile skript-03-chapter3.pdf ../skript.pdf 89-128
 
 skript-04-chapter4.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-04-chapter4.pdf ../skript.pdf 125-152
+	pdfjam --outfile skript-04-chapter4.pdf ../skript.pdf 129-160
 
 skript-05-chapter5.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-05-chapter5.pdf ../skript.pdf 153-164
+	pdfjam --outfile skript-05-chapter5.pdf ../skript.pdf 161-174
 
 skript-06-chapter6.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-06-chapter6.pdf ../skript.pdf 165-188
+	pdfjam --outfile skript-06-chapter6.pdf ../skript.pdf 175-204
 
 skript-07-chapter7.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-07-chapter7.pdf ../skript.pdf 189-210
+	pdfjam --outfile skript-07-chapter7.pdf ../skript.pdf 205-220
 
 skript-08-chapter8.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-08-chapter8.pdf ../skript.pdf 211-238
+	pdfjam --outfile skript-08-chapter8.pdf ../skript.pdf 221-248
 
 skript-09-index.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-09-index.pdf ../skript.pdf 239-241
+	pdfjam --outfile skript-09-index.pdf ../skript.pdf 249-251
 

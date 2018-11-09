@@ -21,21 +21,23 @@
 
 \begin{tikzpicture}[>=latex,thick]
 
-% coordinate axes
-\draw[->] (-2.4,0)--(10.4,0) coordinate[label=$x$];
-\draw[->] (0,-2.4)--(0,6.4) coordinate[label={right:$y$}];
+% coordinate 
 \begin{scope}
 \clip (-2.2,-2.2) rectangle (10.2,6.2);
 \foreach \x in {-2,-1,...,10}{
-	\draw (\x,-0.1)--(\x,0.1);
 	\draw[color=gray!50] (\x,-10)--(\x,10);
+	\draw (\x,-0.1)--(\x,0.1);
 %	\node at (\x,0) [below right] {$\x$};
 }
 \foreach \y in {-2,-1,...,6}{
-	\draw (-0.1,\y)--(0.1,\y);
 	\draw[color=gray!50] (-10,\y)--(20,\y);
+	\draw (-0.1,\y)--(0.1,\y);
 }
 \end{scope}
+
+% coordinate axes
+\draw[->] (-2.4,0)--(10.4,0) coordinate[label=$x$];
+\draw[->] (0,-2.4)--(0,6.4) coordinate[label={right:$y$}];
 
 % Origin
 \punkt{(0,0)}

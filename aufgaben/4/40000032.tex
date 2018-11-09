@@ -1,5 +1,27 @@
 Gegeben sind die Punkte $A=(-2,3,-2)$ und $B=(-6,-1,1)$. Von welchen Punkten
-der $x$-Achse wird die Strecke $AB$ unter einem $90^\circ$-Winkel gesehen?
+der $x$-Achse wird die Strecke $AB$ unter einem Winkel von $\alpha = 90^\circ$ gesehen?
+\begin{center}
+\begin{tikzpicture}[>=latex,scale=1]
+
+\coordinate (A) at (-2,2);
+\coordinate (B) at (2,1.5);
+\coordinate (P) at (0,0);
+
+
+\draw[semithick](P)++({0.8*cos(atan(1.5/2))},{0.8*sin(atan(1.5/2))}) arc(atan(1.5/2):atan(1.5/2)+98:0.8)node[right=9pt,yshift=-2pt]{$\alpha$};
+
+\draw[black,->](-3,0)--++(6,0)node[below]{$x$};
+\draw[semithick,red](A)--(B);
+\draw[semithick](P)--(B);
+\draw[semithick](A)--(P);
+
+
+\draw[black,fill](A)circle(1pt)node[above left]{$A$};
+\draw[black,fill](B)circle(1pt)node[above right]{$B$};
+\draw[black,fill](P)circle(1pt)node[below=2pt]{$X=\,?$};
+
+\end{tikzpicture} 
+\end{center}
 
 \thema{Zwischenwinkel}
 

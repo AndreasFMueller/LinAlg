@@ -4,9 +4,11 @@
 % (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
 \section{Lineare Abbildungen%
-\label{skript:section:lineare abbildungen}}
+\label{section:lineare abbildungen}}
+\rhead{Lineare Abbildungen}
 Wie im vorangegangenen Abschnitt verwenden wir im folgenden eine Basis
-$\mathcal{B}=\{\vec{b}_1,\dots,\vec{b}_n\}$, die Vektoren $\vec{v}_i$
+$\mathcal{B}=\{\vec{b}_1,\dots,\vec{b}_n\}$.
+Die Vektoren $\vec{b}_i$
 sind linear unabhängig, und jeder Vektor lässt sich als Linearkombination
 dieser Basisvektoren schreiben.
 
@@ -14,16 +16,21 @@ dieser Basisvektoren schreiben.
 % Affine Abbildungen
 %
 \subsection{Affine und lineare Abbildungen}
-Wenn man von einem Problem einen Plan machen, dann darf die Perspektive
-keine Rolle spielen.
-Der Plan darf keine für das Problem wesentlichen Eigenschaften stören.
-Auf ein mathematisches Problem übertragen müssen wir in der Lage sein,
-Abbildungen auf das Problem anzuwenden, welche helfen können, das
-Problem zu lösen.
-Diese Abbildungen dürfen die wesentlichen Eigenschaften der untersuchten
-Objekte nicht verändern.
+Wenn ein Kartograph eine Karte herstellt, dann muss er sie so
+gestalten, dass die für die Anwendung der Karte wesentlichen
+Eigenschaften der Realität nicht verzerrt werden.
+Wenn es um die Bestimmung von Winkeln zwischen Geraden geht, dann
+muss die Karte winkeltreu sein.
+Wenn es um den Vergleich von Flächeninhalten geht, dann ist eine
+flächentreue Karte gewünscht.
+Es ist nicht immer möglich, solche Karten herzustellen. 
+Von der Erdoberfläche gibt es zwar flächen- und winkeltreue Karten,
+aber keine längentreuen Karten.
 
-Die dem Abschnitt~\ref{skript:koordinaten} vorangestellten Axiome
+Wenn wir eine Karte eines Problems in der affinen Geometrie machen wollen,
+dann brauchen wir eine Abbildung, welche die wesentlichen
+Elemente der affinen Geometrie respektiert.
+Die im Abschnitt~\ref{section:koordinaten} vorgestellten Axiome
 sprechen von Geraden, Ebenen und Parallelen als den primären geometrischen
 Objekten.
 Zulässige Abbildungen dürfen also Ebenen und Geraden nicht zerstören.
@@ -42,12 +49,12 @@ konstruiert.
 Affine Abbildungen müssen also verträglich sein mit den algebraischen
 Operationen.
 Um die Geometrie mit Vektoren auszudrücken, mussten wir ausserdem
-einen ausgezeichneten Punkt $O$ haben.
+einen speziellen Punkt $O$ haben.
 Dieser muss natürlich unter Abbildungen, die uns interessieren
 ebenfalls erhalten bleiben.
 Eine affine Abbildung $\varphi$ muss also folgende Regeln erfüllen:
 \begin{align*}
-\varphi(O)&=O
+\varphi(0)&=0
 \\
 \varphi(\lambda\vec{p})&=\lambda\varphi(\vec{p})
 \\
@@ -57,11 +64,13 @@ Eine affine Abbildung $\varphi$ muss also folgende Regeln erfüllen:
 \begin{definition}
 Eine Abbildung $\varphi\colon \mathbb R^n \to \mathbb R^m$ mit den
 Eigenschaften
-\begin{align*}
+\[
+\begin{aligned}
 \varphi(\lambda\vec{p})&=\lambda\varphi(\vec{p})
 &&\text{und}&
 \varphi(\vec{u}+\vec{v})&=\varphi(\vec{u}) + \varphi(\vec{v})
-\end{align*}
+\end{aligned}
+\]
 heisst {\em linear}.
 \end{definition}
 
@@ -184,12 +193,12 @@ $\vec{e}_1$ auf $\vec{e}_2$ ab und umgekehrt.
 \end{figure}
 Wir suchen die Matrix einer Spiegelung der Ebene an der Geraden durch
 die Punkte $O$ und $(2,2)$.
-Nach Satz~\label{satz:affin:bilderderstandardbasisvektoren} müssen wir 
+Nach Satz~\ref{satz:affin:bilderderstandardbasisvektoren} müssen wir 
 die Bilder der Standardbasisvektoren bestimmen.
 Aus Abbildung~\ref{skript:affin:spiegelung} kann man ablesen, dass die
 Spiegelung den Vektor $\vec{e}_1$ auf $\vec{e}_2$ abbildet und umgekehrt.
-Daraus kann man jetzt die Matrix $S$ der Spiegelung zusammensetzen,
-sie enthält die Bilder der Standardbasisvektoren:
+Daraus kann man jetzt die Matrix $S$ der Spiegelung zusammensetzen.
+Sie enthält die Bilder der Standardbasisvektoren:
 \[
 \vec{e}_1\leftrightarrow\vec{e}_2
 \qquad\Leftrightarrow\qquad
@@ -202,7 +211,7 @@ S
 \begin{pmatrix}0&1\\1&0\end{pmatrix}.
 \]
 Wir kontrollieren dieses Resultate, indem wir berechnen wie ein Vektor
-auf der Geraden und senkrecht dazu abgebildet wird:
+auf der Geraden und ein Vektor senkrecht dazu abgebildet werden:
 \begin{align*}
 S
 \begin{pmatrix}1\\1\end{pmatrix}
@@ -227,8 +236,7 @@ Der Vektor in der zweiten Zeile steht senkrecht auf der Geraden $g$
 und wird durch die Spiegelung mit $-1$ multipliziert.
 
 Natürlich ist dies genau die gleiche Matrix wie im vorangegangenen
-Beispiel, denn die Spiegelung vertauscht natürlich die beiden
-Basisvektoren.
+Beispiel, denn die Spiegelung vertauscht die beiden Basisvektoren.
 
 \subsubsection{Beispiel: Matrix einer Drehung}
 \begin{figure}
@@ -318,7 +326,7 @@ B{\color{darkgreen}\vec{a_i}}
 {\color{blue}b_{l1}}{\color{darkgreen}a_{1i}}+\dots+{\color{blue}b_{lm}}{\color{darkgreen}a_{mi}}\\
 \end{pmatrix}
 }.
-\end{align*}}
+\end{align*}}%
 Dies ist aber auch die $i$-te Spalte der Matrix $C$, bestehend aus den
 Komponenten $c_{1i}$ bis $c_{li}$.
 Man liest ab
@@ -327,32 +335,32 @@ Man liest ab
 \begin{align*}
 c_{ji}
 &=
-{\color{darkgreen}b_{j1}}{\color{blue}a_{1i}} + \dots
-	+ {\color{darkgreen}b_{jm}}{\color{blue}a_{mi}}
+{\color{blue}b_{j1}}{\color{darkgreen}a_{1i}} + \dots
+	+ {\color{blue}b_{jm}}{\color{darkgreen}a_{mi}}
 \\
 \begin{pmatrix}
 \qquad&\quad&\qquad\\
-\qquad&c_{ji}&\qquad\\
+\phantom{x}&c_{ji}&\phantom{x}\\
 \qquad&\quad&\qquad\\
 \end{pmatrix}
 &=
 \begin{pmatrix}
 &\dots&\\
-\color{darkgreen}b_{j1}&\color{darkgreen}\dots&\color{darkgreen}b_{jm}\\
+\color{blue}b_{j1}&\color{blue}\dots&\color{blue}b_{jm}\\
 &\dots&
 \end{pmatrix}
 \begin{pmatrix}
-&\qquad&\color{blue}a_{1i}&\qquad&\\
-&\vdots&\color{blue}\vdots&\vdots&\\
-&     &\color{blue}a_{mi}&&
-\end{pmatrix}
+&\qquad&\color{darkgreen}a_{1i}&\qquad&\\
+&\vdots&\color{darkgreen}\vdots&\vdots&\\
+&     &\color{darkgreen}a_{mi}&&
+\end{pmatrix}.
 \end{align*}
 }
 Dies ist genau die Definition des Matrizen-Produktes aus
-Abschnitt~\label{skript:subsection:matrizen}.
+Abschnitt~\ref{skript:subsection:matrizen}.
 
 \begin{satz}
-Die Matrix $C$ der Abbildung zusmmengesetzt aus der Abbildung
+Die Matrix $C$ der Abbildung zusammengesetzt aus der Abbildung
 mit Matrix $A$ gefolgt von der Abbildung mit Matrix $B$ ist
 $C=BA$.
 \end{satz}
@@ -388,9 +396,9 @@ mit der inversen Matrix $T^{-1}$ geschehen kann.
 Dann erst kann man $A$ anwenden, erhält dann aber einen Vektor
 in der Basis $\color{red}\mathcal{B}$, man muss ihn also erst wieder
 mit $T$ in die Basis $\color{blue}\mathcal{C}$ umrechnen.
-Alles zusammen ist in der Basis $\mathcal{C}$ der Bildvektor 
+Alles zusammen ist in der Basis $\color{blue}\mathcal{C}$ der Bildvektor 
 $T{\color{red}A}T^{-1}u$.
-Wir fassen das Resultat zusammen im folgenden Satz.
+Wir fassen das Resultat im folgenden Satz zusammen.
 
 \begin{satz}
 \label{skript:affin:basiswechsel:satz}
@@ -399,9 +407,10 @@ $\color{red}\mathcal{B}$ in die Basis $\color{blue}\mathcal{C}$ umrechnet.
 Die lineare Abbildung, die in der Basis $\color{red}\mathcal{B}$ durch die
 Matrix $A$ beschrieben wird, wird in der Basis $\color{blue}\mathcal{C}$ durch
 die Matrix
-\[
+\begin{equation}
 {\color{blue}A'}=T{\color{red}A}T^{-1}
-\]
+\label{abbildung-basiswechsel}
+\end{equation}
 beschrieben.
 \end{satz}
 
@@ -418,7 +427,7 @@ Diese Situation kann auch im folgenden Diagramm
 \node[color=red] at (-1, 1) {$\mathbb R^n$};
 \node[color=red] at ( 1, 1) {$\mathbb R^n$};
 \node at (-5, 1) {Basis ${\color{red}\mathcal{B}}=\{\vec{b}_1,\dots,\vec{b}_n\}$:};
-\node at (-5,-1) {Basis ${\color{red}\mathcal{C}}=\{\vec{c}_1,\dots,\vec{c}_n\}$:};
+\node at (-5,-1) {Basis ${\color{blue}\mathcal{C}}=\{\vec{c}_1,\dots,\vec{c}_n\}$:};
 \draw[->,color=red] (-0.7,1)--(0.7,1);
 \node[color=red] at (0,1) [above] {$A$};
 \draw[->,color=blue] (-0.7,-1)--(0.7,-1);
@@ -457,7 +466,7 @@ Wir möchten also die Basisvektoren
 \vec{c}_2 = \frac{1}{\sqrt{2}} \begin{pmatrix}-1\\1\end{pmatrix}
 \]
 verwenden und müssen daher die Transformationsmatrix $T$ für den
-Basiswechsel vonder Standardbasis in die neue Basis
+Basiswechsel von der Standardbasis in die neue Basis
 $\mathcal{C}=\{\vec{c}_1,\vec{c}_2\}$ ermitteln.
 Wir verwenden zur Bestimmung von $T$ das
 Tableau~\eqref{skript:affin:basistransformation-tableau}, also
@@ -542,254 +551,7 @@ senkrecht dazu mit $-1$ multipliziert wird.
 Der Satz~\ref{skript:affin:basiswechsel:satz} und das nachfolgende 
 Beispiel zeigen ein weiteres Mal, dass es auf die Reihenfolge der
 Faktoren im Matrizenprodukt ankommt.
-Könnte man $A$ und $T$ vertauschen, wäre $TAT^{-1}=ATT^{-1}=AI=A$,
-die Abbildungsmatrix würde als gar nicht von der Basis abhängen.
-
-%%
-%% Bildraum und Kern
-%%
-%\subsection{Bildraum und Kern\label{subsection:affin:bildraumundkern}}
-%In Kapitel~\ref{chapter-lingl} wurde die Lösungsmenge eines linearen
-%Gleichungssystems mit der Matrix $A$ untersucht.
-%Inzwischen haben wir einer Matrix $A$ auch eine geometrische Bedeutung
-%als Abbildungsmatrix gegeben.
-%Die Frage der Lösbarkeit von Gleichungssystemen und der Begriff des
-%Ranges sollten daher auch eine geometrische Aussage übersetzt
-%werden können, was wir in diesem Abschnitt tun wollen.
-%
-%\subsubsection{Bildraum}
-%Die Matrix $A$ einer linearen Abbildung $\varphi$ enthält in den Spalten
-%die Bilder der Standardbasisvektoren.
-%Vektoren, die als Bilder der Abbildung $\varphi$ auftreten können,
-%müssen Linearekombinationen der Spaltenvektoren von $A$ sein.
-%\begin{definition}
-%Die {\em Bildmenge} $\operatorname{im}\varphi$ einer linearen Abbildung
-%$\varphi$ ist der Vektorraum
-%\[
-%\operatorname{im}\varphi
-%=
-%\{\varphi(v)\;|\;v\in\mathbb R^n\}.
-%\]
-%\end{definition}
-%
-%Die Bildmenge $\operatorname{im}\varphi$ der Abbildung $\varphi$ ist
-%daher nichts anderes als die Menge aller möglichen Linearkombinationen
-%von Spaltenvektoren.
-%Diese haben wir Seite \pageref{skript:affin:koordinaten:aufgespannt}
-%als den erzeugten Raum der Spaltenvektoren kennengelernt.
-%Wir fassen zusammen:
-%\begin{satz}
-%Die Bildmenge einer linearen Abbildung $\varphi$ ist der von den
-%Spaltenvektoren der zugehörigen Abbildungsmatrix $A$ aufgespannte Raum:
-%\[
-%\operatorname{im}\varphi
-%=
-%\langle\vec{a}_1,\dots,\vec{a}_n\rangle
-%=
-%\langle\mathcal{A}\rangle,
-%\]
-%wobei $\mathcal{A}$ für die Menge der Spaltenvektoren von $A$ geschrieben
-%haben.
-%\end{satz}
-%
-%\subsubsection{Lösbarkeit von Gleichungssystemen}
-%Ein Gleichungssystem mit Koeffizientenmatrix $A$ und rechter Seite $b$
-%ist lösbar genau dann, wenn es einen Spaltenvektor $x$ gibt, derart 
-%dass $Ax=b$.
-%Das Gleichungssystem ist also genau dann lösbar, wenn die rechte Seite
-%im Bildraum von $A$ liegt.
-%
-%\begin{beispiel}
-%Ist der Vektor
-%\[
-%b=\begin{pmatrix}4\\2\\4\end{pmatrix}
-%\qquad\text{im Bildraum der Abbildung mit Matrix}\qquad
-%A=
-%\begin{pmatrix}
-%  -43& -26&  56\\
-%  -22& -12&  28\\
-%  -44& -26&  57
-%\end{pmatrix}\text{?}
-%\]
-%Die Frage ist gleichbedeutend damit, ob das Gleichungsystem mit
-%Koeffizientenmatrix $A$ und rechter Seite $b$ lösbar ist.
-%Das Gauss-Tableau
-%\[
-%\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-%\hline
-%  -43& -26&  56&4\\
-%  -22& -12&  28&2\\
-%  -44& -26&  57&4\\
-%\hline
-%\end{tabular}
-%\quad\rightarrow\quad
-%\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-%\hline
-%   1&  0& -1&  0\\
-%   0&  1& -\frac12&   0\\
-%\hdashline
-%   0&  0&  0&  1\\
-%\hline
-%\end{tabular}
-%\]
-%zeigt, dass dies wegen der $1$ in der rechten unteren Ecke nicht möglich
-%ist.
-%\end{beispiel}
-%
-%\subsubsection{Dimension des Bildraumes}
-%Der Bildraum ist der von den Spaltenvektoren der Abbildungsmatrix
-%aufgespannte Raum.
-%Es kann durchaus sein, dass nicht alle Spaltenvektoren linear unabhängig
-%sind, die Dimension des Bildraumes kann also auch kleiner sein also die
-%Anzahl der Spaltenvektoren.
-%
-%\begin{aufgabe}
-%Wie gross ist die Dimension des Bildraumes einer linearen Abbildung
-%$\varphi$ mit Abbildungsmatrix $A$?
-%\end{aufgabe}
-%Die Dimension eines Vektorraumes ist die maximale Anzahl linear
-%unabhängiger Vektoren einer Basis.
-%Da die Spaltenvektoren von $A$ alles erzeugen, müssen wir nur noch
-%ein paar Vektoren weglassen, welche nicht linear unabhängig sind von
-%den anderen.
-%In Kapitel~\ref{chapter-lingl} haben wir gelernt, dass der Rang der
-%Matrix $A$ genau die Anzahl der linear unabhängigen Spalten ist.
-%er ist daher auch die Dimension des Bildraumes.
-%
-%\begin{satz}
-%Ist $A$ die Abbildungsmatrix einer linearen Abbildung $\varphi$, dann
-%gilt
-%\[
-%\dim\operatorname{im}\varphi = \operatorname{Rang}A.
-%\]
-%\end{satz}
-%
-%\subsubsection{Nullmenge}
-%\begin{definition}
-%Sei $\varphi$ eine lineare Abbildung.
-%Die Menge
-%\[
-%\operatorname{ker}\varphi = \{\vec{v}\;|\; \varphi(\vec{v}) = 0\}
-%\]
-%heisst {\em Nullmenge}, {\em Nullraum} oder {\em Kern} der Abbildung 
-%$\varphi$.
-%\end{definition}
-%
-%Der Kern von $\varphi$ ist ein Vektorraum, denn wenn zwei Vektoren
-%$\vec{u},\vec{v}\in\ker\varphi$ im Kern sind, dann gilt dies
-%auch für die Summe und für die Vielfachen:
-%\[
-%\begin{aligned}
-%\varphi(\vec{u}+\vec{v})
-%&=
-%\varphi(\vec{u})+\varphi(\vec{v})
-%=
-%0+0=0
-%&&\Rightarrow&
-%\vec{u}+\vec{v}&\in\ker\varphi
-%\\
-%\varphi(\lambda\vec{u})
-%&=
-%\lambda\varphi(\vec{u}) = \lambda\cdot 0=0
-%&&\Rightarrow&
-%\lambda\vec{u}&\in\ker\varphi
-%\end{aligned}
-%\]
-%Damit stellt sich automatisch die folgende Aufgabe.
-%
-%\begin{aufgabe}
-%Sei $\varphi$ eine lineare Abbildung mit Abbildungsmatrix $A$.
-%Man finde eine Basis von $\ker\varphi$.
-%\end{aufgabe}
-%
-%Der Kern besteht aus denjenigen Vektoren $\vec{x}$, die $A\vec{x}=0$
-%erfüllen.
-%Der Kern von $\varphi$ ist daher nichts anderes als die Lösungsmenge
-%des Gleichungssystems $Ax=0$, welche man mit dem Gauss-Algorithmus
-%bestimmen kann, wie in Abschnitt~\ref{section:loesungsmenge} gezeigt
-%wurde.
-%Dort wurde auch gezeigt, dass die Anzahl der frei wählbaren Variablen
-%auch die Anzahl der Basisvektoren der Lösungsmenge ist.
-%Wenn $A$ eine $m\times n$-Matrix ist mit $\operatorname{Rang}A=r$,
-%dann ist die Anzahl der frei wählbaren Variablen $n-r$, es gilt
-%also
-%\[
-%\dim\ker \varphi = n -\operatorname{Rang}A.
-%\]
-%
-%\begin{beispiel}
-%Man finde eine Basis des Kernes der linearen Abbildung mit Matrix
-%\[
-%A=\begin{pmatrix}
-%    9& -31& -26&   0\\
-%    2& -10& -12& -28\\
-%    8& -29& -26& -13
-%\end{pmatrix}
-%\]
-%\smallskip
-%
-%{\parindent0pt Das} zugehörige Tableau ist
-%\begin{equation}
-%\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-%\hline
-%    9& -31& -26&   0&0\\
-%    2& -10& -12& -28&0\\
-%    8& -29& -26& -13&0\\
-%\hline
-%\end{tabular}
-%\quad\rightarrow\quad
-%\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
-%\hline
-%    1&   0&   4&  31&0\\
-%    0&   1&   2&   9&0\\
-%\hdashline
-%    0&   0&   0&   0&0\\
-%\hline
-%\end{tabular}
-%\label{skript:affin:kern:tableau}
-%\end{equation}
-%Die letzten zwei Variablen sind frei wählbar, wir nennen sie $x_3$ und $x_4$,
-%dann wird die Lösungsmenge
-%\[
-%\ker\varphi
-%=
-%\mathbb L
-%=
-%\left\{
-%\left.
-%x_3
-%\begin{pmatrix}
-%-4\\-2\\1\\0
-%\end{pmatrix}
-%+
-%x_4
-%\begin{pmatrix}
-%-31\\-9\\0\\1
-%\end{pmatrix}
-%\;
-%\right|
-%\;
-%x_3,x_4\in\mathbb R
-%\right\}.
-%\]
-%Der Kern von $\varphi$ ist also ein zweidimensionaler Raum mit der Basis
-%\[
-%\mathcal{B} = \left\{
-%\begin{pmatrix}
-%-4\\-2\\1\\0
-%\end{pmatrix},
-%\begin{pmatrix}
-%-31\\-9\\0\\1
-%\end{pmatrix}
-%\right\}.
-%\]
-%Das Tableau \eqref{skript:affin:kern:tableau} zeigt auch, dass
-%$\operatorname{Rang}A=2$,
-%passend zur Dimension $\dim\ker\varphi = n - \operatorname{Rang}A = 4-2=2$ von
-%$\ker\varphi$.
-%\end{beispiel}
-
-
-
+Könnte man $A$ und $T$ vertauschen, wäre $TAT^{-1}=ATT^{-1}=AE=A$.
+Die Abbildungsmatrix würde als gar nicht von der Basis abhängen.
 
 

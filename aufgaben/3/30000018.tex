@@ -1,0 +1,81 @@
+Bestimmen Sie die Abbildungsmatrizen folgender Drehungen des dreidimensionalen Raumes $\mathbb{R}^3$.
+\begin{teilaufgaben}
+\item Drehung um den Winkel $\alpha$ um die $x$-Achse.
+\item Drehung um den Winkel $\beta$ um die $y$-Achse.
+\item Drehung um den Winkel $\gamma=180^\circ$ um die Achse mit Richtungsvektor
+\[
+v=\begin{pmatrix}1\\1\\0\end{pmatrix}.
+\]
+\end{teilaufgaben}
+
+\thema{Abbildungsmatrix}
+\thema{Drehmatrix}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die Drehung um die $x$-Achse bildet die Standardbasis-Vektoren wie folgt ab:
+\[
+\begin{aligned}
+\vec e_1&\mapsto \vec e_1 = \begin{pmatrix}1\\0\\0\end{pmatrix},
+&
+\vec e_2&\mapsto \begin{pmatrix}0\\\cos(\alpha)\\\sin(\alpha)\end{pmatrix}
+&&\text{und}
+&
+\vec e_3&\mapsto \begin{pmatrix}0\\-\sin(\alpha)\\\phantom{-}\cos(\alpha)\end{pmatrix}.
+\end{aligned}
+\]
+Sie hat daher die Matrix
+\[
+D_{\alpha,x}
+=
+\begin{pmatrix}
+1&0& 0\\
+0&\cos(\alpha)& -\sin(\alpha)\\
+0&\sin(\alpha)&\phantom{-}\cos(\alpha)
+\end{pmatrix}.
+\]
+\item Die Drehung um die $y$-Achse bildet die Standardbasis-Vektoren wie folgt ab:
+\[
+\begin{aligned}
+\vec e_1&\mapsto \begin{pmatrix}\phantom{-}\cos(\beta)\\0\\-\sin(\beta)\end{pmatrix},
+&
+\vec e_2&\mapsto \vec e_2 = \begin{pmatrix}0\\1\\0\end{pmatrix}
+&&\text{und}
+&
+\vec e_3&\mapsto \begin{pmatrix}\sin(\beta)\\0\\\cos(\beta)\end{pmatrix}.
+\end{aligned}
+\]
+Sie hat daher die Matrix
+\[
+D_{\beta,y}
+=
+\begin{pmatrix}
+\phantom{-}\cos(\beta)&0& \sin(\beta)\\
+0&1& 0 \\
+-\sin(\beta)&0&\cos(\beta)
+\end{pmatrix}.
+\]
+\item Diese Drehung bildet die Standardbasis-Vektoren wie folgt ab:
+\[
+\begin{aligned}
+\vec e_1&\mapsto \vec e_2 = \begin{pmatrix}0\\1\\0\end{pmatrix},
+&
+\vec e_2&\mapsto \vec e_1 = \begin{pmatrix}1\\0\\0\end{pmatrix}
+&&\text{und}
+&
+\vec e_3&\mapsto -\vec e_3  = \begin{pmatrix}0\\0\\-1\end{pmatrix}.
+\end{aligned}
+\]
+Sie hat daher die Matrix
+\[
+D
+=
+\begin{pmatrix}
+0&1& 0\\
+1&0& 0\\
+0&0&-1
+\end{pmatrix}.
+\]
+\end{teilaufgaben}
+\end{loesung}
+

@@ -29,8 +29,9 @@ ausgedrückt: Die Menge der Ortsvektoren der Punkte einer Ebene durch $P$ mit
 \index{Normale}
 Normale $\vec n$ ist
 \[
-\{\vec r\;|\;(\vec r-\vec p)\cdot \vec n=0\}
+\{\vec q\;|\;(\vec q-\vec p)\cdot \vec n=0\}
 \]
+wie in Abbildung~\ref{image-normalenform}.
 Multipliziert man die Gleichung aus, erhält man
 \begin{align*}
 \left(
@@ -40,7 +41,7 @@ Multipliziert man die Gleichung aus, erhält man
 \\
 (x-p_1)n_1+(y-p_2)n_2+(z-p_3)n_3&=0
 \\
-n_1x+n_2y+n_3z&=p_1n_1+p_2n_2+p_3n_3
+n_1x+n_2y+n_3z&=p_1n_1+p_2n_2+p_3n_3.
 \end{align*}
 Diese Form der Ebenengleichung, in der $\vec n$ ein Einheitsnormalenvektor ist,
 heisst auch {\em Hessesche Normalform}.
@@ -50,18 +51,18 @@ heisst auch {\em Hessesche Normalform}.
 \begin{satz}
 Ist $\vec n$ ein Einheitsvektor, dann ist
 \[
-d=(\vec r-\vec p_0)\cdot \vec n
+d=(\vec q-\vec p_0)\cdot \vec n
 \]
-der Abstand des Punktes mit dem Ortsvektor $\vec r$ von der Ebene durch
+der Abstand des Punktes mit dem Ortsvektor $\vec q$ von der Ebene durch
 den Punkt mit Ortsvektor $\vec p_0$ und Normalen $\vec n$.
 In Koordinaten:
 \[
-d=n_xx+n_yy+n_zz-\vec p_0\cdot\vec n
+d=n_1x+n_2y+n_3z-\vec p_0\cdot\vec n
 \]
 \end{satz}
 \begin{proof}[Beweis]
-$(\vec r-\vec p)\cdot \vec n$ ist die Länge der Projektion des Vektors
-$\vec r -\vec p$ auf den Normalenvektor $\vec n$, also genau der behauptete
+$(\vec q-\vec p)\cdot \vec n$ ist die Länge der Projektion des Vektors
+$\vec q -\vec p$ auf den Normalenvektor $\vec n$, also genau der behauptete
 Abstand.
 \end{proof}
 
@@ -148,8 +149,8 @@ Der Gauss-Algorithmus liefert
 \hline
 \end{tabular}
 \end{align*}
-Die Komponente $n_3$ ist frei wählbar, wir setzen $n_3=3$, und bekommen
-$n_1=2$ und $n_2=1$.
+Die Komponente $n_3$ ist frei wählbar.
+Wir setzen $n_3=3$ und bekommen $n_1=2$ und $n_2=1$.
 Tatsächlich ist
 \begin{align*}
 \begin{pmatrix}2\\1\\3\end{pmatrix}
@@ -164,9 +165,12 @@ Tatsächlich ist
 \end{align*}
 Damit ist die Normalenform der Ebenengleichung
 \begin{align}
-\begin{pmatrix}2\\1\\3\end{pmatrix}\cdot\left(
+\left(
 \begin{pmatrix}x\\y\\z\end{pmatrix} - \begin{pmatrix}1\\2\\1\end{pmatrix}
-\right)&=0\notag\\
+\right)
+\cdot
+\begin{pmatrix}2\\1\\3\end{pmatrix}
+&=0\notag\\
 \Rightarrow\qquad
 2x+y+3z&=7\label{normalenform}
 \end{align}
@@ -189,6 +193,83 @@ d = (2+1+3-7)/\sqrt{14}=-1/\sqrt{14}=-0.26726,
 \]
 der gesuchte Abstand ist also $d=0.26726$.
 \end{beispiel}
+
+%
+% Parallel- und Orthogonal-Komponente
+%
+\subsection{Parallel- und Orthogonalkomponente}
+Das Skalarprodukt erlaubt, die orthogonale Projektion $\vec{v}_{\|}$
+eines Vektors $\vec{v}$ auf einen anderen Vektor $\vec{u}$ zu berechnen.
+Die Richtung des projizierten Vektors ist die von $\vec{u}$, seine Länge 
+kann mit Hilfe des Skalarproduktes gefunden werden.
+Die Länge der Projektion $\vec{v}_{\|}$ ist
+\begin{align*}
+|\vec{v}_{\|}|
+&=
+|\vec{v}|\cos \alpha
+\\
+\intertext{Das Skalarprodukt von $\vec{v}\cdot\vec{u}$ sieht ganz
+ähnlich aus:}
+\vec{v}\cdot\vec{u}
+&=
+|\vec{v}|\;|\vec{u}| \cos \alpha.
+\\
+\intertext{Daraus kann man nach ableiten, dass}
+|\vec{v}_{\|}|
+&=
+\vec{v}\cdot \frac{\vec{u}}{|\vec{u}|}.
+\end{align*}
+Der zweite Faktor ist ein Einheitsvektor, den wir schon mit
+\[
+\vec{u}^0 = \frac{\vec{u}}{|\vec{u}|}
+\]
+bezeichnet haben.
+Wir können ihn auch als Richtungsvektor für $\vec{v}_{\|}$ verwenden.
+Damit bekommen wir für den orthogonal projizierten Vektor
+\[
+\vec{v}_{\|}
+= 
+(\vec{v}\cdot\vec{u}^0)\,\vec{u}^0
+=
+\biggl(
+\vec{v}\cdot
+\frac{\vec{u}}{|\vec{u}|} 
+\biggr)
+\,
+\frac{\vec{u}}{|\vec{u}|} 
+\]
+Die Differenz 
+\[
+\vec{v}_{\perp}
+=
+\vec{v}-\vec{v}_{\|}
+\]
+steht senkrecht auf $\vec{u}$.
+
+\begin{satz}
+Seien zwei Vektoren $\vec{v}$ und $\vec{u}$ gegeben.
+Dann lässt sich $\vec{v}$ in zwei Komponenten $\vec{v}_{\|}$ und
+$\vec{v}_{\perp}$ zerlegen, also
+\[
+\vec{v} = \vec{v}_{\|} + \vec{v}_{\perp},
+\qquad
+\text{mit}
+\quad
+\left\{
+\begin{aligned}
+\vec{v}_{\|}   &= \vec{v}\cdot\frac{\vec{u}}{|\vec{u}|}
+\\
+\vec{v}_{\perp}&= \vec{v}-\vec{v}_{\|}
+\end{aligned}
+\right.
+\]
+wobei $\vec{v}_{\|}$ parallel zu $\vec{u}$ ist und $\vec{v}_{\perp}$
+senkrecht zu $\vec{u}$.
+
+Wenn $\vec{u}$ ein Einheitsvektor ist, dann vereinfacht sich die Formel
+für die parallele Komponente zu
+$\vec{v}_{\|} =(\vec{v}\cdot\vec{u})\vec{u}$.
+\end{satz}
 
 %
 % Spiegelungen an einer Geraden oder Ebenen
@@ -234,11 +315,13 @@ entgegengesetzte Richtung:
 \end{equation}
 
 \begin{beispiel}
-Man spiegle den Vektor $\vec a$ an der Ebene mit der Normalen $\vec n$,
+Man spiegle den Vektor $\vec a$ an der Ebene mit der Normalen $\vec n$, wobei
 \[
-\vec a=\begin{pmatrix}1\\2\\3\end{pmatrix},
+\vec a=\begin{pmatrix}1\\2\\3\end{pmatrix}
 \qquad
-\vec n=\begin{pmatrix}1\\1\\1\end{pmatrix}
+\text{und}
+\qquad
+\vec n=\begin{pmatrix}1\\1\\1\end{pmatrix}.
 \]
 
 \smallskip
@@ -246,15 +329,21 @@ Man spiegle den Vektor $\vec a$ an der Ebene mit der Normalen $\vec n$,
 {\parindent 0pt Zunächst stellen wir fest,} dass $\vec n$ noch
 kein Einheitsvektor ist, dass wir stattdessen $\vec n_0=\vec n/\sqrt{3}$
 verwenden müssen.
-Damit kann $\vec a$ jetzt die parallelen und orthogonalen
-Komponenten zerlegt werden:
-\[
-\vec a_{\perp}=(\vec a\cdot\vec n_0)\vec n_0
+Damit kann $\vec a$ jetzt in parallele und orthogonale Komponenten
+zerlegt werden:
+\begin{align*}
+\vec a_{\perp}
+&=
+(\vec a\cdot\vec n_0)\vec n_0
 =\frac1{\sqrt{3}} (1+2+3)\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}
-=\begin{pmatrix}2\\2\\2\end{pmatrix},
-\quad
-\vec a_{\|}=\begin{pmatrix} -1\\0\\1 \end{pmatrix}.
-\]
+=\begin{pmatrix}2\\2\\2\end{pmatrix}.
+\\
+\vec a_{\|}
+&=
+\vec{a}-\vec{a}_{\perp}
+=
+\begin{pmatrix} -1\\0\\1 \end{pmatrix},
+\end{align*}
 Nach Formel (\ref{equation:spiegelung}) ist
 \[
 \vec a'=\vec a_{\|}-\vec a_{\perp}

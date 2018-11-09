@@ -1,5 +1,5 @@
 Für welche ganzzahligen Werte der beiden Parameter $c$ und $u$ hat
-das Gleichungssytem
+das Gleichungssystem
 \[
 \begin{linsys}{3}
 2x&+& 8y&+&2cz&=&2u\\
@@ -15,6 +15,7 @@ cx&+&2cy&-&15z&=&5
 %\end{pmatrix}
 %\]
 unendlich viele Lösungen?
+Bestimmen Sie die Lösungsmenge für all diese Fälle.
 
 \thema{Matrix mit Parameter}
 \thema{Gauss-Algorithmus}
@@ -84,14 +85,54 @@ u=\begin{cases}
 \]
 Da ganzzahlige Parameterwerte verlangt wurden, kommt nur $c=5$ und $u=5$
 in Frage.
+
+Um nun auch noch die Lösungsmenge zu bestimmen, werden die gefundenen 
+Parameter $c=5$ und $u=5$ im Gauss-Tableau eingesetzt und der Gauss-Algorithmus
+zu Ende geführt.
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&4 & 5 & 5\\
+ 0&1 & 4 & 2\\
+ 0&0 & 0 & 0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&0 & -11 & -3\\
+ 0&1 & 4 & 2\\
+ 0&0 & 0 & 0\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus kann jetzt die Lösungsmenge abgelesen werden:
+\[
+\mathbb L =\left\{\left.
+\begin{pmatrix}
+-3\\
+2\\
+0
+\end{pmatrix}
++z
+\begin{pmatrix}
+11\\
+ -4\\
+ 1
+\end{pmatrix}
+\;
+\right|
+z\in \mathbb R
+\right\}.
+\]
 \end{loesung}
 
 \begin{bewertung}
-Gauss-Tableau ({\bf T}) 1 Punkt,
-Durchführung des Gauss-Algorithmus ({\bf G}) 2 Punkt,
+Durchführung des Gauss-Algorithmus ({\bf G}) 2 Punkte,
 Bedingung für unendlich viele Lösungen ({\bf B}) 1 Punkt,
 Bestimmung der zwei möglichen Werte für $c$ ({\bf C}) 1 Punkt,
 Bestimmung von $u$ ({\bf U}) 1 Punkt.
+Bestimmung der Lösungsmenge ({\bf L}) 1 Punkt,
 \end{bewertung}
 
 
