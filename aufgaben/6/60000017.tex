@@ -1,0 +1,82 @@
+Gegeben ist die Abbildungsmatrix
+\[
+A=\begin{pmatrix}
+\frac12         &-\frac{\sqrt{3}}2\\
+\frac{\sqrt{3}}2&\frac12
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item
+Ist $A$ eine orthogonale Matrix?
+\item
+Ist $A\in \operatorname{SO}(2)$?
+\item
+Ist $A$ eine Drehmatrix? Falls ja berechnen Sie den Drehwinkel.
+\end{teilaufgaben}
+
+\thema{Matrizen-Gruppen}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Wir müssen überprüfen, ob $A^tA=E$ ist.
+Dazu berechnen wir
+\begin{align*}
+A^tA
+&=
+\begin{pmatrix}
+\frac12         &\frac{\sqrt{3}}2\\
+-\frac{\sqrt{3}}2&\frac12
+\end{pmatrix}
+\begin{pmatrix}
+\frac12         &-\frac{\sqrt{3}}2\\
+\frac{\sqrt{3}}2&\frac12
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac14+\frac34&-\frac{\sqrt{3}}{4}+\frac{\sqrt{3}}{4}\\
+-\frac{\sqrt{3}}{4}+\frac{\sqrt{3}}{4}&\frac34+\frac14
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&0\\
+0&1
+\end{pmatrix}
+=E,
+\end{align*}
+die Matrix $A$ ist also tatsächlich orthogonal.
+\item
+Eine orthogonale Matrix $A$ ist in $\operatorname{SO}(2)$, wenn die
+Determinante $\det(A)=1$ ist.
+Wir berechnen daher die Determinante:
+\[
+\det(A)
+=
+\left|\,\begin{matrix}
+\frac12         &-\frac{\sqrt{3}}2\\
+\frac{\sqrt{3}}2&\frac12
+\end{matrix}\,\right|
+=
+\frac14+\frac34
+=
+1.
+\]
+Die Matrix $A$ ist folglich in $\operatorname{SO}(2)$.
+\item
+Eine Drehmatrix ist eine Matrix in $\operatorname{SO}(2)$, also ist
+$A$ eine Drehmatrix. 
+Der Drehwinkel kann mit Hilfe der Spurformel ermittelt werden:
+\[
+\cos \alpha
+=
+\frac{\operatorname{Spur}(A)}2
+=
+\frac12
+\qquad\Rightarrow\qquad
+\alpha = 60^\circ.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+
+
