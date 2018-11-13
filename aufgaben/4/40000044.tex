@@ -94,12 +94,63 @@ Es kann mit dem Gaussalgorithmus gelöst werden:
 \hline
 \end{tabular}
 \end{align*}
-Die Ebene durch die drei genannten Punkte kam mehrmals in der Vorlesung
-vor, sie hat die Normale
+Aus dem Schlusstableau kann der Punkt $P$ nun abgelesen werden:
 \[
-\vec n'=\begin{pmatrix}1\\1\\1\end{pmatrix}.
+\vec p = \begin{pmatrix}-\frac32\\-\frac32\\1\end{pmatrix}.
 \]
-Die Normalenform ist
+Von diesem Punkt $P$ ist der Abstand von der Ebene 
+durch die drei genannten Punkte gesucht.
+Die Ebene durch die drei genannten Punkte hat folgende Parameterform
+\[
+\begin{pmatrix} x\\y\\z \end{pmatrix}
+=
+\begin{pmatrix}1\\0\\0\end{pmatrix}
++t
+\begin{pmatrix}-1\\1\\0\end{pmatrix}
++s
+\begin{pmatrix}-1\\0\\1\end{pmatrix}.
+\]
+Da die Parameterform für die Berechnung des Abstandes jedoch ungeeignet ist,
+suchen wir die entsprechende Normalenform der Ebene.
+Dafür brauchen wir den Normalenvektor $\vec n'$, welcher die Gleichungen 
+\[
+\begin{linsys}{3}
+-n_1'&+&n_2'& &    &=&0\\
+-n_1'& &   &+&n_3' &=&0
+\end{linsys}
+\]
+erfüllt.
+Man kann zwar die Lösung
+\[
+\vec n'=
+\begin{pmatrix}1\\1\\1\end{pmatrix}
+\]
+sofort ablesen, wir zeigen hier aber trotzdem auch noch das Gauss-Tableau
+\[
+\begin{tabular}{|ccc|c|}
+\hline
+$-1$&1&0&0\\
+$-1$&0&1&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1&$-1$&0&0\\
+0&$-1$&1&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|ccc|c|}
+\hline
+1& 0&$-1$&0\\
+0& 1&$-1$&0\\
+\hline
+\end{tabular}
+\]
+Es besagt $x=y=z$, alle drei Komponenten sind also gleich,
+wie bereits festgestellt.
+Die Normalenform ist damit
 \[
 0
 =
@@ -110,9 +161,9 @@ Die Normalenform ist
 =
 x+y+z-1.
 \]
-Diese Form der Ebenengleichung ist jedoch nicht geeignet, um den Abstand
-zu berechnen, dazu braucht man die Hessesche Normalform. Diese liegt
-dann vor, wenn die Koeffizienten von $x$, $y$ und $z$ einen
+Mit dieser Normalenform der Ebenengleichung kann der Abstand jedoch noch
+nicht direkt berechnet werden, dazu braucht man die Hessesche Normalform. 
+Diese liegt dann vor, wenn die Koeffizienten von $x$, $y$ und $z$ einen
 Einheitsvektor bilden. Im vorliegenden Fall erreicht man dies durch
 Division durch $\sqrt{3}$:
 \[

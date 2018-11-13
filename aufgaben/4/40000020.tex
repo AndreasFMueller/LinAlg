@@ -23,12 +23,12 @@ Die Projektion eines Vektors $\vec v$ auf die Ebene entsteht dadurch, dass man
 den Vektor $\vec v$ um die Projektion auf die Richtung $\vec n$ verringert.
 Es ist also die Matrix der Abbildung
 \[
-\vec v\mapsto \vec v - \vec v_{\|}
+\vec v\mapsto \vec v_{\|} = \vec v - \vec v_{\perp}
 \]
 zu finden.
-Die Projektion $\vec v_{\|}$ haben wir bereits gefunden, es ist
+Die Projektion $\vec v_{\perp}$ haben wir in der Vorlesung bereits gefunden, es ist
 \[
-\vec v_{\|}
+\vec v_{\perp}
 =
 \vec n^0
 (\vec n^0\cdot \vec v)
@@ -39,9 +39,9 @@ Der normierte Normalenvektor ist
 \[
 \vec n^0 =\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}
 \]
-Damit wird die Matrix, die $\vec v_{\|}$ berechnet:
+Damit wird die Matrix, die $\vec v_{\perp}$ berechnet:
 \[
-\vec v_{\|}
+\vec v_{\perp}
 =
 \frac13\begin{pmatrix}
 1&1&1\\
@@ -54,7 +54,9 @@ Daraus ergibt sich für die Projektion auf die Ebene die Matrix
 \[
 P\vec v
 =
-\vec v-\vec v_{\|}
+\vec v_{\|}
+=
+\vec v-\vec v_{\perp}
 =
 \left(E-
 \frac13\begin{pmatrix}
