@@ -54,14 +54,22 @@ TEXFILES = linsys.tex 							\
 	8/diagonal.tex							\
 	8/numerisch.tex							\
 	8/problem.tex							\
-	applications/hauptachse.tex \
-	applications/kirchhoff.tex \
-	applications/sniping.tex \
-	applications/spanning.tex \
-	applications/fitting.tex \
-	applications/traegheit.tex \
-	applications/wavelets.tex \
-	applications/google.tex
+	applications/hauptachse.tex					\
+	applications/kirchhoff.tex					\
+	applications/sniping.tex					\
+	applications/spanning.tex					\
+	applications/fitting.tex					\
+	applications/traegheit.tex					\
+	applications/wavelets.tex					\
+	applications/google.tex						\
+	applications/kamera.tex						\
+	applications/kamera/brennweite.tex				\
+	applications/kamera/drehung.tex					\
+	applications/kamera/funktion.tex				\
+	applications/kamera/homogen.tex					\
+	applications/kamera/kamera.tex					\
+	applications/kamera/kmatrix.tex					\
+	applications/kamera/strahlensatz.tex
 
 images:
 	cd images; make
