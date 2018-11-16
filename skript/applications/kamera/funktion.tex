@@ -23,7 +23,7 @@ Das Bild wird vom Objektiv auf dem Chip erzeugt.
 \centering
 \includegraphics{applications/kamera/kameraprinzip.pdf}
 \caption{Funktionsweise einer Kamera. Das Objektiv fokusiert den
-Weltpunkt $P$ in den Bildpunkt $B$ auf dem Bildsensor ({\color{blue}blau}).
+Weltpunkt $P$ in den Bildpunkt $B'$ auf dem Bildsensor ({\color{blue}blau}).
 \label{applications:kamera:kameraprinzip}}
 \end{figure}
 Abbildung~\ref{applications:kamera:kamera-bild} zeigt die beiden in unserem
@@ -34,7 +34,7 @@ Eine Steuer- und Interface-Elektronik liest die Bilddaten aus dem Chip
 aus, digitalisiert sie und macht sie zum Beispiel über ein USB-Interface
 für einen Computer zugreifbar.
 Einem Weltpunkt $P$ im dreidimensionalen Raum wird auf diese Weise ein
-Bildpunkt $B$ auf der Chip-Ebene zugeordnet.
+Bildpunkt $B'$ auf der Chip-Ebene zugeordnet.
 
 Die Qualität des erzeugten Bildes wird wesentlich bestimmt durch das
 Objektiv.
@@ -43,13 +43,13 @@ Verfügung.
 Eine grosse Öffnung macht es aber auch schwierig, eine scharfe Abbildung
 zu erreichen.
 Die Lichtstrahlen am Rand einer grossen Linse werden nicht in den gleichen
-Brennpunkt fokusiert wie die Strahlen, die die Linse Nahe dem Zentrum
+Brennpunkt fokusiert wie die Strahlen, die die Linse nahe dem Zentrum
 passieren.
 Mit einem einfachen zweilinsigen Objektiv wie in
 Abbildung~\ref{applications:kamera:kamera-bild} ist das Bild nur nahe
 der optischen Achse wirklich scharf.
 Moderne Objekte verwenden daher mindestens vier oder noch mehr Linsen,
-oder sogar Linsen, deren Oberfläche nicht sphärisch geschliffen ist.
+oder sogar Linsen, deren Oberflächen nicht sphärisch geschliffen sind.
 
 \begin{figure}
 \centering
@@ -87,7 +87,7 @@ nicht zu kurzer Brennweite.
 
 Die Abbildung einer Lochkamera ist geometrisch sehr einfach.
 Ein vom Weltpunkt $P$ ausgehender Lichtstrahl verläuft in gerader
-Linie durch das Loch und schneidet die Chip-Ebene im Bildpunkt $B$.
+Linie durch das Loch und schneidet die Chip-Ebene im Bildpunkt $B'$.
 Eine Gerade $g$ im Raum wird von einer Schar von Geraden durch das Loch und
 die Geraden $g$ abgebildet.
 Diese Geraden liegen alle in einer Ebene $\sigma$.
@@ -96,3 +96,30 @@ Chip-Ebene mit der Ebene $\sigma$ der Abbildungsstrahlen.
 Insbesondere bildet die Lochkamera Geraden immer wieder in Geraden ab.
 Wir erwarten daher, dass diese Abbildung mit Hilfe von Matrizen
 beschrieben werden kann.
+
+\subsubsection{Abstrakte Kamera}
+Die Lochkamera erzeugt wie jede reale Kamera ein kopfstehendes Bild.
+Dies erschwert die Analyse der geometrischen Abbildung unnötig.
+Verschiebt man die Abbildungsebene auf die andere Seite des Lochs,
+durchstossen die von Weltpunkten ausgehnden Strahlen diese Ebene in
+einem aufrechten Bild.
+
+Eine abstrakte Kamera ist also beschrieben durch einen Punkt $C$,
+das Kamerazentrum, und eine Ebene $\beta$, die Bildebene.
+Weltpunkte $P$ werden auf Bildpunkte abgebildet, indem die Gerade
+durch $C$ und $P$ mit der Ebene $\beta$ geschnitten werden.
+Diese Situation wird in Abbildung~\ref{applications:kamera:abstrakt}.
+\begin{figure}
+\centering
+\includegraphics{applications/kamera/abstrakt.pdf}
+\caption{Eine abstrakte Kamera mit Brennweite $f$ bildet einen Weltpunkt
+$P$ auf einen Bildpunkt $B$ auf einer Ebene $\beta$ ab,
+indem die
+Gerade durch $P$ und $C$ mit der Ebene $\beta$ geschnitten wird,
+die sich im Abstand $f$ vor dem Kamerazentrum befindet.
+Die Lochkamera bildet den Weltpunkt $P$ auf den Bildpunkt $B'$ auf der
+Ebene $\beta'$ ab, die sich im Abstand $f$ hinter dem Kamerazentrum $C$
+befindet.
+\label{applications:kamera:abstrakt}}
+\end{figure}
+

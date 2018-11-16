@@ -4,7 +4,7 @@
 # (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
 #
 images:	strahlensatz.pdf brennweite.pdf kamera.pdf kameraprinzip.pdf	\
-	lochkamera.pdf
+	lochkamera.pdf abstrakt.pdf
 
 strahlensatz.pdf:	strahlensatz.tex
 	pdflatex strahlensatz.tex
@@ -21,3 +21,10 @@ kameraprinzip.pdf:	kameraprinzip.tex
 lochkamera.pdf:	lochkamera.tex
 	pdflatex lochkamera.tex
 
+abstrakt.jpg:	abstrakt.png Makefile
+	convert -extract 1840x860+30+160 abstrakt.png \
+		-density 300 -units PixelsPerInch abstrakt.jpg
+abstrakt.png:	abstrakt.pov
+	povray +A0.1 -W1920 -H1080 -Oabstrakt.png abstrakt.pov
+abstrakt.pdf:	abstrakt.tex abstrakt.jpg
+	pdflatex abstrakt.tex
