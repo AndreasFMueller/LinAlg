@@ -153,7 +153,39 @@ die {\em Kameramatrix}.
 \index{Kameramatrix}%
 
 \subsubsection{Weitere kamerainterne Einflüsse}
-TODO: Chipneigung, nicht quadratische Pixel, Kalibrierung
+In der Kameramatrix gibt es noch viel Platz für Koeffizienten, die
+weitere Eigenschaften der Kamera beschreiben könnten.
+Kamera-Kalibrierungs-Software wie zum Beispiel in Matlab vorhanden,
+ermöglicht diese zu bestimmen.
+Dabei geht man von einem Koordinatensystem aus, welches mit dem Gehäuse
+der Kamera verbunden ist, während wir in unserer Diskussion immer
+ein Koordinatensystem verwendet haben, welches fest mit dem Chip
+verbunden ist.
 
+Der Chip könnte in der Kamera verdreht oder verschoben eingebaut worden sein,
+so dass die Achsen des Chips nicht mit den Achsen der Kamera zusammenfallen.
+Dies könnte man durch eine Drehmatrix modellieren, die von rechts in die
+Kameramatrix hineinmultipliziert wird.
+Wir werden aber im nächsten Abschnitt sehen, wie sich die vollständige
+Abbilungsfunktion einer Kamera aus der Kameramatrix und einer Drehung
+und Verschiebung des dreidimensionalen Raumes zusammenbauen lässt.
+Die Verdrehung und Verschiebung des Kamerachips kann damit ebenfalls
+abgebildet werden.
+
+Wird der Chip nicht plan in die Kamera eingebaut, führt dies
+zu Bildverzerrungen.
+Diese können ebenfalls in der Kameramatrix modelliert werden,
+oder wie die geometrischen Verzerrungen durch eine Drehung und
+Verschiebung der Kamera.
+
+Moderne Kameras verwenden quadratische Pixel, dies war aber nicht
+immer so.
+Bei Fernsehkameras waren auch nicht-quadratische Pixel üblich.
+Die Brennweite in der Kamera-Matrix wurde in Einheiten von Pixeln
+gemessen.
+Wenn Pixel nicht quadratisch sind, kann die Brennweite in Einheiten von
+Pixelbreiten oder von Pixelhöhen gemessen werden.
+So entstehen zwei verschiedene Brennweitenwerte $f_x$ und $f_y$ auf der
+Diagonalen der Kameramatrix.
 
 
