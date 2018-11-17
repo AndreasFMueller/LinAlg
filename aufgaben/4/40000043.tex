@@ -16,7 +16,11 @@ im Sinne der kleinsten Quadrate.
 \thema{Least Squares}
 
 \begin{loesung}
-Zur Lösung muss die Gleichung die Matrix $A^tA$ und der Vektor $A^tb$
+Gesucht ist die Lösung des Least-Square-Gleichungssystems
+\[
+ A^tA x= A^tb.
+\]
+Es muss folglich die Matrix $A^tA$ und der Vektor $A^tb$
 berechnet werden:
 \begin{align*}
 A^tA
@@ -38,6 +42,15 @@ Die Lösung $x$ wird damit
 x
 =
 (A^tA)^{-1} A^tb
+=
+\begin{pmatrix}
+   51 &  6 & 14 \\
+    6 & 26 & -4 \\
+   14 & -4 & 12
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+59\\-24\\30
+\end{pmatrix}
 =
 \begin{pmatrix} 1\\-1\\1 \end{pmatrix}.\qedhere
 \]

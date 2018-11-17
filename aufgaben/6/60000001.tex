@@ -1,4 +1,4 @@
-In dieser Aufgabe wird eine Kamera verwendet, deren Brennweite $f=100$ ist,
+In dieser Aufgabe wird eine Kamera verwendet, deren Brennweite $f=100$ Pixel ist,
 der Chip hat die Dimensionen $120\times 90$.
 Die Kamera befindet sich im Punkt $(300,100,0)$ und ist auf den Punkt
 $Q_0=(-100,800,100)$ gerichtet.
@@ -66,7 +66,7 @@ Damit kann die Kameraprojektionsmatrix berechnet werden, sie ist
 \begin{align*}
 P
 &=
-KD\begin{pmatrix}E&-c\end{pmatrix}
+KD\begin{pmatrix}E&-\vec c\end{pmatrix}
 \\
 &=
 \begin{pmatrix}
@@ -78,9 +78,12 @@ KD\begin{pmatrix}E&-c\end{pmatrix}
 \item
 Zur Kontrolle berechnen wir die Projektion des Punktes $Q_0$ durch die
 Abbildung. 
-Dazu muss $q_0$ zunächst in homogenen Koordinaten geschrieben werden,
+Dazu muss $\vec q_0$ zunächst in homogenen Koordinaten geschrieben werden,
 auf die dann $P$ angewendet werden kann:
 \[
+\tilde b_0 = 
+P\tilde q_0
+=
 P
 \begin{pmatrix}
 -100\\800\\100\\1
@@ -95,7 +98,7 @@ P
 Dies sind die homogenen Koordinaten des Bild-Punktes, um die gewöhnlichen
 Koordinaten zu finden, muss durch die dritte Komponente geteilt werden:
 \[
-b
+\vec b_0
 =
 \begin{pmatrix}
 60\\45
@@ -120,13 +123,13 @@ P\begin{pmatrix}100\\600\\-5\\1\end{pmatrix}
 \]
 Division durch die dritte Komponente ergibt die Bildkoordinaten
 \[
-b_1 = \begin{pmatrix}
+\vec b_1 = \begin{pmatrix}
    45.923\\
    31.644
 \end{pmatrix}.
 \]
 \item
-Der Stützvektor ist bereits bekannt, es muss nur noch der Richtungsvektor
+Der Stützvektor $\vec c$ ist bereits bekannt, es muss nur noch der Richtungsvektor
 gefunden werden.
 Dazu wird die Inverse von $KD$ wie in \eqref{60000001:kd} benötigt,
 es ist
@@ -141,7 +144,7 @@ es ist
 \]
 Der Richtungsvektor ist dann
 \[
-r = (KD)^{-1}\tilde b_2 = (KD)^{-1} \begin{pmatrix} 77\\ 38\\ 1\end{pmatrix}
+\vec r = (KD)^{-1}\tilde b_2 = (KD)^{-1} \begin{pmatrix} 77\\ 38\\ 1\end{pmatrix}
 =
 \begin{pmatrix}
   -0.6442\\
@@ -151,7 +154,7 @@ r = (KD)^{-1}\tilde b_2 = (KD)^{-1} \begin{pmatrix} 77\\ 38\\ 1\end{pmatrix}
 \]
 Die Gerade, auf welcher sich der Punkt $Q_2$ befindet, ist folglich
 \[
-g = c + sr = 
+\vec p = \vec c + s\vec r = 
 \begin{pmatrix}
 300\\
 100\\

@@ -1,4 +1,4 @@
-Bestimmen Sie die Komponenten eines Vektors der Länge $2\sqrt{2}$,
+Bestimmen Sie die Komponenten eines Vektors $\vec v$ der Länge $2\sqrt{2}$,
 der mit $\vec e_1$ den Winkel $60^\circ$, mit $\vec e_2$ den Winkel
 $135^\circ$ und mit $\vec e_3$ einen spitzen Winkel einschliesst.
 
@@ -6,10 +6,22 @@ $135^\circ$ und mit $\vec e_3$ einen spitzen Winkel einschliesst.
 \thema{Zwischenwinkel}
 
 \begin{loesung}
-Die Projektion des Vektors auf $\vec e_1$ ist $2\sqrt{2}\cos 60^\circ=\sqrt{2}$,
-diejenige auf $\vec e_2$ ist $2\sqrt{2}\cos135^\circ=-2$. Die Projektion $v_3$
-auf $\vec e_3$ muss positives Vorzeichen haben, ausserdem muss die
-Länge stimmen:
+In einer Orthonormalbasis können die Komponenten eines Vektors als Projektion
+auf den jeweiligen Basisvektor berechnet werden. Da $|\vec e_i| = 1$ gilt also
+\[
+  v_i = \vec v \bullet \vec e_i.
+\]
+Da aber zusätzlich gilt
+\[
+  \vec v \bullet \vec e_i = |\vec v|\cdot |\vec e_i| \cdot \cos(\alpha),
+\]
+können die Komponenten $v_1$ und $v_2$ direkt berechnet werden als:
+\begin{align*}
+  v_1 & = |\vec v|\cdot |\vec e_1| \cdot \cos(\alpha) = 2\sqrt{2}\cdot 1 \cdot \cos (60^\circ)=\sqrt{2}\\
+  v_2 & = |\vec v|\cdot |\vec e_2| \cdot \cos(\alpha) = 2\sqrt{2}\cdot 1 \cdot \cos (135^\circ)=-2
+\end{align*}
+Die Projektion $v_3$ auf $\vec e_3$ muss wegen des spitzen Winkels positives Vorzeichen haben.
+Ausserdem muss noch die Länge von $\vec v$ stimmen:
 \begin{align*}
 (\sqrt{2})^2+2^2+v_3^2=(2\sqrt{2})^2\\
 6+v_3^2&=8\\
@@ -18,7 +30,7 @@ v_3&=\sqrt {2}
 \end{align*}
 Der gesuchte Vektor ist also
 \[
-\begin{pmatrix}\sqrt{2}\\-2\\\sqrt{2}\end{pmatrix}.
+\vec v = \begin{pmatrix}\sqrt{2}\\-2\\\sqrt{2}\end{pmatrix}.
 \qedhere
 \]
 \end{loesung}
