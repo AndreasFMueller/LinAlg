@@ -12,7 +12,7 @@ Wir verwenden die Formeln des Gram-Schmidtschen Orthogonalisierungsverfahrens:
 \begin{align*}
 \vec b_1&=\frac{\vec a_1}{|\vec a_1|}=\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}
 \\
-\vec b_2&=\frac{\vec a_2-(\vec a_2\cdot\vec b_1)\vec b_1}{\dots}
+\vec b_2&=\frac{\vec a_2-(\vec a_2\bullet\vec b_1)\vec b_1}{\dots}
 =
 \frac{\begin{pmatrix}0\\1\\1\end{pmatrix}-\frac{2}{\sqrt{3}}\cdot\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}}{\dots}
 =
@@ -20,7 +20,7 @@ Wir verwenden die Formeln des Gram-Schmidtschen Orthogonalisierungsverfahrens:
 \\
 \vec b_3
 &=
-\frac{\vec a_3-(\vec a_3\cdot\vec b_1)\vec b_1-(\vec a_3\cdot\vec b_2)\vec b_2}{\dots}
+\frac{\vec a_3-(\vec a_3\bullet\vec b_1)\vec b_1-(\vec a_3\bullet\vec b_2)\vec b_2}{\dots}
 =
 \frac{\begin{pmatrix}0\\0\\1\end{pmatrix}
 -\frac1{\sqrt{3}}\cdot\frac1{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}
