@@ -5,7 +5,7 @@
 %
 \subsection{Funktion einer Kamera\label{subsection:kamerafunktion}}
 Ziel dieses Abschnitts ist, eine Abstraktion einer Kamera zu finden,
-welche sich einerseits geometrische einfach analysieren lässt aber
+welche sich einerseits geometrisch einfach analysieren lässt aber
 andererseits ein gutes Modell für eine genügend grosse Klasse von
 real existierenden Kameras ist.
 Komplizierter gebaute Kameras können dann wenn nötig durch Erweiterung dieses
@@ -34,7 +34,8 @@ Eine Steuer- und Interface-Elektronik liest die Bilddaten aus dem Chip
 aus, digitalisiert sie und macht sie zum Beispiel über ein USB-Interface
 für einen Computer zugreifbar.
 Einem Weltpunkt $P$ im dreidimensionalen Raum wird auf diese Weise ein
-Bildpunkt $B'$ auf der Chip-Ebene zugeordnet.
+Bildpunkt $B'$ auf der Chip-Ebene zugeordnet
+(Abbildung~\ref{applications:kamera:kameraprinzip}).
 
 Die Qualität des erzeugten Bildes wird wesentlich bestimmt durch das
 Objektiv.
@@ -54,14 +55,14 @@ oder sogar Linsen, deren Oberflächen nicht sphärisch geschliffen sind.
 \begin{figure}
 \centering
 \includegraphics[width=8cm]{applications/kamera/fisheye.jpg}
-\caption{Ein Fischauge-Objektiv bildet eine $180^\circ$-Gesichtsfeld in
+\caption{Ein Fischaug-Objektiv bildet eine $180^\circ$-Gesichtsfeld in
 einen Kreis ab.
 Dabei werden Geraden in gekrümmte Linien abgebildet.
 \label{applications:kamera:fisheye}}
 \end{figure}%
 Objektive sehr kurzer Brennweite können oft nicht ohne radiale Verzerrungen
 gebaut werden.
-Besonders ausgeprägt ist dies bei den Fischauge-Objektiven
+Besonders ausgeprägt ist dies bei den Fischaug-Objektiven
 (Abbildung~\ref{applications:kamera:fisheye}), die
 ein Gesichtsfeld von $180^\circ$ in einen Kreis abbilden können.
 Sie zeichnen sich dadurch aus, dass Geraden im Raum auf gekrümmte
@@ -69,11 +70,11 @@ Linien auf dem Bild abgebildet werden, solche Objektive lassen sich
 also nicht mit einer linearen Abbildung beschreiben.
 
 \subsubsection{Lochkamera}
-Um die Analyse der Kameraabbildung zu vereinfachen stellen wir uns vor,
-dass der Durchmesser des Objektivs immer kleiner gemaht wird.
+Um die Analyse der Kameraabbildung zu vereinfachen, stellen wir uns vor,
+dass der Durchmesser des Objektivs immer kleiner gemacht wird.
 Die Abbildungsfehler, die durch die Krümmung der Linse in den Randzonen
-hervorgerufen wird, fallen dann weg.
-Die Linse wirkt dann nur noch wie ein winzig kleines Loch, die Krümmung
+hervorgerufen werden, fallen dann weg.
+Die Linse wirkt dann nur noch wie ein winzig kleines Loch und die Krümmung
 der Linse ist nicht mehr von Bedeutung.
 \begin{figure}
 \centering
@@ -85,15 +86,16 @@ Abbildung~\ref{applications:kamera:kameraprinzip} zu einer Lochkamera
 Eine solche Lochkamera ist ein vereinfachtes Modell für Kameras mit
 nicht zu kurzer Brennweite.
 
-Die Abbildung einer Lochkamera ist geometrisch sehr einfach.
+Die Abbildung einer Lochkamera ist geometrisch sehr einfach
+(Abbildung~\ref{applications:kamera:lochkamera}.
 Ein vom Weltpunkt $P$ ausgehender Lichtstrahl verläuft in gerader
 Linie durch das Loch und schneidet die Chip-Ebene im Bildpunkt $B'$.
-Eine Gerade $g$ im Raum wird von einer Schar von Geraden durch das Loch und
-die Geraden $g$ abgebildet.
-Diese Geraden liegen alle in einer Ebene $\sigma$.
-Die zugehörigen Bildpunkt liegen daher auf der Schnittgeraden der
+Die Abbildungsstrahlen, die zu Punkten auf der Geraden $g$ gehören,
+bilden eine Schar von Geraden durch das Loch und die Gerade $g$,
+sie liegen alle in einer Ebene $\sigma$.
+Die zugehörigen Bildpunkte liegen daher auf der Schnittgeraden der
 Chip-Ebene mit der Ebene $\sigma$ der Abbildungsstrahlen.
-Insbesondere bildet die Lochkamera Geraden immer wieder in Geraden ab.
+Insbesondere bildet die Lochkamera Geraden immer wieder auf Geraden ab.
 Wir erwarten daher, dass diese Abbildung mit Hilfe von Matrizen
 beschrieben werden kann.
 
@@ -107,8 +109,9 @@ einem aufrechten Bild.
 Eine abstrakte Kamera ist also beschrieben durch einen Punkt $C$,
 das Kamerazentrum, und eine Ebene $\beta$, die Bildebene.
 Weltpunkte $P$ werden auf Bildpunkte abgebildet, indem die Gerade
-durch $C$ und $P$ mit der Ebene $\beta$ geschnitten werden.
-Diese Situation wird in Abbildung~\ref{applications:kamera:abstrakt}.
+durch $C$ und $P$ mit der Ebene $\beta$ geschnitten wird.
+Diese Situation wird in Abbildung~\ref{applications:kamera:abstrakt}
+dargestellt.
 \begin{figure}
 \centering
 \includegraphics{applications/kamera/abstrakt.pdf}
