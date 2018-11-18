@@ -12,13 +12,12 @@ rückgängig machen, wenigstens wenn der Faktor nicht $0$ ist.
 Im Vektorraum $\mathbb R^n$ können Additionen und
 Multiplikationen mit reellen Zahlen rückgängig gemacht werden.
 Das Vektorprodukt in $\mathbb R^3$ kann jedoch nicht rückgängig gemacht
-werden, da verschiedene Vektoren Faktoren auf das gleichen Produkt
-führen können.
+werden, da verschiedene Faktoren auf das gleichen Produkt führen können.
 Es gilt zum Beispiel
 \[
 \vec{a} \times (\vec{b} + t\vec{a})
 =
-\vec{a} \times \vec{b} + t(\underbrace{\vec{a}\times\vec{a}}_{=0})
+\vec{a} \times \vec{b} + t(\underbrace{\vec{a}\times\vec{a}}_{\displaystyle=0})
 =
 \vec{a} \times \vec{b},
 \]
@@ -50,17 +49,6 @@ Eigenschaft, dass $a^{-1}a=e$.
 \end{enumerate}
 \end{definition}
 
-\begin{beispiel}
-Die nicht verschwindenden reellen Zahlen
-$\mathbb R^*=\{x\in\mathbb R\;|\; x\ne 0\}$
-ist eine Gruppe mit der Multiplikation als Verknüpfung.
-
-\smallskip
-
-{\parindent0pt Das neutrale} Element ist die Zahl $1$, das inverse Element
-von $a\in\mathbb R^*$ ist $1/a$.
-\end{beispiel}
-
 Schreibt man die Verknüpfung additiv, dann können die Axiome für
 eine Gruppe wie folgt geschrieben werden.
 \begin{enumerate}
@@ -71,6 +59,17 @@ das Nullelement, mit der Eigenschaft $0+a=a+0=a$ für alle Elemente $a\in G$.
 \item Zu jedem Element $a\in G$ gibt es ein Element $-a\in G$, genant
 das negative Element von $a$, mit der Eigenschaft, dass $-a + a=0$.
 \end{enumerate}
+
+\begin{beispiel}
+Die nicht verschwindenden reellen Zahlen
+$\mathbb R^*=\{x\in\mathbb R\;|\; x\ne 0\}$
+ist eine Gruppe mit der Multiplikation als Verknüpfung.
+
+\smallskip
+
+{\parindent0pt Das neutrale} Element ist die Zahl $1$, das inverse Element
+von $a\in\mathbb R^*$ ist $1/a$.
+\end{beispiel}
 
 \begin{beispiel}
 Die reellen Zahlen $\mathbb R$ mit der Addition als Verknüpfung ist eine
@@ -90,7 +89,7 @@ Die Menge der Matrizen $M_{mn}(\mathbb R)$ bildet keine Gruppe.
 Zunächst ist die Multiplikation von Matrizen in $M_{mn}(\mathbb R)$
 nicht definiert, ausser wenn $m=n$ gilt.
 Für $m=n$ ist ein neutrales Element leicht zu finden.
-Die Einheitsmatrix $I$ hat die Eigenschaft $AI=IA=A$.
+Die Einheitsmatrix $E$ hat die Eigenschaft $AE=EA=A$.
 Um eine Gruppe zu erhalten, muss man sich zusätzlich auf die 
 Matrizen beschränken, welche invertierbar sind.
 
@@ -175,8 +174,9 @@ A^tA=E
 \quad\Rightarrow\quad
 \det(A)=\pm 1.
 \]
-Orthogonale Matrizen haben also immer Determinante $\pm 1$, sie erhalten
-also auf jeden Fall das Volumen, aber nicht unbedingt das orientiert
+Orthogonale Matrizen haben also immer Determinante $\pm 1$.
+Sie erhalten
+also auf jeden Fall das Volumen, aber nicht unbedingt das orientierte
 Volumen.
 Spiegelungen kehren offensichtlich das Volumen um, sie haben Determinante
 $-1$.
@@ -205,7 +205,7 @@ $\operatorname{SL}_n(\mathbb R)$
 wieder in
 $\operatorname{SL}_n(\mathbb R)$
 ist.
-Dies folgt aber aus der Produkteigenschaft der Determinanten:
+Dies folgt aber aus der Produkteigenschaft der Determinante:
 \[
 \det(AB) 
 =
@@ -223,8 +223,8 @@ $A\in\operatorname{SL}_n(\mathbb R)$.
 % Gruppe der Drehmatrizen
 %
 \subsection{Die Drehgruppe $\operatorname{SO}(n)$}
-Drehungen des Raumes sind Abbildungen, den Nullpunkt auf sich selbst
-abbilden, das Skalarprodukt und die Orientierung erhalten.
+Drehungen des Raumes sind lineare Abbildungen, die 
+das Skalarprodukt und die Orientierung erhalten.
 Sie bilden die {\em spezielle orthogonale Gruppe}
 \[
 \operatorname{SO}(n) 
@@ -258,11 +258,11 @@ Teilmengen, $\operatorname{SO}(n)$  und
 $\operatorname{O}(n)\setminus\operatorname{SO}(n)$.
 
 Man kann die Gruppe $\operatorname{SO}(3)$ die Gruppe der Robotik nennen,
-denn bei allen Bewegungen, die in Roboter im Raum ausführen kann,
+denn bei allen Bewegungen, die ein Roboter im Raum ausführen kann,
 bleiben die Abmessungen erhalten (er soll ja nicht deformiert werden)
 und die Orientierung kann nicht umkehren.
 Die Bewegung eines Roboters besteht daher immer aus einer
-Translationskomponenten und einer Drehung in $\operatorname{SO}(3)$.
+Translationskomponente und einer Drehung in $\operatorname{SO}(3)$.
 Die Herausforderung dabei ist natürlich, dass die Gruppe
 $\operatorname{SO}(3)$ ziemlich kompliziert und vor allem nicht
 kommutativ ist.

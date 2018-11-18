@@ -11,7 +11,7 @@ In Kapitel~\ref{chapter:affin}
 haben wir einer Matrix $A$ auch eine geometrische Bedeutung
 als Abbildungsmatrix gegeben.
 Die Frage der Lösbarkeit von Gleichungssystemen und der Begriff des
-Ranges sollten daher auch eine geometrische Aussage übersetzt
+Ranges sollten daher auch in eine geometrische Aussage übersetzt
 werden können, was wir in diesem Abschnitt tun wollen.
 
 \subsection{Bildraum}
@@ -32,12 +32,12 @@ $\varphi$ ist der Vektorraum
 Die Bildmenge $\operatorname{im}\varphi$ der Abbildung $\varphi$ ist
 daher nichts anderes als die Menge aller möglichen Linearkombinationen
 von Spaltenvektoren.
-Diese haben wir Seite \pageref{skript:affin:koordinaten:aufgespannt}
+Diese haben wir auf Seite \pageref{skript:affin:koordinaten:aufgespannt}
 als den erzeugten Raum der Spaltenvektoren kennengelernt.
 Wir fassen zusammen:
 \begin{satz}
-Die Bildmenge einer linearen Abbildung $\varphi$ ist der von den
-Spaltenvektoren der zugehörigen Abbildungsmatrix $A$ aufgespannte Raum:
+Die Bildmenge einer linearen Abbildung $\varphi$ mit Abbildungsmatrix $A$
+ist der von den Spaltenvektoren von $A$ aufgespannte Raum:
 \[
 \operatorname{im}\varphi
 =
@@ -45,13 +45,13 @@ Spaltenvektoren der zugehörigen Abbildungsmatrix $A$ aufgespannte Raum:
 =
 \langle\mathcal{A}\rangle,
 \]
-wobei $\mathcal{A}$ für die Menge der Spaltenvektoren von $A$ geschrieben
-haben.
+wobei $\mathcal{A}=\{\vec{a}_1,\dots,\vec{a}_n\}$
+für die Menge der Spaltenvektoren von $A$ geschrieben haben.
 \end{satz}
 
 \subsection{Lösbarkeit von Gleichungssystemen}
 Ein Gleichungssystem mit Koeffizientenmatrix $A$ und rechter Seite $b$
-ist lösbar genau dann, wenn es einen Spaltenvektor $x$ gibt, derart
+ist genau dann lösbar, wenn es einen Spaltenvektor $x$ gibt, derart
 dass $Ax=b$.
 Das Gleichungssystem ist also genau dann lösbar, wenn die rechte Seite
 im Bildraum von $A$ liegt.
@@ -97,7 +97,8 @@ ist.
 Der Bildraum ist der von den Spaltenvektoren der Abbildungsmatrix
 aufgespannte Raum.
 Es kann durchaus sein, dass nicht alle Spaltenvektoren linear unabhängig
-sind, die Dimension des Bildraumes kann also auch kleiner sein also die
+sind.
+Die Dimension des Bildraumes kann also auch kleiner sein also die
 Anzahl der Spaltenvektoren.
 
 \begin{aufgabe}
@@ -111,7 +112,7 @@ ein paar Vektoren weglassen, welche nicht linear unabhängig sind von
 den anderen.
 In Kapitel~\ref{chapter-lingl} haben wir gelernt, dass der Rang der
 Matrix $A$ genau die Anzahl der linear unabhängigen Spalten ist.
-er ist daher auch die Dimension des Bildraumes.
+Er ist daher auch die Dimension des Bildraumes.
 
 \begin{satz}
 Ist $A$ die Abbildungsmatrix einer linearen Abbildung $\varphi$, dann
@@ -205,8 +206,8 @@ A=\begin{pmatrix}
 \end{tabular}
 \label{skript:affin:kern:tableau}
 \end{equation}
-Die letzten zwei Variablen sind frei wählbar, wir nennen sie $x_3$ und $x_4$,
-dann wird die Lösungsmenge
+Die letzten zwei Variablen sind frei wählbar, wir nennen sie $x_3$ und $x_4$.
+Dann wird die Lösungsmenge
 \[
 \ker\varphi
 =
