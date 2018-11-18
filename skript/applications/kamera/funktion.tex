@@ -87,17 +87,28 @@ Eine solche Lochkamera ist ein vereinfachtes Modell für Kameras mit
 nicht zu kurzer Brennweite.
 
 Die Abbildung einer Lochkamera ist geometrisch sehr einfach
-(Abbildung~\ref{applications:kamera:lochkamera}.
+(Abbildung~\ref{applications:kamera:lochkamera}).
 Ein vom Weltpunkt $P$ ausgehender Lichtstrahl verläuft in gerader
 Linie durch das Loch und schneidet die Chip-Ebene im Bildpunkt $B'$.
-Die Abbildungsstrahlen, die zu Punkten auf der Geraden $g$ gehören,
-bilden eine Schar von Geraden durch das Loch und die Gerade $g$,
-sie liegen alle in einer Ebene $\sigma$.
-Die zugehörigen Bildpunkte liegen daher auf der Schnittgeraden der
-Chip-Ebene mit der Ebene $\sigma$ der Abbildungsstrahlen.
-Insbesondere bildet die Lochkamera Geraden immer wieder auf Geraden ab.
-Wir erwarten daher, dass diese Abbildung mit Hilfe von Matrizen
-beschrieben werden kann.
+
+%\begin{figure}
+%\centering
+%\includegraphics{applications/kamera/geraden.pdf}
+%\caption{Eine abstrakte Kamera bildet eine Gerade $g$ auf Geraden 
+%in der Bildebene ab.
+%Die Abbildungsstrahlen durch das Kamerazentrum $C$ und die Gerade $g$
+%liegen auf einer gemeinsamen Ebene $\sigma$, deren Schnittmenge mit 
+%der Abbildungsebene $\beta$ eine Gerade ist.
+%\label{applications:kamera:geraden}}
+%\end{figure}
+%Die Abbildungsstrahlen, die zu Punkten auf der Geraden $g$ gehören,
+%bilden eine Schar von Geraden durch das Loch und die Gerade $g$,
+%sie liegen alle in einer Ebene $\sigma$.
+%Die zugehörigen Bildpunkte liegen daher auf der Schnittgeraden der
+%Chip-Ebene mit der Ebene $\sigma$ der Abbildungsstrahlen.
+%Insbesondere bildet die Lochkamera Geraden immer wieder auf Geraden ab.
+%Wir erwarten daher, dass diese Abbildung mit Hilfe von Matrizen
+%beschrieben werden kann.
 
 \subsubsection{Abstrakte Kamera}
 Die Lochkamera erzeugt wie jede reale Kamera ein kopfstehendes Bild.
@@ -126,3 +137,23 @@ befindet.
 \label{applications:kamera:abstrakt}}
 \end{figure}
 
+\begin{figure}
+\centering
+\includegraphics{applications/kamera/geraden.pdf}
+\caption{Eine abstrakte Kamera bildet eine Gerade $g$ auf Geraden 
+in der Bildebene ab.
+Die Abbildungsstrahlen durch das Kamerazentrum $C$ und die Gerade $g$
+liegen auf einer gemeinsamen Ebene $\sigma$, deren Schnittmenge mit 
+der Abbildungsebene $\beta$ eine Gerade ist.
+\label{applications:kamera:geraden}}
+\end{figure}
+Auch das Abbild einer Geraden $g$ lässt sich durch leicht charakterisieren
+(Abbildung~\ref{applications:kamera:geraden}).
+Die Abbildungsstrahlen, die zu Punkten auf der Geraden $g$ gehören,
+bilden eine Schar von Geraden durch das Loch und die Gerade $g$,
+sie liegen alle in einer Ebene $\sigma$.
+Die zugehörigen Bildpunkte liegen daher auf der Schnittgeraden der
+Chip-Ebene mit der Ebene $\sigma$ der Abbildungsstrahlen.
+Insbesondere bildet die Lochkamera Geraden immer wieder auf Geraden ab.
+Wir erwarten daher, dass diese Abbildung mit Hilfe von Matrizen
+beschrieben werden kann.
