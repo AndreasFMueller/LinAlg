@@ -15,21 +15,21 @@ umrechnen in das Koordinatensystem der Kamera, bevor wir die Kameramatrix
 darauf anwenden können.
 
 \subsubsection{Kamerazentrum}
-Die Kamera befindet sich im Punkt mit dem Ortsvektor $c$ statt dem
+Die Kamera befindet sich im Punkt mit dem Ortsvektor $\vec{c}$ statt dem
 Nullpunkt.
 Statt die Kamera in den Nullpunkt zu verschieben, können wir auch die
-Position des abzubildenden Weltpunktes $P$ um $c$ korrigieren.
-Für eine Kamera im Punkt $c$ sieht der Nullpunkt genau so aus wie
-der Punkt $-c$ für eine Kamera im Nullpunkt.
-Wir müssen also die Translation $p\mapsto p-c$ durchführen.
+Position des abzubildenden Weltpunktes $P$ um $\vec{c}$ korrigieren.
+Für eine Kamera im Punkt $C$ sieht der Nullpunkt genau so aus wie
+der Punkt $-\vec{c}$ für eine Kamera im Nullpunkt.
+Wir müssen also die Translation $\vec{p}\mapsto \vec{p}-\vec{c}$ durchführen.
 Leider ist dies keine lineare Abbildung.
-Wir können aber wie bereits bei der Diskussion der Kameramatrix $K_m$
-gesehen, dass dies in homogenen Koordinaten ganz einfach geht.
+Wir haben aber bereits bei der Diskussion der Kameramatrix $K_m$
+gesehen, dass dies in homogenen Koordinaten viel einfacher geht.
 Wir schreiben daher Weltpunkte mit inhomogenen Koordinaten
-$(x,y,z)$ als als Quadrupel von homogenen Koordinaten $(x,y,z,1)$.
+$(x,y,z)$ als Quadrupel von homogenen Koordinaten $(x,y,z,1)$.
 Damit können wir die Translation schreiben als
 \[
-p \mapsto p-c =
+\vec{p} \mapsto \vec{p}-\vec{c} =
 \begin{pmatrix}
 1&0&0&-c_x\\
 0&1&0&-c_y\\
@@ -41,32 +41,31 @@ x\\y\\z\\1
 =
 \begin{pmatrix}
 & & &  \\
-&E& &-c\\
+&E& &-\vec{c}\\
 & & &  
 \end{pmatrix}
 \begin{pmatrix}
 x\\y\\z\\1
 \end{pmatrix}.
 \]
-Wir werden diese Matrix $\begin{pmatrix}E&-c\end{pmatrix}$ schreiben.
+Wir werden diese Matrix $\begin{pmatrix}E&-\vec{c}\end{pmatrix}$ schreiben.
 
 \subsubsection{Drehung}
-Die Kamera ist gegenüber dem Standardkoordintensystem verdreht,
-wir können die Orienterung zum Beispiel dadurch bescheiben, dass wir
+Die Kamera ist gegenüber dem Standardkoordintensystem verdreht.
+Wir können die Orienterung zum Beispiel dadurch bescheiben, dass wir
 die $x$-, $y$- und $z$-Achsen der Kamera als Einheitsvektoren im
 Standardkoordinatensystem ausdrücken und als Spalten in die Matrix $R$
 einfüllen.
-Die Matrix $R$ bildet die Standardbasisvektoren in die Basisvektoren
+Die Matrix $R$ bildet die Standardbasisvektoren auf die Basisvektoren
 des Kamera-Koordinatensystems ab.
 Wir brauchen die Umkehrabbildung $D=R^{-1}$, um einen Vektor im
 Standardkoordinatensystem ins Kamerakoordinatensystem umzurechnen.
 
 Wir können die Matrix $D$ auch wie folgt verstehen.
-Als Input für die Kameramatrix brauchen wir, wie weit entfernt der Weltpunkt
-$P$
-ist ($z$-Koordinate), wie stark er horizontal von der Kameraachse abweicht
-($x$-Koordinate) und wie stark er vertikal vond er Kameraachse abweicht
-($y$-Koordinate).
+Als Input für die Kameramatrix müssen wir wissen, wie weit der Weltpunkt
+$P$ von $C$ entfernt ist ist ($z$-Koordinate), wie stark er horizontal
+von der Kameraachse abweicht ($x$-Koordinate) und wie stark er vertikal
+von der Kameraachse abweicht ($y$-Koordinate).
 Wenn die Achsen der Kamera parallel zu den Standardbasis-Vektoren sind,
 kann man diese Abweichungen als Projektionen auf die Achsen verstehen,
 die man mit Hilfe des Skalarproduktes des Ortsvektors von $P$ mit den
@@ -83,19 +82,19 @@ Auch dies kann man als Matrizenprodukt schreiben, wenn man die Vektoren
 in die Zeilen einer Matrix $D$ einfüllt.
 
 Die transponierte Matrix $D^t$ der so gebildeten Matrix $D$ enthält als
-Spalten die Vektoren $\vec{d}_1$ bis $\vec{d}_3$, sie ist also genau
-die oben konstruierte Matrix $R$: $R=D^t=D^{-1}$.
+Spalten die Vektoren $\vec{d}_1$ bis $\vec{d}_3$.
+Sie ist also genau die oben konstruierte Matrix $R$: $R=D^t=D^{-1}$.
 
 \subsubsection{Die Lösung des Abbildungsproblems}
 Damit haben wir jetzt das Abbildungsproblem vollständig gelöst.
 
 \begin{satz}
-Eine Kamera mit Kameramatrix $K$ im Punkt $c$ mit Orientierung $R$ bildet
-einen Weltpunkt $p$ auf den Bildpunkt
+Eine Kamera mit Kameramatrix $K$ im Punkt $C$ mit Orientierung $D$ bildet
+einen Weltpunkt $P$ auf den Bildpunkt
 \[
 \tilde b
 =
-K D \begin{pmatrix} E&-c\end{pmatrix} \tilde p
+K D \begin{pmatrix} E&-\vec{c}\end{pmatrix} \tilde p
 \]
 ab.
 \end{satz}
@@ -105,23 +104,23 @@ Ausgehend von einem Bildpunkt soll die Gerade bestimmt werden, auf der
 sich der abgebildete Weltpunkt befindet.
 Das Kamerazentrum ist natürlich ein Stützvektor für diese Gerade, es
 braucht nur noch die Richtung bestimmt werden.
-Die Richtung $r$ wird von $D$ und $K$ auf den $\tilde b$ abgebildet.
+Die Richtung $\vec{r}$ wird von $D$ und $K$ auf den $\tilde b$ abgebildet.
 Daraus liest man ab, dass die Richtung $r$ aus $\tilde b$
 mit Hilfe von
 \[
-r = (KD)^{-1} \tilde b
+\vec{r} = (KD)^{-1} \tilde b
 \]
 gefunden werden kann.
 Man beachte, dass die homogenen Koordinaten des Bildpunktes nur bis auf
 einen skalaren Faktor bestimmt sind, dass also für ein beliebiges
 $t\in\mathbb R$ mit $t\ne 0$ 
 \[
-r' = (KD)^{-1} t\tilde b = t (KD)^{-1} \tilde b=tr
+\vec{r}' = (KD)^{-1} t\tilde b = t (KD)^{-1} \tilde b=t\vec{r}
 \]
 ein genauso gut geeigneter Richtungsvektor ist.
 Die gesuchte Gerade hat daher die Parameterdarstellung
 \[
-p = c + t (KD)^{-1}\tilde b.
+\vec{p} = \vec{c} + t (KD)^{-1}\tilde b.
 \]
 Die inverse Matrix von $K$ kann einfach bestimmt werden, indem wir die
 geometrischen Abbildungen rückgängig machen:

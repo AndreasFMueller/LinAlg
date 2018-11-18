@@ -4,7 +4,7 @@
 # (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
 #
 images:	strahlensatz.pdf brennweite.pdf kamera.pdf kameraprinzip.pdf	\
-	lochkamera.pdf abstrakt.pdf
+	lochkamera.pdf abstrakt.pdf homogenekoordinaten.pdf
 
 strahlensatz.pdf:	strahlensatz.tex
 	pdflatex strahlensatz.tex
@@ -20,6 +20,9 @@ kameraprinzip.pdf:	kameraprinzip.tex
 
 lochkamera.pdf:	lochkamera.tex
 	pdflatex lochkamera.tex
+
+homogenekoordinaten.pdf:	homogenekoordinaten.tex
+	pdflatex homogenekoordinaten.tex
 
 abstrakt.jpg:	abstrakt.png Makefile
 	convert -extract 1840x860+30+160 abstrakt.png \

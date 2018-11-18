@@ -36,12 +36,12 @@ mit Brennweite $f$.
 In Abbildung~\ref{skript:kamera:strahlensatz} ist illustriert, wie
 der Punkt $P$ durch die blau angedeutete Lochkamera auf den Punkt $B'$
 abgebildet wird.
-Das Loch befindet sich im Punkt $C$, die Kamera hat die Brennweite $f$.
+Das Loch befindet sich im Punkt $C$ und die Kamera hat die Brennweite $f$.
 Der Pfeil von der $z$-Achse zum Punkt $P$ der Länge $x(z)$ wird
 auf den kopfstehenden Pfeil von der $z$-Achse zum Punkt $B'$ abgebildet.
 Das Abbildungsproblem ist gelöst, wenn wir die Länge des Vektors $\vec{b'}$
 bestimmen können.
-Da $\vec{b}'=-\vec{b}$ ist das gleichbedeutend damit, den Vektor $\vec{b}$
+Da $\vec{b}'=-\vec{b}$ ist, ist das gleichbedeutend damit, den Vektor $\vec{b}$
 zu bestimmen.
 
 Alle Punkte auf der roten Geraden durch $C$ und $P$ werden von der Kamera
@@ -66,27 +66,47 @@ von $\vec{b}_0$, nämlich
 f \cdot
 \begin{pmatrix}x(B_0)\\1\end{pmatrix}.
 \]
-Unabhängig von der Brennweite können als alle Bildpunkte durch 
+Unabhängig von der Brennweite können also alle Bildpunkte durch 
 den Vektor $\vec{b}_0$ dargestellt werden.
 Dies suggeriert, dass wir als Koordinatensystem für die Punkte in der
 Brennebene nicht einfach nur die Länge der Strecke von der $z$-Achse 
 zum Punkt $B$ verwenden sollen, sondern zweidimensionale Vektoren.
 Die Länge der genannten Strecke finden wird dann, indem wir den Vektor
-so skalieren, dass die zweite Komponenten $f$ wird.
+so skalieren, dass die zweite Komponente $f$ wird.
+
+Die Idee, dass skalierte Vektoren das gleiche geometrische Objekt
+beschreiben, führt uns auf den Begriff der {\em homogenen Koordinaten}%
+\index{homogene Koordinaten}%
+.
+Wir beginnen damit zu zeigen, wie homogene Koordinaten die Punkte
+einer Geraden beschreiben können.
+Anschliessend verwallgemeinern wir die Idee darauf, Punkte der Bildebene
+und des dreidimensionalen Raumes mit homogenen Koordinaten zu beschreiben.
 
 \begin{definition}
-Wir nennen Zahlenpaare $(x_0,x_1)$ {\em homogene Koordinaten} für die
+Wir nennen Zahlenpaare $(x_1,x_2)$ {\em homogene Koordinaten} für die
 Punkte einer Geraden, wenn mindestens eine der Komponenten von $0$
-verschieden ist.
-Die inhomogenen (gewöhnlichen) Koordinate eines Punktes mit
-homogenen Koordinaten $(x_0,x_1)$ mit $x_1\ne 0$ ist $x_0/x_1$.
+verschieden ist (Abbildung~\ref{applications:kamera:homogenekoordinaten}).
+Die inhomogene (gewöhnlichen) Koordinate eines Punktes mit
+homogenen Koordinaten $(x_1,x_2)$ mit $x_2\ne 0$ ist $x_1/x_2$.
 \end{definition}
 \index{homogene Koordinaten}%
-Man beachte, dass den homogenen Koordinaten $(1,0)$ keine gewöhnlichen
-Koordinaten zugeordnet sind.
+\begin{figure}
+\centering
+\includegraphics{applications/kamera/homogenekoordinaten.pdf}
+\caption{Homogene Koordinaten für die Punkte auf der $x$-Achse
+({\color{blue}blau}) sind Paare $(x_1,x_2)$.
+Die Punkte {\color{red}$(x_1,x_2)$} mit gleichem Verhältnis $x_1/x_2$
+liegen auf einer
+Geraden in der $x_1$-$x_2$-Ebene und beschreiben den gleichen Punkt
+$\color{blue}x$.
+\label{applications:kamera:homogenekoordinaten}}
+\end{figure}
+Man beachte, dass den homogenen Koordinaten $(1,0)$ keine gewöhnliche
+Koordinate zugeordnet ist.
 Sie beschreiben einen Punkte auf der $x$-Achse von
-Abbildung~\ref{skript:kamera:strahlensatz}, doch dieser Punkt kann
-von der Kamera gar nicht abgebildet werden.
+Abbildung~\ref{skript:kamera:strahlensatz}.
+Doch dieser Punkt kann von der Kamera gar nicht abgebildet werden.
 Man nennt diesen Punkt manchmal auch den {\em unendlich fernen Punkt} der
 Geraden.
 \index{unendlich ferner Punkt}%
@@ -104,27 +124,20 @@ Die homogenen Koordinaten dieses Punktes sind $(0,1)$, dies ist
 auch der Richtungsvektor der Blickrichtung der Kamera.
 
 \subsubsection{Zentralprojektion auf eine Ebene}
-\begin{figure}
-\centering
-\caption{Abbildung von Punkten des dreidimensionalen Raumes durch eine
-Lochkamera.
-\label{skript:kamera:lochkamera}}
-\end{figure}
-Bisher haben wir eine eindimensionale Kamera studiert, dafür gibt
-es durchaus bereits Anwendungen, zum Beispiel Scanner mit linearem
-Bildsensor.
-Aber natürlich
-interessieren uns vor allem realistischere Kameras mit zweidimensionalem
-Sensor.
+Bisher haben wir eine eindimensionale Kamera studiert.
+Dafür gibt es durchaus bereits Anwendungen, zum Beispiel Scanner
+mit linearem Bildsensor.
+Aber natürlich interessieren uns vor allem realistischere Kameras
+mit zweidimensionalem Sensor.
 Dazu müssen wir das Konzept der homogenen Koordinaten auf einen
 dreidimensionalen Raum ausdehen.
 
 \begin{definition}
-Wir nennen Zahlentripel $(x_0,x_1,x_2)$ {\em homogene Koordinaten}
+Wir nennen Zahlentripel $(x_1,x_2,x_3)$ {\em homogene Koordinaten}
 für die Punkte einer Ebene, wenn mindestens eine der Komponenten von $0$
 verschieden sind.
 Die inhomogenen Koordinaten eines Punktes mit homogenenen Koordinaten
-$(x_0,x_1,x_2)$ mit $x_2\ne 0$ sind $(x_0/x_2,x_1/x_2)$.
+$(x_1,x_2,x_3)$ mit $x_3\ne 0$ sind $(x_1/x_3,x_2/x_3)$.
 \end{definition}
 
 Wir stellen uns also wieder vor, eine Lochkamera im Ursprung des
@@ -152,14 +165,13 @@ können wir von jedem $n$-dimensionalen Raum homogenen Koordinaten einführen.
 Der Übergang von homogenen Koordinaten geschieht dabei durch Division
 durch die letzte Koordinate.
 Der Übergang in der umgekehrten Richtung werden wir später wiederholt
-brauchen, und führen daher folgende Notation ein.
+brauchen und führen daher folgende Notation ein.
 
 \begin{definition}
-Einem Punkt mit inhomogenen Koordinaten $x=(x_0,x_1,\dots,x_{n-1})$ entspricht
-ein Punkt mit
-inhomogenen Koordinaten
+Einem Punkt mit inhomogenen Koordinaten $x=(x_1,x_2,\dots,x_{n})\in\mathbb R^n$
+entspricht ein Punkt mit inhomogenen Koordinaten
 \[
-\tilde x = (x_0,x_1,\dots,x_{n-1},1).
+\tilde x = (x_1,x_2,\dots,x_{n},1) \in \mathbb R^{n+1}.
 \]
 \end{definition}
 
