@@ -36,30 +36,28 @@
 	\b = \y * (\a - \c) / (\x - \c);
 }
 
+% Kameraachse
 \draw[line width=0.5pt] (-3.5,0)--(6.2,0);
 
-%\fill[color=gray] (0,-0.7) arc ({-\w}:{\w}:{\r})
-%	--(-0.1,0.7) arc ({180-\w}:{180+\w}:{\r})--cycle;
-%
-%\fill[color=gray] (-0.12,0.7) arc ({180-\w}:{180+\w}:{\r})
-%	--(-0.3,-0.7) arc ({180+\v}:{180-\v}:{2*\r})--cycle;
-
-%\foreach \t in{-0.6,-0.4,...,0.61}{
+% Lichstrahl
 \def\t{0}
 \draw[color=yellow] ({\x},{\y})--({\c},{\t})--({\a},{\b});
-%}
 
-\draw[color=blue!30,line width=3pt]
+% Gehäuse
+\draw[color=black!50,line width=3pt]
 	({\c},0.1)--({\c},0.7)--
 	(-0.3,0.7)--(-0.3,1.5)--(-3,1.5)
 		--(-3,-1.5)--(-0.3,-1.5)--(-0.3,-0.7)
 		--({\c},-0.7)--({\c},-0.1);
 
+% Chip 
 \draw[color=blue,line width=1.5pt] (-2.9,-1.0)--(-2.9,1.0);
 
+% Bild und Urbild
 \draw[->,color=red,line width=2pt] ({\x},0)--({\x},{\y});
 \draw[->,color=red,line width=2pt] ({\a+0.1},0)--({\a+0.1},{\b});
 
+% Beschriftung
 \node at ({\x},{\y}) [right] {$P$};
 \node at ({\a},{\b}) [below right] {$B'$};
 

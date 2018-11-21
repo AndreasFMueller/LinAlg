@@ -11,14 +11,15 @@ Abbildung von Vektoren mit den Eigenschaften
 \begin{aligned}
 \varphi(u+v)&=\varphi(u)+\varphi(v)   &&\forall\;u,v\in\mathbb R^n
 \\
-\varphi(\lambda v)&=\lambda\varphi(v) &&\forall\;v\in\mathbb R^n,\;\lambda\in\mathbb R.
+\varphi(\lambda v)&=\lambda\varphi(v) &&\forall\;v\in\mathbb R^n,\;\lambda\in\mathbb R
 \end{aligned}
 \label{skript:linabb:def}
 \end{equation}
+ist.
 Die Beschränkung auf Vektoren in $\mathbb R^n$ erscheint aber etwas
 künstlich, denn die Eigenschaften
 \eqref{skript:linabb:def}
-findet man zum Beispiel auch erfüllt bei der Ableitung von Funktionen:
+werden zum Beispiel auch von der Ableitung von Funktionen erfüllt:
 \begin{equation}
 \begin{aligned}
 \frac{d}{dx} ( f(x) + g(x)) &= \frac{d}{dx}f(x) + \frac{d}{dx}g(x)
@@ -67,7 +68,7 @@ für $u,v\in V$ und $\lambda,\mu\in\mathbb R$.
 Wir zeigen einige Beispiele von Vektorräumen.
 
 \subsubsection{Signale}
-Ein gesampletes Signal ist eine Folge von Sample-Werten 
+Ein abgetastetes Signal ist eine Folge von Abtast-Werten 
 \[
 \bm{s} = (s_0,s_1,s_2,s_3,\dots)
 \]
@@ -85,8 +86,9 @@ die aus zwei Signalen $\boldsymbol{s}$ und $\boldsymbol{r}$ das Signal
 (s_0+r_0,
 s_1+r_1,
 s_2+r_2,
-s_3+r_3,\dots).
+s_3+r_3,\dots)
 \]
+erzeugt.
 Die Menge der Signale ist daher auf natürliche Art und Weise ein Vektorraum.
 
 Lineare Schaltungen zeichnen sich dadurch aus, dass sie auf Signalen
@@ -116,8 +118,8 @@ A\;|\;
 \}
 \]
 ist ein Vektorraum.
-Man kann auch eine Basis für $M_{mn}(\mathbb R)$ angeben:
-die Matrizen $E_{ij}$, die eine $1$ in Zeile $i$ und Spalte $j$
+Man kann auch eine Basis für $M_{mn}(\mathbb R)$ angeben.
+Die Matrizen $E_{ij}$, die eine $1$ in Zeile $i$ und Spalte $j$
 enthalten und sonst lauter Nullen, bilden eine Basis.
 
 Viele Operationen der Bildverarbeitung sind linear.
@@ -128,7 +130,7 @@ kann oder Scanning-Artefakte reduzieren kann, arbeiten linear.
 Auch Bilder auf einer Kugeloberfläche bilden einen Vektorraum.
 Die Méndez-Transformation ist eine lineare Abbildung, mit deren Hilfe
 das sogenannte Registrierungsproblem für Bilder auf der Kugeloberfläche
-gelöst werden kann: es verlangt, die Drehung zu finden, die zwei Bilder
+gelöst werden kann: Es verlangt, die Drehung zu finden, die zwei Bilder
 zur Deckung bringt.
 
 \subsubsection{Polynome mit reellen Koeffizienten}
@@ -143,7 +145,8 @@ a_i\in\mathbb R
 \}
 \]
 ist ein Vektorraum.
-Man beachte, dass $n$ beleibig gross werden kann, Polynome werden durch
+Man beachte, dass $n$ beleibig gross werden kann.
+Polynome werden durch
 eine beliebig grosse Anzahl von Koeffizienten $a_i$ beschrieben.
 Die Polynome $\mathbb R[X]$ können daher nicht ein endlichdimensionaler
 Vektorraum sein.
@@ -155,13 +158,13 @@ Die Monome bilden daher eine Basis
 \mathbb R[X] = \langle 1,X,X^2,X^3,\dots\rangle.
 \]
 
-In der Menge $\mathbb R[X]$ gibt es auch noch eine Multiplikation, man
-kann Polynome miteinander multiplizeren.
+In der Menge $\mathbb R[X]$ gibt es auch noch eine Multiplikation.
+Man kann Polynome miteinander multiplizeren.
 Eine solche Operation ist in einem Vektorraum nicht nötig, man spricht
 von einer {\em Algebra}.
 \index{Algebra}%
 
-In $\mathbb R[x]$ kann man Ableiten.
+In $\mathbb R[X]$ kann man Ableiten.
 Der Ableitungsoperator
 \[
 D\colon \mathbb R[X] \to \mathbb R[X]:
@@ -184,8 +187,8 @@ Wegen
 \[
 DIX^k = D\frac{1}{k+1}X^{k+1}=X^k
 \]
-kann man folgern, dass $DIp(X)=p(X)$ gilt, für jedes Polynom
-$p(X)\in\mathbb R[X]$.
+kann man folgern, dass $DIp(X)=p(X)$ für jedes Polynom
+$p(X)\in\mathbb R[X]$ gilt.
 Insbesondere ist das Polynom $p(X)$ die Ableitung des Polynoms $Ip(X)$.
 Die lineare Abbildung $I$ bestimmt natürlich eine Stammfunktion von $p(X)$.
 
@@ -211,8 +214,8 @@ ist eine lineare Abbildung, denn es gilt
 \qquad
 \int \lambda f(x)\,dx = \lambda\int f(x)\,dx.
 \]
-Die Stammfunktionen sind differenzierbar, man könnte sie also wieder ableiten,
-es gibt aber auch stetige Funktionen in $C_{\mathbb R}([a,b])$, die nicht
+Die Stammfunktionen sind differenzierbar, man könnte sie also wieder ableiten.
+Es gibt aber auch stetige Funktionen in $C_{\mathbb R}([a,b])$, die nicht
 differenzierbar sind.
 Es ist also nicht möglich einen Ableitungsoperator in $C_{\mathbb R}([a,b])$
 zu definieren.
@@ -234,9 +237,9 @@ ist ein Vektorraum, denn die Summe glatter Funktionen ist wieder
 eine glatte Funktion.
 
 Die Polynome sind natürlich glatte Funktionen, also
-$\mathbb R[X]\subset C^{\infty}_{\mathbb R}([a,b])$,
-aber es gibt auch glatte Funktionen, die sich nicht als Polynome
-darstellen lassen, zum Beispiel die Funktione
+$\mathbb R[X]\subset C^{\infty}_{\mathbb R}([a,b])$.
+Aber es gibt auch glatte Funktionen, die sich nicht als Polynome
+darstellen lassen, zum Beispiel die Funktionen
 $\sin x$, $\cos x$ und $e^x$.
 
 In $C^{\infty}_{\mathbb R}([a,b])$ kann man beliebig integrieren und
@@ -249,14 +252,14 @@ DIf(x) = f(x).
 \]
 $IDf(x)$ ist jedoch nicht das selbe wie $f(x)$.
 Aus der Analysis ist bekannt, dass eine Stammfunktion nur bis auf
-eine Konstanten definiert ist.
+eine Konstante definiert ist.
 Addiert man eine Konstante $c$ zur Funktion $f(x)$ hinzu, folgt
 \[
-ID(f(x)+c) = IDf(x) + \underbrace{IDc}_{=0} =  IDf(x).
+ID(f(x)+c) = IDf(x) + \underbrace{IDc}_{\displaystyle=0} =  IDf(x).
 \]
 Funktionen, die sich um eine Konstante unterschieden, werden von $ID$ auf
 die gleiche Funktion abgebildet.
-Man kann also schliessen, dass $D$ zwar surjektiv, aber nicht injektiv ist,
+Man kann also schliessen, dass $D$ zwar surjektiv aber nicht injektiv ist,
 dass aber $I$ injektiv aber nicht surjektiv ist.
 
 Hier sieht man einen wesentlichen Unterschied zu endlichdimensionalen
@@ -275,7 +278,7 @@ Der Vollständigkeit halber erwähnen wir noch die abstrakte Definition
 einer linearen Abbildung.
 
 \begin{definition}
-Seien zwei Vektorräume $U$ und $V$ gegeben.
+Es seien zwei Vektorräume $U$ und $V$ gegeben.
 Eine lineare Abbildung ist eine Abbildung
 $\varphi\colon U\to V$ die zusätzlich
 \begin{equation}
@@ -287,7 +290,7 @@ für alle $u,v\in U$ und $\lambda,\mu\in\mathbb R$ erfüllt.
 
 Man kann die Bedingung der Definition interpretieren als die Forderung,
 dass $\varphi$ mit Linearkombinationen verträglich sein soll.
-Diese einzige Bedingung kann auch als zwei separate Bedingungen
+Diese einzige Bedingung kann man auch als zwei separate Bedingungen
 formulieren:
 \begin{align}
 \varphi(u+v)&=\varphi(u)+\varphi(v)
@@ -309,7 +312,7 @@ Umgekehrt berechnet man mit Hilfe von
 \eqref{skript:linabb:def:summe}
 und
 \eqref{skript:linabb:def:produkt}
-den Wert von $\varphi$ auf einer Linearkombination berechnen:
+den Wert von $\varphi$ auf einer Linearkombination:
 \[
 \varphi(\lambda u + \mu v)
 \overset{\eqref{skript:linabb:def:summe}}{=}

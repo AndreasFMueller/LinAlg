@@ -29,10 +29,10 @@ Die Kamera bildet den Punkt $(x,y,z)$ zunächst auf die homogenen
 Koordinaten $(x,y,z)$ ab.
 Zur Bestimmung der inhomogenen Koordinaten in der Brennebene 
 berechnen wir zunächst $(x/z, y/z)$.
-Dies entspricht der Projektion in die Brennebene mit $z=1$,
-dies gilt aber für $z$ gemessen in den Masseinheiten des
+Dies entspricht der Projektion in die Brennebene mit $z=1$.
+Dies gilt aber für $z$ gemessen in den Masseinheiten des
 Weltkoordinatensystems.
-Wir brauchen nun aber die Umrechnung in Pixel-Koordinaten im Bild,
+Wir brauchen nun aber die Umrechnung in Pixel-Koordinaten im Bild
 und verwenden dazu die Abbildung~\ref{skript:kamera:brennweite}.
 Wir lesen daraus ab, dass ein Punkt mit homogener Koordinate $(1,1)$
 abgebildet wird auf einen Punkt mit inhomgenen Pixelkoordinaten $f$
@@ -94,7 +94,7 @@ in homogenen Koordinaten beschrieben.
 
 \subsubsection{Kameraachse und Verschiebung}
 Die Achse der Kamera geht durch den Mittelpunkt $(m_x,m_y)$ des Chips.
-Punkte der Achse haben homogenen Koordinaten $(0,0,z)$, sollten aber
+Punkte der Achse haben homogene Koordinaten $(0,0,z)$, sollten aber
 auf $(m_x,m_y)$ abgebildet werden.
 Wir müssen also den inhomogenen Koordinaten noch die Komponenten
 $m_x$ und $m_y$ hinzufügen, nämlich
@@ -174,7 +174,7 @@ abgebildet werden.
 
 Wird der Chip nicht plan in die Kamera eingebaut, führt dies
 zu Bildverzerrungen.
-Diese können ebenfalls in der Kameramatrix modelliert werden,
+Diese können ebenfalls in der Kameramatrix modelliert werden
 oder wie die geometrischen Verzerrungen durch eine Drehung und
 Verschiebung der Kamera.
 
