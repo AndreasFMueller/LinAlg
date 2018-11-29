@@ -51,29 +51,29 @@ b^2-4ac
 s=2.
 \]
 Der Eigenwert ist Nullstelle des charakteristischen Polynoms,
-aber weil nur eine einzige Nullstelle existiert, muss $\lambda=-b/2a=-5$
+aber weil nur eine einzige Nullstelle existiert, muss $\lambda=-b/2a=5$
 sein.
 \item
 Den Eigenvektor zum Eigenwert $5$ finden wir mit Hilfe des Gaussalgorithmus
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-3-\lambda&2        \\
-    -2   &7-\lambda\\
+3-\lambda&2        &0\\
+    -2   &7-\lambda&0\\
 \hline
 \end{tabular}
 &=
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
--2&2\\
--2&2\\
+-2&2&0\\
+-2&2&0\\
 \hline
 \end{tabular}
 \rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-1&-1\\
-0& 0\\
+1&-1&0\\
+0& 0&0\\
 \hline
 \end{tabular}
 \end{align*}
