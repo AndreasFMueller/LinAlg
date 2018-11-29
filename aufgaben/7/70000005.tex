@@ -17,7 +17,7 @@ den Vektor $a_1$ auf Länge $1$ bringen:
 \[
 a_1'=\frac{a_1}{|a_1|}=\frac15\begin{pmatrix}3\\4\end{pmatrix}.
 \]
-Im zweiten Schritt muss man erreichen, dass er Vektor $a_2'$ senkrecht
+Im zweiten Schritt muss man erreichen, dass der Vektor $a_2'$ senkrecht
 auf $a_1$ steht:
 \begin{align*}
 a_2'&=\frac{a_2-(a_2\cdot a_1')a_1'}{|a_2-(a_2\cdot a_1')a_1'|}\\
@@ -39,7 +39,7 @@ Q=\frac15
 \]
 Die Bestimmung der Matrix $R$ ist jetzt mit dem Matrizenprodukt möglich:
 \begin{align*}
-A&=QR&&\Rightarrow&R&=Q^tA=\frac15\begin{pmatrix}3&4\\-4&3\end{pmatrix}
+A&=QR&&\Rightarrow&R&=Q^{-1}A=Q^tA=\frac15\begin{pmatrix}3&4\\-4&3\end{pmatrix}
 \begin{pmatrix}3&5\\4&7\end{pmatrix}
 =\frac15\begin{pmatrix}
 25&43\\

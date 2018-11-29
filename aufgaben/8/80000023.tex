@@ -51,7 +51,7 @@ Die Matrix $A$ hat das charakteristische Polynom
 =\lambda^2-5\lambda+6=(\lambda-2)(\lambda -3)
 \end{align*}
 mit den Nullstellen $2$ und $3$.
-Die Eigenvektoren finden wir wie folgt. Für $\lambda=2$:
+Die Eigenvektoren finden wir wie folgt. Für $\lambda_1=2$:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -74,9 +74,9 @@ Die Eigenvektoren finden wir wie folgt. Für $\lambda=2$:
 \hline
 \end{tabular}
 \qquad\Rightarrow\qquad
-v_2=\begin{pmatrix}2\\1\end{pmatrix}
+v_1=\begin{pmatrix}2\\1\end{pmatrix}
 \]
-Für $\lambda=3$:
+Für $\lambda_2=3$:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -99,23 +99,28 @@ Für $\lambda=3$:
 \hline
 \end{tabular}
 \qquad\Rightarrow\qquad
-v_3=\begin{pmatrix}3\\1\end{pmatrix}
+v_2=\begin{pmatrix}3\\1\end{pmatrix}
 \]
-Für die Umrechung in die Eigenbasis brauchen wir die Matrizen $T$ und $T^{-1}$.
-Die Matrix $T^{-1}$ rechnet in die Eigenbasis um, sie hat also die Matrix
+Für die Umrechnung in die Eigenbasis brauchen wir die Matrizen $T$ und $T^{-1}$.
+Die Matrix $T$ rechnet in die Eigenbasis um, sie hat also die Matrix
 \[
+T
+=
+\begin{pmatrix}
+2&3\\
+1&1
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+-1& 3\\
+ 1&-2
+\end{pmatrix}
+\qquad\Rightarrow\qquad
 T^{-1}
 =
 \begin{pmatrix}
 2&3\\
 1&1
-\end{pmatrix}
-\qquad\Rightarrow\qquad
-T
-=
-\begin{pmatrix}
--1& 3\\
- 1&-2
 \end{pmatrix}.
 \]
 Durch Nachrechnen kann man auch kontrollieren, dass
