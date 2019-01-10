@@ -34,46 +34,37 @@ Dieses Polynom hat die Nullstellen $\lambda_1=-1$, $\lambda_2=1$
 und $\lambda_3=2$. Für jeden dieser Werte müssen jetzt auch noch
 Eigenvektoren gefunden werden.
 
-Für $\lambda=-1$ muss das homogene Gleichungssystem mit der Matrix
-$A-\lambda E=A+E$ gelöst werden:
+Für $\lambda_1=-1$ muss das Gleichungssystem $(A-\lambda_1 E) v_1=(A+E) v_1 = 0$ gelöst werden:
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-2&1&0\\
-1&1&1\\
-0&1&2\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&\frac12&0\\
-0&\frac12&1\\
-0&      1&2\\
+2&1&0&0\\
+1&1&1&0\\
+0&1&2&0\\
 \hline
 \end{tabular}
 \rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-1&\frac12&0\\
-0&      1&2\\
-0&      1&2\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&\frac12&0\\
-0&      1&2\\
-0&      0&0\\
+1&\frac12&0&0\\
+0&\frac12&1&0\\
+0&      1&2&0\\
 \hline
 \end{tabular}
 \rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-1&0&-1\\
-0&1&2\\
-0&0&0\\
+1&\frac12&0&0\\
+0&      1&2&0\\
+0&      0&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&-1&0\\
+0&1&2&0\\
+0&0&0&0\\
 \hline
 \end{tabular}
 \end{align*}
@@ -98,27 +89,27 @@ $v_1$ ist also wirklich ein Eigenvektor zum Eigenwert $\lambda_1=-1$.
 Analog kann man Eigenvektoren für die anderen Eigenwerte finden.
 Für $\lambda_2=1$ gilt
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-0&1&0\\
-1&-1&1\\
-0&1&0\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&-1&1\\
-0&1&0\\
-0&0&0\\
+0&1&0&0\\
+1&-1&1&0\\
+0&1&0&0\\
 \hline
 \end{tabular}
 \rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-1&0&1\\
-0&1&0\\
-0&0&0\\
+1&-1&1&0\\
+0&1&0&0\\
+0&0&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&1&0\\
+0&1&0&0\\
+0&0&0&0\\
 \hline
 \end{tabular},
 \end{align*}
@@ -130,35 +121,35 @@ führt.
 
 Oder für $\lambda_3=2$ findet man das Gleichungssystem
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
--1&1&0\\
-1&-2&1\\
-0&1&-1\\
-\hline
-\end{tabular}
-\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
-\hline
-1&-1&0\\
-0&-1&1\\
-0&1&-1\\
+-1&1&0&0\\
+1&-2&1&0\\
+0&1&-1&0\\
 \hline
 \end{tabular}
 \rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-1&-1&0\\
-0&1&-1\\
-0&0&0\\
+1&-1&0&0\\
+0&-1&1&0\\
+0&1&-1&0\\
 \hline
 \end{tabular}
 \rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
-1&0&-1\\
-0&1&-1\\
-0&0&0\\
+1&-1&0&0\\
+0&1&-1&0\\
+0&0&0&0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&0&-1&0\\
+0&1&-1&0\\
+0&0&0&0\\
 \hline
 \end{tabular}
 \end{align*}

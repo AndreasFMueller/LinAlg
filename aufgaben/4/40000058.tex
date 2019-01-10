@@ -23,11 +23,16 @@ berührt.
 Der Mittelpunkt hat gleichen Abstand von beiden Ebenen. 
 Diese Bedingung lässt sich am leichtesten mit der Hesseschen Normalform
 formulieren.
-Dazu muss die Gleichung durch die Wurzel aus der Quadratsumme der
-Koeffizienten von $x$, $y$ und $z$ geteilt werden, d.~h.~durch
+Dazu müssen die Ebenen-Gleichungen in Normalform, durch die Länge der
+Normalen-Vektoren geteilt werden. Die Normalen der beiden Ebenen sind
+\[
+\vec n_1 = \begin{pmatrix}4\\7\\-4\end{pmatrix}\quad \text{und}\quad
+\vec n_2 = \begin{pmatrix}4\\-8\\1\end{pmatrix}
+\]
+und die Längen der Normalen-Vektoren
 \begin{align*}
-4^2+7^2+4^2&=9^2\\
-4^2+8^2+1^2&=9^2.
+|\vec n_1| &= \sqrt{4^2+7^2+(-4)^2} = \sqrt{81} = 9\\
+|\vec n_2| &= \sqrt{4^2+(-8)^2+1^2} = \sqrt{81} = 9\\
 \end{align*}
 Die Hessenschen Normalformen lauten jetzt
 \[
@@ -48,13 +53,20 @@ liefern, also
 15y-5z&=45.
 \end{align*}
 Setzt man die Geradengleichung darin ein, erhält man die Gleichung
+\begin{align*}
+15\cdot0-5\cdot3t&=45\\
+-15t&=45
+\qquad\Rightarrow\qquad t=-3.
+\end{align*}
+Um nun den Mittelpunkt zu berechnen, muss $t=-3$ wieder 
+in die Geradengleichung eingesetzt werden:
 \[
--15t=45
-\qquad\Rightarrow\qquad t=-3,
-\]
-und daraus für den Mittelpunkt
-\[
-\vec m=\begin{pmatrix}4\\0\\-9\end{pmatrix}.
+\vec m= 
+\begin{pmatrix} 7\\0\\0 \end{pmatrix}
++(-3)\cdot
+\begin{pmatrix}1\\0\\3\end{pmatrix}
+=
+\begin{pmatrix}4\\0\\-9\end{pmatrix}.
 \]
 Um die Kugelgleichung aufstellen zu können, müssen wir auch noch den
 Radius kennen.
@@ -73,9 +85,9 @@ r
 \]
 Damit können wir jetzt die Kugelgleichung aufstellen:
 \[
-\left(
-\vec p - \begin{pmatrix}4\\0\\-9\end{pmatrix}
-\right)^2-\biggl(\frac{34}{9}\biggr)^2=0.
+\left|\vec p - \vec m \right|^2 = r^2\quad\Rightarrow\quad
+\left|\,\vec p - \begin{pmatrix}4\\0\\-9\end{pmatrix}
+\,\right|^2=\left(\frac{34}{9}\right)^2.
 \qedhere
 \]
 \end{loesung}

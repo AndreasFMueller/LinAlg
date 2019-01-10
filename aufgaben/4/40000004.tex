@@ -24,16 +24,16 @@ Der Drehwinkel kann mit der Spurformel bestimmt werden. Dazu berechnen
 wir zunächst die Spur von $O$
 \[
 \operatorname{Spur}O=
-c+(1-c)u_1^2+c+(1-c)u_2^2+c+(1-c)u_3^2=3c+(1-c)(u_1^2+u_2^2+u_3^2)=1+2c
+c+(1-c)u_1^2+c+(1-c)u_2^2+c+(1-c)u_3^2=3c+(1-c)\underbrace{(u_1^2+u_2^2+u_3^2)}_{=1}=1+2c
 \]
 Jetzt wenden wir die Spurformel an:
 \[
-\cos\alpha=\frac{\operatorname{Spur}O-1}2=c=\cos\varphi,
+\cos\alpha=\frac{\operatorname{Spur}O-1}2=\frac{1+2c-1}2=c=\cos\varphi,
 \]
 Der Drehwinkel ist also gerade der Winkel $\varphi.$
 \item
 Die Richtung $\vec v$ der Drehachse erfüllt die Bedingung $O\vec v=\vec v$,
-wir müssen also nachprüfen, ob $O\vec u=\vec u$.
+wir müssen also nachprüfen, ob $O\vec u=\vec u$ ist.
 Dazu setzen wir ein:
 \begin{align*}
 O\vec u
@@ -79,10 +79,10 @@ finden kann.
 Dies soll hier nachgeholt werden.
 Der Vektor $\vec r$ soll um die Achse $\vec u$ und den Winkel $\varphi$
 gedreht werden.
-Dazu zerlegen wir $\vec r$ zuerst die Komponenten $\vec r_{\|}$ parallel
+Dazu zerlegen wir $\vec r$ zuerst in die Komponenten $\vec r_{\|}$ parallel
 und $\vec r_{\perp}$ senkrecht auf $\vec u$.
 Die Komponenten $\vec r_{\|}$ ändert sich bei der Drehung nicht, also
-$\vec r_{\|}'=\vec r_{\|}$.
+$\vec r_{\|}\,\!'=\vec r_{\|}$.
 
 Die Komponenten $\vec r_{\perp}$ wird in der Ebene senkrecht auf
 $\vec u$ gedreht.
@@ -92,7 +92,7 @@ Ein solcher Vektor ist $\vec u\times \vec r$, er hat gerade die richtige
 Länge $|\vec r_{\perp}|$.
 Daraus können wir jetzt den gedrehten Vektor 
 \[
-\vec r' = \vec r_{\|} + c \vec r_{\perp} + s \vec u\times \vec r
+\vec r\,' = \vec r_{\|} + c \vec r_{\perp} + s \vec u\times \vec r
 \]
 zusammensetzen.
 

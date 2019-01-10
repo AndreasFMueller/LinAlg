@@ -20,7 +20,7 @@ Das charakteristische Polynom ist
 &=
 (3-\lambda)^2-1=\lambda^2-6\lambda+8=0
 \\
-\lambda_{\pm}&=3\pm\sqrt{9-8}=3\pm1.
+\lambda_{\pm}&=\dfrac{-(-6)\pm\sqrt{(-6)^2-4\cdot 1 \cdot 8}}{2} = 3\pm\sqrt{9-8}=3\pm1.
 \end{align*}
 Für die Eigenwert $\lambda_+=4$ und $\lambda_-=2$ ergeben sich die
 Eigenvektoren
@@ -28,13 +28,76 @@ Eigenvektoren
 v_+=\begin{pmatrix}1\\1\end{pmatrix},\qquad
 v_-=\begin{pmatrix}1\\-1\end{pmatrix}
 \]
-Jetzt kann man
+Damit kann man $A^{47}$ nun berechnen als
+\begin{align*}
+A^{47} = T^{-1}(A')^{47} T &= 
+\begin{pmatrix}
+ 1 & 1\\
+ 1 & -1
+\end{pmatrix}
+\begin{pmatrix}
+4^{47} & 0 \\
+0 & 2^{47}
+\end{pmatrix}
+\dfrac{1}{2}
+\begin{pmatrix}
+1 & 1 \\
+1 & -1
+\end{pmatrix}
+\\
+&= 
+\dfrac{1}{2}
+\begin{pmatrix}
+ 1 & 1\\
+ 1 & -1
+\end{pmatrix}
+\begin{pmatrix}
+4^{47} & 4^{47} \\
+2^{47} & -2^{47}
+\end{pmatrix}\\
+&= 
+\dfrac{1}{2}
+\begin{pmatrix}
+ 4^{47}+2^{47} & 4^{47}-2^{47}\\
+ 4^{47}-2^{47} & 4^{47}+2^{47}
+\end{pmatrix}\\
+&= 
+\dfrac{2^{47}}{2}
+\begin{pmatrix}
+ 2^{47}+1 & 2^{47}-1\\
+ 2^{47}-1 & 2^{47}+1
+\end{pmatrix}
+= 
+2^{46}
+\begin{pmatrix}
+ 2^{47}+1 & 2^{47}-1\\
+ 2^{47}-1 & 2^{47}+1
+\end{pmatrix}
+\end{align*}
+und $A^{47}e_1$ bestimmen
+\[
+A^{47}e_1=
+2^{46}
+\begin{pmatrix}
+ 2^{47}+1 & 2^{47}-1\\
+ 2^{47}-1 & 2^{47}+1
+\end{pmatrix}
+\begin{pmatrix}
+1\\0
+\end{pmatrix}
+=2^{46}\begin{pmatrix}
+2^{47}+1\\
+2^{47}-1
+\end{pmatrix}.
+\]
+Alternativ hätte man auch $e_1$ durch 
+die beiden Vektoren $v_+$ und $v_-$ ausdrücken können durch
 \[
 e_1=\frac12(v_++v_-)
 \]
-schreiben, und damit $A^{47}e_1$ ausrechnen
+und damit $A^{47}e_1$ ausrechnen als
 \[
-A^{47}e_1=\frac12( \lambda_+^{47}v_++\lambda_-^{47}v_-)
+A^{47}e_1=\frac12(A^{47}v_++A^{47}v_-)=\frac12( \lambda_+^{47}v_++\lambda_-^{47}v_-)
 =\frac12\begin{pmatrix}
 4^{47}+2^{47}\\
 4^{47}-2^{47}
