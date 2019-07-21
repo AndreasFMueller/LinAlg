@@ -69,7 +69,12 @@ TEXFILES = linsys.tex 							\
 	applications/kamera/homogen.tex					\
 	applications/kamera/kamera.tex					\
 	applications/kamera/kmatrix.tex					\
-	applications/kamera/strahlensatz.tex
+	applications/kamera/strahlensatz.tex				\
+	applications/matrixoptik.tex					\
+	applications/matrixoptik/brechungsgesetz.tex			\
+	applications/matrixoptik/transfer.tex				\
+	applications/matrixoptik/linse.tex				\
+	applications/matrixoptik/achromat.tex
 
 images:
 	cd images; make
