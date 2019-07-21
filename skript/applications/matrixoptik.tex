@@ -5,6 +5,30 @@
 %
 \section{Matrixoptik
 \label{section:matrixoptik}}
+Moderne Kameras verwenden komplexe Linsensysteme mit vielen Linsen
+um derart scharfe Bilder zu erzeugen, dass die Pixelgrösse eines
+Bildsensors die Auflösung limitiert.
+Zum Beispiel ist das Zeiss Otus T$\mathstrut^*$ $55\,\text{mm}$ Objektiv 
+eines der schärfsten Objektive auf dem Markt und entsprechend teuer.
+Es verwendet 12 Linsen in 10 Gruppen und bildet Punktquellen auf 
+Flecke ab, die kleiner als $5\,\mu\text{m}$ sind, also kleiner als
+die Pixel eines modernen Sensors.
+
+Die Berechnung solcher optischer Systeme ist eine sehr anspruchsvolle
+Aufgabe, die heutzutage mit Computerhilfe erfolgreich gelöst wird.
+Für das bereits erwähnt Zeiss Objekt müssen die Krümmungsradien von 20
+sphärischen Linsenflächen gewählt werden, die 12 Stärken der Linsen,
+sowie die 11 Abstände zwischen den Linsen.
+Schliesslich enthält das Design auch einen Linse mit nichtsphärischer
+Oberfläche, dessen Form ebenfalls gewählt werden muss.
+Dem Designer stehen also über 50 Parameter zur Verfügung, die er
+varieren kann, um die genannte erstaunliche Leistung des Objektivs
+zu erreichen.
+
+In diesem Abschnitt soll gezeigt werden, wie man mit Hilfe einfacher
+Matrizenoperationen ein solches Linsensystem in linearer Näherung,
+der sogenannten {\em paraxialen Näherung}, Modellieren und Grössen
+wie Brennweite, Vergrösserung oder Farbfehler zu berechnen.
 
 \input{applications/matrixoptik/brechungsgesetz.tex}
 

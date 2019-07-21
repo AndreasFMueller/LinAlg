@@ -1,0 +1,43 @@
+B1: matrix([1, 0], [(1/n1-1)/R1, 1/n1]);
+B2: matrix([1, 0], [(n1/n2-1)/R2, n1/n2]);
+/* B3: matrix([1, 0], [(n2-1)/R3, n2]); */
+B3: matrix([1, 0], [0, n2]);
+T1: matrix([1,d1],[0,1]);
+T2: matrix([1,d2],[0,1]);
+T3: matrix([1,f],[0,1]);
+
+v: matrix([1], [0]);
+
+w: T3 . B3 . T2 . B2 . T1 . B1 . v;
+
+L: w[1,1];
+L: combine( expand(L));
+L: combine(expandwrt(R1*R2*L,R1,R2));
+
+/* rot */
+lrot: subst(1.507, n1, L);
+lrot: subst(1.612, n2, lrot);
+lrot: subst(6, d1, lrot);
+lrot: subst(1, d2, lrot);
+lrot: subst(200, f, lrot);
+expand(lrot);
+
+lblau: subst(1.519, n1, L);
+lblau: subst(1.638, n2, lblau);
+lblau: subst(6, d1, lblau);
+lblau: subst(1, d2, lblau);
+lblau: subst(200, f, lblau);
+expand(lblau);
+
+rb: expand(lrot-lblau);
+float(solve([lrot = 0, lblau = 0], [R1, R2]));
+
+lgruen: subst(1.513, n1, L);
+lgruen: subst(1.623, n2, lgruen);
+lgruen: subst(6, d1, lgruen);
+lgruen: subst(1, d2, lgruen);
+lgruen: subst(85.413, R1, lgruen);
+lgruen: subst(-95.892, R2, lgruen);
+lgruen: expand(lgruen);
+float(solve([lgruen = 0], [f]));
+

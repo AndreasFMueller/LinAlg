@@ -5,7 +5,7 @@
 %
 \subsection{Dünne Linse\label{mo:subsection:linse}}
 Eine Linse besteht aus zwei sphärischen Flächen mit 
-Krümmungsradien $R_1$ und $R_2$.
+Krümmungsradien $R_1$ und $R_2$ (Abbildung~\ref{mo:focus}).
 Die Brechungsindexverhältnisse an den beiden Flächen sind reziprok,
 also $\nu_2=\nu_1^{-1}$.
 Da die Linse als dünn angenommen wird, kann der Abstand der beiden Flächen
@@ -88,13 +88,19 @@ T
 \begin{pmatrix}
 1&-x_0\\
 0&1
-\end{pmatrix}
+\end{pmatrix}.
 \]
 
 \subsubsection{Brennweite}
+\begin{figure}
+\centering
+\includegraphics{applications/matrixoptik/fl.pdf}
+\caption{Brennweite einer dünnen Linse
+\label{mo:focus}}
+\end{figure}
 Die Brennweite einer Linse ist der Werte $x$, bei dem parallel zur
 optischen Achse auf die Linse fallende Strahlen in einem Punkt
-zusammenkommen.
+zusammenkommen (Abbildung~\ref{mo:focus}).
 Ein Strahl parallel zur optischen Achse hat $\alpha_0=0$.
 Gesucht wird also dasjenige $x$, für welches der $y$-Wert unter der
 Wirkung von $T$ zu $0$ wird:
@@ -187,11 +193,18 @@ T
 \label{om:fokusmatrix}
 \end{equation}
 
-\subsubsection{Abbildungs}
+\subsubsection{Abbildungsgleichung}
+\begin{figure}
+\centering
+\includegraphics{applications/matrixoptik/abb.pdf}
+\caption{Abbildung eines Punktes durch eine dünne Linse.
+\label{mo:abb}}
+\end{figure}
 Wo wird das Licht, welches vom Punkt $x_0$ auf der optischen
 Achse ausgeht von einer dünnen Linse fokusiert?
 
-Wir betrachten zu diesem Zweck einen Strahl, der vom Punkt $x_0$ 
+Diese Situation ist in Abbildung~\ref{mo:abb} dargestellt.
+Wir betrachten einen Strahl, der vom Punkt $x_0$ 
 auf der optischen Achse ausgeht und die Linse auf der Höhe $y$ 
 trifft.
 Der Winkel zur optischen Achse dieses Strahls ist $\alpha_0=y/x_0$.
