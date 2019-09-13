@@ -7,30 +7,30 @@
 \index{Kirchhoff!Gesetze|see{Kirchoff!Regeln}}
 \index{Widerstandsnetzwerk}
 Gustav Robert Kirchhoff hat in einer Arbeit 1847 gezeigt, wie sich
-die Spannungen und Str"ome in einem Widerstandsnetzwerk berechnen
+die Spannungen und Ströme in einem Widerstandsnetzwerk berechnen
 lassen. Dazu hat er zwei Regeln aufgestellt, mit deren Hilfe
 sich ein lineares Gleichungssystem zur Berechnung der Spannungen
-und Str"ome aufstellen l"asst.
-\index{Stroemung@Str\"omung}
+und Ströme aufstellen lässt.
+\index{Strömung}
 \index{Rohr}
 \index{laminar}
 \index{turbulent}
 Seine Gesetze sind allerdings
-nicht nur auf elektrische Str"ome anwendbar, sondern auch auf
-Fl"ussigkeitsstr"ome durch ein Rohrnetz, solange die
-Str"omungsgeschwindigkeiten so klein sind, dass die Str"omung als
+nicht nur auf elektrische Ströme anwendbar, sondern auch auf
+Flüssigkeitsströme durch ein Rohrnetz, solange die
+Strömungsgeschwindigkeiten so klein sind, dass die Strömung als
 laminar (nicht turbulent) betrachtet werden kann.
 
 \subsection{Die Kirchhoffschen Gesetze\label{appkirchhoff}}
-Kirchhoff ging aus von einem Netzwerk von ``Dr"ahten'' mit gegebenen
-Widerstand und ``elektromotorischen Kr"aften'', die in diesen
-Dr"ahten stecken. Ein Netzwerk dieser Art zeigt
+Kirchhoff ging aus von einem Netzwerk von ``Drähten'' mit gegebenen
+Widerstand und ``elektromotorischen Kräften'', die in diesen
+Drähten stecken. Ein Netzwerk dieser Art zeigt
 Abbildung~\ref{kirchhoff-netzwerk}.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.6\hsize]{images/kirchhoff-1}
 \end{center}
-\caption{Netzwerk von Dr"ahten nach Kirchhoff\label{kirchhoff-netzwerk}}
+\caption{Netzwerk von Drähten nach Kirchhoff\label{kirchhoff-netzwerk}}
 \end{figure}
 \index{Draht}
 \index{Strom}
@@ -45,9 +45,9 @@ In der zitierten Arbeit wird das erste Gesetz wie folgt formuliert:
 \bigskip
 In unserer moderneren Schreibweise bezeichnen wir den Widerstand des
 Drahtes mit der Nummer $k$ mit $R_k$. Da wir ausserdem nur an der
-Mathematik interessiert sind, machen wir uns "uber die Interpretation
-der ``elektromotorischen Kr"afte'' $E_k$ keine Gedanken. Die Gleichung,
-die zu einer ``geschlossenen Figur'' geh"ort, ist also
+Mathematik interessiert sind, machen wir uns über die Interpretation
+der ``elektromotorischen Kräfte'' $E_k$ keine Gedanken. Die Gleichung,
+die zu einer ``geschlossenen Figur'' gehört, ist also
 \[
 R_{k_1}I_{k_1}+
 R_{k_2}I_{k_2}+
@@ -60,13 +60,13 @@ in dem Aufsatz von Kirchhoff nicht definiert.
 \index{1. Kirchhoffsches Gesetz|see{Maschenregel}}
 
 \subsubsection{Zyklen}
-Zun"achst besteht eine ``geschlossene Figur'' immer aus einzelnen
-Kanten des Netzwerks. Weiss man, welche Kanten dazu geh"oren, kann
+Zunächst besteht eine ``geschlossene Figur'' immer aus einzelnen
+Kanten des Netzwerks. Weiss man, welche Kanten dazu gehören, kann
 man auch sofort ableiten, in welcher Reihenfolge sie vom Strom
 durchflossen werden. Wirklich wichtig ist dies zwar auch nicht,
 Kirchhoff sagt ja, es kommt nur auf die Summe an. Eine 
 Figur ist also nur die Information, wie oft eine Kante des Netzwerkes darin
-vorkommt. Wir k"onnen einer Figur also einen Vektor $f$ mit ganzen
+vorkommt. Wir können einer Figur also einen Vektor $f$ mit ganzen
 Zahlen $f_i$ zuordnen, die angeben, wie oft die Kante $i$ in der
 Figur vorkommt.
 \begin{figure}
@@ -85,18 +85,18 @@ $f_1$&$f_2$&$f_3$
 
 \index{Zyklus}
 Eine geschlossene Figur zeichnet sich dadurch aus, dass es zu
-jeder Kante eine n"achste Kante gibt, in der der Strom weiterfliessen
+jeder Kante eine nächste Kante gibt, in der der Strom weiterfliessen
 kann. In den Knoten des Netzwerkes kommen die Kanten zusammen,
 zu jeder Kante, die im Knoten $j$ endet, braucht es eine zweite
 Kante, die dort beginnt.
 Es spielt jetzt also eine Rolle, in welcher Richtung eine
 Kante durchlaufen wird, dies kann durch die Vorzeichen der $f_i$
-ausgedr"uckt werden. Ausserdem w"ahlen wir f"ur jede Kante
+ausgedrückt werden. Ausserdem wählen wir für jede Kante
 des Netzwerkes eine Orientierung, zum Beispiel diejenige vom
-Knoten mit der kleineren Nummer zu dem mit der gr"osseren,
+Knoten mit der kleineren Nummer zu dem mit der grösseren,
 und teilen dem Anfangspunkt
 das Gewicht $-1$ und dem Endpunkt das Gewicht $+1$ zu. Die
-aufaddierten Gewichte der Endpunkte einer Figur m"ussen in jedem
+aufaddierten Gewichte der Endpunkte einer Figur müssen in jedem
 Knoten $0$ ergeben, damit die Figur geschlossen ist.
 \begin{figure}
 \begin{center}
@@ -107,9 +107,9 @@ Knoten $0$ ergeben, damit die Figur geschlossen ist.
 Auch die Gewichte auf den einzelnen Knoten kann man mit einem
 Vektor darstellen. Zu jeder Kante gibt es jetzt also einen
 Vektor von Gewichten, die zusammen in eine Matrix $\partial$
-geschrieben werden k"onnen.
-F"ur das Beispielnetzwerk aus Abbildung~\ref{netzwerk-numeriert}
-findet man f"ur diese Matrix
+geschrieben werden können.
+Für das Beispielnetzwerk aus Abbildung~\ref{netzwerk-numeriert}
+findet man für diese Matrix
 \setcounter{MaxMatrixCols}{12}
 \[
 \partial=\begin{pmatrix}
@@ -128,9 +128,9 @@ die Spalten mit den Kantennummern des Netzwerks. $\partial$
 heisst auch der Randoperator des Netzwerks.
 \index{Randoperator}
 
-F"ur einen Vektor $f$, der eine Figur beschreibt, berechnet diese
+Für einen Vektor $f$, der eine Figur beschreibt, berechnet diese
 Matrix die aufsummierten Gewichte in jedem Knoten.
-Zu den drei Figuren in Abbildung~\ref{kirchhoff-zyklen} geh"oren
+Zu den drei Figuren in Abbildung~\ref{kirchhoff-zyklen} gehören
 die folgenden drei Vektoren, die Wirkung der Matrix $\partial$
 macht diese alle zum Nullvektor:
 \[
@@ -159,14 +159,14 @@ f_3=\begin{pmatrix}
 %=0%\begin{pmatrix}0\\0\\0\\0\\0\\0\\0\\0\end{pmatrix},
 \]
 Wir nennen Vektoren $z$ mit $\partial z=0$ Zyklen.
-Die Menge der Zyklen ist die L"osungsmenge des homogenen
+Die Menge der Zyklen ist die Lösungsmenge des homogenen
 Gleichungssystems $\partial z=0$. Mit Zyklen kann man rechnen,
-tats"achlich gilt im obigen Beispiel $f_1+f_2=f_3$. In $f_1$
+tatsächlich gilt im obigen Beispiel $f_1+f_2=f_3$. In $f_1$
 und $f_2$ werden die beiden Kanten $4$ und $6$ jeweils in
 entgegengesetzter Richtung durchlaufen.
 
 Der Gauss-Algorithmus gibt uns aber auch ein Verfahren, die
-L"osungsmenge von $\partial z=0$ zu bestimmen, das Gauss-Tableau
+Lösungsmenge von $\partial z=0$ zu bestimmen, das Gauss-Tableau
 ist:
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
@@ -186,18 +186,18 @@ ist:
 \hline
 \end{tabular}
 \]
-Daraus kann man ablesen, dass wir frei w"ahlen
-k"onnen, ob wir die Kanten $6$, $7$, $9$, $11$ und $12$
+Daraus kann man ablesen, dass wir frei wählen
+können, ob wir die Kanten $6$, $7$, $9$, $11$ und $12$
 hinzunehmen wollen.
-W"ahlen wir $0$ f"ur die frei w"ahlbare Variable, bedeutet dies,
+Wählen wir $0$ für die frei wählbare Variable, bedeutet dies,
 dass diese Kante nicht vorkommen soll.
 Ein Wert von $1$ oder $-1$ gibt an, dass die Kante zum gesuchten Zyklus
-geh"oren soll.
+gehören soll.
 
-W"ahlen wir jeweils genau
-eine der frei w"ahlbaren Kanten (aber mit Faktor $-1$, damit wir das Resultat
-mit m"oglichst wenigen Vorzeichenwechseln bekommen k"onnen),
-die anderen aber nicht, bekommen wir die f"unf Zyklen
+Wählen wir jeweils genau
+eine der frei wählbaren Kanten (aber mit Faktor $-1$, damit wir das Resultat
+mit möglichst wenigen Vorzeichenwechseln bekommen können),
+die anderen aber nicht, bekommen wir die fünf Zyklen
 \[
 %                    1   2   3   4   5   6   7   8   9  10  11  12
 z_1=\begin{pmatrix}  1\\ 0\\-1\\ 1\\ 0\\\color{green}-1\\\color{green} 0\\ 0\\\color{green} 0\\ 0\\\color{green} 0\\\color{green} 0\end{pmatrix},\qquad
@@ -207,16 +207,16 @@ z_4=\begin{pmatrix}  0\\-1\\ 0\\ 1\\-1\\\color{green} 0\\\color{green} 0\\ 0\\\c
 z_5=\begin{pmatrix}  1\\ 0\\-1\\ 1\\ 0\\\color{green} 0\\\color{green} 0\\-1\\\color{green} 0\\ 1\\\color{green} 0\\\color{green}-1\end{pmatrix},\qquad
 \]
 Der Zyklus $z_1$ ist $f_1$, Abbildung \ref{basiszyklen} zeigt all
-f"unf Zyklen. Man kann gut erkennen, dass die frei w"ahlbaren Kanten
-jeweils nur in einem der Zyklen vorkommen. Die frei w"ahlbaren Kanten
+fünf Zyklen. Man kann gut erkennen, dass die frei wählbaren Kanten
+jeweils nur in einem der Zyklen vorkommen. Die frei wählbaren Kanten
 sind ausserdem die letzten, die man entfernen kann, um den jeweiligen
-Zyklus zu zerst"oren. Entfernt man eine solche Kante, bleiben alle
+Zyklus zu zerstören. Entfernt man eine solche Kante, bleiben alle
 anderen Zyklen unversehrt.
 
 Aus den gezeigten Zyklen
 kann man auch die einzelnen Dreiecke in der unteren Zeile zusammensetzen,
 wie Abbildung~\ref{dreiecke} zeigt. Diese kleineren Dreiecke haben nicht
-mehr die Eigenschaft, dass sie durch Entfernung einer der frei w"ahlbaren
+mehr die Eigenschaft, dass sie durch Entfernung einer der frei wählbaren
 Kanten unversehrt bleiben.
 \begin{figure}
 \begin{center}
@@ -235,7 +235,7 @@ $z_5$\\
 \end{center}
 \caption{Basiszyklen des Netzwerkes aus
 Abbildung~\ref{netzwerk-numeriert},
-die frei w"ahlbaren Kanten jeweils rot hervorgehoben
+die frei wählbaren Kanten jeweils rot hervorgehoben
 \label{basiszyklen}}
 \end{figure}
 \begin{figure}
@@ -254,13 +254,13 @@ $-z_1+z_4$
 \index{Basiszyklen}
 
 \subsubsection{Maschengleichungen}
-Zu jedem Basiszyklus k"onnen wir jetzt gem"ass des ersten
+Zu jedem Basiszyklus können wir jetzt gemäss des ersten
 Kirchhoffschen Gesetzes eine Gleichung bilden.
 Seien $z_1,\dots,z_s$ die Basiszyklen.
 Auf der linken Seite der Gleichungen muss jeder unbekannte Strom
 auch noch mit dem Widerstand multipliziert werden.
-Wir schreiben daf"ur die Diagonalmatrix
-mit den Widerst"anden
+Wir schreiben dafür die Diagonalmatrix
+mit den Widerständen
 \[
 R=
 \operatorname{diag}(R_1,R_2,\dots,R_n)=
@@ -272,17 +272,17 @@ R_1&0&\dots&0\\
 \end{pmatrix}
 \]
 und
-$I$ f"ur den Spaltenvektor der gesuchten Str"ome. Dann ist $RI$
+$I$ für den Spaltenvektor der gesuchten Ströme. Dann ist $RI$
 der Spaltenvektor mit den Produkten $R_iI_i$.
-Schreiben wir ausserdem $e$ f"ur den
-Spaltenvektor der elektromotorischen Kr"afte, dann 
+Schreiben wir ausserdem $e$ für den
+Spaltenvektor der elektromotorischen Kräfte, dann 
 werden die gesuchten Gleichungen
 \begin{align*}
 z_1^tRI&=z_1^te\\
 &\;\vdots\\
 z_s^tRI&=z_s^te.
 \end{align*}
-Schreiben wir die Zyklen als Spalten in eine Matrix $Z$, also f"ur das
+Schreiben wir die Zyklen als Spalten in eine Matrix $Z$, also für das
 Beispiel
 \[
 Z^t=
@@ -298,22 +298,22 @@ dann werden die Gleichungen nach dem ersten Kirchhoffschen Gesetz
 \[
 Z^tRI=Z^te.
 \]
-Die gew"ahlte Konstruktion stellt automatisch sicher, dass die
-Gleichungen linear unabh"angig sind, ja sie ermittelt sogar
-die maximale Anzahl linear unabh"angiger Gleichungen.
+Die gewählte Konstruktion stellt automatisch sicher, dass die
+Gleichungen linear unabhängig sind, ja sie ermittelt sogar
+die maximale Anzahl linear unabhängiger Gleichungen.
 
 \subsubsection{Der Rang von $\partial$}
 Im Beispiel haben wir ein Netzwerk mit $n=12$ Knoten und $m=8$
 Kanten untersucht, und darin $n-m+1=5$ Zyklen gefunden. Die Anzahl
-der Zyklen l"asst sich aus dem Rang von $\partial$ ermitteln,
+der Zyklen lässt sich aus dem Rang von $\partial$ ermitteln,
 sie ist $n-\operatorname{Rang}\partial$. Um die Anzahl der
-Basiszyklen zu bestimen, m"ussen wir also den Rang von $\partial$
+Basiszyklen zu bestimen, müssen wir also den Rang von $\partial$
 bestimmen.
 
-Jede Spalte von $\partial$ enth"alt genau eine $1$ und eine $-1$, also
+Jede Spalte von $\partial$ enthält genau eine $1$ und eine $-1$, also
 verschwindet die Summe aller Zeilen von $\partial$.
-Die Zeilen von $\partial$ sind also linear abh"angig, und es
-gilt $\operatorname{Rang}\partial < m$. Wir k"onnen aber mehr
+Die Zeilen von $\partial$ sind also linear abhängig, und es
+gilt $\operatorname{Rang}\partial < m$. Wir können aber mehr
 beweisen:
 
 \begin{satz} $\operatorname{Rang}\partial = m-1$.
@@ -321,15 +321,15 @@ beweisen:
 \end{satz}
 
 \begin{proof}[Beweis]
-Wir f"uhren den Beweis mit vollst"andiger Induktion nach der Anzahl $n$
+Wir führen den Beweis mit vollständiger Induktion nach der Anzahl $n$
 der Kanten des Netzwerks.
 Dazu bauen wir das Netzwerk dadurch auf, dass wir nacheinander neue 
-Kanten hinzuf"ugen, die an mindestens einem Ende mit einem Knoten
+Kanten hinzufügen, die an mindestens einem Ende mit einem Knoten
 verbunden werden, der bereits mit mindestens einer Kante verbunden
-ist. Wir m"ussen "uberpr"ufen, dass dabei der Rang von $\partial$
+ist. Wir müssen überprüfen, dass dabei der Rang von $\partial$
 immer $m-1$ bleibt.
 
-Induktionsverankerung: F"ur ein Netzwerk mit nur $m=2$ Knoten und
+Induktionsverankerung: Für ein Netzwerk mit nur $m=2$ Knoten und
 einer einzigen Kante ($n=1$) hat
 $\partial$ die Form
 \[
@@ -337,22 +337,22 @@ $\partial$ die Form
 \]
 und hat offenbar Rang $1=m-1$. 
 
-Nehmen wir jetzt an (Induktionsannahme), dass f"ur jedes Netzwerk mit $n-1$
-Kanten die zugeh"orige $\partial$-Matrix den Rang $m-1$ hat,
+Nehmen wir jetzt an (Induktionsannahme), dass für jedes Netzwerk mit $n-1$
+Kanten die zugehörige $\partial$-Matrix den Rang $m-1$ hat,
 wobei $m$ die Zahl der Knoten ist.
-F"ugt man einen neue Kante hinzu, dann wird die Kantenzahl neu $n$.
+Fügt man einen neue Kante hinzu, dann wird die Kantenzahl neu $n$.
 Die Knotenzahl kann dabei gleich bleiben, oder auf $m+1$ anwachsen.
 
 Im ersten Fall, als bei gleichbleibender Knotenzahl $m$,
 weiss man nach Induktionsannahme, dass $m-1$ Zeilen
-von $\partial$ immer linear unabh"angig sind.
-Die zus"atzliche Spalte macht es noch schwieriger, eine lineare
-Abh"angigkeit zu finden, der Rang von $\partial$ ist in diesem
+von $\partial$ immer linear unabhängig sind.
+Die zusätzliche Spalte macht es noch schwieriger, eine lineare
+Abhängigkeit zu finden, der Rang von $\partial$ ist in diesem
 Fall also $m-1$.
 
 Im zweiten Fall wird die Matrix $\partial'$ des Netzwerkes mit
-$n-1$ Kanten um eine Spalte (f"ur die neue Kante) und eine
-Zeile (f"ur den zus"atzlichen Knoten) erweitert:
+$n-1$ Kanten um eine Spalte (für die neue Kante) und eine
+Zeile (für den zusätzlichen Knoten) erweitert:
 \[
 \partial=
 \left(
@@ -366,7 +366,7 @@ Zeile (f"ur den zus"atzlichen Knoten) erweitert:
 \right)
 \]
 Der Gauss-Algorithmus entfernt im ersten Schritt die $-1$ in
-der ersten Spalte, ohne dabei $\partial'$ zu ver"andern.
+der ersten Spalte, ohne dabei $\partial'$ zu verändern.
 \[
 \begin{tabular}{|>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -396,7 +396,7 @@ der ersten Spalte, ohne dabei $\partial'$ zu ver"andern.
 \end{tabular}
 \]
 In den weiteren Schritten des Gauss-Algorithmus wird nur noch
-die Matrix $\partial'$ ver"andert.
+die Matrix $\partial'$ verändert.
 Insbesondere wird genau eine Null-Zeile entstehen, $\partial'$
 hat nach Induktionsannahme den Rang $m-1$. Also hat $\partial$
 den Rang $m$.
@@ -404,18 +404,18 @@ den Rang $m$.
 
 \begin{satz}
 Wenn durch Entfernung von $s=n-m+1$ Kanten $i_1,\dots,i_s$
-eines Netzwerkes mit $n$ Ecken und $m$ Kanten alle Zyklen zerst"ort werden,
-dann geh"ort jede der Kanten zu mindestens einem Zyklus.
+eines Netzwerkes mit $n$ Ecken und $m$ Kanten alle Zyklen zerstört werden,
+dann gehört jede der Kanten zu mindestens einem Zyklus.
 \end{satz}
 
 \begin{proof}[Beweis]
-Es reicht zu zeigen, dass die erste Kante zu einem Zyklus geh"oren
+Es reicht zu zeigen, dass die erste Kante zu einem Zyklus gehören
 muss. Entfernt man die Kante $i_1$, nimmt die Spaltenzahl von $\partial$
-um $1$ ab, aber die Zeilen von $\partial$ bleiben linear abh"angig.
-Die maximal m"ogliche Zahl linear unabh"angiger Zyklen muss also
+um $1$ ab, aber die Zeilen von $\partial$ bleiben linear abhängig.
+Die maximal mögliche Zahl linear unabhängiger Zyklen muss also
 ebenfalls um $1$ auf $s-1=n-m$ abnehmen.
 Wenn andererseits $i_1$ in keinem Zyklus vorkommt, dann
-bleiben die vorhandenen $s$ linear unabh"angigen Zyklen linear unabh"angig,
+bleiben die vorhandenen $s$ linear unabhängigen Zyklen linear unabhängig,
 da die Zyklen an der Stelle $i_1$ alle die Komponenten $0$ haben.
 Dieser Widerspruch zeigt, dass $i_1$ mindestens in einem Zyklus vorkommen
 muss.
@@ -432,8 +432,8 @@ Das zweite Gesetz wird so formuliert:
 \bigskip
 Im letzten Abschnitt haben wir jeder Kante eine Richtung gegeben,
 wir rechnen den Strom positiv, wenn er in die gleiche Richtung fliesst
-wie die Kante orientiert ist. F"ur die zweite Kirchhoffsche Regeln
-m"ussen wir die $I_\lambda$ also noch mit den Gewichten der Kante
+wie die Kante orientiert ist. Für die zweite Kirchhoffsche Regeln
+müssen wir die $I_\lambda$ also noch mit den Gewichten der Kante
 multiplizieren. Die Gewichte findet man in den Zeilen der Matrix
 $\partial$, die Gleichungen nach der zweiten Kirchhoffschen
 Regel sind also
@@ -441,28 +441,28 @@ Regel sind also
 \partial I=0.
 \]
 
-In unserem Beispiel hatten wir f"unf Gleichungen aus der Maschenregel
-f"ur die zw"olf unbekannten Str"ome ermittelt, die Knoten steuern
+In unserem Beispiel hatten wir fünf Gleichungen aus der Maschenregel
+für die zwölf unbekannten Ströme ermittelt, die Knoten steuern
 nochmals acht Gleichungen bei, so dass wir mit dreizehn Gleichungen
-eine zu viel haben. Die Gleichungen m"ussen linear abh"angig sein,
+eine zu viel haben. Die Gleichungen müssen linear abhängig sein,
 aber welche der Gleichungen soll man weglassen?
 Nach Satz~\ref{partialrank} ist $\operatorname{Rang}\partial=m-1$,
 somit kann man jede beliebige der Gleichungen $\partial I=0$ weglassen.
 
 Da also die Stromverteilung ein Zyklus sein muss, muss $I=Zj$ sein, wobei
-$j$ ein Spaltenvektor ist, der die Str"ome "uber die frei w"ahlbaren
-Kanten angibt. F"ur diese Str"ome folgen die Gleichungen
+$j$ ein Spaltenvektor ist, der die Ströme über die frei wählbaren
+Kanten angibt. Für diese Ströme folgen die Gleichungen
 \[
 Z^tRZj=Z^te,
 \]
 wir haben damit das Problem auf ein Gleichungssystem mit $n-m+1$
-Gleichungen f"ur ebenso viele Unbekannten reduziert.
+Gleichungen für ebenso viele Unbekannten reduziert.
 Die Koeffizientenmatrix $Z^tRZ$ des Gleichungssystems ist symmetrisch.
 
 \subsubsection{Potential}
 \index{Potential}
-Um die Str"ome in einem Netzwerk zu messen, muss man die einzelnen
-Dr"ahte auftrennen und ein Messger"at einf"ugen.
+Um die Ströme in einem Netzwerk zu messen, muss man die einzelnen
+Drähte auftrennen und ein Messgerät einfügen.
 Spannungen zwischen zwei Knoten, also Potentialunterschiede,
 sind viel einfacher zu messen.
 Wir nehmen daher an, dass es einen $m$-dimensionalen
@@ -470,25 +470,25 @@ Potential-Vektor $U$ gibt.
 Die Potentialdifferenz entlang einer Kante ist die Differenz
 zwischen den Potentialen an den beiden Enden.
 Da wir im $\partial$-Operator den Enden jeder Kante die Gewichte
-$1$ und $-1$ gegeben haben, finden wir die n"otigen Koeffizienten
+$1$ und $-1$ gegeben haben, finden wir die nötigen Koeffizienten
 zur Berechnung der Potentialdifferenz in den Spalten von $\partial$.
-Wir m"ussen also die Spalten von $\partial$ mit dem Spaltenvektor $U$
+Wir müssen also die Spalten von $\partial$ mit dem Spaltenvektor $U$
 multiplizieren, diese sind aber die Zeilen von $\partial^t$.
 Der Vektor der Potentialdifferenzen ist daher $\partial^t U$.
 
 \index{Ohmsches Gesetz}
-Das Ohmsche Gesetz besagt, dass die Str"ome proportional sind zu
+Das Ohmsche Gesetz besagt, dass die Ströme proportional sind zu
 den Potentialdifferenzen, also $\partial^t U=RI$, oder, wenn
-wir f"ur die Matrix der Leitf"ahigkeiten $S=R^{-1}$ schreiben,
+wir für die Matrix der Leitfähigkeiten $S=R^{-1}$ schreiben,
 $I=S\partial^t U$. Die Maschengleichungen werden damit zu
 \[
 Z^t\partial^t U=Z^te
 \]
 Nun ist aber $Z^t\partial^t=(\partial Z)^t=0$, da $Z$ ja lauter
 Zyklen als Spalten hat. Das Potential kann also genau dann verwendet
-werden, wenn die elektromotorischen Kr"afte sich "uber jeden Zyklus zu $0$
+werden, wenn die elektromotorischen Kräfte sich über jeden Zyklus zu $0$
 summieren, und die
-Maschengleichungen sind in diesem Fall automatisch erf"ullt.
+Maschengleichungen sind in diesem Fall automatisch erfüllt.
 Die Knotengleichungen werden zu
 \[
 \partial S\partial^tU=0.
@@ -503,8 +503,8 @@ $\Delta^t=(\partial S\partial^t)^t
 
 Man kann $\Delta$ sehr leicht aus dem Netzwerk ablesen. Wir schreiben
 $s_i=1/R_i$, also $S=\operatorname{diag}(s_1,\dots,s_m)$.
-F"ur den Spezialfall
-$R_i=1$ f"ur alle $i$ findet man zum Beispiel f"ur das Netzwerk
+Für den Spezialfall
+$R_i=1$ für alle $i$ findet man zum Beispiel für das Netzwerk
 aus Abbildung~\ref{netzwerk-numeriert}:
 \begin{equation}
 \Delta
@@ -523,25 +523,25 @@ aus Abbildung~\ref{netzwerk-numeriert}:
 \end{pmatrix}
 \label{samplelaplace}
 \end{equation}
-Fehlende Eintr"age sind als 0 zu lesen. Offenbar steht auf der Diagonalen
+Fehlende Einträge sind als 0 zu lesen. Offenbar steht auf der Diagonalen
 von $\Delta$ immer die Anzahl der Kanten, die in diesem 
-Knoten zusammentreffen. F"ur beliebiges $S$ werden die Diagonalelemente
-als Summe der Leitf"ahigkeiten der in diesem Knoten zusammentreffenden
+Knoten zusammentreffen. Für beliebiges $S$ werden die Diagonalelemente
+als Summe der Leitfähigkeiten der in diesem Knoten zusammentreffenden
 Kanten bestimmt.
 
-Die Summe der Zeilen verschwindet, also ist $\Delta$ singul"ar.
+Die Summe der Zeilen verschwindet, also ist $\Delta$ singulär.
 Dies ist nicht weiter verwunderlich, denn das Potential ist ja nur
 bis auf eine additive Konstante bestimmt. Man kann zu $U$ einen
-konstanten Vektor hinzuaddieren, und erh"alt wieder eine L"osung.
-Ein konstanter Vektor ist also eine L"osung des homogenen 
+konstanten Vektor hinzuaddieren, und erhält wieder eine Lösung.
+Ein konstanter Vektor ist also eine Lösung des homogenen 
 Gleichungssystems $\Delta U=0$
-Man kann sich auch "uberzeugen, dass $\operatorname{Rang}\Delta = m-1$,
-man muss also nur ein Potential w"ahlen (eine frei w"ahlbare Unbekannte),
+Man kann sich auch überzeugen, dass $\operatorname{Rang}\Delta = m-1$,
+man muss also nur ein Potential wählen (eine frei wählbare Unbekannte),
 um allen anderen Potentiale festzulegen.
 
-\subsubsection{Externe Str"ome}
+\subsubsection{Externe Ströme}
 Das zweite Kirchhoffsche Gesetz geht davon aus, dass an den
-Knoten keine externen Str"ome eingespeist oder abgezweigt werden.
+Knoten keine externen Ströme eingespeist oder abgezweigt werden.
 Gilt diese Voraussetzung nicht mehr, wird die Knotengleichung zu
 \begin{equation}
 \partial I=I_{\text{ext}}
@@ -553,10 +553,10 @@ Gilt diese Voraussetzung nicht mehr, wird die Knotengleichung zu
 \end{equation}
 
 \subsubsection{Erweiterungen}
-In der Elektrizit"atslehre lernt man, wie diese Theorie auf kontinuierliche
+In der Elektrizitätslehre lernt man, wie diese Theorie auf kontinuierliche
 Stromverteilungen in einem leitenden Medium verallgemeinert werden kann,
-dessen ortsabh"angige Leitf"ahigkeit $\sigma(x)$ bekannt ist.
-Nennt man $\vec\jmath(x)$ den ortsabh"angigen
+dessen ortsabhängige Leitfähigkeit $\sigma(x)$ bekannt ist.
+Nennt man $\vec\jmath(x)$ den ortsabhängigen
 Vektor der Stromdichte, und $u(x)$ das Potential, dann gilt
 $\vec\jmath(x)=\sigma(x)\operatorname{grad}(x)$, also
 \[
@@ -566,7 +566,7 @@ $\vec\jmath(x)=\sigma(x)\operatorname{grad}(x)$, also
 \frac{\partial u}{\partial x_3}
 \end{pmatrix}.
 \]
-Die externen Str"ome sind dann durch eine externe Stromdichte
+Die externen Ströme sind dann durch eine externe Stromdichte
 $\vec\jmath_{\text{ext}}(x)$ gegeben, und es gilt
 $\operatorname{div}\vec\jmath(x)=\vec\jmath_{\text{ext}}(x)$. Zusammen ergibt
 sich die Gleichung
@@ -590,5 +590,5 @@ Der Laplace-Operator $\Delta_\sigma$ ist also
 \frac{\partial\sigma}{\partial x_3}\frac{\partial u}{\partial x_3}
 +\sigma(x)\frac{\partial^2 u}{\partial x_3^2}.
 \end{align*}
-Es ist also eine lineare partielle Differentialgleichung zu l"osen.
+Es ist also eine lineare partielle Differentialgleichung zu lösen.
 

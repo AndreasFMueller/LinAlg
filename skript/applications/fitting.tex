@@ -11,7 +11,7 @@
 \caption{Bildsequenz Raketenstart, Intervall zwischen den Bildern: $\frac1{30}$s.
 \label{stummel}}
 \end{figure}
-In der Praxis hat man h"aufig mit Messdaten zu tun, die mit einem
+In der Praxis hat man häufig mit Messdaten zu tun, die mit einem
 bekannten Naturgesetz in Einklang gebracht werden sollen.
 Abbildung~\ref{stummel} zeigt den Start einer Rakete, es ist
 bekannt, dass sich diese bei konstanter Beschleunigung nach dem
@@ -20,14 +20,14 @@ Gesetz
 s(t)=s_0+v_0t+\frac12a_0t^2
 \]
 bewegen wird. Wie gross ist die Beschleunigung $a_0$?
-Die Schwierigkeit besteht darin, dass es offenbar nicht zul"assig ist
+Die Schwierigkeit besteht darin, dass es offenbar nicht zulässig ist
 anzunehmen, die Rakete sei beim ersten Bild in Ruhe ($v_0=0$ oder
-$s_0=0$). Es m"ussen also alle drei Unbekannten $a_0$, $v_0$
+$s_0=0$). Es müssen also alle drei Unbekannten $a_0$, $v_0$
 und $s_0$ miteinander bestimmt werden.
 
 \subsubsection{Lineare Regression}
-Zur Einf"uhrung behandeln wir den Fall einer Geraden. Wir gehen also
-davon aus, dass zwischen den Gr"ossen $x$ und $y$ ein linearer
+Zur Einführung behandeln wir den Fall einer Geraden. Wir gehen also
+davon aus, dass zwischen den Grössen $x$ und $y$ ein linearer
 Zusammenhang
 \[
 y=a_1x+a_0
@@ -42,9 +42,9 @@ a_0&+&x_1a_1&=&y_1\\
 a_0&+&x_na_1&=&y_n\\
 \end{linsys}
 \]
-f"ur die beiden Unbekannten $a_0$ und $a_1$.
+für die beiden Unbekannten $a_0$ und $a_1$.
 Mit der Schreibweise von Abschnitt~\ref{section:ueberbestimmt} haben wir eine
-"uberbestimmtes Gleichungssystem mit
+überbestimmtes Gleichungssystem mit
 \[
 A=\begin{pmatrix}
 x_1&1\\
@@ -59,7 +59,7 @@ x=\begin{pmatrix}
 a_1\\a_0
 \end{pmatrix}.
 \]
-Nach (\ref{uberbestimmt}) ist der gesuchte Vektor $a$ die L"osung
+Nach (\ref{uberbestimmt}) ist der gesuchte Vektor $a$ die Lösung
 eines Gleichungssystems mit Koeffizientenmatrix
 \[
 A^tA=\begin{pmatrix}
@@ -74,12 +74,12 @@ A^tb=\begin{pmatrix}
 \sum_{i=1}^ny_i
 \end{pmatrix}.
 \]
-Mit der Cramerschen Regel kann man dieses sofort l"osen. Der gemeinsame
+Mit der Cramerschen Regel kann man dieses sofort lösen. Der gemeinsame
 Nenner ist 
 \[
 \det(A^tA)=n\sum_{i=1}^nx_i^2-\biggl(\sum_{i=1}^nx_i\biggr)^2,
 \]
-und die L"osungen sind
+und die Lösungen sind
 \begin{align}
 a_1
 &=
@@ -108,8 +108,8 @@ a_0
 a_1\biggl(\frac1n\sum_{i=1}^n x_i\biggr).
 \label{regression:achsabschnitt}
 \end{align}
-Dabei haben wir die Br"uche durch $n^2$ gek"urzt, damit die Summen
-etwas besser verst"andlich sind, 
+Dabei haben wir die Brüche durch $n^2$ gekürzt, damit die Summen
+etwas besser verständlich sind, 
 $\frac1n\sum_{i=1}^nx_i$ ist der Mittelwert der $x$-Werte,
 $\frac1n\sum_{i=1}^ny_i$ ist der Mittelwert der $y$-Werte.
 Die Formeln (\ref{regression:steigung}) und (\ref{regression:achsabschnitt})
@@ -123,8 +123,8 @@ a_0+a_1x+a_2x^2+\dots+a_mx^m
 \]
 an die Daten angepasst werden. Gesucht ist der Vektor der Koeffizienten
 $a_k$, welcher am besten an die Messdaten $(x_i,x_i)$, $1\le i\le n$
-angepasst ist. Wie im vorangegangen Abschnitt m"ussen wir also eine
-optimale L"osung f"ur das "Uberbestimmte Gleichungssystem
+angepasst ist. Wie im vorangegangen Abschnitt müssen wir also eine
+optimale Lösung für das Überbestimmte Gleichungssystem
 \[
 \begin{linsys}{6}
 a_0&+&a_1x_1&+&a_2x_1^2&+&\dots &+&a_mx_1^m&=&y_1\\
@@ -165,7 +165,7 @@ A^tb=\begin{pmatrix}
 \sum_{i=1}^ny_ix_i^m
 \end{pmatrix}
 \end{align*}
-Meist wird man aber beide Seiten durch $n$ teilen, dadurch k"onnen die
+Meist wird man aber beide Seiten durch $n$ teilen, dadurch können die
 Matrixelemente wieder als Mittelwerte interpretiert werden:
 \begin{equation}
 \begin{pmatrix}
@@ -217,9 +217,9 @@ Die Matrixelemente sind wieder Mittelwerte der Potenzen der Messwerte.
 \subsubsection{Beschleunigung der Rakete}
 Wir wenden die Formel~(\ref{polynomregression}) auf die startende 
 Rakete an. Die Werte $x_i$ und $y_i$ kann man aus dem Bild herauslesen.
-Die Zeitabst"ande zwischen den Fotos sind $0.033333$s, die L"ange der
-Rakete ist 75cm oder 48 Pixel, durch Ausz"ahlen der Pixel kann man
-die H"ohe der Rakete in Meter umrechnen:
+Die Zeitabstände zwischen den Fotos sind $0.033333$s, die Länge der
+Rakete ist 75cm oder 48 Pixel, durch Auszählen der Pixel kann man
+die Höhe der Rakete in Meter umrechnen:
 \begin{center}
 \begin{tabular}{|>{$}r<{$}|>{$}c<{$}>{$}c<{$}|}
 \hline
@@ -265,7 +265,7 @@ A^tb=\begin{pmatrix}
    0.18075
 \end{pmatrix}
 \]
-Die L"osung des Gleichungssystems ist damit
+Die Lösung des Gleichungssystems ist damit
 \[
 a=(A^tA)^{-1}A^tb=
 \left(
@@ -278,12 +278,12 @@ a=(A^tA)^{-1}A^tb=
 \end{matrix}
 \right)
 \]
-Die dazugeh"orige Kurve passt sehr gut ins Bild: \ref{stummel2}.
+Die dazugehörige Kurve passt sehr gut ins Bild: \ref{stummel2}.
 Hier kann man ablesen, dass $a_2=198.88\frac{\text{m}}{\text{s}}$, was
 etwa $40.5g$ entspricht.
 
 Wegen $v=a_1+2a_2t$ kann man jetzt auch die Startzeit ausrechnen,
-sie erf"ullt $a_1+2a_2t=0$, also $t=-a_1/2a_2=0.018451$,  der
+sie erfüllt $a_1+2a_2t=0$, also $t=-a_1/2a_2=0.018451$,  der
 Start erfolgte also $0.014882$s vor dem ersten Foto.
 \begin{figure}
 \begin{center}
@@ -294,7 +294,7 @@ Start erfolgte also $0.014882$s vor dem ersten Foto.
 \end{figure}
 
 \subsubsection{Weitere Funktionen}
-Auch f"ur andere Funktionen kann das Verfahren eine Anpassung bringen.
+Auch für andere Funktionen kann das Verfahren eine Anpassung bringen.
 Allerdings muss sichergestellt sein, dass die zu bestimmenden Koeffizienten
 linear eingehen. So kann man zum Beispiel die Funktion
 \[
@@ -305,10 +305,10 @@ Wenn man aber von den $y$-Werten den Logarithmus nimmt, bekommt man
 \[
 \log f(x)=\log a_0+a_1 x
 \]
-Linear Regression f"ur die Daten $(x_i,\log y_i)$ liefert die Koeffizienten
+Linear Regression für die Daten $(x_i,\log y_i)$ liefert die Koeffizienten
 $\log a_0$ und $a_1$. Die folgende Tabelle zeigt, welche Funktionen durch
-diese einfach Modifikation behandelt werden k"onnen. Die Spalte 
-``Daten'' enth"alt zeigt, auf welche Daten der Algorithmus angewendet
+diese einfach Modifikation behandelt werden können. Die Spalte 
+``Daten'' enthält zeigt, auf welche Daten der Algorithmus angewendet
 werden muss, um die Koeffizienten in der Spalte ``Koeffizienten''
 zu liefern.
 \begin{center}

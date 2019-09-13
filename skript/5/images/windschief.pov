@@ -1,5 +1,5 @@
 //
-// vektorprodukt.pov -- display standard coordinate system
+// windschief.pov -- display standard coordinate system
 //
 // (c) 2018 Prof Dr Anderas Müller, Hochschule Rapperswil
 //

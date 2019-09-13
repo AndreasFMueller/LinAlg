@@ -5,7 +5,7 @@
 %
 \section{Anwendung: Wavelets\label{section-wavelets}}
 \rhead{Anwendung: Wavelets}
-Die Erfindung der Fourier-Reihen durch Jean-Baptiste Fourier erm"oglichte,
+Die Erfindung der Fourier-Reihen durch Jean-Baptiste Fourier ermöglichte,
 beliebige periodische Funktionen in ihre Frequenzkomponenten zu zerlegen,
 diese einzeln zu studieren, zu modifizieren und daraus eine neue Funktion
 zu synthetisieren. Fourier-Reihen und die Fourier-Transformation haben
@@ -19,21 +19,21 @@ Auch von solchen Funktionen kann man das Frequenz-Spektrum bestimmen.
 Die Theorie hat jedoch ein paar Nachteile:
 \begin{compactenum}
 \item Um die hochfrequenten Komponenten, also die ``Detailinformation''
-"uber das Signal zu bekommen, muss man das gesamte Signal analysieren.
-Man w"urde sich w"unschen, dass Detailinformationen aus einer Analyse
+über das Signal zu bekommen, muss man das gesamte Signal analysieren.
+Man würde sich wünschen, dass Detailinformationen aus einer Analyse
 nur eines kurzen Zeitabschnitts des Signals ermittelbar sind.
-\item "Andert man eine Frequenzkomponente, "andert sich das Signal
-"uberall. Man w"urde sich w"unschen, dass "Anderungen m"oglichst nur
+\item Ändert man eine Frequenzkomponente, ändert sich das Signal
+überall. Man würde sich wünschen, dass Änderungen möglichst nur
 lokale Wirkung haben.
 \end{compactenum}
-Wavelets l"osen diese Probleme. Statt zeitlich ausgedehnter Sinus-
-und Kosinus-Schwingungen werden nur kurze Wellenz"uge verwendet.
-Je k"urzer sie sind, desto feiner die Details, die sie aus dem 
+Wavelets lösen diese Probleme. Statt zeitlich ausgedehnter Sinus-
+und Kosinus-Schwingungen werden nur kurze Wellenzüge verwendet.
+Je kürzer sie sind, desto feiner die Details, die sie aus dem 
 Signal analysieren. Leider ist es nicht ganz einfach, geeignete
 Funktionen zu finden. Es muss viel mathematischer Aufwand getrieben
-werden, damit die Wavelets m"oglichst glatt werden, nicht lange
-dauern, und ausserdem das Signal m"oglichst so analysieren, dass
-man damit auch praktisch n"utzliche Aufgaben l"osen kann.
+werden, damit die Wavelets möglichst glatt werden, nicht lange
+dauern, und ausserdem das Signal möglichst so analysieren, dass
+man damit auch praktisch nützliche Aufgaben lösen kann.
 
 Das Prinzip der Analyse eines Signals mit Wavelets kann jedoch
 auch mit der Haar-Basis illustriert werden. Dies wird in diesem
@@ -50,7 +50,7 @@ Wir stellen uns ein Signal vor, welches zu einer grossen Zahl $N$
 von Zeitpunkten mit gleichem Abstand abgetastet wird,
 Abbildung~\ref{signal:vector}. Das Signal
 wird dadurch zu einer Liste von Werten $x_1,x_1,\dots,x_N$, die
-alles beinhalten, was wir "uber das Signal wissen. Ein Signal
+alles beinhalten, was wir über das Signal wissen. Ein Signal
 ist also im wesentlichen ein Vektor
 $$
 x=\begin{pmatrix}x_1\\x_2\\\vdots\\x_N\end{pmatrix}
@@ -58,23 +58,23 @@ $$
 Die Menge $\mathbb R^N$ dieser Vektoren bezeichnen wir in diesem
 Kapitel mit $V$. 
 
-Die "ublichen Operationen mit Vektoren haben eine naheliegende
-"Ubersetzung f"ur Signale. Die Summe zweier Vektoren entspricht
-der "Uberlagerung, die Multiplikation mit einem skalaren Faktor
-entspricht einer Verst"arkung des Signals. 
+Die üblichen Operationen mit Vektoren haben eine naheliegende
+Übersetzung für Signale. Die Summe zweier Vektoren entspricht
+der Überlagerung, die Multiplikation mit einem skalaren Faktor
+entspricht einer Verstärkung des Signals. 
 
-Ein Skalarprodukt l"asst sich wie "ublich bilden, doch ziehen
+Ein Skalarprodukt lässt sich wie üblich bilden, doch ziehen
 wir folgende Definition vor:
 $$
 x\cdot y=\sum_{i=1}^Nx_iy_i
 $$
-Die Vektoren $e_i$ mit $1\le i\le N$ bilden nat"urlich immer noch
-eine orthonormierte Basis, diese ist jedoch f"ur die Anwendungen
+Die Vektoren $e_i$ mit $1\le i\le N$ bilden natürlich immer noch
+eine orthonormierte Basis, diese ist jedoch für die Anwendungen
 nicht unbedingt gut geeignet.
 
 Wir schreiben die Komponenten dieser Vektoren auch $x(i)$ um
-eine Schreibweise zu erhalten, die "ahnlich ist der Funktionsschreibweise
-f"ur eine Zeitabh"angige Funktion.
+eine Schreibweise zu erhalten, die ähnlich ist der Funktionsschreibweise
+für eine Zeitabhängige Funktion.
 
 \subsection{Anforderungen an eine Basis}
 Die Standardbasis $e_i$ passt nicht zu der Art und Weise, wie ein
@@ -82,51 +82,51 @@ Ingenieur das Signal studiert. Der Standardbasis-Vektor $e_i$
 entspricht einem Peak zur Zeit $i$, zu allen anderen Zeiten
 ist der Signalwert $0$.
 Ein Ingenieur wird sich das Signal
-typischerweise bei verschiedenen zeitlichen Aufl"osungen
-ansehen, indem er die Zeitbasis am Oszilloskop ver"andert.
-Bei geringer Aufl"osung sind nur die niederfrequenten
-Anteile des Signales sichtbar, bei hoher zeitlicher Aufl"osung
-werden zus"atzliche Details sichtbar.
-Gesucht ist daher eine Basis, die an solche Aufl"osungs"anderungen
+typischerweise bei verschiedenen zeitlichen Auflösungen
+ansehen, indem er die Zeitbasis am Oszilloskop verändert.
+Bei geringer Auflösung sind nur die niederfrequenten
+Anteile des Signales sichtbar, bei hoher zeitlicher Auflösung
+werden zusätzliche Details sichtbar.
+Gesucht ist daher eine Basis, die an solche Auflösungsänderungen
 angepasst ist.
 
 Dem Ingenieur ist auch egal, wo innerhalb des Signals sich
 ein bestimmtes Ereignis abspielt, die Basis sollte sich also
-auch bei Verschiebungen entlang der Zeitachse nicht "andern.
+auch bei Verschiebungen entlang der Zeitachse nicht ändern.
 
 Gesucht ist also eine alternative Basis aus Signalen, die
-sich durch Zeitverschiebung und Skalierung ineinander "uberf"uhren
+sich durch Zeitverschiebung und Skalierung ineinander überführen
 oder mindestens vergleichen lassen.
 
-Die einfachsten Skalentransformationen, f"ur die wir die Basisvektoren
+Die einfachsten Skalentransformationen, für die wir die Basisvektoren
 vorbereiten wollen, sind die zeitlichen Streckungen um den Faktor 2.
-Dies wird nur m"oglich sein, wenn die Zahl $N$ gen"ugen durch $2$
+Dies wird nur möglich sein, wenn die Zahl $N$ genügen durch $2$
 teilbar ist, der Einfachheit halber setzen wir daher fest, dass
-f"ur den Rest dieses Kapitels $N=2^k$.
+für den Rest dieses Kapitels $N=2^k$.
 
 Die Analyse eines Signals, die Zerlegung in Basisvektoren, erfordert
-normalerweise die L"osung eines linearen Gleichungssystems.
-Es ist unm"oglich, dies f"ur grosse Datenmengen in Echtzeit
-durchzuf"uhren. Verwendet man aber eine orthonormierte Basis,
+normalerweise die Lösung eines linearen Gleichungssystems.
+Es ist unmöglich, dies für grosse Datenmengen in Echtzeit
+durchzuführen. Verwendet man aber eine orthonormierte Basis,
 ist die Zerlegung einfach: die Koeffizienten entstehen einfach
 durch Berechnung eines Skalarproduktes.
 
 Gesucht ist jetzt also eine Basis mit folgenden Eigenschaften:
 \begin{compactenum}
-\item Ein Basisvektor geht in einen anderen Basisvektor "uber, wenn
+\item Ein Basisvektor geht in einen anderen Basisvektor über, wenn
 man die Zeitachse um den Faktor 2 komprimiert.
-\item Ein Basisvektor geht in einen anderen Basisvektor "uber, wenn
-man ihn entlang der Zeitachse verschiebt, wenigstens f"ur
+\item Ein Basisvektor geht in einen anderen Basisvektor über, wenn
+man ihn entlang der Zeitachse verschiebt, wenigstens für
 gewisse Offsets.
 \item Die Vektoren sind orthonormiert.
 \end{compactenum}
 In den folgenden Abschnitten sollen diese Forderungen nach und
-nach erf"ullt werden.
+nach erfüllt werden.
 
 \subsection{Eine skaleninvariante Vektorfamilie}
 Wir konstruieren jetzt eine Familie von Vektoren $\varphi_{i,j}$
 wie folgt. $\varphi_{0,0}$ besteht aus lauter Einsen. In $\varphi_{1,j}$
-ist die H"alfte der Komponenten $0$, die andere H"alfte hat den
+ist die Hälfte der Komponenten $0$, die andere Hälfte hat den
 Wert $1$. 
 Diese Vektoren sind also:
 \begin{align*}
@@ -136,7 +136,7 @@ Diese Vektoren sind also:
 \varphi_{1,1}&=\begin{pmatrix}0\\\vdots\\0\\1\\\vdots\\1\end{pmatrix}
 \end{align*}
 Siehe auch Abbildungen~\ref{wavelet-phi00} und \ref{wavelet-phi10-11}.
-Diese Konstruktion l"asst sich fortsetzen:
+Diese Konstruktion lässt sich fortsetzen:
 \begin{align*}
 \varphi_{i,j}(t)&=\begin{cases}
 1&\qquad j2^{k-i}<t\le (j+1)2^{k-i}\\
@@ -144,7 +144,7 @@ Diese Konstruktion l"asst sich fortsetzen:
 \end{cases}
 \end{align*}
 Das Signal $\varphi_{i,j}$ ist also nur auf einem Abschnitt der
-L"ange $2^{k-i}$ von $0$ verschieden, der Index $j$ nummeriert
+Länge $2^{k-i}$ von $0$ verschieden, der Index $j$ nummeriert
 diese Abschnitte innerhalb der Ganzzahlen $1,\dots,2^k$.
 \begin{figure}
 \begin{center}
@@ -162,32 +162,32 @@ diese Abschnitte innerhalb der Ganzzahlen $1,\dots,2^k$.
 
 Es ist klar, dass man mit diesen Vektoren jedes beliebige Signal
 darstellen kann, denn es ist ja
-$\varphi_{k,j}=e_j$, die urspr"unglichen Basisvektoren geh"oren 
+$\varphi_{k,j}=e_j$, die ursprünglichen Basisvektoren gehören 
 auch zur Familie der Funktion $\varphi_{i,j}$. Das bedeutet
 aber auch, dass $\varphi_{i,j}$ keine Basis sein kann, die Familie
-umfasst $2^{k+1}-1$ Vektoren, w"ahrend $V$ nur $2^k$-dimensional ist.
+umfasst $2^{k+1}-1$ Vektoren, während $V$ nur $2^k$-dimensional ist.
 
 Die Vektoren $\varphi_{i,j}$ sind auch nicht orthogonal. Es ist
-zwar $\varphi_{i,j}\cdot\varphi_{i,l}=0$ f"ur $j\ne l$. Aber es
-gilt auch $\varphi_{0,0}\cdot\varphi_{i,j}=2^{k-i}$ f"ur jedes
+zwar $\varphi_{i,j}\cdot\varphi_{i,l}=0$ für $j\ne l$. Aber es
+gilt auch $\varphi_{0,0}\cdot\varphi_{i,j}=2^{k-i}$ für jedes
 beliebige $j$.
 
-Lineare Abh"angigkeit kommt in der Familie $\varphi_{i,j}$ sehr
-h"aufig vor. Bereits die ersten drei Vektoren sind linear
-abh"angig:
+Lineare Abhängigkeit kommt in der Familie $\varphi_{i,j}$ sehr
+häufig vor. Bereits die ersten drei Vektoren sind linear
+abhängig:
 $$\varphi_{0,0}=\varphi_{1,0}+\varphi_{0,1}.$$
-Analoges gilt f"ur beliebige sp"ateren $\varphi$-Vektoren:
+Analoges gilt für beliebige späteren $\varphi$-Vektoren:
 $$
 \varphi_{i,j}=\varphi_{i+1,2j}+\varphi_{i+1,2j+1}
 $$
 Insbesondere sind also alle Vektoren $\varphi_{i,j}$ mit 
-ungeradem $j$ entbehrlich. F"ur jedes $i>0$ bleiben also
-nur noch $2^{i-1}$ Vektoren "ubrig, die linear unabh"angig,
+ungeradem $j$ entbehrlich. Für jedes $i>0$ bleiben also
+nur noch $2^{i-1}$ Vektoren übrig, die linear unabhängig,
 sowie der Vektor $\varphi_{0,0}$. Dies sind
 $$
 1+\sum_{i=1}^k 2^{i-1}=1+\sum_{i=0}^{k-1}2^i=1+2^{k}-1=2^{k}=N
 $$
-linear unabh"angige Vektoren.
+linear unabhängige Vektoren.
 
 \subsection{Orthonormierung}
 \begin{figure}
@@ -198,22 +198,22 @@ linear unabh"angige Vektoren.
 \end{figure}
 
 Die Vektoren $\varphi_{i,j}$ mit $j$ gerade bilden eine Basis,
-mit Hilfe des Orthonormierungs-Algorithmus k"onnen Sie zu einer
+mit Hilfe des Orthonormierungs-Algorithmus können Sie zu einer
 orthonormierten Basis gemacht werden. Diesen Prozess verwenden
-wir aber nur f"ur die Konstruktion eines ersten Vektors $\psi_{1,0}$,
+wir aber nur für die Konstruktion eines ersten Vektors $\psi_{1,0}$,
 und leiten daraus dann eine orthonormierte Familie ab.
 
 Der Basisvektor $\varphi_{0,0}$ ist noch nicht
-normiert, er hat L"ange $\sqrt{N}$, also ist
+normiert, er hat Länge $\sqrt{N}$, also ist
 $$
 \psi_{0,0}=\frac1{\sqrt{N}}\varphi_{0,0}
 $$
 der erste normierte Basisvektor.
 
 Im zweiten Schritt muss eine Linearkombination von $\psi_{0,0}$
-und $\varphi_{1,0}$ gefunden werden, welche L"ange $1$ hat und
-auf $\psi_{0,0}$ senkrecht steht. Die Orthogonalit"atsbedingung
-kann erf"ullt werden, indem man den Vektor
+und $\varphi_{1,0}$ gefunden werden, welche Länge $1$ hat und
+auf $\psi_{0,0}$ senkrecht steht. Die Orthogonalitätsbedingung
+kann erfüllt werden, indem man den Vektor
 \[
 v=\varphi_{1,0}-(\varphi_{1,0}\cdot\psi_{0,0})\psi_{0,0}
 \]
@@ -226,7 +226,7 @@ v(l)=\begin{cases}
 -\frac12&\qquad 2^{k-1}<l\le 2^{k}
 \end{cases}
 \]
-Dieser Vektor h"atte die L"ange $\sqrt{N\frac14}=\frac{\sqrt{N}}2$,
+Dieser Vektor hätte die Länge $\sqrt{N\frac14}=\frac{\sqrt{N}}2$,
 der orthonormalisierte Vektor ist also
 \[
 \psi_{1,0}=\begin{cases}
@@ -246,7 +246,7 @@ darstellen:
 \end{align}
 
 Jetzt konstruieren wir einen Vektor $\psi_{2,0}$. Wir schreiben $S$
-f"ur die Operation des Subsampling:
+für die Operation des Subsampling:
 \[
 Sv(l)=\begin{cases}
 v(2l)&\qquad 0 <l \le 2^{k-1}\\
@@ -269,8 +269,8 @@ S\varphi_{1,1}&=\frac12(S\varphi_{0,0}-S\psi_{1,0})
 \end{align*}
 und schliessen ausserdem, das $S\psi_{1,0}$ auf $\varphi_{1,0}$
 senkrecht steht. Somit ist $S\psi_{1,0}$ ein guter Kandidat
-f"ur $\psi_{2,0}$, nur die L"ange braucht noch nicht zu
-stimmen. Da $S\psi_{1,0}$ jedoch f"ur genau die H"alfte der Zeitpunkte
+für $\psi_{2,0}$, nur die Länge braucht noch nicht zu
+stimmen. Da $S\psi_{1,0}$ jedoch für genau die Hälfte der Zeitpunkte
 $1$ ist, ist
 $$\psi_{2,0}=\sqrt{2}S\psi_{1,0}$$
 ein normierte Vektor, der senkrecht auf $\psi_{1,0}$ und $\varphi_{0,0}$
@@ -293,7 +293,7 @@ steht, Abbildung~\ref{psi2}.
 \caption{Orthogonale Vektoren $\psi_{3,j}$, mit $0\le j\le 3$\label{psi3}}
 \end{figure}
 
-Ein weiterer unabh"angiger Vektor kann durch Translation gewonnen werden.
+Ein weiterer unabhängiger Vektor kann durch Translation gewonnen werden.
 Setzen wir
 $$
 (T^uv)(l)=\begin{cases}
@@ -301,13 +301,13 @@ v(l-v+N)&\qquad l\le v\\
 v(l-v)&\qquad l>v\\
 \end{cases}
 $$
-f"ur die Translation um $u$ Stellen, dann ist
+für die Translation um $u$ Stellen, dann ist
 $$\psi_{2,1}=T^{2^{k-1}}\psi_{2,0}$$ 
 ebenfalls ein Einheitsvektor und orthonormiert, das Resultat ist in Abbildung
 \ref{psi2} dargestellt.
 
-Analog kann man f"ur $\psi_{3,j}$ mit $0\le j\le 3$ vorgehen, und
-erh"alt vier orthogonale Vektoren wie in Abbildung \ref{psi3}.
+Analog kann man für $\psi_{3,j}$ mit $0\le j\le 3$ vorgehen, und
+erhält vier orthogonale Vektoren wie in Abbildung \ref{psi3}.
 
 \subsection{Analyse}
 Da die Vektoren $\psi_{i,j}$ mit $0\le i\le k$ und
@@ -323,16 +323,16 @@ a_{i,j}&=\psi_{i,j}\cdot v
 \end{center}
 \caption{Hierarchie der Koeffizienten $a_{i,j}$\label{coefhierarchy}}
 \end{figure}
-Die Berechnung der Koeffizienten ist sehr effizient m"oglich, weil die
-verschiedenen Funktionen $\psi_{i,j}$ f"ur das selbe $i$ nicht gleichzeitig
+Die Berechnung der Koeffizienten ist sehr effizient möglich, weil die
+verschiedenen Funktionen $\psi_{i,j}$ für das selbe $i$ nicht gleichzeitig
 von Null verschieden sind, Abbildung~\ref{coefhierarchy}.
-Der Koeffizient $a_{0,0}$ ist massgebend f"ur das ganze Zeitintervall,
-doch $a_{1,0}$ und $a_{1,1}$ sind je nur f"ur die H"alfte des Intervalls
-relevant, und brauchen auch nur Daten aus jeweils der H"alfte
+Der Koeffizient $a_{0,0}$ ist massgebend für das ganze Zeitintervall,
+doch $a_{1,0}$ und $a_{1,1}$ sind je nur für die Hälfte des Intervalls
+relevant, und brauchen auch nur Daten aus jeweils der Hälfte
 des Intervalls. $a_{i,j}$ wird aus Daten aus einem $2^i$-tel des
 Intervalls berechnet.
 Die Anforderung, dass die Analyse ``lokale Detailinformation''
-liefern soll, ist damit erf"ullt.
+liefern soll, ist damit erfüllt.
 
 \begin{figure}
 \begin{center}
@@ -343,38 +343,38 @@ liefern soll, ist damit erf"ullt.
 \end{figure}
 Um den Koeffizienten von $\psi_{i,0}$ zu berechnen wird zuerst
 die Summe der ersten $2^{k-i}$ Werte gebildet, dann werden die
-n"achsten $2^{k-i}$ Werte subtrahiert, womit die Berechnung von $a_{i,0}$
+nächsten $2^{k-i}$ Werte subtrahiert, womit die Berechnung von $a_{i,0}$
 abgeschlossen ist. Mit den nachfolgenden $2^{k-i+1}$ Werten kann dann
 $a_{i,1}$ nach dem gleichen Muster berechnet werden. Mit $k$ parallelen
 Recheneinheiten (Abbildung~\ref{waveletanalysis}),
 die in jedem Zyklus eine Multiplikation und eine Addition zur
-Bildung des Skalarproduktes durchf"uhren k"onnen\footnote{Solche 
-Einheiten stehen in FPGAs als Hardwarebl"ocke zur Verf"ugung. Ebenso
+Bildung des Skalarproduktes durchführen können\footnote{Solche 
+Einheiten stehen in FPGAs als Hardwareblöcke zur Verfügung. Ebenso
 implementieren Signalprozessoren genau diese Art von Operation
 mit einer einzigen Instruktion.
-Die Anzahl pro Sekunde ausf"uhrbarer solcher
+Die Anzahl pro Sekunde ausführbarer solcher
 Multiply-Accumulate-Operationen (MACs)
 ist ein Leistungsmerkmal von FPGAs oder Signalprozessoren.
 Man darf also davon ausgehen,
 dass diese Art von Berechnung besonders effizient in angepasster
-Hardware ausf"uhrbar ist, ganz im Gegensatz zum L"osen eines
+Hardware ausführbar ist, ganz im Gegensatz zum Lösen eines
 Gleichungssystems.}
-k"onnen also die Koeffizienten $a_{i,j}$ mit h"ochstens
-einem Zyklus Verz"ogerung berechnet werden.
+können also die Koeffizienten $a_{i,j}$ mit höchstens
+einem Zyklus Verzögerung berechnet werden.
 
 Der Koeffizient von $\psi_{0,0}=\varphi_{0,0}$ berechnet
 den Durchschnittswert des Signals, den ``DC-Anteil''.
 Der Koeffizient von $\psi_{1,0}$ gibt an, wie gross der Unterschied 
-zwischen dem Durchschnittswert der beiden H"alften der Werte
+zwischen dem Durchschnittswert der beiden Hälften der Werte
 des Signals sind.
 Die Koeffizienten $\psi_{i,j}$ geben an, wie stark sich die Mittelwerte
 von $2^{k-i}$ aufeinanderfolgenden Werten unterscheiden.
-F"ur kleines $i$ werden also Mittelwerte grosser Intervalle
+Für kleines $i$ werden also Mittelwerte grosser Intervalle
 gebildet, und damit hochfrequente Schwankungen ausgemittelt.
 Die verschiedenen Koeffizienten $a_{i,j}$ sind also ein Mass
-daf"ur, wie stark verschieden hohe Frequenzen im Signal
+dafür, wie stark verschieden hohe Frequenzen im Signal
 vertreten sind. Trotzdem geht die Information nicht verloren,
-wann eine Signal"anderung passiert.
+wann eine Signaländerung passiert.
 
 \subsection{Synthese}
 \begin{figure}
@@ -384,7 +384,7 @@ wann eine Signal"anderung passiert.
 \caption{Synthese des Signals $v$ aus den Koeffizienten $a_{i,j}$
 \label{waveletsynthesis}}
 \end{figure}
-Das urspr"ungliche Signal kann aus den Koeffizienten zur"uckgewonnen werden,
+Das ursprüngliche Signal kann aus den Koeffizienten zurückgewonnen werden,
 indem die Summe
 $$
 v=a_{0,0}\varphi_{0,0}+\sum_{i=1}^k\sum_{j=0}^{2^i-1}a_{i,j}\psi_{i,j}
@@ -393,8 +393,8 @@ gebildet wird.
 Auch diese Summe kann sehr effizient summiert werden, weil zu jedem
 Zeitpunkt nur $k$ der Vektoren $\varphi_{0,0}$ und $\psi_{i,j}$
 von Null verschieden sind.
-Man braucht daher nur f"ur jedes $i$ einen Generator, der
-nacheinander die Signale $\psi_{i,j}$ erzeugen kann. "Uber
+Man braucht daher nur für jedes $i$ einen Generator, der
+nacheinander die Signale $\psi_{i,j}$ erzeugen kann. Über
 einen Input, auf den man die Koeffizienten $a_{i,j}$ geben
 kann, steuert man die Amplitude der $\psi_{i,j}$-Komponente.
 \begin{figure}
@@ -423,7 +423,7 @@ $$
 {\cal W}v=\begin{pmatrix}a_{0,0}\\a_{1,0}\\a_{2,0}\\a_{2,1}\\\vdots\end{pmatrix},
 $$
 die sogenannte Wavelet Transformation von $v$.
-Diese Transformation ist linear, f"ur zwei Signale $u$ und $v$ gilt also
+Diese Transformation ist linear, für zwei Signale $u$ und $v$ gilt also
 \begin{align*}
 {\cal W}(u+v)&={\cal W}u+{\cal W}v\\
 {\cal W}(\lambda v)&=\lambda{\cal W}v
@@ -435,7 +435,7 @@ eine lineare Transformation ${\cal W}^{-1}$ mit
 &
 {\cal W}{\cal W}^{-1}a&=a
 \end{align*}
-Selbstverst"andlich kann man f"ur $\cal W$ auch eine Matrix angeben:
+Selbstverständlich kann man für $\cal W$ auch eine Matrix angeben:
 $$
 {\cal W}
 =
@@ -451,7 +451,7 @@ $$
 $$
 Ihre Zeilen enthalten genau die Komponenten der Vektoren
 $\varphi_{0,0}$, $\psi_{i,j}$.
-Die Matrix der Umkehrtransformation enth"alt dagegen die
+Die Matrix der Umkehrtransformation enthält dagegen die
 Komponenten der Vektoren in den Spalten, also
 $$
 {\cal W}^{-1}
@@ -486,27 +486,27 @@ mit grossem Absolutwert dagegen hell.\label{wavelet-sin}}
 auch Bildlegende zu Abbildung~\ref{wavelet-sin}\label{wavelet-normal}}
 \end{figure}
 Die Abbildungen \ref{wavelet-sin} und \ref{wavelet-normal} zeigen
-die Koeffizienten $a_{i,j}$ f"ur ein Sinus-Signal und f"ur ein
-ein Gauss-Signal. Da die h"oheren Koeffizienten vor allem den
+die Koeffizienten $a_{i,j}$ für ein Sinus-Signal und für ein
+ein Gauss-Signal. Da die höheren Koeffizienten vor allem den
 Unterschied zwischen benachbarten Teilintervallen feststellen,
-f"allt sofort auf, dass die h"oheren Koeffizienten in der
-N"ahe der Extrema besonders klein werden.
+fällt sofort auf, dass die höheren Koeffizienten in der
+Nähe der Extrema besonders klein werden.
 Dagegen misst $a_{0,0}$ den Mittelwert, also das Integral des Signals.
 
-Man kann die Wavelet Transformation zum Beispiel f"ur die Signalkomprimierung
-brauchen. Nat"urliche Signale werden nicht zu schnell ansteigen, die
-Koeffizienten $a_{i,j}$ f"ur $i=k-1$, welche die Zu- oder Abnahme des
+Man kann die Wavelet Transformation zum Beispiel für die Signalkomprimierung
+brauchen. Natürliche Signale werden nicht zu schnell ansteigen, die
+Koeffizienten $a_{i,j}$ für $i=k-1$, welche die Zu- oder Abnahme des
 Signals von Messpunkt zu Messpunkt angeben, werden also eher klein
-sein. Es ist daher m"oglich, sie mit einer geringeren Anzahl von Bits
+sein. Es ist daher möglich, sie mit einer geringeren Anzahl von Bits
 zu codieren, oder sogar ganz wegzulassen, und damit Speicherplatz zu
 sparen. Nach diesem Prinzip funktioniert zum Beispiel die JPEG Komprimierung.
 
-Nat"urlich geht durch das Weglassen von Komponenten Information verloren.
+Natürlich geht durch das Weglassen von Komponenten Information verloren.
 Dies wird zum Beispiel dazu verwendet, um Personen auf Bildern unkenntlich
-zu machen. L"asst man alle hohen Komponenten weg, bleibt vom Signal
-nur noch eine grobe Treppenfunktion "ubrig.
-"Ubersetzt auf ein zweidimensionales Bild, heisst dies, dass nur noch
-ein grobes Pixelraster "ubrig bleibt, auf dem eine Person nicht mehr
+zu machen. Lässt man alle hohen Komponenten weg, bleibt vom Signal
+nur noch eine grobe Treppenfunktion übrig.
+Übersetzt auf ein zweidimensionales Bild, heisst dies, dass nur noch
+ein grobes Pixelraster übrig bleibt, auf dem eine Person nicht mehr
 erkennbar ist.
 
 Das Weglassen von hohen Komponenten kann ebenfalls mit einer Matrix
@@ -521,14 +521,14 @@ P=\begin{pmatrix}
 0&\dots&0&0&\dots&0\\
 \end{pmatrix}
 $$
-Der Filter, der die hochfrequenten Koeffizienten unterdr"uckt kann
+Der Filter, der die hochfrequenten Koeffizienten unterdrückt kann
 also wie folgt berechnet werden:
 $$
 v_{\text{gefiltert}}={\cal W}^{-1}P{\cal W}v.
 $$
-Umgekehrt kann man die hohen Koeffizienten verst"arken. In Bildern tut
+Umgekehrt kann man die hohen Koeffizienten verstärken. In Bildern tut
 man dies zum Beispiel, um Kanten  stärker hervortreten zu lassen.
-Will man die hohen Koeffizienten mit dem Faktor $\lambda$ verst"arken,
+Will man die hohen Koeffizienten mit dem Faktor $\lambda$ verstärken,
 kann man dies mit dem Filter
 $$
 v_{\text{enhanced}}={\cal W}^{-1}(P + \lambda(I-P)){\cal W}v

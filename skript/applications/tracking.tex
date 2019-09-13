@@ -3,80 +3,80 @@
 %
 % (c) 2013 Prof Dr Andreas Mueller, Hochschule Rapperswil
 %
-\subsection{Nachf"uhrung und ihre Kalibrierung}
+\subsection{Nachführung und ihre Kalibrierung}
 Wie verfolgt man ein Objekt mit einer Kamera?
 Offenbar muss man dazu
 die Bilder der Kamera analysieren, die Verschiebung des Objektes innerhalb
 des Bildes feststellen, und die Halterung der Kamera so zu bewegen,
 dass das Objekt erneut zentriert erscheint.
-Damit dies m"oglich ist, muss man wissen, wie stark sich die Steuersignale
+Damit dies möglich ist, muss man wissen, wie stark sich die Steuersignale
 der Halterung auf die Verschiebung des Bildes in der Kamera auswirken.
 
-In der Astronomie werden besonders hohe Anforderungen an die Pr"azision
+In der Astronomie werden besonders hohe Anforderungen an die Präzision
 einer solchen Steuerung gestellt, schliesslich will man da ein grosses
-Teleskop w"ahrend Stunden auf den gleichen Punkt am Himmel richten, um
+Teleskop während Stunden auf den gleichen Punkt am Himmel richten, um
 zum Beispiel eine Aufnahme einer Galaxie entsprechend lange belichten
-zu k"onnen.
-Dabei darf die Abweichung nie gr"osser als Bruchteile eines
-einer Winkelsekunde werden, da sonst das Bild unscharf w"urde.
+zu können.
+Dabei darf die Abweichung nie grösser als Bruchteile eines
+einer Winkelsekunde werden, da sonst das Bild unscharf würde.
 
 Astronomische Teleskop werden daher oft auf einer sogenannten
-"aquatorialen Montierung eingesetzt, welche eine Achse parallel
+äquatorialen Montierung eingesetzt, welche eine Achse parallel
 zur Erdachse hat. Dreht man diese Achse mit genau der gleichen
 Geschwindigkeit wie die Erde, aber in entgegengesetzter Richtung,
 sollte sich die Drehung aufheben. In der Praxis verbleibt durch
-Aufstellungsfehler und Atmosph"areneinfl"usse trotzdem ein Restfehler,
+Aufstellungsfehler und Atmosphäreneinflüsse trotzdem ein Restfehler,
 der gemessen und korrigiert werden muss.
 
 \subsubsection{Guiding}
-Nachf"uhrung oder Guiding beschreibt den Prozess, durch geeignete
+Nachführung oder Guiding beschreibt den Prozess, durch geeignete
 Korrektursignale an die Montierung des Teleskops, ein Objekt, meist
-einen einzelnen, leicht zu identifizierenden Stern, st"andig an der
+einen einzelnen, leicht zu identifizierenden Stern, ständig an der
 gleichen Stelle auf dem CCD-Chip der Kamera zu halten. Dazu wird
 eine Hilfskamera-verwendet, die entweder mit einem eigenen kleinen
 Teleskop, dem Leitfernrohr, ausgestattet ist, oder die das Licht
-des Sterns aus dem Strahlengang des Hauptteleskops erh"alt, wo
-es mit Hilfe eines kleine Spiegels auf den CCD-Chip der Nachf"uhrkamera
+des Sterns aus dem Strahlengang des Hauptteleskops erhält, wo
+es mit Hilfe eines kleine Spiegels auf den CCD-Chip der Nachführkamera
 ausgelenkt wird.
 
 Die Montierung kann typischerweise in zwei senkrechten Richtungen
-bewegt werden, zus"atzlich zu der konstanten Drehung um die
+bewegt werden, zusätzlich zu der konstanten Drehung um die
 Achse parallel zur Erdachse.
 Wir nehmen an, dass wir die Geschwindigkeit
-dieser zus"atzlichen Bewegung im Intervall $[-1,1]$ angeben k"onnen.
+dieser zusätzlichen Bewegung im Intervall $[-1,1]$ angeben können.
 In der Praxis kann man jedoch meistens die Extremgeschwindigkeiten
 $\pm 1$ aktivieren. Um die mittlere Geschwindigkeit $0.2$ zu erhalten,
-muss man also die Geschwindigkeit $+1$ w"ahrend 200ms aktivieren.
+muss man also die Geschwindigkeit $+1$ während 200ms aktivieren.
 
-Bei einer "aquatorialen Montierung entsprechen die Bewegungsrichtungen,
+Bei einer äquatorialen Montierung entsprechen die Bewegungsrichtungen,
 die man mit diesen Steuersignalen erreichen kann, der geographischen
-L"ange und Breite auf der Himmelskugel. Die Astronomen kennen diese
+Länge und Breite auf der Himmelskugel. Die Astronomen kennen diese
 Koordinaten als Rektaszension, die Bewegung um die Erdachse, und Deklination,
-sie verwenden meist $\alpha$ und $\delta$ f"ur die beiden Winkel.
+sie verwenden meist $\alpha$ und $\delta$ für die beiden Winkel.
 
 Es ist klar, dass eine Bewegung in Deklination immer die gleiche Auswirkung
 auf ein Sternbild in der Kamera hat.
-Die Auswirkung einer Bewegung um Erdachse h"angt jedoch
-davon ab, ob ein Objekt nahe des "Aquators oder nahe des Pols
+Die Auswirkung einer Bewegung um Erdachse hängt jedoch
+davon ab, ob ein Objekt nahe des Äquators oder nahe des Pols
 betrachtet wird. Wird das Teleskop parallel zur Erdachse ausgerichtet
 ($\delta=90^\circ$), dann bewegt sich ein Stern im Zentrum des Bildfeldes
-bei Drehung um die Erdachse "uberhaupt nicht.
+bei Drehung um die Erdachse überhaupt nicht.
 Je nach Position des Objektes auf der Himmelskugel sind also andere
 Korrektursignale erforderlich, um das Objekt im Zentrum des CCD-Chips
 zu halten.
 
 Die Hilfskamera liefert Bilder des Leitsterns, aus denen die genaue
 Position des Sternes im Koordinatensystem des CCD-Chips gemessen
-werden kann. Die Achsen dieses Koordinatensystems m"ussen dabei
-"uberhaupt nichts mit den Richtungen f"ur Rektaszension und Deklination
+werden kann. Die Achsen dieses Koordinatensystems müssen dabei
+überhaupt nichts mit den Richtungen für Rektaszension und Deklination
 zu tun haben.
 
 \subsubsection{Kalibrierung}
-Ohne irgendwelche Korrektursignale wird der Leitstern ungef"ahr mit
-gleichf"ormiger Geschwindigkeit $v$ "uber den CCD-Chip driften.
+Ohne irgendwelche Korrektursignale wird der Leitstern ungefähr mit
+gleichförmiger Geschwindigkeit $v$ über den CCD-Chip driften.
 Wendet man Korrektursignale $(\alpha,\delta)$ an, kommt eine
-weitere Bewegung hinzu. F"ur die Regelung brauchen wir den Zusammenhang
-zwischen $(\alpha,\delta)$ und der zugeh"origen Verschiebung $(x,y)$ auf dem
+weitere Bewegung hinzu. Für die Regelung brauchen wir den Zusammenhang
+zwischen $(\alpha,\delta)$ und der zugehörigen Verschiebung $(x,y)$ auf dem
 CCD-Chip. Der Zusammenhang muss linear sein:
 \begin{equation}
 \begin{linsys}{3}
@@ -90,31 +90,31 @@ y&=&a_{21}\alpha&+&a_{22}\delta&+&tv_2\\
 =A\begin{pmatrix}\alpha\\\delta\end{pmatrix}+tv
 \label{guiding:model}
 \end{equation}
-Wir m"ussen die Matrix $A$ und den Vektor $v$ ermitteln.
+Wir müssen die Matrix $A$ und den Vektor $v$ ermitteln.
 
-Um Daten f"ur die Bestimmung von $A$ und $v$ zu bekommen, kann man wie
-folgt vorgehen. Man f"ahrt mit dem Teleskop nacheinander alle Gitterpunkte
+Um Daten für die Bestimmung von $A$ und $v$ zu bekommen, kann man wie
+folgt vorgehen. Man fährt mit dem Teleskop nacheinander alle Gitterpunkte
 eines $2\times 2$ Quadrates mit den Ecken
 $(-1,-1)$ und $(1,1)$ im $(\alpha,\delta)$-Koordinatensystem an.
 \begin{figure}
 \begin{center}
 \includegraphics[width=\hsize]{graphics/calibration.jpg}
 \end{center}
-\caption{Bewegung des Leitsterns w"ahrend des Kalibrierungsprozesses
-und dem anschliessenden Anfahren der Nachf"uhrposition,
+\caption{Bewegung des Leitsterns während des Kalibrierungsprozesses
+und dem anschliessenden Anfahren der Nachführposition,
 Langzeitaufnahme mit der Hauptkamera.
 Gut zu erkennen ist auch, dass nicht ein Quadrat entsteht. Das Bild
-entstand bei der Kalibrierung f"ur die Aufnahmen, aus denen 
+entstand bei der Kalibrierung für die Aufnahmen, aus denen 
 Abbildung~\ref{andromeda-image} zusammengesetzt ist, also bei
 einer Deklination von ca.~$40^\circ$.
 \label{guiding:calibration}}
 \end{figure}
 Abbildung \ref{guiding:calibration} zeigt eine Langzeitbelichtung der
-Hauptkamera w"ahrend des Kalibrierungsprozesses.
+Hauptkamera während des Kalibrierungsprozesses.
 Nach jeder Bewegung misst man die Position des Leitsterns neu, und
-notiert auch die Zeit. F"ur jede Position $(\alpha_i,\delta_i)$
+notiert auch die Zeit. Für jede Position $(\alpha_i,\delta_i)$
 bekommt man eine Zeit $t_i$ und eine Leitstern-Position $(x_i,y_i)$.
-Wenn die Transformation (\ref{guiding:model}) zutrifft, m"ussten die
+Wenn die Transformation (\ref{guiding:model}) zutrifft, müssten die
 beiden Gleichungen
 \[
 \begin{linsys}{6}
@@ -122,18 +122,18 @@ x_i&=&\alpha_ia_{11}&+&\delta_ia_{12}&+&t_iv_1& &              & &              
 y_i&=&              & &              & &      & &\alpha_ia_{21}&+&\delta_ia_{22}&+&t_iv_2\\
 \end{linsys}
 \]
-erf"ullt sein. F"ur die $n=9$ Positionen des Quadrates ergibt dies insgesamt
-$2n=18$  Gleichungen f"ur die sechs Unbekannten $A$ und $v$.
-Das Gleichungssystem ist zwar "uberbestimmt, 
-es l"asst sich aber mit der Methode von Abschnitt \ref{section:ueberbestimmt}
-effizient l"osen. 
+erfüllt sein. Für die $n=9$ Positionen des Quadrates ergibt dies insgesamt
+$2n=18$  Gleichungen für die sechs Unbekannten $A$ und $v$.
+Das Gleichungssystem ist zwar überbestimmt, 
+es lässt sich aber mit der Methode von Abschnitt \ref{section:ueberbestimmt}
+effizient lösen. 
 
 \subsubsection{Korrektur}
 Wir jetzt eine Positions-Abweichung $(x,y)$ des Leitsterns gemessen,
 kann aus $A$ und $v$ die Korrektur in Rektaszension und Deklination
 ermittelt werden, mit der die Abweichung innert $t=1$ Sekunde wieder
 zum Verschwinden gebracht werden kann. Dazu muss man nur
-(\ref{guiding:model}) nach $(\alpha,\delta)$ aufl"osen:
+(\ref{guiding:model}) nach $(\alpha,\delta)$ auflösen:
 \[
 \begin{pmatrix}x\\y\end{pmatrix}
 =
@@ -149,20 +149,20 @@ x\\y
 -tv
 \right).
 \]
-Die Kalibrationsdaten $A$ und $v$ h"angen offenbar nur von der relativen
+Die Kalibrationsdaten $A$ und $v$ hängen offenbar nur von der relativen
 Orientierung der Leitkamera zu den Achsen des Himmelskoordinatensystems
 ab, sowie von der Deklination des Zielobjektes.
 Insbesondere muss die
-Kalibration nur einmal durchgef"uhrt werden, solange man nur Objekte verfolgen
+Kalibration nur einmal durchgeführt werden, solange man nur Objekte verfolgen
 will, deren Deklination nicht sehr verschieden ist, und die Leitkamera in ihrer
 Fassung nicht gedreht wird.
 
-\subsubsection{Qualit"atsbeurteilung der Kalibration}
-Wie erkennt man, ob die Kalibrationsdaten eine erfolgreiche Nachf"uhrung
-erm"oglichen werden. Montierungsunzul"anglichkeiten wie "uberm"assig 
-viel Spiel des Antriebs k"onnte dem entgegenstehen.
+\subsubsection{Qualitätsbeurteilung der Kalibration}
+Wie erkennt man, ob die Kalibrationsdaten eine erfolgreiche Nachführung
+ermöglichen werden. Montierungsunzulänglichkeiten wie übermässig 
+viel Spiel des Antriebs könnte dem entgegenstehen.
 
-Auf einer perfekten Montierung wird sich der Leitstern w"ahrend er 
+Auf einer perfekten Montierung wird sich der Leitstern während er 
 Kalibrierung exakt entlang des Gitters bewegen. Die beiden Spaltenvektoren
 \[
 a_1=\begin{pmatrix}a_{11}\\ a_{21}\end{pmatrix}
@@ -170,11 +170,11 @@ a_1=\begin{pmatrix}a_{11}\\ a_{21}\end{pmatrix}
 \quad
 a_2=\begin{pmatrix}a_{12}\\ a_{22}\end{pmatrix}
 \]
-sollten also senkrecht stehen. Dies ist sehr einfach zu pr"ufen:
-das Produkt $AA^t$ sollte eine Diagonalmatrix sein. Die Gr"osse der
+sollten also senkrecht stehen. Dies ist sehr einfach zu prüfen:
+das Produkt $AA^t$ sollte eine Diagonalmatrix sein. Die Grösse der
 Ausserdiagonalelement der Matrix $AA^t$ gibt also an, wie gut die Kalibrierung
 gelungen ist.
-Als dimensionslose  Masszahl f"ur die Kalibrierungsqualit"at
+Als dimensionslose  Masszahl für die Kalibrierungsqualität
 eignet sich der Quotient
 \[
 \frac{a_1\cdot a_2}{\det(A)}.

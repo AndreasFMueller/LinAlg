@@ -17,32 +17,32 @@ parts =	skript-00-intro.pdf			\
 parts: $(parts)
 
 skript-00-intro.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-00-intro.pdf ../skript.pdf  1-10
+	pdfjam --outfile skript-00-intro.pdf ../skript.pdf  1-12
 
 skript-01-chapter1.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-01-chapter1.pdf ../skript.pdf 11-62
+	pdfjam --outfile skript-01-chapter1.pdf ../skript.pdf 13-74
 
 skript-02-chapter2.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-02-chapter2.pdf ../skript.pdf 63-88
+	pdfjam --outfile skript-02-chapter2.pdf ../skript.pdf 75-100
 
 skript-03-chapter3.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-03-chapter3.pdf ../skript.pdf 89-128
+	pdfjam --outfile skript-03-chapter3.pdf ../skript.pdf 101-140
 
 skript-04-chapter4.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-04-chapter4.pdf ../skript.pdf 129-160
+	pdfjam --outfile skript-04-chapter4.pdf ../skript.pdf 141-172
 
 skript-05-chapter5.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-05-chapter5.pdf ../skript.pdf 161-174
+	pdfjam --outfile skript-05-chapter5.pdf ../skript.pdf 173-186
 
 skript-06-chapter6.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-06-chapter6.pdf ../skript.pdf 175-208
+	pdfjam --outfile skript-06-chapter6.pdf ../skript.pdf 187-220
 
 skript-07-chapter7.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-07-chapter7.pdf ../skript.pdf 209-224
+	pdfjam --outfile skript-07-chapter7.pdf ../skript.pdf 221-236
 
 skript-08-chapter8.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-08-chapter8.pdf ../skript.pdf 225-252
+	pdfjam --outfile skript-08-chapter8.pdf ../skript.pdf 237-264
 
 skript-09-index.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-09-index.pdf ../skript.pdf 253-255
+	pdfjam --outfile skript-09-index.pdf ../skript.pdf 264-267
 

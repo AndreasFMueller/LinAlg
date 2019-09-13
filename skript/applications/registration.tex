@@ -5,20 +5,20 @@
 %
 \subsection{Registrierung astronomischer Bilder}
 In vielen wissenschaftlichen Anwendungen ist es notwendig, Bilder auf
-ein bestimmtes Raster auszurichten. So ist es zum Beispiel m"oglich,
+ein bestimmtes Raster auszurichten. So ist es zum Beispiel möglich,
 aus einer Serie leicht verschobener Bilder der gleichen Szene durch
-"Uberlagerung ein Bild h"oherer Aufl"osung zu gewinnen.
+Überlagerung ein Bild höherer Auflösung zu gewinnen.
 
 Die Technik ist auch verbreitet in der Astrophotographie. Am Sternenhimmel
 findet man nahe beieinander Objekte extrem unterschiedlicher Helligkeit.
 Der Planet Saturn strahlt etwa $10^{10}$ mal mehr Licht ab, als sein
 4km grosser Mond Fenrir.
-Auch hochwertige CCD-Kameras f"ur Astrophotographie verwenden jedoch nur
+Auch hochwertige CCD-Kameras für Astrophotographie verwenden jedoch nur
 A/D-Wandler mit 16bit, erlauben also nur ein maximales
-Helligkeitsverh"altnis von $65535 : 1$ ohne S"attigung.
-Um Fenrir und Saturn auf dem gleichen Bild sichtbar zu machen, m"usste
+Helligkeitsverhältnis von $65535 : 1$ ohne Sättigung.
+Um Fenrir und Saturn auf dem gleichen Bild sichtbar zu machen, müsste
 ein 34bit-A/D-Wandler verwendet werden, und der CCD-Chip und
-Eingangsverst"arker m"ussten entsprechend rauscharm sein.
+Eingangsverstärker müssten entsprechend rauscharm sein.
 
 \begin{figure}
 \begin{center}
@@ -30,23 +30,23 @@ M31.\label{andromeda-image}}
 
 Astrophotographen erstellen daher mehrere Bilder des gleichen Objekts
 mit vergleichsweise kurzer Belichtungszeit von wenigen Minuten, und
-addieren diese sp"ater auf dem Computer. Dazu m"ussen die Bilder
+addieren diese später auf dem Computer. Dazu müssen die Bilder
 exakt zur Deckung gebracht werden.
-Ein besonders spektakul"ares Beispiel dieser Technik ist das Hubble
+Ein besonders spektakuläres Beispiel dieser Technik ist das Hubble
 Deep Field (HDF), welches 342 Einzelaufnahmen von Total
 etwa 140.8 Stunden Belichtungszeit kombiniert.
 Es zeigt etwa 3000 Galaxien, aber nur etwa 20 Sterne aus unserer eigenen
 Galaxie. 
 
 Wegen der geringen Lichtmenge verwenden Astronomen Teleskope mit
-grossen Spiegeln, die viel Licht sammeln k"onnen. Trotzdem sind lange
-Belichtungszeiten n"otig, um ein verwertbares Signal zu erhalten,
-mehrere Stunden Belichtung sind nicht ungew"ohnlich.
+grossen Spiegeln, die viel Licht sammeln können. Trotzdem sind lange
+Belichtungszeiten nötig, um ein verwertbares Signal zu erhalten,
+mehrere Stunden Belichtung sind nicht ungewöhnlich.
 Damit steigt jedoch auch das Rauschsignal des CCD-Chips an, weshalb
-CCD-Kameras gek"uhlt werden m"ussen, entweder mit fl"ussigem Stickstoff
-oder sogar fl"ussigem Helium, oder f"ur kleine Observatorien thermoelektrisch
+CCD-Kameras gekühlt werden müssen, entweder mit flüssigem Stickstoff
+oder sogar flüssigem Helium, oder für kleine Observatorien thermoelektrisch
 mit Hilfe von Peltier Elementen.
-Die damit erreichbaren Temperaturen sind jedoch wesentlich h"oher,
+Die damit erreichbaren Temperaturen sind jedoch wesentlich höher,
 ca.~50 Grad Celsius unter der Umgebungstemperatur.
 
 Permanent aufgestellte professionelle Teleskope arbeiten genau
@@ -55,50 +55,50 @@ Deckung bringen lassen.
 Diese Translation kann mit Hilfe von Fourier-Transformation sehr
 schnell gefunden werden.
 Mobile Teleskope haben aber immer einen verbleibenden Aufstellungsfehler,
-der zu einer Rotation des Bildes w"ahrend der Beobachtungszeit f"uhren.
+der zu einer Rotation des Bildes während der Beobachtungszeit führen.
 Grossteleskop wie das Very Large Teleskop auf dem Cerro Paranal in
 Chile sind sie schwer, dass sie nur mit einer sogenannten azimutalen
-Montierung aufgestellt werden k"onnen, hier ist die Bildfelddrehung
+Montierung aufgestellt werden können, hier ist die Bildfelddrehung
 unvermeidlich.
-Nat"urlich kann auch diese Drehung mechanisch mit einem sogenannten
-Rotator kompensiert werden, dieser betr"achtliche Aufwand l"asst sich
-f"ur kleine Teleskope jedoch nicht rechtfertigen.
+Natürlich kann auch diese Drehung mechanisch mit einem sogenannten
+Rotator kompensiert werden, dieser beträchtliche Aufwand lässt sich
+für kleine Teleskope jedoch nicht rechtfertigen.
 
 Alle diese Faktoren limitiert die Belichtungszeit auf wenige Minuten.
 Solange die Rotation in den
-Randbereichen eines Bildes kleiner als ein Pixel bleibt, st"ort
+Randbereichen eines Bildes kleiner als ein Pixel bleibt, stört
 sie nicht.
-Ein Bild mit langer Belichtungszeit l"asst sich also nur dann erstellen,
+Ein Bild mit langer Belichtungszeit lässt sich also nur dann erstellen,
 wenn man viele Bilder mit kurzer Belichtungszeit aufaddiert.
 
 Ausserdem sind astronomische Kameras monochrom, die Farben entstehen
 dadurch, dass das gleiche Objekt durch verschiedene Farbfilter photographiert
-wird. Auch diese Bilder m"ussen f"ur ein farbiges Bild zur Deckung
+wird. Auch diese Bilder müssen für ein farbiges Bild zur Deckung
 gebracht werden, und auch in diesem Fall sind ausser Verschiebungen
-auch Drehungen m"oglich. 
+auch Drehungen möglich. 
 
-Eine weitere m"ogliche Anwendung ist die Kombination von Bildern von
+Eine weitere mögliche Anwendung ist die Kombination von Bildern von
 verschiedenen Teleskopen in ein synthetisches Bild, welches zum Beispiel
-gleichzeitig die Strahlung im sichtbaren Bereich und im R"ontgen-Bereich
+gleichzeitig die Strahlung im sichtbaren Bereich und im Röntgen-Bereich
 zeigt, aufgenommen von einem Teleskop im Erdorbit.
 
-Es ist also folgendes Problem zu l"osen:
+Es ist also folgendes Problem zu lösen:
 
 \begin{aufgabe}
 Ein Bild mit Pixeln in einem
-$x$-$y$-Koordinatensystem muss so deformiert werden, dass es m"oglichst
+$x$-$y$-Koordinatensystem muss so deformiert werden, dass es möglichst
 gut auf ein anderes Bild passt. Dabei darf man annehmen, dass es eine
 schnelle und genaue Methode gibt, kleine Translationen zwischen Bildern 
 zu ermitteln.
 \end{aufgabe}
 
 \subsubsection{Modell}
-Wir m"ussen also Pixel vom $x$-$y$-Koordinatensystem in das Koordinatensystem
+Wir müssen also Pixel vom $x$-$y$-Koordinatensystem in das Koordinatensystem
 des zweiten Bildes. Wir gehen davon aus, dass Geraden im einen Bild
-auch Geraden im anderen Bild sind, in erster N"aherung ist dies sicher
-zul"assig\footnote{Insbesondere bei Weitwinkelkameras trifft diese Annahme
+auch Geraden im anderen Bild sind, in erster Näherung ist dies sicher
+zulässig\footnote{Insbesondere bei Weitwinkelkameras trifft diese Annahme
 nicht mehr zu, da wird das Bild nichtlinear verzerrt. Der hier vorgestellte
-L"osungsansatz l"asst sich jedoch auf diesen Fall erweitern.}.
+Lösungsansatz lässt sich jedoch auf diesen Fall erweitern.}.
 Die Koordinatentransformation ist also linear, wir setzen sie an in der
 Form
 \begin{equation}
@@ -116,14 +116,14 @@ y'
 \end{pmatrix}
 =A\begin{pmatrix}x\\y\end{pmatrix}+t
 \]
-Die Aufgabe ist gel"ost, sobald die Matrix $A$ und der Vektor $t$ bestimmt
+Die Aufgabe ist gelöst, sobald die Matrix $A$ und der Vektor $t$ bestimmt
 sind, also insgesamt 6 Unbekannte.
 
-\subsubsection{L"osung}
+\subsubsection{Lösung}
 In einem kleinen Gebiet des Bildes ist die Transformation
 (\ref{registration:model}) nicht von einer Translation zu unterscheiden.
 Um die Drehung oder Streckung zu sehen, die in der Matrix $A$ drin stecken
-kann, muss ein gr"osseres Gebiet des Bildes betrachtet werden. 
+kann, muss ein grösseres Gebiet des Bildes betrachtet werden. 
 
 Um die Transformation (\ref{registration:model}) zu ermitteln, kann man
 also versuchen in einzelnen Gebieten des Bildes die dort vorherrschende
@@ -132,28 +132,28 @@ Translationen in den einzelnen Bildteilen am besten wiedergibt.
 
 Man zerlegt dazu die Bilder in einzelne Kacheln von $128 \times 128$ Pixeln.
 Die Kachel mit der Nummer $i$ hat ihr Zentrum im Punkt $(x_i,y_i)$.
-Die entsprechende Kachel im zweiten Bild ist gegen"uber der ersten
+Die entsprechende Kachel im zweiten Bild ist gegenüber der ersten
 um einen Vektor $\delta_i=(\delta_{i,x},\delta_{i,y})$ verschoben.
-G"abe es eine exakte L"osung, m"ussten die Gleichungen
+Gäbe es eine exakte Lösung, müssten die Gleichungen
 \[
 \begin{linsys}{7}
 x_i+\delta_{i,x}&=&x_ia_{11}&+&y_ia_{12}&+&t_1& &         & &         & &    \\
 y_i+\delta_{i,y}&=&         & &         & &   & &x_ia_{21}&+&y_ia_{22}&+& t_2\\
 \end{linsys}
 \]
-f"ur die sechs Unbekannten $a_{jk}$ und $t_j$ exakt erf"ullt sein.
+für die sechs Unbekannten $a_{jk}$ und $t_j$ exakt erfüllt sein.
 Bei $n$ Kacheln sind dies $2n$ Ungleichungen, das Gleichungssystem ist
-also "uberbestimmt.
-Es l"asst sich mit der Methode von Abschnitt \ref{section:ueberbestimmt}
-effizient l"osen.
+also überbestimmt.
+Es lässt sich mit der Methode von Abschnitt \ref{section:ueberbestimmt}
+effizient lösen.
 
 Abbildung~\ref{andromeda-image} zeigt das Resultat der Anwendung dieses
 Algorithmus auf 10 Bilder mit je 2 Minuten Belichtungszeit.
 Der CCD-Chip der verwendeten Kamera misst $3900\times 2616$ Pixel, darin
 finden $n=600$ Kacheln $128\times 128$ Platz.
-Zur Bestimmung der Transformation wurde also f"ur jedes Teilbild
-ein "uberbestimmtes Gleichungssystem mit 1200 Gleichung f"ur die
-sechs Unbekannten gel"ost. Auf einem modernen Computer dauert dies
+Zur Bestimmung der Transformation wurde also für jedes Teilbild
+ein überbestimmtes Gleichungssystem mit 1200 Gleichung für die
+sechs Unbekannten gelöst. Auf einem modernen Computer dauert dies
 nur Sekundenbruchteile, die nachfolgende Anwendung der Transformation
 auf die Bilder ist bei weitem zeitaufwendiger.
 

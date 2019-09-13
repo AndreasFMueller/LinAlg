@@ -5,53 +5,53 @@
 %
 \subsection{Farben}
 \subsubsection{Farben als Vektorraum}
-Die Netzhaut des menschlichen Auges enth"alt zwei Arten von Rezeptoren.
-Die hochempfindlichen St"abchenzellen sind vor allem f"ur gr"unes Licht
+Die Netzhaut des menschlichen Auges enthält zwei Arten von Rezeptoren.
+Die hochempfindlichen Stäbchenzellen sind vor allem für grünes Licht
 empfindlich, werden aber nur benutzt, wenn nicht ausreichend Licht
-zur Verf"ugung steht.
+zur Verfügung steht.
 Sie kommen vor allem bei Dunkelheit zum Einsatz, es ist mit ihnen
-nicht m"oglich, Farben zu unterscheiden, daher nehmen wir in der
+nicht möglich, Farben zu unterscheiden, daher nehmen wir in der
 Nacht alles als grau war.
 Auch beim Blick durch ein Teleskop kann man eine ferne Galaxie nicht
-farbig sehen, da nur die St"abchenzellen empfindlich genug sind, die
-uns keinen Farbeindruck liefern k"onnen. Helligkeit l"asst sich durch
+farbig sehen, da nur die Stäbchenzellen empfindlich genug sind, die
+uns keinen Farbeindruck liefern können. Helligkeit lässt sich durch
 eine einzige Zahl charakterisieren.
 
-Bei Tageslicht sind die St"abchenzellen
+Bei Tageslicht sind die Stäbchenzellen
 bereits geblendet, dann kommen die Zapfen-Zellen zum Einsatz.
-Sie sind viel weniger empfindlich, daf"ur gibt es sie in drei Ausf"uhrungen,
-die f"ur Rot, Gr"un oder Blau empfindlich sind.
-Sie erm"oglichen unser Farbensehen.
-Jede Farbinformation muss sich also durch die Intensit"at wiedergeben
-lassen, die die drei Arten von Zapfenzellen bestimmen k"onnen.
+Sie sind viel weniger empfindlich, dafür gibt es sie in drei Ausführungen,
+die für Rot, Grün oder Blau empfindlich sind.
+Sie ermöglichen unser Farbensehen.
+Jede Farbinformation muss sich also durch die Intensität wiedergeben
+lassen, die die drei Arten von Zapfenzellen bestimmen können.
 Die Menge aller Farben ist daher ein dreidimensionaler Vektorraum
 bestehend aus Vektoren
 \[
 c=\begin{pmatrix}r\\g\\b\end{pmatrix}
 \in\mathbb R^3,
 \]
-wobei $r$ das Signal der roten Zapfen, $g$ das Signal der gr"unen Zapfen
+wobei $r$ das Signal der roten Zapfen, $g$ das Signal der grünen Zapfen
 und $b$ das Signal der blauen Zapfen bezeichnet.
 
 \subsubsection{Luminanz}
 Wie hell ist eine Farbe?
-Von den St"abchenzellen erhalten wir keine
+Von den Stäbchenzellen erhalten wir keine
 Farbinformation, sondern nur Helligkeitsinformation.
-Dabei bekommt der gr"une Anteil des Lichtes offenbar das
-gr"osste Gewicht, weil St"abchen dort am empfindlichsten sind.
-F"ur rotes und blaues Licht sind die St"abchen nicht ganz unempfindlich,
+Dabei bekommt der grüne Anteil des Lichtes offenbar das
+grösste Gewicht, weil Stäbchen dort am empfindlichsten sind.
+Für rotes und blaues Licht sind die Stäbchen nicht ganz unempfindlich,
 die roten und blauen Komponenten tragen also auch zum Helligkeitseindruck
 bei, wenn auch in geringerem Masse.
 
-Bei gen"ugend Licht werden die Zapfen aktiv, die Farbinformation liefern.
-Trotzdem ist es uns weiterhin m"oglich, verschiedene Helligkeit
+Bei genügend Licht werden die Zapfen aktiv, die Farbinformation liefern.
+Trotzdem ist es uns weiterhin möglich, verschiedene Helligkeit
 zu unterscheiden.
 Offenbar ist das Gehirn in der Lage, eine Abbildung zu konstruieren,
 die aus einer Farbe eine Helligkeit ableitet:
 \[
 L\colon \begin{pmatrix}r\\g\\b\end{pmatrix}\mapsto l.
 \]
-Diese Abbildung erf"ullt einige nat"urliche Bedingungen:
+Diese Abbildung erfüllt einige natürliche Bedingungen:
 \begin{enumerate}
 \item Wenn man zwei verschiedene Farben mischt, dann ist die Helligkeit
 die Summe der Helligkeiten der einzelnen Farben:
@@ -59,8 +59,8 @@ die Summe der Helligkeiten der einzelnen Farben:
 L(c_1 + c_2)=L(c_1) + L(c_2).
 \]
 \item Wenn man in einer Farbe alle Farbkomponenten mit dem gleichen 
-Faktor verst"arkt, dann wird die Helligkeit ebenfalls um diesen Faktor
-verst"arkt:
+Faktor verstärkt, dann wird die Helligkeit ebenfalls um diesen Faktor
+verstärkt:
 \[
 L(\lambda c)=\lambda L(c).
 \]
@@ -68,8 +68,8 @@ L(\lambda c)=\lambda L(c).
 Die Helligkeit oder {\em Luminanz} ist also eine lineare Abbildung
 aus dem dreidimensionalen Farbraum in den eindimensionalen Helligkeitsraum.
 
-Die Abbildung $L$ wird zum Beispiel ben"otigt, wenn man aus einem Farbbild
-eine schwarz/weiss-Bild machen m"ochte.
+Die Abbildung $L$ wird zum Beispiel benötigt, wenn man aus einem Farbbild
+eine schwarz/weiss-Bild machen möchte.
 Nicht alle Menschen sind gleich, und so verwenden 
 verschiedene technische Aufnahmesysteme
 auch verschiedene lineare Abbildungen.
@@ -82,9 +82,9 @@ L&=0.33 r + 0.5 g + 0.16 b\notag
 \\
 L&=0.375 r + 0.5 g + 0.125 b\notag
 \end{align}
-Die letzten zwei Formeln stimmen nicht besonders gut mit der tats"achlichen
-Empfindlichkeitsverteilung der St"abchenzellen "uberein, aber sie lassen
-sich extrem rasch berechnen, was f"ur die Hersteller von Video-Kameras 
+Die letzten zwei Formeln stimmen nicht besonders gut mit der tatsächlichen
+Empfindlichkeitsverteilung der Stäbchenzellen überein, aber sie lassen
+sich extrem rasch berechnen, was für die Hersteller von Video-Kameras 
 interessant ist.
 
 Wir weisen darauf hin, dass die oben aufgelisteten Luminanz-Funktionen
@@ -103,7 +103,7 @@ mit den Eigenschaften
 \end{definition}
 Die Luminanz ist ein gewichtetes Mittel der Farbkomponenten.
 
-\subsubsection{Farbs"attigung}
+\subsubsection{Farbsättigung}
 In diesem Abschnitt gehen wir von einer festen Luminanzfunktion aus.
 Die Menge der Farben, die gleich hell sind wie eine vorgegebene Farbe $c_1$,
 ist 
@@ -113,28 +113,28 @@ ist
 Diese Menge ist eine Ebene im Farbraum.
 
 Gibt es einen Grauton $c_0$, welcher gleich hell ist wie $c_1$?
-Damit wir diese Farbe als Grauton wahrnehmen, m"ussen alle drei Farbkomponenten
-gleich sein, wir schreiben f"ur diese drei identischen Komponenten $x$,
+Damit wir diese Farbe als Grauton wahrnehmen, müssen alle drei Farbkomponenten
+gleich sein, wir schreiben für diese drei identischen Komponenten $x$,
 bekommen also
 \[
 c_0=\begin{pmatrix}x\\x\\x\end{pmatrix}.
 \]
-Die zugeh"orige Luminanz ist
+Die zugehörige Luminanz ist
 \[
 L(c_0)=\rho\cdot x + \gamma\cdot x + \beta \cdot x=
 (\rho + \gamma +\beta)\cdot x=x
 \]
-Der zu einer Farbe $c$ geh"orige graue Farbe ist also
+Der zu einer Farbe $c$ gehörige graue Farbe ist also
 \[
 \begin{pmatrix}L(c)\\L(c)\\L(c)\end{pmatrix}
 =
 L(c)\begin{pmatrix}1\\1\\1\end{pmatrix}
 \]
-Wir schreiben f"ur den Vektor aus lauter Einsen in Zukunft $w$ (f"ur weiss):
+Wir schreiben für den Vektor aus lauter Einsen in Zukunft $w$ (für weiss):
 \[
 w=\begin{pmatrix}1\\1\\1\end{pmatrix}, \qquad L(w)=1.
 \]
-Wir k"onnen also eine Farbe $c_1$ immer in zwei Komponenten zerlegen,
+Wir können also eine Farbe $c_1$ immer in zwei Komponenten zerlegen,
 eine monochrome Komponente und eine Komponente parallel zur Ebene
 $\{ c\,|\, L(c)=L(c_1)\}$:
 \[
@@ -142,17 +142,17 @@ c_1 = \underbrace{L(c_1)w}_{\text{Helligkeit}} + \underbrace{(c_1 - L(c_1)w)}_{\
 \]
 Die Farbinformation steckt ausschliesslich im zweiten Term, der erste
 Term gibt die Helligkeit wieder.
-Damit bekommen wir eine M"oglichkeit, bei gleichbleibender Helligkeit
-die Intenit"at der Farben zu ver"andern. Schreiben wir
+Damit bekommen wir eine Möglichkeit, bei gleichbleibender Helligkeit
+die Intenität der Farben zu verändern. Schreiben wir
 \[
 c(t)=L(c_1)w+t(c_1-L(w))w,
 \]
 dann liefert der Wert $t=0$ eine Farbe, die ein Vielfaches von $w$ ist, also
-ein Grauwert. F"ur $t=1$ erhalten wir die urspr"ungliche Farbe zur"uck.
-Die Zwischenwerte $0 < t < 1$ liefern Farben mit zunehmender Farbintensit"at,
-oder wie man sagt, {\em Farbs"attigung}. 
+ein Grauwert. Für $t=1$ erhalten wir die ursprüngliche Farbe zurück.
+Die Zwischenwerte $0 < t < 1$ liefern Farben mit zunehmender Farbintensität,
+oder wie man sagt, {\em Farbsättigung}. 
 Wir sind sogar in der Lage, die Farbe noch intensiver zu machen, indem
-wir $t>1$ w"ahlen.
+wir $t>1$ wählen.
 In der Abbildung~\ref{color:saettigung}
 ist ein Bild mit verschiedenen Werten von $t$ gezeigt.
 \begin{figure}
@@ -165,7 +165,7 @@ ist ein Bild mit verschiedenen Werten von $t$ gezeigt.
 $t=0$&$t=\frac12$&$t=1$&$t=2$
 \end{tabular}
 \end{center}
-\caption{S"attigung f"ur verschiedene Werte von $t$
+\caption{Sättigung für verschiedene Werte von $t$
 \label{color:saettigung}}
 \end{figure}
 
@@ -174,27 +174,27 @@ Die Farben gleicher Helligkeit bilden eine Ebene. In der Ebene gibt es
 den ausgezeichneten Punkt $L(c_1)w$, der dem gleich hellen Grauton
 entspricht. Wir nennen diesen Punkt auch den {\tt Weisspunkt}.
 Je weiter entfernt ein Punkt $c$ in der Ebene von diesem
-Punkt ist, desto intensiver die Farben, desto gr"osser die Farbs"attigung.
+Punkt ist, desto intensiver die Farben, desto grösser die Farbsättigung.
 
 Ein Punkt in der Ebene $H=\{c\,|\, L(c)=L(c_1)\}$ ist aber durch
 den Abstand vom Weisspunkt alleine nicht bestimmt. Durch Wahl einer 
-geeigneten Null-Richtung k"onnen wir in der Ebene $H$ ein
-Polarkoordinaten-System w"ahlen. Der Winkel entspricht dabei dem
+geeigneten Null-Richtung können wir in der Ebene $H$ ein
+Polarkoordinaten-System wählen. Der Winkel entspricht dabei dem
 Farbton.
-Die Menge aller vom menschlichen Auge wahrnehmbaren k"onnen daher
+Die Menge aller vom menschlichen Auge wahrnehmbaren können daher
 auf einem Kreis angeordnet werden, dem Farbkreis.
 
-Damit haben wir ein alternatives Koordinatensystem f"ur den Farbraum
+Damit haben wir ein alternatives Koordinatensystem für den Farbraum
 konstruiert mit den drei Koordinaten
 \begin{center}
 \begin{tabular}{l|l}
 \hline
 Hue&Farbton, Farbwinkel\\
-Saturation&Farbs"attigung\\
+Saturation&Farbsättigung\\
 Brightness&Luminanz\\
 \hline
 \end{tabular}
 \end{center}
-Der Vorteil dieses Koordinatensystems gegen"uber dem RGB-System ist,
+Der Vorteil dieses Koordinatensystems gegenüber dem RGB-System ist,
 dass sich Bildverarbeitungsoperationen wie ``Heller'' oder ``mehr Farbe''
 darin leichter beschreiben lassen.
