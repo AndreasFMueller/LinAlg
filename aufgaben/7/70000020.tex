@@ -1,0 +1,137 @@
+Können Sie die Matrix
+\[
+A=\begin{pmatrix}
+49& -35&-28\\
+-35&106&27a + 20\\
+-28&27a + 20&9a^2 + 17
+\end{pmatrix}
+\]
+als Produkt $A=BB^t$ schreiben? Geben Sie eine mögliche Matrix $B$ an.
+
+\thema{Cholesky-Zerlegung}
+
+\begin{loesung}
+Wir verwenden den Algorithmus für die Cholesky-Zerlegung. Er liefert eine 
+untere Dreiecksmatrix $L$ mit $A = LL^t$.
+
+Im ersten Schritt versucht man die erste Spalte von $L$ zu bestimmen.
+\[
+LL^t=
+\begin{pmatrix}
+l_{11}&  0&  0\\
+l_{21}&  ?&  0\\
+l_{31}&  ?&  ?
+\end{pmatrix}
+\begin{pmatrix}
+l_{11}&l_{21}&l_{31}\\
+     0&     ?&     ?\\
+     0&     0&     ?
+\end{pmatrix}
+=
+\begin{pmatrix}
+    l_{11}^2&l_{11}l_{21}&l_{11}l_{31}\\
+l_{21}l_{11}&           *&           *\\
+l_{31}l_{11}&           *&           *
+\end{pmatrix}
+=
+A
+\qquad\Rightarrow\qquad
+\left\{
+\begin{aligned}
+l_{11}&=7\\
+l_{21}&=-5\\
+l_{31}&=-4
+\end{aligned}
+\right.
+\]
+Diese Daten können wir jetzt verwenden, um die zweite Spalte zu bestimmen:
+\[
+LL^t
+=
+\begin{pmatrix}
+7&     0&0\\
+-5&l_{22}&0\\
+-4&l_{32}&?
+\end{pmatrix}
+\begin{pmatrix}
+7&    -5&    -4\\
+0&l_{22}&l_{32}\\
+0&     0&?
+\end{pmatrix}
+=
+\begin{pmatrix}
+49&    -35&    -28\\
+-35& 25+l_{22}^2  & 20+l_{22}l_{32}\\
+-28& 20+l_{32}l_{22}&         *
+\end{pmatrix}
+=
+A
+\qquad\Rightarrow\qquad
+\left\{
+\begin{aligned}
+l_{22}&=9\\
+l_{32}&=3a
+\end{aligned}
+\right.
+\]
+Somit bleibt nur noch das Element $l_{33}$ zu bestimmen:
+\[
+LL^t=
+\begin{pmatrix}
+7&     0&0\\
+-5&9&0\\
+-4&3a&l_{33}
+\end{pmatrix}
+\begin{pmatrix}
+7&    -5&    -4\\
+0&9&3a\\
+0&     0&l_{33}
+\end{pmatrix}
+=
+\begin{pmatrix}
+49&-35 & -28\\
+-35&106 &27a+20\\
+-28&27a+20&  16+9a^2+l_{33}^2
+\end{pmatrix}
+=
+A
+\qquad\Rightarrow\qquad
+l_{33}=1
+\]
+Die gesuchte Matrix $B$ ist also
+\[
+B = L=
+\begin{pmatrix}
+7&     0&0\\
+-5&9&0\\
+-4&3a&1
+\end{pmatrix}.
+\]
+Kontrolle:
+\[
+\begin{pmatrix}
+7&     0&0\\
+-5&9&0\\
+-4&3a&1
+\end{pmatrix}
+\begin{pmatrix}
+7&  -5& -4\\
+0&9&3a\\
+0& 0&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+49& -35&-28\\
+-35&106&27a + 20\\
+-28&27a + 20&9a^2 + 17
+\end{pmatrix}.
+\qedhere
+\]
+\end{loesung}
+
+\begin{bewertung}
+Cholesky-Zerlegung ({\bf C}) 1 Punkt,
+Pro richtigem nicht verschwindendem Matrix-Element in $B$ ein Punkt,
+maximal 6 Punkte.
+\end{bewertung}
+

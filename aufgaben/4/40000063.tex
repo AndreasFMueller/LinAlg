@@ -1,0 +1,150 @@
+Ein Student muss für seine Bachelorarbeit Beschleunigungen 
+eines 2-Achsen Roboters messen und entwickelt dafür ein 
+PCB, auf welchem er zwei 1-Achsen-Beschleunigungssensoren
+orthogonal zueinander anbringt. Jeder der Sensoren sollte 
+ihm den Anteil der Beschleunigung in einer Richtung
+($x$- bzw. $y$-Achse) ermitteln, womit er in der Lage ist
+Beschleunigungen in der Ebene messen. 
+Aufgrund von Fertigungstoleranzen wurden die Sensoren
+leider nicht exakt auf dem PCB platziert, wodurch Messfehler
+entstehen. Wir können jedoch annehmen, dass die wahren 
+Beschleunigungswerte $a_x$ und $a_y$ linear von den gemessenen
+Beschleunigungswerten $m_x$ und $m_y$ abhängen.
+Um diesen Zusammenhang zu ermitteln, wurden folgende Paare gemessen:
+\begin{center}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}|}
+\hline
+a_x & a_y & m_x & m_y \\
+\hline
+9.81 & 0 & 9.83& 1.02\\
+0 & 9.81 & -1.11 & 10.21\\
+6.94 & -6.94& 6.98 & -6.20\\
+\hline
+\end{tabular}
+\end{center}
+Gesucht ist jetzt eine $2 \times 2$-Matrix $C$, die den Zusammenhang
+zwischen den wahren Werten $(a_x,a_y)$ und den gemessenen Werten $(m_x,m_y)$
+möglichst gut wiedergeben kann. 
+
+\begin{teilaufgaben}
+ \item
+  Stellen Sie ein Gleichungssystem auf, mit dem sich die bestmöglichen Werte für 
+  die Matrixelemente von $C$ bestimmen lassen. 
+  Im Gleichungssystem müssen alle Messwerte berücksichtigt werden.
+  Zudem soll es erweitert werden können, wenn mehr Daten bekannt werden.
+ \item Bestimmen Sie die Matrix $C$.
+\end{teilaufgaben}
+
+\begin{hinweis}
+Verwenden Sie den Taschenrechner, um das in a) gefundene Gleichungssystem
+zu lösen.
+\end{hinweis}
+
+\thema{Least Squares}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir suchen eine Matrix, die Beschleunigungs-Vektoren gemäss
+\begin{equation}
+\begin{pmatrix}a_x\\a_y\end{pmatrix}
+=
+\underbrace{
+\begin{pmatrix}c_{11} & c_{12}\\ c_{21} & c_{22}\end{pmatrix}}_{\displaystyle C}
+\begin{pmatrix}m_x\\m_y\end{pmatrix}
+\label{40000063:basis1}
+\end{equation}
+umrechnet.
+Die Einträge in $C$ sind die Unbekannten.
+Im Idealfall lassen sich die Messwerte exakt wiedergeben, dann
+gelten die Gleichungen:
+\begin{equation}
+\begin{linsys}{4}
+{\color{red}c_{11}}m_x&+&{\color{red}c_{12}}m_y
+	& &       & &
+	&=&a_x\\
+       & &       & &       
+{\color{red}c_{21}}m_x&+&{\color{red}c_{22}}m_y
+	&=&a_y\\
+\end{linsys}
+\label{40000063:gl}
+\end{equation}
+Setzt man die drei Messungen ein, erhält man daraus sechs Gleichungen
+für die vier gesuchten Matrixeinträge von $C$, also ein überbestimmtes
+Gleichungssystem.
+Die Matrix $A$ und die rechte Seite $b$ dieses Gleichungssystems sind
+\[
+A=\begin{pmatrix}
+\phantom{-}9.83&\phantom{-}1.02& 0&0\\
+0&0& \phantom{-}9.83& \phantom{-}1.02\\
+%
+-1.11 & \phantom{-}10.21& 0&0\\
+0&0& -1.11 & \phantom{-}10.21\\
+%
+\phantom{-}6.98 & -6.20& 0&0\\
+0&0& \phantom{-}6.98 & -6.20\\
+%
+\end{pmatrix}
+,
+\qquad
+b
+=
+\begin{pmatrix}
+\phantom{-}9.81\\0\\
+0\\\phantom{-}9.81\\
+\phantom{-}6.94\\ -6.94
+\end{pmatrix}
+\]
+Das gesuchte Gleichungssystem hat die Matrix $A^tA$ und die rechte
+Seite $A^tb$:
+\[
+A^tA
+=
+\begin{pmatrix}
+  146.58 & -44.58  &       0  &       0\\
+  -44.58 & 143.72   &      0   &      0\\
+         0   &      0  & 146.58 & -44.58\\
+         0   &      0  & -44.58 & 143.72\\
+\end{pmatrix}
+,\qquad
+A^tb=\begin{pmatrix}
+    144.87\\
+  -33.02\\
+  -59.33\\
+  143.19
+  \end{pmatrix}
+\]
+\item
+Um die Matrixelemente von $C$ zu bestimmen muss das Gleichungssystem
+$A^tA x = A^tb $ nun gelöst werden. Mann findet
+\[
+  x = (A^tA)^{-1}A^tb = 
+  \begin{pmatrix}
+    \phantom{-}1.0141\\
+    \phantom{-}0.0848\\
+   -0.1123\\
+    \phantom{-}0.9614\\ 
+  \end{pmatrix},
+\]
+Woraus sich die folgende Matrix 
+\[
+  C =  \begin{pmatrix}
+    \phantom{-}1.0141 & 0.0848\\
+   -0.1123 & 0.9614 
+  \end{pmatrix}
+\]
+ergibt.
+\end{teilaufgaben}
+\end{loesung}
+
+
+\begin{bewertung}
+Gleichung \eqref{40000063:basis1} für ein Paar von Messpaaren ({\bf M}) 1 Punkt,
+Least-Squares Gleichungen \eqref{40000063:gl} ({\bf G}) 1 Punkt,
+Matrix $A$ ({\bf A}) 1 Punkt,
+Matrix $A^tA$ ({\bf L}) 1 Punkt,
+Vektor $A^tb$ ({\bf B}) 1 Punkt,
+Matrix $C$ ({\bf C}) 1 Punkt.
+\end{bewertung}
+
+

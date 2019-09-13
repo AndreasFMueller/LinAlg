@@ -1,0 +1,143 @@
+Für eine Forschungsarbeit müssen Beschleunigungen sehr exakt 
+gemessen werden können. Zu diesem Zweck wird ein rauscharmer
+Beschleunigungssensor verwendet, welcher zuvor kalibriert
+wird. Als Referenz wird dabei die Erdbeschleunigung verwendet.
+Leider reicht es für diese Anwendung aber nicht aus, den 
+Standardwert von $9.81\,\frac{\text{m}}{s^2}$ als Referenz 
+zu verwenden, weshalb vorab die örtliche Erdbeschleunigung 
+ermittelt wird. 
+
+Für die Bestimmung der örtlichen Erdbeschleunigung wird 
+eine kleine Stahlkugel im Vakuum fallen gelassen und deren Fall 
+mit einer High-Speed-Kamera aufgezeichnet. Die Auswertung
+der aufgenommenen Bilder ergab folgende Datenpunkte
+\begin{center}
+\begin{tabular}{>{$}c<{$}|>{$}r<{$}|>{$}c<{$}}
+i& \text{Zeit } t_i\,[\text{s}]& \text{Höhe }h_i\,[\text{m}]\\
+\hline
+1& 0.00 &1.4009\\
+2& 0.05 &1.2176\\
+3& 0.10 &1.0097\\
+4& 0.15 &0.7774\\
+5& 0.20 &0.5209
+\end{tabular}
+\end{center}
+wobei der Zeitpunkt, zu dem die Kugel erstmals auf einem Bild
+auftaucht als $t=0$ angenommen wurde.
+Zudem ist aus der Physik bekannt, dass die Höhe eines fallenden
+Objekts mit dem quadratischen Polynom
+\[
+  h = -\frac{1}{2}g t^2 + v_0 t + h_0
+\]
+beschrieben werden kann.
+
+
+\begin{teilaufgaben}
+ \item
+  Stellen Sie ein Gleichungssystem auf, mit dem sich die bestmöglichen Werte für 
+  $g$, $v_0$, und $h_0$ bestimmen lassen. 
+  Im Gleichungssystem müssen alle Messwerte berücksichtigt werden.
+  Zudem soll es erweitert werden können, wenn mehr Daten bekannt werden.
+ \item Bestimmen Sie die örtliche Erdbeschleunigung $g$.
+\end{teilaufgaben}
+
+\begin{hinweis}
+Verwenden Sie den Taschenrechner, um das in a) gefundene Gleichungssystem
+zu lösen.
+\end{hinweis}
+
+\thema{Least Squares}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir möchten gerne $g$, $v_0$ und $h_0$ bestimmen, so dass für
+jeden Index $i$ die Gleichung
+\[
+h_i = {\color{red}h_0} + {\color{red}v_0}t_i -\frac{1}{2}{\color{red}g}t_i^2
+\]
+möglichst gut erfüllt ist.
+Dies liefert uns das Gleichungssystem
+\begin{equation}
+\begin{linsys}{3}
+{\color{red}h_0}&+&t_1{\color{red}v_0}&+&\frac{-1}{2}t_1^2{\color{red}g}&=&h_1\phantom{,}\\
+{\color{red}h_0}&+&t_2{\color{red}v_0}&+&\frac{-1}{2}t_2^2{\color{red}g}&=&h_2\phantom{,}\\
+{\color{red}h_0}&+&t_3{\color{red}v_0}&+&\frac{-1}{2}t_3^2{\color{red}g}&=&h_3\phantom{,}\\
+{\color{red}h_0}&+&t_4{\color{red}v_0}&+&\frac{-1}{2}t_4^2{\color{red}g}&=&h_4\phantom{,}\\
+{\color{red}h_0}&+&t_5{\color{red}v_0}&+&\frac{-1}{2}t_5^2{\color{red}g}&=&h_5,\\
+\end{linsys}
+\label{40000064:gl}
+\end{equation}
+welches im Sinne der kleinsten Quadrate gelöst werden muss.
+In Matrixform ist dies das Gleichungssystem
+\[
+\underbrace{
+\begin{pmatrix}
+1& 0.00& \phantom{-}0.00000\\
+1& 0.05& -0.00125\\
+1& 0.10& -0.00500\\
+1& 0.15& -0.01125\\
+1& 0.20& -0.02000
+\end{pmatrix}
+}_{\displaystyle A}
+\underbrace{
+\begin{pmatrix}
+\color{red}h_0\\
+\color{red}v_0\\
+\color{red}g
+\end{pmatrix}
+}_{\displaystyle x}
+=
+\underbrace{
+\begin{pmatrix}
+1.4009\\
+1.2176\\
+1.0097\\
+0.7774\\
+0.5209
+\end{pmatrix}
+}_{\displaystyle b}.
+\]
+Um die Unbekannten $g$, $v_0$ und $h_0$ zu bestimmen, muss das
+Gleichungssystem $A^tAx=A^tb$ gelöst werden.
+Die Matrizenprodukte sind
+\[
+A^tA
+=
+\begin{pmatrix}
+5 & 0.5 & -0.0375\\
+0.5 & 0.075 & -0.00625\\
+-0.0375 & -0.00625 & 5.53125\cdot 10^{-4}
+\end{pmatrix},
+\qquad
+A^tb
+=
+\begin{pmatrix}
+4.9265\\
+0.38264\\
+-0.02573425
+\end{pmatrix}.
+\]
+\item
+Die Lösung dieses Gleichungssystems mit dem Taschenrechner liefert
+\[
+  x = (A^tA)^{-1}A^tb = 
+  \begin{pmatrix}
+    1.4\\
+    -3.42\\
+   9.76 
+  \end{pmatrix}.
+\]
+Folglich ist die beste Schätzung für die
+örtliche Beschleunigung $g = 9.76\,\frac{\text{m}}{s^2}$.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Least-Squares Gleichungen \eqref{40000064:gl} ({\bf G}) 1 Punkt,
+Matrix $A$ ({\bf A}) 1 Punkt,
+Vektor $b$ ({\bf B}) 1 Punkt,
+Matrix $A^tA$ ({\bf L}) 1 Punkt,
+Vektor $A^tb$ ({\bf R}) 1 Punkt,
+Lösungsvektor $x$ und Wert $g$ ({\bf X}) 1 Punkt,
+\end{bewertung}

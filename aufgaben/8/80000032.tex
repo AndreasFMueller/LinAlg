@@ -1,0 +1,128 @@
+Betrachten Sie die Matrix
+\[
+A=\begin{pmatrix}11&t & 0\\2 & 4 & 0 \\ 0 & 0 & 2\end{pmatrix}.
+\]
+
+\begin{teilaufgaben}
+\item
+Berechnen Sie das charakteristische Polynom von $A$.
+\item
+Wie muss man $t$ wählen, damit $A$ einen Eigenwert $\lambda = 10$ hat? 
+Bestimmen Sie auch die anderen Eigenwerte für diesen Fall.
+\item
+Finden Sie einen Eigenvektor zum Eigenwert $\lambda = 10$.
+\item
+Ist $A$ in diesem Fall diagonalisierbar? 
+Falls ja, bestimmen Sie die diagonalisierte Matrix $A'$
+\end{teilaufgaben}
+
+\thema{Eigenwerte}
+\thema{Eigenvektoren}
+\thema{charakteristisches Polynom}
+\thema{diagonalisierbar}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Das charakteristische Polynom ist
+\begin{align*}
+\det(A-\lambda E) 
+=
+\left|\begin{matrix}
+11-\lambda &t & 0\\
+2 & 4-\lambda & 0 \\ 
+0 & 0 & 2-\lambda
+\end{matrix}\right|
+&=
+(2-\lambda)((11-\lambda)\cdot(4-\lambda)-2t)\\
+&=
+(2-\lambda)(\lambda^2 - 15\lambda + 44 -2t )
+\end{align*}
+\item
+Die Eigenwerte sind die Nullstellen des charakteristischen Polynoms.
+Wenn wir also den Eigenwert $\lambda = 10$ einsetzen muss es Null geben:
+\begin{align*}
+(2-10)(10^2 - 15\cdot 10 + 44 -2t )
+&= -8\cdot(100 - 150 + 44 -2t ) \\
+&= 48+16t = 0 &\Rightarrow\quad & t = -\dfrac{48}{16} = -3.
+\end{align*}
+Durch einsetzen des gefundenen Wertes für $t$ können wir nun auch die 
+anderen Eigenwerte bestimmen.
+\begin{align*}
+(2-\lambda)(\lambda^2 - 15\lambda + 44 -2\cdot (-3) ) 
+&= (2-\lambda)(\lambda^2 - 15\lambda + 50 )\\
+&= (2-\lambda)(\lambda-10)(\lambda-5).
+\end{align*}
+Die Nullstellen bzw. die Eigenwerte sind folglich
+\[
+\lambda_1 = 2,\qquad \lambda_2 = 10\qquad \text{und}\qquad \lambda_3 = 5.
+\]
+\item
+Einen Eigenvektor zum Eigenwert $\lambda = 10$ finden wir durch lösen des
+Gleichungssystems $(A-\lambda E)\vec v = 0$, wozu wir den Gaussalgorithmus
+verwenden:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+11-\lambda&t        &0&0\\
+    2   &4-\lambda&0&0\\
+0 & 0 & 2-\lambda & 0\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1 &-3        &0&0\\
+    2   &-6&0&0\\
+0 & 0 & -8 & 0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1 &-3        &0&0\\
+0 &0&0&0\\
+0 & 0 & 1 & 0\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus liest man ab, dass 
+\[
+\vec v=\begin{pmatrix}3\\1\\0\end{pmatrix}
+\]
+ein Eigenvektor ist.
+Zur Kontrolle berechnen wir
+\[
+A\vec v
+=
+\begin{pmatrix}
+11 &-3        &0\\
+    2   &4&0\\
+0 & 0 & 2 \\
+\end{pmatrix}
+\begin{pmatrix}3\\1\\0\end{pmatrix}
+=
+\begin{pmatrix}30\\10\\0\end{pmatrix} = 10\vec v.
+\]
+Der Vektor $\vec v$ ist also tatsächlich ein Eigenvektor zum Eigenwert $10$.
+\item
+Da wir drei verschiedene Eigenwerte gefunden haben, wissen wir, dass es zu jedem
+Eigenwert einen linear unabhängigen Eigenvektor gibt. Die Matrix $A$ ist folglich
+diagonalisierbar und die diagonalisierte Matrix $A'$ enthält auf der Diagonalen die
+Eigenwerte. Es ist folglich die Matrix
+\[
+A'=\begin{pmatrix}2&0 & 0\\0 & 10 & 0 \\ 0 & 0 & 5\end{pmatrix}.
+\]
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Charakteristisches Polynom ({\bf X}) 1 Punkt,
+Bedingung für $t$ ({\bf B}) 1 Punkt,
+Wert von $t$ ({\bf T}) 1 Punkt,
+Eigenwerte ({\bf E}) 1 Punkt,
+Eigenvektor ({\bf V}) 1 Punkt,
+Begründung Diagonalisierbarkeit und diagonalisierte Matrix ({\bf D}) 1 Punkt.
+\end{bewertung}
+

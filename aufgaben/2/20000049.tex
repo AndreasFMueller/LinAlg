@@ -1,0 +1,69 @@
+Die HSR wurde 1972 gegründet. Zudem hat sie 1600 Studierende, 16 Institute und 400
+aktuelle Forschungsprojekte. Schreibt man diese Kennzahlen in eine Matrix erhält man
+die Matrix
+\[
+A=
+\begin{pmatrix}
+ 1 & 9 & 7 & 2\\
+ 1 & 6 & 0 & 0\\
+ 0 & 0 & 1 & 6\\
+ 0 & 4 & 0 & 0
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item 
+Berechnen Sie die Determinante der Matrix $A$. Ist die Matrix regulär?
+\item Wie ändert sich der Wert der Determinante, wenn die HSR doppelt so viele 
+Forschungsprojekte hätte? Berechnen Sie die Determinante nicht nochmals neu.
+\end{teilaufgaben}
+
+\thema{Determinante}
+\thema{Entwicklungssatz}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir berechnen die Determinante mit Hilfe des Entwicklungssatzes 
+und entwickeln zuerst nach der vierten Zeile und anschliessend nach 
+der zweiten Zeile:
+\begin{align*}
+\det(A)
+&=
+4\cdot\left|
+\begin{matrix}
+ 1 & 7 & 2\\
+ 1 & 0 & 0\\
+ 0 & 1 & 6\\
+\end{matrix}
+\right|
+= 
+4\cdot(-1)\cdot\left|
+\begin{matrix}
+ 7 & 2\\
+ 1 & 6\\
+\end{matrix}
+\right|
+= 
+-4\cdot (7\cdot 6 - 2 \cdot 1)
+= -160
+\end{align*}
+Da $\det(A)\neq 0$ ist, ist die Matrix regulär.
+\item 
+Wenn die HSR doppelt so viele Forschungsprojekte hätte, würde 
+in der Matrix die vierte Zeile mit 2 multipliziert werden.
+Eine Multiplikation einer Zeile mit einem Faktor führt dazu,
+dass sie die Determinante um genau diesen Faktor ändert.
+Folglich würde sich der Wert der Determinante verdoppeln: 
+$\det(A') = -320$.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Entwicklungssatz: Zeile oder Spalte ({\bf Z}) 1 Punkt,
+Vorzeichen ({\bf V}) 1 Punkt,
+Unterdeterminanten ({\bf U}) 1 Punkt,
+Determinantenwert ({\bf D}) 1 Punkt,
+Schlussfolgerung regulär ({\bf R}) 1 Punkt,
+Determinante von $A'$ ({\bf A}) 1 Punkt.
+\end{bewertung}
+

@@ -1,0 +1,79 @@
+Berechnen Sie die Determinante der Matrix $A$ und der inversen Matrix $A^{-1}$
+\[
+A=
+\begin{pmatrix}
+ 0 & 2 & 4 & 0\\
+ 6 & 0 & 0 & 2\\
+ 3 & -4 & 2 & -4\\
+ 0 & 0 & -3 & 1
+\end{pmatrix}.
+\]
+Ist die Matrix $A$ regulär?
+
+\thema{Determinante}
+\thema{Entwicklungssatz}
+\thema{Produktsatz}
+
+\begin{loesung}
+Wir berechnen die Determinante mit Hilfe des Entwicklungssatzes 
+und entwickeln nach der vierten Zeile
+\begin{align*}
+\det(A)
+&=
+-
+(-3)\cdot\left|
+\begin{matrix}
+ 0 & 2 & 0\\
+ 6 & 0 & 2\\
+ 3 & -4 & -4\\
+\end{matrix}
+\right|
++
+1\cdot\left|
+\begin{matrix}
+ 0 & 2 & 4\\
+ 6 & 0 & 0 \\
+ 3 & -4 & 2\\
+\end{matrix}
+\right|
+\end{align*}
+Die beiden $3\times 3$-Determinanten können wiederum mit dem Entwicklungssatz
+berechnet werden. Die erste Determinante wird nach der ersten Zeile entwickelt 
+und die zweite Determinante nach der zweiten Zeile:
+\begin{align*}
+\det(A)
+&=
+3\cdot (-2)\cdot \left|
+\begin{matrix}
+ 6 & 2\\
+ 3 & -4\\
+\end{matrix}
+\right|
++
+1\cdot (-6)\cdot\left|
+\begin{matrix}
+2 & 4\\
+-4 & 2\\
+\end{matrix}
+\right|\\
+&= -6\cdot (6\cdot (-4) - 2 \cdot 3) - 6 \cdot (2\cdot 2 - 4 \cdot (-4))\\
+&= -6\cdot (-30) - 6 \cdot 20\\
+&= 180 - 120 = 60.
+\end{align*}
+Die Matrix ist also regulär.
+
+Aus $\det(A)$ kann nun auch die Determinante der inversen Matrix $A^{-1}$ berechnet werden:
+\[
+  \det(A^{-1}) = \dfrac{1}{\det(A)} = \dfrac{1}{60}\approx 0.016667.
+\]
+\end{loesung}
+
+\begin{bewertung}
+Entwicklungssatz: Zeile oder Spalte ({\bf Z}) 1 Punkt,
+Vorzeichen ({\bf V}) 1 Punkt,
+Unterdeterminanten ({\bf U}) 1 Punkt,
+Determinantenwert ({\bf D}) 1 Punkt,
+Schlussfolgerung regulär ({\bf R}) 1 Punkt,
+Determinante der Inversen ({\bf I}) 1 Punkt.
+\end{bewertung}
+

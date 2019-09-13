@@ -1,0 +1,213 @@
+Rudolf macht eine Reise nach Paris und besucht bei dieser Gelegenheit 
+den Eiffelturm. Als er vor dem riesigen Bauwerk steht, fragt er sich,
+wie hoch der Eiffelturm den eigentlich ist. Dabei kommt ihm die Idee,
+dass er die Höhe des Eiffelturms mit Hilfe seiner Kamera messen könnte.
+Er positioniert dazu seine Kamera $330\,$m vor dem Eiffelturm auf einer
+Höhe von $1.7\,$m (Punkt $P$ in Abbildung links) und richtet sie
+auf den Eiffelturm. Die Ausrichtung der Kamera ist durch die 
+Drehmatrix
+\[
+D
+=
+\begin{pmatrix}
+0 &    -1   &  0\\
+\phantom{-}0.334 &0 & 0.943\\
+-0.943 &0 & 0.334\\
+\end{pmatrix}
+\]
+gegeben. Seine Kamera hat eine Brennweite von $f=630$ und einen 
+$480\times 640$-Chip.
+\begin{center}
+\definecolor{CadetRed}	{cmyk}{0,1,1,0.290}
+\tikzset{
+					MyPersp/.style={scale=1,x={(-0.9cm,-0.2cm)},y={(0.6cm,-0.5cm)},
+				z={(0cm,1cm)}}
+					}
+\begin{tikzpicture}[thick,>=latex]
+
+\begin{scope}[xshift=-2cm, MyPersp]
+
+\coordinate (O) at (0.0,-0.3,-2.6);
+
+\def\dx{8};
+\def\dz{1};
+\draw[black](O)--++(\dx,0,0)--++(0,0,\dz);
+\shade [ball color=CadetRed] ($(O)+(\dx,0,\dz)$) circle (3pt)node[left=1pt]{$P$};
+
+
+\draw[CadetRed,->](O)--++(2.2,0,0)node[above=-1pt]{$x$};
+\draw[CadetRed,->](O)--++(0,2,0)node[above right=-3pt]{$y$};
+\draw[CadetRed,->](O)--++(0,0,6.3)node[right]{$z$};
+
+\shade [ball color=CadetRed] (O) circle (2pt)node[above right=-1pt,yshift=-3pt]{$G$};
+\shade [ball color=CadetRed] ($(O)+(0,0,5.8)$) circle (2pt)node[left]{$S$};
+
+\node at (0,0) {\includeagraphics[height=7cm]{eiffelturm3D.png}};
+
+
+\end{scope}
+\begin{scope}[xshift=4cm]
+\node at (0,0) {\includeagraphics[width=5.5cm]{eiffelturm.JPG}};
+
+\draw[white,fill,opacity=0.3](-5.6/2,-7.5/2)rectangle(5.6/2,7.5/2);
+
+\draw[CadetRed,->](5.5/2,-7.333/2)--++(-1.5,0)node[below]{$x$};
+\draw[CadetRed,->](5.5/2,-7.333/2)--++(0,1.5)node[right]{$y$};
+
+\draw[CadetRed,fill](5.5/2-229/480*5.5,-7.333/2+613/480*5.5)circle(1pt)node[right]{$B_S$};
+\draw[CadetRed,fill](5.5/2-229/480*5.5,-7.333/2+94/480*5.5)circle(1pt)node[above]{$B_G$};
+
+
+\end{scope}
+
+\end{tikzpicture}
+\end{center}
+Im aufgenommenen Bild (Abbildung rechts) liest Rudolf nun die Pixelkoordinaten
+der Spitze $B_S = (229,613)$ und des genau darunterliegenden Punktes am Boden
+$B_G=(229,94)$ ab. Diese beiden Punkte befinden sich im Weltkoordinatensystem 
+auf der $y$-$z$-Ebene ($x=0$).
+\begin{teilaufgaben}
+ \item
+ Berechnen Sie die Höhe des Eiffelturms.
+ \item
+ Rudolf will wissen, was für ein Gesichtswinkel eine Kamera mindestens haben muss,
+ um damit den Eiffelturm aus dieser Distanz photographieren zu können. Berechnen Sie dazu den Winkel $\angle GPS$.
+\end{teilaufgaben}
+
+
+\begin{hinweis}
+Berechnen Sie die Matrizen- und Vektoroperationen mit dem Taschenrechner.
+\end{hinweis}
+
+\thema{Kamerageometrie}
+\thema{Zwischenwinkel}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Kameramatrix $K$ kann aus den Aufgabendaten abgelesen werden, sie ist
+\[
+K
+=
+\begin{pmatrix}
+630&  0&240\\
+  0&630&320\\
+  0&  0&  1
+\end{pmatrix}
+\]
+und das Kamerazentrum entspricht dem Punkt $P$
+\[
+\vec c = \vec p = 
+\begin{pmatrix}
+330\\ 0\\ 1.7
+\end{pmatrix}.
+\]
+Zunächst müssen wir aus den Punkten $B_S$ und $B_G$ dreidimensionale Vektoren
+in homogenen Koordinaten machen, also
+\[
+\begin{aligned}
+\vec b_S &= \begin{pmatrix}229\\613\\1\end{pmatrix}
+&&\text{und}&
+\vec b_G &= \begin{pmatrix}229\\94\\1\end{pmatrix}.
+\end{aligned}
+\]
+Mit der Formel $\vec{r} = (KD)^{-1} \vec b$ können wir zu jedem Punkt
+den Richtungsvektor
+\[
+\begin{aligned}
+\vec r_S
+&=
+\begin{pmatrix}
+-0.7870 \\
+\phantom{-}0.0175 \\
+\phantom{-}0.7719
+\end{pmatrix}
+&&\text{und}&
+\vec r_G &= 
+\begin{pmatrix}
+-1.0620 \\
+\phantom{-}0.0175 \\
+-0.0043
+\end{pmatrix}
+\end{aligned}
+\]
+der Geraden von der Kamera in $P$ aus zu den Punkten $S$ bzw. $G$ berechnen.
+
+Der Punkt $S$ liegt auf der Ebene mit $x=0$ und erfüllt die
+Gleichung $\vec s = \vec {p} + t_S\vec{r}_S$.
+Wir kennen die $x$-Koordinate von $\vec{p}$, sie ist $330$.
+Die $x$-Koordinate muss daher folgende Gleichung erfüllen:
+\[
+330 + t_S\cdot (-0.7870) = 0
+\qquad\Rightarrow\qquad
+t_S = \frac{-330}{-0.7870}=419.2979.
+\]
+
+Analog gilt $\vec g = \vec {p} + t_G\vec{r}_G$.
+Die $x$-Koordinate davon ist wiederum
+\[
+330 + t_G\cdot (-1.0620) = 0
+\qquad\Rightarrow\qquad
+t_G = \frac{-330}{-1.0620}=310.7459.
+\]
+
+Einsetzen der Werte für $t_S$ und $t_G$ ergibt
+\[
+\begin{aligned}
+S&=(0, 7.321, 325.376)
+&&\text{und}&
+G&=(0, 5.426, 0.370)
+\end{aligned}
+\]
+für die beiden Punkte. 
+
+Die Höhe des Eiffelturms entspricht nun der Länge des Vektors $\overrightarrow{GS}$
+\[
+  h = |\overrightarrow{GS}| = |\vec s - \vec g| = 
+\left|\begin{pmatrix}
+0\\
+1.895\\
+325.006
+\end{pmatrix}\right| = \sqrt{0^2 + (1.895)^2 + 325.006^2} = 325.01.
+\]
+Die Messung von Rudolf ergab also eine Höhe von $325.01\,$m, welche nur geringfügig 
+von der wahren Höhe des Eiffelturms von $324.82\,$m abweicht.
+\item
+Der Winkel kann mit der Zwischenwinkelformel berechnet werden.
+Es gilt
+\begin{align*}
+\cos\alpha
+&=
+\frac{\vec r_S\cdot\vec r_G}{|\vec r_S|\cdot|\vec r_G|}
+=
+\frac{\begin{pmatrix}
+-0.7870 \\
+\phantom{-}0.0175 \\
+\phantom{-}0.7719
+\end{pmatrix}
+\cdot\begin{pmatrix}
+-1.0620 \\
+\phantom{-}0.0175 \\
+-0.0043
+\end{pmatrix}}
+{|\vec r_S|\cdot|\vec r_G|}
+=
+\frac{0.8328}{1.1026\cdot 1.0621} = 0.7112,
+\\
+\Rightarrow\qquad
+\alpha
+&=
+44.6705^\circ.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Kameramatrix $K$ ({\bf K}) 1 Punkt,
+Punkte $B_i$ in homogenen Koordinaten ({\bf B}) 1 Punkt,
+Richtungsvektoren $\vec{r}_i$ ({\bf R}) 1 Punkt,
+Weltpunkte $G$ und $S$ ({\bf P}) 1 Punkt,
+Höhe des Eiffelturm ({\bf H}) 1 Punkt,
+Zwischenwinkel ({\bf W}) 1 Punkt.
+\end{bewertung}

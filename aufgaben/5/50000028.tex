@@ -1,0 +1,189 @@
+Gegeben ist eine Ebene $\sigma$, welche durch die Punkte
+\[
+A=(12,0,0), \qquad
+B=(0,0,5) \qquad \text{und}\qquad  
+C=(12,5,0)
+\]
+geht, sowie ein gerades Rohr mit Durchmesser 1,
+dass zwischen den Punkten
+\[
+D=(4,-5,6)   \qquad \text{und}\qquad  
+E=(8,5,10) 
+\]
+installiert ist.
+Nun wird eine Kugel mit Radius 2 im Punkt $B$ auf die Ebene gelegt
+und losgelassen. Die Kugel rollt auf den Punkt $A$ zu. 
+Wird die Kugel unter dem Rohr hindurch passen und damit den Punkt $A$ erreichen?
+\begin{center}
+\begin{tikzpicture}[thick,>=latex]
+\node at (0,0) {\includeagraphics[width=6.8cm]{kugel.jpg}};
+\node at (-3.1,0.5) {$x$};
+\node at (2.025,-3.25) {$y$};
+\node at (2.75,2.45) {$z$};
+\node at (-2.2,0.6) {$A$};
+\node at (2.7,1.1) {$B$};
+\node at (-2.8,-1.1) {$C$};
+\node at (1.4,3.0) {$D$};
+\node at (-1.8,1.5) {$E$};
+\end{tikzpicture}
+\end{center}
+
+\thema{Normalenform}
+\thema{Vektorprodukt}
+\thema{Kugel}
+\thema{Abstand windschiefer Geraden }
+
+\begin{loesung}
+Die Kugel wird genau dann den Punkt $A$ erreichen, wenn der Abstand zwischen
+der Geraden $\vec g_1$, die das Rohr beschreibt, und der Geraden $\vec g_2$, 
+auf der sich der Mittelpunkt der Kugel bewegt, grösser ist als die Summe der 
+beiden Radien (Radius der Kugel und des Rohres):
+\[
+  d > 2+0.5 = 2.5.
+\]
+Wir benötigen also Stütz- und Richtungsvektoren der beiden Geraden.
+
+Der Richtungsvektor der Geraden $\vec g_1$ ist
+\[
+  \vec r_1 = \vec e - \vec d =
+  \begin{pmatrix}
+   8-4\\ 
+   5-(-5)\\
+   10-6
+  \end{pmatrix}
+  =  \begin{pmatrix}
+   4\\ 
+   10\\
+   4
+  \end{pmatrix}
+\]
+und als Stützvektor verwenden wir $\vec d$. Die Gerade $\vec g_1$ 
+ist somit beschrieben:
+\[
+  \vec g_1 = 
+  \begin{pmatrix}
+   4\\ 
+   -5\\
+   6
+  \end{pmatrix}
+  + t\cdot 
+  \begin{pmatrix}
+   4\\ 
+   10\\
+   4
+  \end{pmatrix}.
+\]
+
+Die Gerade $\vec g_2$ beschreibt die Bewegung des Kugel-Mittelpunktes.
+Sie verläuft parallel zum Vektor $\overrightarrow{ AB}$ und hat zur Ebene $\sigma$ 
+einen konstanten Abstand von 2. Als Richtungsvektor der Geraden 
+$\vec g_2$ verwenden wir daher
+\[
+  \vec r_2 = \overrightarrow{AB}= \vec b - \vec a =
+  \begin{pmatrix}
+   0-12\\ 
+   0-0\\
+   5-0
+  \end{pmatrix}
+  =  \begin{pmatrix}
+   -12\\ 
+   0\\
+   5
+  \end{pmatrix}
+\]
+und als Stützvektor
+\[
+\vec p = \vec a + 2\cdot \vec n_0,
+\]
+wobei $\vec n_0$ der auf Länge 1 normierte Normalenvektor der Ebene ist.
+Um den Normalenvektor zu berechnen verwenden wird das Kreuzprodukt:
+\[
+ \vec n = \overrightarrow{AB}\times \overrightarrow{AC}
+ = \begin{pmatrix} -12\\ 0\\ 5 \end{pmatrix}\times\begin{pmatrix} 0\\ 5\\ 0 \end{pmatrix}
+ = \begin{pmatrix} 0\cdot 0 - 5\cdot 5\\ 5\cdot 0 - 0\cdot -(12)\\ -12\cdot 5 - 0\cdot 0 \end{pmatrix}
+ = \begin{pmatrix} -25\\ 0 \\ -60 \end{pmatrix}
+\]
+und normieren ihn anschliessend auf die Länge 1:
+\[
+ \vec n_0 = (-1)\cdot \dfrac{1}{|\vec n|}\vec n
+ = (-1)\cdot \dfrac{1}{\sqrt{(-25)^2+0^2+(-60)^2}}\begin{pmatrix} -25\\ 0 \\ -60 \end{pmatrix}
+ = \dfrac{1}{13}\begin{pmatrix} 5\\ 0 \\ 12 \end{pmatrix}.
+\]
+Zusätzlich wurde noch mit dem Faktor $(-1)$ multipliziert, um sicherzustellen, dass
+der Normalenvektor eine positive $z$-Komponente hat und damit nach oben schaut.
+Die Richtung des Normalenvektors ist hier von Bedeutung, da die Kugel auf der 
+Ebene rollt und nicht unter der Ebene.
+Die Gerade $\vec g_2$  ist somit ebenfalls beschrieben:
+\begin{align*}
+  \vec g_2 &= \vec a + 2\cdot \vec n_0 + s\cdot \vec r_2
+ =  \begin{pmatrix} 12\\ 0\\ 0 \end{pmatrix} + 2\cdot \dfrac{1}{13}\begin{pmatrix} 5\\ 0 \\ 12 \end{pmatrix}
+ +  s\cdot \begin{pmatrix}-12\\ 0\\ 5  \end{pmatrix}\\
+ &=
+   \dfrac{1}{13}\begin{pmatrix}
+   166\\ 
+   0\\
+   24
+  \end{pmatrix}
+  + s\cdot 
+  \begin{pmatrix}
+   -12\\ 
+   0\\
+   5
+  \end{pmatrix}.
+\end{align*}
+Um zum Schluss nun noch den Abstand zwischen den beiden Geraden zu berechnen,
+verwenden wir die Abstandsformel für den windschiefen Abstand:
+\begin{align*}
+ d & = \dfrac{(\vec d -\vec p)\cdot (\vec r_1\times \vec r_2)}{|\vec r_1\times \vec r_2|}\\
+ &= \dfrac{\left(
+ \begin{pmatrix}
+   4\\ 
+   -5\\
+   6
+  \end{pmatrix}-
+ \dfrac{1}{13}\begin{pmatrix}
+   166\\ 
+   0\\
+   24
+  \end{pmatrix}\right)\cdot \left(
+  \begin{pmatrix}
+   4\\ 
+   10\\
+   4
+  \end{pmatrix}\times 
+  \begin{pmatrix}
+   -12\\ 
+   0\\
+   5
+  \end{pmatrix}\right)}{|\vec r_1\times \vec r_2|}
+  =\dfrac{
+ \dfrac{1}{13}\begin{pmatrix}
+   -114\\ 
+   -65\\
+   54
+  \end{pmatrix}\cdot
+  \begin{pmatrix}
+   50\\ 
+   -68\\
+   120
+  \end{pmatrix}}{\sqrt{50^2+(-68)^2+120^2}}\\
+  &= \dfrac{400}{146.711} = 2.726.
+\end{align*}
+Da der Abstand $d$ grösser ist als $2.5$ wird die Kugel unter dem Rohr
+hindurch passen und den Punkt $A$ erreichen.
+
+\end{loesung}
+
+\begin{bewertung}
+Stütz- und Richtungsvektor der Rohr-Geraden ({\bf G}) 1 Punkt,
+Richtungsvektor der Mittelpunkt-Geraden ({\bf R}) 1 Punkt,
+Normale ({\bf N}) 1 Punkt,
+Stützvektor der Mittelpunkt-Geraden ({\bf S}) 1 Punkt,
+Berechnung des Windschiefen Abstandes ({\bf W}) 1 Punkt,
+Schlussfolgerung und Begründung ({\bf B}) 1 Punkt.
+\end{bewertung}
+
+
+
+
+

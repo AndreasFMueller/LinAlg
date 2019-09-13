@@ -1,0 +1,126 @@
+Gegeben ist das folgende Gleichungssystem mit dem Parameter $q$.
+\[
+\begin{linsys}{3}
+-3a&+&12b&+&3c&=&21\\
+a&-&7b&-&c&=&-13\\
+-a&+&5b&+&(q-1)\,c&=& 9
+\end{linsys}
+\]
+\begin{teilaufgaben}
+\item Für welche Werte von $q$ ist das Gleichungssystem singulär? 
+Bestimmen Sie zudem, welcher singuläre Fall vorliegt.
+\item Bestimmen Sie den Rang der Koeffizientenmatrix für den singulären Fall.
+\item Bestimmen Sie die Lösungsmenge des Gleichungssystems für den regulären Fall.
+\end{teilaufgaben}
+
+\thema{Rang}
+\thema{singulär}
+\thema{regulär}
+\thema{Gauss-Algorithmus}
+\thema{Matrix mit Parameter} 
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item 
+Man könnte versuchen herauszufinden, für welche Werte von $q$ die Matrix
+\[
+A=\begin{pmatrix}
+-3& 12 &  3\\
+1& -7 & -1 \\
+-1& 5& q-1
+\end{pmatrix}
+\]
+singulär ist, und dazu die Determinante verwenden.
+Da man das Gleichungssystem aber auch lösen muss, ist es effizienter,
+gleich von Anfang an den Gauss-Algorithmus anzuwenden.
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-3 &  12 &  3  & 21 \\
+ 1 & -7  & -1  & -13\\
+-1 &  5  & q-1 & 9 \\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1 &  -4 &  -1  & -7 \\
+ 0 & -3  & 0  & -6\\
+ 0 &  1  & q-2 & 2 \\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1 &  -4 &  -1  & -7 \\
+ 0 &   1 & 0   & 2\\
+ 0 &   0 & q-2 & 0 \\
+\hline
+\end{tabular}
+\end{align*}
+Das Gleichungssystem ist singulär, wenn im Gauss-Algorithmus Nullzeilen auftreten, 
+also wenn 
+\[
+q-2 = 0 \quad \text{bzw.} \quad q=2
+\]
+ ist. Da auch der zugehörige Eintrag der rechten Seite
+verschwindet liegt hier folglich der Fall \textit{unendlich viele Lösungen} vor.
+\item
+Im singulären Fall ($q=2$) hat das Gleichungssystem zwei linear unabhängige Zielen, womit der Rang also 2 ist.
+\item 
+Um die Lösungsmenge des Gleichungssystem für den regulären Fall zu bestimmen, nehmen 
+wir an, dass $q\neq 2$ ist und führen den Gauss-Algorithmus zu Ende.
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1 &  -4 &  -1  & -7 \\
+ 0 &   1 & 0   & 2\\
+ 0 &   0 & q-2 & 0 \\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1 &  -4 &  0  & -7 \\
+ 0 &   1 & 0   & 2\\
+ 0 &   0 & 1 & 0 \\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1 &  0 &  0  & 1 \\
+ 0 &   1 & 0   & 2\\
+ 0 &   0 & 1 & 0 \\
+\hline
+\end{tabular}
+\end{align*}
+Daraus kann jetzt die Lösungsmenge abgelesen werden:
+\[
+\mathbb L =\left\{
+\begin{pmatrix}
+a\\
+b\\
+c 
+\end{pmatrix}
+=
+\begin{pmatrix}
+1\\
+2\\
+0 
+\end{pmatrix}
+\right\}.
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Durchführung der Vorwärtsreduktion des Gauss-Algorithmus ({\bf V}) 2 Punkte,
+Bedingung für Singularität inkl. Art der Singularität und Bestimmung des Wertes für $q$ ({\bf Q}) 1 Punkt,
+Bestimmung des Ranges ({\bf R}) 1 Punkt,
+Durchführung des Rückwärtseinsetzen des Gauss-Algorithmus ({\bf G}) 1 Punkte,
+Bestimmung der Lösung ({\bf L}) 1 Punkt,
+\end{bewertung}
+
+

@@ -1,0 +1,217 @@
+Über einem gleichseitigen Fünfeck in der $x$-$y$-Ebene mit Umkreisradius $1$ 
+wird eine Doppelpyramide errichtet, wodurch ein Dekaeder (10-seitiges Polyeder) entsteht.
+Alle Kanten des Dekaeders haben die gleiche Länge und die Spitzen der Pyramiden befinden sich
+in den Punkten 
+\[
+\left(0,0,\frac{\sqrt{5}-1}{2}\right) \qquad \text{und}\qquad
+\left(0,0,-\frac{\sqrt{5}-1}{2}\right).
+\]
+
+\begin{center}
+\begin{tikzpicture}[thick,>=latex]
+\begin{scope}[xshift=-3.7cm]
+\node at (0,0) {\includeagraphics[width=6.8cm]{left.jpg}};
+\node at (-3.5,-0.8) {$x$};
+\node at (2.3,-1.55) {$y$};
+\node at (0,3.65) {$z$};
+\node at (1.6,-1.5) {$A$};
+\node at (0.3,1.9) {$B$};
+\end{scope}
+\begin{scope}[xshift=3.7cm]
+\node at (0,0) {\includeagraphics[width=6.8cm]{right.jpg}};
+\node at (-3.5,-0.8) {$x$};
+\node at (2.3,-1.55) {$y$};
+\node at (0,3.65) {$z$};
+\node at (2.4,0.2) {$A'$};
+\node at (0.7,-0.4) {$B'$};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\begin{teilaufgaben}
+\item
+Finden Sie eine Abbildungsmatrix $M$, die das Dekaeder links im Bild auf das
+Dekaeder rechts im Bild abbildet.
+\item
+Handelt es sich bei der gefundenen Abbildungsmatrix $M$ um eine Drehmatrix?
+Falls ja, berechnen sie den Drehwinkel der Drehmatrix.
+\end{teilaufgaben}
+
+\thema{Abbildungsmatrix}
+\thema{orthogonale Matrix}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Die gesuchte Abbildungsmatrix $M$ bildet die Standardbasis-Vektoren wie folgt ab:
+\[
+\begin{aligned}
+\vec e_1&\mapsto \begin{pmatrix}0\\0\\1\end{pmatrix},
+&
+\vec e_2&\mapsto \begin{pmatrix}-1\\0\\0\end{pmatrix},
+&&\text{und}
+&
+\vec e_3&\mapsto \begin{pmatrix}0\\1\\0\end{pmatrix}.
+\end{aligned}
+\]
+Folglich ist
+\[
+M
+=
+\begin{pmatrix}
+0 & -1 & 0\\
+0 & 0 & 1\\
+1 & 0 & 0
+\end{pmatrix}.
+\]
+Statt den Standardbasis-Vektoren hätte man auch andere Punkte verwenden können.
+Die Abbildungsmatrix $M$ bildet die Spitze $\left(0,0,\frac{\sqrt{5}-1}{2}\right)$ auf 
+$\left(0,\frac{\sqrt{5}-1}{2},0\right)$ ab und $A = (0,1,0)$ auf $A'=(-1,0,0)$.
+Um die Abbildungsmatrix zu bestimmen brauchen wir aber noch einen 
+weiteren Punkt. Man liest aus dem Bild ab, dass 
+\[
+  \vec c = \begin{pmatrix}\cos(\alpha)\\ \sin(\alpha)\\0 \end{pmatrix}
+  \quad\text{mit}\quad \alpha = \dfrac{\pi}{2}-\dfrac{2\pi}{5} = \dfrac{\pi}{10}
+\]
+abgebildet wird auf 
+\[
+  \vec c\,' = \begin{pmatrix}-\sin(\alpha)\\ 0\\\cos(\alpha) \end{pmatrix}.
+\]
+Wir haben also die Abbildungen
+\[
+\begin{aligned}
+M
+\underbrace{\begin{pmatrix}
+0 & 0 &\cos(\alpha)\\
+0 & 1 & \sin(\alpha)\\
+\frac{\sqrt{5}-1}{2} &0 & 0
+\end{pmatrix}}_{\displaystyle P}
+&=
+\underbrace{
+\begin{pmatrix}
+0                   &-1&-\sin(\alpha)\\
+\frac{\sqrt{5}-1}{2}& 0&0\\
+0                   & 0&\cos(\alpha)
+\end{pmatrix}}_{\displaystyle P'}
+&&\Rightarrow&
+M
+&=
+P'P^{-1}
+\end{aligned}.
+\]
+Wir berechnen die inverse Matrix mit dem Gauss-Algorithmus
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+0 & 0 &\cos(\alpha)&1&0&0\\
+0 & 1 & \sin(\alpha)&0&1&0\\
+\frac{\sqrt{5}-1}{2} &0 & 0&0&0&1\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+\frac{\sqrt{5}-1}{2} &0 & 0&0&0&1\\
+0 & 1 & \sin(\alpha)&0&1&0\\
+0 & 0 &\cos(\alpha)&1&0&0\\
+\hline
+\end{tabular}\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1 &0 & 0&0&0&\frac{2}{\sqrt{5}-1}\\
+0 & 1 & \sin(\alpha)&0&1&0\\
+0 & 0 &\cos(\alpha)&1&0&0\\
+\hline
+\end{tabular}\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1 &0 & 0&0&0&\frac{2}{\sqrt{5}-1}\\
+0 & 1 & 0&-\frac{\sin(\alpha)}{\cos(\alpha)}&1&0\\
+0 & 0 &1&\frac{1}{\cos(\alpha)}&0&0\\
+\hline
+\end{tabular}
+\end{align*}
+Kontrolle:
+\[
+\begin{pmatrix}
+0 & 0 &\cos(\alpha)\\
+0 & 1 & \sin(\alpha)\\
+\frac{\sqrt{5}-1}{2} &0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+0&0&\frac{2}{\sqrt{5}-1}\\
+-\frac{\sin(\alpha)}{\cos(\alpha)}&1&0\\
+\frac{1}{\cos(\alpha)}&0&0\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{pmatrix}.
+\]
+Daraus erhalten wir, wie bereits oben, die Matrix 
+\[
+M=
+\begin{pmatrix}
+0                   &-1&-\sin(\alpha)\\
+\frac{\sqrt{5}-1}{2}& 0&0\\
+0                   & 0&\cos(\alpha)
+\end{pmatrix}
+\begin{pmatrix}
+0&0&\frac{2}{\sqrt{5}-1}\\
+-\frac{\sin(\alpha)}{\cos(\alpha)}&1&0\\
+\frac{1}{\cos(\alpha)}&0&0\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&-1&0\\
+0&0&1\\
+1&0&0
+\end{pmatrix}.
+\]
+\item
+Die Abbildungsmatrix $M$ ist eine Drehmatrix falls gilt: $MM^t= E $ und $\det(M) = 1$.
+Wir berechnen also diese beiden Ausdrücke:
+\[
+MM^t = 
+\begin{pmatrix}
+0&-1&0\\
+0&0&1\\
+1&0&0
+\end{pmatrix}
+\begin{pmatrix}
+0&0&1\\
+-1&0&0\\
+0 &1&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0 &0&1
+\end{pmatrix} = E
+\]
+\[
+\det(M) = 
+\begin{vmatrix}
+0&-1&0\\
+0&0&1\\
+1&0&0
+\end{vmatrix}
+= 
+1\cdot(-1)\cdot 1 = -1.
+\]
+Da $\det(M) = -1 \neq 1$ ist, ist die Abbildungsmatrix $M$ folglich keine Drehmatrix.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Abbildungspunkte $A$ und Spitze ({\bf A}) 1 Punkt,
+Dritter Abbildungspunkt ({\bf D}) 1 Punkt,
+Ermittlung der Abbildungsmatrix ({\bf M}) 2 Punkte,
+Bedingungen für Drehmatrix ({\bf B}) 1 Punkt,
+Berechnung und Schlussfolgerung ({\bf S}) 1 Punkt.
+\end{bewertung}
+

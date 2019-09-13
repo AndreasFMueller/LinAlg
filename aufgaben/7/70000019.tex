@@ -1,0 +1,137 @@
+Können Sie die Matrix
+\[
+A=\begin{pmatrix}
+16& 16a&-12\\
+16a&16a^2+9&-12a-27\\
+-12& -12a-27&139
+\end{pmatrix}
+\]
+als Produkt $A=BB^t$ schreiben? Geben Sie eine mögliche Matrix $B$ an.
+
+\thema{Cholesky-Zerlegung}
+
+\begin{loesung}
+Wir verwenden den Algorithmus für die Cholesky-Zerlegung. Er liefert eine 
+untere Dreiecksmatrix $L$ mit $A = LL^t$.
+
+Im ersten Schritt versucht man die erste Spalte von $L$ zu bestimmen.
+\[
+LL^t=
+\begin{pmatrix}
+l_{11}&  0&  0\\
+l_{21}&  ?&  0\\
+l_{31}&  ?&  ?
+\end{pmatrix}
+\begin{pmatrix}
+l_{11}&l_{21}&l_{31}\\
+     0&     ?&     ?\\
+     0&     0&     ?
+\end{pmatrix}
+=
+\begin{pmatrix}
+    l_{11}^2&l_{11}l_{21}&l_{11}l_{31}\\
+l_{21}l_{11}&           *&           *\\
+l_{31}l_{11}&           *&           *
+\end{pmatrix}
+=
+A
+\qquad\Rightarrow\qquad
+\left\{
+\begin{aligned}
+l_{11}&=4\\
+l_{21}&=4a\\
+l_{31}&=-3
+\end{aligned}
+\right.
+\]
+Diese Daten können wir jetzt verwenden, um die zweite Spalte zu bestimmen:
+\[
+LL^t
+=
+\begin{pmatrix}
+4&     0&0\\
+4a&l_{22}&0\\
+-3&l_{32}&?
+\end{pmatrix}
+\begin{pmatrix}
+4&    4a&    -3\\
+0&l_{22}&l_{32}\\
+0&     0&?
+\end{pmatrix}
+=
+\begin{pmatrix}
+16&16a           &          -12\\
+16a&16a^2+l_{22}^2  &-12a+l_{22}l_{32}\\
+-12&-12a+l_{32}l_{22}&         *
+\end{pmatrix}
+=
+A
+\qquad\Rightarrow\qquad
+\left\{
+\begin{aligned}
+l_{22}&=3\\
+l_{32}&=-9
+\end{aligned}
+\right.
+\]
+Somit bleibt nur noch das Element $l_{33}$ zu bestimmen:
+\[
+LL^t=
+\begin{pmatrix}
+4&     0&0\\
+4a&3&0\\
+-3&-9&l_{33}
+\end{pmatrix}
+\begin{pmatrix}
+4&    4a&    -3\\
+0&3&-9\\
+0&     0&l_{33}
+\end{pmatrix}
+=
+\begin{pmatrix}
+16&16a           &          -12\\
+16a&16a^2+9  &-12a-27\\
+-12&-12a-27&  9+81+l_{33}^2
+\end{pmatrix}
+=
+A
+\qquad\Rightarrow\qquad
+l_{33}=7
+\]
+Die gesuchte Matrix $B$ ist also
+\[
+B = L=
+\begin{pmatrix}
+4&     0&0\\
+4a&3&0\\
+-3&-9&7
+\end{pmatrix}.
+\]
+Kontrolle:
+\[
+\begin{pmatrix}
+4&     0&0\\
+4a&3&0\\
+-3&-9&7
+\end{pmatrix}
+\begin{pmatrix}
+4&    4a&    -3\\
+0&3&-9\\
+0&     0&7
+\end{pmatrix}
+=
+\begin{pmatrix}
+16& 16a&-12\\
+16a&16a^2+9&-12a-27\\
+-12& -12a-27&139
+\end{pmatrix}.
+\qedhere
+\]
+\end{loesung}
+
+\begin{bewertung}
+Cholesky-Zerlegung ({\bf C}) 1 Punkt,
+Pro richtigem nicht verschwindendem Matrix-Element in $B$ ein Punkt,
+maximal 6 Punkte.
+\end{bewertung}
+

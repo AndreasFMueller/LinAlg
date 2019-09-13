@@ -1,0 +1,223 @@
+Am Golf von Thailand gibt es direkt am Strand ein kleines idyllisches 
+Restaurant, welches von der Besitzerin Pi-Gop mit viel Herzblut geführt wird. 
+Sie möchte ihre Oase nun etwas aufbessern und zu diesem Zweck am Strand eine
+Sonnenuhr bauen. Um herauszufinden wie sie die Stundenskala zeichnen muss,
+steckt sie einen langen Stab so in den Sand, dass er genau nach Norden zeigt 
+und einen Neigungswinkel von $\varphi = 30^\circ$ hat (siehe Abbildung links).
+Der Stab ragt nun noch $1\,$m zum Boden heraus. Zudem Stellt sie $1\,$m vom Stab 
+entfernt auf einer Höhe von $0.8\,$m (Punkt $P$ in Abbildung links) eine Kamera auf,
+welche eine Brennweite von $f=150$ hat und einen $320\times240$-Chip. Die Ausrichtung 
+der Kamera ist durch die Drehmatrix
+\[
+D
+=
+\begin{pmatrix}
+-1     &    0  &       0\\
+0 &   0.5  &  0.866\\
+0 &   0.866 &  -0.5\\
+\end{pmatrix}
+\]
+gegeben.
+\begin{center}
+\definecolor{CadetRed}	{cmyk}{0,1,1,0.290}
+\tikzset{
+					MyPersp/.style={scale=1,x={(-1.1cm,-0.94cm)},y={(1.598cm,-0.596cm)},
+				z={(0cm,1.55cm)}}
+					}
+
+\begin{tikzpicture}[thick,>=latex]
+
+
+\begin{scope}[xshift=-4cm,MyPersp]
+\node at (0,0) {\includeagraphics[height=5.5cm,trim={0.5cm 0 0.5cm 0},clip]{uhr9.jpg}};
+
+\node[below]at (1.5,0,0){Osten / $x$};
+\node[below] at (0,1.5,0) {Norden/ $y$};
+\node[above] at (0,0,1.6){$z$};
+
+\draw[black,dashed](0,0,0)--++(0,-0.87,0)--++(0,0,0.68);
+\shade [ball color=CadetRed] (0,-0.87,0.68) circle (2pt)node[left=1pt]{$P$};
+
+
+\begin{scope}[canvas is yz plane at x=0]
+
+\draw[black](0.7,0)arc(0:30:0.7) node [below=0.5pt,xshift=-3pt] {$\varphi$};
+\draw[black,dashed](0.8,0)--(0,0)--({0.8*cos(30)},{0.8*sin(30)});
+
+\end{scope}
+
+\end{scope}
+
+\begin{scope}[xshift=2cm,yshift=0.5cm]
+
+\def\dx{320};
+\def\dy{240};
+\def\s{3.5};
+
+\node at (0,0) {\includeagraphics[height=\s cm]{view8.jpg}};
+
+\draw[CadetRed,->]({\dx/2*(\s/\dy)},{-\dy/2*(\s/\dy)})--++(-1.5,0)node[below]{$x$};
+\draw[CadetRed,->]({\dx/2*(\s/\dy)},{-\dy/2*(\s/\dy)})--++(0,1.5)node[right]{$y$};
+
+\draw[CadetRed,fill]({\dx/2*(\s/\dy)},{-\dy/2*(\s/\dy)})++({-225*(\s/\dy)},{136*(\s/\dy)})circle(1pt)node[above left=-3pt]{$B_8$};
+
+% \draw[CadetRed,fill]({\dx/2*(\s/\dy)},{-\dy/2*(\s/\dy)})++({-197*(\s/\dy)},{137*(\s/\dy)})circle(1pt)node[left]{$B_9$};
+
+
+\end{scope}
+
+\begin{scope}[xshift=7.5cm,yshift=0.5cm]
+
+\def\dx{320};
+\def\dy{240};
+\def\s{3.5};
+
+\node at (0,0) {\includeagraphics[height=\s cm]{view9.jpg}};
+
+\draw[CadetRed,->]({\dx/2*(\s/\dy)},{-\dy/2*(\s/\dy)})--++(-1.5,0)node[below]{$x$};
+\draw[CadetRed,->]({\dx/2*(\s/\dy)},{-\dy/2*(\s/\dy)})--++(0,1.5)node[right]{$y$};
+
+% \draw[CadetRed,fill]({\dx/2*(\s/\dy)},{-\dy/2*(\s/\dy)})++({-225*(\s/\dy)},{136*(\s/\dy)})circle(1pt)node[left]{$B_8$};
+
+\draw[CadetRed,fill]({\dx/2*(\s/\dy)},{-\dy/2*(\s/\dy)})++({-197*(\s/\dy)},{137*(\s/\dy)})circle(1pt)node[above left=-3pt]{$B_9$};
+
+
+\end{scope}
+
+\end{tikzpicture}
+\end{center}
+Pi-Gop hat die Kamera so programmiert, dass sie ab 7 Uhr morgens bis 17 Uhr abends zu jeder vollen
+Stunde ein Bild von der Sonnenuhr macht. In jedem der aufgenommenen Bilder (Abbildungen rechts) 
+liest Pi-Cop nun die Pixelkoordinaten $B_i$ des Stab-Endes ab. 
+\begin{teilaufgaben}
+ \item
+ Für die Uhrzeiten 8 Uhr und 9 Uhr hat Pi-Cop die Pixelkoordinaten $B_8 = (225, 136 )$ und 
+ $B_9 = (197, 137)$ abgelesen.
+ Berechnen Sie die den Winkel zwischen diesen beiden Stundenlinien.
+ \item
+ Um 12 Uhr steht die Sonne genau senkrecht über der Sonnenuhr. Berechnen Sie die Länge des Schattens,
+ welchen der Stab erzeugt.
+\end{teilaufgaben}
+
+\begin{hinweis}
+Berechnen Sie die Matrizen- und Vektoroperationen mit dem Taschenrechner.
+\end{hinweis}
+
+\thema{Kamerageometrie}
+\thema{Zwischenwinkel}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Kameramatrix $K$ kann aus den Aufgabendaten abgelesen werden, sie ist
+\[
+K
+=
+\begin{pmatrix}
+150&  0&160\\
+  0&150&120\\
+  0&  0&  1
+\end{pmatrix}
+\]
+und das Kamerazentrum entspricht dem Punkt $P$
+\[
+\vec c = \vec p = 
+\begin{pmatrix}
+0\\ -1\\ 0.8
+\end{pmatrix}.
+\]
+Zunächst müssen wir aus den Punkten $B_8$ und $B_9$ dreidimensionale Vektoren
+in homogenen Koordinaten machen, also
+\[
+\begin{aligned}
+\vec b_8 &= \begin{pmatrix}225\\136\\1\end{pmatrix}
+&&\text{und}&
+\vec b_9 &= \begin{pmatrix}197\\137\\1\end{pmatrix}.
+\end{aligned}
+\]
+Mit der Formel $\vec{r} = (KD)^{-1} \vec b$ können wir zu jedem Punkt
+den Richtungsvektor
+\[
+\begin{aligned}
+\vec r_8
+&=
+\begin{pmatrix}
+-0.4333 \\
+\phantom{-}0.9194 \\
+-0.4076
+\end{pmatrix}
+&&\text{und}&
+\vec r_9 &= 
+\begin{pmatrix}
+-0.2467 \\
+\phantom{-}0.9227 \\
+-0.4019
+\end{pmatrix}
+\end{aligned}
+\]
+der Geraden von der Kamera in $P$ aus zu den Punkten $S_8$ bzw. $S_9$ berechnen.
+
+Der Punkt $S_8$ liegt auf der Ebene mit $z=0$ und erfüllt die
+Gleichung $\vec s_8 = \vec {p} + t_8\vec{r}_8$.
+Wir kennen die $z$-Koordinate von $\vec{p}$, sie ist $0.8$.
+Die $z$-Koordinate muss daher folgende Gleichung erfüllen:
+\[
+0.8 + t_8\cdot (-0.4076) = 0
+\qquad\Rightarrow\qquad
+t_8 = \frac{-0.8}{-0.4076}=1.9625.
+\]
+
+Analog gilt $\vec s_9 = \vec {p} + t_9\vec{r}_9$
+Die $z$-Koordinate davon ist wiederum
+\[
+0.8 + t_9\cdot (-0.4019) = 0
+\qquad\Rightarrow\qquad
+t_9 = \frac{-0.8}{-0.4019}=1.9907.\]
+
+Einsetzen der Werte für $t_8$ und $t_9$ ergibt
+\[
+\begin{aligned}
+S_8&=(-0.8504, 0.8043, 0)
+&&\text{und}&
+S_9&=(-0.4910, 0.8368, 0)
+\end{aligned}
+\]
+für die beiden Punkte. 
+
+Der Winkel zischen den beiden Stundenlinien 8 Uhr und 9 Uhr kann 
+nun mit der Zwischenwinkelformel berechnet werden:
+\begin{align*}
+\cos\alpha
+&=
+\frac{\overrightarrow{s_8}\cdot\overrightarrow{s_9}}{|\overrightarrow{s_8}|\cdot|\overrightarrow{s_9}|}
+=
+\frac{\begin{pmatrix}-0.8504\\ 0.8043\\ 0\end{pmatrix}
+\cdot\begin{pmatrix}-0.4910\\ 0.8368\\ 0\end{pmatrix}}
+{|\overrightarrow{s_8}|\cdot|\overrightarrow{s_9}|}
+=
+\frac{1.0906}{1.1705\cdot 0.9703} = 0.9603,
+\\
+\Rightarrow\qquad
+\alpha
+&=
+16.1937^\circ.
+\qedhere
+\end{align*}
+\item
+Die Länge des Schattens um 12 Uhr entspricht der Projektion des ''Stab''-Vektors
+\[
+  \vec s = \begin{pmatrix} 0\\ \cos(30^\circ) \\ \sin(30^\circ) \end{pmatrix}
+  = \begin{pmatrix} 0\\ 0.866 \\ 0.5 \end{pmatrix}
+\]
+auf die $y$-Achse: $l = 0.866\,$m.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Kameramatrix $K$ ({\bf K}) 1 Punkt,
+Punkte $B_i$ in homogenen Koordinaten ({\bf B}) 1 Punkt,
+Richtungsvektoren $\vec{r}_i$ ({\bf R}) 1 Punkt,
+Weltpunkte $S_i$ ({\bf S}) 1 Punkt,
+Zwischenwinkel ({\bf W}) 1 Punkt.
+Länge des Schattens ({\bf L}) 1 Punkt,
+\end{bewertung}
