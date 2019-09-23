@@ -66,7 +66,7 @@ sphere {
 
 arrow(O, P, at, Blau)
 arrow(P, P + r, at, Blau)
-	cylinder{ gerade(-5), gerade(5), at/2
+cylinder{ gerade(-5), gerade(5), at/2
 	pigment {
 		color Blau
 	}
