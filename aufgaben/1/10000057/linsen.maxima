@@ -1,0 +1,20 @@
+T(l) := matrix([1,l],[0,1]);
+B(n1,n2,r) := matrix([1, 0],[(n1/n2 - 1)/r, n1/n2]);
+C(n1,n2) := matrix([1,0],[0,n1/n2]);
+
+v: matrix([10],[0]);
+
+v1: T(23).v;
+v2: expand(C(1,n1).v1);
+v3: expand(T(7).v2);
+v4: expand(B(n1,n2,r).v3);
+v5: expand(T(7).v4);
+v6: expand(C(n2,1).v5);
+v7: expand(T(f-7).v6);
+v8: expand(v7);
+v8[1,1];
+s: solve([v8[1,1] = 0], [f]);
+
+s: subst(1.513, n1, s);
+s: subst(1.623, n2, s);
+s: subst(100, r, s);
