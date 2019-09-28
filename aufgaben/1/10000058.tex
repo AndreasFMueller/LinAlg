@@ -23,7 +23,6 @@ $l=\l\,\text{m}$.
 \draw[color=blue,line width=0.7pt] (-\rone,0) circle[radius=\rone];
 \end{scope}
 \fill[color=white] (-1,-0.5)--(1,-0.5)--(1,0.5)--(-1,0.5)--cycle;
-\fill (0,0) circle[radius=0.1];
 \draw[->,line width=0.7pt] (-13,0)--(3,0) coordinate[label={$x$}];
 
 \begin{scope}
@@ -42,19 +41,20 @@ $l=\l\,\text{m}$.
 	--({sqrt(\rone*\rone-4.0*4.0)-\rone},-4.0)
 	--({-\l+\rtwo*(cos(6)-1)},{-\rtwo*sin(6)})
 	--(2.5,0);
-\fill[color=red] (2.5,0) circle[radius=0.1];
+\fill[color=red] (2.5,0) circle[radius=0.08];
 
-\node at (-\l,0) [below right] {$-\l$};
+\node at ({-\l-0.1},0.08) [below right] {$-\l$};
 \node at (0,0) [below left] {$0$};
-\fill (-\l,0) circle[radius=0.1];
+\fill (-\l,0) circle[radius=0.08];
+\fill (0,0) circle[radius=0.08];
 
-\node at (-2.5,-3.3) [above,rotate=-7] {$r_1 = \rone$};
+\node at (-2.0,-3.34) [above,rotate=-7] {$r_1 = \rone$};
 
 \draw[<-,line width=0.7pt]
 	({-\l+\rtwo*(cos(6)-1)},{\rtwo*sin(6)})
 	--
-	({-\l-\rtwo+(\rtwo+3)*cos(6)},{(\rtwo+3)*sin(6)});
-\node at (-11,0.6) [rotate=6,above] {$r_2=\rtwo$};
+	({-\l-\rtwo+(\rtwo+5)*cos(6)},{(\rtwo+5)*sin(6)});
+\node at (-9,0.75) [rotate=6,above] {$r_2=\rtwo$};
 \node at (2.5,0) [above] {$x_f$};
 
 \node[color=blue] at (-12.396,0) [above left] {$M_2$};

@@ -5,6 +5,12 @@ Brennweiten wie in Abbildung~\ref{10000059:fig} dargestellt.
 \centering
 \begin{tikzpicture}[>=latex]
 \def\okular{12.1}
+\draw[<->,line width=0.7pt] (-1,2)--(-1,-2);
+\node at (-1,0.7) [left] {$D$};
+\draw[line width=0.7pt] (13.1,0.22)--(13.1,-0.22);
+\draw[->,line width=0.7pt] (13.1,0.7)--(13.1,0.2);
+\draw[->,line width=0.7pt] (13.1,-0.7)--(13.1,-0.2);
+\node at (13.1,0.2) [above right] {$d$};
 \draw[color=red,line width=0.7pt]
 	(-2,2)--(0,2)--(11,0)--({\okular},-0.2)--(14.5,-0.2);
 \draw[color=red,line width=0.7pt]
@@ -56,7 +62,7 @@ Berechnen Sie die Brennweite der beiden Linsen.
 In welchem Abstand müssen die Linsen montiert werden, damit parallel
 einfallende Lichtstrahlen auch wieder parallel aus dem System
 austreten.
-Dies nennt man ein {\em afokales} System.
+Dies nennt man dies ein {\em afokales} System.
 Das Auge kann die parallelen Strahlen auf die Netzhaut fokusieren,
 der Benutzer sieht ein scharfes Bild.
 \item
@@ -82,7 +88,7 @@ mit dem Verhältnis der in a) gefundenen Brennweiten.
 
 \begin{loesung}
 Die einzige Unbekannte ist $l$, der Abstand zwischen den Linsen.
-Die Brechung in der Linse $i$ wird beschrieben durch die Transfermatrizen
+Die Brechung in der Linse $i$ wird durch die Transfermatrizen
 \[
 B(1,n,r_i)
 =
@@ -106,7 +112,7 @@ durch die Matrizen
 \[
 T_{d_i} = \begin{pmatrix} 1&d_i\\0&1\end{pmatrix}.
 \]
-Die Transfermatrix der Linse $i$ ist daher das Matrizenprodukt
+Die Transfermatrix $T_i$ der Linse $i$ ist daher das Matrizenprodukt
 \begin{equation}
 T_i
 =
@@ -116,7 +122,7 @@ B(1,n,r_i).
 \label{10000059:linse}
 \end{equation}
 Diese Matrizen sind in allgemeiner Form etwas unhandlich, wir ersetzen
-daher die begkannten Zahlenwerte für $r_i$, $d_i$ und $n$ und erhalten
+daher die bekannten Zahlenwerte für $r_i$, $d_i$ und $n$ und erhalten
 mit Hilfe eines Computer-Algebra-Systems:
 \begin{equation}
 T_1
@@ -151,8 +157,8 @@ Einsetzen der numerischen Werte liefert
 T
 =
 \begin{pmatrix}
-0.97274 - 0.0009783\overline{6} l      & 0.9767\overline{3} l + 10.52 \\
-0.0000098835 l - 0.0108453\overline{6} & 0.9107\overline{3} - 0.009867 l
+0.97274 - 0.0009783\overline{6}\cdot  l      & 0.9767\overline{3}\cdot  l + 10.52 \\
+0.0000098835\cdot  l - 0.0108453\overline{6} & 0.9107\overline{3} - 0.009867\cdot l
 \end{pmatrix}.
 \label{10000059:gesamt}
 \end{equation}
@@ -169,9 +175,9 @@ T_{f_i} T_i\begin{pmatrix}1\\0\end{pmatrix} &= \begin{pmatrix} 0\\?\end{pmatrix}
 Setzen wir die Matrizen $T_i$ aus \eqref{10000059:linsen} ein, erhalten wir
 die Bedingungen
 \begin{align*}
-0.99\overline{6} - 0.000998\overline{3} f_1 &= 0
+0.99\overline{6} - 0.000998\overline{3}\cdot f_1 &= 0
 &
-0.98 - 0.0099 f_2 &= 0
+0.98 - 0.0099\cdot f_2 &= 0
 \\
 f_1 &= 998.33
 &
@@ -189,7 +195,7 @@ T\begin{pmatrix}1\\0\end{pmatrix} = Te_1 = \begin{pmatrix}?\\0\end{pmatrix}.
 Die Bedingung an die erste Komponente des Produktes $Te_1$ ist für die
 Matrix $T$ aus \eqref{10000059:gesamt}
 \begin{align*}
-0.0000098835 l - 0.0108453\overline{6} &= 0
+0.0000098835\cdot l - 0.0108453\overline{6} &= 0
 \\
 l&=1097.3.
 \end{align*}
@@ -203,7 +209,7 @@ Für diese Situation gilt die Gleichung
 \[
 T\begin{pmatrix}D\\0\end{pmatrix}=\begin{pmatrix}d\\0\end{pmatrix}
 \qquad\Rightarrow\qquad
-d = -0.1008417508417506 D,
+d = -0.10084\cdot D,
 \]
 das negative Vorzeichen bedeutet, dass die Strahlen sich kreuzen.
 \item
@@ -218,13 +224,14 @@ Das optische System macht daraus den Strahl, der durch
 T\begin{pmatrix}0\\\alpha\end{pmatrix}
 =
 \begin{pmatrix}
-1082.309460773568 \alpha 
+\phantom{-}
+1082.31\cdot \alpha 
 \\
--9.91652754590985 \alpha
+-9.91653\cdot \alpha
 \end{pmatrix}.
 \]
-Daraus liest man ab, dass der Winkel um den Faktor 9.91 vergrössert
-wird, das Kepler-Teleskop hat also den Vergrösserungsfaktor $9.91$.
+Daraus liest man ab, dass der Winkel um den Faktor $9.92$ vergrössert
+wird, das Kepler-Teleskop hat also $9.92$-fache Vergrösserung.
 \item
 Das Verhältnis der Brennweiten ist
 \[
