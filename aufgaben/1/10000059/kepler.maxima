@@ -1,0 +1,28 @@
+/*
+ * kepler.maxima -- Berechnung eines Kepler-Teleskops
+ *
+ * (c) 2019 Prof Dr Andreas Müller, Hochschule Rapperswil
+ */
+
+B(n1,n2,r) := matrix([ 1, 0 ], [ (n1/n2-1)/r, n1/n2 ] );
+T(x) := matrix([1, x], [0, 1]);
+
+L(n, r, d) := B(n, 1, -r) . T(d) . B(1, n, r);
+
+T1: expand(L(1.5, 1000, 10));
+expand((T(f1).T1)[1,1]);
+T2: expand(L(1.5, 100, 6));
+expand((T(f2).T2)[1,1]);
+
+/* K(l) := L(n, r2, d2) . T(l) . L(n, r1, d1); */
+K(l) := T2 . T(l) . T1;
+
+expand(K(l));
+
+e: solve([K(l)[2,1] = 0], [l]);
+f: float(rhs(e[1]));
+K(f);
+
+K(f).matrix([D],[0]);
+
+K(f).matrix([0],[alpha]);

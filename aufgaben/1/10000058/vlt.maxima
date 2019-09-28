@@ -1,0 +1,30 @@
+T(l) := matrix([1,l],[0,1]);
+B(n1,n2,r) := matrix([1, 0],[(n1/n2-1)/r, n1/n2]);
+
+B1: B(1, -1, -r1);
+B2: B(1, -1, -r2);
+T: T(l+xf).B2.T(-l).B1;
+expand(T);
+
+r1: 28.8;
+r2: 4.553;
+l: 12.396+0.029;
+/* l: l - 0.03; */
+
+B1: B(1, -1, -r1);
+B2: B(1, -1, -r2);
+T: T(l+xf).B2.T(-l).B1;
+expand(T);
+
+v0: matrix([4.1],[0]);
+v1: expand(T.v0);
+
+e: float(solve([v1[1,1] = 0], [xf]));
+f: rhs(e[1]);
+f;
+
+w0: matrix([0],[1]);
+w1: expand(subst(f, xf, T.w0));
+
+
+
