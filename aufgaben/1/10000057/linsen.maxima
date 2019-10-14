@@ -2,7 +2,7 @@ T(l) := matrix([1,l],[0,1]);
 B(n1,n2,r) := matrix([1, 0],[(n1/n2 - 1)/r, n1/n2]);
 C(n1,n2) := matrix([1,0],[0,n1/n2]);
 
-v: matrix([10],[0]);
+v: matrix([1],[0]);
 
 v1: T(23).v;
 v2: expand(C(1,n1).v1);
@@ -18,3 +18,4 @@ s: solve([v8[1,1] = 0], [f]);
 s: subst(1.513, n1, s);
 s: subst(1.623, n2, s);
 s: subst(100, r, s);
+
