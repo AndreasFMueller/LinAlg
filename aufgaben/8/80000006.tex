@@ -1,25 +1,47 @@
-$A$ ist eine $n\times n$-Matrix mit Eigenwerten
+$A$ ist eine $n\times n$-Matrix mit verschiedenen Eigenwerten
 $\lambda_1,\lambda_2,\dots,\lambda_n$.
+\begin{teilaufgaben}
+\item
 Berechnen Sie die Determinante von $A$.
+\item
+Berechnen Sie die Spur von $A$.
+\end{teilaufgaben}
 
 \thema{Determinante}
 \thema{Eigenwerte}
 \thema{Basistransformation}
+\thema{Spur}
 
 \begin{loesung}
 Verwendet man die Eigenvektoren als Basis, gibt es eine Basistransformation
+$T$ derart, dass
 \[
-TAT^{-1}=\operatorname{diag}(\lambda_1,\dots,\lambda_n)
+A'=TAT^{-1}=\operatorname{diag}(\lambda_1,\dots,\lambda_n)
 \]
+\begin{teilaufgaben}
+\item
 Dann ist die Determinante
 \[
-\lambda_1\cdot ... \cdot\lambda_n
+\det(A')
+=
+\lambda_1\cdot \ldots \cdot\lambda_n
 =
 \det(TAT^{-1})
 =
 \det(T)\det(A)\det(T^{-1})
 =
 \det(A).
+\]
+\item
+Ebenso ist die Spur
+\[
+\operatorname{Spur}(A')
+\lambda_1+ \ldots +\lambda_n
+=
+\operatorname{Spur}(TAT^{-1})
+=
+\operatorname{Spur}(A).
 \qedhere
 \]
+\end{teilaufgaben}
 \end{loesung}
