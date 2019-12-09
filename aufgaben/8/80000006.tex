@@ -13,6 +13,8 @@ Berechnen Sie die Spur von $A$.
 \thema{Spur}
 
 \begin{loesung}
+Da die Eigenwerte alle verschieden sind, gibt es $n$ linear unabhängige
+Basisvektoren, also eine Eigenbasis.
 Verwendet man die Eigenvektoren als Basis, gibt es eine Basistransformation
 $T$ derart, dass
 \[
@@ -36,12 +38,16 @@ Dann ist die Determinante
 Ebenso ist die Spur
 \[
 \operatorname{Spur}(A')
+=
 \lambda_1+ \ldots +\lambda_n
 =
 \operatorname{Spur}(TAT^{-1})
 =
 \operatorname{Spur}(A).
-\qedhere
 \]
 \end{teilaufgaben}
+Man beachte, dass man die Eigenbasis und die Transformatioinsmatrix in die
+Eigenbasis gar nicht zu kennen braucht.
+Es genügt zu wissen, dass es diese gibt.
+\qedhere
 \end{loesung}

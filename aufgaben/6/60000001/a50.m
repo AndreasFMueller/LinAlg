@@ -10,7 +10,8 @@ q0 = [ -100; 800; 100 ];
 
 format long
 
-D = drehmatrix(q0 - c, 0)';
+D = drehmatrix(q0 - c, 0)'
+K
 round(1000000*D)/1000000
 
 round(1000000*K*D)/1000000
