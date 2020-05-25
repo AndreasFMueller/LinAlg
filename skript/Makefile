@@ -74,7 +74,12 @@ TEXFILES = linsys.tex 							\
 	applications/matrixoptik/brechungsgesetz.tex			\
 	applications/matrixoptik/transfer.tex				\
 	applications/matrixoptik/linse.tex				\
-	applications/matrixoptik/achromat.tex
+	applications/matrixoptik/achromat.tex				\
+	applications/qam.tex						\
+	applications/qam/amplitudenmodulation.tex			\
+	applications/qam/zweidimensional.tex				\
+	applications/qam/modulation.tex					\
+	applications/qam/demodulation.tex
 
 images:
 	cd images; make

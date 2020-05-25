@@ -1,0 +1,60 @@
+%
+% amplitudenmodulation.tex
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\subsection{Amplitudenmodulation
+\label{subsection:amplitudenmodulation}}
+Die Technik der Amplitudenmodulation geht auf die Anfangszeit des
+Radios zurück.
+Um ein zeitabhängiges Audio-Signal $I(t)$ mit Frequenzen von typischwerweise
+wenigen hundert Herz oder wenigen Kilohertz drahtlos zu übertragen,
+verändert man die Amplitude eines Trägersignals von mehreren hundert
+Kilohertz oder mehr und leitet es zu einer Antenne.
+Diese strahlt dann eine entsprechend oszillierendes elektromagnetisches
+Feld ab, welches von einem Empfänger aufgefangen und wieder hörbar gemacht
+werden kann.
+
+\begin{figure}
+\centering
+\includegraphics{applications/qam/am.pdf}
+\caption{Amplitudenmodulation eines Signals $I(t)$ auf eine
+Trägerfrequenz $\cos\omega t$.
+Die Amplitude des Trägers wird im Takt des Signals verändert.
+\label{figure:qam:am}}
+\end{figure}
+
+In Abbildung~\ref{figure:qam:am} wird die Amplitude des Träger
+$\cos\omega t$ mit der Kreisfrequenz $\omega$ wird im Takt des
+Signals verändert,
+konkret wird der Träger mit $1+I(t)$ multipliziert,
+das übermittelte Signal ist also
+\begin{equation}
+(1+I(t)) \cos\omega t.
+\end{equation}
+Das modulierte Signal ist besonders leicht zu demodulieren.
+Es reicht, das Signal gleichzurichten und verbleibenden Reste
+der Trägerfrequenz sowie die konstente Komponten auszufiltern.
+Die konstante Komponente (der Summand $1$) ist nicht wirklich
+interessant und dient nur einer leichter verständlichen Darstellung
+in Abbildung~\ref{figure:qam:am}, wir werden sie in Zukunft 
+ignorieren und nur noch das modulierte Signal $I(t)\cos\omega t$
+betrachten.
+
+Mit dieser Methode kann man zu jeder Zeit $t$ einen einzelnen
+Wert $I(t)$ übermitteln.
+Für die Praxis ist das schon bei Audiosignalen oft ungenügend, man
+möchte doch mindestens die beiden Stereokanäle eines qualitativ
+hochwertigen Signals übertragen können.
+
+Die zweite Schwierigkeit ist die Frage, warum wir $\cos\omega t$
+dem ebenfalls möglichen Träger $\sin\omega t$ vorziehen sollen.
+Die beiden unterscheiden sich nur um eine Phasenverschiebung
+von $90^\circ$, die für die oben beschriebene Modulation und
+Demodulation bedeutungslos ist.
+
+
+
+
+
+

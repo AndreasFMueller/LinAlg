@@ -1,0 +1,100 @@
+%
+% modulation.tex
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\subsection{Modulation zweidimensionaler Signale
+\label{subsection:modulation}}
+Wir streben jetzt an, ein zweidimensionales Signal
+\[
+\vec{v}(t)
+=
+\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
+\]
+drahtlos zu übertragen und müssen zu diesem Zweck ein geeignetes
+Modulationsverfahren finden.
+
+Mit nur dem einen Signal $I(t)$ würden wir wie vorher $I(t)\cos\omega t$
+wählen.
+Für das zweite Signal $Q(t)$ könnten wir statt des $\cos\omega t$ die
+Funktion $-\sin\omega t$ wählen\footnote{Das Vorzeichen ist hier so 
+gewählt, dass die Formeln, die später herauskommen werden, mit den
+üblichen Konventionen in der Theorie der Quadraturamplitudenmodulation
+übereinstimmen.}, also das modulierte Signal
+$-Q(t)\sin\omega t$ verwenden.
+Natürlich können wir aus den beiden Funktionen $I(t)\cos\omega t$ und
+$-Q(t)\sin\omega t$ auch die Funktionen $I(t)$ und $Q(t)$ zurückgewinnen,
+das reicht aber nicht.
+Dazu brauchen wir nämlich $I(t)\cos\omega t$ und $-Q(t)\sin\omega t$
+unabhängig voneinander, wir brauchen also zwei unabhängig Übertragungskanäle
+für die beidne Signale, was wir vermeiden wollen.
+
+Ein Teil der Funktionen $I(t)$ und $Q(t)$ kann aber aus der Summe
+\[
+s(t)
+=
+I(t)\cos\omega t - Q(t)\sin\omega t
+\]
+rekonstruiert werden.
+An den Stellen $t = k\pi/\omega$ für $k\in\mathbb Z$ verschwindet,
+so dass an diesen Stellen der zweite Summand in $s(t)$ wegfällt.
+Ebenso wird der erste Summand an den Stellen
+$t = (k+\frac12)\pi/\omega$ verschwinden.
+Es ist also
+\[
+s\biggl(k\cdot \frac{\pi}{2\omega}\biggr)
+=
+\begin{cases}
+I(k\cdot \frac{\pi}{2\omega})\cdot(-1)^{\frac{k}2}
+&\qquad \text{$k$ gerade,}\\[5pt]
+Q(k\cdot \frac{\pi}{2\omega})\cdot(-1)^{\frac{k-1}2}
+&\qquad \text{$k$ ungerade.}
+\end{cases}
+\]
+Zu Zeitpunkten, die Vielfache von $\pi/2\omega$ sind, kann man in
+$s(t)$ also die Werte von $I(t)$ und $Q(t)$ ablesen.
+Tatsächlich lernt man im Fach {\em Signale und Systeme}, dass man daraus
+die Funktionen $I(t)$ und $Q(t)$ rekonstruieren kann, wenn sie keine
+Frequenzkomponenten kleiner als die Trägerfrequenz haben.
+Die Summe $s(t)$ ist also etwas, was man potentiell drahtlos übermitteln
+kann, und woraus man die Komponenten $I(t)$ und $Q(t)$ zurückgewinnen kann.
+Man nennt dieses Modulationsverfahren {\em Quadratur-Amplituden-Modulation}.
+
+Da wir über das nötige signaltheoretische Wissen noch nicht verfügen,
+müssen wir eine alternative, geometrische Methode suchen, wie wir
+aus $s(t)$ die Komponenten $I(t)$ und $Q(t)$ wiedergewinnen zu können.
+Dazu beachten wir zunächst, dass wir die Summe $s(t)$ als ein
+Matrizenprodukt hätten bekommen können:
+\[
+s(t)
+=
+\begin{pmatrix}\cos\omega t&-\sin\omega t\end{pmatrix}
+\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}.
+\]
+Die Zeilenmatrix sieht aus wie die erste Ziele einer Drehmatrix
+mit dem Drehwinkel $\omega t$.
+Die Funktion $s(t)$ ist also nur die erste Komponenten eines
+Vektors, der durch Drehung des Vektors $\vec{v}(t)$ um den
+Winkel $\omega t$ gemäss
+\begin{equation}
+\begin{pmatrix} s(t)\\ c(t) \end{pmatrix}
+=
+\underbrace{
+\begin{pmatrix}
+\cos\omega t & -\sin\omega t\\
+\sin\omega t & \phantom{-}\cos\omega t
+\end{pmatrix}}_{\displaystyle D_{\omega t}}
+\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
+=
+D_{\omega t} \vec{v}(t)
+\label{eqn:qam:modulation}
+\end{equation}
+entsteht.
+Das modulierte Signal $s(t)$ ist also nichts anderes als eine
+Komponente eines Vektors der entsteht, indem $\vec{v}(t)$ mit sehr grosser
+Winkelgeschwindigkeit $\omega$ um den Ursprung gedreht wird.
+Wir sind aber insofern nicht weiter, dass wir $I(t)$ und $Q(t)$ noch nicht
+rekonstruieren können.
+
+
+

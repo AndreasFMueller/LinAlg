@@ -1,0 +1,223 @@
+%
+% demodulation.tex -- Demodulation von QAM
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\subsection{Demodulation
+\label{subsection:demodulation}}
+Die modulierten Komponenten $s(t)$ und $c(t)$ entstehen gemäss
+\eqref{eqn:qam:modulation}
+durch eine sehr rasche Drehung $D_{\omega t}\vec{v}(t)$
+des Vektor $\vec{v}(t)$.
+Da die Drehung durch eine Matrix beschrieben wird, können wir
+sie auch wieder rückgängig machen, indem wir mit der inversen
+Matrix
+\[
+D^{-1}_{\omega t} = D_{-\omega t}
+=
+\begin{pmatrix}
+\phantom{-}\cos\omega t & \sin\omega t \\
+         - \sin\omega t & \cos\omega t
+\end{pmatrix}
+\]
+multiplizieren.
+So finden wir
+\[
+D_{\omega t}^{-1}
+\begin{pmatrix}s(t)\\c(t)\end{pmatrix}
+=
+D_{\omega t}^{-1}
+D_{\omega t}
+\begin{pmatrix} I(t)\\Q(t)\end{pmatrix}
+=
+\begin{pmatrix}
+I(t)\\
+Q(t)
+\end{pmatrix}.
+\]
+Es ist also klar, dass man aus $s(t)$ und $c(t)$ die ursprünglichen Signale
+$I(t)$ und $Q(t)$ rekonstruieren kann.
+Allerdings ist auch dies nicht wirklich eine Lösung des Problems.
+Es ist immer noch notwendig, die beiden Funktionen $s(t)$ und $c(t)$
+getrennt zu übertragen, um $I(t)$ und $Q(t)$ wiederzugewinnen.
+
+Wir suchen ein Verfahren, mit dem wir $I(t)$ und $Q(t)$ allein aus
+$s(t)$ zurückgewinnen können.
+Auch für dieses Problem suchen wir eine geometrische Lösung.
+Wir gehen dazu aus von der Gleichung
+\[
+\vec{v}(t)
+=
+D_{-\omega t}\underbrace{D_{\omega t}
+\vec{v}(t)}_{=\begin{pmatrix}s(t)\\c(t)\end{pmatrix}}.
+\]
+Die Tatsache, dass wir $c(t)$ nicht übertragen wollen, können wir dadurch
+abbilden, dass wir in der Gleichung eine Projektionsmatrix $P$
+verwenden, um die Komponeten $c(t)$ zu unterdrücken:
+\[
+P=\begin{pmatrix}1&0\\0&0\end{pmatrix}
+\qquad\Rightarrow\qquad
+P\begin{pmatrix}s(t)\\c(t)\end{pmatrix}
+=
+\begin{pmatrix}s(t)\\0\end{pmatrix}.
+\]
+Durch diese Änderung wird man natürlich nicht mehr $I(t)$ und $Q(t)$ 
+zurückgewinnen können, stattdessen man wird modifizierte Funktionen
+$\hat{I}(t)$ und $\hat{Q}(t)$ erhalten.
+Das ganze Übertragung\-system könnte daher mit dem Matrizenprodukt
+\[
+\begin{pmatrix}
+\hat{I}(t)\\
+\hat{Q}(t)
+\end{pmatrix}
+=
+D_{-\omega t} \begin{pmatrix}s(t)\\0\end{pmatrix}
+=
+D_{-\omega t} P D_{\omega t}\vec{v}(t)
+\]
+Wegen
+\[
+D_{-\omega t}P
+=
+\begin{pmatrix}
+\phantom{-}\cos\omega t & 0 \\
+         - \sin\omega t & 0
+\end{pmatrix}
+\]
+bedeutet das
+\begin{align*}
+\hat{I}(t) &= \phantom{-}\cos\omega t s(t),\\
+\hat{Q}(t) &= -\sin\omega t s(t).
+\end{align*}
+Wir bezeichnen den Vektoren mit diesen Komponenten als
+\[
+\hat{v}(t) = \begin{pmatrix}\hat{I}(t)\\\hat{Q}(t)\end{pmatrix}.
+\]
+Der Vektor ist also, was von der Rekonstruktion nach dem Wegfallen
+der Komponente $c(t)$ noch übrig bleibt.
+
+Wie unterschieden sich $\hat{I}(t)$ und $\hat{Q}(t)$ von $I(t)$ und $Q(t)$?
+Dazu berechnen wir
+\begin{align*}
+D_{-\omega t}PD_{\omega t}
+&=
+\begin{pmatrix}
+\phantom{-}\cos\omega t & \sin\omega t \\
+         - \sin\omega t & \cos\omega t
+\end{pmatrix}
+\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}
+\begin{pmatrix}
+\cos\omega t &          - \sin\omega t \\
+\sin\omega t & \phantom{-}\cos\omega t
+\end{pmatrix}
+\\
+&=
+\begin{pmatrix}
+ \cos^2\omega t           & -\cos\omega t \sin\omega t \\
+-\cos\omega t \sin\omega t&\sin^2\omega t
+\end{pmatrix}
+=
+\frac12
+\begin{pmatrix}
+1+\cos 2\omega t &  -\sin 2\omega t \\
+ -\sin 2\omega t & 1-\cos 2\omega t
+\end{pmatrix}
+\\
+&=
+\frac12 E + \frac12
+\begin{pmatrix}
+ \cos 2\omega t & -\sin 2\omega t \\
+-\sin 2\omega t & -\cos 2\omega t
+\end{pmatrix}.
+\end{align*}
+Nach der Rekonstruktion bleiben also zwei Komponenten
+\[
+\hat{v}(t)
+=
+\frac12\vec{v}(t)
++
+\frac12
+\begin{pmatrix}
+\phantom{-}\cos 2\omega t & -\sin 2\omega t \\
+         - \sin 2\omega t & -\cos 2\omega t
+\end{pmatrix}\vec{v}(t).
+\]
+Die erste Komponente ist bis auf den Faktor $\frac12$ der gesuchte
+Vektor $\vec{v}(t)$.
+Doch was ist die zweite Komponente?
+Die Matrix kann man auch schreiben als
+\begin{align*}
+\begin{pmatrix}
+\phantom{-}\cos2\omega t&-\sin2\omega t\\
+         - \sin2\omega t&-\cos2\omega t
+\end{pmatrix}
+&=
+\underbrace{
+\begin{pmatrix}
+1& 0\\
+0&-1
+\end{pmatrix}}_{\displaystyle = S}
+\begin{pmatrix}
+\cos2\omega t &          - \sin2\omega t \\
+\sin2\omega t & \phantom{-}\cos2\omega t
+\end{pmatrix}
+=
+\begin{pmatrix}
+1& 0\\
+0&-1
+\end{pmatrix}
+D_{2\omega t},
+\end{align*}
+bis auf die Spiegelungsmatrix $S$ handelt es sich also wieder um eine
+Drehung.
+Zusammen finden wir
+\begin{equation}
+\hat{v}(t)
+=
+\frac12 \vec{v}(t)
++
+\frac12 SD_{2\omega t}\vec{v}(t).
+\label{eqn:qam:filter}
+\end{equation}
+
+Gehen wir davon aus, dass die Bewegung des Vektors $\vec{v}(t)$ in
+der $I$-$Q$-Ebene sehr viel langsamer ist als die Drehung mit der
+Winkelgeschwindigkeit $2\omega$, dann können wir den zweiten Term
+näherungsweise eliminieren.
+Um dies zu verstehen, nehmen wir an, dass $\vec{v}(t)$ während eines
+Zeitintervalls der Länge $L=\pi/\omega$ konstant ist ist.
+Wir bezeichnen Mittelwerte über das Intervall mit dem Buchstaben $M$.
+Wir beachten dann, dass der zweite Term in \eqref{eqn:qam:filter}
+für dieses Zeitintervall die gleichförmige Drehung des Vektors
+um den Nullpunkt beschreibt.
+Der Mittelwert der zweiten Komponente über das Intervall verschwindet daher:
+\[
+M\frac12SD_{2\omega t}\vec{v}(t)
+=
+0
+\]
+Die erste Komponente von \eqref{eqn:qam:filter} ist während des Intervalls
+konstant, ihr Mittelwert ist daher
+\[
+M\frac12\vec{v}(t)
+=
+\frac12\vec{v}(t)
+\]
+Wir finden daher den Mittelwert
+\[
+M\hat{v}(t)
+=
+\frac12\vec{v}(t),
+\]
+bis auf den Faktor $\frac12$ also $\vec{v}(t)$ rekonstruiert.
+Verändert sich $\vec{v}(t)$ während des Intervalls um einen Betrag
+kleiner als $\varepsilon$, dann kommt ein Fehler hinzu, der ebenfalls
+von der Grössenordnung $\varepsilon$ ist.
+
+In praktischen Anwendungen ist die Frequenz des Trägers mehrere
+Grössenordnungen grösser als die typischen Frequenzen in $I(t)$ 
+und $Q(t)$, die Annahme, dass sich $\vec{v}(t)$ während einer halben
+Trägerperiode nicht ändert, ist daher mit grosser Genauigkeit erfüllt.
+Die Mittelwertbildung wird technisch mit Hilfe eines Tiefpassfilters
+realisiert.
+
