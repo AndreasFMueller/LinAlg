@@ -41,6 +41,7 @@ Allerdings ist auch dies nicht wirklich eine Lösung des Problems.
 Es ist immer noch notwendig, die beiden Funktionen $s(t)$ und $c(t)$
 getrennt zu übertragen, um $I(t)$ und $Q(t)$ wiederzugewinnen.
 
+\subsubsection{Demodulation mit Trigonometrie}
 Wir suchen ein Verfahren, mit dem wir $I(t)$ und $Q(t)$ allein aus
 $s(t)$ zurückgewinnen können.
 Auch für dieses Problem suchen wir eine geometrische Lösung.
@@ -75,6 +76,7 @@ D_{-\omega t} \begin{pmatrix}s(t)\\0\end{pmatrix}
 =
 D_{-\omega t} P D_{\omega t}\vec{v}(t)
 \]
+beschrieben werden.
 Wegen
 \[
 D_{-\omega t}P
@@ -89,11 +91,11 @@ bedeutet das
 \hat{I}(t) &= \phantom{-}\cos\omega t s(t),\\
 \hat{Q}(t) &= -\sin\omega t s(t).
 \end{align*}
-Wir bezeichnen den Vektoren mit diesen Komponenten als
+Wir bezeichnen den Vektor mit diesen Komponenten als
 \[
 \hat{v}(t) = \begin{pmatrix}\hat{I}(t)\\\hat{Q}(t)\end{pmatrix}.
 \]
-Der Vektor ist also, was von der Rekonstruktion nach dem Wegfallen
+Der Vektor ist also das, was von der Rekonstruktion nach dem Wegfallen
 der Komponente $c(t)$ noch übrig bleibt.
 
 Wie unterschieden sich $\hat{I}(t)$ und $\hat{Q}(t)$ von $I(t)$ und $Q(t)$?
@@ -180,6 +182,78 @@ Zusammen finden wir
 \label{eqn:qam:filter}
 \end{equation}
 
+\subsubsection{Demodulation mit Matrixalgebra}
+In der vorangegangenen Herleitung der Formel~\eqref{eqn:qam:filter}
+haben wir ausgiebig von trigonometrischen Formeln gebrauch gemacht.
+Wir können die Formel auber auch eine viel geometrischere Art verstehen.
+Dazu schreiben wir die Projektionsmatrix $P$ als eine Summe
+\[
+P
+=
+\begin{pmatrix}1&0\\0&0\end{pmatrix}
+=
+\begin{pmatrix}\frac12+\frac12&0\\0&\frac12-\frac12\end{pmatrix}
+=
+\frac12\begin{pmatrix}1&0\\0&1\end{pmatrix}
++
+\frac12\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+=
+\frac12E+\frac12S.
+\]
+Damit wird
+\[
+D_{-\omega t}PD_{\omega t}
+=
+\frac12D_{-\omega t}ED_{\omega t}
++
+\frac12D_{-\omega t}SD_{\omega t}
+=
+\frac12E
++
+\frac12D_{-\omega t}SD_{\omega t}.
+\]
+Wir wollen das Produkt $D_{-\omega t}S$ geometrisch verstehen und
+modifizieren.
+Die Matrix $S$ spiegelt Vektoren an der $I$-Achse, die Matrix $D_{-\omega t}$
+dreht Vektoren um den Winkel $-\omega t$
+(Abbildung~\ref{figure:qam:spiegelung}).
+\begin{figure}
+\centering
+\includegraphics{applications/qam/spiegelung.pdf}
+\caption{Vertauschungsregel für die Drehmatrizen $D_{\pm\omega t}$ und
+die Matrix $S$ der Spiegelung an der $I$-Achse.
+\label{figure:qam:spiegelung}}
+\end{figure}
+Zusammen bewirken sie dasselbe wie eine Drehung um $\omega t$ gefolgt
+von einer Spiegelung an der $I$-Achse, also
+\[
+D_{-\omega t}S=SD_{\omega t}.
+\]
+Damit erhalten wir
+\[
+D_{-\omega t}PD_{\omega t}
+=
+\frac12E + \frac12 SD_{2\omega t},
+\]
+woraus wieder die Formel~\eqref{eqn:qam:filter}
+für $\hat{v}(t)$ folgt.
+
+\subsubsection{Filterung des Trägers}
+\begin{figure}
+\centering
+\includegraphics{applications/qam/filter.pdf}
+\caption{Filterung des Trägers aus~\eqref{eqn:qam:filter}
+links für ein konstantes Signal $\vec{v}(t)=\vec{v}(0)$, rechts
+für ein langsam veränderliches Signal.
+Zur besseren Lesbarkeit sind rechts die Komponenten
+$\frac12\vec{v}(t)$ oben und $\frac12SD_{2\omega t}\vec{v}(t)$
+unten getrennt.
+Der Mittelwerte $M\frac12SD_{2\omega t}$ ist der Beitrag des
+zweiten Terms zum Mittelwert und sehr nahe beim Nullpunkt,
+die Mittelung über ein Periodenintervall des Trägers bringt die
+Trägerkomponente also fast vollständig zum Verschwinden.
+\label{figure:qam:filter}}
+\end{figure}
 Gehen wir davon aus, dass die Bewegung des Vektors $\vec{v}(t)$ in
 der $I$-$Q$-Ebene sehr viel langsamer ist als die Drehung mit der
 Winkelgeschwindigkeit $2\omega$, dann können wir den zweiten Term
@@ -196,12 +270,13 @@ M\frac12SD_{2\omega t}\vec{v}(t)
 =
 0
 \]
+(siehe auch Abbildung~\ref{figure:qam:filter} links).
 Die erste Komponente von \eqref{eqn:qam:filter} ist während des Intervalls
 konstant, ihr Mittelwert ist daher
 \[
 M\frac12\vec{v}(t)
 =
-\frac12\vec{v}(t)
+\frac12\vec{v}(t).
 \]
 Wir finden daher den Mittelwert
 \[
@@ -211,7 +286,8 @@ M\hat{v}(t)
 \]
 bis auf den Faktor $\frac12$ also $\vec{v}(t)$ rekonstruiert.
 Verändert sich $\vec{v}(t)$ während des Intervalls um einen Betrag
-kleiner als $\varepsilon$, dann kommt ein Fehler hinzu, der ebenfalls
+kleiner als $\varepsilon$ (Abbildung~\ref{figure:qam:filter} rechts),
+dann kommt ein Fehler hinzu, der ebenfalls
 von der Grössenordnung $\varepsilon$ ist.
 
 In praktischen Anwendungen ist die Frequenz des Trägers mehrere
@@ -220,4 +296,80 @@ und $Q(t)$, die Annahme, dass sich $\vec{v}(t)$ während einer halben
 Trägerperiode nicht ändert, ist daher mit grosser Genauigkeit erfüllt.
 Die Mittelwertbildung wird technisch mit Hilfe eines Tiefpassfilters
 realisiert.
+
+\subsubsection{Demodulationsfehler}
+Bis jetzt sind wir davon ausgegangen, dass wir die Frequenz und die
+Phase des Trägersignals genau kennen.
+Doch dies ist nicht korrekt.
+Die Demodulation erfolgt im Empfänger, wo die Matrix $D_{\omega t}$
+neu erzeugt werden muss.
+Dabei kann es zu Fehlern in der Frequenz kommen.
+Die Demodulation erfolgt also mit einer Matrix $D_{\omega_rt}$
+mit einer möglicherweise von der Sendefrequenz $\omega$
+abweichenden Frequenz $\omega_r=\omega+\Delta\omega$.
+Das decodierte Signal ist dann
+\begin{equation}
+\begin{aligned}
+\hat{v}(t)
+&=
+D_{-\omega_rt}PD_{\omega t}\vec{v}(t)
+=
+D_{-(\omega+\Delta\omega)t} ({\textstyle\frac12}E+{\textstyle\frac12}S)
+D_{\omega t}\vec{v}(t)
+=
+\frac12D_{-\Delta\omega t}\vec{v}(t)
++
+\frac12D_{-(\omega+\Delta\omega)t}SD_{\omega t}\vec{v}(t)
+\\
+&=
+\frac12 D_{-\Delta\omega t}\vec{v}(t)
++
+\frac12 SD_{(\omega +\Delta\omega) t}D_{\omega t}\vec{v}(t)
+=
+\frac12 D_{-\Delta\omega t}\vec{v}(t)
++
+\frac12 SD_{(2\omega +\Delta\omega) t}\vec{v}(t)
+\end{aligned}
+\label{eqn:qam:demoomegar}
+\end{equation}
+Bei der Filterung des Trägers verschwindet der zweite Term.
+Die Demodulation liefert also nicht den Vektor $\vec{v}(t)$, vielmehr
+rotiert der demodulierte Vektor mit der Winkelgeschwindigkeit $\Delta\omega$.
+
+Korrekte Demodulation ist also nur möglich, wenn Sender und Empfänger exakt
+die gleiche Frequenz verwenden.
+Der Empfänger kann versuchen, die korrekte Frequenz aus dem empfangenen
+Signal zu extrahieren, oder Sender und Empfänger können ein hochgenaues
+Frequenznormal verwenden.
+Ein Rubidium-Frequenznormal stellt eine Referenz-Frequenz mit einem
+typischen relativen Fehler kleiner als $10^{-9}$ zur Verfügung,
+Bei einem Trägersignal im typischen Bereich der Mobiltelefonie (Grössenordnung
+$~1\,\text{GHz}$) resultiert also weniger als eine Umdrehung von $\hat{v}(t)$
+pro Sekunde.
+
+Selbst wenn Sender und Empfänger hochgenaue Frequenzreferenzen verwenden,
+wenn man also annehmen darf, dass $\omega_r=\omega$,
+ist noch nicht sichergestellt, dass auch die Phase übereinstimmt.
+Die Demodulation könnte mit einer phasenverschobenen Drehmatrix
+$D_{\omega t+\delta}$ erfolgen.
+Die selbe Rechnung wie in \eqref{eqn:qam:demoomegar} liefert dann
+\[
+\hat{v}(t)
+=
+\frac12D_{-\delta}\vec{v}(t)
++
+\frac12SD_{\delta+2\omega t}\vec{v}(t).
+\]
+Bei der Filter fällt auch hier der zweite Term weg, der demodulierte
+Vektor ist aber um den Winkel $-\delta$ verdreht.
+Um dies zu vermeiden muss der Sender dem Empfänger die genaue Phase
+irgendwie mitteilen.
+Technische Möglichkeiten dazu werden in den nachstehenden Beispielen
+kurz angesprochen.
+
+
+
+
+
+
 

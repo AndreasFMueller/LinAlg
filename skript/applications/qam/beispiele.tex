@@ -1,0 +1,216 @@
+%
+% beispiele.tex
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\subsection{Beispiele
+\label{subsection:qam:beispiele}}
+Die Quadratur-Amplituden-Modulation ermöglicht, im Vergleich zur
+Trägerfrequenz langsam veränderliche zweidimensionale Signale zu
+übertragen und wieder zu rekonstruieren.
+Der besondere Nutzen dieser Technik ist jedoch, dass sie viele
+ältere Modulationsverfahren als Spezialfälle enthält, wie in
+diesem Abschnitt gezeigt werden soll.
+
+\subsubsection{Amplitudenmodulation}
+Amplitudenmodulation konnten wir verstehen, bevor wir $Q(t)$ kannten,
+sie ist der Spezialfall $Q(t)=0$.
+
+\subsubsection{Frequenzmodulation}
+Bei der Frequenzmodulation des UKW-Radios wird die Trägerfrequenz
+im Takt des zu übertragenden Tonsignals verändert.
+Lässt sich dies auch mit Hilfe der Signale $I(t)$ und $Q(t)$
+beschreiben?
+Das ausgestrahlte Signal $s(t)$ entsteht als erste Komponente
+des Vektors $D_{\omega t}\vec{v}(t)$.
+Für konstantes $\vec{v}(t)$ oszilliert es mit der Kreisfrequenz $\omega$.
+Will man, dass es schneller oszilliert, dann muss man den Vektor
+$\vec{v}(t)$ zusätzlich drehen, was man natürlich wieder mit einer
+Drehmatrix machen kann.
+Möchten wir die Frequenz um $\alpha$  steigern, dann müssen wir
+statt eines konstanten Vektors $\vec{v}_0=(1,0)^t$ den gedrehten
+Vektor $D_{\alpha t}\vec{v}_0$, was auf das modulierte Signal
+\[
+\begin{pmatrix}
+s(t)\\c(t)
+\end{pmatrix}
+=
+D_{\omega t}D_{\alpha t}\vec{v}_0
+=
+D_{(\omega+\alpha)t}\vec{v}_0
+=
+\begin{pmatrix}
+\cos(\omega+\alpha)t 
+\\
+\dots
+\end{pmatrix}.
+\]
+Daraus liest man ab, dass für die Signale $I(t)$ und $Q(t)$
+\begin{equation}
+\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
+=
+D_{\alpha t}\vec{v}_0
+\qquad\Rightarrow\qquad
+\left\{
+\quad
+\begin{aligned}
+I(t)&=\cos\alpha t\\
+Q(t)&=\sin\alpha t.
+\end{aligned}
+\right.
+\end{equation}
+Insbesondere kann man auch die Frequenzmodulation mit der
+Quadratur-Amplituden-Modulation realisieren.
+
+\subsubsection{Analoges Farbfernsehen}
+Die Entwicklung des analogen Farbfernsehens sah sich vor die Aufgabe 
+gestellt, zusätzlich zur bereits im Schwarz-Weiss-Fernsehen übertragenen
+Helligkeit (Luminanz, Y), zusätzlich die Farbinformation zu übermitteln.
+Üblich ist dabei die Verwendung des YUV-Farbraumes, für den die zusätzlichen
+Signale $U=R-V$ und $V=B-V$ benötigt werden.
+Für ein farbloses Bild sind $U=0$ und $V=0$.
+
+Das Problem ist also, zusätzlich zum Luminanzbild, welches bereits
+amplitudenmoduliert übertragen wird, den Farbvektor $(U,V)^t$ zu
+übertragen.
+Es liegt daher nahe, dafür die Quadratur-Amplituden-Modulation zu
+verwenden.
+Im in Europa üblichen PAL-System wurde für den Träger für das Farbsignal
+die Frequenz 4.43361875\,MHz verwendet.
+Da ein Phasenfehler im Empfänger zu einer Drehung des Farbvektors
+und damit zu einer Verschiebung der Farben auf dem Farbkreis führen
+würde, muss der Sender dem Empfänger die genaue Phase mitteilen.
+Am Anfang jeder Zeile wird daher eine etwa zehn Perioden langer ``PAL-Burst''
+übermittelt, den der Empfänger dazu verwenden kann, die Phase des
+Farbträgers zu bestimmen.
+
+Zusätzlich invertiert das PAL-System die Phase des Farbträgers
+aufeinanderfolgender Zeilen, so dass sich Farbfehler durch Phasenfehler
+auf aufeinanderfolgenden Zeilen wegmitteln.
+Im PAL-System steht also Farbinformation jeweils nur für Paare von Zeilen
+zur Verfügung und nur mit der Dichte, die durch die Frequenz des Farbträgers
+limitiert ist.
+Die effektive Farbauflösung eines PAL-Farbfernsehbildes ist daher halb so
+gross wie die Helligkeitsauflösung.
+Da auch die Farbauflösung des menschlichen Auges kleiner ist als die
+Helligkeitsauflösung, ist diese Einschränkung des Systems von Auge nicht 
+erkennbar.
+
+\subsubsection{FSK und PSK}
+Für die digitale Signalübertragung braucht man minimal die Fähigkeit,
+zwei Zustände zu übermitteln, die man aber exakt wiedererkennnen können muss.
+Frequency-Shift-Keying (FSK) ist ein Verfahren, welches zwei digitale Zustände
+durch verschiedene Frequenzen codiert, es ist also ein
+Frequenzmodulationsverfahren, von dem im vorangegangenen Abschnitt
+bereits gezeigt wurde, wie es mit der Quadratur-Amplituden-Modulation
+realisierbar ist.
+
+Phase-Shift-Keying (PSK) verwendet stattdessen eine Phasenverschiebung
+des Tragersignals.
+Eine Phasenverschiebung um den Winkel $\varphi$ kann realisiert werden,
+indem man eine Drehung um den Winkel $\varphi$ vorschaltet, also die
+Drehmatrix $D_{\varphi}$ einfügt.
+Besonders einfach ist eine Phasenverschiebung um den Winkel
+$\varphi=180^\circ$, 
+\[
+D_{\varphi}
+=
+\begin{pmatrix}
+\cos180^\circ&          - \sin180^\circ \\
+\sin180^\circ& \phantom{-}\cos180^\circ
+\end{pmatrix}
+=
+-E.
+\]
+Diese Phasenverschiebung wird also realisiert dadurch, dass man das
+Vorzeichen von $I$ und $Q$ ändert.
+Verwendet man den Vektor $(1,0)^t$ zur Codierung einer logischen
+$\texttt{0}$, dann codiert der Vektor $(-1,0)^t$ eine logische $\texttt{1}$.
+Auch PSK ist also mit Quadratur-Amplituden-Modulation realisierbar.
+
+\subsubsection{Quantisierte QAM}
+Mit Quadratur-Amplituden-Modulation lässt sich ein beliebiger Vektor
+in der $I$-$Q$-Ebene übertragen.
+Bei PSK waren dies die Punkte $(1,0)$  und $(-1,0)$ in der $I$-$Q$-Ebene
+verwendet.
+Nach der Demodulation erhält man Vektoren, die wegen Fehlern nicht
+exakt mit den ursprünglichen Vektoren übereinstimmen.
+Da man aber nur die beiden logischen Zustände unterscheiden können muss,
+kann man alle Vektoren mit $I>0$ als logische \texttt{0} decodieren
+und Vektoren mit $I<0$ als logische \texttt{1}.
+
+Statt nur zwei Zustände \texttt{0} und \texttt{1} zu codieren, könnte man
+ein grössere Zahl von Punkten in der $I$-$Q$-Ebene verwenden, wie in
+Abbildung~\ref{figure:qam:konstellation} dargestellt.
+Die Punkte werden auch {\em Symbole} genannt.
+Ein empfangener Vektor wird wegen Übertragungsfehlern nicht exakt mit
+dem ursprünglichen Vektor übereinstimmen.
+Zur Decodierung suchen wir dasjenige Symbol, welches dem Vektor am
+nächsten liegt.
+Man teilt also die Ebene in Teilgebiete $T_{\vec{v}_k}\subset \mathbb R^2$
+zu jedem Symbol $\vec{v}_k$ auf.
+Fällt der empfangene Vektor $\hat{v}$ in das Teilgebiet des Symbols
+$\vec{v}_k$, also $\hat{v}\in T_{\vec{v}_k}$, dann codieren wir ihn
+als das Symbol $\vec{v}_k$.
+
+\begin{figure}
+\centering
+\includegraphics{applications/qam/konstellation.pdf}
+\caption{Konstellationsdiagramm für quantisierte QAM mit 16 verschiedenen
+Symbolen.
+Mit jedem Symbol werden vier Bit codiert.
+Zu jedem Symbol gehört ein quadratisches Gebiet gleicher Farbe.
+Fällt der empfangene Vektor in eines dieser Gebiet, wird er als
+das zugehörige Symbol decodiert.
+\label{figure:qam:konstellation}}
+\end{figure}
+
+Im Beispiel der Abbildung~\ref{figure:qam:konstellation} können 16 
+verschiedene Vektoren unterschieden werden, die man mit vierstelligen
+Binärzahlen identifizieren kann.
+Mit jedem Symbol werden also vier Bit übertragen.
+Dieses Verfahren heisst auch 16-QAM und wird bei DVB-T verwendet.
+
+Die Punkte-Menge $\vec{v}_k$ heisst auch die {\em Konstellation}
+des Verfahrens.
+Durch feinere Aufteilung können mehr Bits pro Symbol übertragen werden,
+wie in Tabelle~\ref{table:qam:xqam} zusammengstellt.
+
+\begin{table}
+\centering
+\begin{tabular}{rrcrl}
+\hline
+Bits&Symbole&Konstellation&Name&Anwendung\\
+\hline
+   2&      4& $2\times 2$ &   4-QAM&DVB-S       \\
+   4&     16& $4\times 4$ &   8-QAM&V.29, DVB-T \\
+   6&     64& $8\times 8$ &  16-QAM&DVB-C, DVB-T\\
+   8&    256&$16\times 16$& 256-QAM&DVB-C       \\
+  10&   1024&$32\times 32$&1025-QAM&            \\
+  12&   4096&$64\times 64$&4096-QAM&DVB-C2, G.hn\\
+\hline
+\end{tabular}
+\caption{Verschiedene Konstellationen für quantisierte QAM mit Anwendungen.
+\label{table:qam:xqam}}
+\end{table}
+
+\subsubsection{Software Defined Radio}
+Die vorangegangenen Beispiele haben illustriert, dass die
+Quadraturamplitudenmodulation jedes besprochene Modulationsverfahren
+realisieren kann.
+Es ist nur nötig, einen Sender zu bauen, der Inputs $I(t)$ und $Q(t)$
+entgegennimmt, die Modulation mit der Matrix $D_{\omega t}$ vornimmt
+und das resultierende Signal $s(t)$ aussendet.
+Auf der Empfängerseite braucht man eine physikalische Realisierung
+der Matrix $D_{\omega_r t}$ und des Tiefpasses, der die demodulierten
+Signal $\hat{I}(t)$ und $\hat{Q}(t)$ ausgibt.
+Die Decodierung zum Beispiel als amplitudenoduliertes Sprachsignal,
+als frequenzmoduliertes Musiksignal oder als digitales 16-QAM-Signal
+kann danach ausschliesslich in Software erfolgen.
+Die Modulationsart eines solchen sogenannten {\em Software Defined Radio (SDR)}
+wird also durch die Software definiert, welche die Signale $I(t)$ und $Q(t)$
+erzeugt bzw.~die Signale $\hat{I}(t)$ und $\hat{Q}(t)$ analysiert.
+
+
+
+

@@ -79,7 +79,8 @@ TEXFILES = linsys.tex 							\
 	applications/qam/amplitudenmodulation.tex			\
 	applications/qam/zweidimensional.tex				\
 	applications/qam/modulation.tex					\
-	applications/qam/demodulation.tex
+	applications/qam/demodulation.tex				\
+	applications/qam/beispiele.tex
 
 images:
 	cd images; make
@@ -101,3 +102,6 @@ clean:
 
 checklist.pdf:	checklist.tex
 	pdflatex checklist.tex
+
+sdr.pdf:	skript.pdf
+	pdfjam --outfile sdr.pdf skript.pdf 223-234
