@@ -27,19 +27,45 @@ $-Q(t)\sin\omega t$ auch die Funktionen $I(t)$ und $Q(t)$ zurückgewinnen,
 das reicht aber nicht.
 Dazu brauchen wir nämlich $I(t)\cos\omega t$ und $-Q(t)\sin\omega t$
 unabhängig voneinander, wir brauchen also zwei unabhängig Übertragungskanäle
-für die beidne Signale, was wir vermeiden wollen.
+für die beiden Signale, was wir vermeiden wollen.
 
-Ein Teil der Funktionen $I(t)$ und $Q(t)$ kann aber aus der Summe
+\begin{figure}
+\centering
+\includegraphics{applications/qam/sep.pdf}
+\caption{Rekonstruktion der Signal $I(t)$ (oben) und $Q(t)$ (Mitte)
+aus der Summe $s(t) = I(t)\cos\omega t - Q(t)\sin\omega t$ (unten).
+Die Nullstellen von $\cos\omega t$ sind durch feine blaue Linien 
+dargestellt, die Nullstellen von $\sin\omega t$ durch feine rote Linien.
+Der Graph von $s(t)$ ist jeweils mit der Farbe eingefärbt, die den
+dominanten Beitrag repräsentiert.
+Blaue Segmente im Graphen von $s(t)$ bedeuten, dass vor allem der Wert
+von $Q(t)$ zum Wert beiträgt, dies geschieht in der Umgebung von
+Nullstellen von $\cos\omega t$, in roten Segmenten ist es der Wert von
+$I(t)$ in der Nähe von Nullstellen von $\sin\omega t$.
+Fette Punkte auf dem Graphen von $s(t)$ markieren Punkte bei den
+genannten Nullstellen.
+Die leeren Punkte sind Werte von $s(t)$, die um das Vorzeichen des
+Trägeres korrigiert wurden, sie liegen genau auf dem Graphen der
+ursprünglichen Signale $I(t)$ und $Q(t)$.
+Die untersten zwei Graphen zeigen die rekonstruierten Signale
+$\hat{I}(t)=s(t) \cos\omega t$ und $\hat{Q}(t) = -s(t) \sin\omega t$, 
+welche in Abschnitt~\ref{subsection:demodulation} erklärt werden.
+\label{figure:qam:sep}}
+\end{figure}
+
+Einzelne Werte der Funktionen $I(t)$ und $Q(t)$ können aber aus der Summe
 \[
 s(t)
 =
 I(t)\cos\omega t - Q(t)\sin\omega t
 \]
 rekonstruiert werden.
-An den Stellen $t = k\pi/\omega$ für $k\in\mathbb Z$ verschwindet,
+An den Stellen $t = k\pi/\omega$ für $k\in\mathbb Z$ verschwindet
+der Faktor $\sin\omega t$,
 so dass an diesen Stellen der zweite Summand in $s(t)$ wegfällt.
 Ebenso wird der erste Summand an den Stellen
 $t = (k+\frac12)\pi/\omega$ verschwinden.
+Dieser Sachverhalt ist in Abbildung~\ref{figure:qam:sep} dargestellt.
 Es ist also
 \[
 s\biggl(k\cdot \frac{\pi}{2\omega}\biggr)
@@ -51,8 +77,8 @@ Q(k\cdot \frac{\pi}{2\omega})\cdot(-1)^{\frac{k-1}2}
 &\qquad \text{$k$ ungerade.}
 \end{cases}
 \]
-Zu Zeitpunkten, die Vielfache von $\pi/2\omega$ sind, kann man in
-$s(t)$ also die Werte von $I(t)$ und $Q(t)$ ablesen.
+Zu Zeitpunkten, die Vielfache von $\pi/2\omega$ sind, kann man also aus
+$s(t)$ die Werte von $I(t)$ und $Q(t)$ ablesen.
 Tatsächlich lernt man im Fach {\em Signale und Systeme}, dass man daraus
 die Funktionen $I(t)$ und $Q(t)$ rekonstruieren kann, wenn sie keine
 Frequenzkomponenten kleiner als die Trägerfrequenz haben.

@@ -32,9 +32,24 @@ das übermittelte Signal ist also
 \begin{equation}
 (1+I(t)) \cos\omega t.
 \end{equation}
-Das modulierte Signal ist besonders leicht zu demodulieren.
+Ein so moduliertes Signal ist besonders leicht zu demodulieren.
 Es reicht, das Signal gleichzurichten und verbleibenden Reste
 der Trägerfrequenz sowie die konstente Komponten auszufiltern.
+Ein
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\node at (0,0) {\includegraphics{applications/qam/detektor.pdf}};
+\node at (8,0) {\includegraphics[width=6cm]{applications/qam/detektor.jpg}};
+\end{tikzpicture}
+\caption{Ein Detektorradio besteht aus einem einstellbaren
+Schwingkreis zur Auswahl der Trägerfrequenz, einer Diode zur
+Gleichrichtung und einem Kondensator zur Filterung der Überreste
+des Trägers.
+Bei starken Sendern kann das niederfrequente Tonsignal ohne
+Verstärkung mit einem Kopfhörer abgehört werden.
+\label{figure:qam:detektor}}
+\end{figure}
 Die konstante Komponente (der Summand $1$) ist nicht wirklich
 interessant und dient nur einer leichter verständlichen Darstellung
 in Abbildung~\ref{figure:qam:am}, wir werden sie in Zukunft 

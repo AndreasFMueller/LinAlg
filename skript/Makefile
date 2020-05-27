@@ -103,5 +103,5 @@ clean:
 checklist.pdf:	checklist.tex
 	pdflatex checklist.tex
 
-sdr.pdf:	skript.pdf
-	pdfjam --outfile sdr.pdf skript.pdf 223-234
+sdr.pdf:	skript.pdf Makefile
+	pdfjam --outfile sdr.pdf skript.pdf 223-238

@@ -43,8 +43,9 @@ D_{(\omega+\alpha)t}\vec{v}_0
 \cos(\omega+\alpha)t 
 \\
 \dots
-\end{pmatrix}.
+\end{pmatrix}
 \]
+führt.
 Daraus liest man ab, dass für die Signale $I(t)$ und $Q(t)$
 \begin{equation}
 \begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
@@ -55,10 +56,11 @@ D_{\alpha t}\vec{v}_0
 \quad
 \begin{aligned}
 I(t)&=\cos\alpha t\\
-Q(t)&=\sin\alpha t.
+Q(t)&=\sin\alpha t
 \end{aligned}
 \right.
 \end{equation}
+gilt.
 Insbesondere kann man auch die Frequenzmodulation mit der
 Quadratur-Amplituden-Modulation realisieren.
 
@@ -67,7 +69,7 @@ Die Entwicklung des analogen Farbfernsehens sah sich vor die Aufgabe
 gestellt, zusätzlich zur bereits im Schwarz-Weiss-Fernsehen übertragenen
 Helligkeit (Luminanz, Y), zusätzlich die Farbinformation zu übermitteln.
 Üblich ist dabei die Verwendung des YUV-Farbraumes, für den die zusätzlichen
-Signale $U=R-V$ und $V=B-V$ benötigt werden.
+Signale $U=R-Y$ und $V=B-Y$ benötigt werden, die Farbinformation codieren.
 Für ein farbloses Bild sind $U=0$ und $V=0$.
 
 Das Problem ist also, zusätzlich zum Luminanzbild, welches bereits
@@ -78,8 +80,8 @@ verwenden.
 Im in Europa üblichen PAL-System wurde für den Träger für das Farbsignal
 die Frequenz 4.43361875\,MHz verwendet.
 Da ein Phasenfehler im Empfänger zu einer Drehung des Farbvektors
-und damit zu einer Verschiebung der Farben auf dem Farbkreis führen
-würde, muss der Sender dem Empfänger die genaue Phase mitteilen.
+und damit zu einer auffälligen Verschiebung der Farben auf dem Farbkreis
+führen würde, muss der Sender dem Empfänger die genaue Phase mitteilen.
 Am Anfang jeder Zeile wird daher eine etwa zehn Perioden langer ``PAL-Burst''
 übermittelt, den der Empfänger dazu verwenden kann, die Phase des
 Farbträgers zu bestimmen.
@@ -88,8 +90,8 @@ Zusätzlich invertiert das PAL-System die Phase des Farbträgers
 aufeinanderfolgender Zeilen, so dass sich Farbfehler durch Phasenfehler
 auf aufeinanderfolgenden Zeilen wegmitteln.
 Im PAL-System steht also Farbinformation jeweils nur für Paare von Zeilen
-zur Verfügung und nur mit der Dichte, die durch die Frequenz des Farbträgers
-limitiert ist.
+zur Verfügung und nur mit einer Dichte, die durch die Frequenz des Farbträgers
+begrenzt ist.
 Die effektive Farbauflösung eines PAL-Farbfernsehbildes ist daher halb so
 gross wie die Helligkeitsauflösung.
 Da auch die Farbauflösung des menschlichen Auges kleiner ist als die
@@ -131,7 +133,7 @@ Auch PSK ist also mit Quadratur-Amplituden-Modulation realisierbar.
 \subsubsection{Quantisierte QAM}
 Mit Quadratur-Amplituden-Modulation lässt sich ein beliebiger Vektor
 in der $I$-$Q$-Ebene übertragen.
-Bei PSK waren dies die Punkte $(1,0)$  und $(-1,0)$ in der $I$-$Q$-Ebene
+Bei PSK wurden nur die Punkte $(1,0)$  und $(-1,0)$ in der $I$-$Q$-Ebene
 verwendet.
 Nach der Demodulation erhält man Vektoren, die wegen Fehlern nicht
 exakt mit den ursprünglichen Vektoren übereinstimmen.
@@ -150,7 +152,7 @@ nächsten liegt.
 Man teilt also die Ebene in Teilgebiete $T_{\vec{v}_k}\subset \mathbb R^2$
 zu jedem Symbol $\vec{v}_k$ auf.
 Fällt der empfangene Vektor $\hat{v}$ in das Teilgebiet des Symbols
-$\vec{v}_k$, also $\hat{v}\in T_{\vec{v}_k}$, dann codieren wir ihn
+$\vec{v}_k$, also $\hat{v}\in T_{\vec{v}_k}$, dann decodieren wir ihn
 als das Symbol $\vec{v}_k$.
 
 \begin{figure}
@@ -175,6 +177,8 @@ Die Punkte-Menge $\vec{v}_k$ heisst auch die {\em Konstellation}
 des Verfahrens.
 Durch feinere Aufteilung können mehr Bits pro Symbol übertragen werden,
 wie in Tabelle~\ref{table:qam:xqam} zusammengstellt.
+Abbildung~\ref{figure:qam:analyzer} zeigt, wie sich die Messung eines 256-QAM 
+Signals auf einem Vector Signal Analyzer darstellt.
 
 \begin{table}
 \centering
@@ -186,13 +190,38 @@ Bits&Symbole&Konstellation&Name&Anwendung\\
    4&     16& $4\times 4$ &   8-QAM&V.29, DVB-T \\
    6&     64& $8\times 8$ &  16-QAM&DVB-C, DVB-T\\
    8&    256&$16\times 16$& 256-QAM&DVB-C       \\
-  10&   1024&$32\times 32$&1025-QAM&            \\
+  10&   1024&$32\times 32$&1024-QAM&            \\
   12&   4096&$64\times 64$&4096-QAM&DVB-C2, G.hn\\
 \hline
 \end{tabular}
 \caption{Verschiedene Konstellationen für quantisierte QAM mit Anwendungen.
 \label{table:qam:xqam}}
 \end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=1.0\hsize]{applications/qam/analyzer.png}
+\caption{Messung des Konstellationsdiagramms eines 256-QAM Signals
+mit einem Vector Signal Analyzer.
+Man beachte die Beschriftung der Achsen mit \texttt{I} und \texttt{Q}.
+(Ausschnitt aus dem Video \url{https://www.youtube.com/watch?v=uV3O3tpjmS8}
+bei 26:36).
+\label{figure:qam:analyzer}}
+\end{figure}
+
+\subsubsection{$n$-PSK}
+Analog zum Vorgehen bei der quantisierten QAM kann auch PSK diskretisiert
+werden.
+Als Konstellationsdiagramm für $n$-PSK dienen $n$ Punkte auf einem Kreis,
+die durch einen Winkel $2\pi/n$ getrennt sind.
+In Abbildung~\ref{figure:qam:psk} ist das Konstellationsdiagramm für
+$8$-PSK dargestellt.
+\begin{figure}
+\centering
+\includegraphics{applications/qam/psk.pdf}
+\caption{Konstellationsdiagramm für 8-PSK 
+\label{figure:qam:psk}}
+\end{figure}
 
 \subsubsection{Software Defined Radio}
 Die vorangegangenen Beispiele haben illustriert, dass die

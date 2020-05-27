@@ -27,7 +27,7 @@ D_{\omega t}^{-1}
 \begin{pmatrix}s(t)\\c(t)\end{pmatrix}
 =
 D_{\omega t}^{-1}
-D_{\omega t}
+D_{\omega t}^{\mathstrut}
 \begin{pmatrix} I(t)\\Q(t)\end{pmatrix}
 =
 \begin{pmatrix}
@@ -132,7 +132,9 @@ D_{-\omega t}PD_{\omega t}
 -\sin 2\omega t & -\cos 2\omega t
 \end{pmatrix}.
 \end{align*}
-Nach der Rekonstruktion bleiben also zwei Komponenten
+Im zweiteletzten Schritt haben wir die Doppelwinkelformeln für
+die trigonometrischen Funktionen verwendet.
+Nach der Rekonstruktion bleiben also zwei Terme
 \[
 \hat{v}(t)
 =
@@ -144,9 +146,9 @@ Nach der Rekonstruktion bleiben also zwei Komponenten
          - \sin 2\omega t & -\cos 2\omega t
 \end{pmatrix}\vec{v}(t).
 \]
-Die erste Komponente ist bis auf den Faktor $\frac12$ der gesuchte
+Der erste Term ist bis auf den Faktor $\frac12$ der gesuchte
 Vektor $\vec{v}(t)$.
-Doch was ist die zweite Komponente?
+Doch was ist der zweite Term?
 Die Matrix kann man auch schreiben als
 \begin{align*}
 \begin{pmatrix}
@@ -171,21 +173,28 @@ Die Matrix kann man auch schreiben als
 D_{2\omega t},
 \end{align*}
 bis auf die Spiegelungsmatrix $S$ handelt es sich also wieder um eine
-Drehung.
-Zusammen finden wir
+Drehung, allerdings mit der doppelten Frequenz.
+Beides zusammen kann kurz als
 \begin{equation}
 \hat{v}(t)
 =
 \frac12 \vec{v}(t)
 +
-\frac12 SD_{2\omega t}\vec{v}(t).
+\frac12 SD_{2\omega t}\vec{v}(t)
 \label{eqn:qam:filter}
 \end{equation}
+geschrieben werden.
+
+Die untersten zwei Graphen in Abbildung~\ref{figure:qam:sep} zeigen
+die Komponenten $\hat{I}(t)$ und $\hat{Q}(t)$.
+Es ist gut erkennbar, wie sie sich zusammensetzen aus $\frac12I(t)$ 
+bzw.~$\frac12Q(t)$ überlagert mit einer Schwingung mit der doppelten
+Frequenz des Trägers.
 
 \subsubsection{Demodulation mit Matrixalgebra}
 In der vorangegangenen Herleitung der Formel~\eqref{eqn:qam:filter}
-haben wir ausgiebig von trigonometrischen Formeln gebrauch gemacht.
-Wir können die Formel auber auch eine viel geometrischere Art verstehen.
+haben wir ausgiebig von trigonometrischen Formeln Gebrauch gemacht.
+Wir können die Formel aber auch auf eine viel geometrischere Art verstehen.
 Dazu schreiben wir die Projektionsmatrix $P$ als eine Summe
 \[
 P
@@ -245,10 +254,10 @@ für $\hat{v}(t)$ folgt.
 \caption{Filterung des Trägers aus~\eqref{eqn:qam:filter}
 links für ein konstantes Signal $\vec{v}(t)=\vec{v}(0)$, rechts
 für ein langsam veränderliches Signal.
-Zur besseren Lesbarkeit sind rechts die Komponenten
+Zur besseren Lesbarkeit sind rechts die Terme
 $\frac12\vec{v}(t)$ oben und $\frac12SD_{2\omega t}\vec{v}(t)$
 unten getrennt.
-Der Mittelwerte $M\frac12SD_{2\omega t}$ ist der Beitrag des
+Der Mittelwerte $\mathcal{M}\frac12SD_{2\omega t}$ ist der Beitrag des
 zweiten Terms zum Mittelwert und sehr nahe beim Nullpunkt,
 die Mittelung über ein Periodenintervall des Trägers bringt die
 Trägerkomponente also fast vollständig zum Verschwinden.
@@ -260,27 +269,27 @@ Winkelgeschwindigkeit $2\omega$, dann können wir den zweiten Term
 näherungsweise eliminieren.
 Um dies zu verstehen, nehmen wir an, dass $\vec{v}(t)$ während eines
 Zeitintervalls der Länge $L=\pi/\omega$ konstant ist ist.
-Wir bezeichnen Mittelwerte über das Intervall mit dem Buchstaben $M$.
+Wir bezeichnen Mittelwerte über das Intervall mit dem Buchstaben $\mathcal{M}$.
 Wir beachten dann, dass der zweite Term in \eqref{eqn:qam:filter}
 für dieses Zeitintervall die gleichförmige Drehung des Vektors
 um den Nullpunkt beschreibt.
-Der Mittelwert der zweiten Komponente über das Intervall verschwindet daher:
+Der Mittelwert des zweiten Terms über das Intervall verschwindet daher:
 \[
-M\frac12SD_{2\omega t}\vec{v}(t)
+\mathcal{M}\frac12SD_{2\omega t}\vec{v}(t)
 =
 0
 \]
 (siehe auch Abbildung~\ref{figure:qam:filter} links).
-Die erste Komponente von \eqref{eqn:qam:filter} ist während des Intervalls
+Der erste Term von \eqref{eqn:qam:filter} ist während des Intervalls
 konstant, ihr Mittelwert ist daher
 \[
-M\frac12\vec{v}(t)
+\mathcal{M}\frac12\vec{v}(t)
 =
 \frac12\vec{v}(t).
 \]
 Wir finden daher den Mittelwert
 \[
-M\hat{v}(t)
+\mathcal{M}\hat{v}(t)
 =
 \frac12\vec{v}(t),
 \]
@@ -350,8 +359,8 @@ pro Sekunde.
 Selbst wenn Sender und Empfänger hochgenaue Frequenzreferenzen verwenden,
 wenn man also annehmen darf, dass $\omega_r=\omega$,
 ist noch nicht sichergestellt, dass auch die Phase übereinstimmt.
-Die Demodulation könnte mit einer phasenverschobenen Drehmatrix
-$D_{\omega t+\delta}$ erfolgen.
+Die Demodulation könnte mit einer um den Winkel $\delta$
+phasenverschobenen Drehmatrix $D_{\omega t+\delta}$ erfolgen.
 Die selbe Rechnung wie in \eqref{eqn:qam:demoomegar} liefert dann
 \[
 \hat{v}(t)

@@ -3,7 +3,8 @@
 #
 # (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
 #
-all:	am.pdf lissajous.pdf spiegelung.pdf filter.pdf konstellation.pdf
+all:	am.pdf lissajous.pdf spiegelung.pdf filter.pdf konstellation.pdf \
+	sep.pdf psk.pdf detektor.pdf
 
 am.pdf:	am.tex
 	pdflatex am.tex
@@ -19,4 +20,13 @@ filter.pdf:	filter.tex
 
 konstellation.pdf:	konstellation.tex
 	pdflatex konstellation.tex
+
+sep.pdf:	sep.tex
+	pdflatex sep.tex
+
+psk.pdf:	psk.tex
+	pdflatex psk.tex
+
+detektor.pdf:	detektor.tex
+	pdflatex detektor.tex
 
