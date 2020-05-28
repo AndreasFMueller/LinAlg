@@ -1,0 +1,23 @@
+/*
+ * qam.maxima
+ *
+ * (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+ */
+
+v: matrix([I(t)],[Q(t)]);
+modulated: matrix([cos(Omega * t), -sin(Omega * t)],
+                  [sin(Omega * t),  cos(Omega * t)]) . v;
+projected: matrix([1,0],[0,1-p]) . modulated;
+demodulated: matrix([ cos(dOmega * t), sin(dOmega * t)],
+                    [-sin(dOmega * t), cos(dOmega * t)]) . projected;
+demodulated: expand(demodulated);
+demodulated: trigreduce(demodulated);
+
+filtered: subst((1-f)*sin(Omega * t + dOmega * t), sin(Omega * t + dOmega * t), demodulated);
+filtered: subst((1-f)*cos(Omega * t + dOmega * t), cos(Omega * t + dOmega * t), filtered);
+
+simplified: subst(T(tt), dOmega * t + Omega * t, filtered);
+simplified: subst(dT(tt), dOmega * t - Omega * t, simplified);
+simplified: subst(tt, t, simplified);
+
+fortran(simplified);

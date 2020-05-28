@@ -17,7 +17,7 @@ werden kann.
 
 \begin{figure}
 \centering
-\includegraphics{applications/qam/am.pdf}
+\includegraphics{applications/qam/images/am.pdf}
 \caption{Amplitudenmodulation eines Signals $I(t)$ auf eine
 Trägerfrequenz $\cos\omega t$.
 Die Amplitude des Trägers wird im Takt des Signals verändert.
@@ -31,15 +31,15 @@ konkret wird der Träger mit $1+I(t)$ multipliziert,
 das übermittelte Signal ist also
 \begin{equation}
 (1+I(t)) \cos\omega t.
+\label{eqn:qam:am}
 \end{equation}
 Ein so moduliertes Signal ist besonders leicht zu demodulieren.
-Es reicht, das Signal gleichzurichten und verbleibenden Reste
+Es reicht, das Signal gleichzurichten und die verbleibenden Reste
 der Trägerfrequenz sowie die konstente Komponten auszufiltern.
-Ein
 \begin{figure}
 \centering
 \begin{tikzpicture}
-\node at (0,0) {\includegraphics{applications/qam/detektor.pdf}};
+\node at (0,0) {\includegraphics{applications/qam/images/detektor.pdf}};
 \node at (8,0) {\includegraphics[width=6cm]{applications/qam/detektor.jpg}};
 \end{tikzpicture}
 \caption{Ein Detektorradio besteht aus einem einstellbaren
@@ -50,11 +50,11 @@ Bei starken Sendern kann das niederfrequente Tonsignal ohne
 Verstärkung mit einem Kopfhörer abgehört werden.
 \label{figure:qam:detektor}}
 \end{figure}
-Die konstante Komponente (der Summand $1$) ist nicht wirklich
-interessant und dient nur einer leichter verständlichen Darstellung
-in Abbildung~\ref{figure:qam:am}, wir werden sie in Zukunft 
-ignorieren und nur noch das modulierte Signal $I(t)\cos\omega t$
-betrachten.
+Die konstante Komponente (der Summand $1$ in \eqref{eqn:qam:am})
+ist nicht wirklich interessant und dient nur einer leichter
+verständlichen Darstellung in Abbildung~\ref{figure:qam:am},
+wir werden sie in Zukunft ignorieren und nur noch das modulierte Signal
+$I(t)\cos\omega t$ betrachten.
 
 Mit dieser Methode kann man zu jeder Zeit $t$ einen einzelnen
 Wert $I(t)$ übermitteln.
