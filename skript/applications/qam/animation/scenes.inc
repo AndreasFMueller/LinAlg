@@ -24,7 +24,6 @@
 	DefaultParameters()
 	#declare enableq = 0;
 	#declare project = 1;
-	#declare Omega = OmegaLimit;
 	#declare viewpoint = slew(1-s);
 #end
 
