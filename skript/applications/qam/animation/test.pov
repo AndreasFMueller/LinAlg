@@ -5,11 +5,11 @@
 //
 #version 3.7;
 #include "parameters.inc"
-#include "common.inc"
 #include "scenes.inc"
 
-Compensate(0.9)
+ChangeViewpoint(0.5)
 
+#include "common.inc"
 #include "signal.inc"
 Signal()
 Kurve()

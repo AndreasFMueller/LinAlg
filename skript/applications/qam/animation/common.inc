@@ -12,9 +12,15 @@ global_settings {
 #declare imagescale = 0.14;
 #declare axisdiameter = 0.02;
 
+#declare toplookat = <0,0,-4>;
+#declare perspectivelookat = <0, 0.1, -4.0>;
+
+#declare toplocation = <-0.1,33,-4>;
+#declare perspectivelocation = <-30, 10, -20>;
+
 camera {
-        location <-30, 10, -20>
-        look_at <0, 0.1, -3.75>
+        location (viewpoint * toplocation + (1 - viewpoint) * perspectivelocation) * (1 + 1 * viewpoint * (1 - viewpoint))
+        look_at viewpoint * toplookat  + (1 - viewpoint) * perspectivelookat
         right 16/9 * x * imagescale
         up y * imagescale
 }
@@ -30,15 +36,15 @@ light_source {
         jitter
 }
 
-//sky_sphere {
-//	pigment {
-//		color rgb<1,1,1>
-//	}
-//}
-
-background {
-	color srgbt<0,0,0,1>
+sky_sphere {
+	pigment {
+		color rgb<1,1,1>
+	}
 }
+
+//background {
+//	color srgbt<0,0,0,1>
+//}
 
 //
 // draw an arrow from <from> to <to> with thickness <arrowthickness> with
@@ -76,8 +82,50 @@ arrow( < -2.2, 0  , 0>, < 2.2, 0  ,  0>, 0.02, White)
 arrow( <  0,  -2.2, 0>, < 0  , 2.2,  0>, 0.02, White)
 arrow( <  0,   0  , 0>, < 0  , 0  , -8>, 0.02, White)
 
-//
-// slew function used for animations
-//
-#declare stufe = function(s) { (abs(s-0.1)/(0.8)+abs(s-0.9)/(-0.8)+1)/2 }
-#declare slew = function(s) { (1 - cos(stufe(s) * pi)) / 2 }
+#declare letterthickness = 0.1;
+
+text {
+	internal 1 "t"
+	letterthickness, <0, 0, 0>
+	pigment {
+		color rgb<0.8,0,0>
+	}
+	finish {
+		specular 0.9
+		metallic
+	}
+	scale 0.5
+	rotate <0, 90, 0>
+	rotate <0, 0, -90>
+	translate <0.1, letterthickness/2, -7.9>
+}
+
+text {
+	internal 1 "I"
+	letterthickness, <0, 0, 0>
+	pigment {
+		color rgb<0.8,0,0>
+	}
+	finish {
+		specular 0.9
+		metallic
+	}
+	scale 0.5
+	rotate <0, 90 * viewpoint, 0>
+	rotate <0, 0, -90 * viewpoint>
+	translate <1.9, letterthickness/2, -0.12> * viewpoint + <2.0, 0.1, -letterthickness/2> * (1 - viewpoint)
+}
+
+text {
+	internal 1 "Q"
+	letterthickness, <0, 0, 0>
+	pigment {
+		color rgb<0.8,0,0>
+	}
+	finish {
+		specular 0.9
+		metallic
+	}
+	scale 0.5
+	translate <-0.6,1.9,-letterthickness/2>
+}

@@ -4,18 +4,34 @@
 // (c) 2020 Prof Dr Andreas Müller
 //
 
+//
+// slew function used for animations
+//
+#declare stufe = function(s) { (abs(s-0.1)/(0.8)+abs(s-0.9)/(-0.8)+1)/2 }
+#declare slew = function(s) { (1 - cos(stufe(s) * pi)) / 2 }
+
 #macro ShowAmplitudeModulation(s)
 	#debug concat("ShowAmplitudeModulation(" , str(s,7,4), ")\n")
 	DefaultParameters()
-	#declare q = 0;
-	#declare p = 1;
+	#declare viewpoint = 1;
+	#declare enableq = 0;
+	#declare project = 1;
 	#declare Omega = slew(s) * OmegaLimit;
+#end
+
+#macro ChangeViewpoint(s)
+	#debug concat("ChangeViewpoint(" , str(s,7,4), ")\n")
+	DefaultParameters()
+	#declare enableq = 0;
+	#declare project = 1;
+	#declare Omega = OmegaLimit;
+	#declare viewpoint = slew(1-s);
 #end
 
 #macro AddQ(s)
 	#debug concat("AddQ(" , str(s,7,4), ")\n")
 	DefaultParameters()
-	#declare q = slew(s);
+	#declare eqnableq = slew(s);
 #end
 
 #macro Modulate2D(s)
@@ -33,7 +49,7 @@
 	#debug concat("SuppressC(" , str(s,7,4), ")\n")
 	DefaultParameters()
 	#declare Omega = OmegaLimit;
-	#declare p = slew(s);
+	#declare project = slew(s);
 #end
 
 #macro SuppressCDemodulated(s)
@@ -41,7 +57,7 @@
 	DefaultParameters()
 	#declare Omega = OmegaLimit;
 	#declare dOmega = OmegaLimit;
-	#declare p = slew(s);
+	#declare project = slew(s);
 #end
 
 #macro DoFilter(s)
@@ -49,8 +65,8 @@
 	DefaultParameters()
 	#declare Omega = OmegaLimit;
 	#declare dOmega = OmegaLimit;
-	#declare p = 1;
-	#declare f = slew(s);
+	#declare project = 1;
+	#declare enablefilter = slew(s);
 #end
 
 #macro Compensate(s)
@@ -58,8 +74,8 @@
 	DefaultParameters()
 	#declare Omega = OmegaLimit;
 	#declare dOmega = OmegaLimit;
-	#declare p = 1;
-	#declare f = 1;
-	#declare g = 1 + slew(s);
+	#declare project = 1;
+	#declare enablefilter = 1;
+	#declare gain = 1 + slew(s);
 #end
 

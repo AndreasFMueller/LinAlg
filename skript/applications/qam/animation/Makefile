@@ -3,7 +3,7 @@
 #
 # (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
 #
-all:	animation.png
+all:	test.png
 
 sources = parameters.inc signal.inc common.inc scenes.inc
 
