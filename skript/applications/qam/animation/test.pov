@@ -7,7 +7,7 @@
 #include "parameters.inc"
 #include "scenes.inc"
 
-ChangeViewpoint(0.5)
+AddQ(0.5)
 
 #include "common.inc"
 #include "signal.inc"

@@ -31,7 +31,7 @@
 #macro AddQ(s)
 	#debug concat("AddQ(" , str(s,7,4), ")\n")
 	DefaultParameters()
-	#declare eqnableq = slew(s);
+	#declare enableq = slew(s);
 #end
 
 #macro Modulate2D(s)
