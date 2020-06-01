@@ -29,7 +29,7 @@ $\vec{v}(t)$ zusätzlich drehen, was man natürlich wieder mit einer
 Drehmatrix machen kann.
 Möchten wir die Frequenz um $\alpha$  steigern, dann müssen wir
 statt eines konstanten Vektors $\vec{v}_0=(1,0)^t$ den gedrehten
-Vektor $D_{\alpha t}\vec{v}_0$, was auf das modulierte Signal
+Vektor $D_{\alpha t}\vec{v}_0$ verwenden, was auf das modulierte Signal
 \[
 \begin{pmatrix}
 s(t)\\c(t)
@@ -67,9 +67,10 @@ Quadratur-Amplituden-Modulation realisieren.
 \subsubsection{Analoges Farbfernsehen}
 Die Entwicklung des analogen Farbfernsehens sah sich vor die Aufgabe 
 gestellt, zusätzlich zur bereits im Schwarz-Weiss-Fernsehen übertragenen
-Helligkeit (Luminanz, Y), zusätzlich die Farbinformation zu übermitteln.
+Helligkeit (Luminanz, Y) die Farbinformation zu übermitteln.
 Üblich ist dabei die Verwendung des YUV-Farbraumes, für den die zusätzlichen
-Signale $U=R-Y$ und $V=B-Y$ benötigt werden, die Farbinformation codieren.
+Signale $U=R-Y$ und $V=B-Y$ benötigt werden, welche die Farbinformation
+codieren.
 Für ein farbloses Bild sind $U=0$ und $V=0$.
 
 Das Problem ist also, zusätzlich zum Luminanzbild, welches bereits
@@ -124,7 +125,7 @@ D_{\varphi}
 =
 -E.
 \]
-Diese Phasenverschiebung wird also realisiert dadurch, dass man das
+Diese Phasenverschiebung wird also dadurch realisiert, dass man das
 Vorzeichen von $I$ und $Q$ ändert.
 Verwendet man den Vektor $(1,0)^t$ zur Codierung einer logischen
 $\texttt{0}$, dann codiert der Vektor $(-1,0)^t$ eine logische $\texttt{1}$.
@@ -225,7 +226,7 @@ $8$-PSK dargestellt.
 
 \subsubsection{Software Defined Radio}
 Die vorangegangenen Beispiele haben illustriert, dass die
-Quadraturamplitudenmodulation jedes besprochene Modulationsverfahren
+Quadratur-Amplituden-Modulation jedes besprochene Modulationsverfahren
 realisieren kann.
 Es ist nur nötig, einen Sender zu bauen, der Inputs $I(t)$ und $Q(t)$
 entgegennimmt, die Modulation mit der Matrix $D_{\omega t}$ vornimmt

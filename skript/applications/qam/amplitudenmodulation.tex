@@ -8,10 +8,10 @@
 Die Technik der Amplitudenmodulation geht auf die Anfangszeit des
 Radios zurück.
 Um ein zeitabhängiges Audio-Signal $I(t)$ mit Frequenzen von typischwerweise
-wenigen hundert Herz oder wenigen Kilohertz drahtlos zu übertragen,
+wenigen hundert Hertz oder wenigen Kilohertz drahtlos zu übertragen,
 verändert man die Amplitude eines Trägersignals von mehreren hundert
 Kilohertz oder mehr und leitet es zu einer Antenne.
-Diese strahlt dann eine entsprechend oszillierendes elektromagnetisches
+Diese strahlt dann ein entsprechend oszillierendes elektromagnetisches
 Feld ab, welches von einem Empfänger aufgefangen und wieder hörbar gemacht
 werden kann.
 
@@ -25,17 +25,17 @@ Die Amplitude des Trägers wird im Takt des Signals verändert.
 \end{figure}
 
 In Abbildung~\ref{figure:qam:am} wird die Amplitude des Träger
-$\cos\omega t$ mit der Kreisfrequenz $\omega$ wird im Takt des
-Signals verändert,
-konkret wird der Träger mit $1+I(t)$ multipliziert,
-das übermittelte Signal ist also
+$\cos\omega t$ mit der Kreisfrequenz $\omega$ im Takt des
+Signals verändert.
+Genauer: der Träger wird mit $1+I(t)$ multipliziert,
+das ausgesendete und empfangene Signal ist also
 \begin{equation}
 (1+I(t)) \cos\omega t.
 \label{eqn:qam:am}
 \end{equation}
 Ein so moduliertes Signal ist besonders leicht zu demodulieren.
-Es reicht, das Signal gleichzurichten und die verbleibenden Reste
-der Trägerfrequenz sowie die konstente Komponten auszufiltern.
+Es reicht, das Signal gleichzurichten und verbleibende Reste
+der Trägerfrequenz sowie die konstante Komponten auszufiltern.
 \begin{figure}
 \centering
 \begin{tikzpicture}
