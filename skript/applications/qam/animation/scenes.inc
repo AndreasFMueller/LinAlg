@@ -27,6 +27,24 @@
 	#declare viewpoint = slew(1-s);
 #end
 
+#macro AMfromRotation(s)
+	#debug concat("AMfromRotation(" , str(s,7,4), ")\n")
+	DefaultParameters()
+	#declare viewpoint = 0;
+	#declare enableq = 0;
+	#declare project = 0;
+	#declare Omega = slew(s) * OmegaLimit;
+#end
+
+#macro AMSuppressC(s)
+	#debug concat("AMSupressC(" , str(s,7,4), ")\n")
+	DefaultParameters()
+	#declare viewpoint = 0;
+	#declare enableq = 0;
+	#declare project = slew(s);
+	#declare Omega = OmegaLimit;
+#end
+
 #macro AddQ(s)
 	#debug concat("AddQ(" , str(s,7,4), ")\n")
 	DefaultParameters()
