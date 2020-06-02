@@ -96,7 +96,7 @@ text {
 	}
 	scale 0.5
 	rotate <0, 90, 0>
-	rotate <0, 0, -90>
+	rotate <0, 0, -90 * viewpoint>
 	translate <0.1, letterthickness/2, -7.9>
 }
 

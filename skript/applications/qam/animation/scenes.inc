@@ -53,11 +53,13 @@
 
 #macro Modulate2D(s)
 	#debug concat("Modulate2D(" , str(s,7,4), ")\n")
+	DefaultParameters()
 	#declare Omega = slew(s) * OmegaLimit;
 #end
 
 #macro Demodulate2D(s)
 	#debug concat("Demodulate2D(" , str(s,7,4), ")\n")
+	DefaultParameters()
 	#declare Omega = OmegaLimit;
 	#declare dOmega = slew(s) * OmegaLimit;
 #end

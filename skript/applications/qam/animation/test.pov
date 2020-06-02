@@ -7,9 +7,23 @@
 #include "parameters.inc"
 #include "scenes.inc"
 
-AddQ(0.5)
+#declare hs = 1.13;
+
+//ShowAmplitudeModulation(hs)
+//ChangeViewpoint(hs)
+//AMfromRotation(hs)
+//AMSuppressC(hs)
+//AddQ(hs)
+Modulate2D(hs)
+//Demodulate2D(hs)
+//SuppressC(hs)
+//SuppressCDemodulated(hs)
+//DoFilter(hs)
+//Compensate(hs)
 
 #include "common.inc"
 #include "signal.inc"
 Signal()
 Kurve()
+
+
