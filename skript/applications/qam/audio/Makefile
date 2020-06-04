@@ -3,7 +3,7 @@
 #
 # (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
 #
-all:	mathman
+all:	mathman constellation
 
 CXXFLAGS = -std=c++11 -g -O2 -Wall
 
@@ -25,8 +25,11 @@ tikz.o:	tikz.h tikz.cpp path.h
 text.o:	text.h text.cpp path.h
 	g++ -o text.o $(CXXFLAGS) -c text.cpp
 
-libmathman.a:	path.o logo.o au.o tikz.o text.o raw.o
-	ar -r libmathman.a path.o logo.o au.o tikz.o text.o raw.o
+hackfile.o:	hackfile.h hackfile.cpp path.h
+	g++ -o hackfile.o $(CXXFLAGS) -c hackfile.cpp
+
+libmathman.a:	path.o logo.o au.o tikz.o text.o raw.o hackfile.o
+	ar -r libmathman.a path.o logo.o au.o tikz.o text.o raw.o hackfile.o
 
 mathman:	mathman.cpp libmathman.a
 	g++ -o mathman $(CXXFLAGS) -L. -lmathman mathman.cpp
@@ -43,3 +46,19 @@ audio:	mathman
 atest:	mathman
 	./mathman -s 32000 -a test.au
 
+constellation:	constellation.cpp
+	g++ -o constellation $(CXXFLAGS) -L. -lmathman constellation.cpp
+
+
+ctest:	constellation
+	./constellation --au=constellation.au --scale=250 --samples=8000 --time=100
+
+hackfiles:	mathman.hack constellation.hack
+
+mathman.hack:	mathman Makefile
+	./mathman --velocity=7 --sampling=44100 --scale=32000		\
+		--hackfile=mathman.hack
+
+constellation.hack:	constellation Makefile
+	./constellation --scale=250 --samples=8000 --time=100		\
+		--hackfile=constellation.hack

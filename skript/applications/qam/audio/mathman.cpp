@@ -11,6 +11,7 @@
 #include "raw.h"
 #include "tikz.h"
 #include "text.h"
+#include "hackfile.h"
 #include <getopt.h>
 #include <iostream>
 
@@ -21,6 +22,7 @@ double	debug = false;
 static struct option	longopts[] = {
 { "au",			required_argument,	NULL,	'a' },
 { "debug",		no_argument,		NULL,	'd' },
+{ "hackfile",		required_argument,	NULL,	'h' },
 { "scale",		required_argument,	NULL,	's' },
 { "sampling",		required_argument,	NULL,	'S' },
 { "repeat",		required_argument,	NULL,	'r' },
@@ -38,17 +40,21 @@ int	main(int argc, char *argv[]) {
 	std::string	aufilename;
 	std::string	tikzfilename;
 	std::string	rawfilename;
+	std::string	hackfilename;
 	double	velocity = 10;
 	uint32_t	sampling = 44100;
 
-	while (EOF != (c = getopt_long(argc, argv, "a:dR:r:S:s:t:v:", longopts,
-		&longindex))) {
+	while (EOF != (c = getopt_long(argc, argv, "a:dh:R:r:S:s:t:v:",
+		longopts, &longindex))) {
 		switch (c) {
 		case 'a':
 			aufilename = std::string(optarg);
 			break;
 		case 'd':
 			debug = true;
+			break;
+		case 'h':
+			hackfilename = std::string(optarg);
 			break;
 		case 'R':
 			rawfilename = std::string(optarg);
@@ -98,6 +104,9 @@ int	main(int argc, char *argv[]) {
 	if (debug) {
 		text	t;
 		t(p);
+	} else if (hackfilename.size() > 0) {
+		hackfile	h(hackfilename);
+		h(moved * (point(1, -1) * (scale/m)));
 	} else if (rawfilename.size() > 0) {
 		raw	r(rawfilename);
 		for (int i = 0; i < repeat; i++) {
