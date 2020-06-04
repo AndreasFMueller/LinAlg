@@ -21,13 +21,13 @@ public:
 
 typedef std::vector<hackpoint>	hackdata;
 
-class hackfile {
+class hackfile : public pathwriter {
 	int	fd;
 public:
 	hackfile(const std::string& filename);
 	~hackfile();
 	void	operator()(const hackpoint& h);
-	void	operator()(const path& p);
+	void	write(const path& p);
 	void	operator()(const hackdata& p);
 };
 

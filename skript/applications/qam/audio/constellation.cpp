@@ -71,6 +71,7 @@ public:
 static struct option    longopts[] = {
 { "au",			required_argument,	NULL,	'a' },
 { "hackfile",		required_argument,	NULL,	'h' },
+{ "repeat",		required_argument,	NULL,	'r' },
 { "scale",		required_argument,	NULL,	'S' },
 { "samples",		required_argument,	NULL,	's' },
 { "time",		required_argument,	NULL,	't' },
@@ -83,11 +84,12 @@ int	main(int argc, char *argv[]) {
 	int	c;
 	int	longindex;
 	int	t = 1;
+	int	repeat = 1;
 	double	scale = 1;
 	std::string	aufilename;
 	std::string	hackfilename;
 
-	while (EOF != (c = getopt_long(argc, argv, "a:S:s:t:", longopts,
+	while (EOF != (c = getopt_long(argc, argv, "a:r:S:s:t:", longopts,
 		&longindex))) {
 		switch (c) {
 		case 'a':
@@ -95,6 +97,9 @@ int	main(int argc, char *argv[]) {
 			break;
 		case 'h':
 			hackfilename = std::string(optarg);
+			break;
+		case 'r':
+			repeat = std::stoi(optarg);
 			break;
 		case 's':
 			samples = std::stoi(optarg);
@@ -115,13 +120,18 @@ int	main(int argc, char *argv[]) {
 		std::cout << C.random();
 	}
 
+	path	p = C(samples, t);
+
 	if (aufilename.size() > 0) {
 		au	a(aufilename, 44100);
-		a(C(samples, t));
+		a.repeats(repeat);
+		a.pathwriter::operator()(p);
 	}
+
 	if (hackfilename.size() > 0) {
 		hackfile	h(hackfilename);
-		h(C(samples, t));
+		h.repeats(repeat);
+		h.pathwriter::operator()(p);
 	}
 
 	return EXIT_SUCCESS;

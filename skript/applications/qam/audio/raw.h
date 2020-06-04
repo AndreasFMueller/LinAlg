@@ -10,7 +10,7 @@
 
 namespace mathman {
 
-class raw {
+class raw : public pathwriter {
 	int	fd;
 public:
 	raw(const std::string& filename);
@@ -18,7 +18,7 @@ public:
 	void	operator()(short a);
 	void	operator()(double a);
 	void	operator()(const point& p);
-	void	operator()(const path& p);
+	void	write(const path& p);
 };
 
 } // namespace mathman

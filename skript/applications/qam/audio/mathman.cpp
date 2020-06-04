@@ -101,25 +101,25 @@ int	main(int argc, char *argv[]) {
 	);
 
 	// show it
+	path	rescaled = moved * (point(1, -1) * (scale/m));
 	if (debug) {
 		text	t;
 		t(p);
 	} else if (hackfilename.size() > 0) {
 		hackfile	h(hackfilename);
-		h(moved * (point(1, -1) * (scale/m)));
+		h.repeats(repeat);
+		h.pathwriter::operator()(rescaled);
 	} else if (rawfilename.size() > 0) {
 		raw	r(rawfilename);
-		for (int i = 0; i < repeat; i++) {
-			r(moved * (point(1, -1) * (scale/m)));
-		}
+		r.repeats(repeat);
+		r.pathwriter::operator()(rescaled);
 	} else if (aufilename.size() > 0) {
 		au	a(aufilename, sampling);
-		for (int i = 0; i < repeat; i++) {
-			a(moved * (point(1, -1) * (scale/m)));
-		}
+		a.repeats(repeat);
+		a.pathwriter::operator()(rescaled);
 	} else if (tikzfilename.size() > 0) {
 		tikz	t(tikzfilename);
-		t(moved * (point(1, -1) * (scale/m)));
+		t(rescaled);
 	} else {
 		std::cout << moved * (point(1, -1) * (scale/m));
 	}

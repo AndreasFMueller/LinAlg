@@ -29,7 +29,7 @@ raw::~raw() {
 
 void	raw::operator()(short a) {
 	short	v = a;
-	write(fd, &v, 2);
+	::write(fd, &v, 2);
 }
 
 void	raw::operator()(double a) {
@@ -42,7 +42,7 @@ void	raw::operator()(const point& p) {
 	(*this)(p.y());
 }
 
-void	raw::operator()(const path& p) {
+void	raw::write(const path& p) {
 	for (auto const a : p) {
 		(*this)(a);
 	}

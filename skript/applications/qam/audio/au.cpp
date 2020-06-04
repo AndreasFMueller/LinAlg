@@ -21,7 +21,7 @@ au::au(const std::string& filename, uint32_t sampling) {
 		throw std::runtime_error("cannot open file");
 	}
 	int	l = 0;
-	l += write(fd, ".snd", 4);
+	l += ::write(fd, ".snd", 4);
 	if (l < 0) {
 		std::cerr << "cannot write: " << strerror(errno) << std::endl;
 		throw std::runtime_error("cannot write file");
@@ -29,22 +29,22 @@ au::au(const std::string& filename, uint32_t sampling) {
 	uint32_t	v;
 	// datenoffset
 	v = htonl(28);
-	l += write(fd, &v, sizeof(v));
+	l += ::write(fd, &v, sizeof(v));
 	// datengrösse
 	v = 0xffffffff;
-	l += write(fd, &v, sizeof(v));
+	l += ::write(fd, &v, sizeof(v));
 	// codierung
 	v = htonl(3);
-	l += write(fd, &v, sizeof(v));
+	l += ::write(fd, &v, sizeof(v));
 	// sample rate
 	v = htonl(sampling);
-	l += write(fd, &v, sizeof(v));
+	l += ::write(fd, &v, sizeof(v));
 	// kanäle
 	v = htonl(2);
-	l += write(fd, &v, sizeof(v));
+	l += ::write(fd, &v, sizeof(v));
 	// info
 	v = htonl(0);
-	l += write(fd, &v, sizeof(v));
+	l += ::write(fd, &v, sizeof(v));
 	std::cout << "header bytes written: " << l << std::endl;
 }
 
@@ -54,17 +54,17 @@ au::~au() {
 }
 
 void	au::operator()(uint16_t a) {
-	write(fd, &a, 2);
+	::write(fd, &a, 2);
 }
 
 void	au::operator()(const point& p) {
 	uint16_t	a = htons(p.x());
-	write(fd, &a, 2);
+	::write(fd, &a, 2);
 	a = htons(p.y());
-	write(fd, &a, 2);
+	::write(fd, &a, 2);
 }
 
-void	au::operator()(const path& p) {
+void	au::write(const path& p) {
 	for (auto const a : p) {
 		(*this)(a);
 	}

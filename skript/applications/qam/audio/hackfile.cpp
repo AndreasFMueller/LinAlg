@@ -31,7 +31,7 @@ hackfile::~hackfile() {
 	close(fd);
 }
 
-void	hackfile::operator()(const path& p) {
+void	hackfile::write(const path& p) {
 	for (auto const a : p) {
 		(*this)(hackpoint(a));
 	}
@@ -47,7 +47,7 @@ void	hackfile::operator()(const hackpoint& h) {
 	char	iq[2];
 	iq[0] = h.I;
 	iq[1] = h.Q;
-	if (2 != write(fd, iq, 2)) {
+	if (2 != ::write(fd, iq, 2)) {
 		std::cerr << "cannot write IQ: " << strerror(errno);
 		std::cerr << std::endl;;
 		throw std::runtime_error("cannot write");

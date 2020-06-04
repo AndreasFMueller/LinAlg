@@ -10,14 +10,14 @@
 
 namespace mathman {
 
-class au {
+class au : public pathwriter {
 	int	fd;
 public:
 	au(const std::string& filename, uint32_t sampling);
 	~au();
 	void	operator()(uint16_t a);
 	void	operator()(const point& p);
-	void	operator()(const path& p);
+	virtual void	write(const path& p);
 };
 
 } // namespace mathman

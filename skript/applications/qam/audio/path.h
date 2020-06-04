@@ -81,6 +81,20 @@ public:
 
 std::ostream&	operator<<(std::ostream& out, const pathlist& p);
 
+class pathwriter {
+	int	_repeats;
+public:
+	pathwriter() : _repeats(1) { }
+	int	repeats() const { return _repeats; }
+	void	repeats(int r) { _repeats = r; }
+	virtual void	write(const path& p) = 0;
+	void	operator()(const path& p) {
+		for (int i = 0; i < _repeats; i++) {
+			this->write(p);
+		}
+	}
+};
+
 } // namespace mathman
 
 #endif /* _path_h */
