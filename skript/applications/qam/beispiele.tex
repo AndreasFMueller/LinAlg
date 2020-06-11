@@ -163,7 +163,7 @@ als das Symbol $\vec{v}_k$.
 Symbolen.
 Mit jedem Symbol werden vier Bit codiert.
 Zu jedem Symbol gehört ein quadratisches Gebiet gleicher Farbe.
-Fällt der empfangene Vektor in eines dieser Gebiet, wird er als
+Fällt der empfangene Vektor in eines dieser Gebiete, wird er als
 das zugehörige Symbol decodiert.
 \label{figure:qam:konstellation}}
 \end{figure}
@@ -234,13 +234,23 @@ und das resultierende Signal $s(t)$ aussendet.
 Auf der Empfängerseite braucht man eine physikalische Realisierung
 der Matrix $D_{\omega_r t}$ und des Tiefpasses, der die demodulierten
 Signal $\hat{I}(t)$ und $\hat{Q}(t)$ ausgibt.
-Die Decodierung zum Beispiel als amplitudenoduliertes Sprachsignal,
+Die Decodierung zum Beispiel als amplitudenmoduliertes Sprachsignal,
 als frequenzmoduliertes Musiksignal oder als digitales 16-QAM-Signal
 kann danach ausschliesslich in Software erfolgen.
 Die Modulationsart eines solchen sogenannten {\em Software Defined Radio (SDR)}
 wird also durch die Software definiert, welche die Signale $I(t)$ und $Q(t)$
 erzeugt bzw.~die Signale $\hat{I}(t)$ und $\hat{Q}(t)$ analysiert.
+SDR ermöglicht dem interessierten Hacker auch exotische Experimente,
+wie das in Abbildung~\ref{qam:figure:digital} dargestellte fiktive
+digitale Modulationsverfahren.
 
-
+\begin{figure}
+\centering
+\includegraphics[width=0.7\hsize]{applications/qam/images/digital.jpg}
+\caption{Konstellationsdiagramm für ein fiktives digitales
+Modulationsverfahren, welches nur Punkte eines MathMan-Logos als
+Symbole verwendet.
+\label{qam:figure:digital}}
+\end{figure}
 
 

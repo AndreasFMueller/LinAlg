@@ -4,10 +4,13 @@
 # (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
 #
 all:	am.pdf lissajous.pdf spiegelung.pdf filter.pdf konstellation.pdf \
-	sep.pdf psk.pdf detektor.pdf
+	sep.pdf psk.pdf detektor.pdf icos.pdf
 
 am.pdf:	am.tex
 	pdflatex am.tex
+
+icos.pdf:	icos.tex
+	pdflatex icos.tex
 
 lissajous.pdf:	lissajous.tex
 	pdflatex lissajous.tex

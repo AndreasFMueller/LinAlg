@@ -14,14 +14,47 @@ Wir streben jetzt an, ein zweidimensionales Signal
 drahtlos zu übertragen und müssen zu diesem Zweck ein geeignetes
 Modulationsverfahren finden.
 
-Mit nur dem einen Signal $I(t)$ würden wir wie vorher $I(t)\cos\omega t$
-wählen.
-Für das zweite Signal $Q(t)$ könnten wir statt des $\cos\omega t$ die
-Funktion $-\sin\omega t$ wählen\footnote{Das Vorzeichen ist hier so 
-gewählt, dass die Formeln, die später herauskommen werden, mit den
-üblichen Konventionen in der Theorie der Quadraturamplitudenmodulation
-übereinstimmen.}, also das modulierte Signal
-$-Q(t)\sin\omega t$ verwenden.
+\begin{figure}
+\centering
+\includegraphics{applications/qam/images/icos.pdf}
+\caption{Modulation des Signals $I(t)$ als Drehung um den Winkel $\omega t$
+auf einem Kreis mit Radius $I(t)$.
+\label{qam:figure:icos}}
+\end{figure}
+Mit nur dem einen Signal $I(t)$ haben wir $I(t)\cos\omega t$ als moduliertes
+Signal gewählt.
+Geometrisch können wir das auf einem Kreis mit Radius $I(t)$ als Drehung
+um den Winkel $\omega t$ mit anschliessender Projektion auf die horizontale
+Achse verstehen (Abbildung~\ref{qam:figure:icos} links).
+
+Es ist daher naheliegend, für die Modulation des zweidimensionalen Signals
+ebenfalls eine Drehung um den Winkel $\omega t$ zu verwenden.
+Der Vektor $\vec{v}(t)$ wird in der $I$-$Q$-Ebene gedreht wie in
+Abbildung~\ref{qam:figure:icos} rechts gezeigt.
+Dazu kann eine Drehmatrix $D_{\omega t}$ verwendet werden.
+Wir berechnen
+\begin{equation}
+D_{\omega t}
+\vec{v}(t)
+=
+\begin{pmatrix}
+\cos\omega t & -\sin\omega t\\
+\sin\omega t &\phantom{-}\cos\omega t
+\end{pmatrix}
+\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
+=
+\begin{pmatrix}
+I(t)\cos\omega t - Q(t) \sin\omega t\\
+I(t)\sin\omega t + Q(t) \cos\omega t
+\end{pmatrix}
+=
+\begin{pmatrix}
+s(t)\\c(t)
+\end{pmatrix}
+\label{qam:eqn:modulation}
+\end{equation}
+Das zweite Signal $Q(t)$ modulieren wir also statt mit $\cos\omega t$ 
+mit der Funktion $-\sin\omega t$.
 Natürlich können wir aus den beiden Funktionen $I(t)\cos\omega t$ und
 $-Q(t)\sin\omega t$ auch die Funktionen $I(t)$ und $Q(t)$ zurückgewinnen,
 das reicht aber nicht.
@@ -32,8 +65,8 @@ für die beiden Signale, was wir vermeiden wollen.
 \begin{figure}
 \centering
 \includegraphics{applications/qam/images/sep.pdf}
-\caption{Rekonstruktion der Signal $I(t)$ (oben) und $Q(t)$ (Mitte)
-aus der Summe $s(t) = I(t)\cos\omega t - Q(t)\sin\omega t$ (unten).
+\caption{Rekonstruktion der Signale $I(t)$ und $Q(t)$ (oberste zwei Graphen)
+aus der Summe $s(t) = I(t)\cos\omega t - Q(t)\sin\omega t$ (Mitte).
 Die Nullstellen von $\cos\omega t$ sind durch feine blaue Linien 
 dargestellt, die Nullstellen von $\sin\omega t$ durch feine rote Linien.
 Der Graph von $s(t)$ ist jeweils mit der Farbe eingefärbt, die den
@@ -88,34 +121,7 @@ Man nennt dieses Modulationsverfahren {\em Quadratur-Amplituden-Modulation}.
 
 Da wir über das nötige signaltheoretische Wissen noch nicht verfügen,
 müssen wir eine alternative, geometrische Methode suchen, wie wir
-aus $s(t)$ die Komponenten $I(t)$ und $Q(t)$ wiedergewinnen zu können.
-Dazu beachten wir zunächst, dass wir die Summe $s(t)$ als ein
-Matrizenprodukt hätten bekommen können:
-\[
-s(t)
-=
-\begin{pmatrix}\cos\omega t&-\sin\omega t\end{pmatrix}
-\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}.
-\]
-Die Zeilenmatrix sieht aus wie die erste Ziele einer Drehmatrix
-mit dem Drehwinkel $\omega t$.
-Die Funktion $s(t)$ ist also nur die erste Komponenten eines
-Vektors, der durch Drehung des Vektors $\vec{v}(t)$ um den
-Winkel $\omega t$ gemäss
-\begin{equation}
-\begin{pmatrix} s(t)\\ c(t) \end{pmatrix}
-=
-\underbrace{
-\begin{pmatrix}
-\cos\omega t & -\sin\omega t\\
-\sin\omega t & \phantom{-}\cos\omega t
-\end{pmatrix}}_{\displaystyle D_{\omega t}}
-\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
-=
-D_{\omega t} \vec{v}(t)
-\label{eqn:qam:modulation}
-\end{equation}
-entsteht.
+aus $s(t)$ die Komponenten $I(t)$ und $Q(t)$ wiedergewinnen können.
 Das modulierte Signal $s(t)$ ist also nichts anderes als eine
 Komponente eines Vektors, der entsteht indem $\vec{v}(t)$ mit sehr grosser
 Winkelgeschwindigkeit $\omega$ um den Ursprung gedreht wird.
