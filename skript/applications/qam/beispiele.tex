@@ -15,6 +15,30 @@ diesem Abschnitt gezeigt werden soll.
 \subsubsection{Amplitudenmodulation}
 Amplitudenmodulation konnten wir verstehen, bevor wir $Q(t)$ kannten,
 sie ist der Spezialfall $Q(t)=0$.
+Das in Europa weitgehend bereites durch Digitalradio ersetzte 
+Mittelwellenradio (AM) verwendet Amplitudenmodulation.
+
+Mit reiner Amplitudenmodulation lässt sich jedoch kein Stereosignal
+übertragen.
+Sind $L(t)$ und $R(t)$ die beiden Stereokanäle, dann erfolgt die
+Modulation typischerweise mit $I(t)=1+L(t)+R(t)$, wobei wir den Offset $1$
+bereits in \eqref{eqn:qam:am} diskutiert haben..
+Um die Stereoinformation zu übermitteln, muss zusätzlich die Differenz
+$L(t)-R(t)$ übermittelt werden.
+Das C-QUAM Verfahren ({\bf C}ompatible {\bf Qu}adrature {\bf A}mplitude
+{\bf M}odulation) verwendet dafür $Q(t)=L(t)+Q(t)$.
+Die Demodulation von C-QUAM wird vereinfacht durch die Tatsache,
+dass angenommen werden darf, dass $L(t)-R(t)$ klein ist.
+Dann befinden sich die Punkte $(I(t),Q(t))$ immer in der
+Nähe der $I$-Achse, die sich in einer kleinen Verschiebung der Phase
+des übermittelten Signals äussern.
+Um dem Emfpänger zu signalisieren, dass eine Stereoübertragung
+vorliegt, wird $Q(t)$ zusätzlich ein Pilotton von 25\,Hz hinzugefügt.
+Da nicht C-QUAM-taugliche Empfänger die Phasenschwankungen nicht erkennen
+können, werden sie vom Pilotton auch nicht gestört.
+
+Bis 2025 werden in Europa alle Radiostationen digitalisiert, damit
+wird AM und C-QUAM aussterben.
 
 \subsubsection{Frequenzmodulation}
 Bei der Frequenzmodulation des UKW-Radios wird die Trägerfrequenz
@@ -181,23 +205,44 @@ wie in Tabelle~\ref{table:qam:xqam} zusammengstellt.
 Abbildung~\ref{figure:qam:analyzer} zeigt, wie sich die Messung eines 256-QAM 
 Signals auf einem Vector Signal Analyzer darstellt.
 
+Für ungerade Potenzen von $2$ kann das Konstellationsdiagramm kein
+Quadrat sein.
+Für $k$ ungerade kann man aber $2^k$ Punkte erhalten, indem man
+dem Quadrat der $2^{k-1}$ Punkte der Konstellation von $2^{k-1}$-QAM
+vier Rechtecke mit jeweils $2^{k-1}/4=2^{k-3}$ Punkten hinzugefügt, daraus
+ergibt sich eine Konstellation mit
+$2^{k-1}+4\cdot 2^{k-3}=2^{k-1}+2^{k-1}=2^k$
+Punkten (Abbildung~\ref{qam:figure:qam-konstellation} Mitte).
+In diesem hat das Konstellationsdiagramm also die Form
+eines Kreuzes mit breite $2^{(k-1)/2}$ und Armlänge
+$\frac32\cdot 2^{(k-1)/2}$.
+Diese Konstellation wird manchmal auch Cross-QAM genannt.
+
 \begin{table}
 \centering
 \begin{tabular}{rrcrl}
 \hline
 Bits&Symbole&Konstellation&Name&Anwendung\\
 \hline
-   2&      4& $2\times 2$ &   4-QAM&DVB-S       \\
-   4&     16& $4\times 4$ &   8-QAM&V.29, DVB-T \\
-   6&     64& $8\times 8$ &  16-QAM&DVB-C, DVB-T\\
-   8&    256&$16\times 16$& 256-QAM&DVB-C       \\
-  10&   1024&$32\times 32$&1024-QAM&            \\
-  12&   4096&$64\times 64$&4096-QAM&DVB-C2, G.hn\\
+   2&      4&$  2\times   2$      &    4-QAM&DVB-S       \\
+   4&     16&$  4\times   4$      &    8-QAM&V.29, DVB-T \\
+   6&     64&$  8\times   8$      &   16-QAM&DVB-C, DVB-T\\
+   8&    256&$ 16\times  16$      &  256-QAM&DVB-C       \\
+  10&   1024&$ 32\times  32$      & 1024-QAM&            \\
+  12&   4096&$ 64\times  64$      & 4096-QAM&DVB-C2, G.hn\\
+  15&  32768&$128\times 256$ Kreuz&32767-QAM&ADSL        \\
 \hline
 \end{tabular}
 \caption{Verschiedene Konstellationen für quantisierte QAM mit Anwendungen.
 \label{table:qam:xqam}}
 \end{table}
+
+\begin{figure}
+\centering
+\includegraphics{applications/qam/images/qam.pdf}
+\caption{Konstellationsdiagramme für $2^k$-QAM für verschiedene Werte von $k$.
+\label{qam:figure:qam-konstellation}}
+\end{figure}
 
 \begin{figure}
 \centering

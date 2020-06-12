@@ -1,0 +1,75 @@
+%
+% konstellation.tex -- Konstallationsdiagramm für 16-QAM
+%
+% (c) 2018 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\documentclass[tikz,12pt]{standalone}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usepackage{color}
+\usepackage{pifont}
+\usetikzlibrary{arrows,intersections,math,calc}
+\begin{document}
+
+\def\s{0.07}
+\def\a{16}
+\def\b{32}
+
+\def\drawblock#1#2#3#4{
+	\pgfmathparse{#1}
+	\xdef\xbegin{\pgfmathresult}
+	\pgfmathparse{#2}
+	\xdef\xend{\pgfmathresult}
+	\pgfmathparse{#3}
+	\xdef\ybegin{\pgfmathresult}
+	\pgfmathparse{#4}
+	\xdef\yend{\pgfmathresult}
+	\foreach \x in {\xbegin,...,\xend}{
+		\foreach \y in {\ybegin,...,\yend}{
+			\fill[color=red] ({\s*(0.5+\x)},{\s*(0.5+\y)})
+				circle[radius=0.02];
+		}
+	}
+}
+
+\def\crossconstellation#1#2{
+	\fill[color=white,opacity=0.7]
+		({-#2*\s},{-#2*\s}) rectangle ({#2*\s},{#2*\s});
+	\drawblock{-#1}{#1-1}{-#2}{#2-1}
+	\drawblock{-#2}{-#1-1}{-#1}{#1-1}
+	\drawblock{#1}{#2-1}{-#1}{#1-1}
+}
+\def\constellation#1{
+	\fill[color=white,opacity=0.7]
+		({-#1*\s},{-#1*\s}) rectangle ({#1*\s},{#1*\s});
+	\drawblock{-#1}{#1-1}{-#1}{#1-1}
+}
+
+\begin{tikzpicture}[>=latex,thick]
+
+\begin{scope}[xshift=-5.2cm]
+\draw[->] ({-\b*\s-0.1},0) -- ({\b*\s+0.3},0) coordinate[label={$I$}];
+\draw[->] (0,{-\b*\s-0.1}) -- (0,{\b*\s+0.3}) coordinate[label={right:$Q$}];
+\constellation{\a}
+\node at (0,{-\b*\s-0.5}) {$2^{10}$-QAM};
+\end{scope}
+
+\draw[->] ({-\b*\s-0.1},0) -- ({\b*\s+0.3},0) coordinate[label={$I$}];
+\draw[->] (0,{-\b*\s-0.1}) -- (0,{\b*\s+0.3}) coordinate[label={right:$Q$}];
+\crossconstellation{\a}{(1.5*\a)}
+\node at (0,{-\b*\s-0.5}) {$2^{11}$-QAM};
+
+\begin{scope}[xshift=5.2cm]
+\draw[->] ({-\b*\s-0.1},0) -- ({\b*\s+0.3},0) coordinate[label={$I$}];
+\draw[->] (0,{-\b*\s-0.1}) -- (0,{\b*\s+0.3}) coordinate[label={right:$Q$}];
+\constellation{\b}
+\node at (0,{-\b*\s-0.5}) {$2^{12}$-QAM};
+\end{scope}
+
+\end{tikzpicture}
+
+\end{document}
+
