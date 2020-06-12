@@ -13,63 +13,119 @@ Der besondere Nutzen dieser Technik ist jedoch, dass sie viele
 diesem Abschnitt gezeigt werden soll.
 
 \subsubsection{Amplitudenmodulation}
-Amplitudenmodulation konnten wir verstehen, bevor wir $Q(t)$ kannten,
+{\em Amplitudenmodulation} konnten wir verstehen, bevor wir $Q(t)$ kannten,
 sie ist der Spezialfall $Q(t)=0$.
-Das in Europa weitgehend bereites durch Digitalradio ersetzte 
+Für ein Audiosignal $A(t)$ mit $A(t)<1$ wird $I(t)=1+A(t)$ verwendet.
+Das in Europa weitgehend bereits durch Digitalradio ersetzte 
 Mittelwellenradio (AM) verwendet Amplitudenmodulation.
+Bis 2025 werden in Europa alle Radiostationen digitalisiert, damit
+wird AM für den Rundfunk aussterben.
 
-Mit reiner Amplitudenmodulation lässt sich jedoch kein Stereosignal
-übertragen.
+\subsubsection{Phasenmodulation}
+\begin{figure}
+\centering
+\includegraphics{applications/qam/images/amfmpm.pdf}
+\caption{Amplitudenmodulation (links), Phasenmodulation (mitte) und
+Frequenzmodulation in der $I$-$Q$-Ebene.
+Frequenzmodulation ensteht durch eine Drehung in der $I$-$Q$-Ebene
+mit der Kreisfrequenz der gewünschten Frequenzänderung.
+\label{qam:figure:amfmpm}}
+\end{figure}
+Statt der Amplitude kann auch die Phase des Trägersignals moduliert werden.
+Dazu muss $\omega t$ ersetzt werden durch $\omega t + \delta$.
+Der konstante unmodulierte Vektor $\vec{v}_0$ in der $I$-$Q$-Ebene erzeugt
+das modulierte Signal
+\begin{align*}
+D_{\omega t + \delta}
+\vec{v}_0
+&=
+D_{\omega t}\underbrace{D_{\delta} \vec{v}_0}_{\displaystyle=\vec{v}(t)}.
+\end{align*}
+Eine Phasenänderung um den Winkel $\delta$ entsteht also dadurch, dass
+man den Vektor $\vec{v}_0$ in der $I$-$Q$-Eben um $\delta$ dreht.
+Dieses Modulationsverfahren heisst {\em Phasenmodulation}.
+Abbildung~\ref{qam:figure:amfmpm} zeigt in der Mitte die Transformation
+in der $I$-$Q$-Ebene, die Phasenmodulation bewirkt.
+
+Mit reiner Amplitudenmodulation lässt sich kein Stereosignal übertragen.
 Sind $L(t)$ und $R(t)$ die beiden Stereokanäle, dann erfolgt die
-Modulation typischerweise mit $I(t)=1+L(t)+R(t)$, wobei wir den Offset $1$
-bereits in \eqref{eqn:qam:am} diskutiert haben..
+Amplitudenmodulation typischerweise mit $I(t)=1+L(t)+R(t)$,
+wobei man wieder $L(t)+R(t)<1$ voraussetzen muss.
+Ein reiner AM-Empfänger wird also nur das Audio-Signal $A(t)=L(t) + R(t)$
+empfangen.
+
 Um die Stereoinformation zu übermitteln, muss zusätzlich die Differenz
 $L(t)-R(t)$ übermittelt werden.
 Das C-QUAM Verfahren ({\bf C}ompatible {\bf Qu}adrature {\bf A}mplitude
-{\bf M}odulation) verwendet dafür $Q(t)=L(t)+Q(t)$.
-Die Demodulation von C-QUAM wird vereinfacht durch die Tatsache,
-dass angenommen werden darf, dass $L(t)-R(t)$ klein ist.
+{\bf M}odulation) verwendet dafür $Q(t)=L(t)-R(t)$.
+Man darf annehmen, dass $L(t)-R(t)$ klein ist.
 Dann befinden sich die Punkte $(I(t),Q(t))$ immer in der
-Nähe der $I$-Achse, die sich in einer kleinen Verschiebung der Phase
-des übermittelten Signals äussern.
+Nähe der $I$-Achse, was sich in einer kleinen Verschiebung
+\[
+\delta = \arctan\frac{Q(t)}{I(t)} = \arctan\frac{L(t)-R(t)}{1+L(t)+R(t)}
+\]
+der Phase des übermittelten Signals äussert.
+Der Betrag des Vektors $\vec{v}(t)$ ist dagegen
+\begin{align*}
+|\vec{v}(t)|
+&=
+\sqrt{
+(1+L(t)+R(t))^2
++
+(L(t)-R(t))^2
+}
+=
+(1+L(t)+R(t))
+\sqrt{
+1+
+\biggl(
+\frac{L(t)-R(t)}{1+L(t)+R(t)}\biggr)^2
+}
+\\
+&\simeq 1+L(t)+R(t),
+\end{align*}
+weil der zweite Summand unter der Wurzel klein ist.
+Die $Q$-Komponente ändert also nicht wirklich etwas am Signal, welches
+ein AM-Empfänger empfängt.
+
 Um dem Emfpänger zu signalisieren, dass eine Stereoübertragung
 vorliegt, wird $Q(t)$ zusätzlich ein Pilotton von 25\,Hz hinzugefügt.
 Da nicht C-QUAM-taugliche Empfänger die Phasenschwankungen nicht erkennen
 können, werden sie vom Pilotton auch nicht gestört.
 
-Bis 2025 werden in Europa alle Radiostationen digitalisiert, damit
-wird AM und C-QUAM aussterben.
-
 \subsubsection{Frequenzmodulation}
-Bei der Frequenzmodulation des UKW-Radios wird die Trägerfrequenz
+Bei der {\em Frequenzmodulation} des UKW-Radios wird die Trägerfrequenz
 im Takt des zu übertragenden Tonsignals verändert.
 Lässt sich dies auch mit Hilfe der Signale $I(t)$ und $Q(t)$
 beschreiben?
+Welche Funktionen $I(t)$ und $Q(t)$ muss man wählen?
+
+Ist das zu übertragende Audiosignal $0$, dann wird nur der unveränderte
+Träger ausgestrahlt.
+Dies lässt sich dadurch erreichen, dass man für $\vec{v}(t)$ den
+konstanten Vektor $\vec{v}(t)=\vec{v}_0=(1,0)^t$ wählt.
+
 Das ausgestrahlte Signal $s(t)$ entsteht als erste Komponente
 des Vektors $D_{\omega t}\vec{v}(t)$.
-Für konstantes $\vec{v}(t)$ oszilliert es mit der Kreisfrequenz $\omega$.
-Will man, dass es schneller oszilliert, dann muss man den Vektor
-$\vec{v}(t)$ zusätzlich drehen, was man natürlich wieder mit einer
-Drehmatrix machen kann.
-Möchten wir die Frequenz um $\alpha$  steigern, dann müssen wir
-statt eines konstanten Vektors $\vec{v}_0=(1,0)^t$ den gedrehten
-Vektor $D_{\alpha t}\vec{v}_0$ verwenden, was auf das modulierte Signal
+Für konstantes $\vec{v}(t)=\vec{v}_0$ oszilliert es mit der Kreisfrequenz
+$\omega$.
+Will man, dass es schneller oszilliert, dann muss die Frequenz $\omega$
+erhöht werden.
+Möchte man die Frequenz um $\alpha$ steigern, dann muss man $\omega$
+durch $\omega+\alpha$ ersetzen.
+Das modulierte Signal ist dann
 \[
 \begin{pmatrix}
 s(t)\\c(t)
 \end{pmatrix}
 =
-D_{\omega t}D_{\alpha t}\vec{v}_0
+D_{(\omega+\alpha)t} \vec{v}_0
 =
-D_{(\omega+\alpha)t}\vec{v}_0
-=
-\begin{pmatrix}
-\cos(\omega+\alpha)t 
-\\
-\dots
-\end{pmatrix}
+D_{\omega t} \underbrace{D_{\alpha t} \vec{v}_0}_{\displaystyle=\vec{v}(t)}.
 \]
-führt.
+Dies ist gleichbedeutend damit, dass man den Vektor $\vec{v}_0$ in der
+$I$-$Q$-Ebene mit der Winkelgeschwindigkeit $\alpha$ dreht und so
+$\vec{v}(t)$ erhält.
 Daraus liest man ab, dass für die Signale $I(t)$ und $Q(t)$
 \begin{equation}
 \begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
@@ -87,6 +143,8 @@ Q(t)&=\sin\alpha t
 gilt.
 Insbesondere kann man auch die Frequenzmodulation mit der
 Quadratur-Amplituden-Modulation realisieren.
+Abbildung~\ref{qam:figure:amfmpm} zeigt rechts symbolisch die
+Kreisbewegung in der $I$-$Q$-Ebene, die Frequenzmodulation bewirkt.
 
 \subsubsection{Analoges Farbfernsehen}
 Die Entwicklung des analogen Farbfernsehens sah sich vor die Aufgabe 
@@ -225,8 +283,8 @@ Diese Konstellation wird manchmal auch Cross-QAM genannt.
 Bits&Symbole&Konstellation&Name&Anwendung\\
 \hline
    2&      4&$  2\times   2$      &    4-QAM&DVB-S       \\
-   4&     16&$  4\times   4$      &    8-QAM&V.29, DVB-T \\
-   6&     64&$  8\times   8$      &   16-QAM&DVB-C, DVB-T\\
+   4&     16&$  4\times   4$      &   16-QAM&V.29, DVB-T \\
+   6&     64&$  8\times   8$      &   64-QAM&DVB-C, DVB-T\\
    8&    256&$ 16\times  16$      &  256-QAM&DVB-C       \\
   10&   1024&$ 32\times  32$      & 1024-QAM&            \\
   12&   4096&$ 64\times  64$      & 4096-QAM&DVB-C2, G.hn\\

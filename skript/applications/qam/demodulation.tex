@@ -6,7 +6,7 @@
 \subsection{Demodulation
 \label{subsection:demodulation}}
 Die modulierten Komponenten $s(t)$ und $c(t)$ entstehen gemäss
-\eqref{eqn:qam:modulation}
+\eqref{qam:eqn:modulation}
 durch eine sehr rasche Drehung $D_{\omega t}\vec{v}(t)$
 des Vektor $\vec{v}(t)$.
 Da die Drehung durch eine Matrix beschrieben wird, können wir
@@ -182,7 +182,7 @@ Beides zusammen kann kurz als
 \frac12 \vec{v}(t)
 +
 \frac12 SD_{2\omega t}\vec{v}(t)
-\label{eqn:qam:filter}
+\label{qam:eqn:filter}
 \end{equation}
 geschrieben werden.
 
@@ -193,7 +193,7 @@ bzw.~$\frac12Q(t)$ überlagert mit einer Schwingung mit der doppelten
 Frequenz des Trägers.
 
 \subsubsection{Demodulation mit Matrixalgebra}
-In der vorangegangenen Herleitung der Formel~\eqref{eqn:qam:filter}
+In der vorangegangenen Herleitung der Formel~\eqref{qam:eqn:filter}
 haben wir ausgiebig von trigonometrischen Formeln Gebrauch gemacht.
 Wir können die Formel aber auch auf eine viel geometrischere Art verstehen.
 Dazu schreiben wir die Projektionsmatrix $P$ als eine Summe
@@ -245,14 +245,14 @@ D_{-\omega t}PD_{\omega t}
 =
 \frac12E + \frac12 SD_{2\omega t},
 \]
-woraus wieder die Formel~\eqref{eqn:qam:filter}
+woraus wieder die Formel~\eqref{qam:eqn:filter}
 für $\hat{v}(t)$ folgt.
 
 \subsubsection{Filterung des Trägers}
 \begin{figure}
 \centering
 \includegraphics{applications/qam/images/filter.pdf}
-\caption{Filterung des Trägers aus~\eqref{eqn:qam:filter}
+\caption{Filterung des Trägers aus~\eqref{qam:eqn:filter}
 links für ein konstantes Signal $\vec{v}(t)=\vec{v}(0)$, rechts
 für ein langsam veränderliches Signal.
 Zur besseren Lesbarkeit sind rechts die Terme
@@ -271,7 +271,7 @@ näherungsweise eliminieren.
 Um dies zu verstehen, nehmen wir an, dass $\vec{v}(t)$ während eines
 Zeitintervalls der Länge $L=\pi/\omega$ konstant ist ist.
 Wir bezeichnen Mittelwerte über das Intervall mit dem Buchstaben $\mathcal{M}$.
-Wir beachten dann, dass der zweite Term in \eqref{eqn:qam:filter}
+Wir beachten dann, dass der zweite Term in \eqref{qam:eqn:filter}
 für dieses Zeitintervall die gleichförmige, ganze Drehung des Vektors
 um den Nullpunkt beschreibt.
 Der Mittelwert des zweiten Terms über das Intervall verschwindet daher:
@@ -281,7 +281,7 @@ Der Mittelwert des zweiten Terms über das Intervall verschwindet daher:
 0
 \]
 (siehe auch Abbildung~\ref{figure:qam:filter} links).
-Der erste Term von \eqref{eqn:qam:filter} ist während des Intervalls
+Der erste Term von \eqref{qam:eqn:filter} ist während des Intervalls
 konstant, ihr Mittelwert ist daher
 \[
 \mathcal{M}\frac12\vec{v}(t)
@@ -341,7 +341,7 @@ D_{\omega t}\vec{v}(t)
 +
 \frac12 SD_{(2\omega +\Delta\omega) t}\vec{v}(t)
 \end{aligned}
-\label{eqn:qam:demoomegar}
+\label{qam:eqn:demoomegar}
 \end{equation}
 Bei der Filterung des Trägers verschwindet der zweite Term.
 Die Demodulation liefert also nicht den Vektor $\vec{v}(t)$, vielmehr
@@ -363,7 +363,7 @@ wenn man also annehmen darf, dass $\omega_r=\omega$,
 ist noch nicht sichergestellt, dass auch die Phase übereinstimmt.
 Die Demodulation könnte mit einer um den Winkel $\delta$
 phasenverschobenen Drehmatrix $D_{\omega t+\delta}$ erfolgen.
-Dieselbe Rechnung wie in \eqref{eqn:qam:demoomegar} liefert dann
+Dieselbe Rechnung wie in \eqref{qam:eqn:demoomegar} liefert dann
 \[
 \hat{v}(t)
 =

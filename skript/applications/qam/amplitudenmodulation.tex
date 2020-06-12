@@ -7,7 +7,7 @@
 \label{subsection:amplitudenmodulation}}
 Die Technik der Amplitudenmodulation geht auf die Anfangszeit des
 Radios zurück.
-Um ein zeitabhängiges Audio-Signal $I(t)$ mit Frequenzen von typischwerweise
+Um ein zeitabhängiges Audio-Signal $A(t)$ mit Frequenzen von typischwerweise
 wenigen hundert Hertz oder wenigen Kilohertz drahtlos zu übertragen,
 verändert man die Amplitude eines Trägersignals von mehreren hundert
 Kilohertz oder mehr und leitet es zu einer Antenne.
@@ -18,7 +18,7 @@ werden kann.
 \begin{figure}
 \centering
 \includegraphics{applications/qam/images/am.pdf}
-\caption{Amplitudenmodulation eines Signals $I(t)$ auf eine
+\caption{Amplitudenmodulation eines Signals $A(t)$ auf eine
 Trägerfrequenz $\cos\omega t$.
 Die Amplitude des Trägers wird im Takt des Signals verändert.
 \label{figure:qam:am}}
@@ -27,15 +27,18 @@ Die Amplitude des Trägers wird im Takt des Signals verändert.
 In Abbildung~\ref{figure:qam:am} wird die Amplitude des Träger
 $\cos\omega t$ mit der Kreisfrequenz $\omega$ im Takt des
 Signals verändert.
-Genauer: der Träger wird mit $1+I(t)$ multipliziert,
+Genauer: der Träger wird mit $I(t)=1+A(t)$ multipliziert,
 das ausgesendete und empfangene Signal ist also
 \begin{equation}
-(1+I(t)) \cos\omega t.
-\label{eqn:qam:am}
+I(t) \cos\omega t
+=
+(1+A(t)) \cos\omega t.
+\label{qam:eqn:am}
 \end{equation}
 Ein so moduliertes Signal ist besonders leicht zu demodulieren.
 Es reicht, das Signal gleichzurichten und verbleibende Reste
-der Trägerfrequenz sowie die konstante Komponten auszufiltern.
+der Trägerfrequenz sowie die konstante Komponten auszufiltern, wie
+dies ein Detektorradio (Abbildung~\ref{figure:qam:detektor}) tut.
 \begin{figure}
 \centering
 \begin{tikzpicture}
@@ -50,11 +53,6 @@ Bei starken Sendern kann das niederfrequente Tonsignal ohne
 Verstärkung mit einem Kopfhörer abgehört werden.
 \label{figure:qam:detektor}}
 \end{figure}
-Die konstante Komponente (der Summand $1$ in \eqref{eqn:qam:am})
-ist nicht wirklich interessant und dient nur einer leichter
-verständlichen Darstellung in Abbildung~\ref{figure:qam:am},
-wir werden sie in Zukunft ignorieren und nur noch das modulierte Signal
-$I(t)\cos\omega t$ betrachten.
 
 Mit dieser Methode kann man zu jeder Zeit $t$ einen einzelnen
 Wert $I(t)$ übermitteln.
