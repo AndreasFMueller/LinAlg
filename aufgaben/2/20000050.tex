@@ -1,0 +1,86 @@
+Berechnen Sie die Determinante der Matrix
+\[
+A=
+\begin{pmatrix}
+   1&  1&  2& -2\\
+   9&  4& -6& -9\\
+   4&  0&  5& -1\\
+   2&  2&  5& -4
+\end{pmatrix}
+\]
+
+\begin{loesung}
+Wir verwenden eine Mischung des Gauss-Algorithmus und der Umformungsregeln
+für Determinanten.
+Wir beginnen mit dem Gauss-Algorithmus:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+   1&  1&  2& -2\\
+   9&  4& -6& -9\\
+   4&  0&  5& -1\\
+   2&  2&  5& -4\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+   1&  1&  2& -2\\
+   0& -5&-24&  9\\
+   0& -4& -3&  7\\
+   0&  0&  1&  0\\
+\hline
+\end{tabular}
+\end{align*}
+An dieser Stelle ist es besser, die zweite Zeile von der ersten zu 
+subtrahieren, damit dort ein Pivot $-1$ entsteht.
+Ausserdem vertauschen wir die dritte und vierte Zeile, weil in der
+vierten Zeile bereits ein Element steht, welches als besonders einfaches
+Pivot-Element dienen kann.
+Die Vertauschung führt ein negatives Vorzeichen ein, wir kompensieren
+dies, indem wir das Vorzeichen in der zweiten Zeile kehren.
+\begin{align*}
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+   1&  1&  2& -2\\
+   0& -1&-21&  2\\
+   0& -4& -3&  7\\
+   0&  0&  1&  0\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+   1&  1&  2& -2\\
+   0&  1& 21& -2\\
+   0&  0&  1&  0\\
+   0& -4& -3&  7\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+   1&  1&  2& -2\\
+   0&  1& 21& -2\\
+   0&  0&  1&  0\\
+   0&  0& 81& -1\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+   1&  1&  2& -2\\
+   0&  1& 21& -2\\
+   0&  0&  1&  0\\
+   0&  0&  0& -1\\
+\hline
+\end{tabular}
+\end{align*}
+Damit ist nur das allerletzte Pivot, nämlich $-1$, von $1$ verschieden
+und wir können schliessen, dass $\det(A)=-1$.
+\end{loesung}
+
+
+
+
+

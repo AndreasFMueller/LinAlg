@@ -1,0 +1,82 @@
+Auf der Krabbeldecke für Babies
+\begin{center}
+\includeagraphics[width=0.5\hsize]{alles.jpg}
+\quad
+\includeagraphics[width=0.36\hsize]{determinante.jpg}
+\end{center}
+findet man auch eine Determinante.
+\begin{teilaufgaben}
+\item Welchen Wert hat die Determinante?
+\item Die unklare Orientierung der Krabbeldecke könnte dafür sorgen, dass
+die Determinante verkehrt herum gelesen wird.
+Wie kann man die Werte aller um Vielfache von $90^\circ$ ``gedrehten''
+Determinanten bestimmen, ohne erneut zu rechnen?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Determinante kann mit dem Entwicklungssatz bestimmt werden:
+\begin{align}
+\left|\begin{matrix}
+ 1&0&1\\
+-2&3&2\\
+ 4&5&1
+\end{matrix}\right|
+&=
+1\cdot\left|\begin{matrix}3&2\\5&1\end{matrix}\right|
++
+1\cdot\left|\begin{matrix}-2&3\\4&5\end{matrix}\right|
+=
+3-10 -10-12
+=
+-29.
+\label{20000053:det}
+\end{align}
+\item
+Wir müssen die Werte der Determinanten
+\[
+d_1
+=
+\left|\begin{matrix}
+1&5& 4\\
+2&3&-2\\
+1&0& 1
+\end{matrix}\right|,
+\quad
+d_2
+=
+\left|\begin{matrix}
+1& 2&1\\
+0& 3&5\\
+1&-2&4
+\end{matrix}\right|,
+\quad
+d_3
+=
+\left|\begin{matrix}
+4&-2&1\\
+5& 3&0\\
+1& 2&1
+\end{matrix}\right|
+\]
+aus der bereits bekannten Determinanten \eqref{20000053:det} ableiten.
+
+$d_3$ kann man bekommen, indem man die Matrix transponiert und
+dann die erste und letzte Spalte vertauscht. 
+Transponieren ändert die Determinante nicht, aber die Vertausch
+kehrt das Vorzeichen, also $d_3=29$.
+
+$d_2$ kann man bekommen, indem die Matrix erst transponiert und dann
+die erste und letzte Zeile vertauscht.
+Wie im Falle von $d_3$ folgt $d_2=29$.
+
+$d_1$ kann man erhalten, indem man die erste und letzte Zeile vertauscht
+und ausserdem die erste und letzte Spalte.
+Beide Vertauschung führen zu einem Vorzeichenwechsel, insgesamt bleibt
+die Determinante gleich. 
+Folglich ist $d_1=-29$.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
