@@ -1,0 +1,101 @@
+Warum ist die Matrix
+\[
+A
+=
+\begin{pmatrix}
+1&a&a^2\\
+a&a^2+1&a^3+a\\
+a^2&a^3+a&a^4+a^2+1
+\end{pmatrix}
+\]
+positiv definit?
+
+\begin{loesung}
+Eine Matrix ist positiv definit, wenn sie eine Cholesky-Zerlegung hat,
+also eine Matrix
+\[
+L
+=
+\begin{pmatrix}
+l_{11}&0&0\\
+l_{21}&l_{22}&0\\
+l_{31}&l_{32}&l_{33}
+\end{pmatrix}
+\]
+derart existiert, dass $LL^t=A$ gilt.
+Durch Ausführen der Matrixmultiplikation
+\[
+LL^t
+=
+\begin{pmatrix}
+l_{11}&0&0\\
+l_{21}&l_{22}&0\\
+l_{31}&l_{32}&l_{33}
+\end{pmatrix}
+\begin{pmatrix}
+l_{11}&l_{21}&l_{31}\\
+0&l_{22}&l_{32}\\
+0&0&l_{33}
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&a&a^2\\
+a&a^2+1&a^3+a\\
+a^2&a^3+a&a^4+a^2+1
+\end{pmatrix}
+\]
+findet man der Reihe nach:
+\begin{align*}
+a_{11}&=1&
+&=
+l_{11}^2 =1
+&&\Rightarrow&
+l_{11}&=1\\
+a_{12}&=a&
+&=
+l_{11}\cdot l_{21}
+=
+l_{21}
+&&\Rightarrow&
+l_{21}&=a\\
+a_{13}&=a^2&
+&=
+l_{11}\cdot l_{31}=1\cdot l_{31}
+&&\Rightarrow&
+l_{31}&=a^2\\
+a_{22}&=a^2+1&
+&=
+l_{21}^2 + l_{22}^2=a^2 + l_{22}^2
+&&\Rightarrow&
+l_{22}&=1\\
+a_{23}&=a^3+a&
+&=
+l_{22}\cdot l_{32} + l_{21}\cdot l_{31} 
+=
+l_{32} + a\cdot a^2
+&&\Rightarrow&
+l_{32}&=a\\
+a_{33}&=a^4+a^2+1&
+&=
+l_{31}^2 + l_{32}^2 + l_{33}^2=a^4+a^2+l_{33}^2
+&&\Rightarrow&
+l_{33}&=1
+\end{align*}
+Somit liefert
+\[
+L=\begin{pmatrix}
+1&0&0\\
+a&1&0\\
+a^2&a&1
+\end{pmatrix}
+\]
+die Cholesky-Zerlegung der Matrix $A=LL^t$.
+Damit folgt jetzt auch, dass die Matrix $A$ positiv definit ist.
+\end{loesung}
+
+\begin{bewertung}
+Cholesky-Zerlegung ({\bf C}) 1 Punkt,
+Durchführung ({\bf D}) 4 Punkte,
+Kriterium: wenn die Cholesky-Zerlegung durchführbar ist, ist die
+Matrix positiv definit ({\bf K}) 1 Punkt.
+\end{bewertung}
