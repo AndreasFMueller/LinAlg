@@ -3,5 +3,7 @@
 #
 # (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
 #
-all:	aufgabe.m
+all:
+
+aufgabe:	aufgabe.m
 	octave aufgabe.m
