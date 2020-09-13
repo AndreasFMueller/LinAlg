@@ -1,0 +1,166 @@
+Gegeben ist das von den Parametern $w$ und $t$ abhängige lineare
+Gleichungssystem
+\[
+\begin{linsys}{3}
+ 2x &+&      10y &+&  6z      &=&       24,\\
+  x &+&  (4w+9)y &+&(12w+15)z &=& 28w+t+38,\\
+-3x &-&      11y &-&   z      &=&       -8.
+\end{linsys}
+\]
+\begin{teilaufgaben}
+\item
+Finden Sie die Lösung des Gleichungssystems im Falle $w=0$ und $t=6$.
+\item
+Für welche Werte des Parameters $w$ ist das Gleichungsystem nicht eindeutig
+lösbar?
+\item
+Wie muss $t$ gewählt werden, damit das Gleichungssystem immer mindestens
+eine Lösung hat?
+\item
+Bestimmen Sie die Lösungsmenge in dem Fall, wo das Gleichungssystem unendlich
+viele Lösungen hat.
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir wenden den Gauss-Algorithmus auf das zugehörige Tableau an:
+\begin{align}
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+ 2&  10&      6&      24\\
+ 1&4w+9& 12w+15&28w+t+38\\
+-3& -11&     -1&      -8\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&   5&      3&      12\\
+ 0&4w+4& 12w+12&28w+t+26\\
+ 0&   4&      8&      28\\
+\hline
+\end{tabular}
+\notag
+\intertext{An dieser Stelle könnte $w+1=0$ ein nicht geeignetes
+Pivot sein, wir verschieben die Behandlung dieses Falles auf 
+später, indem wir die zweite und dritte Zeile vertauschen}
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&   5&       3&      12\\
+ 0&   4&       8&      28\\
+ 0&4w+4& 12(w+1)&28w+t+26\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&    5 &       3& 12\\
+ 0&    1 &       2&  7\\
+ 0&    0 &  4(w+1)&t-2\\
+\hline
+\end{tabular}
+\label{10000063:singulaer}
+\intertext{Wenn $w+1=0$ erhalten wir eine Nullzeile.
+Das Gleichungssystem wird nur eine Lösung haben, wenn die rechte Seite
+ebenfalls verschwindet.
+Wir nehmen für die weitere Rechnung an, dass $w\ne-1$.}
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&     5 & 3     &   12\\
+ 0&     1 & 2     &    7\\
+ 0&     0 & 4(w+1)&  t-2\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+1&   5& 0& 12-3q\\
+0&   1& 0&  7-2q\\
+0&   0& 1&     q\\
+\hline
+\end{tabular}
+\notag
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+1&   0& 0&-23+7q\\
+0&   1& 0&  7-2q\\
+0&   0& 1&     q\\
+\hline
+\end{tabular}
+\notag
+\end{align}
+Dabei haben wir den etwas unschönen Bruch $q=\frac{t-2}{4(w+1)}$ abgekürzt.
+Nach dieser Rechnung können wir jetzt die einzelnen Fragen beantworten.
+\begin{teilaufgaben}
+\item
+Im Falle $w=0$ und $t=6$ wird
+\[
+q = \frac{t-2}{4(w+1)} = \frac{6-2}{4(0+1)} = 1.
+\]
+Daraus lassen sich die Unbekannten $x$, $y$ und $z$ leicht bestimmen
+\begin{align*}
+x &=-16+9q=-16+9=-7,\\
+y&=7-3q=4\\
+\text{und}\quad
+z&=1.
+\end{align*}
+\item
+Das Gleichungssystem ist nicht eindeutig lösbar, wenn $w+1=0$ ist, also für
+$w=-1$.
+\item
+Für $w\ne-1$ spielt der Wert von $t$ keine Rolle, nur für $w=-1$ muss
+genauer untersucht werden, was auf der rechten Seite der Nullzeile steht.
+Dies kann im Schritt \eqref{10000063:singulaer} abgelesen werden.
+Dort steht, dass die rechte Seite für $w=-1$ zu $t-2$ wird, d.~h.~es gibt
+unendlich viele Lösungen genau dann, wenn $t=2$, andernfalls gibt es keine
+Lösung.
+Da gefordert wurde, dass das Gleichungssystem mindestens eine Lösung haben
+muss, muss man im Falle $w=-1$ zusätzlich $t=2$ verlangen.
+\item
+Um die Lösungsmenge abzulesen, müssen wir ausgehend von
+\eqref{10000063:singulaer} zu einem Schlusstableau gelangen:
+\[
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&     5 & 3     &   12\\
+ 0&     1 & 2     &    7\\
+ 0&     0 & 0     &    0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1&     0 & -12 & -23\\
+ 0&     1 &   2 &   7\\
+ 0&     0 &   0 &   0\\
+\hline
+\end{tabular}
+\]
+woraus wir die Lösungsmenge
+\[
+\mathbb L
+=
+\left\{
+\left.
+\begin{pmatrix}-23\\7\\0\end{pmatrix}
++
+z\begin{pmatrix}12\\-3\\1\end{pmatrix}
+\; \right| \;
+z\in\mathbb R
+\right\}.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Gauss-Algorithmus Vorwärtsreduktion ({\bf V}) 1 Punkt und
+Rückwärtseinsetzen ({\bf R}) 1 Punkt,
+\begin{teilaufgaben}
+\item ({\bf A}) 1 Punkt,
+\item ({\bf B}) 1 Punkt,
+\item ({\bf C}) 1 Punkt,
+\item ({\bf D}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
