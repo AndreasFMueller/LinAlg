@@ -1,0 +1,131 @@
+Ist die Matrix
+\[
+A
+=
+\begin{pmatrix}
+12& 5&-1\\
+ 0& 6& 0\\
+36&30& 0
+\end{pmatrix}
+\]
+diagonalisierbar?
+
+\thema{Eigenwerte}
+\thema{Eigenvektoren}
+\thema{charakteristisches Polynom}
+\thema{diagonalisierbar}
+
+\begin{loesung}
+Wir müssen eine Basis aus Eigenvektoren suchen.
+Dazu berechnen wir zunächst das charakteristische Polynom
+\begin{align*}
+\chi_{A}(\lambda)
+&=
+\left|\;\begin{matrix}
+12-\lambda &  5         & -1      \\
+ 0         &  6-\lambda &  0      \\
+36         & 30         & -\lambda
+\end{matrix}\;\right|
+=
+-(12-\lambda)(6-\lambda)\lambda
++0+0
+-(-1)\cdot36(6-\lambda)-0-0
+\\
+&=
+-\lambda(72-18\lambda+\lambda^2) + 216 -36\lambda
+\\
+&=
+-\lambda^3+18\lambda^2-108\lambda +216
+=
+-(\lambda -6)^3.
+\end{align*}
+Das charakteristische Polynom hat die dreifache Nullstelle $\lambda=6$.
+Wir suchen nach Eigenvektoren mit Hilfe des Gaussalgorithmus:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+12-\lambda &  5         & -1       \\
+ 0         &  6-\lambda &  0       \\
+36         & 30         & -\lambda \\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+ 6         &  5         & -1       \\
+ 0         &  0         &  0       \\
+36         & 30         & -6       \\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+ 6         &  5         & -1       \\
+ 0         &  0         &  0       \\
+ 0         &  0         &  0       \\
+\hline
+\end{tabular}
+\end{align*}
+Damit keine Brüche auftreten, haben wir hier auf die Pivot-Divison
+verzichtet und direkt das sechsfache der ersten Zeile von der letzten
+subtrahiert.
+Wie man sehen kann, ist der Rang der Matrix $1$, es gibt also nur
+zwei linear unabhängige Eigenvektoren.
+Insbesondere ist die Matrix $A$ nicht diagonalisierbar.
+
+Wir finden zum Beispiel die beiden Vektoren
+\[
+v_1
+=
+\begin{pmatrix}1\\0\\6\end{pmatrix}
+\quad\text{und}\quad
+v_2
+=
+\begin{pmatrix}0\\1\\5\end{pmatrix}
+\]
+als Eigenvektoren.
+
+Kontrolle:
+\begin{align*}
+Av_1
+&=
+\begin{pmatrix}
+12& 5&-1\\
+ 0& 6& 0\\
+36&30& 0
+\end{pmatrix}
+\begin{pmatrix}1\\0\\6\end{pmatrix}
+=
+\begin{pmatrix}
+12-6\\
+0\\
+36
+\end{pmatrix}
+=
+6\cdot
+\begin{pmatrix}1\\0\\6\end{pmatrix}
+=
+\lambda v_1,
+\\
+Av_2
+&=
+\begin{pmatrix}
+12& 5&-1\\
+ 0& 6& 0\\
+36&30& 0
+\end{pmatrix}
+\begin{pmatrix}0\\1\\5\end{pmatrix}
+=
+\begin{pmatrix}
+5-5\\
+6\\
+30
+\end{pmatrix}
+=
+6\cdot
+\begin{pmatrix}0\\1\\5\end{pmatrix}
+=
+\lambda v_2.
+\qedhere
+\end{align*}
+\end{loesung}

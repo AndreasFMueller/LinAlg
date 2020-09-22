@@ -1,0 +1,178 @@
+%a0 =
+%
+%   14
+%   -2
+%    5
+%
+%a1 =
+%
+%    2
+%  -11
+%  -10
+%
+Betrachten Sie die Vektoren
+\[
+\vec{a}_0
+=
+\begin{pmatrix} 14\\-2\\5 \end{pmatrix}
+\qquad\text{und}\qquad
+\vec{a}_1
+=
+\begin{pmatrix} 2\\-11\\-10 \end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item
+Berechnen Sie $\vec{a}_2 = \vec{a}_0\times\vec{a}_1$.
+\item
+Bestimmen Sie Länge und Zwischenwinkel der Vektoren $\vec{a}_0$ und
+$\vec{a}_1$.
+\item
+Betrachten Sie die rekursiv definierte Folge
+$\vec{a}_{n+1} = \vec{a}_{n-1} \times\vec{a}_n$.
+Berechnen Sie $\vec{a}_{6}$.
+\end{teilaufgaben}
+
+\thema{Zwischenwinkel}
+\thema{Vektorprodukt}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Das Vektorprodukt ist
+\begin{align*}
+\vec{a}_0\times\vec{a}_1
+&=
+\begin{pmatrix} 14\\-2\\5 \end{pmatrix}
+\times
+\begin{pmatrix} 2\\-11\\-10 \end{pmatrix}
+=
+\begin{pmatrix}
+(-2)\cdot(-10)-(-11)\cdot 5 \\
+5\cdot 2 - (-10)\cdot 14 \\
+14\cdot(-11) -2\cdot(-2)
+\end{pmatrix}
+=
+\begin{pmatrix}
+75\\150\\-150
+\end{pmatrix}.
+\end{align*}
+\item
+Die Länge der Vektoren ist
+\begin{align*}
+|\vec{a}_0|
+&=
+\sqrt{196+4+25} = 15,
+\\
+|\vec{a}_1|
+&=
+\sqrt{4+121+100}=15.
+\end{align*}
+Da wir das Vektorprodukt bereits berechnet haben, können wir die 
+Zwischenwinkelformel 
+\[
+\sin\alpha = \frac{|\vec{a}_0\times \vec{a}_1|}{|\vec{a}_0|\cdot |\vec{a}_1|}
+\]
+für das Vektorprodukt verwenden.
+Dazu brauchen wir die Länge des Vektorproduktes:
+\[
+|\vec{a}_0\times\vec{a}_1|
+=
+\sqrt{75^2 + 2 \cdot 150^2}
+=
+25\sqrt{3^2 + 2\cdot 6^2}
+=
+25\sqrt{9+2\cdot 36}
+=
+25\sqrt{81}
+=
+225
+\]
+und finden für den Zwischenwinkel
+\[
+\sin\alpha = \frac{225}{15\cdot 15} = 1
+\quad\Rightarrow\quad
+\alpha = 90^\circ,
+\]
+die beiden Vektoren stehen also senkrecht aufeinander.
+\item
+Die Vektoren $\vec{a}_0$ und $\vec{a}_1$ stehen senkrecht und haben
+beide Länge $15$.
+Der Vektor $\vec{a}_2$ ist auf beiden senkrecht, die drei Vektoren
+$\vec{a}_0$, $\vec{a}_1$ und $\vec{a}_2$ bilden ein Rechtssystem.
+Alle Vektorprodukte $\vec{a}_n$ sind daher immer Vielfache dieser Vektoren,
+$\vec{a}_3$ ist ein Vielfaches von $\vec{a}_0$, $\vec{a}_4$ ist ein
+Vielfaches von $\vec{a}_1$ und allgemein ist 
+$\vec{a}_n$ ein Vielfaches von $\vec{a}_{n-3}$.
+Wir kennen also von allen Vektoren die Richtung, wir müssen nur noch die
+Länge bestimmen.
+Da die Vektoren senkrecht stehen, hat das Vektorprodukt jeweils als
+Länge das Produkt der Längen der Faktoren, also
+$|\vec{a}_{n+1}| = |\vec{a}_{n-1}|\cdot|\vec{a}_n|.$
+Die Längen sind
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{l|
+>{$}c<{$}
+>{$}c<{$}
+>{$}c<{$}
+>{$}c<{$}
+>{$}c<{$}
+>{$}c<{$}
+>{$}c<{$}
+>{$}c<{$}
+}
+Vektor&\vec{a}_0
+        &\vec{a}_1
+           &\vec{a}_2
+                &\vec{a}_3
+                     &\vec{a}_4
+                          &\vec{a}_5
+                               &\vec{a}_6
+                                       &\vec{a}_7
+\\
+\hline
+Länge&15&15&15^2&15^3&15^5&15^8&15^{13}&15^{21}
+\\
+\end{tabular}
+\end{center}
+Daraus können wir die Länge des Vektors $\vec{a}_n$  ablesen.
+Es ist $|\vec{a}_n| = 15^{F_n}$, wobei $F_n$ die $n$-te Fibonacci-Zahl ist.
+Insbesondere wissen wir jetzt genau, wie lang der Vektor $\vec{a}_6$ ist, 
+nämlich $|\vec{a}_6|=15^{13}$.
+
+Die Richtung von $\vec{a}_6$ ist die Richtung von $\vec{a}_0$, der selbst
+die Länge $15$ hat.
+Es folgt
+\[
+\vec{a}_6
+=
+15^{13}\cdot \frac{\vec{a}_0}{|\vec{a}_0|}
+=
+15^{12}\vec{a}_0
+=
+129746337890625
+\begin{pmatrix}
+14\\-2\\5
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 1816448730468750\\
+ -259492675781250\\
+  648731689453125 
+\end{pmatrix}.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item Vektorprodukt ({\bf V}) 1 Punkt
+\item Länge der Vektoren ({\bf L}) 2 Punkte,
+Zwischenwinkel ({\bf Z}) 1 Punkt
+\item
+Orthogonalität aufeinanderfolgender Vektoren der Folge $a_n$ oder
+andere Begründung für das Resultat ({\bf O}) 1 Punkt,
+Resultat ({\bf R}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}

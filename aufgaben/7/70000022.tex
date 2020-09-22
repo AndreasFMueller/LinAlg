@@ -1,0 +1,36 @@
+Gegeben ist die Matrix
+\[
+A=\begin{pmatrix}
+  1&   10&  100\\
+ 10&  101& 1010\\
+100& 1010&  a
+\end{pmatrix}.
+\]
+Für welche Werte des Parameters $a\in\mathbb R$ ist die Matrix
+$A$ positiv definit ist?
+
+\thema{Cholesky-Zerlegung}
+
+\begin{loesung}
+Eine Matrix ist positiv definit, wenn sie eine Cholesky-Zerlegung $L$ mit
+$LL^t=A$ hat.
+Der übliche Algorithmus zur Bestimmung der Cholesky-Zerlegung liefert
+\[
+L=\begin{pmatrix}
+1&0&0\\
+10&1&0\\
+100&10&l_{33}
+\end{pmatrix}
+\]
+und für $l_{33}$ die Gleichung
+\[
+l_{31}^2 + l_{32}^2 + l_{33}^2 = 10000 + 100 + l_{33}^2 = a
+\quad\Rightarrow\quad
+l_{33}^2 = a - 10100.
+\]
+Diese Gleichung hat nur dann eine positive relle Lösung, wenn $a > 10100$ ist.
+\end{loesung}
+
+\begin{bewertung}
+Ein Punkt pro Matrixelement.
+\end{bewertung}

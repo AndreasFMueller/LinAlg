@@ -1,0 +1,143 @@
+Ist die Matrix
+\[
+A
+=
+\begin{pmatrix}
+-1&  0& 0\\
+ 9&-15& 7\\
+18&-28&13
+\end{pmatrix}
+\]
+diagonalisierbar?
+
+\thema{Eigenwerte}
+\thema{Eigenvektoren}
+\thema{charakteristisches Polynom}
+\thema{diagonalisierbar}
+
+\begin{loesung}
+Wir müssen eine Basis aus Eigenvektoren suchen.
+Dazu berechnen wir zunächst das charakteristische Polynom
+\begin{align*}
+\chi_{A}(\lambda)
+&=
+\left|\;\begin{matrix}
+-1-\lambda &  0         &  0        \\
+ 9         &-15-\lambda &  7        \\
+18         &-28         & 13-\lambda
+\end{matrix}\;\right|
+=
+(1+\lambda)(15+\lambda)(13-\lambda)
+-(-28)\cdot 7\cdot(-1-\lambda)
+\\
+&=
+-\lambda^3-3\lambda^2+193\lambda+195
+-196-196\lambda
+=
+-\lambda^3-\lambda^2-3\lambda-1
+\\
+&=
+-(\lambda +1)^3.
+\end{align*}
+Das charakteristische Polynom hat die dreifache Nullstelle $\lambda=-1$.
+Wir suchen nach Eigenvektoren mit Hilfe des Gaussalgorithmus:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+-1-\lambda &  0         &  0         \\
+ 9         &-15-\lambda &  7         \\
+18         &-28         & 13-\lambda \\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+ 0         &  0         &  0       \\
+ 9         &-14         &  7       \\
+18         &-28         & 14       \\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|}
+\hline
+ 9         &-14         &  7       \\
+ 0         &  0         &  0       \\
+ 0         &  0         &  0       \\
+\hline
+\end{tabular}
+\end{align*}
+Wir haben die Nullzeile im zweiten Tableau nach unten permutiert.
+Damit keine Brüche auftreten, haben wir hier auf die Pivot-Divison
+verzichtet und direkt das zweifache der ersten Zeile von der letzten
+subtrahiert.
+Wie man sehen kann, ist der Rang der Matrix $1$, es gibt also nur
+zwei linear unabhängige Eigenvektoren.
+Insbesondere ist die Matrix $A$ nicht diagonalisierbar.
+
+Wir finden zum Beispiel die beiden Vektoren
+\[
+v_1
+=
+\begin{pmatrix}14\\9\\0\end{pmatrix}
+\quad\text{und}\quad
+v_2
+=
+\begin{pmatrix}-7\\0\\9\end{pmatrix}
+\]
+als Eigenvektoren.
+
+Kontrolle:
+\begin{align*}
+Av_1
+&=
+\begin{pmatrix}
+-1&  0& 0\\
+ 9&-15& 7\\
+18&-28&13
+\end{pmatrix}
+\begin{pmatrix}14\\9\\0\end{pmatrix}
+=
+\begin{pmatrix}
+-14\\
+9\cdot 14-9\cdot 15\\
+18\cdot14-28\cdot 9
+\end{pmatrix}
+=
+\begin{pmatrix}
+-14\\
+9\cdot 14-9\cdot 15\\
+-9\\
+0
+\end{pmatrix}
+=
+-1\cdot
+\begin{pmatrix}14\\9\\0\end{pmatrix}
+=
+\lambda v_1,
+\\
+Av_2
+&=
+\begin{pmatrix}
+-1&  0& 0\\
+ 9&-15& 7\\
+18&-28&13
+\end{pmatrix}
+\begin{pmatrix}-7\\0\\9\end{pmatrix}
+=
+\begin{pmatrix}
+7\\
+-63+63\\
+18\cdot (-7) + 13\cdot 9
+\end{pmatrix}
+=
+\begin{pmatrix}
+7\\0\\-9
+\end{pmatrix}
+=
+-1\cdot
+\begin{pmatrix}-7\\0\\9\end{pmatrix}
+=
+\lambda v_2.
+\qedhere
+\end{align*}
+\end{loesung}

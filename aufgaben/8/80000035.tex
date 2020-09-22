@@ -1,0 +1,93 @@
+Ist die Matrix
+\[
+A=\begin{pmatrix}
+ 1&16& 0\\
+-1& 9& 0\\
+ 0& 0&-2
+\end{pmatrix}
+\]
+diagonalisierbar?
+
+\thema{Eigenwerte}
+\thema{Eigenvektoren}
+\thema{charakteristisches Polynom}
+\thema{diagonalisierbar}
+
+\begin{loesung}
+Wir müssen untersuchen, ob es eine Basis aus Eigenvektoren gibt.
+Zunächst ist klar, dass $\lambda=-2$ ein Eigenwert ist und $e_3$ der
+zugehörige Eigenvektor, wir müssen also nur noch die $2\times 2$-Matrix
+\[
+A_0=\begin{pmatrix}
+ 1&16\\
+-1& 9
+\end{pmatrix}
+\]
+in der linken oberen Ecke von $A$ studieren.
+Dazu berechnen wir das charakteristische Polynom
+\begin{align*}
+\chi_{A_0}(\lambda)
+&=
+\left|\;\begin{matrix}
+1-\lambda&16\\
+-1&9-\lambda
+\end{matrix}\;\right|
+=
+(1-\lambda)(9-\lambda)+16
+\\
+&=
+9-10\lambda+\lambda^2+16
+=
+\lambda^2 -10\lambda + 25 
+=
+(\lambda-5)^2.
+\end{align*}
+Das charakteristische Polynom hat die doppelte Nullstelle $\lambda=5$.
+
+An dieser Stelle könnten wir eine Abkürzung nehmen: wäre $A_0$
+diagonalisierbar, dann müssten $A_0 = \lambda E$ sein.
+Da dies nicht der Fall ist, können wir schliessen, dass $A_0$ und
+damit $A$ nicht diagonalisierbar ist.
+
+In etwas mehr Detail bestimmen wir Eigenvektoren mit Hilfe des
+Gauss-Algorithmus.
+Dazu bearbeiten wir das Tableau
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1-\lambda&16\\
+-1&9-\lambda\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-4&16\\
+-1&4\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-4\\
+0&0\\
+\hline
+\end{tabular}.
+\end{align*}
+Daraus lesen wir ab, dass alle Eigenvektoren von $A_0$ Vielfache von
+\[
+v_\lambda = v_5 = \begin{pmatrix}4\\1\end{pmatrix}
+\]
+sein müssen.
+Insbesondere gibt es keine Basis aus Eigenvektoren des zweidimensionalen
+Raumes $\mathbb R^2$, also ist $A_0$ und damit auch $A$ nicht diagonalisierbar.
+\end{loesung}
+
+\begin{bewertung}
+Erster Eigenwert -2 ({\bf E}) 1 Punkt,
+charakteristisches Polynome ({\bf X}) 1 Punkt,
+doppelter Eigenwert 5 ({\bf D}) 1 Punkt,
+Eigenvektor zu $\lambda=-2$ ({\bf V$\mathstrut_{-2}$}) 1 Punkt,
+Eigenvektor zu $\lambda=5$ ({\bf V$\mathstrut_5$}) 1 Punkt,
+Nicht diagonalisierbarkeit ({\bf N}) 1 Punkt.
+\end{bewertung}

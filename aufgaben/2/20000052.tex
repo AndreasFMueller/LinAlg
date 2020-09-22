@@ -1,0 +1,50 @@
+Bestimmen Sie die Determinante der Matrix
+\[
+A=\begin{pmatrix}
+  -6&  9&  2& -7\\
+  -2&  8& -6& -3\\
+   0& -5&  0&  0\\
+  -5& -9& -1&  4
+\end{pmatrix}.
+\]
+
+\thema{Determinante}
+\thema{Entwicklungssatz}
+\thema{Sarrus-Formel}
+
+\begin{loesung}
+Wir verwenden den Entwicklungssatz und entwickeln die Determinante nach der
+dritten Zeile:
+\begin{align*}
+\det(A)
+&=
+-1\cdot(-5)\cdot \left|\;\begin{matrix}
+  -6&  2& -7\\
+  -2& -6& -3\\
+  -5& -1&  4
+\end{matrix}\;\right|
+\\
+&=
+5\cdot\bigl(
+(-6)\cdot(-6)\cdot 4 + 2\cdot(-3)\cdot(-5)+(-7)\cdot(-2)\cdot(-1)
+\\
+&\qquad\qquad
+- (-5)\cdot(-6)\cdot(-7) - (-1)\cdot(-3)\cdot(-6) - 4\cdot(-2)\cdot 2
+\bigr)
+\\
+&=
+5\cdot 404
+=
+2020.
+\end{align*}
+Für die $3\times 3$-Determinanten haben wir die Sarrus-Formel verwendet, wobei
+wir die zweite nicht im Detail ausgeführt haben.
+\end{loesung}
+
+\begin{bewertung}
+Entwicklungssatz ({\bf E}) 2 Punkt,
+Sarrus ({\bf S}) 2 Punkte,
+Resultat ({\bf D}) 2 Punkte.
+\end{bewertung}
+
+

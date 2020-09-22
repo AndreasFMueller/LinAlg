@@ -1,0 +1,155 @@
+Gegeben sind die beiden Vektoren
+\[
+\vec{a}_0
+=
+\begin{pmatrix}
+  -12\\
+    1\\
+  -12
+\end{pmatrix}
+\qquad\text{und}\qquad
+\vec{a}_1
+=
+\begin{pmatrix}
+   -3\\
+   12\\
+    4
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item
+Berechnen Sie das Vektorprodukt $\vec{a}_2 = \vec{a}_0\times\vec{a}_1$.
+\item
+Berechnen Sie Länge und Zwischenwinkel der Vektoren $\vec{a}_0$ und $\vec{a}_1$.
+\item
+Wir definieren rekursiv
+$\vec{a}_{n+1} = \vec{a}_0\times \vec{a}_n$.
+Berechnen Sie $\vec{a}_{13}$.
+\end{teilaufgaben}
+
+\thema{Zwischenwinkel}
+\thema{Vektorprodukt}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Das Vektorprodukt ist
+\[
+\vec{a}_0\times\vec{a}_1
+=
+\begin{pmatrix}
+  -12\\
+    1\\
+  -12
+\end{pmatrix}
+\times
+\begin{pmatrix}
+   -3\\
+   12\\
+    4
+\end{pmatrix}
+=
+\begin{pmatrix}
+1\cdot 4-12\cdot(-12)\\
+(-12)\cdot(-3)-4\cdot(-12)\\
+(-12)\cdot12-1\cdot(-3)
+\end{pmatrix}
+=
+\begin{pmatrix}
+148\\84\\-141
+\end{pmatrix}.
+\]
+\item Die Längen der beiden Vektoren sind
+\begin{align*}
+\vec{a}_0
+&=
+\sqrt{2\cdot 144+1}
+=
+17,
+\\
+\vec{a}_1
+&=
+\sqrt{9+144+16} = 13.
+\end{align*}
+Da wir das Vektorprodukt bereits berechnet haben, können wir die
+Zwischenwinkelformel
+\[
+\sin\alpha = \frac{|\vec{a}_0\times\vec{a}_1|}{|\vec{a}_0|\cdot|\vec{a}_1|}
+\]
+für das Vektorprodukt verwenden, um den Zwischenwinkel zu berechnen.
+Dazu brauchen wir die Länge des Vektorproduktes, sie ist
+\[
+|\vec{a}_0\times\vec{a}_1|
+=
+\sqrt{148^2 + 84^2 + 141^2}
+=
+\sqrt{48841} = 221.
+\]
+Damit erhalten wir jetzt für den Zwischenwinkel
+\[
+\sin\alpha = \frac{221}{17\cdot 13} = 1
+\quad\Rightarrow\quad
+\sin\alpha=90^\circ,
+\]
+die Vektoren stehen also senkrecht aufeinander.
+\item
+Die Rekursionsformel multipliziert immer wieder von links mit $\vec{a}_0$,
+alle Vektoren $\vec{a}_n$ sind daher orthogonal auf $\vec{a}_0$.
+Die Richtung des Vektors $\vec{a}_{n+1}$ entsteht aus der Richtung
+des Vektors $\vec{a}_{n\mathstrut}$, indem man ihn um $90^\circ$ um die
+Achse $\vec{a}_0$ dreht.
+Somit hat der Vektor $\vec{a}_n$ immer die gleiche Richtung wie
+$\vec{a}_{n-4}$.
+Im Speziellen hat $\vec{a}_{13}$ die gleiche Richtung wie $\vec{a}_1$.
+
+Wir müssen jetzt nur noch die Länge von $\vec{a}_{13}$ bestimmen.
+Da alle Vektoren orthogonal sind, ist die Länge des Vektorprodukts
+einfach das Produkt der Länge der Faktoren, also
+$|\vec{a}_n|=|\vec{a}_0|\cdot|\vec{a}_{n-1}|$.
+Daraus folgt
+\[
+\vec{a}_n
+=
+|\vec{a}_0|^{n-1} |\vec{a}_1|
+=
+13^{n-1}\cdot 17.
+\]
+Damit können wir jetzt $\vec{a}_{13}$ bestimmen:
+\[
+\vec{a}_{13}
+=
+17^{13-1}\cdot \vec{a}_1
+=
+17^{12}\cdot
+\begin{pmatrix}
+   -3\\
+   12\\
+    4
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1747866711689283 \\
+6991466846757132 \\
+2330488948919044
+\end{pmatrix}.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+%ans =  17
+%ans =  13
+%a2 =
+%
+%   148
+%    84
+%  -141
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item 1 Punkt
+\item Längen ({\bf L}) 2 Punkte, Zwischenwinkel ({\bf W}) 1 Punkt
+\item Lösungsverfahren mit Rekursion ({\bf R}) 1 Punkt,
+Vektor $\vec{a}_{13}$ ({\bf V}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}

@@ -1,0 +1,143 @@
+Das Mooresche Gesetz besagt, dass sich die Komplexität integrierter
+Schaltkreise alle 18 Monate verdopple.
+Etwas mathematischer kann man das formulieren als eine Gesetzmässigkeit,
+nach der die Anzahl $N$ der
+Transistoren auf einem Chip exponentiell mit der Zeit anwächst, also
+\begin{equation}
+N(t) = N_0e^{\lambda t}.
+\label{60000023:law}
+\end{equation}
+Die Konstanten $N_0$ und $\lambda$ sind noch zu bestimmen.
+Natürlich kann dieses Gesetz nicht exakt gelten, aber aus einer
+Reihe von Zeitpunkten $t_i$, $i=1,\dots,n$, und zugehörigen $N_i$-Werten sollte
+man in der Lage sein, Werte von $N_0$ und $\lambda$ zu bestimmen,
+für die das Gesetz~\eqref{60000023:law} möglichst genau gilt.
+Stellen Sie ein Gleichungssystem dafür auf.
+
+\begin{hinweis}
+Wenden Sie den natürlichen Logarithmus an.
+\end{hinweis}
+
+\begin{loesung}
+Wendet man den natürlichen Logarithmus auf die Gleichungen
+\[
+N_i = N_0e^{\lambda t_i}
+\]
+an, erhalt man die Gleichungen
+\[
+\log N_i = \log N_0 + \lambda t_i.
+\]
+Als lineare Gleichung für die Unbekannten $\color{red}\log N_0$
+und $\color{red}\lambda$ geschrieben ist dies
+\[
+1\cdot
+{\color{red}\log N_0}
++
+t_i
+{\color{red}\lambda}
+=
+\log N_i
+\]
+für $i=1,\dots,n$.
+Dies ist ein überbestimmtes Gleichungssystem mit der folgenden Matrix $A$
+und rechten Seite $b$:
+\[
+A=
+\begin{pmatrix}
+1&t_1\\
+1&t_2\\
+\vdots&\vdots\\
+1&t_n
+\end{pmatrix}
+\qquad\text{und}\qquad
+b=
+\begin{pmatrix}
+\log N_1\\
+\log N_2\\
+\vdots\\
+\log N_n
+\end{pmatrix}.
+\]
+Das überbestimmte Gleichungssystem kann mit der bekannten Methode auf
+ein $2\times 2$-Gleichungssystem reduziert werden.
+Die Matrix ist
+\begin{align*}
+A^tA
+&=
+\begin{pmatrix}
+1&1&\dots&1\\
+t_1&t_2&\dots&t_n
+\end{pmatrix}
+\begin{pmatrix}
+1&t_1\\
+1&t_2\\
+\vdots&\vdots\\
+1&t_n
+\end{pmatrix}
+=
+\begin{pmatrix}
+n&\displaystyle \sum_{k=1}^n t_k\\
+\displaystyle \sum_{k=1}^n t_k&\displaystyle \sum_{k=1}^n t_k^2
+\end{pmatrix}
+\intertext{und die rechte Seite}
+A^tb
+&=
+\begin{pmatrix}
+1&1&\dots&1\\
+t_1&t_2&\dots&t_n
+\end{pmatrix}
+\begin{pmatrix}\log N_1\\\log N_2\\\vdots\\\log N_n\end{pmatrix}
+=
+\begin{pmatrix}
+\displaystyle \sum_{k=1}^n \log N_k\\
+\displaystyle \sum_{k=1}^n t_k \log N_k
+\end{pmatrix}.
+\end{align*}
+Ein solches Gleichungssystem kann mit der Kramerschen Formel sofort gelöst
+werden.
+Der gemeinsame Nenner ist
+\[
+\det(A^tA)
+=
+\sum_{k=1}^n t_k^2 - \biggl(\sum_{k=1}^n t_k\biggr)^2.
+\]
+Einsetzen der rechten Seite liefert die Lösungen
+\begin{align*}
+{\color{red}\log N_0}
+&=
+\frac{
+\displaystyle
+\sum_{k=1}^n \log N_k \cdot \sum_{k=1}^n t_k^2
+-
+\sum_{k=1}^n t_k\log N_k \cdot \sum_{k=1}^n t_k
+}{
+\displaystyle
+\sum_{k=1}^n t_k^2 - \biggl(\sum_{k=1}^n t_k\biggr)^2}
+\\
+\text{und}
+\qquad
+{\color{red}\lambda}
+&=
+\frac{
+\displaystyle
+n \sum_{k=1}^n t_k\log N_k
+-
+\sum_{k=1}^n t_k \cdot \sum_{k=1}^n \log N_k
+}{
+\displaystyle
+\sum_{k=1}^n t_k^2 - \biggl(\sum_{k=1}^n t_k\biggr)^2}.
+\qedhere
+\end{align*}
+\end{loesung}
+
+\begin{bewertung}
+Least Squares ({\bf LS}) 1 Punkt,
+Datengleichungen $N_i = N_0e^{\lambda t_i}$ ({\bf D}) 1 Punkt,
+Logarthmierte Gleichungen ({\bf L}) 1 Punkt,
+Gleichungssystem für $\log N_0$ und $\lambda$ ({\bf G}) 1 Punkt,
+Lösungsprinzip Least Squares $A^tAx=A^tb$ ({\bf P}) 1 Punkt,
+$2\times 2$-Gleichungssystem ({\bf G2}) 1 Punkt.
+\end{bewertung}
+
+
+

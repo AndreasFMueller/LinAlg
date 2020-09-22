@@ -1,0 +1,56 @@
+Bestimmen Sie die Determinante der Matrix
+\[
+A=\begin{pmatrix}
+   8& -7&  1& -5\\
+   7&  1& -2&  0\\
+  -4&  9&  0&  0\\
+   0&  8&  6& -2
+\end{pmatrix}.
+\]
+
+\thema{Determinante}
+\thema{Entwicklungssatz}
+\thema{Sarrus-Formel}
+
+\begin{loesung}
+Wir verwenden den Entwicklungssatz und entwickeln die Determinante nach der
+dritten Zeile:
+\begin{align*}
+\det(A)
+&=
+-4\cdot \left|\;\begin{matrix}
+  -7&  1& -5\\
+   1& -2&  0\\
+   8&  6& -2
+\end{matrix}\;\right|
+-9\cdot \left|\;\begin{matrix}
+   8&  1& -5\\
+   7& -2&  0\\
+   0&  6& -2
+\end{matrix}\;\right|
+\\
+&=
+-4\cdot(
+\underbrace{
+(-7)\cdot(-2)\cdot(-2) + 0 + (-5)\cdot1\cdot 6
+-8\cdot(-2)\cdot(-5)-0-(-2)\cdot1\cdot(-7)}_{\displaystyle=-136}
+)
+-9\cdot(-164)
+\\
+&= -4\cdot(-136)-9\cdot(-164)
+=
+4\cdot 136+9\cdot 164 =544 + 1476 = 2020.
+\end{align*}
+Für die $3\times 3$-Determinanten haben die Sarrus-Formel verwendet, wobei
+wir die zweite nicht im Detail ausgeführt haben.
+\end{loesung}
+
+\begin{bewertung}
+Entwicklungsssatz ({\bf E}) 1 Punkt,
+Wahl einer Zeile ({\bf Z}) 1 Punkt,
+Rekursion ({\bf R}) 1 Punkt,
+Sarrus-Formel ({\bf S}) 1 Punkt,
+Wert der Determinante ({\bf D}) 2 Punkt.
+\end{bewertung}
+
+
