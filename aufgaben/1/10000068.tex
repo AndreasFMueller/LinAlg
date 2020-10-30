@@ -16,6 +16,21 @@ y&=\frac{a}{2}\pm\sqrt{\frac{a^2}{4}+1}
 =
 \frac{a+\sqrt{a^2+4}}2.
 \end{align*}
-Da $y>0$ sein muss, kommt von den Lösungen der quadratischen Gleichungen
-nur die mit dem positiven Zeichen in Frage.
+Für $a>0$ muss $y>0$ sein, dann kommt von den Lösungen der quadratischen
+Gleichungen nur die mit dem positiven Zeichen in Frage.
+Für $a<0$ muss $y<0$ sein, dann muss man das negative Zeichen nehmen.
+Mit der Signum-Funktion
+\[
+\operatorname{sign}(x) =
+\begin{cases}
+1&\qquad x> 0\\
+0&\qquad x=0\\
+-1&\qquad x<0
+\end{cases}
+\]
+kann man die Lösung auch als
+\[
+y = \frac{a+\operatorname{sign}(a)\cdot\sqrt{a^2+}}2
+\]
+schreiben.
 \end{loesung}
