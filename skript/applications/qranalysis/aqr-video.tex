@@ -1,0 +1,213 @@
+%
+% qam-video.tex
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\documentclass[handout,aspect=169]{beamer}
+\usepackage[orientation=landscape,size=custom,scale=0.7,width=16,height=9,debug]{beamerposter}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\usetikzlibrary{3d}
+\usetikzlibrary{arrows,shapes,math,decorations.text,automata}
+
+\begin{document}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\setbeamertemplate{frametitle}[default][right]
+
+\begin{frame}
+\begin{center}
+What does this matrix do?
+\end{center}
+
+\[
+A= \begin{pmatrix*}[r]
+   1.218035& -0.054603& -0.494702\\
+   0.527149&  1.176368& -0.233772\\
+   0.445540&  0.642788&  0.497816
+\end{pmatrix*}
+\]
+\end{frame}
+
+\begin{frame}
+\vspace{6.5cm}
+\begin{center}
+But can we understand that geometrically?
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{QR decomposition}
+The QR decomposition allows us to write $A$ as a product
+\begin{center}
+\begin{tikzpicture}[>=latex,thick]
+\node at (-0.5,1) {$A = Q \; R$};
+\draw (-0.4,0.7) -- (-2,-0.7);
+\draw (0.4,0.7) -- (2,-0.7);
+\node at (-2,-1) {orthogonal};
+\node at (-2,-1.7) {some rotation};
+\node at (2,-1) {triangular};
+\node at (2,-1.7) {???};
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\vspace{6.5cm}
+\begin{center}
+The last step is a rotation
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+The triangular matrix $R$ makes this shape
+\vspace{6.5cm}
+
+How does it do that?
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\begin{tikzpicture}[>=latex,thick]
+\node at (0,0) {$\begin{aligned}
+R &=
+\begin{pmatrix}
+s_x &  *  &  *  \\
+ 0  & s_y &  *  \\
+ 0  &  0  & s_z
+\end{pmatrix}
+\\[40pt]
+&=
+\begin{pmatrix}
+1&*&*\\
+0&1&*\\
+0&0&1
+\end{pmatrix}
+\underbrace{
+\begin{pmatrix}
+ 1 & 0 & 0 \\
+ 0 & 1 & 0 \\
+ 0 & 0 &s_z
+\end{pmatrix}}_{\displaystyle=S_z}
+\underbrace{
+\begin{pmatrix}
+ 1 & 0 & 0 \\
+ 0 &s_y& 0 \\
+ 0 & 0 & 1 
+\end{pmatrix}}_{\displaystyle=S_y}
+\underbrace{
+\begin{pmatrix}
+s_x& 0 & 0 \\
+ 0 & 1 & 0 \\
+ 0 & 0 & 1 
+\end{pmatrix}}_{\displaystyle=S_x}
+\end{aligned}
+$};
+\node at (-7,0.5) [right] {pull the $s_*$ out into separate axis rescaling matrices:};
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\vspace{6.5cm}
+\begin{center}
+Rescale $x$-axis: $S_x$\strut
+\end{center}
+\end{frame}
+
+\begin{frame}
+\vspace{6.5cm}
+\begin{center}
+Rescale $y$-axis: $S_y$\strut
+\end{center}
+\end{frame}
+
+\begin{frame}
+\vspace{6.5cm}
+\begin{center}
+Rescale $z$-axis: $S_z$\strut
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\begin{tikzpicture}[>=latex]
+
+\node[color=red] at (-2,3) {\begin{minipage}{6cm}
+\raggedright
+move tip of $y$-axis vector in the $x$-direction
+\end{minipage}};
+
+\node[color=blue] at (5,3) {\begin{minipage}{6cm}
+\raggedright
+move tip of $z$-axis vector in the $x$-direction
+\end{minipage}};
+
+\node[color=darkgreen] at (5,-2) {\begin{minipage}{6cm}
+\raggedright
+move tip of $z$-axis vector in the $y$-direction
+\end{minipage}};
+
+\node at (-2,0) {$\displaystyle
+R = \begin{pmatrix} 
+  *  & {\color{red}r_1} & {\color{blue}r_2} \\
+  0  &  *  & {\color{darkgreen}r_3} \\
+  0  &  0  &  *
+\end{pmatrix}$};
+
+\draw[->,color=red,line width=1.4pt] (-2,2.3) -- (-1.6,1);
+\draw[->,color=blue,line width=1.4pt] (1.9,2.3) -- (-0.5,1);
+\draw[->,color=darkgreen,line width=1.4pt] (1.9,-1.4) -- (-0.4,-0.2);
+
+\end{tikzpicture}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\vspace{6.5cm}
+\begin{center}
+Shear tip of $y$-axis vector in the $x$ direction
+\end{center}
+\end{frame}
+
+\begin{frame}
+\vspace{6.5cm}
+\begin{center}
+Shear tip of $z$-axis vector in the $x$ direction
+\end{center}
+\end{frame}
+
+\begin{frame}
+\vspace{6.5cm}
+\begin{center}
+Shear tip of $z$-axis vector in the $y$ direction
+\end{center}
+\end{frame}
+
+\begin{frame}
+The QR decomposition helps to decompose an arbitrary matrix $A$
+into
+\[
+A
+=
+\text{rotation}
+\cdot
+\text{three shears}
+\cdot
+\text{three rescalings}
+\]
+\vspace{1cm}
+
+Enjoy them all one after the other
+\end{frame}
+
+
+\end{document}
