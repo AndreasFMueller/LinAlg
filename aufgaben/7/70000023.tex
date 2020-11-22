@@ -1,0 +1,330 @@
+Betrachten Sie die Matrix
+\[
+A=
+\begin{pmatrix}
+\sqrt{2} & 0 & 0 \\
+0 & \frac32 & \frac{3\sqrt{3}}2 \\
+-\sqrt{2} & 0 & 0
+\end{pmatrix}
+\]
+\begin{teilaufgaben}
+\item Bestimmen Sie die Singulärwerte von $A$.
+\item Welchen Rang hat $A$?
+\item Bestimmen Sie eine Orthonormalbasis von Kern und Bild von $A$
+\item Bestimmen Sie eine Orthonormalbasis von $\operatorname{ker}A^\perp$
+und $\operatorname{im}A^\perp$
+\item Bestimmen Sie die Pseudoinverse $A^\dagger$ von $A$.
+\item Berechnen Sie $P_1=AA^\dagger$ und $P_2=A^\dagger A$.
+\item Überprüfen Sie, dass $P_1$ und $P_2$ Projektionen sind, also
+$P_1^2=P_2$ und $P_2^2=P_2$ gilt.
+\end{teilaufgaben}
+
+\begin{hinweis}
+Verwenden sie die Singulärwertzerlegung.
+\end{hinweis}
+
+\begin{loesung}
+Alle Teilaufgaben können, gelöst werden, wenn die Singulärwert-Zerlegung 
+von $A$ bekannt ist.
+Diese kann man finden, indem man das Eigenwertproblem für $B=AA^t$ und $C=A^tA$
+löst:
+\[
+B=AA^t
+=
+\begin{pmatrix}
+ 2 & 0 & -2 \\
+ 0 & 9 &  0 \\
+-2 & 0 &  2 
+\end{pmatrix},
+\qquad
+C=A^tA
+=
+\begin{pmatrix}
+4&0&0\\
+0&\frac{9}{4}&\frac{9\sqrt{3}}4 \\
+0&\frac{9\sqrt{3}}4&\frac{27}4
+\end{pmatrix}
+\]
+Der zweite Standardbasisvektor $e_2$ ist ein Eigenvektor von $B$
+zum Eigenwert $9$
+und der erste Standardbasisvektor $e_1$ ist ein Eigenvektor von $C$
+zum Eigenwert $4$.
+Es müssen jetzt nur noch Eignewertprobleme für die verbleibenden
+$2\times 2$-Matrizen
+\[
+B_0
+=
+\begin{pmatrix}
+2&-2\\
+-2&2
+\end{pmatrix}
+\qquad\text{und}\qquad
+C_0
+=
+\begin{pmatrix}
+\frac{9}{4}&\frac{9\sqrt{3}}4 \\
+\frac{9\sqrt{3}}4&\frac{27}4
+\end{pmatrix}
+\]
+gelöst werden.
+\begin{align*}
+\chi_{B_0}(\lambda)
+&=
+\biggl|
+\begin{matrix}
+2-\lambda&-2\\
+-2&2-\lambda
+\end{matrix}
+\biggr|
+&
+\chi_{C_0}(\lambda)
+&=
+\biggl|
+\begin{matrix}
+\frac{9}4-\lambda & \frac{9\sqrt{3}}4 \\
+\frac{9\sqrt{3}}{4} & \frac{27}4-\lambda
+\end{matrix}
+\biggr|
+\\
+&=
+(2-\lambda)^2 -4
+&
+&=
+\biggl(\frac94-\lambda\biggr)\biggl(\frac{27}4-\lambda\biggr) -\frac{243}{16}
+\\
+&=
+\lambda^2-4\lambda
+=
+(\lambda-4)\lambda
+&
+&=
+\lambda^2-4\lambda = (\lambda-4)\lambda
+\end{align*}
+In beiden Fällen ist einer der Eigenwert $0$, der andere ist
+$4$ beziehungswiese $9$.
+Die zugehörigen Eigenvektoren findet man mit dem Gauss-Algorithmus:
+\begin{align*}
+\lambda&=0:
+&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+2&-2\\
+-2&2\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1\\
+0&0\\
+\hline
+\end{tabular}
+&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+\frac94&\frac{9\sqrt{3}}4 \\
+\frac{9\sqrt{3}}4&\frac{27}{4}\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&\sqrt{3} \\
+0&0\\
+\hline
+\end{tabular}
+\\
+&&
+\vec{u}_0
+&=
+\begin{pmatrix}
+\frac{\sqrt{2}}2\\
+\frac{\sqrt{2}}2
+\end{pmatrix}
+&
+\vec{v}_0
+&=
+\begin{pmatrix}
+\frac{\sqrt{3}}2\\
+-\frac12
+\end{pmatrix}
+\\
+\lambda&\ne 0:
+&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-2&-2\\
+-2&-2\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&1\\
+0&0\\
+\hline
+\end{tabular}
+&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-\frac{27}{4}&\frac{9\sqrt{3}}4\\
+\frac{9\sqrt{3}}4&-\frac{9}{4}\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-\frac{\sqrt{3}}3\\
+0&0\\
+\hline
+\end{tabular}
+\\
+&&
+\vec{u}_4
+&=
+\begin{pmatrix}
+\frac{\sqrt{2}}2\\
+-\frac{\sqrt{2}}2
+\end{pmatrix}
+&
+\vec{v}_9
+&=
+\begin{pmatrix}
+\frac12\\
+\frac{\sqrt{3}}2
+\end{pmatrix}
+\end{align*}
+Die Eigenvektoren sind bereits auf Länge $1$ normiert.
+Die Eigenvektoren muss man jetzt in absteigender Reihenfolge der Eigenwert
+ein die Matrizen $U$ und $V$ einfüllen
+\begin{align*}
+U
+&=
+\begin{pmatrix}
+0&\frac{\sqrt{2}}2 & \frac{\sqrt{2}}2 \\
+1&        0        &        0         \\
+0&-\frac{\sqrt{2}}2 & \frac{\sqrt{2}}2
+\end{pmatrix}
+&
+V
+&=
+\begin{pmatrix}
+   0             & 1 & 0 \\
+\frac12          & 0 & \frac{\sqrt{3}}2 \\
+\frac{\sqrt{3}}2 & 0 & -\frac{1}{2}
+\end{pmatrix}
+\end{align*}
+Die Singulärwerte sind
+\[
+\Sigma
+=
+\begin{pmatrix}
+\sqrt{9} &     0    & 0 \\
+    0    & \sqrt{4} & 0 \\
+    0    &     0    & 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+    3    &     0    & 0 \\
+    0    &     2    & 0 \\
+    0    &     0    & 0
+\end{pmatrix}
+\]
+Damit ist die Singulärwertzerlegung gefunden, man kann durch Nachrechnen
+prüfen, dass
+\[
+A = U\Sigma V^t.
+\]
+\begin{teilaufgaben}
+\item
+Die Singulärwerte von $A$ sind $3$, $2$ und $0$.
+\item
+Der Rang ist die Anzahl der nicht verschwindenden Singulärwerte, also
+$\operatorname{Rang}A=2$.
+\item
+Die gesuchten Basen können durch Auswahl von Spaltenvektoren aus den 
+Matrizen $U$ und $V$ gefunden werden.
+\[
+\operatorname{ker} A
+=
+\left\langle
+\begin{pmatrix}
+0\\ \frac{\sqrt{3}}2 \\ -\frac12
+\end{pmatrix}
+\right\rangle
+\qquad\text{und}\qquad
+\operatorname{im} A
+=
+\left\langle
+\begin{pmatrix}
+0\\1\\0
+\end{pmatrix},
+\begin{pmatrix}
+\frac{\sqrt{2}}2\\0\\-\frac{\sqrt{2}}2
+\end{pmatrix}
+\right\rangle.
+\]
+\item
+Die verbleibenden Vektoren bilden Orthonormalbasen der verlangten 
+Orthogonalkomplemente:
+\[
+\operatorname{ker} A^\perp
+=
+\left\langle
+\begin{pmatrix}
+0 \\ \frac12 \\ \frac{\sqrt{3}}2
+\end{pmatrix},
+\begin{pmatrix}
+1 \\ 0 \\ 0
+\end{pmatrix}
+\right\rangle
+\qquad\text{und}\qquad
+\operatorname{im} A
+=
+\left\langle
+\begin{pmatrix}
+\frac{\sqrt{2}}2 \\ 0 \\ \frac{\sqrt{2}}2
+\end{pmatrix}
+\right\rangle.
+\]
+\item
+Die Pseudoinverse erhält man aus dem Produkt
+\[
+A^\dagger
+=
+V\begin{pmatrix}
+\frac13&0&0\\
+0&\frac12&0\\
+0&0&0
+\end{pmatrix}
+U^t
+=
+\begin{pmatrix}
+\frac{1}{2\sqrt{2}} &          0       & -\frac{1}{2\sqrt{2}} \\
+        0           &       \frac16    & 0                    \\
+        0           & \frac1{2\sqrt{3}}& 0
+\end{pmatrix}.
+\]
+\item
+Durch Ausmultiplizieren erhält man
+\[
+P_1
+=
+\begin{pmatrix}
+\frac12 & 0 & -\frac12\\
+0&1&0\\
+-\frac12&0&\frac12
+\end{pmatrix}
+\qquad\text{und}\qquad
+P_2
+=
+\begin{pmatrix}
+1&0&0\\
+0&\frac14&\frac{\sqrt{3}}4\\
+0&\frac{\sqrt{3}}4&\frac14
+\end{pmatrix}.
+\]
+\item Die Überprüfung ist eine simple Rechnung.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
