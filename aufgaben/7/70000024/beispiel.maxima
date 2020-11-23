@@ -1,0 +1,40 @@
+
+U: matrix([        1/2, sqrt(3)/2 ],
+          [ -sqrt(3)/2,       1/2 ]);
+U.transpose(U);
+determinant(U);
+
+V: matrix([  sqrt(2)/2, -sqrt(2)/2 ],
+          [  sqrt(2)/2,  sqrt(2)/2 ]);
+V.transpose(V);
+determinant(V);
+
+Sigma: matrix([ 10, 0 ],
+              [  0, 0 ]);
+
+A: U.Sigma.transpose(V);
+
+B: A.transpose(A);
+eigenvectors(B);
+
+C: transpose(A).A;
+eigenvectors(C);
+
+s: -1;
+S: -1;
+
+U1: matrix([        1/2, sqrt(3)/2 ],
+           [ -sqrt(3)/2,       1/2 ]);
+
+V1: matrix([ sqrt(2)/2,  sqrt(2)/2  ],
+           [ sqrt(2)/2, -sqrt(2)/2  ]);
+
+U1 . Sigma . transpose(V1);
+
+SigmaInverse: matrix([ 1/10, 0 ],
+                     [    0, 0 ]);
+
+Adagger: V . SigmaInverse . transpose(U);
+
+b: matrix([1],[2]);
+Adagger.b;

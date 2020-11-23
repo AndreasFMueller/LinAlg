@@ -1,0 +1,235 @@
+Finden Sie die Lösung $x$ der Gleichung
+\[
+Ax
+=
+b
+\qquad\text{mit}\qquad
+A
+=
+\begin{pmatrix}
+\frac{5}{\sqrt{2}}          & \frac{5}{\sqrt{2}}          \\
+-\frac{5\sqrt{3}}{\sqrt{2}} & -\frac{5\sqrt{3}}{\sqrt{2}}
+\end{pmatrix}
+\qquad\text{und}\qquad
+b
+=
+\begin{pmatrix}
+1\\
+2
+\end{pmatrix}
+\]
+für die $|x|$ minimal ist.
+
+\begin{loesung}
+Mit der Pseudoinversen kann man die Lösung als $x=A^\dagger b$ finden.
+Dazu muss man zunächst die Eigenwertprobleme für $AA^t$ und $A^tA$
+lösen:
+\begin{align*}
+AA^t
+&=
+\begin{pmatrix}
+ 25        &-25\sqrt{3} \\
+-25\sqrt{3}& 75       
+\end{pmatrix}
+&
+A^tA
+&=
+\begin{pmatrix}
+50&50\\
+50&50
+\end{pmatrix}
+\\
+\chi_{AA^t}(\lambda)
+&=
+\biggl|
+\begin{matrix}
+25-\lambda  &-25\sqrt{3} \\
+-25\sqrt{3} & 75-\lambda
+\end{matrix}
+\biggr|
+&
+\chi_{A^tA}(\lambda)
+&=
+\biggl|
+\begin{matrix}
+50-\lambda&50\\
+50&50-\lambda
+\end{matrix}
+\biggr|
+\\
+&=
+(25-\lambda)(75-\lambda) - 25^2\cdot 3
+&
+&=
+(50-\lambda)^2-50^2
+\\
+&=
+\lambda^2 - 100\lambda
+=
+\lambda(\lambda-100)
+&
+&=
+\lambda^2-100\lambda
+=
+\lambda(\lambda-100)
+\end{align*}
+Die Eigenwerte sind also in beiden Fällen $\lambda=10$ und $\lambda=0$,
+wie erwartet.
+Die Eigenvektoren sind mit dem Gauss-Algorithmus zu bestimmen:
+\begin{align*}
+\lambda&=0
+&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+25&-25\sqrt{3}\\
+-25\sqrt{3}&75\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-\sqrt{3}\\
+0&0\\
+\hline
+\end{tabular}
+&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+50&50\\
+50&50\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&1\\
+0&0\\
+\hline
+\end{tabular}
+\\
+&&
+\vec{u}_2
+&=
+\begin{pmatrix}\frac{\sqrt{3}}{2}\\-\frac{1}{2}\end{pmatrix}
+&
+\vec{v}_2
+&=
+\begin{pmatrix}
+\frac{\sqrt{2}}2\\
+-\frac{\sqrt{2}}2
+\end{pmatrix}
+\\
+\lambda&=100
+&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-75 & -25\sqrt{3} \\
+-25\sqrt{3}& -25 \\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1 & \frac{1}{\sqrt{3}} \\
+0& 0 \\
+\hline
+\end{tabular}
+&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-50&50\\
+50&-50\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-1\\
+0& 0\\
+\hline
+\end{tabular}
+\\
+&&
+\vec{u}_1
+&=
+\begin{pmatrix}
+ \frac12 \\
+-\frac{\sqrt{3}}2
+\end{pmatrix}
+&
+\vec{v}_1
+&=
+\begin{pmatrix}
+\frac{\sqrt{2}}2\\
+\frac{\sqrt{2}}{2}
+\end{pmatrix}
+\end{align*}
+
+Für die Singulärwertzerlegung muss man sicherstellen, dass $Av_1=u_1$ ist
+(das Vorzeichens eines Eigenvektors lässt sich nicht anders festlegen).
+Tatsächlich ist die erste Spalte von $A$ ein Vektor der Länge
+$\sqrt{50}=5\sqrt{2}$.
+Normiert man die erste Spalte von $A$, erhält man
+\[
+\begin{pmatrix}
+\frac{1}{2}\\-\frac{\sqrt{3}}2 
+\end{pmatrix}
+=
+\vec{u}_1,
+\]
+die Bedingung ist also erfüllt.
+
+Die Singulärwertzerlegung von $A$ ist daher
+\[
+A
+=
+U\Sigma V^t
+\qquad\text{mit}\qquad
+U
+=
+\begin{pmatrix}
+\frac{1}{2}         & \frac{\sqrt{3}}{2} \\
+-\frac{\sqrt{3}}{2} & \frac{1}{2}       
+\end{pmatrix}
+\quad \text{und}\quad
+V
+=
+\begin{pmatrix}
+\frac{\sqrt{2}}2 & \frac{\sqrt{2}}2 \\
+\frac{\sqrt{2}}2 &-\frac{\sqrt{2}}2
+\end{pmatrix}.
+\]
+Die Pseudoinverse kann jetzt als Produkt
+\[
+A^\dagger
+=
+V\Sigma^\dagger U^t
+=
+V\begin{pmatrix}
+\frac{1}{10} & 0 \\
+      0      & 0
+\end{pmatrix} U^t
+=
+\frac{1}{20\sqrt{2}}
+\begin{pmatrix}
+1&-\sqrt{3}\\
+1&-\sqrt{3}
+\end{pmatrix}
+\]
+gefunden werden.
+Die gesuchte optimale Lösung  ist jetzt
+\[
+x
+=
+A^\dagger b
+=
+A^\dagger \begin{pmatrix}1\\2\end{pmatrix}
+=
+\frac{1-2\sqrt{3})}{20\sqrt{2}}
+\begin{pmatrix}
+1\\1
+\end{pmatrix}.
+\qedhere
+\]
+\end{loesung}
+
