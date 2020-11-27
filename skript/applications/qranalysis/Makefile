@@ -45,3 +45,23 @@ aqr-slides:     aqr-video.pdf
 			-composite aqr-transparent-$${i}.png;		\
 	done
 
+qr-video.pdf:  qr-video.tex
+	pdflatex qr-video.tex
+
+qr-slides:     qr-video.pdf
+	for i in `seq 1 1 6`;						\
+	do                                                              \
+		pdfjam --outfile slide.pdf --papersize '{16cm,9cm}'     \
+			qr-video.pdf $${i};                            \
+		convert -density 300 slide.pdf -resize 1920x1080        \
+			-units PixelsperInch -colorspace rgb		\
+			-type truecolor					\
+			qr-slide-$${i}.png;       			\
+		convert qr-slide-$${i}.png +dither -monochrome 	\
+			-posterize 2 -negate qr-mask-$${i}.png;	\
+		convert qr-slide-$${i}.png 				\
+			-alpha Off qr-mask-$${i}.png			\
+			-compose CopyOpacity 				\
+			-composite qr-transparent-$${i}.png;		\
+	done
+
