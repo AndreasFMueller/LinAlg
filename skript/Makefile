@@ -41,6 +41,7 @@ TEXFILES = linsys.tex 							\
 	5/orientierung.tex						\
 	5/vektorprodukt.tex						\
 	5/abbildungen.tex						\
+	5/gram.tex							\
 	6/chapter.tex							\
 	7/chapter.tex							\
 	7/cholesky.tex							\

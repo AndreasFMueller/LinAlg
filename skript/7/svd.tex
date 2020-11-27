@@ -16,6 +16,90 @@ werden können?  Eine solche Zerlegung existiert tatsächlich,
 und sie ist besonders nützlich, um das Eigenwertproblem
 (Kapitel \ref{chapter-eigen}) zu lösen.
 
+
+\subsection{Motivation
+\label{subsection:svd:motivation}}
+Abbildung~\ref{figure:svdmotivation} illustriert, wie man sich die 
+Singulärwertzerlegung vorstellen kann.
+Eine lineare Abbildung $\mathbb{R}^2\to\mathbb{R}^3$ mit Abbildungsmatrix
+$A$ bildet den Einheitskreis  in $\mathbb{R}^2$ auf eine Ellipse in
+$\mathbb{R}^3$ ab.
+Um die Abbildung $A$ zu beschreiben, muss man zunächst die Halbachsen
+der Ellipse kennen, also die Faktoren $s_1$ und $s_2$, um den gewisse
+Radien des Einheitskreises gestreckt werden.
+Dann braucht man die Richtungen der grössten und kleinsten Ausdehnung
+der Ellipse, die mit $\vec{u}_1$ und $\vec{u}_2$ bezeichnet werden.
+Sie stehen senkrecht aufeinander. 
+Man kann sie mit einem Vektor $\vec{u}_3$ zu einer Orthonormalbasis
+von $\mathbb{R}^3$ erweitern.
+Schliesslich muss man wissen, welche Richtungen auf dem Einheitskreis
+auf die Richtungen $\vec{u}_1$ und $\vec{u}_2$ abgebildet werden,
+sie sind in Abbildung~\ref{figure:svdmotivation} mit $\vec{v}_1$ und
+$\vec{v}_2$ bezeichnet.
+
+Um die Abbildung aus diesen Informationen zu rekonstruieren, muss man
+von einem gegeben Vektor $\vec{x}\in\mathbb{R}^2$ erst die Koordinaten im
+Koordinatensystem zur Basis $\mathcal{V}=\{\vec{v}_1,\vec{v}_2\}$ ermitteln.
+Dies geschieht, indem man die Skalarprodukte $\vec{v}_1\cdot \vec{x}$ und
+$\vec{v}_2\cdot \vec{x}$ ausrechnet.
+In Matrixnotation sind dies
+$\vec{v}_1^t\vec{x}$
+und
+$\vec{v}_2^t\vec{x}$,
+was man in einer Matrixoperation $V^t\vec{x}$ zusammenfassen kann, wenn
+man die Vektoren $\vec{v}_1$ und $\vec{v}_2$ als Spalten in die 
+$2\times 2$-Matrix $V$ schreibt.
+Da die Vektoren $\vec{v}_i$ eine Orthonormalbasis bilden, ist $V$ eine
+orthogonale Matrix.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{7/images/svdmotivation.pdf}
+\caption{
+Konstruktion der Singulärwertzerlegung einer linearen Abbildung mit
+der Matrix $A$.
+$A$ bildet den Einheitskreis in $\mathbb{R}^2$ auf eine Ellipse
+in $\mathbb{R}^3$ ab.
+Die Länge der Halbachsen der Ellipse sind die Singulärwerte $s_1$ und $s_2$ 
+von $A$.
+Die Richtungen $\vec{u}_1$ und $\vec{u}_2$  der Halbachsen 
+können durch $\vec{u}_3$ zu einer orthonormierten Basis von
+$\mathbb{R}^3$ ergänzt werden.
+Die Vektoren $\vec{v}_1$ und $\vec{v}_2$ werden von $A$ auf die
+Halbachsenrichtungen $\vec{u}_1$ und $\vec{u}_2$ abgebildet.
+Die Singulärwertzerlegung erhält man dann, indem man die Vektoren 
+$\vec{v}_i$ als Spalten in eine Matrix $V$ und die Vektoren $\vec{u}_j$
+als Spalten in eine Matrix $U$ schreibt.
+Zusammen mit der Matrix $S$ aus \eqref{eqn:svd:Smatrix} erhält man
+die Zerlegung $A=USV^t$.
+\label{figure:svdmotivation}
+}
+\end{figure}
+
+Das Produkt $V^t\vec{x}$ liefert die Koordinaten von $\vec{x}$
+bezüglich der Basis $\mathcal{V}$.
+Diese Koordinaten werden jetzt um die Faktoren $s_1$ und $s_2$ 
+gestreckt und sollen die Koordinaten eines Punktes in $\mathbb{R}^3$
+bezüglich der Basis $\mathcal{U}=\{\vec{u}_1,\vec{u}_2,\vec{u}_3\}$ ergeben.
+Die $\vec{u}_3$-Komponente ist immer $0$, daher ist die zu diesem
+Schritt gehörige Abbildungsmatrix
+\begin{equation}
+S=\begin{pmatrix}
+s_1& 0 \\
+ 0 &s_2\\
+ 0 & 0
+\end{pmatrix}.
+\label{eqn:svd:Smatrix}
+\end{equation}
+
+Die Koordinaten $SV^t\vec{x}$ bezüglich der Basis $\mathcal{U}$
+müssen jetzt in einen Vektor in $\mathbb{R}^3$ umgerechnet werden.
+Schreibt man die Vektoren $\vec{u}_i$ in die Spalten der Matrix $U$,
+dann wird dies durch das Produkt $USV^t\vec{x}$ erreicht.
+Da $\mathcal{U}$ eine Orthonormalbasis ist, ist $U$ eine orthogonale
+Matrix.
+
+
 \begin{satz}[Singulärwertzerlegung]\label{satz-svd}
 Sei $A$ eine $m\times n$-Matrix mit Rang $r$.
 Dann gibt es eine orthogonale $m\times m$-Matrix $U$, eine
@@ -33,10 +117,88 @@ s_1   &\dots &0     &0     &\dots &0\\
 0     &\dots &0     &0     &\dots &0\\
 \end{tabular}
 \right)
-\label{s-matrix})
+\label{s-matrix}
 \end{equation}
 mit $s_1\ge s_2\ge\dots \ge s_r$ und $A=USV^t$.
 \end{satz}
+
+\subsection{Berechnung der Singulärwertzerlegung
+\label{subsection:berechnungdersingulaerwertzerleung}}
+Im folgenden nehmen wir an, dass die Matrix $A$ eine Singulärwertzerlegung
+$A=USV^t$ hat.
+Das Produkt $A^tA$ ist
+\[
+A^tA
+=
+(USV^t)^tUSV^t
+=
+VS^t\underbrace{U^tU}_{=E}SV^t
+=
+VS^tSV^t
+=
+V
+\begin{pmatrix}
+s_1^2 &  0   & \dots &  0   &  0   &\dots\\
+  0   &s_2^2 & \dots &  0   &  0   &\dots\\
+\vdots&\vdots&\ddots &\vdots&\vdots&     \\
+  0   &  0   & \dots & s_r^2&  0   &\dots\\
+  0   &  0   & \dots &   0  &  0   &\dots\\
+\vdots&\vdots&       &\vdots&\vdots&\ddots
+\end{pmatrix}
+V^t
+\]
+Die orthogonale Matrix $V^t$ transformiert also die symmetrische Matrix
+$A^tA$ auf Diagonalform.
+In der Eigenwertheorie (Kapitel~\ref{chapter-eigen}) wird gezeigt,
+dass es zu jeder symmetrischen Matrix eine orthogonale Matrix
+gibt, die sie auf Diagonalform transformiert
+(Satz~\ref{satz:symmetrischdiagonalisierbar}).
+In den Spalten der Matrix $V$ stehen dann Eigenvektoren von $A^tA$,
+die Eigenwerte sind die $s_i^2$ oder $0$.
+
+Für die Matrix $U$ gilt natürlich dasselbe.
+Das Produkt
+\[
+AA^t
+=
+USV^tVS^tU^t
+=
+USS^tU^t
+\]
+zeigt, dass $U^t$ die symmetrische Matrix $AA^t$ auf Diagonalform
+transformiert.
+
+Die Matrizen $U$ und $V$ sind allerdings nicht eindeutig.
+Dies kann man schon am Motivationsbeispiel in
+Abbildung~\ref{figure:svdmotivation} erkennen.
+Die Vektoren $\vec{u}_1$ und $\vec{u}_2$ waren als die Richtungen
+der grössten und kleinsten Ausdehnung der Ellipse festgelegt,
+aber $-\vec{u}_1$ und $-\vec{u}_2$ erfüllen diese Bedingung auch.
+Wenn zwei Singulärwerte gleich sind, zum Beispiel weil sie 0 sind,
+dann kann man eine beliebige Drehung in der von den Vektoren aufgespannten
+Ebene durchführen und erhält ebenfalls anwendbare Vektoren.
+Man muss daher separat sicherstellen, dass die $\vec{u}_i$ tatsächlich
+die Bilder der Vektoren $\vec{v}_i$ unter der Abbildung $A$ sind.
+Am einfachsten geht dies, wenn man den folgenden Algorithmus verwendet:
+\begin{enumerate}
+\item
+Bestimme Vektoren $\vec{v}_i$ als Eigenvektoren von $A^tA$ mit
+Eigenwerten $\lambda_i$.
+Die Vektoren sollen so geordnet sein, dass 
+\[
+\lambda_1 \ge \lambda_2 \ge \dots \ge \lambda_r > 0
+\]
+gilt.
+\item
+Die Singulärwerte sind $s_i = \sqrt{\lambda_i}$
+\item
+Wähle $\vec{u}_i=A\vec{v}_i/|A\vec{v}_i|$ für $1\le i\le r$
+\item
+Wähle eine beliebige orthonormierte Basis von $\operatorname{ker} AA^t$
+für die Vektoren $\vec{u}_{r+1},\dots,\vec{u}_m$.
+\end{enumerate}
+Für die Bestimmung der Eigenwerte und Vektoren wird auf
+Kapitel~\ref{chapter-eigen} verweisen.
 
 Die Berechnung der Singulärwertzerlegung kann in Octave/Matlab
 mit der Funktion {\tt svd} erfolgen.
@@ -48,7 +210,7 @@ eine Matrix von Rückgabewerten spezifizieren
 \end{verbatim}
 
 \begin{beispiel}
-Die Singulärwertzerlegung der Matrix A aus dem letzten Beispiel 
+Die Singulärwertzerlegung der Matrix $A$ aus dem letzten Beispiel 
 bekommt man mit Octave:
 \begin{verbatim}
 > [U,S,V] = svd([9,3,3;3,17,21;3,21,107])

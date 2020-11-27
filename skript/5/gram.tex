@@ -1,0 +1,511 @@
+%
+% gram.tex
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Gram-Matrix und Gram-Determinante
+\label{section:gram}}
+\rhead{Gram-Matrix und Gram-Determinante}
+Die $n\times n$-Determinante erlaubt zwar, das Volumen eines $n$-dimensionalen
+Parallelepipeds zu berechnen, sie liefert aber nicht unmittelbar eine
+Lösung für das Problem, zum Beispiel den Flächeninhalt eines im 
+dreidimensionalen Raum eingebetteten Parallelogramms zu berechnen.
+Zwar schafft das Vektorprodukt dies, doch bleibt die etwas allgemeinere
+Frage stehen: wie berechnet man das $k$-dimensionale Volumen eines
+in den $n$-dimensionalen Raum eingebetteten, von den $k$ Vektoren 
+$a_1,\dots,a_k\in\mathbb{R}^n$ aufgespannten Parallelepipeds?
+
+In diesem Abschnitt wird gezeigt, wie die Gram-Determinante, eine
+$k\times k$-Determinante gebildet aus den Skalarprodukten der Vektoren 
+$a_i$, diese Aufgabe löst.
+Als Nebenresultat erhalten wir auch eine Abstandsformel, die in
+beliebigen Dimensionen funktioniert.
+
+\subsection{Gram-Matrix\label{subsection:Gram-Matrix}}
+Orthonormalbasen sind besonders gut geeignet, um das Skalarprodukt
+einfach zu berechnen.
+Doch wie berechnet man das Skalarprodukt in einer beliebigen Basis?
+
+Die Orthonormalbasis $\{e_1,\dots,e_n\}$ hat die Eigenschaft, dass
+die Skalarprodukte der Basisvektoren die Eigenschaft
+\[
+e_i\cdot e_j = \delta_{ij}\quad\forall 1\le i,j\le n
+\]
+haben.
+Die Matrix der Skalarprodukte
+\[
+(e_i\cdot e_j)_{i,j} = E
+\]
+ist die Einheitsmatrix.
+Sind $u$ und $v$ Vektoren, die in der Basis $e_i$ die Koordinaten
+$\xi_i$ und $\eta_i$ haben, dann lässt sich das Skalarprodukt
+unter Verwendung der Skalarprodukte $e_i\cdot e_j$ berechnen:
+\begin{align*}
+u\cdot v
+&=
+\biggl(\sum_{i=1}^n \xi_i e_i \biggr)
+\cdot
+\biggl(\sum_{j=1}^n \eta_j e_j \biggr)
+=
+\sum_{i,j=1}^n
+\xi_i \eta_j e_i\cdot e_j
+=
+\begin{pmatrix}
+\xi_1\\\vdots\\\xi_n
+\end{pmatrix}^t
+\begin{pmatrix}
+1     &\dots &0     \\
+\vdots&\ddots&\vdots\\
+0     &\dots &1
+\end{pmatrix}
+\begin{pmatrix}
+\eta_1\\\vdots\\\eta_n
+\end{pmatrix}
+=
+\xi^t E \eta
+=
+\xi^t \eta,
+\end{align*}
+wobei wir $\xi$ für den Vektor mit den Komponenten $\xi_i$ und $\eta$
+für den Vektor mit den Komponenten $\eta_i$ schreiben.
+
+Die gleiche Rechnung lässt sich natürlich auch anstellen, wenn die
+Vektoren in einer beliebigen anderen Basis bestehend aus den Vektoren
+$b_i$ dargestellt sind. 
+Seien also $\xi'_i$ und $\eta'_i$ die Koordinaten der Vektoren $u$ und $v$
+in der Basis $b_i$, dann ist das Skalarprodukt
+\begin{align*}
+u\cdot v
+&=
+\biggl(\sum_{i=1}^n \xi'_i b_i\biggr)
+\cdot
+\biggl(\sum_{j=1}^n \eta'_j b_j\biggr)
+=
+\sum_{i,j=1}^n \xi'_i\eta'_j b_i\cdot b_j
+=
+\begin{pmatrix}
+\xi'_1\\\xi'_2\\\vdots\\\xi'_n
+\end{pmatrix}^t
+\begin{pmatrix}
+b_1\cdot b_1&b_1\cdot b_2&\dots &b_1\cdot b_n\\
+b_2\cdot b_1&b_2\cdot b_2&\dots &b_2\cdot b_n\\
+\vdots      &\vdots      &\ddots&\vdots      \\
+b_n\cdot b_1&b_n\cdot b_2&\dots &b_n\cdot b_n\\
+\end{pmatrix}
+\begin{pmatrix}
+\eta'_1\\\eta'_2\\\vdots\\\eta'_n
+\end{pmatrix}.
+\end{align*}
+Das Skalarprodukt kann als mit Hilfe der Matrix der Skalarprodukte
+ausgedrückt werden.
+
+\begin{definition}
+Die Matrix
+\[
+G
+=
+\begin{pmatrix}
+b_1\cdot b_1&b_1\cdot b_2&\dots &b_1\cdot b_n\\
+b_2\cdot b_1&b_2\cdot b_2&\dots &b_2\cdot b_n\\
+\vdots      &\vdots      &\ddots&\vdots      \\
+b_n\cdot b_1&b_n\cdot b_2&\dots &b_n\cdot b_n\\
+\end{pmatrix}
+\]
+heisst die {\em Gram-Matrix} der Vektoren $b_1,\dots,b_n$.
+\index{Gram-Matrix}%
+\end{definition}
+
+Mit der Gram-Matrix lässt sich das Skalarprodukt zweier Vektoren,
+die in der Basis $b_i$ die Koordinaten $\xi'$ und $\eta'$ haben,
+durch das Produkt
+\[
+u\cdot v
+=
+\xi'^t G \eta'
+\]
+berechnen.
+
+Man beachte, dass die Gram-Matrix uns von der Dimension des 
+Vektorraums löst, in der die Vektoren $b_i$ ``leben.
+Sobald wir in der Lage sind, die Skalarprodukte $b_i\cdot b_j$ 
+und damit die Gram-Matrix zu berechnen, können wir auch jedes
+Skalarprodukt von beliebigen anderen Vektoren berechnen, die im
+von $b_1,\dots,b_n$ aufgespannten Raum liegen.
+
+\begin{beispiel}
+Für die Ebene $\sigma$ durch die Punkte $O$, $(1,1,0)$ und $(0,1,1)$
+kann man die Vektoren \[
+b_1 = \begin{pmatrix} 1\\1\\0\end{pmatrix}
+\quad\text{und}\quad
+b_2 = \begin{pmatrix} 0\\1\\1\end{pmatrix}
+\]
+als Basis verwenden.
+Die Gram-Matrix dieser Vektoren ist
+\[
+G = \begin{pmatrix}
+b_1\cdot b_1 & b_1\cdot b_2\\
+b_2\cdot b_1 & b_2\cdot b_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+2&1\\
+1&2
+\end{pmatrix}.
+\]
+Die beiden Vektoren
+\[
+u
+=
+\begin{pmatrix}
+1\\0\\-1
+\end{pmatrix}
+=
+1\cdot b_1 + (-1)\cdot b_2
+\quad\text{und}\quad
+v
+=
+\begin{pmatrix}
+1\\2\\1
+\end{pmatrix}
+=
+1\cdot b_1 + 1 \cdot b_2
+\]
+liegen beide in der Ebene $\sigma$.
+Das Skalarprodukt kann man jetzt sowohl im $\mathbb{R}^3$ als auch mit
+Hilfe der Gram-Matrix berechnen.
+\begin{align*}
+u\cdot v
+&=
+\begin{pmatrix}
+1\\0\\-1
+\end{pmatrix}^t
+\begin{pmatrix}
+1\\2\\1
+\end{pmatrix}
+=0
+\\
+&=
+\begin{pmatrix}1\\-1\end{pmatrix}^t
+G
+\begin{pmatrix}1\\1\end{pmatrix}
+=
+\begin{pmatrix}1\\-1\end{pmatrix}^t
+\begin{pmatrix}2&1\\1&2\end{pmatrix}
+\begin{pmatrix}1\\1\end{pmatrix}
+=
+\begin{pmatrix}1\\-1\end{pmatrix}^t
+\begin{pmatrix}3\\3\end{pmatrix}
+=
+0.
+\end{align*}
+Wie erwartet geben beide Rechnungen den gleichen Wert.
+Die Berechnung mit der Gram-Matrix ist jedoch ausschliesslich möglich für
+Vektoren, die sich in der Ebene $\sigma$ befinden, und sie ist ganz
+unabhängig davon, wie sich das Skalarprodukt ausserhalb der Ebene verhält.
+\end{beispiel}
+
+\subsection{Gram-Determinante\label{subsection:Gram-Determinante}}
+Von der Gram-Matrix $G$ der Vektoren $a_1,\dots,a_n$
+(siehe Abschnitt~\ref{subsection:Gram-Matrix})
+kann man auch die Determinante berechnen.
+Was ist ihre geometrische Bedeutung?
+
+\begin{definition}
+Die Determinante der Gram-Matrix der Vektoren $a_1,\dots,a_n$ wird 
+\[
+\operatorname{Gram}(a_1,\dots,a_n)
+=
+\left|
+\begin{matrix}
+a_1\cdot a_1& a_1\cdot a_2&\dots  &a_1\cdot a_n\\
+a_2\cdot a_1& a_2\cdot a_2&\dots  &a_2\cdot a_n\\
+\vdots      &\vdots       &\ddots &\vdots      \\
+a_n\cdot a_1& a_n\cdot a_2&\dots  &a_n\cdot a_n\\
+\end{matrix}
+\right|
+\]
+geschrieben und heisst {\em Gram-Determinante}.
+\index{Gram-Determinante}%
+\end{definition}
+
+Wir wenden den Gram-Schmidt-Orthonormalisierungsprozess auf die Vektoren
+$a_1,\dots,a_n$ an und verfolgen, wie sich der Wert der Gram-Determinante
+dabei ändert.
+\index{Gram-Schmidt-Prozess|see{Orthonormalisierung}}%
+Wir tun dies zunächst nur für die jeweils ersten Faktoren in den 
+Skalarprodukten.
+
+Im ersten Schritt wird der Vektor $a_1$ mit seiner Länge skaliert, 
+dabei entsteht der Einheitsvektor $b_1$, er hat die Eigenschaft
+$a_1=|a_1|\cdot b_1 = l_1\cdot b_1$.
+Setzt man dies in die Gram-Determinante ein, erhält man
+\begin{align*}
+\operatorname{Gram}(a_1,\dots,a_n)
+&=
+\left|
+\begin{matrix}
+a_1\cdot a_1& a_1\cdot a_2&\dots  &a_1\cdot a_n\\
+a_2\cdot a_1& a_2\cdot a_2&\dots  &a_2\cdot a_n\\
+\vdots      &\vdots       &\ddots &\vdots      \\
+a_n\cdot a_1& a_n\cdot a_2&\dots  &a_n\cdot a_n\\
+\end{matrix}
+\right|
+\\
+&=
+\left|
+\begin{matrix}
+l_1
+\cdot b_1\cdot a_1& |a_1|\cdot b_1\cdot a_2&\dots  &|a_1|\cdot b_1\cdot a_n\\
+a_2\cdot a_1& a_2\cdot a_2&\dots  &a_2\cdot a_n\\
+\vdots      &\vdots       &\ddots &\vdots      \\
+a_n\cdot a_1& a_n\cdot a_2&\dots  &a_n\cdot a_n\\
+\end{matrix}
+\right|
+\\
+&=
+l_1 \cdot
+\left|
+\begin{matrix}
+b_1\cdot a_1& b_1\cdot a_2&\dots  &b_1\cdot a_n\\
+a_2\cdot a_1& a_2\cdot a_2&\dots  &a_2\cdot a_n\\
+\vdots      &\vdots       &\ddots &\vdots      \\
+a_n\cdot a_1& a_n\cdot a_2&\dots  &a_n\cdot a_n\\
+\end{matrix}
+\right|.
+\end{align*}
+Im zweiten Schritt wird zu $a_2$ ein Vielfaches von $a_1$ 
+hinzuaddiert:
+\begin{align*}
+\operatorname{Gram}(a_1,\dots,a_n)
+&=
+l_1\cdot
+\left|
+\begin{matrix*}[r]
+b_1\cdot a_1
+%	& b_1\cdot a_2
+		&\dots  &b_1\cdot a_n\\
+(a_2-(a_2\cdot b_1)b_1)\cdot a_1
+%	&(a_2-(a_2\cdot b_1)b_1)\cdot a_2
+		&\dots  &(a_2-(a_2\cdot b_1)b_1)\cdot a_n\\
+\vdots \phantom{\;a_2}
+%	&\vdots
+		&\ddots &\vdots     \phantom{\;a_n} \\
+a_n \cdot a_1
+%	&a_n\cdot a_2
+		&\dots  &a_n\cdot a_n\\
+\end{matrix*}
+\right|.
+\end{align*}
+Dabei wird in der zweiten Zeile das $a_2\cdot b_1$-fache der
+ersten Zeile subtrahiert, eine solche Zeilenoperation ändert
+aber den Wert der Determinante nicht.
+Um den Orthonormalisierungsschritt abzuschliessen, muss jetzt
+noch durch die Länge $l_2=|a_2-(a_2\cdot b_1)b_1|$ dividiert werden.
+$l_2$ ist aber die Länge eines Vektors, der auf $a_1$ senkrecht steht,
+also eine ``Höhe''.
+Wir erhalten
+\begin{align*}
+\operatorname{Gram}(a_1,\dots,a_n)
+&=
+l_1 \cdot l_2 \cdot
+\left|
+\begin{matrix}
+b_1\cdot a_1
+%	& b_1\cdot a_2
+		&\dots  &b_1\cdot a_n\\
+b_2\cdot a_1
+%	&(a_2-(a_2\cdot b_1)b_1)\cdot a_2
+		&\dots  &b_2\cdot a_n\\
+\vdots
+%	&\vdots
+		&\ddots &\vdots     \\
+a_n \cdot a_1
+%	&a_n\cdot a_2
+		&\dots  &a_n\cdot a_n\\
+\end{matrix}
+\right|.
+\end{align*}
+Bei den weiteren Operationen des Gram-Schmidtschen
+Orthonormalisierungsprozesses werden wieder Vielfache bereits
+umbeformter Zeilen subtrahiert, was die Determinante nicht ändert,
+oder es werden Faktoren aus der Determinante genommen.
+Diese Faktoren
+\[
+l_i
+=
+|a_i - (a_i\cdot b_1)b_1 - (a_i\cdot b_2)b_2-\dots-(a_i\cdot b_{i-1})b_{i-1}|
+\]
+sind jeweils Längen von Vektoren, die auf den
+bereits orthogonalisierten senkrecht stehen, was auf 
+\[
+\operatorname{Gram}(a_1,\dots,a_n)
+=
+l_1 \cdot l_2 \cdot\ldots\cdot l_n
+\left|
+\begin{matrix}
+b_1\cdot a_1
+	& b_1\cdot a_2
+		&\dots  &b_1\cdot a_n\\
+b_2\cdot a_1
+	&b_2\cdot a_2
+		&\dots  &b_2\cdot a_n\\
+\vdots
+	&\vdots
+		&\ddots &\vdots     \\
+b_n \cdot a_1
+	&b_n\cdot a_2
+		&\dots  &b_n\cdot a_n\\
+\end{matrix}
+\right|
+\]
+führt.
+
+Den gleichen Prozess wendet man jetzt nochmals auf die jeweils
+rechten Faktoren in jedem Skalarprodukt der Gram-Determinante an.
+Dabei müssen die gleichen Faktoren aus der Determinanten herausgenommen
+werden wie beim ersten Durchgang.
+Die verbleibende Determinante enthält die Skalarprodukte
+$b_i\cdot b_j=\delta_{ij}$, die Determinante der Einheitsmatrix ist aber $1$.
+Damit erhalten wir
+\begin{align*}
+\operatorname{Gram}(a_1,\dots,a_n)
+&=
+l_1^2\cdot l_2^2\cdot \ldots \cdot l_n^2
+\cdot
+\left|
+\begin{matrix}
+b_1\cdot b_1
+	& b_1\cdot b_2
+		&\dots  &b_1\cdot b_n\\
+b_2\cdot b_1
+	&b_2\cdot b_2
+		&\dots  &b_2\cdot b_n\\
+\vdots
+	&\vdots
+		&\ddots &\vdots     \\
+b_n \cdot b_1
+	&b_n\cdot b_2
+		&\dots  &b_n\cdot b_n\\
+\end{matrix}
+\right|
+\\
+&=
+l_1^2\cdot l_2^2\cdot \ldots \cdot l_n^2\cdot
+\det(E)
+\\
+&=
+l_1^2\cdot l_2^2\cdot \ldots \cdot l_n^2
+\end{align*}
+als den Wert der Gram-Determinante.
+Das Produkt $l_1\cdot l_2\cdot\dots\cdot l_n$ ist das $n$-dimensionale
+Volumen des $n$-dimensionalen Parallelepipeds aufgespannt von den Vektoren
+$a_1,\dots,a_n$.
+
+\begin{satz}
+Das $n$-dimensionale Volumen $\operatorname{Vol}(a_1,\dots,a_n)$
+des von den Vektoren $a_1,\dots,a_n$ aufgespannten $n$-dimensionalen
+Parallelepipeds erfüllt
+\[
+\operatorname{Vol}(a_1,\dots,a_n)^2
+=
+\operatorname{Gram}(a_1,\dots,a_n).
+\]
+\end{satz}
+Die Gram-Determinante liefert also das Volumen eines $n$-dimensionalen 
+Parallelepipeds ganz unabhängig von der Dimension des Raumes, aus dem
+die Vektoren $a_1,\dots,a_n$ stammen.
+Da zum Beispiel der orientierte Flächeninhalt eines Parallelogramms
+in drei Dimensionen keinen Sinn ist auch nicht überraschend, dass
+die Gram-Determinante über die Orientierung keine Aussage mehr machen
+kann.
+
+\subsection{Die allgemeine Abstandsformel
+\label{subsection:allgemeineabstandsformel}}
+Die Gram-Determinante erlaubt, Volumina beliebiger Dimension zu berechnen.
+Damit kann man jetzt aber auch den Abstand eines Punktes von einem 
+Raum beliebiger Dimension bestimmen.
+Wir der $k$-dimensionale Raum von den Vektoren $a_1,\dots,a_k$ aufgespannt,
+dann ist $\operatorname{Gram}(a_1,\dots,a_k)$ das Quadrat des
+Volumens $\operatorname{Vol}(a_1,\dots,a_k)$ des $k$-dimensionalen
+Parallelepipeds aufgespannt von den $a_i$.
+Fügt man den Vektor $b$ hinzu, entsteht das Volumen
+$\operatorname{Vol}(a_1,\dots,a_k,b)$ eines $k+1$-dimensionalen
+Parallelepipeds.
+Dieses kann aber auch aus dem Abstand $h$ des Punktes $b$ von
+$\langle a_1,\dots,a_k\rangle$ und dem Volumen der ``Seite''
+$a_1,\dots,a_k$ berechnen, es ist
+\[
+\operatorname{Vol}(a_1,\dots,a_k,b)
+=
+h\cdot
+\operatorname{Vol}(a_1,\dots,a_k)
+\qquad\Rightarrow\qquad
+h
+=
+\frac{
+\operatorname{Vol}(a_1,\dots,a_k,b)
+}{
+\operatorname{Vol}(a_1,\dots,a_k)
+}.
+\]
+Damit erhalten wir den folgenden Satz.
+
+\begin{satz}
+Seien $a_1,\dots,a_k\in\mathbb{R}^n$ linear unabhängige Vektoren und
+sei $b\in\mathbb{R}^n$ ein weiterer Vektor.
+Dann ist der Abstand $h$ des Punktes $b$ vom $k$-dimensionalen Vektorraum
+$\langle a_1,\dots,a_k\rangle$ aufgespannt von den Vektoren
+$a_1,\dots,a_k$ gegeben durch
+\begin{equation}
+h = \sqrt{
+\frac{\operatorname{Gram}(a_1,\dots,a_k,b)}{\operatorname{Gram}(a_1,\dots,a_k)}
+}.
+\label{eqn:allgemeineabstandsformel}
+\end{equation}
+$b$ liegt genau dann in dem von den $a_i$ aufgespannten Raum, wenn $h=0$.
+\index{Abstandsformel, allgemeine}
+\end{satz}
+
+Die Formel \eqref{eqn:abstandpunktgerade} für den Abstand eines Punktes
+$Q$ von einer Geraden
+$\vec{p} = \vec{p}_0+t\vec{r}$ ist
+\[
+d
+=
+\frac{|(\vec{q}-\vec{p})\times\vec{r}|}{|\vec{r}|}
+=
+\frac{
+\operatorname{Vol}(\vec{q}-\vec{p},\vec{r})
+}{
+\operatorname{Vol}(\vec{r})
+}
+\]
+der Spezialfall $k=1$ der Formel~\eqref{eqn:allgemeineabstandsformel}.
+Die Abstansformel \eqref{eqn:windschieferabstand} für windschiefe Geraden
+$\vec{q}=\vec{p}_{1}+t\vec{r}_1$
+und
+$\vec{q}=\vec{p}_{2}+t\vec{r}_2$
+passt ebenfalls in dieses Schema:
+\[
+d
+=
+\frac{
+(\vec{p}_2-\vec{p}_1)\cdot (\vec{r}_1\times\vec{r}_2)
+}{
+|\vec{r}_1\times\vec{r}_2|
+}
+=
+\frac{
+\det(\vec{p}_2-\vec{p}_1,\vec{r}_1,\vec{r}_2)
+}{
+\operatorname{Vol}(\vec{r}_1,\vec{r}_2)
+}
+=
+\frac{
+\operatorname{Vol}(\vec{p}_2-\vec{p}_1,\vec{r}_1,\vec{r}_2)
+}{
+\operatorname{Vol}(\vec{r}_1,\vec{r}_2)
+}.
+\]
+
+
