@@ -1,0 +1,4114 @@
+/*
+ * k47.maxima
+ *
+ * (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+ */
+algebraic: true;
+
+x: sqrt(1291);
+a: 6;
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+
+x: ratsimp(1 / (x - a));
+a: floor(x);
+

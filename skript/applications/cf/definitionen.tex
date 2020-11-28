@@ -1,0 +1,70 @@
+%
+% definitionen.tex
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\subsection{Definitionen \label{subsection:cf:definition}}
+Ein {\em regulärer} Kettenbruch ist ein Kettenbruch der Form
+\index{Kettenbruch!regulär}%
+\eqref{eqn:cf:kettenbruch}, in dem alle Teilzähler $b_k=1$ sind.
+Ein solcher Kettenbruch kann etwas kompakter als
+\[
+[a_0;a_1,a_2,a_3]
+=
+a_0+\cfrac{1}{
+a_1+\cfrac{1}{
+a_2+\cfrac{1}{
+a_3}}}
+\]
+geschrieben werden.
+
+Ein unendlicher Kettenbruch ist ein Kettenbruch, der nicht aufhört.
+Ein unendlicher regulärer Kettenbruch kann als
+\[
+[a_0;a_1,a_2,a_3,\dots]
+=
+a_0+\cfrac{1}{
+a_1+\cfrac{1}{
+a_2+\cfrac{1}{
+a_3+\cfrac{1}{\dots}}}}
+\]
+geschrieben werden.
+Eine rationale Zahl hat immer eine endliche Kettenbruchentwicklung,
+irrationale Zahlen dagegen haben eine unendliche Kettenbruchentwicklung.
+Kettenbruchentwicklungen können daher verwendet werden, 
+um zu untersuchen, ob eine Zahl rational oder irrational ist.
+
+Bricht man einen unendlichen oder unendlichen Kettenbruch früher ab,
+erhält man einen Näherungsbruch.
+Wenn nur die ersten $n$ Teilzähler und -nenner verwendet werden
+sprechen wir vom $n$-ten Näherungsbruch
+\[
+\frac{p_n}{q_n}
+=
+a_0+\cfrac{b_1}{
+a_1+\cfrac{b_2}{
+a_2+\cfrac{b_3}{
+a_3+\cfrac{b_4}{
+\dots+\cfrac{b_{n-1}}{
+a_{n-1}+\cfrac{b_n}{a_n}}}}}}
+\]
+Die Näherungsbrüche eines regulären Kettenbruchs kann man auch
+\[
+\frac{p_n}{q_n}
+=
+[a_0;a_1,a_2,\dots,a_{n-1},a_n]
+\]
+schreiben.
+Der Wert eines unendlichen Kettenbruchs ist der Grenzwert 
+\[
+[a_0;a_1,a_2,a_3,\dots]
+=
+\lim_{n\to\infty} \frac{p_n}{q_n}.
+\]
+
+Ein regulärer Kettenbruch heisst periodisch mit Periode $k$,
+wenn es eine Zahl $k$ gibt derart, dass $a_i=a_{i+k}$ für $i>N$.
+Man kann zeigen, dass der Wert eines periodischen Kettenbruchs 
+immer Nullstelle eines quadratischen Polynoms mit rationalen
+Koeffizienten ist, eine sogenannte quadratische Irrationalität.
+

@@ -1,0 +1,222 @@
+%
+% beispiele.tex
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\subsection{Beispiele \label{subsection:cf:beispiele}}
+Um zu Beispielen von Kettenbrüchen zu kommen, müssen wir untersuchen,
+wie wir die einzelnen Zahlen $a_k$ in einem regulären Kettenbruch
+für die Zahl  $x$ kommen können.
+Wir schreiben 
+\begin{align*}
+x=
+x_0
+&=
+a_0+\cfrac{1}{
+a_1+\cfrac{1}{
+a_2+\cfrac{1}{
+a_3+\cfrac{1}{
+a_4+\cfrac{1}{\dots}}}}} = a_0 + \frac{1}{x_1}
+\\
+x_1
+&=
+a_1+\cfrac{1}{
+a_2+\cfrac{1}{
+a_3+\cfrac{1}{
+a_4+\cfrac{1}{
+a_5+\cfrac{1}{\dots}}}}} = a_0 + \frac{1}{x_2}
+\\
+&\phantom{0}\vdots
+\\
+x_k
+&=
+a_k+\cfrac{1}{
+a_{k+1}+\cfrac{1}{
+a_{k+2}+\cfrac{1}{
+a_{k+3}+\cfrac{1}{
+a_{k+4}+\cfrac{1}{\dots}}}}} = a_k + \frac{1}{x_{k+1}}.
+\end{align*}
+Dabei ist $a_k$ der ganzzahlige Anteil von $x_k$, $x_k - a_k$ ist
+eine Zahl zwischen $0$ und $1$.
+Wir lesen daraus die Rekursionsformel
+\[
+x_{k+1} = \frac{1}{x_k-a_k},
+\qquad
+a_k = \lfloor x_k\rfloor
+\]
+ab.
+Die Kettenbruchentwicklung bricht ab in dem Moment, wo $x_k$ eine ganze Zahl
+ist, dann ist auch $a_k=x_k$.
+Die Teilnenner $a_k$ können also ermittelt werden, indem wir das
+Rechenschema
+\[
+\begin{aligned}
+x=x_0&                   &&\Rightarrow & a_0&=\lfloor x_0\rfloor \\
+  x_1&=\frac{1}{x_0-a_0} &&\Rightarrow & a_1&=\lfloor x_1\rfloor \\
+  x_2&=\frac{1}{x_1-a_1} &&\Rightarrow & a_2&=\lfloor x_2\rfloor \\
+  x_3&=\frac{1}{x_2-a_2} &&\Rightarrow & a_3&=\lfloor x_3\rfloor \\
+     &\phantom{1}\vdots  &&            &    &\phantom{1}\vdots
+\end{aligned}
+\]
+ausfüllen.
+
+\begin{beispiel}
+Der Bruch $x=\frac{314}{100}$ hat die Kettenbruchentwicklung
+\[
+\begin{aligned}
+x=x_0&=3.14                                           &&\Rightarrow& a_0 &= 3 \\
+  x_1&=\frac{1}{x_0-a_0}=\frac{100}{14}=7+\frac{2}{14}&&\Rightarrow& a_1 &= 7 \\
+  x_2&=7                                              &&\Rightarrow& a_2 &= 7
+\end{aligned}
+\]
+An dieser Stelle bricht die Kettenbruchentwicklung ab weil $x_2=a_2$.
+Wir schliessen, dass
+\[
+3.14 
+=
+3+\cfrac{1}{
+7+\cfrac{1}{7}}
+\]
+ist.
+\end{beispiel}
+
+\begin{beispiel}
+In diesem Beispiel soll 
+ein regulärer Kettenbruch für die Zahl $x=1.\overline{234}$ gefunden werden.
+Wir füllen das Rechenschema aus:
+\[
+\begin{aligned}
+x_0&=1.\overline{234}                         &&\Rightarrow& a_0&= 1 \\
+x_1&=\frac{1}{x_0-a_0} = 4.2\overline{692307} &&\Rightarrow& a_1&= 4 \\
+x_2&=\frac{1}{x_1-a_1} = 3.\overline{714285}  &&\Rightarrow& a_2&= 3 \\
+x_3&=\frac{1}{x_2-a_2} = 1.4                  &&\Rightarrow& a_3&= 1 \\
+x_4&=\frac{1}{x_3-a_3} = 2.5                  &&\Rightarrow& a_4&= 2 \\
+x_5&=\frac{1}{x_4-a_4} = 2                    &&\Rightarrow& a_5&= 2 \\
+\end{aligned}
+\]
+Damit haben wir die Kettenbruchdarstellung 
+\[
+x=1+\cfrac{1}{
+4+\cfrac{1}{
+3+\cfrac{1}{
+1+\cfrac{1}{
+2+\cfrac{1}{
+2}}}}}
+\]
+gefunden.
+\end{beispiel}
+
+\begin{beispiel}
+In diesem Beispiel soll die Kettenbruchentwicklung der Zahl
+$x=\sqrt{2}$ gefunden werden.
+Da $\sqrt{2}$ nicht rational ist, kann der zugehörige Kettenbruch
+nicht nach endlich vielen Schritten abbrechen.
+Wir verwenden den gleichen Prozess wie in der vorangegangenen Aufgabe:
+\[
+\begin{aligned}
+x_0&=\sqrt{2}                                         &&\Rightarrow& a_0 &= 1 \\
+x_1&=\frac{1}{x_0-a_0}=\frac{1}{\sqrt{2}-1}=\sqrt{2}+1&&\Rightarrow& a_1 &= 2 \\
+x_2&=\frac{1}{x_1-a_1}=\frac{1}{\sqrt{2}-1}=\sqrt{2}+1&&\Rightarrow& a_2 &= 2 \\
+   &\phantom{0}\vdots                                 &&           &     &\phantom{0}\vdots
+\end{aligned}
+\]
+Daraus kann man bereits ablesen, dass sich die Kettenbruchentwicklung
+wiederholen wird und dass $a_k=2$ für alle $k>0$ sein wird.
+Der gesuchte Kettenbruch für $\sqrt{2}$ ist also
+\[
+\sqrt{2}
+=
+1+\cfrac{1}{
+2+\cfrac{1}{
+2+\cfrac{1}{
+2+\cfrac{1}{
+2+\cfrac{1}{\dots}}}}}
+=
+[1;\overline{2}].
+\]
+\end{beispiel}
+
+\begin{beispiel}
+Gegeben ist der Kettenbruch
+\[
+x=1+\cfrac{1}{
+1+\cfrac{1}{
+1+\cfrac{1}{
+1+\cfrac{1}{\dots}}}}
+=[1;\overline{1}],
+\]
+wie gross ist $x$?
+Der Nenner des ersten Bruches ist wieder der ganze Kettenbruch, es gilt
+also die Gleichung
+\[
+x = 1+\frac{1}{x}
+\qquad\Rightarrow\qquad
+x^2-x-1=0.
+\]
+Diese quadratische Gleichung hat die Nullstellen
+\[
+x = \frac{1\pm\sqrt{1+4}}2=\frac{1\pm\sqrt{5}}2.
+\]
+Das negative Zeichen führt auf einen negativen Wert für $x$, der Wert
+des Kettenbruches muss aber ganz offensichtlich positiv sein.
+Damit bleibt
+\[
+x=\frac{1+\sqrt{5}}2
+\approx
+1.61803398874989\ldots=\varphi,
+\]
+das Verhältniss des goldenen Schnittes.
+\end{beispiel}
+
+Man kann zeigen, dass jede quadratische Irrationalität, also jede Wurzel
+einer quadratischen Gleichung mit rationalen Koeffizienten, eine periodisch
+Kettenbruchentwicklung hat.
+
+\begin{beispiel}
+Wir verfizieren diese Behauptung für die Quadratwurzel $x=\sqrt{47}$.
+Das Berechnungsschema liefert
+\[
+\begin{aligned}
+x_0&=\sqrt{47}
+	&&\Rightarrow&
+		a_0 &= 6
+\\
+x_1&=\frac{1}{x_0-a_0} = \frac{\sqrt{47}+6}{11}
+	&&\Rightarrow&
+		a_1 &= 1
+\\
+x_2&=\frac{1}{x_1-a_1} = \frac{\sqrt{47}+5}{2}
+	&&\Rightarrow&
+		a_2 &= 5
+\\
+x_3&=\frac{1}{x_2-a_2} = \frac{\sqrt{47}+5}{11}
+	&&\Rightarrow&
+		a_3 &= 1
+\\
+x_4&=\frac{1}{x_3-a_3} = \sqrt{47}+6
+	&&\Rightarrow&
+		a_4 &= 12
+\end{aligned}
+\]
+An dieser Stelle beginnt sich das Schema zu wiederholen.
+Es ist nämlich $x_0-a_0 = \sqrt{47}-6 = (\sqrt{47}+6) - 12 = x_4-a_4$.
+Also ist
+\[
+\sqrt{47}
+=
+6+\cfrac{1}{
+1+\cfrac{1}{
+5+\cfrac{1}{
+1+\cfrac{1}{
+12+\cfrac{1}{
+1+\cfrac{1}{
+5+\cfrac{1}{
+1+\cfrac{1}{
+12+\cfrac{1}{\dots}}}}}}}}}
+=
+[6;\overline{1,5,1,12}]
+\]
+\end{beispiel}
+
+
+

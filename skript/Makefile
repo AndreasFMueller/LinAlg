@@ -81,7 +81,11 @@ TEXFILES = linsys.tex 							\
 	applications/qam/zweidimensional.tex				\
 	applications/qam/modulation.tex					\
 	applications/qam/demodulation.tex				\
-	applications/qam/beispiele.tex
+	applications/qam/beispiele.tex					\
+	applications/cf.tex						\
+	applications/cf/definitionen.tex				\
+	applications/cf/beispiele.tex					\
+	applications/cf/naeherungsbrueche.tex	
 
 images:
 	cd images; make
