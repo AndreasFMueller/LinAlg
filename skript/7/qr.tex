@@ -14,6 +14,7 @@ sich von den Faktoren weitere oder andere Eigenschaften, zum Beispiel
 Orthogonalität.
 Die QR-Zerlegung liefert eine Matrix mit orthonormierten Spalten.
 
+\subsection{QR-Zerlegung und Gram-Schmidt-Orthonormalisierung}
 Betrachten wir nochmals den Orthonormalisierungsprozess.
 Im $k$-ten Schritt erzeugt er den Vektor $b_k'$ aus $b_1',\dots,b_{k-1}'$
 und $b_k$ nach der Formel
@@ -115,6 +116,170 @@ R=
 \]
 \end{beispiel}
 
+%
+% Geometrische Interpretation der QR-Zerlegung
+%
+\subsection{QR-Zerlegung zur Analyse einer linearen Abbildung}
+Eine $3\times 3$-Matrix beschreibt eine linear Abbildung
+$\mathbb{R}^3\to\mathbb{R}^3$.
+In diesem Abschnitt soll gezeigt werden, wie die QR-Zerlegung von $A$
+dazu verwendet werden kann zu verstehen, aus welchen einfacheren
+Abbildungen sich die durch $A$ beschriebene Abbildung zusammensetzt.
+
+Sei also im folgenden $A=QR$ die QR-Zerlegung der Matrix $A$.
+Die Definition der QR-Zerlegung macht keine Voraussetzungen über das
+Vorzeichen der Determinanten von $Q$ oder $R$.
+Sollte $\det(Q)<0$ sein, kann man die erste Spalte von $Q$ mit einem
+negativen Vorzeichen versehen wie auch das Element $r_{11}$ in der
+linken oberen Ecke von $R$.
+Diese neuen Matrizen $Q$ und $R$ stellen immer noch eine QR-Zerlegung
+der Matrix $A$ dar, aber die Determinanten von $Q$ und $R$ haben jetzt
+entgegengesetztes Vorzeichen.
+Insbesondere kann man also immer annehmen, dass eine QR-Zerlegung
+mit $\det(Q)=1$ vorliegt.
+
+Die Matrix $R$ ist eine obere Dreiecksmatrix.
+Wir überlegen uns zunächst, dass man es immer so einrichten kann,
+dass höchstens eines der Diagonalelemente von $R$ negativ ist.
+Wenn nämlich mehr als zwei Diagonalelemente negativ sind, kann man
+$R$ von links mit einer Drehmatrix multiplizieren, die das Vorzeichen
+der beiden Diagonalelemente kehrt.
+Sind zum Beispiel die ersten zwei Diagonalelemente von $R$ negativ,
+dann kann man $R$ von links mit der Drehmatrix
+\[
+D_{z,180^\circ}
+=
+\begin{pmatrix}
+-1& 0& 0\\
+ 0&-1& 0\\
+ 0& 0& 1
+\end{pmatrix}
+,\qquad
+D_{z,180^circ}R
+=
+\begin{pmatrix}
+-r_{11}&-r_{12}&-r_{13}\\
+   0   &-r_{12}&-r_{13}\\
+   0   &   0   &\phantom{-}r_{13}
+\end{pmatrix}
+\]
+multiplizieren.
+Die Vorzeichen von $r_{11}$ und $r_{22}$ ändern.
+Die Matrix $Q$ muss man natürlich ebenfalls durch $QD_{z,180^\circ}$
+ersetzen.
+Da $D_{7,180^\circ}$ eine Drehmatrix ist, ist das neue $Q$ immer noch
+eine Drehmatrix, $Q\in\operatorname{SO}(3)$.
+So erhält man wieder eine QR-Zerlegung von $A$, man darf jetzt aber
+zusätzlich annehmen, dass nur eines der Diagonalelemente von $R$ negativ
+ist.
+
+Die Diagonalelemente von $R$ können in separate Matrizen verschoben werden.
+Wir schreiben 
+\begin{align*}
+R
+&=
+R
+\begin{pmatrix}
+r_{11}^{-1}&     0     &     0     \\
+     0     &r_{22}^{-1}&     0     \\
+     0     &     0     &r_{33}^{-1}
+\end{pmatrix}
+\begin{pmatrix}
+r_{11}&   0  &  0   \\
+   0  &r_{22}&  0   \\
+   0  &   0  &r_{33}
+\end{pmatrix}
+\\
+&=
+\underbrace{
+\begin{pmatrix}
+1&\frac{r_{12}}{r_{22}}&\frac{r_{13}}{r_{33}}\\
+0&            1        &\frac{r_{23}}{r_{33}}\\
+0&            0        &            1
+\end{pmatrix}
+}_{\displaystyle=R_0}
+\underbrace{
+\begin{pmatrix}
+|r_{11}|&0&0\\
+  0   &1&0\\
+  0   &0&1
+\end{pmatrix}
+}_{\displaystyle = S_x}
+\underbrace{
+\begin{pmatrix}
+1&0&0\\
+0&|r_{22}|&0\\
+0&0&1
+\end{pmatrix}
+}_{\displaystyle = S_y}
+\underbrace{
+\begin{pmatrix}
+1&0&0\\
+0&1&0\\
+0&0&|r_{33}|
+\end{pmatrix}
+}_{\displaystyle = S_z}
+\underbrace{
+\begin{pmatrix}
+\operatorname{sign}(r_{11})&0&0\\
+0&\operatorname{sign}(r_{22})&0\\
+0&0&\operatorname{sign}(r_{33})
+\end{pmatrix}
+}_{\displaystyle = S}
+\end{align*}
+Die Vorzeichenfunktion $\operatorname{sign}(x)$ ist definiert durch
+\[
+\operatorname{sign}(x)
+=
+\begin{cases}
+-1&\quad x<0\\
+0&\quad x=0\\
+1&\quad x>0.
+\end{cases}
+\]
+In der Matrix $S$ stehen also die Vorzeichen der Diagonalelemente
+von $R$.
+Da wir weiter oben sichergestellt haben, dass höchstens eines der
+Diaogonalelemente von $R$ negativ ist, enthält $S$ höchstens
+einen Eintrag $-1$.
+Die Matrix $S$ ist also entweder eine Spiegelung an einer der Koordinatenebenen
+oder die Einheitsmatrix.
+
+Die Matrizen $S_x$, $S_y$ und $S_z$ sind Streckungen der Koordinatenachsen.
+$S_x$ streckt die $x$-Achse um den Faktor $|r_{11}|$, und entsprechend 
+streckt $S_y$ die $y$-Achse um den Faktor $|r_{22}|$ und analog für $S_z$.
+
+Die Matrix $R_0$ kann geometrisch ebenfalls gut verstanden werden.
+Die erste Spalte von $R_0$ ist der erste Standardbasisvektor, dieser
+bleibt also erhalten.
+Der zweite Standardbasisvektor wird auf die zweite Spalte abgebildet,
+dies verschiebt die Spitze des zweiten Standardbasisvektors um $r_{12}$ in
+$x$-Richtung.
+Die dritte Spalte schliesslich bedeutet, dass die Spitze des dritten
+Standardbasisvektors parallel zur $x$-$y$-Ebenen um $r_{13}$ in $x$-Richtung
+und um $r_{23}$ in $y$-Richtung verschoben wird.
+Die Matrix $R_0$ beschreibt also eine Zusammensetzung von Scherungen 
+in drei Dimensionen.
+
+Damit hat die QR-Zerlegung ermöglicht, die Abbildung $A$ in die Faktoren
+\[
+A=QR_0S_xS_yS_zS
+\]
+zu zerlegen.
+Darin ist $S$ eine Spiegelung an einer Koordinatenebene, die nur nötig
+ist, wenn $\det(A) < 0$ ist.
+Dann folgen drei Skalierungen der Koordinatenachsen mit den Matrizen
+$S_x$, $S_y$ und $S_z$, diese drei Matrizen vertauschen, es kommt also
+nicht auf deren Reihenfolge an.
+Anschliessend werden die Scherungen der Matrix $R_0$ angewendet.
+Schliesslich wird alles mit der Drehmatrix gedreht\footnote{
+Eine animierte Darstellung dieses Prozesses ist im Video
+\url{https://youtu.be/8LLx5UydD_U} auf dem MathMan-Youtube-Channel
+zu sehen.}.
+
+%
+% QR-Zerlegung und Least-Squares
+%
 \subsection{QR-Zerlegung und Least-Squares}
 Die QR-Zerlegung kann dazu verwendet werden, das Least-Squares-Problem
 zu lösen.

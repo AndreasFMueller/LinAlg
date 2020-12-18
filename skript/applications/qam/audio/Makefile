@@ -56,8 +56,8 @@ ctest:	constellation
 hackfiles:	mathman.hack constellation.hack
 
 mathman.hack:	mathman Makefile
-	./mathman --velocity=7 --sampling=44100 --scale=32000		\
-		--repeat=100 --hackfile=mathman.hack
+	./mathman --velocity=1 --sampling=44100 --scale=32000		\
+		--repeat=1000 --hackfile=mathman.hack
 
 constellation.hack:	constellation Makefile
 	./constellation --scale=250 --samples=8000 --time=100		\
