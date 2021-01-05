@@ -38,11 +38,11 @@ skript-06-chapter6.pdf:	../skript.pdf Makefile
 	pdfjam --outfile skript-06-chapter6.pdf ../skript.pdf 201-256
 
 skript-07-chapter7.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-07-chapter7.pdf ../skript.pdf 257-274
+	pdfjam --outfile skript-07-chapter7.pdf ../skript.pdf 257-278
 
 skript-08-chapter8.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-08-chapter8.pdf ../skript.pdf 277-304
+	pdfjam --outfile skript-08-chapter8.pdf ../skript.pdf 279-306
 
 skript-09-index.pdf:	../skript.pdf Makefile
-	pdfjam --outfile skript-09-index.pdf ../skript.pdf 305-307
+	pdfjam --outfile skript-09-index.pdf ../skript.pdf 307-309
 
