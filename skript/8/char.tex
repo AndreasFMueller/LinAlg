@@ -6,12 +6,12 @@
 \section{Charakteristische Gleichung}
 \rhead{Charakteristische Gleichung}
 \index{charakteristische Gleichung}
-Welche Eigenwerte und Eigenvektoren hat eine Matrix? Ein Eigenvektor 
+Welche Eigenwerte und Eigenvektoren hat eine Matrix? Ein Eigenvektor
 ist ein von $0$ verschiedener Vektor $x$, der die Gleichung
 $Ax=\lambda x$ erfüllt, oder wie wir früher gesehen haben,
 eine nicht verschwindende Lösung des homogenen Gleichungssystems
 $(A-\lambda E)x=0$.
-Im Kapitel \ref{chapter-determinanten} wurde gezeigt, dass ein eine solche
+In Kapitel~\ref{chapter-determinanten} wurde gezeigt, dass eine solche
 Lösung nur dann existieren kann, wenn die Determinante des Gleichungssystems
 verschwindet, also
 \[
@@ -23,7 +23,7 @@ a_{21}&a_{22}-\lambda&\dots&a_{2n}\\
 \vdots&\vdots&\ddots&\vdots\\
 a_{n1}&a_{n2}&\dots&a_{nn}-\lambda
 \end{matrix}
-\right|
+\right|.
 \]
 Die Determinante ist ein Polynom $n$-ten Grades in $\lambda$, das Finden der
 Eigenwerte läuft also darauf hinaus, Nullstellen eines Polynoms zu finden.
@@ -39,12 +39,12 @@ vom Grad $n$.
 \index{charakteristisches Polynom}
 Das Polynom $\chi_A(\lambda)=\det(A-\lambda E)$ heisst
 charakteristisches Polynom,
-die Gleichung $\chi_A(\lambda)=0$ heisst 
+die Gleichung $\chi_A(\lambda)=0$ heisst
 charakteristische Gleichung.
 \end{definition}
 
 \begin{beispiel}
-Die Matrix $A=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ hat das 
+Die Matrix $A=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ hat das
 charakteristische Polynom
 \begin{align*}
 \det(A-\lambda I)&=\left|\begin{matrix}-\lambda&1\\1&-\lambda\end{matrix}\right|\\
@@ -52,7 +52,7 @@ charakteristische Polynom
 \end{align*}
 mit den Lösungen $\lambda_\pm=\pm1$.
 Um die Eigenvektoren zu finden, muss
-man jetzt das Gleichungssystem $(A-\lambda E)x=0$ bestimmen.
+man jetzt das Gleichungssystem $(A-\lambda E)x=0$ lösen.
 Für die Eigenwerte $\pm1$ hat das Gleichungssystem die Matrizen
 \[
 \begin{pmatrix}
@@ -60,13 +60,13 @@ Für die Eigenwerte $\pm1$ hat das Gleichungssystem die Matrizen
 \end{pmatrix}\quad \text{für $\lambda=1$},\qquad
 \begin{pmatrix}
 1&1\\1&1
-\end{pmatrix}\quad\text{für $\lambda=-1$}
+\end{pmatrix}\quad\text{für $\lambda=-1$},
 \]
-mit den Lösungsvektoren 
+mit den Lösungsvektoren
 \[
-\vec v_+=\begin{pmatrix}1\\1\end{pmatrix},
+v_+=\begin{pmatrix}1\\1\end{pmatrix},
 \qquad
-\vec v_-=\begin{pmatrix}1\\-1\end{pmatrix}.
+v_-=\begin{pmatrix}1\\-1\end{pmatrix}.
 \]
 \end{beispiel}
 
