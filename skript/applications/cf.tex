@@ -1,0 +1,42 @@
+%
+% cf.tex -- continued fractions
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\section{Kettenbrüche}
+Ein Kettenbruch ist ein Bruch von der Form
+\begin{equation}
+q
+=
+a_0 + \cfrac{b_1}{a_1+\cfrac{b_2}{a_2+\cfrac{b_3}{a_3+\cfrac{b_4}{\dots}}}}
+\label{eqn:cf:kettenbruch}
+\end{equation}
+Solche Brüche liefern sehr genaue Näherungsbrüche für irrationale
+Zahlen mit kleinen Nennern, zum Beispiel ist die jedem Kind bekannte
+Approximation $\pi\approx  \frac{22}7=3+\frac{1}{7}$ der erste
+Näherungsbruch der Kettenbruchdarstellung
+\[
+\pi
+=
+3+\cfrac{1}{
+7+\cfrac{1}{
+15+\cfrac{1}{
+1+\cfrac{1}{
+292+\cfrac{1}{\dots}}}}}
+\]
+von $\pi$.
+
+Matrizen sind gut dafür geeignet, Prozesse zu beschreiben.
+Der Prozess, der hier zur Diskussion steht, ist die Umwandlung eines
+Kettenbruchs in einen gewöhnlichen Bruch.
+In diesem Abschnitt soll daher gezeigt werden, wie der Matrizenkalkül
+dafür verwendet werden kann, auf einfache Art zu einem Kettenbruch
+der Form \eqref{eqn:cf:kettenbruch} Näherungsbrüche zu finden.
+
+\input{applications/cf/definitionen.tex}
+\input{applications/cf/beispiele.tex}
+\input{applications/cf/naeherungsbrueche.tex}
+
+
+
+

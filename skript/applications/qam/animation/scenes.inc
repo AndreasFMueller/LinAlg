@@ -7,7 +7,8 @@
 //
 // slew function used for animations
 //
-#declare stufe = function(s) { (abs(s-0.1)/(0.8)+abs(s-0.9)/(-0.8)+1)/2 }
+#declare land = 0.01;
+#declare stufe = function(s) { (abs(s-land)/(1-2*land)+abs(s-(1-land))/(2*land-1)+1)/2 }
 #declare slew = function(s) { (1 - cos(stufe(s) * pi)) / 2 }
 
 #macro ShowAmplitudeModulation(s)

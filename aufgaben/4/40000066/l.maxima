@@ -1,0 +1,30 @@
+/*
+ * l.maxima -- Loesung von Aufgabe 40000066
+ *
+ * (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+ */
+
+A: matrix(
+[ x0  , (1/2)* x0^2              , 1, 0],
+[ x0+h, (1/2)*(x0^2+2*x0*h + h^2), 1, 0]
+);
+
+A[2]: ratsimp((A[2] - A[1])/h);
+A;
+
+A[1]: ratsimp(A[1] / A[1,1]);
+A[2]: ratsimp(expand(A[2] - A[2,1] * A[1]));
+A;
+
+A[2]: ratsimp(A[2] / A[2,2]);
+A;
+
+A[1]: ratsimp(A[1] - A[1,2] * A[2]);
+A;
+
+c: -x0*(x0+h);
+a: ratsimp(-A[1,3] * c);
+b: ratsimp(-A[2,3] * c);
+
+n: matrix( [ a ], [ b ] );
+
