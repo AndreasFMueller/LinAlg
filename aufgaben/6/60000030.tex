@@ -1,0 +1,185 @@
+Bei der Beschreibung der Quadraturamplitudenmodulation wurde
+verwendet, dass die Projektionsmatrix $P$ kann als Linearkombination
+\[
+P
+=
+\begin{pmatrix}
+1&0\\
+0&0
+\end{pmatrix}
+=
+\frac12E+\frac12S,
+\qquad
+S
+=
+\begin{pmatrix}
+1&0\\
+0&-1
+\end{pmatrix}
+\]
+geschrieben werden.
+\begin{teilaufgaben}
+\item
+Rechnen Sie nach, dass $P$ eine Projektionsmatrix ist, d.~h.~$P^2=P$.
+\item
+Zeigen Sie, dass $S$ eine Spiegelungsmatrix der Form $S=E-2nn^t$ ist,
+finden Sie den Vektor $n$.
+\item
+Rechnen Sie nach, dass $S^2=E$ ist.
+\item 
+Rechnen Sie nach, dass $SD_{\omega t}=D_{-\omega t}S$.
+\item
+Die Quadraturamplitudenmodulation hat aus den $I$- und $Q$-Signalen
+das modulierte Signal 
+\[
+D_{\omega t}\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
+\]
+gemacht, von denen die erste Komponente übertragen wird, die man mit
+$P$ erhalten kann. 
+Die Demodulation mit $D_{-\omega t}$ liefert
+\[
+\begin{pmatrix}
+\hat{I}(t)\\
+\hat{Q}(t)
+\end{pmatrix}
+=
+D_{-\omega t}PD_{\omega t}
+\begin{pmatrix}
+I(t)\\
+Q(t)
+\end{pmatrix}.
+\]
+Verwenden Sie die obige Darstellung der Matrix $P$ um nachzurechnen,
+dass sich $\hat{I}(t)$ und $\hat{Q}(t)$ also Linearkombination der
+ursprünglichen Signale und eines mit Frequenz $2\omega$ modulierten
+Signales darstellen lassen.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item 
+Das Quadrat von $P$ ist
+\[
+P^2=
+\begin{pmatrix}1&0\\0&0\end{pmatrix}
+\begin{pmatrix}1&0\\0&0\end{pmatrix}
+=
+\begin{pmatrix}1&0\\0&0\end{pmatrix}
+=
+P.
+\]
+\item
+Die Matrix $S$ kehrt das Vorzeichen der zweiten Koordinate, dies ist
+die Spiegelung an der $x$-Achse. 
+Der Vektor
+\[
+\vec{n}
+=
+\begin{pmatrix}0\\1\end{pmatrix},
+\qquad
+|n| = 1,
+\]
+ergibt die Spiegelungsmatrix
+\[
+E-2nn^t
+=
+\begin{pmatrix}1&0\\0&1\end{pmatrix}
+-2\begin{pmatrix}0\\1\end{pmatrix}\begin{pmatrix}0&1\end{pmatrix}
+=
+\begin{pmatrix}1&0\\0&1\end{pmatrix}
+-2
+\begin{pmatrix}1&0\\0&1\end{pmatrix}
+=
+\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+=
+S.
+\]
+\item
+Wir müssen $S^2$ berechnen, es ergibt sich
+\[
+S^2
+=
+\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+=
+\begin{pmatrix}1&0\\0&1\end{pmatrix}
+=
+E.
+\]
+\item 
+Wir müssen die Vertauschung von $S$ mit $D_{\omega t}$ bestimmen.
+\begin{align*}
+SD_{\omega t}
+&=
+\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+\begin{pmatrix*}[r]
+ \cos\omega t & -\sin\omega t \\
+ \sin\omega t &  \cos\omega t
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+ \cos\omega t & -\sin\omega t \\
+-\sin\omega t & -\cos\omega t
+\end{pmatrix*},
+\\
+D_{-\omega t}S
+&=
+\begin{pmatrix*}[r]
+  \cos\omega t &  \sin\omega t \\
+ -\sin\omega t &  \cos\omega t
+\end{pmatrix*}
+\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+=
+\begin{pmatrix*}[r]
+  \cos\omega t & -\sin\omega t \\
+ -\sin\omega t & -\cos\omega t
+\end{pmatrix*}.
+\end{align*}
+Daraus kann man ablesen, dass
+\(
+SD_{\omega t}
+=
+D_{-\omega t}S
+\)
+wie behauptet.
+\item
+Wir berechnen 
+\begin{align*}
+D_{-\omega t}PD_{\omega t}\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
+&=
+D_{-\omega t}\frac12(E+S)D_{\omega t}\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
+=
+\biggl(
+\frac12
+D_{-\omega t}D_{\omega t}
++
+\frac12
+D_{-\omega t}D_{-\omega t}S
+\biggr)
+\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
+\\
+&=
+\frac12
+\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
++
+\frac12
+D_{-2\omega t}
+S
+\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
+=
+\frac12
+\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
++
+\frac12
+D_{-2\omega t}
+\begin{pmatrix}I(t)\\-Q(t)\end{pmatrix}.
+\end{align*}
+Der zweite Term beschreibt ein mit Trägerfrequenz $2\omega$ moduliertes Signal.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Die in dieser Aufgabe durchgeführten Berechnungen lassen sich auf
+mathematisch äquivalente Art und Weise auch mit komplexen Zahlen durchführen.
+\end{diskussion}
