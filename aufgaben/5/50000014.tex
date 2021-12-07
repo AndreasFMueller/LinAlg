@@ -19,14 +19,29 @@ die Rohre nicht gegenseitig in den Weg kommen?
 
 \thema{Abstand windschiefer Geraden}
 
-\begin{loesung}
+\ifthenelse{\boolean{loesungen}}{
 \begin{figure}
-\includeagraphics[width=0.5\hsize]{tubes.jpg}
-\includeagraphics[width=0.5\hsize]{intersect.jpg}
+\begin{center}
+\begin{tikzpicture}[>=latex,thick]
+\def\w{8}
+\node at ({-\w/2},0) {\includeagraphics[width=8cm]{tubes.jpg}};
+\begin{scope}
+\clip (0,0) rectangle (\w,{\w/2});
+\node at ({\w/2},{\w/2-0.6}) {\includeagraphics[width=8cm]{intersect.jpg}};
+\end{scope}
+\begin{scope}
+\clip (0,{-\w/2}) rectangle (\w,0);
+\node at ({\w/2},-2.2) {\includeagraphics[width=8cm]{inside.jpg}};
+\end{scope}
+\end{tikzpicture}
+\end{center}
 \caption{3D-Darstellung der Röhren aus Aufgabe~\ref{50000014}.
-Rechts die beiden Schnittstellen im Detail.
+Rechts die Berührungsstelle der beiden Rohre und rechts unten
+der Teil des brauen Rohres, welcher im inneren des hellen Rohres
+sichtbar wird.
 \label{50000014:tubes}}
-\end{figure}
+\end{figure}}{}
+\begin{loesung}
 %\begin{teilaufgaben}
 %\item
 Das ist genau dann möglich, wenn der windschiefe Abstand der beiden
