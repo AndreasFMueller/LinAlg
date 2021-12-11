@@ -1,0 +1,73 @@
+%(%i2) l:matrix([a,0,0],[-1,1,0],[a,-1,a])
+%                                [  a    0   0 ]
+%                                [             ]
+%(%o2)                           [ - 1   1   0 ]
+%                                [             ]
+%                                [  a   - 1  a ]
+%(%i3) l . transpose(l)
+%                         [  2                  2     ]
+%                         [ a       - a        a      ]
+%                         [                           ]
+%(%o3)                    [ - a      2      (- a) - 1 ]
+%                         [                           ]
+%                         [  2                 2      ]
+%                         [ a    (- a) - 1  2 a  + 1  ]
+%
+Sei $A$ die Matrix
+\[
+A
+=
+\begin{pmatrix}
+a^2     &   -a    &   a^2    \\
+-a      &    2    & -a-1     \\
+a^2     &  -a-1   & 2a^2 + 1
+\end{pmatrix}
+\]
+mit $a>0$.
+\begin{teilaufgaben}
+\item
+Ist $A$ positiv definit?
+\item
+Bestimmen Sie $\det A$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Cholesky-Zerlegung von $A$, die man mit dem in der Vorlesung
+gezeigten Verfahren direkt finden kann, ist
+\[
+L=
+\begin{pmatrix}
+ a& 0& 0\\
+-1& 1& 0\\
+ a&-1& a
+\end{pmatrix}
+\qquad\Rightarrow\qquad
+A
+=
+\begin{pmatrix}
+ a& 0& 0\\
+-1& 1& 0\\
+ a&-1& a
+\end{pmatrix}
+\begin{pmatrix}
+ a&-1& a\\
+ 0& 1&-1\\
+ 0& 0& a
+\end{pmatrix}.
+\]
+Dabei muss man an zwei Stellen eine Quadratwurzel von $a^2$ bestimmen,
+welche wegen $a>0$ tatsächlich $a$ ist: $\sqrt{a^2}=a$.
+Da die Cholesky-Zerlegung möglich ist, ist $A$ positiv definit.
+\item
+$\det A = \det LL^t =(\det L)^2 = (a^2)^2 = a^4$.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Berechnung der Cholesky-Zerlegung ({\bf C}) 4 Punkte,
+Aussage darüber, ob $A$ positiv definit ist ({\bf P}) 1 Punkt,
+Determinante ({\bf D}) 1 Punkt.
+\end{bewertung}

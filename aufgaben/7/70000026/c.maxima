@@ -1,0 +1,23 @@
+/*
+ * c.maxima -- Aufgabe 70000026 zur Cholesky-Zerlegung
+ *
+ * (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+ */
+l: matrix([ 5*u, 0, 0 ],
+          [ v, 3*u, 0 ],
+          [ 2*u, -v, u ]);
+
+l . transpose(l);
+
+l: matrix([ a, 0, 0, 0 ],
+          [ b, a, 0, 0 ],
+          [ a, b, a, 0 ],
+          [ b, a, b, a ]);
+
+l . transpose(l);
+
+l: matrix([ l11,   0,   0 ],
+          [ l21, l22,   0 ],
+          [ l31, l32, l33 ]);
+
+l . transpose(l);

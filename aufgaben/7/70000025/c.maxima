@@ -1,0 +1,11 @@
+/*
+ * c.maxima
+ *
+ * (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+ */
+
+l : matrix([ a, 0, 0 ],
+           [ -1, 1, 0 ],
+           [ a, -1, a ]);
+
+l . transpose(l);

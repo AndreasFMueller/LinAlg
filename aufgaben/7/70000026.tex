@@ -1,0 +1,74 @@
+%(%i2) l:matrix([5*u,0,0],[v,3*u,0],[2*u,-v,u])
+%                                [ 5 u   0   0 ]
+%                                [             ]
+%(%o2)                           [  v   3 u  0 ]
+%                                [             ]
+%                                [ 2 u  - v  u ]
+%(%i3) l . transpose(l)
+%                        [     2                   2   ]
+%                        [ 25 u     5 u v      10 u    ]
+%                        [                             ]
+%(%o3)                   [         2      2            ]
+%                        [ 5 u v  v  + 9 u     - u v   ]
+%                        [                             ]
+%                        [     2              2      2 ]
+%                        [ 10 u     - u v    v  + 5 u  ]
+%
+Berechnen Sie die Determinante der Matrix 
+\[
+A=
+\begin{pmatrix}
+25u^2 &     5uv   & 10u^2 \\
+5uv   &  v^2+9u^2 & -uv   \\
+10u^2 &     -uv   & v^2+5u^2
+\end{pmatrix}
+\qquad\text{mit $u>0$}
+\]
+mit Hilfe der Cholesky-Zerlegung.
+
+\begin{loesung}
+Für die Cholesky-Zerlegung setzt man 
+\[
+L = \begin{pmatrix}
+l_{11}& 0 & 0 \\
+l_{21}&l_{22}& 0 \\
+l_{31}&l_{32}&l_{33}
+\end{pmatrix}
+\]
+und berechnet dann schrittweise die Matrixelemente $l_{ik}$ von $L$
+durch Ausmultiplizieren von $LL^t$ und Vergleich mit $A$:
+\[
+\begin{aligned}
+l_{11}^2                   &=  25u^2       &&\Rightarrow&    l_{11} &= 5u  \\
+l_{11}l_{21}               &=  5uv         &&\Rightarrow&    l_{21} &= v   \\
+l_{11}l_{31}               &=  10u^2       &&\Rightarrow&    l_{31} &= 2u  \\
+l_{22}^2+l_{21}^2          &=  v^2 + 9u^2  &&\Rightarrow&           &      \\
+l_{22}^2                   &=  9u^2        &&\Rightarrow&    l_{22} &= 3u  \\
+l_{22}l_{32}+l_{21}l_{31}  &=  -uv         &&           &           &      \\
+3ul_{32}                   &= -uv-2uv      &&\Rightarrow&    l_{32} &= -v  \\
+l_{33}^2+l_{32}^2+l_{31}^2 &=  v^2+5u^2    &&           &           &      \\
+l_{33}^2                   &=  5u^2-4u^2   &&\Rightarrow&    l_{33} &=  u.
+\end{aligned}
+\]
+Daher ist
+\[
+L=\begin{pmatrix}
+ 5u &  0 & 0 \\
+  v & 3u & 0 \\
+ 2u & -v & u
+\end{pmatrix}
+\Rightarrow
+\det L
+=
+15u^3.
+\]
+Damit kann man jetzt auch die Determinante von $A$ berechnen:
+$\det A = \det LL^t = (\det L)^2 = 15^2u^6 = 225u^6.$
+\end{loesung}
+
+\begin{bewertung}
+Cholesky-Zerlegung ({\bf C}) 4 Punkte,
+Determinante von $L$ ({\bf L}) 1 Punkt,
+Determinante von $A$ ({\bf A}) 1 Punkt.
+\end{bewertung}
+
