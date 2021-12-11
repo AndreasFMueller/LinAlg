@@ -1,0 +1,96 @@
+Berechnen Sie die Determinante der Matrix
+\[
+A =
+\begin{pmatrix*}[r]
+   4 & 4 &-2 & 0 & 6\\
+   0 & 7 & 0 & 0 & 7\\
+   5 & 0 & 0 & 0 & 0\\
+   5 & 7 & 5 & 2 & 0\\
+   8 & 4 &-1 & 8 & 2
+\end{pmatrix*}.
+\]
+Ist $A$ regulär?
+
+\begin{loesung}
+Wir verwenden den Entwicklungssatz und entwickeln nach der dritten Zeile
+\begin{align*}
+\det(A)
+&=
+5\cdot
+\left|\;\begin{matrix*}[r]
+  4 &-2 & 0 & 6\\
+  7 & 0 & 0 & 7\\
+  7 & 5 & 2 & 0\\
+  4 &-1 & 8 & 2
+\end{matrix*}\;\right|
+\end{align*}
+Wir könnten die $4\times 4$-Determinante nach der zweiten Zeile entwickeln,
+aber der Aufwand lässt sich etwas reduzieren, indem wir erst die vierte Spalte
+in der ersten Spalte subtrahieren. 
+Dann entstehen in der zweiten Zeile drei Nullen, was den Aufwand bei
+der Anwendung des Entwicklungssatzes halbiert.
+Wir erhalten so
+\begin{align*}
+\left|\;\begin{matrix*}[r]
+  4 &-2 & 0 & 6\\
+  7 & 0 & 0 & 7\\
+  7 & 5 & 2 & 0\\
+  4 &-1 & 8 & 2
+\end{matrix*}\;\right|
+&=
+\left|\;\begin{matrix*}[r]
+ -2 &-2 & 0 & 6\\
+  0 & 0 & 0 & 7\\
+  7 & 5 & 2 & 0\\
+  2 &-1 & 8 & 2
+\end{matrix*}\;\right|
+=
+7\cdot
+\left|\;\begin{matrix*}[r]
+ -2 &-2 & 0\\
+  7 & 5 & 2\\
+  2 &-1 & 8
+\end{matrix*}\;\right|
+\\
+\left|\;\begin{matrix*}[r]
+ -2 &-2 & 0\\
+  7 & 5 & 2\\
+  2 &-1 & 8
+\end{matrix*}\;\right|
+&=
+(-2)\cdot 5\cdot 8
++
+(-2)\cdot 2 \cdot 2
++
+0\cdot 7 \cdot (-1)
+-
+2\cdot 5\cdot 0
+-
+(-1)\cdot 2 \cdot (-2)
+-
+8\cdot 7\cdot (-2)
+\\
+&=
+-80 -8-4+112
+=
+20
+\\
+\det(A)
+&=
+5\cdot 7 \cdot 20
+= 
+700.
+\end{align*}
+Da die Determinante von $0$ verschieden ist, ist $A$ regulär.
+\end{loesung}
+
+\begin{bewertung}
+Berechnung der Determinante mit dem Entwicklungssatz ({\bf E}) 1 Punkt,
+Durchführung der Rechnung ({\bf D}) 2 Punkt,
+Sarrus-Formel ({\bf S}) 1 Punkt,
+Wert ({\bf W}) 1 Punkt,
+$A$ regulär ({\bf R}) 1 Punkt.
+\end{bewertung}
+
+
+

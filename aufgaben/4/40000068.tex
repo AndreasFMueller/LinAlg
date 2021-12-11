@@ -1,0 +1,165 @@
+Gegeben sind drei Ebenen durch den Nullpunkt mit den Normalenvektoren
+\[
+\vec{n}_1
+=
+\begin{pmatrix}1\\2\\2\end{pmatrix}
+,\qquad
+\vec{n}_2
+=
+\begin{pmatrix}2\\6\\3\end{pmatrix}
+,\qquad
+\vec{n}_3
+=
+\begin{pmatrix}8\\4\\1\end{pmatrix}.
+\]
+Finden Sie die Parameterdarstellung einer Geraden, deren Punkte von allen drei
+Ebenen den gleichen Abstand haben.
+
+\begin{loesung}
+Der Abstand eines Punktes mit Koordinaten $(x,y,z)$ von jeder der Ebenen
+kann mit Hilfe der Hesseschen Normalform berechnet werden.
+Dazu müssen die Vektoren $\vec{n}_i$ normiert werden, ihre Längen sind
+\[
+|\vec{n}_1| = 3
+,\qquad
+|\vec{n}_2| = 7
+,\qquad
+|\vec{n}_3| = 9.
+\]
+Die Abstandsgleichungen sind dann
+\[
+\begin{linsys}{3}
+\frac13 x &+& \frac23 y &+& \frac23 z &=&     d\phantom{.} \\
+\frac27 x &+& \frac67 y &+& \frac37 z &=& \pm d\phantom{.} \\
+\frac89 x &+& \frac49 y &+& \frac19 z &=& \pm d.\\
+\end{linsys}
+\]
+Da nicht spezifiziert ist, auf welcher Seite der Ebene die Gerade liegen
+soll, müssen genaugenommen verschiedene Vorzeichen in der zweiten und
+dritten Gleichung berücksichtigt werden.
+Da aber nur eine Gerade verlangt wird, reicht es, nur mit den positiven
+Vorzeichen zu rechnen.
+
+Indem man $d$ als eine weitere Unbekannt verwendet, kann man ein
+Gleichungssystem mit $3$ Gleichungen und $4$ Unbekannten erhalten,
+welches in Tableauform als
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}r<{$}|}
+\hline
+1&2&3&\phantom{\pm}3&0\\
+2&6&3&\pm7&0\\
+8&4&1&\pm9&0\\
+\hline
+\end{tabular}
+\]
+geschrieben werden kann.
+
+Wir lösen alle diese Gleichungssysteme mit dem Gaussalgorithmus:
+\begin{equation}
+\begin{aligned}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}r<{$}|}
+\hline
+1&2&3&\phantom{-}3\\
+2&6&3&7\\
+8&4&1&9\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}r<{$}|}
+\hline
+1&0&0&\frac57\\
+0&1&0&\frac57\\
+0&0&1&\frac37\\
+\hline
+\end{tabular}
+&&\Rightarrow&
+\vec{r}
+&=
+\begin{pmatrix*}[r]
+5\\5\\3
+\end{pmatrix*}
+\\
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}r<{$}|}
+\hline
+1&2&3&3\\
+2&6&3&-7\\
+8&4&1&9\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}r<{$}|}
+\hline
+1&0&0& \frac{19}7\\
+0&1&0&-\frac{30}7\\
+0&0&1& \frac{31}7\\
+\hline
+\end{tabular}
+&&\Rightarrow&
+\vec{r}
+&=
+\begin{pmatrix*}[r]
+19\\-30\\31
+\end{pmatrix*}
+\\
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}r<{$}|}
+\hline
+1&2&3&3\\
+2&6&3&-7\\
+8&4&1&-9\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}r<{$}|}
+\hline
+1&0&0& \frac{ 1}{7}\\
+0&1&0&-\frac{27}{7}\\
+0&0&1& \frac{37}{7}\\
+\hline
+\end{tabular}
+&&\Rightarrow&
+\vec{r}
+&=
+\begin{pmatrix*}[r]
+1\\-27\\37
+\end{pmatrix*}
+\\
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}r<{$}|}
+\hline
+1&2&3&3\\
+2&6&3&7\\
+8&4&1&-9\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}r<{$}|}
+\hline
+1&0&0&-\frac{13}{7}\\
+0&1&0& \frac{ 8}{7}\\
+0&0&1& \frac{ 9}{7}\\
+\hline
+\end{tabular}
+&&\Rightarrow&
+\vec{r}
+&=
+\begin{pmatrix*}[r]
+-13\\8\\9
+\end{pmatrix*}
+\end{aligned}
+\label{40000068:eqn}
+\end{equation}
+Da der Nullpunkt auf allen Ebenen liegt, kann man ihn als Stützvektor 
+verwenden.
+Die gesuchten Geraden haben daher die Parameterdarstellung
+$\vec{p} = t\vec{r}$
+für jeden der Vektoren $\vec{r}$ von
+\eqref{40000068:eqn}.
+\end{loesung}
+
+\begin{bewertung}
+Normierung ({\bf N}) 1 Punkt,
+Hessesche Normalform der Ebenen ({\bf H}) 1 Punkt,
+Gleichungen für gleichen Abstand ({\bf A}) 1 Punkt,
+Lösung des Gleichungssystems ({\bf L}) 1 Punkt,
+Geradengleichung ({\bf G}) 1 Punkt,
+Problem der Vorzeichen der Abstände erkannt ({\bf V}) 1 Punkt.
+\end{bewertung}

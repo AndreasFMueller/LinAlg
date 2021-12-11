@@ -1,0 +1,87 @@
+Berechnen Sie die Determinante der Matrix
+\[
+A =
+\begin{pmatrix*}[r]
+   8 & 6 & 0 &-1 & 8\\
+   6 & 0 & 0 & 0 & 0\\
+   9 & 8 & 6 & 8 & 0\\
+   0 & 2 & 0 & 0 & 0\\
+   7 & 0 & 1 &-1 & 8
+%ans =  768.00
+\end{pmatrix*}.
+\]
+Ist $A$ regulär?
+
+\begin{loesung}
+Wir verwenden den Entwicklungssatz und entwickeln nach der zweiten Zeile
+\begin{align*}
+\det(A)
+&=
+-6\cdot
+\left|\;\begin{matrix*}[r]
+ 6 & 0 &-1 & 8\\
+ 8 & 6 & 8 & 0\\
+ 2 & 0 & 0 & 0\\
+ 0 & 1 &-1 & 8
+\end{matrix*}\;\right|
+\intertext{%
+Die $4\times 4$-Determinante lässt sich am besten nach der dritten Zeile
+entwicklen:}
+\left|\;\begin{matrix*}[r]
+ 6 & 0 &-1 & 8\\
+ 8 & 6 & 8 & 0\\
+ 2 & 0 & 0 & 0\\
+ 0 & 1 &-1 & 8
+\end{matrix*}\;\right|
+&=
+2
+\cdot
+\left|\;\begin{matrix*}[r]
+ 0 &-1 & 8\\
+ 6 & 8 & 0\\
+ 1 &-1 & 8
+\end{matrix*}\;\right|.
+\intertext{Für die $3\times 3$-Determinante bietet sich die Sarrus-Formel
+an:}
+\left|\;\begin{matrix*}[r]
+ 0 &-1 & 8\\
+ 6 & 8 & 0\\
+ 1 &-1 & 8
+\end{matrix*}\;\right|
+&=
+0\cdot 8 \cdot 8
++
+(-1)\cdot 0 \cdot 1
++
+8\cdot 6\cdot (-1)
+-
+1\cdot 8\cdot 8
+-
+(-1)\cdot 0 \cdot 0
+-
+8\cdot 6\cdot (-1)
+\\
+&=
+-48-64+48
+=
+-64
+\\
+\det(A)
+&=
+-6\cdot 2\cdot (-64)
+=
+768.
+\end{align*}
+Da die Determinante von $0$ verschieden ist, ist $A$ regulär.
+\end{loesung}
+
+\begin{bewertung}
+Berechnung der Determinante mit dem Entwicklungssatz ({\bf E}) 1 Punkt,
+Durchführung der Rechnung ({\bf D}) 2 Punkt,
+Sarrus-Formel ({\bf S}) 1 Punkt,
+Wert ({\bf W}) 1 Punkt,
+$A$ regulär ({\bf R}) 1 Punkt.
+\end{bewertung}
+
+
+

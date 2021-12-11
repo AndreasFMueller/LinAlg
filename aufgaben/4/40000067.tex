@@ -1,0 +1,113 @@
+Eine Kugel mit Radius $7$ bewegt sich auf der Geraden $g$ durch die Punkte
+$A=(67,81,-71)$ und $B=(-33,-43,57)$
+und trifft auf die
+Ebene $\sigma$ mit der Gleichung
+\[
+2x + 3y + 6z = 147.
+\]
+Wo befindet sich das Zentrum der Kugel in dem Moment, wo die Kugel die
+Ebene $\sigma$ berührt?
+
+\begin{loesung}
+Die Gerade hat die Parameterdarstellung
+\[
+\vec{p} = \vec{a} + t\vec{r},
+\qquad\text{wobei}\qquad
+\vec{r}
+=
+\vec{b} - \vec{a}
+=
+\begin{pmatrix*}[r]
+-100\\
+-124\\
+128
+\end{pmatrix*}.
+\]
+Die Hessesche Normalform der Ebenengleichung ist
+wegen $\sqrt{2^2+3^2+6^2}=7$
+\[ 
+\frac{2}{7}x+\frac{3}{7}y+\frac{6}{7}z=21.
+\]
+Die Bedingung, dass die Kugel die Ebene berühren muss ist gleichwertig
+mit der Bedingung, dass sich das Zentrum im Abstand $7$ von der
+Ebene befinden muss, es muss also gelten
+\[
+\frac{2}{7}x+\frac{3}{7}y+\frac{6}{7}z=21\pm 7.
+\]
+Damit haben wir die folgenden Gleichungen zu lösen:
+\[
+\begin{linsys}{4}
+           x& &            & &            &+&100t&=&67\\
+            & &           y& &            &+&124t&=&81\\
+            & &            & &           z&-&128t&=&-71\\
+\frac{2}{7}x&+&\frac{3}{7}y&+&\frac{6}{7}z& &    &=&21\pm 7
+\end{linsys}
+\]
+mit dem Tableau
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}r<{$}|>{$}c<{$}|}
+\hline
+   1   &   0   &   0   & 100&\phantom{-}67\\
+   0   &   1   &   0   & 124&\phantom{-}81\\
+   0   &   0   &   1   &-128&-71\\
+\frac27&\frac37&\frac67&   0&21\pm 7\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}r<{$}|>{$}c<{$}|}
+\hline
+   1   &   0   &   0   & 100&\phantom{-}67\\
+   0   &   1   &   0   & 124&\phantom{-}81\\
+   0   &   0   &   1   &-128&-71\\
+\frac27&\frac37&\frac67&   0&\phantom{-}14\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}r<{$}|>{$}c<{$}|}
+\hline
+   1   &   0   &   0   &   0&  -\phantom{0}8\\
+   0   &   1   &   0   &   0& -12\\
+   0   &   0   &   1   &   0& \phantom{-} 25\\
+   0   &   0   &   0   &   1&\frac{3}{4}\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}r<{$}|>{$}c<{$}|}
+\hline
+   1   &   0   &   0   & 100&\phantom{-}67\\
+   0   &   1   &   0   & 124&\phantom{-}81\\
+   0   &   0   &   1   &-128&-71\\
+\frac27&\frac37&\frac67&   0&\phantom{-}28\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}r<{$}|>{$}c<{$}|}
+\hline
+   1   &   0   &   0   &   0&-58\\
+   0   &   1   &   0   &   0&-74\\
+   0   &   0   &   1   &   0&\phantom{-}89\\
+   0   &   0   &   0   &   1&\frac{5}{4}\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus liest man ab, dass jeweils dann, wenn der Kugelmittelpunkt
+sich in den Punkten
+\[
+P_+ = (-58, -74,89)
+\qquad\text{und}\qquad
+P_- = (-8,-12,25)
+\]
+befindet,
+die Kugel die Ebene berührt.
+\end{loesung}
+
+\begin{bewertung}
+Hessesche Normalform ({\bf H}) 1 Punkt,
+Richtungsvektor der Geraden ({\bf R}) 1 Punkt,
+Parameterdarstellung der Geraden ({\bf P}) 1 Punkt,
+zwei mögliche Lösungen der Hesseschen Normalform ({\bf Z}) 1 Punkt,
+Gauss-Tableau für die Bestimmung des Punktes ({\bf G}) 1 Punkt,
+Lösungen für die Punkte ({\bf P}) 1 Punkt.
+\end{bewertung}
+
