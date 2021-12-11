@@ -1,0 +1,81 @@
+#! /bin/bash
+#
+# obj2mesh2 -- convert wavefront obj file to mesh2 for povray
+#
+# (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+#
+set -x
+
+export LANG=C
+
+objfile=${1}
+mesh2file=${2}
+vertices=`egrep -e '^v ' ${objfile} | wc -l`
+normals=`egrep -e '^vn ' ${objfile} | wc -l`
+faces=`egrep -e '^f ' ${objfile} | wc -l`
+
+awk 'BEGIN {
+	vertices = '"${vertices}"'
+	normals = '"${normals}"'
+	faces = '"${faces}"'
+	vertexcounter = 0
+	normalcounter = 0
+	facecounter = 0
+	x = 0.0
+	y = 0.0
+	z = 0.0
+	printf("mesh2 {\n")
+}
+/^v /	{
+	if (vertexcounter == 0) {
+		printf("    vertex_vectors {\n")
+		printf("\t%d,\n", vertices)
+	}
+	vertexcounter = vertexcounter + 1
+	printf("\t<%s,%s,%s>", $2, $4, $3)
+	x = x + $2
+	y = y + $4
+	z = z + $3
+	if (vertexcounter < vertices) {
+		printf(",\n")
+	} else {
+		printf("\n    }\n")
+	}
+}
+#/^vn / 	{
+#	if (normalcounter == 0) {
+#		printf("    normal_vectors {\n")
+#		printf("\t%d,\n", normals)
+#	}
+#	normalcounter = normalcounter + 1
+#	printf("\t<%s,%s,%s>", $2, $4, $3)
+#	if (normalcounter < normals) {
+#		printf(",\n")
+#	} else {
+#		printf("\n    }\n")
+#	}
+#}
+/^f /	{
+	if (facecounter == 0) {
+		printf("    face_indices {\n")
+		printf("\t%d,\n", 2 * faces)
+	}
+	printf("\t")
+	split($2, a, "/")
+	split($3, b, "/")
+	split($4, c, "/")
+	split($5, d, "/")
+	printf("<%d,%d,%d>,\t", a[1]-1, b[1]-1, c[1]-1)
+	printf("<%d,%d,%d>", a[1]-1, c[1]-1, d[1]-1)
+	facecounter = facecounter + 1
+	if (facecounter < faces) {
+		printf(",\n")
+	} else {
+		printf("\n    }\n")
+	}
+}
+
+END {
+	printf("}\n")
+	printf("#declare center_of_mass = <%.4f,%.4f,%.4f>;\n", x/vertices, y/vertices, z/vertices)
+}' ${objfile} > ${mesh2file}

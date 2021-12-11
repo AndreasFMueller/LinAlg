@@ -1,0 +1,142 @@
+Für eine Animation muss die Position der Hand zwischen den beiden
+Positionen in der Abbildung interpoliert werden.
+Die Lösungsstrategie für dieses Problem ist, zunächst eine Drehmatrix
+zu finden, die die Hand im linken Bild in die Hand im rechten Bild überführt.
+Später kann man dann die Drehung mit verschiedenen Winkeln zwischen $0^\circ$
+und der Endlage ausführen, dafür muss man natürlich auch den Drehwinkel
+der Matrix kennen.
+\begin{center}
+\begin{tikzpicture}[>=latex,thick]
+
+\begin{scope}[xshift=-4.3cm]
+\node at (0,0) {\includeagraphics[width=7.8cm]{wtf.jpg}};
+\node[color=red] at (-3.7,-2.1) {$x$};
+\node[color=darkgreen] at (3.1,-3.1) {$y$};
+\node[color=blue] at (0.2,3.5) {$z$};
+\end{scope}
+
+\begin{scope}[xshift=4.3cm]
+\node at (0,0) {\includeagraphics[width=7.8cm]{wtf-rotated.jpg}};
+\node[color=red] at (-3.7,-2.1) {$x$};
+\node[color=darkgreen] at (3.1,-3.1) {$y$};
+\node[color=blue] at (0.2,3.5) {$z$};
+\end{scope}
+
+\end{tikzpicture}
+\end{center}
+Im linken Bild zeigt der Mittelfinger in Richtung der $z$-Achse,
+die Handfläche ist parallel zur $x$-$y$-Ebene und der Unterarm hat die
+Richtung der $x$-Achse.
+Im rechten Bild zeigt der Mittelfinger in Richtung vom Nullpunkt auf
+den Punkt $P=(-1,1,2)$ und der Unterarm in Richtung vom Nullpunkt auf
+den Punkt $Q=(3,1,1)$.
+
+\begin{teilaufgaben}
+\item
+Finden Sie eine Drehmatrix $D$, die die Hand im linken Bild in die Hand im
+rechten Bild überführt.
+\item
+Finden Sie den Drehwinkel der Drehmatrix $D$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die gesuchte Drehmatrix $D$ bildet $e_1$ (die Richtung des Unterrarms)
+und $e_3$ (die Richtung des Mittelfingers) auf die Vektoren
+\[
+v_1
+=
+\frac{1}{\sqrt{11}}
+\begin{pmatrix}
+3\\1\\1
+\end{pmatrix}
+\qquad\text{und}\qquad
+v_3
+=
+\frac{1}{\sqrt{6}}
+\begin{pmatrix}
+-1\\1\\2
+\end{pmatrix}
+\]
+ab.
+Für die Abbildungsmatrix brauchen wir noch das Bild des zweiten
+Standardbasisvektors $e_2$.
+Wegen $e_3\times e_1=e_2$ wird $e_2$ auf 
+\[
+v_2
+=
+v_3\times v_1
+=
+\frac{1}{\sqrt{6}}
+\begin{pmatrix}
+-1\\1\\2
+\end{pmatrix}
+\times
+\frac{1}{\sqrt{11}}
+\begin{pmatrix}
+3\\1\\1
+\end{pmatrix}
+=
+\frac{1}{\sqrt{66}}
+\begin{pmatrix}
+1\cdot 1-2\cdot 1\\
+2\cdot 3-(-1)\cdot 1\\
+(-1)\cdot 1-1\cdot 3
+\end{pmatrix}
+=
+\frac{1}{\sqrt{66}}
+\begin{pmatrix}
+-1\\7\\-4
+\end{pmatrix}
+\]
+abgebildet.
+Damit folgt jetzt, dass die Drehmatrix
+\[
+D=
+\begin{pmatrix}
+\frac{3}{\sqrt{11}}&\frac{-1}{\sqrt{66}}&\frac{-1}{\sqrt{6}}\\
+\frac{1}{\sqrt{11}}&\frac{ 7}{\sqrt{66}}&\frac{ 1}{\sqrt{6}}\\
+\frac{1}{\sqrt{11}}&\frac{-4}{\sqrt{66}}&\frac{ 2}{\sqrt{6}}
+\end{pmatrix}
+\]
+ist.
+\item
+Mit der Drehwinkelformel
+\[
+\cos\alpha = \frac{\operatorname{Spur}A-1}2
+\]
+kann man jetzt auch den Drehwinkel bestimmen:
+\begin{align*}
+\cos\alpha
+&=
+\frac12\biggl(
+\frac{3}{\sqrt{11}}+\frac{7}{\sqrt{66}}+\frac{2}{\sqrt{6}}
+-1\biggr)
+\\
+&=0.79134
+\qquad\Rightarrow\qquad
+\alpha =
+37.690^\circ.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Normierung ({\bf N}) 1 Punkt,
+dritter Vektor ({\bf D}) 1 Punkt,
+Kreuzprodukt ({\bf K}) 1 Punkt,
+Matrix ({\bf M}) 1 Punkt,
+\item
+Spurformel ({\bf S}) 1 Punkt,
+Drehwinkel ({\bf W}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
+
+
+
+

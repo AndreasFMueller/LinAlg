@@ -1,0 +1,53 @@
+%
+% graph.tex -- Resonaz Beispiel
+%
+% (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\begin{document}
+\def\skala{6}
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+
+\input{paths.tex}
+
+\def\punkt#1#2{
+\fill[color=red] (#1,#2) circle[radius={0.05/\skala}];
+}
+
+\draw[color=darkgreen] (\omeganull,{-0.1/\skala}) -- (\omeganull,1);
+\draw[color=blue] (\omeganeu,{-0.1/\skala}) -- (\omeganeu,1);
+
+\pgfmathparse{\omeganeu-\omeganull}
+\xdef\diff{\pgfmathresult}
+\if\diff>0
+	\node[color=darkgreen] at (\omeganull,{-0.1/\skala})
+		[below right] {$\mathstrut\omega_0$};
+	\node[color=blue] at (\omeganeu,{-0.1/\skala})
+		[below left] {$\hat{\omega}_0$};
+\else
+	\node[color=darkgreen] at (\omeganull,{-0.1/\skala})
+		[below left] {$\mathstrut\omega_0$};
+	\node[color=blue] at (\omeganeu,{-0.1/\skala})
+		[below right] {$\hat{\omega}_0$};
+\fi
+
+\punkte
+
+\draw[color=darkgreen,line width=1.0pt] \pfad;
+\draw[color=blue,line width=1.0pt] \pfadneu;
+
+\draw[->] ({-0.1/\skala},0) -- ({2+0.3/\skala},0) coordinate[label={$\omega$}];
+\draw[->] (0,{-0.1/\skala},0) -- (0,{1+0.3/\skala}) coordinate[label={right:$W(\omega)$}];
+
+% add image content here
+
+\end{tikzpicture}
+\end{document}
+

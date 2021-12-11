@@ -1,0 +1,157 @@
+Ein gedämpftes schwingungsfähiges System wird von einem Signal
+$W(0)\sin\omega t$
+konstanter Amplitude $W(0)$ mit Kreisfrequenz $\omega$ angeregt.
+Dabei stellt sich nach einiger Zeit eine Schwingung mit Amplitude $W(\omega)$
+ein.
+\begin{center}
+\includeagraphics[]{graph.pdf}
+\end{center}
+Aus der Theorie ist bekannt, dass die Frequenzabhängigkeit von $W$
+gegeben ist durch
+\begin{equation}
+\frac{W(\omega)}{W(0)}
+=
+\frac{1}{\sqrt{\biggl(1-\biggl(\displaystyle\frac{\omega}{\omega_0}\biggr)^2\biggr)^2
++
+\biggl(\displaystyle\frac{\omega}{Q\omega_0}\biggr)^2}}.
+\end{equation}
+Man kann dies nach Umformung auch als etwas weniger komplizierte Gleichung
+\begin{equation}
+\begin{aligned}
+\biggl(
+\frac{W(0)}{W(\omega)}
+\biggr)^2
+&=
+1
+-
+2 \biggl(\frac{\omega}{\omega_0}\biggr)^2
++
+\biggl(\frac{\omega}{\omega_0}\biggr)^4
++
+\biggl(\frac{\omega}{Q\omega_0}\biggr)^2
+\\
+&=
+1
++
+\biggl(
+\frac{1}{Q^2}
+-
+2\biggr)\biggl(\frac{\omega}{\omega_0}\biggr)^2
++
+\biggl(\frac{\omega}{\omega_0}\biggr)^4
+\\
+&=
+1
++
+\omega^2
+\biggl(\biggl(\frac{1}{Q^2}-2\biggr)\frac{1}{\omega_0^2}\biggr)
++
+\omega^4
+\biggl(\frac{1}{\omega_0^4}\biggr)
+\end{aligned}
+\label{60000027:eqn}
+\end{equation}
+schreiben.
+Die interessanten Grössen in dieser Gleichung sind $\omega_0$, die 
+Eigenfrequenz des Systems, und $Q$, die sogenannte Güte des Systems,
+sie ist umso grösser je weniger Energie in jeder Schwingung verloren geht.
+Je grösser $Q$, desto schmaler ist der Peak in der Abbildung.
+Insbesondere bei kleinem $Q$ ist es also schwierig, die Frequenz der
+maximalen Amplitude, die Resonanzfrequenz, exakt zu bestimmen.
+
+Gegeben ist jetzt eine Messreihe von $n$ Messwerte $\omega_i$ für die
+Anregungsfrequenz und $W_i$ für die resultierende Amplitude.
+Wie kann man daraus bestmögliche Werte für $\omega_0$ und $Q$ berechnen?
+
+\begin{hinweis}
+Verwenden Sie geeignete Unbekannte anstelle von $\omega_0$ und $Q$,
+um lineare Gleichungen zu erhalten.
+\end{hinweis}
+
+\begin{loesung}
+Wir verwenden die Unbekannten 
+\[
+{\color{red}x}=\frac{1}{\omega_0^2}\biggl(\frac{1}{Q^2}-2 \biggr),
+\qquad\text{und}\qquad
+{\color{red}y}=\frac{1}{\omega_0^4}.
+\]
+Wir erhalten dann aus \eqref{60000027:eqn} die Gleichungen
+\begin{equation}
+\frac{W(0)}{W_i}-1
+=
+\omega_i^2 {\color{red}x}
++
+\omega_i^4 {\color{red}y}
+\end{equation}
+für $1\le i\le n$.
+Dies ist ein überbestimmtes lineares Gleichungssystem mit Matrix
+\[
+A=\begin{pmatrix}
+\omega_1^2&\omega_1^4\\
+\omega_2^2&\omega_2^4\\
+\vdots   &\vdots    \\
+\omega_n^2&\omega_n^4
+\end{pmatrix}
+\quad\text{und rechter Seite}\quad
+b=\begin{pmatrix}
+\frac{W(0)}{W_1}-1\\
+\frac{W(0)}{W_2}-1\\
+\vdots\\
+\frac{W(0)}{W_n}-1
+\end{pmatrix}.
+\]
+Es kann mit der Least-Squares-Method gelöst werden.
+Die Lösung kann gefunden werden als Lösung des Gleichungssystems
+$A^tAv=A^tb$.
+\[
+A^tA
+=
+\begin{pmatrix}
+\displaystyle\sum_{i=1}^n \omega_i^4 & \displaystyle\sum_{i=1}^n \omega_i^6 \\
+\displaystyle\sum_{i=1}^n \omega_i^6 & \displaystyle\sum_{i=1}^n \omega_i^8
+\end{pmatrix}
+\quad\text{und}\quad
+b
+=
+\begin{pmatrix}
+\displaystyle\sum_{i=1}^n \omega_i^2 \biggl(\frac{W(0)}{W_i}-1\biggr) \\
+\displaystyle\sum_{i=1}^n \omega_i^4 \biggl(\frac{W(0)}{W_i}-1\biggr)
+\end{pmatrix}
+\]
+Aus der Lösung dieses linearen Gleichungsystems kann man dann 
+Schätzungen $\hat{\omega}_0$ für $\omega_0$ und $\hat{Q}$ für $Q$
+aus den Formeln
+\[
+\hat{\omega}_0
+=
+1/\sqrt[4]{y}
+\qquad\text{und}\qquad
+\hat{Q}
+=
+\frac1{\displaystyle\sqrt{2+\frac{x}{\sqrt{y}}}}
+\]
+erhalten.
+\end{loesung}
+
+\begin{bewertung}
+Least Squares ({\bf L}) 1 Punkt,
+Wahl der Variablen ({\bf V}) 1 Punkt,
+Matrix $A$ ({\bf A}) 2 Punkt,
+rechte Seite $b$ ({\bf b}) 1 Punkt,
+Lösungsmethode $A^tAv=A^tb$ ({\bf M}) 1 Punkt.
+\end{bewertung}
+
+\begin{diskussion}
+Man kann diese Lösung natürlich auch simulieren.
+Die Abbildung zeigt in {\color{darkgreen}grün} den exakten Graphen der
+Funktion $W(\omega)$ und in {\color{red}rot} die simulierten Messwerte.
+In {\color{blue}blau} ist der Graph dargestellt, der zur oben
+dargestellten Lösung gefunden wird.
+\begin{center}
+\includeagraphics[]{vergleich.pdf}
+\end{center}
+Man kann sehen, dass die Güte $\hat{Q}$, die wesentlich die Höhe des
+Maximums von $W(\omega)$ bestimmt relativ schlecht bestimmt wird, aber der
+Wert von $\omega_0$ ist sehr genau.
+\end{diskussion}
+

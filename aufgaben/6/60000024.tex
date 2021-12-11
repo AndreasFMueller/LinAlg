@@ -1,0 +1,136 @@
+Im linken Bild zeigt der Daumen in Richtung der $y$-Achse und die beiden
+anderen Finger zeigen in Richtung der $z$-Achse.
+Im rechten Bild zeigt der Daumen in Richtung des Punktes $(1,1,1)$, die
+beiden anderen Finger in Richtung des Punktes $(1,-2,1)$ (die beiden kleinen
+Kugeln).
+\begin{center}
+\begin{tikzpicture}[>=latex,thick]
+\begin{scope}[xshift=-4.3cm]
+\node at (0,0) {\includeagraphics[width=8cm]{devil.jpg}};
+\node[color=red] at (-3.8,-2.2) {$x$};
+\node[color=darkgreen] at (3.8,-2.2) {$y$};
+\node[color=blue] at (0.35,3.55) {$z$};
+\end{scope}
+\begin{scope}[xshift=4.3cm]
+\node at (0,0) {\includeagraphics[width=8cm]{devil-rotated.jpg}};
+\node[color=red] at (-3.8,-2.2) {$x$};
+\node[color=darkgreen] at (3.8,-2.2) {$y$};
+\node[color=blue] at (0.35,3.55) {$z$};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\begin{teilaufgaben}
+\item Finden Sie eine Drehmatrix, die die Hand im linken Bild auf die
+Hand im rechten Bild abbildet.
+\item Finden Sie den Drehwinkel.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Drehmatrix bildet die beiden Standardbasisvektoren $e_2$ und $e_3$ auf
+\[
+v_2
+=
+\frac{1}{\sqrt{3}}
+\begin{pmatrix}
+1\\1\\1
+\end{pmatrix}
+\qquad\text{und}\qquad
+v_3
+=
+\frac{1}{\sqrt{6}}
+\begin{pmatrix}
+1\\-2\\1
+\end{pmatrix}
+\]
+Wir brauchen auch noch einen dritten Vektor, der abgebildet werden soll,
+wir verwenden dazu das Vektorprodukt
+\[
+v_2\times v_3
+=
+\frac{1}{3\sqrt{2}}
+\begin{pmatrix}
+1\cdot 1-1\cdot(-2)\\
+1\cdot 1-1\cdot 1\\
+1\cdot(-2)-1\cdot 1
+\end{pmatrix}
+=
+\frac{1}{3\sqrt{2}}
+\begin{pmatrix}
+3\\0\\-3
+\end{pmatrix}
+=
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1\\0\\-1
+\end{pmatrix}.
+\]
+In der Drehmatrix stehen die Bilder der Standardbasisvektoren, also
+\[
+D
+=
+\begin{pmatrix}
+ \frac{1}{\sqrt{2}}&\frac{1}{\sqrt{3}}&\frac{ 1}{\sqrt{6}}\\
+                  0&\frac{1}{\sqrt{3}}&\frac{-2}{\sqrt{6}}\\
+-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{3}}&\frac{ 1}{\sqrt{6}}
+\end{pmatrix}
+\]
+\item
+Mit der Drehwinkelformel 
+\[
+\cos \alpha = \frac{\operatorname{Spur}D-1}{2}
+\]
+findet man
+\begin{align*}
+\cos \alpha
+&= 
+\frac12\biggl(
+\frac{1}{\sqrt{2}}
++
+\frac{1}{\sqrt{3}}
++
+\frac{1}{\sqrt{6}}
+-1\biggr)
+\\
+&=
+\frac1{2\sqrt{6}}(\sqrt{3}+\sqrt{2}+1-\sqrt{6})
+=
+0.34635
+\qquad\Rightarrow\qquad
+\alpha = 69.736^\circ.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Man kann natürlich auch noch die Drehachse finden, also einen Vektor
+$d$ derart, dass $Dd=d$ ist.
+Die numerische Rechnung ergibt den Vektor
+\[
+d=\begin{pmatrix*}[r]
+  -0.74291\\
+  -0.59447\\
+   0.30772
+\end{pmatrix*}.
+\]
+\end{diskussion}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Normierung ({\bf N}) 1 Punkt,
+dritter Vektor ({\bf D}) 1 Punkt,
+Kreuzprodukt ({\bf K}) 1 Punkt,
+Matrix ({\bf M}) 1 Punkt,
+\item
+Spurformel ({\bf S}) 1 Punkt,
+Drehwinkel ({\bf W}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
+
+
+
+

@@ -1,0 +1,165 @@
+Am 10.~Februar 2012 bewegte sich der Planet Venus von der Erde aus gesehen
+in einer Entfernung von nur etwa $0.3^\circ$ am Planeten Uranus vorbei.
+Da Uranus von blossem Auge kaum sichtbar ist, ist er nicht ganz einfach
+zu finden.
+Da die Venus sehr hell und unverwechselbar ist, konnte man an diesem
+Tag Uranus sehr leicht mit einem Feldstecher oder einem kleinen Teleskop
+finden.
+
+Die Planeten befanden sich in dieser Konstellation in sogenannten
+heliozentrischen Koordinaten an den Ortsvektoren
+\[
+\vec{p}_{\venus}
+=\begin{pmatrix*}[r]
+   0.279\\
+   0.665\\
+  -0.007
+\end{pmatrix*},\quad
+\vec{p}_{\uranus}
+=\begin{pmatrix*}[r]
+   20.023\\
+    1.416\\
+   -0.254
+\end{pmatrix*}
+\quad\text{und}\quad
+\vec{p}_{\earth}
+=\begin{pmatrix*}[r]
+  -0.7651\\
+   0.6229\\
+   0.0000
+\end{pmatrix*},
+\]
+dabei steht $\venus$ für Venus, $\uranus$ für Uranus und $\earth$ für die
+Erde.
+
+Ein Kamera auf der Erde mit einem $3600\times 2400$-Pixel Chip und einem
+Teleobjektiv mit Brennweite 50000 Pixel wird auf die beiden Planeten
+ausgerichtet mit der Drehmatrix
+\[
+D = \begin{pmatrix*}[r]
+  -0.038&  0.999&  0.000\\
+   0.012&  0.000&  1.000\\
+   0.999&  0.038& -0.012
+\end{pmatrix*}.
+\]
+\begin{teilaufgaben}
+\item
+An welchen Pixelkoordinaten befinden sich die Bilder der beiden Planeten?
+\item
+Wie weit auseinander sind die beiden Bilder in Pixeln?
+\end{teilaufgaben}
+
+\begin{loesung}
+Die Kameramatrix ist
+\[
+K 
+=
+\begin{pmatrix}
+f&0&w/2\\
+0&f&h/2\\
+0&0& 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+50000 &   0   & 1800 \\
+  0   & 50000 & 1200 \\
+  0   &   0   &  1
+\end{pmatrix}.
+\]
+Das Kamerazentrum ist $\vec{c} = \vec{p}_{\earth}$. 
+Die Kameraprojektionsmatrix kann daraus zusammengesetzt werden, sie ist
+\[
+P = K D \begin{pmatrix} E & -\vec{p}_{\earth} \end{pmatrix}.
+\]
+
+Für die Berechnung der Pixelkoordinaten braucht man die homogenen Koordinaten
+der Planeten $\tilde{p}_*$, die man aus $\vec{p}_*$ erhält, indem man 
+den Vektor $\vec{p}_*$ um eine vierte Komponente mit Wert $1$ erweitert.
+Die homogenen Koordinaten der Bilder sind dann $\tilde{b}_* = P \tilde{p}_*$.
+Die Pixelkoordinaten $\vec{b}_*$ erhält man dann, indem man $\tilde{b}_*$
+durch die dritte Komponente teilt.
+\begin{teilaufgaben}
+\item
+Die Berechnung der Pixelkoordinaten liefert
+\begin{align*}
+\tilde{b}_{\venus}
+&=
+\begin{pmatrix*}[r]
+   1999.6365\\
+   1530.1476\\
+      1.0447
+\end{pmatrix*}
+&&\Rightarrow&
+\vec{b}_{\venus}
+&=
+\begin{pmatrix*}[r]
+   1914.0\\
+   1464.6
+\end{pmatrix*}
+\\
+\tilde{b}_{\venus}
+&=
+\begin{pmatrix*}[r]
+   37558.8\\
+   24733.4\\
+      20.8
+\end{pmatrix*}
+&&\Rightarrow&
+\vec{b}_{\venus}
+&=
+\begin{pmatrix*}[r]
+  1805.7\\
+  1189.1
+\end{pmatrix*}
+\end{align*}
+\item
+Die Differenz der beiden Pixelvektoren ist
+\[
+\vec{d}
+=
+\vec{b}_{\venus}-\vec{b}_{\uranus}
+=
+\begin{pmatrix}
+   108.33\\
+   275.54
+\end{pmatrix}
+\qquad\Rightarrow\qquad
+|\vec{d}|
+=
+\biggl|
+\begin{matrix*}[r]
+   108.33\\
+   275.54
+\end{matrix*}
+\biggr|
+=
+296.07.
+\]
+Man kann daraus auch den Winkel $\delta$ zwischen den beiden Planeten
+berechnen.
+Es ist
+\[
+\tan\delta
+\approx
+\frac{296.07}{f}
+=
+0.0059215
+\qquad\Rightarrow\qquad
+\delta \approx 0.34^\circ.
+\]
+Dieser Winkel ist konsistent mit der Beschreibung in der Aufgabe.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\end{bewertung}
+\begin{bewertung}
+Kameramatrix ({\bf K}) 1 Punkt,
+Projektionsmatrix ({\bf P}) 1 Punkt,
+Methode zur Berechnung der Pixelkoordinaten ({\bf M}) 1 Punkt,
+homogene Bildkoordinaten und Pixelkoordinaten \venus{} ({\bf V}) 1 Punkt,
+homogene Bildkoordinaten und Pixelkoordinaten \uranus{} ({\bf U}) 1 Punkt,
+Abstand \venus--\uranus{} ({\bf A}) 1 Punkt.
+\end{bewertung}
+

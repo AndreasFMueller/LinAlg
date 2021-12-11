@@ -1,0 +1,137 @@
+Im Jahr 1934 beobachteten Wander Johannes de Haas, Jan Hendrik de Boer
+und G.~J.~van de Berg, dass der elektrische Widerstand einer 
+Gold-Probe mit magnetischen Verunreinigungen nicht wie erwartet bei
+tieferer Temperatur immer weiter abnahm, sondern im Gegenteil
+logarithmisch anstieg.
+1964 konnte der japanische theoretische Physiker Jun Kondo
+(\begin{CJK}{UTF8}{min}
+近藤\; 淳
+\end{CJK})
+diesen Effekt erklären als Resultat der Streuung der Leitungselektronen
+an lokalisierten magnetischen Elektronen.
+Man hat für die Temperaturabhängigkeit des Widerstandes die Formel
+\[
+\varrho(T)
+=
+\varrho_0 + aT^2 + c_m\log \frac{\mu}{T} + bT^5
+\]
+gefunden, der logarithmische dritte Term beschreibt den Kondo-Effekt.
+In der Formel müssen die temperaturunabhängigen Koeffizienten
+$\varrho_0$, $a$, $c_m$, $\mu$ und $b$ experimentell ermittelt werden.
+
+Zwischen den Koeffizienten gibt es eine Abhängigkeit.
+Ändert man $\mu$ um einen Faktor $s$, dann ändert dies den Logarithmus
+um einen additiven Wert $\log s$, den man in $\varrho_0$ absorbieren kann.
+Man kann sich bei $\mu$ also zunächst auf einen bestimmten Wert festlegen.
+Insbesondere darf man also so tun, als ob $\mu$ bekannt wäre.
+
+\begin{teilaufgaben}
+\item
+Wieviele Messungen sind mindestens nötig, um die Koeffizienten zu bestimmen?
+\item
+Wie kann man die bestmöglichen Werte für die verbleibenden Koeffizienten
+aus einer Messreihe von $n$ Widerständen $\varrho_i$ und zugehörigen
+Temperaturen $T_i$ bekommen?
+\end{teilaufgaben}
+
+\begin{loesung}
+Die Koeffizienten müssen die Gleichungen
+\begin{equation}
+\varrho_i
+=
+{\color{red}\varrho_0}
++
+{\color{red}a}T_i^2
++
+{\color{red}c_m}\log\frac{\mu}{T_i}
++
+{\color{red}b}T_i^5
+\label{60000026:eqn}
+\end{equation}
+mit Unbekannten in {\color{red}rot} erfüllen.
+Um die $4$ verbleibenden Unbekannten zu bestimmen, sind mindestens $4$
+Messungen erforderlich, für gute Resultate wird man viel mehr Messungen
+machen.
+
+Wegen der Messfehler wird das Gleichungssytem \eqref{60000026:eqn}
+nicht exakt gehen, die Gleichungen sind überbestimmt.
+Wir verwenden daher das Least-Squares Verfahren.
+Die Matrix $A$ und der Vektor $b$ sind
+\[
+A=
+\begin{pmatrix}
+1 & T_1^2 & \log\frac{\mu}{T_1} & T_1^5 \\
+1 & T_2^2 & \log\frac{\mu}{T_2} & T_2^5 \\
+\vdots&\vdots&\vdots&\vdots \\
+1 & T_n^2 & \log\frac{\mu}{T_n} & T_n^5 
+\end{pmatrix}
+\qquad
+\text{bzw.}
+\qquad
+b=
+\begin{pmatrix}
+\varrho_1\\
+\varrho_2\\
+\vdots\\
+\varrho_n
+\end{pmatrix}
+\]
+Um die Koeffizienten zu bestimmen, muss man das Gleichungssystem
+\[
+A^tA {\color{red}x} = A^tb
+\]
+lösen, wobei 
+\[
+{\color{red}x}
+=
+\begin{pmatrix}
+{\color{red}\varrho_0}\\
+{\color{red}a}\\
+{\color{red}c_m}\\
+{\color{red}b}
+\end{pmatrix}
+\]
+Die Matrix $A^tA$ und den Vektor $A^tb$ kann man explizit berechnen:
+\begin{align*}
+A^tA
+&=
+\begin{pmatrix}
+n
+	&\displaystyle\sum_{i=1}^n T_i^2
+		&\displaystyle\sum_{i=1}^n \log\frac{\mu}{T_i}
+			&\displaystyle\sum_{i=1}^n T_i^5
+\\
+\displaystyle\sum_{i=1}^n T_i^2
+	&\displaystyle \sum_{i=1}^n T_i^4
+		&\displaystyle \sum_{i=1}^n T_i^2\log\frac{\mu}{T_i}
+			&\displaystyle \sum_{i=1}^n T_i^7
+\\
+\displaystyle\sum_{i=1}^n \log\frac{\mu}{T_i}
+	&\displaystyle \sum_{i=1}^n T_i^2\log\frac{\mu}{T_i}
+		&\displaystyle \sum_{i=1}^n \biggl(\log\frac{\mu}{T_i}\biggr)^2
+			&\displaystyle \sum_{i=1}^n T_i^5\log\frac{\mu}{T_i}
+\\
+\displaystyle\sum_{i=1}^n T_i^5 
+	&\displaystyle \sum_{i=1}^n T_i^7
+		&\displaystyle \sum_{i=1}^n T_i^5\log\frac{\mu}{T_i}
+			&\displaystyle \sum_{i=1}^nT_i^{10}
+\end{pmatrix},
+&
+b
+&=
+\begin{pmatrix}
+\displaystyle\sum_{i=1}^n \varrho_i \\
+\displaystyle\sum_{i=1}^n \varrho_i T_i^2 \\
+\displaystyle\sum_{i=1}^n \varrho_i \log\frac{\mu}{T_i} \\
+\displaystyle\sum_{i=1}^n \varrho_i T_i^5
+\end{pmatrix}
+\end{align*}
+\end{loesung}
+
+\begin{bewertung}
+Anzahl Messungen ({\bf N}) 1 Punkt,
+Least-Squares-Prinzip ({\bf L}) 1 Punkt,
+Matrix $A$ ({\bf A}) 2 Punkte,
+Matrix $b$ ({\bf B}) 1 Punkt,
+Gleichungssytem $A^tA{\color{red}}x=A^tb$ ({\bf G}) 1 Punkt.
+\end{bewertung}
