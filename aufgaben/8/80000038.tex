@@ -1,0 +1,108 @@
+Ist die Matrix
+\[
+A
+=
+\begin{pmatrix*}[r]
+-78&-30\\
+200& 77
+\end{pmatrix*}
+\]
+diagonalisierbar?
+Wenn ja, geben Sie eine Basis an, in der $A$ diagonal wird.
+
+\begin{loesung}
+Das charakteristische Polynom der Matrix $A$ ist
+\begin{align*}
+\chi_{A}(\lambda)
+=
+\det(A-\lambda E)
+&=
+\left|
+\begin{matrix}
+-78-\lambda&-30\\
+200&77-\lambda
+\end{matrix}
+\right|
+\\
+&=
+-(78+\lambda)(77-\lambda)
++6000
+\\
+&=
+-6006 +\lambda +\lambda^2 +6000
+\\
+&=
+\lambda^2 + \lambda - 6
+\\
+&=
+(\lambda - 2)(\lambda + 3)
+\intertext{mit den Nullstellen}
+\Rightarrow \qquad \lambda
+&=\begin{cases}
+2\\
+-3.
+\end{cases}
+\end{align*}
+Für jeden Eigenwert müssen wir jetzt einen Eigenvektor finden:
+\begin{align*}
+\lambda&=\phantom{-}2:
+&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-78-\lambda& -30 \\
+200 & 77 - \lambda\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+-80 & -30 \\
+200 &  75 \\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+  1 & \frac{3}{8} \\
+  0 &    0   \\
+\hline
+\end{tabular}
+&&\Rightarrow&
+v_2 &= \begin{pmatrix} 3\\-8\end{pmatrix}
+\\
+\lambda&=-3:
+&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+-78-\lambda& -30 \\
+200 & 77 - \lambda\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+-75 & -30 \\
+200 &  80 \\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+  1 & \frac{2}{5} \\
+  0 &    0   \\
+\hline
+\end{tabular}
+&&\Rightarrow&
+v_{-3} &= \begin{pmatrix} 2\\-5\end{pmatrix}
+\end{align*}
+Die beiden Vektoren $\mathcal{B} = \{ v_2, v_{-3} \}$ bilden daher eine
+Basis aus Eigenvektoren.
+\end{loesung}
+
+\begin{bewertung}
+Charakteristisches Polynom ({\bf X}) 1 Punkt,
+Nullstellen/Eigenwerte ({\bf E}) 1 Punkt,
+Gauss-Algorithmus ({\bf G}) 1 Punkt,
+Eigenvektoren ({\bf v}) 2 Punkt,
+Diagonalbasis ({\bf B}) 1 Punkt.
+\end{bewertung}

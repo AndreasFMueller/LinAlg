@@ -1,0 +1,109 @@
+Ist die Matrix
+\[
+A
+=
+\begin{pmatrix*}[r]
+    61&  168\\
+   -21&  -58
+\end{pmatrix*}
+\]
+diagonalisierbar?
+Wenn ja, geben Sie eine Basis an, in der $A$ diagonal wird.
+
+\begin{loesung}
+Das charakteristische Polynom der Matrix $A$ ist
+\begin{align*}
+\chi_{A}(\lambda)
+=
+\det(A-\lambda E)
+&=
+\left|
+\begin{matrix}
+61-\lambda&168\\
+-21&-58-\lambda
+\end{matrix}
+\right|
+\\
+&=
+-(61-\lambda)(58+\lambda)
++3528
+\\
+&=
+-3538
+-3\lambda +\lambda^2 +3528
+\\
+&=
+\lambda^2 -3\lambda - 10
+\\
+&=
+(\lambda + 2)(\lambda - 5)
+\intertext{mit den Nullstellen}
+\Rightarrow \qquad \lambda
+&=\begin{cases}
+-2\\
+5.
+\end{cases}
+\end{align*}
+Für jeden Eigenwert müssen wir jetzt einen Eigenvektor finden:
+\begin{align*}
+\lambda&=-2:
+&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+61-\lambda& 168 \\
+-21 & -58 - \lambda\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+ 63 & 168 \\
+-21 & -56 \\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+  1 & \frac{8}{3} \\
+  0 &    0   \\
+\hline
+\end{tabular}
+&&\Rightarrow&
+v_{-2} &= \begin{pmatrix} 8\\-3\end{pmatrix}
+\\
+\lambda&=\phantom{-}5:
+&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|}
+\hline
+61-\lambda& 168 \\
+-21 & -58 - \lambda\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+ 56 & 168 \\
+-21 & -63 \\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+  1 & 3 \\
+  0 & 0 \\
+\hline
+\end{tabular}
+&&\Rightarrow&
+v_{5} &= \begin{pmatrix} 3\\-1\end{pmatrix}
+\end{align*}
+Die beiden Vektoren $\mathcal{B} = \{ v_{-2}, v_{5} \}$ bilden daher eine
+Basis aus Eigenvektoren.
+\end{loesung}
+
+\begin{bewertung}
+Charakteristisches Polynom ({\bf X}) 1 Punkt,
+Nullstellen/Eigenwerte ({\bf E}) 1 Punkt,
+Gauss-Algorithmus ({\bf G}) 2 Punkt,
+Eigenvektoren ({\bf v}) 1 Punkt,
+Diagonalbasis ({\bf B}) 1 Punkt.
+\end{bewertung}
