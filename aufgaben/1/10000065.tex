@@ -1,0 +1,126 @@
+Betrachten Sie das Gleichungssystem
+\[
+\begin{linsys}{3}
+3x &+&  9y &+&      6z &=& 6   \\
+4x &+& 16y &+& (4t+4)z &=& 8t-4\\
+2x &+&  7y &+& (2t+2)z &=& 4t-1
+\end{linsys}
+\]
+\begin{teilaufgaben}
+\item
+Für welche Werte von $t$ ist das Gleichungssystem singulär?
+\item
+Finden Sie die Lösung für den Fall, dass die Koeffizientenmatrix regulär ist.
+\item
+Bestimmen Sie die Lösungsmenge in dem Fall, wo das Gleichungssystem singulär
+ist.
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir führen den Gauss-Algorithmus für das Gleichungssystem in Tableau-Form
+durch:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 3 &  9 & 6    & 6    \\
+ 4 & 16 & 4t+4 & 8t-4 \\
+ 2 &  7 & 2t+2 & 4t-1 \\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1 &  3 & 2    & 2     \\
+ 0 &  4 & 4t-4 & 8t-12 \\
+ 0 &  1 & 2t-2 & 4t-5  \\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1 &  3 &    2 &    2 \\
+ 0 &  1 &  t-1 & 2t-3 \\
+ 0 &  0 &  t-1 & 2t-2 \\
+\hline
+\end{tabular}
+\intertext{An dieser Stelle können wir nicht weiterfahren, falls $t=1$ ist,
+für diesen Wert ist das Gleichungssystem singulär.
+Dies beantwortet Teilaufgabe b).
+Wir führen den Algorithmus unter der Annahme $t\ne 1$ weiter.
+}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1 &  3 &    0 & -2 \\
+ 0 &  1 &    0 & -1 \\
+ 0 &  0 &    1 &  2 \\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1 &  0 &    0 &  1 \\
+ 0 &  1 &    0 & -1 \\
+ 0 &  0 &    1 &  2 \\
+\hline
+\end{tabular}
+\end{align*}
+\begin{teilaufgaben}
+\item
+Nach ober Rechung ist die Matrix singulär genau für $t=1$.
+\item
+Für $t\ne 1$ kann man den Gauss-Algorithmus wie oben durchführen und
+erhält die Lösung
+\[
+x = \begin{pmatrix*}[r]1\\-1\\2\end{pmatrix*}.
+\]
+\item
+Um die Lösungsmenge für die Teilaufgabe c) zu bestimmen, setzen wir den
+Wert $t=1$ ein und führen den Gauss-Algorithmus unter dieser Voraussetzung
+weiter:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1 &  3 &    2 &    2 \\
+ 0 &  1 &    0 &   -1 \\
+ 0 &  0 &    0 &    0 \\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1 &  0 &    2 &    5 \\
+ 0 &  1 &    0 &   -1 \\
+ 0 &  0 &    0 &    0 \\
+\hline
+\end{tabular}
+\end{align*}
+Daraus liest man die Lösungsmenge
+\[
+\mathbb{L}
+=
+\left\{\left.
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=
+\begin{pmatrix*}[r]5\\-1\\0\end{pmatrix*}
++z
+\begin{pmatrix*}[r]-2\\0\\1\end{pmatrix*}
+\;\right|
+z\in\mathbb{R}
+\right\}
+\]
+ab.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Gauss-Algorithmus ({\bf G}) 2 Punkt,
+Bestimmung des Wertes $t=1$ ({\bf T}) 1 Punkt,
+Lösung $x$ ({\bf X}) 1 Punkt,
+Abschluss des Gauss-Algorithmus im singulären Fall ({\bf S}) 1 Punkt,
+Lösungsmenge ({\bf L}) 1 Punkt.
+\end{bewertung}
+
