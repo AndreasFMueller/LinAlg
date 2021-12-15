@@ -14,8 +14,8 @@ inside.jpg:	inside.png
 	convert inside.png -density 300 -units PixelsPerInch inside.jpg
 
 box.png:	box.pov common.inc Makefile
-	../../../common/povray $(OPTIONS) -W1080 -H1080 -Obox.png box.pov
+	povray $(OPTIONS) -W1080 -H1080 -Obox.png box.pov
 
 inside.png:	inside.pov common.inc Makefile
-	../../../common/povray $(OPTIONS) -W1920 -H1080 -Oinside.png inside.pov
+	povray $(OPTIONS) -W1920 -H1080 -Oinside.png inside.pov
 
