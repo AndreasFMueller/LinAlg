@@ -1,6 +1,8 @@
 #
 # build image for problem 10000026
 #
+all:
+
 bild = 10000026-1.pdf
 
 $(bild): 10000026.mp

@@ -3,7 +3,9 @@
 #
 # (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
 #
-all:	jpg
+all:
+
+images:	jpg
 
 incfiles:	wtf.inc devil.inc
 

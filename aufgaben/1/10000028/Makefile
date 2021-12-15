@@ -5,6 +5,8 @@
 #
 all:
 
+images:	octahedron-1.pdf
+
 octahedron-1.pdf:	octahedron.mp
 	TEX=latex mpost octahedron.mp
 	for f in octahedron.[0-9]; \

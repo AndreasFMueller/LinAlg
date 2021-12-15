@@ -3,7 +3,9 @@
 #
 # (c) 2015 Prof Dr Andreas Mueller, Hochschule Rapperswil
 #
-all:	kubisch-1.pdf cubic.jpg
+all:
+
+images:	kubisch-1.pdf cubic.jpg
 
 kubisch-1.pdf:	kubisch.mp
 	TEX=latex mpost kubisch.mp

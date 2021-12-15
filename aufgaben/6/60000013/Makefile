@@ -3,7 +3,11 @@
 #
 # (c) 2015 Prof Dr Andreas Mueller, Hochschule Rapperswil
 #
+all:
+
 bild = graph-1.pdf
+
+images:	$(bild)
 
 $(bild): graph.mp
 	TEX=latex mpost graph.mp
