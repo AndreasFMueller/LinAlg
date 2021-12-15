@@ -1,11 +1,17 @@
 #
-# randomproblem
+# randomproblem.
 #
+#
+#
+global threshold;
+threshold = 1;
+
 function v = randomeigenvalue(limit)
+	global threshold;
 	lambda = 0;
 	do
 		lambda = round(2 * limit * (rand() - 0.5));
-	until (abs(lambda) > 1)
+	until (abs(lambda) > threshold)
 	v = lambda
 endfunction
 

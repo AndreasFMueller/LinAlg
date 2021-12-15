@@ -3,6 +3,8 @@
 #
 # (c) 2015 Prof Dr Andreas Mueller, Hochschule Rapperswil
 #
+all:
+
 octahedron-1.pdf:	octahedron.mp
 	TEX=latex mpost octahedron.mp
 	for f in octahedron.[0-9]; \

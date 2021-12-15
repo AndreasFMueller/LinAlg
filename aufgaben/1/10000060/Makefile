@@ -4,5 +4,7 @@
 # (c) 2019 Prof Dr Andreas Müller, Hochschule Rapperswil
 #
 
-all:	tropfen.maxima
+all:	
+
+problems:	tropfen.maxima
 	maxima -b tropfen.maxima

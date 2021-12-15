@@ -11,5 +11,5 @@ oktaeder.jpg:	oktaeder.png
 	convert oktaeder.png -density 300 -units PixelsPerInch oktaeder.jpg
 
 oktaeder.png:	oktaeder.pov Makefile
-	../../../common/povray $(OPTIONS) -W1080 -H1080 -Ooktaeder.png \
+	povray $(OPTIONS) -W1080 -H1080 -Ooktaeder.png \
 		oktaeder.pov
