@@ -88,6 +88,9 @@ Hochschule für Technik, Rapperswil, 2011-2021
 \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{}{}{}{}}}}
 \makeatother
 \input{gausslabels.tex}
+\def\gaussurl#1{
+\edef\glnumber{\getrefnumber{#1}}
+\url{https://linalg.ch/gauss/?id=\glnumber}}
 %
 \input{../skript/linsys.tex}
 \input{uebungen.tex}
