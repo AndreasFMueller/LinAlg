@@ -8,7 +8,7 @@ all:	aufgabensammlung.pdf
 TEXFILES = aufgabensammlung.tex uebungen.tex \
 	1.tex 2.tex 3.tex 4.tex 5.tex 6.tex 7.tex 8.tex o.tex
 
-aufgabensammlung.pdf:	$(TEXFILES) aufgabensammlung.ind thema.tex
+aufgabensammlung.pdf:	$(TEXFILES) aufgabensammlung.ind thema.tex gausslabels.tex
 	pdflatex aufgabensammlung.tex
 
 thema.tex:	thema.tix mkthemaidx
@@ -18,10 +18,13 @@ thema.tex:	thema.tix mkthemaidx
 thema.tix:	$(TEXFILES)
 	pdflatex aufgabensammlung.tex
 
-aufgabensammlung.ind:	$(TEXFILES) images
+aufgabensammlung.ind:	$(TEXFILES) images gausslabels.tex
 	touch aufgabensammlung.ind
 	pdflatex aufgabensammlung.tex
 	makeindex aufgabensammlung.idx
+
+gausslabels.tex:
+	curl --output gausslabels.tex https://linalg.ch/gauss/tableau.php
 
 mkthemaidx:	mkthemaidx.cpp
 	g++ -std=c++11 -Wall -g -O -o mkthemaidx mkthemaidx.cpp

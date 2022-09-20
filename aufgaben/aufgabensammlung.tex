@@ -82,6 +82,13 @@ Hochschule für Technik, Rapperswil, 2011-2021
 \renewcommand{\qedsymbol}{$\bigcirc$}
 }{\end{proof}}
 \mainmatter
+% labels
+\makeatletter
+\newcommand{\customlabel}[2]{%
+\protected@write \@auxout {}{\string \newlabel {#1}{{#2}{}{}{}{}}}}
+\makeatother
+\input{gausslabels.tex}
+%
 \input{../skript/linsys.tex}
 \input{uebungen.tex}
 \openthemaindex
