@@ -7,11 +7,36 @@ A=\begin{pmatrix}
 \end{pmatrix}.
 \]
 \begin{teilaufgaben}
-\item Für welche Werte von $c$ ist die Matrix $A$ singulär?
+\item Für welche Werte von $c$ ist die Matrix $A$ singulär, d.~h.~für
+welche Werte von $c$ wird das Tableau
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+x_1&x_2&x_3\\
+\hline
+2&  4&   2\\
+1&c+1&3c-2\\
+1&  4& c+5\\
+\hline
+\end{tabular}
+\]
+singulär.
 \item Lösen Sie für jeden der in Teilaufgabe a) gefundenen Werte von $c$ 
 das Gleichungssystem $Ax=b$ mit
 \[
-b=\begin{pmatrix}2\\2\\3\end{pmatrix}.
+b=\begin{pmatrix}2\\2\\3\end{pmatrix}
+\qquad
+\text{bzw. mit dem Tableau}
+\qquad
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}| >{$}c<{$}|}
+\hline
+x_1&x_2&x_3&1\\
+\hline
+2&  4&   2& 2\\
+1&c+1&3c-2& 2\\
+1&  4& c+5& 3\\
+\hline
+\end{tabular}
 \]
 \end{teilaufgaben}
 
