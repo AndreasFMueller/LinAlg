@@ -10,6 +10,10 @@ a&+&b&+&c&=&1
 \]
 Geben Sie die Lösungsmenge in Vektorschreibweise an.
 
+\begin{hinweis}
+Gauss-Calculator: \gaussurl{gausscalc:10000016}
+\end{hinweis}
+
 \themaL{Losungsmenge}{Lösungsmenge}
 \thema{Gauss-Algorithmus}
 
@@ -20,7 +24,9 @@ viele Lösungen. Um sie zu finden, kann man zum Beispiel den Gauss-Algorithmus
 anwenden. Dazu ist es vorteilhaft, die letzte Zeile an die erste
 Position zu nehmen:
 \begin{align*}
-\begin{tabular}{|ccc|c|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+a&b&c&1\\
 \hline
 1&1&1&1\\
 4&3&2&6\\
@@ -29,7 +35,9 @@ Position zu nehmen:
 \end{tabular}
 &
 \rightarrow
-\begin{tabular}{|ccc|c|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+a&b&c&1\\
 \hline
 1&1&1&1\\
 0&$-1$&$-2$&2\\
@@ -39,7 +47,9 @@ Position zu nehmen:
 \\
 &
 \rightarrow
-\begin{tabular}{|ccc|c|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+a&b&c&1\\
 \hline
 1&1&1&1\\
 0&1&2&$-2$\\
@@ -49,7 +59,9 @@ Position zu nehmen:
 \\
 &
 \rightarrow
-\begin{tabular}{|ccc|c|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+a&b&c&1\\
 \hline
 1&0&$-1$&3\\
 0&1&2&$-2$\\

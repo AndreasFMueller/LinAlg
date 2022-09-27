@@ -2,6 +2,8 @@ Finden Sie die reduzierte Zeilenstufenform des Tableaus
 \begin{center}
 \begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
 \hline
+x_1&x_2&x_3&x_4&x_5&x_6&1\\
+\hline
     3 & -3 & -3 &-12 & -9 &  0 &-42\\
    -5 &  7 &  3 & 20 & 17 &  4 & 68\\
    -5 &  3 &  7 & 25 & 13 & -9 & 92\\
@@ -10,12 +12,18 @@ Finden Sie die reduzierte Zeilenstufenform des Tableaus
 \end{tabular}
 \end{center}
 
+\begin{hinweis}
+Gauss-Calculator: \gaussurl{gausscalc:10000038}
+\end{hinweis}
+
 \thema{rref}
 
 \begin{loesung}
 Wir verwenden den Gauss-Algorithmus ohne Spaltenvertauschungen:
 \begin{align*}
 \begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
+\hline
+x_1&x_2&x_3&x_4&x_5&x_6&1\\
 \hline
     3
 \begin{picture}(0,0)
@@ -33,6 +41,8 @@ Wir verwenden den Gauss-Algorithmus ohne Spaltenvertauschungen:
 \end{tabular}
 &\rightarrow
 \begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
+\hline
+x_1&x_2&x_3&x_4&x_5&x_6&1\\
 \hline
 \color{red}
     1 & -1 & -1 & -4 & -3 &  0 &-14\\
@@ -53,6 +63,8 @@ Wir verwenden den Gauss-Algorithmus ohne Spaltenvertauschungen:
 \rightarrow
 \begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
 \hline
+x_1&x_2&x_3&x_4&x_5&x_6&1\\
+\hline
 \color{red}
     1 & -1 & -1 & -4 & -3 &  0 &-14\\
     0 &\color{red}  1 & -1 &  0 &  1 &  2 & -1\\
@@ -71,6 +83,8 @@ Wir verwenden den Gauss-Algorithmus ohne Spaltenvertauschungen:
 &\rightarrow
 \begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
 \hline
+x_1&x_2&x_3&x_4&x_5&x_6&1\\
+\hline
 \color{red}
     1 & -1 & -1 & -4 & -3 &  0 &-14\\
     0 & \color{red} 1 & -1 &  0 &  1 &  2 & -1\\
@@ -86,6 +100,8 @@ Wir verwenden den Gauss-Algorithmus ohne Spaltenvertauschungen:
 \rightarrow
 \begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
 \hline
+x_1&x_2&x_3&x_4&x_5&x_6&1\\
+\hline
 \color{red}
     1 & -1 & -1 & -4 & -3 &  0 &-14\\
     0 & \color{red} 1 & -1 &  0 &  1 &  2 & -1\\
@@ -99,6 +115,8 @@ Wir verwenden den Gauss-Algorithmus ohne Spaltenvertauschungen:
 \end{tabular}
 &\rightarrow
 \begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
+\hline
+x_1&x_2&x_3&x_4&x_5&x_6&1\\
 \hline
 \color{red}
     1 & -1 & -1 & -4 & -3 &  0 &-14\\
@@ -115,6 +133,8 @@ Wir verwenden den Gauss-Algorithmus ohne Spaltenvertauschungen:
 \rightarrow
 \begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
 \hline
+x_1&x_2&x_3&x_4&x_5&x_6&1\\
+\hline
 \color{red}
     1 & -1
 \begin{picture}(0,0)
@@ -128,6 +148,8 @@ Wir verwenden den Gauss-Algorithmus ohne Spaltenvertauschungen:
 \end{tabular}
 &\rightarrow
 \begin{tabular}{| >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$}  >{$}r<{$} | >{$}r<{$} |}
+\hline
+x_1&x_2&x_3&x_4&x_5&x_6&1\\
 \hline
 \color{red}
     1 &  0 & -2 &  0 & -2 &  0 & -1\\

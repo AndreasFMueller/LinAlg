@@ -12,6 +12,10 @@ Lösungen?
 
 Geben Sie die Lösung in dem Falle an, wo sie eindeutig ist.
 
+\begin{hinweis}
+Gauss-Calculator: \gaussurl{gausscalc:10000010}
+\end{hinweis}
+
 \thema{Matrix mit Parameter}
 \thema{Gauss-Algorithmus}
 \themaL{Losungsmenge}{Lösungsmenge}
@@ -20,6 +24,8 @@ Geben Sie die Lösung in dem Falle an, wo sie eindeutig ist.
 Wir führen den Gauss-Algorithmus durch
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&z&1\\
 \hline
 2&0&-1&6\\
 0&2&-4&-2\\
@@ -30,6 +36,8 @@ Wir führen den Gauss-Algorithmus durch
 \rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
+x&y&z&1\\
+\hline
 1&0&-\frac12&3\\
 0&2&-4&-2\\
 0&a&1&0\\
@@ -37,6 +45,8 @@ Wir führen den Gauss-Algorithmus durch
 \end{tabular}
 \rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&z&1\\
 \hline
 1&0&-\frac12&3\\
 0&1&-2&-1\\
@@ -56,6 +66,8 @@ Lösung. Diese findet man, indem man den Gauss-Algorithmus zu Ende führt:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
+x&y&z&1\\
+\hline
 1&0&-\frac12&3\\
 0&1&-2&-1\\
 0&0&1+2a&a\\
@@ -65,6 +77,8 @@ Lösung. Diese findet man, indem man den Gauss-Algorithmus zu Ende führt:
 \rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
+x&y&z&1\\
+\hline
 1&0&0&3+\frac{a}{2+4a}\\
 0&1&0&-1+\frac{2a}{1+2a}\\
 0&0&1&\frac{a}{1+2a}\\
@@ -72,6 +86,8 @@ Lösung. Diese findet man, indem man den Gauss-Algorithmus zu Ende führt:
 \end{tabular}
 =
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&z&1\\
 \hline
 1&0&0&\frac{6+13a}{2(1+2a)}\\
 0&1&0&\frac{-1}{1+2a}\\
@@ -90,6 +106,8 @@ Die Lösung ist also
 Setzt man $a=-\frac12$ in das Gauss-Tableau ein, bekommt man
 \[
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x&y&z&1\\
 \hline
 1&0&-\frac12&3\\
 0&1&-2&-1\\

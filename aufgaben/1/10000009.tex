@@ -19,6 +19,13 @@ Sind die Zeilen der folgenden Matrizen linear abhängig?
 \end{teilaufgaben}
 Bestimmen Sie in beiden Fällen auch den Rang.
 
+\begin{hinweis}
+\begin{teilaufgaben}
+\item Gauss-Calculator: \gaussurl{gausscalc:10000009a}
+\item Gauss-Calculator: \gaussurl{gausscalc:10000009b}
+\end{teilaufgaben}
+\end{hinweis}
+
 \thema{Rang}
 \thema{Gauss-Algorithmus}
 \themaL{lineare Abhangigkeit}{lineare Abhängigkeit}
@@ -30,6 +37,8 @@ Der Gaussalgorithmus liefert in beiden Fällen die Lösung
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
+\lambda_1&\lambda_2&\lambda_3\\
+\hline
 1&1&2\\
 3&4&6\\
 -2&2&1\\
@@ -37,6 +46,8 @@ Der Gaussalgorithmus liefert in beiden Fällen die Lösung
 \end{tabular}
 &\rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+\lambda_1&\lambda_2&\lambda_3\\
 \hline
 1&1&2\\
 0&1&0\\
@@ -47,6 +58,8 @@ Der Gaussalgorithmus liefert in beiden Fällen die Lösung
 &\rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
+\lambda_1&\lambda_2&\lambda_3\\
+\hline
 1&1&2\\
 0&1&0\\
 0&0&5\\
@@ -55,6 +68,8 @@ Der Gaussalgorithmus liefert in beiden Fällen die Lösung
 \\
 &\rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+\lambda_1&\lambda_2&\lambda_3\\
 \hline
 1&1&2\\
 0&1&0\\
@@ -67,6 +82,8 @@ Der Rang ist also $3$, die Zeilen sind linear unabhängig.
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
+\lambda_1&\lambda_2&\lambda_3&1\\
+\hline
 1&2&1&1\\
 3&7&6&5\\
 -2&-1&7&4\\
@@ -74,6 +91,8 @@ Der Rang ist also $3$, die Zeilen sind linear unabhängig.
 \end{tabular}
 &\rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+\lambda_1&\lambda_2&\lambda_3&1\\
 \hline
 1&2&1&1\\
 0&1&3&2\\
@@ -83,6 +102,8 @@ Der Rang ist also $3$, die Zeilen sind linear unabhängig.
 \\
 &\rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+\lambda_1&\lambda_2&\lambda_3&1\\
 \hline
 1&2&1&1\\
 0&1&3&2\\
