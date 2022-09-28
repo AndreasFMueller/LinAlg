@@ -21,8 +21,69 @@ Gauss-Calculator: \gaussurl{gausscalc:10000016}
 Die dritte Gleichung ist ein Sechstel der Summe der ersten und der
 zweiten Gleichung, somit ist das System singulär, und hat unendlich
 viele Lösungen. Um sie zu finden, kann man zum Beispiel den Gauss-Algorithmus
-anwenden. Dazu ist es vorteilhaft, die letzte Zeile an die erste
-Position zu nehmen:
+anwenden.
+\bgroup
+\renewcommand{\arraystretch}{1.2}
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+a&b&c&1\\
+\hline
+4&3&2&6\\
+2&3&4&0\\
+1&1&1&1\\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+a&b&c&1\\
+\hline
+1&\frac34&\frac12&\frac32\\
+0&\frac32&3&-3\\
+0&\frac14&\frac12&-\frac12\\
+\hline
+\end{tabular}
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+a&b&c&1\\
+\hline
+1&\frac34&\frac12&\frac32\\
+0&      1&      2&     -2\\
+0&      0&      0&      0\\
+\hline
+\end{tabular}
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+a&b&c&1\\
+\hline
+1& 0&-1& 3\\
+0& 1& 2&-2\\
+0& 0& 0& 0\\
+\hline
+\end{tabular}
+\end{align*}
+\egroup
+Man kann also die Unbekannte $c$ frei wählen, und damit die Unbekannten
+$a$ und $b$ ausdrücken:
+\[
+a=3+c,\qquad b=-2-2c
+\]
+oder als Parameterdarstellung einer Geraden:
+\[
+\mathbb L =\left\{\left.
+\begin{pmatrix}
+3\\-2\\0
+\end{pmatrix}
++c\begin{pmatrix}
+1\\-2\\1
+\end{pmatrix}\right | c\in \mathbb R
+\right\}
+\]
+Die Handrechnung kann etwas vereinfacht werden, wenn man die letzte Zeile
+an die erste Position nimmt:
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -39,52 +100,31 @@ a&b&c&1\\
 \hline
 a&b&c&1\\
 \hline
-1&1&1&1\\
-0&$-1$&$-2$&2\\
-0&1&2&$-2$\\
+1& 1& 1& 1\\
+0&-1&-2& 2\\
+0& 1& 2&-2\\
 \hline
 \end{tabular}
-\\
-&
 \rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
 a&b&c&1\\
 \hline
-1&1&1&1\\
-0&1&2&$-2$\\
-0&0&0&0\\
+1&1&1& 1\\
+0&1&2&-2\\
+0&0&0& 0\\
 \hline
 \end{tabular}
-\\
-&
 \rightarrow
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
 a&b&c&1\\
 \hline
-1&0&$-1$&3\\
-0&1&2&$-2$\\
-0&0&0&0\\
+1&0&-1& 3\\
+0&1& 2&-2\\
+0&0& 0& 0\\
 \hline
 \end{tabular}
 \end{align*}
-Man kann also die Unbekannte $c$ frei wählen, und damit die Unbekannten
-$a$ und $b$ ausdrücken:
-\[
-a=3+c,\qquad b=-2-2c
-\]
-oder als Parameterdarstellung einer Geraden:
-\[
-\mathbb L =\left\{\left.
-\begin{pmatrix}
-3\\-2\\0
-\end{pmatrix}
-+c\begin{pmatrix}
-1\\-2\\1
-\end{pmatrix}\right | c\in \mathbb R
-\right\}
-\qedhere
-\]
 \end{loesung}
 
