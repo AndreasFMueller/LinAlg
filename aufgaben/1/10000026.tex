@@ -1,6 +1,38 @@
 Finden Sie für das Netzwerk
 \begin{center}
-\includeagraphics[width=0.3\hsize]{10000026-1.pdf}
+\begin{tikzpicture}[>=latex,thick]
+\def\r{0.3}
+\def\l{1.5}
+\def\w{1.5pt}
+\coordinate (A1) at (-\l,\l);
+\coordinate (A2) at (\l,\l);
+\coordinate (A3) at (-\l,-\l);
+\coordinate (A4) at (\l,-\l);
+\node at ($0.5*(A1)+0.5*(A2)$) [above] {$\scriptstyle 1\mathstrut$};
+\node at ($0.5*(A3)+0.5*(A4)$) [below] {$\scriptstyle 6\mathstrut$};
+\node at ($0.5*(A1)+0.5*(A3)$) [left] {$\scriptstyle 2\mathstrut$};
+\node at ($0.5*(A2)+0.5*(A4)$) [right] {$\scriptstyle 5\mathstrut$};
+\node at ($0.65*(A1)+0.35*(A4)+(-0.2,0)$)
+	[above right] {$\scriptstyle 3\mathstrut$};
+\node at ($0.65*(A2)+0.35*(A3)+(0.2,0)$)
+	[above left] {$\scriptstyle 4\mathstrut$};
+\draw[line width=\w] (A1) -- (A4);
+\draw[color=white,line width=8pt] (A2) -- (A3);
+\draw[line width=\w] (A1) -- (A2);
+\draw[line width=\w] (A1) -- (A3);
+\draw[line width=\w] (A2) -- (A3);
+\draw[line width=\w] (A2) -- (A4);
+\draw[line width=\w] (A3) -- (A4);
+\def\knoten#1#2{
+	\fill[color=white] #1 circle[radius=\r];
+	\draw[line width=\w] #1 circle[radius=\r];
+	\node at #1 {$#2\mathstrut$};
+}
+\knoten{(A1)}{1}
+\knoten{(A2)}{2}
+\knoten{(A3)}{3}
+\knoten{(A4)}{4}
+\end{tikzpicture}
 \end{center}
 eine minimale Menge von Zyklen.
 
@@ -16,16 +48,18 @@ Die Matrix $\partial$ dieses Netzwerkes ist
 \[
 \partial
 =
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 -1&-1&-1& 0& 0& 0\\
  1& 0& 0&-1&-1& 0\\
  0& 1& 0& 1& 0&-1\\
  0& 0& 1& 0& 1& 1
-\end{pmatrix}.
+\end{pmatrix*}.
 \]
 Wendet man auf $\partial$ den Gaussalgorithmus an, findet man
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+x_1&x_2&x_3&x_4&x_5&x_6\\
 \hline
 -1&-1&-1& 0& 0& 0\\
  1& 0& 0&-1&-1& 0\\
@@ -34,9 +68,11 @@ Wendet man auf $\partial$ den Gaussalgorithmus an, findet man
 \hline
 \end{tabular}
 &\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
 \hline
- 1& 1& 1& 0& 0& 0\\
+x_1&x_2&x_3&x_4&x_5&x_6\\
+\hline
+\phantom{-}1& 1& 1& 0& 0& 0\\
  0&-1&-1&-1&-1& 0\\
  0& 1& 0& 1& 0&-1\\
  0& 0& 1& 0& 1& 1\\
@@ -44,9 +80,11 @@ Wendet man auf $\partial$ den Gaussalgorithmus an, findet man
 \end{tabular}
 \\
 &\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
 \hline
- 1& 1& 1& 0& 0& 0\\
+x_1&x_2&x_3&x_4&x_5&x_6\\
+\hline
+\phantom{-}1&\phantom{-}1& 1&\phantom{-}0& 0& 0\\
  0& 1& 1& 1& 1& 0\\
  0& 0&-1& 0&-1&-1\\
  0& 0& 1& 0& 1& 1\\
@@ -54,9 +92,11 @@ Wendet man auf $\partial$ den Gaussalgorithmus an, findet man
 \end{tabular}
 \\
 &\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
 \hline
- 1& 1& 1& 0& 0& 0\\
+x_1&x_2&x_3&x_4&x_5&x_6\\
+\hline
+\phantom{-}1&\phantom{-} 1&\phantom{-} 1&\phantom{-} 0&\phantom{-} 0&\phantom{-} 0\\
  0& 1& 1& 1& 1& 0\\
  0& 0& 1& 0& 1& 1\\
  0& 0& 0& 0& 0& 0\\
@@ -64,9 +104,11 @@ Wendet man auf $\partial$ den Gaussalgorithmus an, findet man
 \end{tabular}
 \\
 &\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
 \hline
- 1& 1& 0& 0&-1&-1\\
+x_1&x_2&x_3&x_4&x_5&x_6\\
+\hline
+\phantom{-} 1&\phantom{-} 1&\phantom{-} 0&\phantom{-} 0&-1&-1\\
  0& 1& 0& 1& 0&-1\\
  0& 0& 1& 0& 1& 1\\
  0& 0& 0& 0& 0& 0\\
@@ -74,11 +116,11 @@ Wendet man auf $\partial$ den Gaussalgorithmus an, findet man
 \end{tabular}
 \\
 &\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
 \hline
 x_1&x_2&x_3&x_4&x_5&x_6\\
 \hline
- 1& 0& 0&-1&-1& 0\\
+\phantom{-} 1&\phantom{-} 0&\phantom{-} 0&-1&-1& 0\\
  0& 1& 0& 1& 0&-1\\
  0& 0& 1& 0& 1& 1\\
  0& 0& 0& 0& 0& 0\\
@@ -94,37 +136,107 @@ Daraus liest man ab, dass drei Zyklen gebildet werden, die dadurch
 bestimmt sind, ob man die Kanten 4, 5 oder 6 im Zyklus drin haben will
 oder nicht. Die drei Zyklen haben die Kantenvektoren
 \[
-z_1=\begin{pmatrix}
+z_1=\begin{pmatrix*}[r]
  1\\
 -1\\
  0\\
 \color{greenT} 1\\
 \color{greenT} 0\\
 \color{greenT} 0\\
-\end{pmatrix},\quad
-z_2=\begin{pmatrix}
+\end{pmatrix*},\quad
+z_2=\begin{pmatrix*}[r]
  1\\
  0\\
 -1\\
 \color{greenT} 0\\
 \color{greenT} 1\\
 \color{greenT} 0
-\end{pmatrix},\quad
-z_3= \begin{pmatrix}
+\end{pmatrix*},\quad
+z_3= \begin{pmatrix*}[r]
  0\\
  1\\
 -1\\
 \color{greenT} 0\\
 \color{greenT} 0\\
 \color{greenT} 1
-\end{pmatrix}
+\end{pmatrix*}
 \]
 Die folgende Abbildung zeigt die drei Zyklen:
 \begin{center}
-\begin{tabular}{ccc}
-\includeagraphics[width=0.2\hsize]{10000026-2.pdf}&
-\includeagraphics[width=0.2\hsize]{10000026-3.pdf}&
-\includeagraphics[width=0.2\hsize]{10000026-4.pdf}
-\end{tabular}
+\begin{tikzpicture}[>=latex,thick]
+\def\r{0.3}
+\def\l{1.5}
+\def\knoten#1#2{
+	\fill[color=white] #1 circle[radius=\r];
+	\draw[line width=1pt] #1 circle[radius=\r];
+	\node at #1 {$#2\mathstrut$};
+}
+\def\alleknoten{
+	\knoten{(A1)}{1}
+	\knoten{(A2)}{2}
+	\knoten{(A3)}{3}
+	\knoten{(A4)}{4}
+}
+\def\kantenlabels{
+	\node at ($0.5*(A1)+0.5*(A2)$) [above] {$\scriptstyle 1\mathstrut$};
+	\node at ($0.5*(A3)+0.5*(A4)$) [below] {$\scriptstyle 6\mathstrut$};
+	\node at ($0.5*(A1)+0.5*(A3)$) [left] {$\scriptstyle 2\mathstrut$};
+	\node at ($0.5*(A2)+0.5*(A4)$) [right] {$\scriptstyle 5\mathstrut$};
+	\node at ($0.65*(A1)+0.35*(A4)+(-0.2,0)$)
+		[above right] {$\scriptstyle 3\mathstrut$};
+	\node at ($0.65*(A2)+0.35*(A3)+(0.2,0)$)
+		[above left] {$\scriptstyle 4\mathstrut$};
+}
+\def\w{1.5pt}
+
+\begin{scope}[xshift=-5cm]
+\coordinate (A1) at (-\l,\l);
+\coordinate (A2) at (\l,\l);
+\coordinate (A3) at (-\l,-\l);
+\coordinate (A4) at (\l,-\l);
+\draw[line width=\w] (A1) -- (A4);
+\draw[color=white,line width=8pt] (A2) -- (A3);
+\draw[color=red,line width=\w] (A1) -- (A2);
+\draw[color=red,line width=\w] (A1) -- (A3);
+\draw[color=red,line width=\w] (A2) -- (A3);
+\draw[line width=\w] (A2) -- (A4);
+\draw[line width=\w] (A3) -- (A4);
+\kantenlabels
+\alleknoten
+\end{scope}
+
+\begin{scope}[xshift=0cm]
+\coordinate (A1) at (-\l,\l);
+\coordinate (A2) at (\l,\l);
+\coordinate (A3) at (-\l,-\l);
+\coordinate (A4) at (\l,-\l);
+\draw[color=red,line width=\w] (A1) -- (A4);
+\draw[color=white,line width=8pt] (A2) -- (A3);
+\draw[color=red,line width=\w] (A1) -- (A2);
+\draw[line width=\w] (A1) -- (A3);
+\draw[line width=\w] (A2) -- (A3);
+\draw[color=red,line width=\w] (A2) -- (A4);
+\draw[line width=\w] (A3) -- (A4);
+\kantenlabels
+\alleknoten
+\end{scope}
+
+\begin{scope}[xshift=5cm]
+\coordinate (A1) at (-\l,\l);
+\coordinate (A2) at (\l,\l);
+\coordinate (A3) at (-\l,-\l);
+\coordinate (A4) at (\l,-\l);
+\draw[color=red,line width=\w] (A1) -- (A4);
+\draw[color=white,line width=8pt] (A2) -- (A3);
+\draw[line width=\w] (A1) -- (A2);
+\draw[color=red,line width=\w] (A1) -- (A3);
+\draw[line width=\w] (A2) -- (A3);
+\draw[line width=\w] (A2) -- (A4);
+\draw[color=red,line width=\w] (A3) -- (A4);
+\kantenlabels
+\alleknoten
+\end{scope}
+
+\end{tikzpicture}
 \end{center}
 \end{loesung}
