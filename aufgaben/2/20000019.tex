@@ -1,9 +1,10 @@
 Gegeben ist das Gleichungssystem
 \[
-\begin{linsys}{3}
+\renewcommand\arraycolsep{2pt}
+\begin{array}{rcrcl}
  x&-&t y&=&t\\
 tx&+&  y&=&t^2.
-\end{linsys}
+\end{array}
 \]
 \begin{teilaufgaben}
 \item Für welche Werte von $t$ ist die Matrix dieses Gleichungssystems
@@ -22,7 +23,7 @@ eine Formel für $x$ und $y$ in Abhängigkeit von $t$ anzugeben.
 Die Determinante der Koeffizientenmatrix gibt darüber Auskunft, ob die
 Matrix regulär ist. Sie ist
 \begin{align*}
-\left|\,\begin{matrix}1&-t\\t&1\end{matrix}\,\right|
+\left|\,\begin{matrix*}[r]1&-t\\t&1\end{matrix*}\,\right|
 &=1\cdot 1-(-t)\cdot t=1+t^2.
 \end{align*}
 Da $1+t^2>0$ für alle $t\in\mathbb R$ ist die Matrix immer regulär und
@@ -34,11 +35,11 @@ und andererseits die Determinanten von Matrizen, die daraus durch Ersetzen
 einer Spalte entstehen:
 \begin{align*}
 &\text{1.~Spalte ersetzt:}&
-\left|\,\begin{matrix}t&-t\\t^2&1\end{matrix}\,\right|
+\left|\,\begin{matrix*}[l]t&-t\\t^2&\phantom{-}1\end{matrix*}\,\right|
 &=t+t^3
 \\
 &\text{2.~Spalte ersetzt:}&
-\left|\,\begin{matrix}1&t\\t&t^2\end{matrix}\,\right|
+\left|\,\begin{matrix*}[l]1&t\\t&t^2\end{matrix*}\,\right|
 &=t^2-t^2=0
 \end{align*}
 Daraus kann man mit Hilfe der Cramerschen Formel die Lösung des

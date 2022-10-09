@@ -5,13 +5,13 @@ A
 \begin{pmatrix}1&2\\3&4\end{pmatrix}.
 \]
 \begin{teilaufgaben}
-\item Berechnen Sie $B=A^tA$.
-\item In a) hat sich herausgestellt, dass $B^t=B$ gilt.
+\item Berechnen Sie $B=\transpose{A}A$.
+\item In a) hat sich herausgestellt, dass $\transpose{B}=B$ gilt.
 Warum gilt das für jede beliebige Ausgangsmatrix $A$?
 \item
 Berechnen Sie $AB$.
 \item
-Finden Sie $BA^t$, ohne erneut ein Matrizenprodukt auszurechnen.
+Finden Sie $B(\transpose{A})$, ohne erneut ein Matrizenprodukt auszurechnen.
 \end{teilaufgaben}
 
 \thema{Matrizenprodukt}
@@ -20,7 +20,7 @@ Finden Sie $BA^t$, ohne erneut ein Matrizenprodukt auszurechnen.
 \begin{teilaufgaben}
 \item $B$ ist Die Matrix
 \[
-B=A^tA=
+B=\transpose{A}A=
 \begin{pmatrix}1&3\\2&4\end{pmatrix}
 \begin{pmatrix}1&2\\3&4\end{pmatrix}
 =
@@ -31,13 +31,13 @@ B=A^tA=
 \]
 \item Die Formel für die Transposition eines Produktes ergibt
 \[
-B^t
+\transpose{B}
 =
-(A^tA)^t
+\transpose{(\transpose{A}A)}
 =
-A^t(A^t)^t
+\transpose{A}\transpose{(\transpose{A})}
 =
-A^tA
+\transpose{A}A
 =
 B.
 \]
@@ -60,18 +60,20 @@ AB
 \item
 Die Formel für die Transposition eines Produktes liefert
 \[
-(AB)^t = B^tA^t=BA^t,
+\transpose{(AB)} = \transpose{B}\transpose{A}=B\transpose{A},
 \]
 gefragt ist also nach der Transponierten der Matrix, die in c) berechnet
 worden war.
 Also ist
 \[
-BA^t
+B(\transpose{A})
 = 
+\transpose{
 \begin{pmatrix}
 38& 54\\
 86&122
-\end{pmatrix}^t
+\end{pmatrix}
+}
 =
 \begin{pmatrix}
 38& 86\\

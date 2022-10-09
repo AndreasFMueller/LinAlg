@@ -7,11 +7,11 @@ Ist $R$ die $k\times k$-Matrix, die auf der Diagonalen die Widerstände der
 einzelnen Kanten enthält, dann sind die Maschengleichungen für den
 $k$-Vektor der Ströme 
 \[
-Z^tRI=Z^te,
+Z^tRJ=Z^te,
 \]
 darin sind $e$ die Spannungsquellen.
-Die Knotengleichungen werden zu $\partial I=0$, wobei zu beachten ist,
-dass $\partial$ den Rang $k-1$ hat, eine der Gleichungen in $\partial I=0$ 
+Die Knotengleichungen werden zu $\partial J=0$, wobei zu beachten ist,
+dass $\partial$ den Rang $k-1$ hat, eine der Gleichungen in $\partial J=0$ 
 ist also redundant.
 
 In einer früheren Aufgaben wurden die Zyklen in einem Tetraeder berechnet.
@@ -95,16 +95,16 @@ Damit kann man jetzt die Maschengleichungen aufstellen. Da $R=R_0E$ ist,
 wobei $R_0$ der für alle Kanten gleiche Widerstand einer Kante ist,
 erhält man:
 \[
-Z^tR_0EI=R_0Z^tI=Z^te
+Z^tR_0IJ=R_0Z^tJ=Z^te
 \]
 Die einzige Spannungsquelle ist die in der Kante $x_7$, der Vektor
 ist $e$ ist also der Standardbasisvektor $e_7$. Dann ist aber
 $Z^te=Z^te_7$ die letzte Spalte von $Z^t$, also der $4$-dimensionale
 Standardbasisvektor $e_4$. Die Maschengleichungen sind damit:
 \[
-R_0Z^tI=e_4.
+R_0Z^tJ=e_4.
 \]
-Dazu kommen noch die Knotengleichungen $\partial I=0$, wobei wir die letzte
+Dazu kommen noch die Knotengleichungen $\partial J=0$, wobei wir die letzte
 Gleichung weglassen können. Setzen wir zudem $R_0=1$, dann hat das
 gesamte Gleichungssystem die Koeffizientenmatrix
 \[
@@ -136,7 +136,7 @@ und die rechte Seite $e_4$. Die Lösung dieses Gleichungssystems liefert die
 Ströme, wir interessieren uns aber nur für den Strom durch die
 Kante $x_7$. Die numerische Lösung liefert
 \[
-I=\begin{pmatrix}
+J=\begin{pmatrix}
           -0.33333\\
           -0.16667\\
           -0.16667\\

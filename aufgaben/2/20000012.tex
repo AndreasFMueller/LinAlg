@@ -10,7 +10,7 @@ Eine solche Matrix heisst Blockmatrix.
 \begin{teilaufgaben}
 \item
 Zeigen Sie:
-Ist $B=E$ die $m\times m$-Einheitsmatrix, dann ist $\det(M)=\det(A)$.
+Ist $B=I$ die $m\times m$-Einheitsmatrix, dann ist $\det(M)=\det(A)$.
 \item
 Zeigen Sie:
 $\det(M)=\det(A)\det(B)$.
@@ -22,28 +22,28 @@ $\det(M)=\det(A)\det(B)$.
 
 \begin{loesung}
 \begin{teilaufgaben}
-\item Wir bezeichnen (temporär) mit $E_k$ die $k\times k$-Einheitsmatrix,
+\item Wir bezeichnen (temporär) mit $I_k$ die $k\times k$-Einheitsmatrix,
 und berechnen die Determinante mit Hilfe des Entwicklungssatzes nach der
 letzten Spalte:
 \[
 \left|\,
 \begin{matrix}
 A&0\\
-0&E_m
+0&I_m
 \end{matrix}
 \,\right|
 =0\cdot +\dots+(-1)^{2m+2n}1\cdot
 \left|\,
 \begin{matrix}
 A&0\\
-0&E_{m-1}
+0&I_{m-1}
 \end{matrix}
 \,\right|
 =
 \left|\,
 \begin{matrix}
 A&0\\
-0&E_{m-2}
+0&I_{m-2}
 \end{matrix}
 \,\right|
 =\dots=
@@ -60,16 +60,16 @@ A&0\\
 \end{pmatrix}
 =
 \begin{pmatrix}
-AE&0\\
-0&EB
+AI&0\\
+0&IB
 \end{pmatrix}
 =
 \begin{pmatrix}
 A&0\\
-0&E
+0&I
 \end{pmatrix}
 \begin{pmatrix}
-E&0\\
+I&0\\
 0&B
 \end{pmatrix}
 \]
@@ -79,11 +79,11 @@ Nach der Produktformel für die Determinante gilt jetzt
 \det
 \begin{pmatrix}
 A&0\\
-0&E
+0&I
 \end{pmatrix}
 \det
 \begin{pmatrix}
-E&0\\
+I&0\\
 0&B
 \end{pmatrix}
 =\det(A)\det(B),
