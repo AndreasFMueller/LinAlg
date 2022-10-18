@@ -1,29 +1,29 @@
 Finden Sie die Transformationsmatrix $T$, welche Koordinaten in der Basis
 \[
 B=\left\{
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 2\\0\\1\\2
-\end{pmatrix},\;
-\begin{pmatrix}
+\end{pmatrix*},\;
+\begin{pmatrix*}[r]
 -4\\-1\\5\\4
-\end{pmatrix},\;
-\begin{pmatrix}
+\end{pmatrix*},\;
+\begin{pmatrix*}[r]
 -3\\1\\0\\5
-\end{pmatrix}
+\end{pmatrix*}
 \right\}
 \]
 in Koordinaten in der Basis
 \[
 C=\left\{
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 -4\\-1\\5\\4
-\end{pmatrix},\;
-\begin{pmatrix}
+\end{pmatrix*},\;
+\begin{pmatrix*}[r]
 -5\\0\\6\\11
-\end{pmatrix},\;
-\begin{pmatrix}
+\end{pmatrix*},\;
+\begin{pmatrix*}[r]
 6\\1\\-4\\-2
-\end{pmatrix}
+\end{pmatrix*}
 \right\}
 \]
 umrechnet.
@@ -31,12 +31,17 @@ Bestimmen Sie ausserdem die Koordinaten $x_i$ des Vektors
 \[
 v
 =
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 3\\2\\-4\\3
-\end{pmatrix}
+\end{pmatrix*}
 \]
 in der Basis $B$ und rechnen Sie sie mit der Transformationsmatrix um in
 Koordinaten in der Basis $C$. Kontrollieren Sie Ihr Resultat.
+
+\begin{hinweis}
+\gaussurl{gausscalc:30000015-1},
+\gaussurl{gausscalc:30000015-2}
+\end{hinweis}
 
 \thema{Basis}
 \thema{Basistransformation}
@@ -45,7 +50,7 @@ Koordinaten in der Basis $C$. Kontrollieren Sie Ihr Resultat.
 Die Transformationsmatrix kann mit Hilfe des Gaussalgorithmus gefunden
 werden:
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
 \hline
    -4 & -5 &  6 &  2 & -4 & -3 \\
    -1 &  0 &  1 &  0 & -1 &  1 \\
@@ -54,7 +59,7 @@ werden:
 \hline
 \end{tabular}
 &\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
 \hline
    1 & 0 & 0 & 1 & 1 &-2 \\
    0 & 1 & 0 & 0 & 0 & 1 \\
@@ -68,16 +73,16 @@ Daraus kann man ablesen, dass die Transformationsmatrix
 \[
 T
 =
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 1&1&-2\\
 0&0& 1\\
 1&0&-1
-\end{pmatrix}
+\end{pmatrix*}
 \]
 ist. Der Vektor $v$ kann tatsächlich in der Basis $B$ ausgedrückt werden,
 dazu löst man das Gleichungssystem
 \begin{align*}
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
 \hline
     2 & -4 & -3 &  3 \\
     0 & -1 &  1 &  2 \\
@@ -86,7 +91,7 @@ dazu löst man das Gleichungssystem
 \hline
 \end{tabular}
 &\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
 \hline
    1 & 0 & 0 & 1\\
    0 & 1 & 0 &-1\\
@@ -101,44 +106,44 @@ die Koordinaten von $v$ in der Basis $B$ sind
 \[
 x
 =
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 1\\-1\\1
-\end{pmatrix}.
+\end{pmatrix*}.
 \]
 Mit der Matrix $T$ erhält man daraus die Koordinaten
 \[
 y=T x=
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 1&1&-2\\
 0&0& 1\\
 1&0&-1
-\end{pmatrix}
-\begin{pmatrix}
+\end{pmatrix*}
+\begin{pmatrix*}[r]
 1\\-1\\1
-\end{pmatrix}
+\end{pmatrix*}
 =
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 -2\\1\\0
-\end{pmatrix}.
+\end{pmatrix*}.
 \]
 Zur Kontrolle kann man mit den eben gefundenen Koordinaten $y$ den
 zugehörigen Vektor in $\mathbb R^4$ nachrechnen, es sollte sich $v$
 ergeben. Die Rechnung ergibt
 \[
 C y=
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 -4&-5& 6\\
 -1& 0& 1\\
  5& 6&-4\\
  4&11&-2
-\end{pmatrix}
-\begin{pmatrix}
+\end{pmatrix*}
+\begin{pmatrix*}[r]
 -2\\1\\0
-\end{pmatrix}
+\end{pmatrix*}
 =
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 3\\2\\-4\\3
-\end{pmatrix}.
+\end{pmatrix*}.
 \qedhere
 \]
 \end{loesung}
