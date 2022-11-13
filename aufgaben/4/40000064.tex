@@ -99,10 +99,10 @@ In Matrixform ist dies das Gleichungssystem
 }_{\displaystyle b}.
 \]
 Um die Unbekannten $g$, $v_0$ und $h_0$ zu bestimmen, muss das
-Gleichungssystem $A^tAx=A^tb$ gelöst werden.
+Gleichungssystem $\transpose{A}Ax=\transpose{A}b$ gelöst werden.
 Die Matrizenprodukte sind
 \[
-A^tA
+\transpose{A}A
 =
 \begin{pmatrix}
 5 & 0.5 & -0.0375\\
@@ -110,7 +110,7 @@ A^tA
 -0.0375 & -0.00625 & 5.53125\cdot 10^{-4}
 \end{pmatrix},
 \qquad
-A^tb
+\transpose{A}b
 =
 \begin{pmatrix}
 4.9265\\
@@ -121,7 +121,7 @@ A^tb
 \item
 Die Lösung dieses Gleichungssystems mit dem Taschenrechner liefert
 \[
-  x = (A^tA)^{-1}A^tb = 
+  x = (\transpose{A}A)^{-1}\transpose{A}b = 
   \begin{pmatrix}
     1.4\\
     -3.42\\
@@ -137,7 +137,7 @@ Folglich ist die beste Schätzung für die
 Least-Squares Gleichungen \eqref{40000064:gl} ({\bf G}) 1 Punkt,
 Matrix $A$ ({\bf A}) 1 Punkt,
 Vektor $b$ ({\bf B}) 1 Punkt,
-Matrix $A^tA$ ({\bf L}) 1 Punkt,
-Vektor $A^tb$ ({\bf R}) 1 Punkt,
+Matrix $\transpose{A}A$ ({\bf L}) 1 Punkt,
+Vektor $\transpose{A}b$ ({\bf R}) 1 Punkt,
 Lösungsvektor $x$ und Wert $g$ ({\bf X}) 1 Punkt,
 \end{bewertung}

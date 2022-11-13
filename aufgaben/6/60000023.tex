@@ -64,7 +64,7 @@ Das überbestimmte Gleichungssystem kann mit der bekannten Methode auf
 ein $2\times 2$-Gleichungssystem reduziert werden.
 Die Matrix ist
 \begin{align*}
-A^tA
+\transpose{A}A
 &=
 \begin{pmatrix}
 1&1&\dots&1\\
@@ -82,7 +82,7 @@ n&\displaystyle \sum_{k=1}^n t_k\\
 \displaystyle \sum_{k=1}^n t_k&\displaystyle \sum_{k=1}^n t_k^2
 \end{pmatrix}
 \intertext{und die rechte Seite}
-A^tb
+\transpose{A}b
 &=
 \begin{pmatrix}
 1&1&\dots&1\\
@@ -99,7 +99,7 @@ Ein solches Gleichungssystem kann mit der Cramerschen Formel sofort gelöst
 werden.
 Der gemeinsame Nenner ist
 \[
-\det(A^tA)
+\det(\transpose{A}A)
 =
 n\sum_{k=1}^n t_k^2 - \biggl(\sum_{k=1}^n t_k\biggr)^2.
 \]
@@ -137,7 +137,7 @@ Least Squares ({\bf LS}) 1 Punkt,
 Datengleichungen $N_i = N_0e^{\lambda t_i}$ ({\bf D}) 1 Punkt,
 Logarthmierte Gleichungen ({\bf L}) 1 Punkt,
 Gleichungssystem für $\log N_0$ und $\lambda$ ({\bf G}) 1 Punkt,
-Lösungsprinzip Least Squares $A^tAx=A^tb$ ({\bf P}) 1 Punkt,
+Lösungsprinzip Least Squares $\transpose{A}Ax=\transpose{A}b$ ({\bf P}) 1 Punkt,
 $2\times 2$-Gleichungssystem ({\bf G2}) 1 Punkt.
 \end{bewertung}
 
