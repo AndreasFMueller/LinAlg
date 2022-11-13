@@ -1,7 +1,7 @@
 In der Vorlesung wurde gezeigt, dass die Spiegelung an einer Ebene
 mit der Normalen $\vec n$ mit $|\vec n|=1$ durch die Matrix
 \[
-S=E-2\vec n \transpose{\vec{n}}
+S=I-2\vec n \transpose{\vec{n}}
 \]
 gegeben ist.
 \begin{teilaufgaben}
@@ -20,18 +20,18 @@ Wir müssen $S^2$ berechnen:
 \begin{align*}
 S^2
 &=
-(E-2\vec{n}\transpose{\vec{n}}) (E-2\vec{n}\transpose{\vec{n}})
+(I-2\vec{n}\transpose{\vec{n}}) (I-2\vec{n}\transpose{\vec{n}})
 =
-E
+I
 -
 4\vec{n}\transpose{\vec{n}}
 +
 4\vec{n}\underbrace{\transpose{\vec{n}}\vec{n}}_{\displaystyle=1}
 \transpose{\vec{n}}
 =
-E-4\vec{n}\transpose{\vec{n}} +4\vec{n} \transpose{\vec{n}}
+I-4\vec{n}\transpose{\vec{n}} +4\vec{n} \transpose{\vec{n}}
 =
-E.
+I.
 \end{align*}
 \item
 Die Matrix ist symmetrisch, wenn $\transpose{S}=S$ ist.
@@ -39,19 +39,19 @@ Also
 \[
 \transpose{S}
 =
-\transpose{(E-2\vec{n}\transpose{\vec{n}})}
+\transpose{(I-2\vec{n}\transpose{\vec{n}})}
 =
-\transpose{E} - 2\transpose{(\transpose{\vec{n}})} \transpose{\vec{n}}
+\transpose{I} - 2\transpose{(\transpose{\vec{n}})} \transpose{\vec{n}}
 =
-E-2\vec{n}\transpose{\vec{n}}
+I-2\vec{n}\transpose{\vec{n}}
 =
 S.
 \]
 Die Matrix $S$ ist daher symmetrisch.
 \item
-Eine Matrix ist orthogonal, wenn $\transpose{A}A=E$ ist.
+Eine Matrix ist orthogonal, wenn $\transpose{A}A=I$ ist.
 Da $S$ symmetrisch ist, ist $\transpose{S}=S$ und damit
-$\transpose{S}S=SS=E$ nach a).
+$\transpose{S}S=SS=I$ nach a).
 \end{teilaufgaben}
 \end{loesung}
 
