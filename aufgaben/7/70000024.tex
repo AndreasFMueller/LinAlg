@@ -24,24 +24,24 @@ für die $|x|$ minimal ist.
 
 \begin{loesung}
 Mit der Pseudoinversen kann man die Lösung als $x=A^\dagger b$ finden.
-Dazu muss man zunächst die Eigenwertprobleme für $AA^t$ und $A^tA$
-lösen:
+Dazu muss man zunächst die Eigenwertprobleme für $A\transpose{A}$ und
+$\transpose{A}A$ lösen:
 \begin{align*}
-AA^t
+A\transpose{A}
 &=
 \begin{pmatrix}
  25        &-25\sqrt{3} \\
 -25\sqrt{3}& 75       
 \end{pmatrix}
 &
-A^tA
+\transpose{A}A
 &=
 \begin{pmatrix}
 50&50\\
 50&50
 \end{pmatrix}
 \\
-\chi_{AA^t}(\lambda)
+\chi_{A\transpose{A}}(\lambda)
 &=
 \biggl|
 \begin{matrix}
@@ -50,7 +50,7 @@ A^tA
 \end{matrix}
 \biggr|
 &
-\chi_{A^tA}(\lambda)
+\chi_{\transpose{A}A}(\lambda)
 &=
 \biggl|
 \begin{matrix}
@@ -185,7 +185,7 @@ Die Singulärwertzerlegung von $A$ ist daher
 \[
 A
 =
-U\Sigma V^t
+U\Sigma \transpose{V}
 \qquad\text{mit}\qquad
 U
 =
@@ -205,12 +205,12 @@ Die Pseudoinverse kann jetzt als Produkt
 \[
 A^\dagger
 =
-V\Sigma^\dagger U^t
+V\Sigma^\dagger \transpose{U}
 =
 V\begin{pmatrix}
 \frac{1}{10} & 0 \\
       0      & 0
-\end{pmatrix} U^t
+\end{pmatrix} \transpose{U}
 =
 \frac{1}{20\sqrt{2}}
 \begin{pmatrix}

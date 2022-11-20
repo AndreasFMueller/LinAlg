@@ -28,10 +28,11 @@ Verwenden sie die Singulärwertzerlegung.
 \begin{loesung}
 Alle Teilaufgaben können, gelöst werden, wenn die Singulärwert-Zerlegung 
 von $A$ bekannt ist.
-Diese kann man finden, indem man das Eigenwertproblem für $B=AA^t$ und $C=A^tA$
+Diese kann man finden, indem man das Eigenwertproblem für $B=A\transpose{A}$
+und $C=\transpose{A}A$
 löst:
 \[
-B=AA^t
+B=A\transpose{A}
 =
 \begin{pmatrix}
  2 & 0 & -2 \\
@@ -39,7 +40,7 @@ B=AA^t
 -2 & 0 &  2 
 \end{pmatrix},
 \qquad
-C=A^tA
+C=\transpose{A}A
 =
 \begin{pmatrix}
 4&0&0\\
@@ -235,7 +236,7 @@ Die Singulärwerte sind
 Damit ist die Singulärwertzerlegung gefunden, man kann durch Nachrechnen
 prüfen, dass
 \[
-A = U\Sigma V^t.
+A = U\Sigma \transpose{V}.
 \]
 \begin{teilaufgaben}
 \item
@@ -299,7 +300,7 @@ V\begin{pmatrix}
 0&\frac12&0\\
 0&0&0
 \end{pmatrix}
-U^t
+\transpose{U}
 =
 \begin{pmatrix}
 \frac{1}{2\sqrt{2}} &          0       & -\frac{1}{2\sqrt{2}} \\
