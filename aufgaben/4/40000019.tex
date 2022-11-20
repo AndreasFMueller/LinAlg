@@ -1,7 +1,7 @@
 In der Vorlesung wurde gezeigt, dass die Spiegelung an einer Ebene
 mit der Normalen $\vec n$ mit $|\vec n|=1$ durch die Matrix
 \[
-S=E-2\vec n\vec n^t
+S=I-2\vec n \transpose{\vec{n}}
 \]
 gegeben ist.
 \begin{teilaufgaben}
@@ -20,33 +20,38 @@ Wir müssen $S^2$ berechnen:
 \begin{align*}
 S^2
 &=
-(E-2\vec n\vec n^t) (E-2\vec n\vec n^t)
+(I-2\vec{n}\transpose{\vec{n}}) (I-2\vec{n}\transpose{\vec{n}})
 =
-E-4\vec n\vec n^t +4\vec n\underbrace{\vec n^t \vec  n}_{\displaystyle=1}\vec n^t
+I
+-
+4\vec{n}\transpose{\vec{n}}
++
+4\vec{n}\underbrace{\transpose{\vec{n}}\vec{n}}_{\displaystyle=1}
+\transpose{\vec{n}}
 =
-E-4\vec n\vec n^t +4\vec n \vec n^t
+I-4\vec{n}\transpose{\vec{n}} +4\vec{n} \transpose{\vec{n}}
 =
-E.
+I.
 \end{align*}
 \item
-Die Matrix ist symmetrisch, wenn $S^t=S$ ist.
+Die Matrix ist symmetrisch, wenn $\transpose{S}=S$ ist.
 Also
 \[
-S^t
+\transpose{S}
 =
-(E-2\vec n\vec n^t)^t
+\transpose{(I-2\vec{n}\transpose{\vec{n}})}
 =
-E^t - 2(\vec n^t)^t\vec n^t
+\transpose{I} - 2\transpose{(\transpose{\vec{n}})} \transpose{\vec{n}}
 =
-E-2\vec n\vec n^t
+I-2\vec{n}\transpose{\vec{n}}
 =
 S.
 \]
 Die Matrix $S$ ist daher symmetrisch.
 \item
-Eine Matrix ist orthogonal, wenn $A^tA=E$ ist.
-Da $S$ symmetrisch ist, ist $S^t=S$ und damit
-$S^tS=SS=E$ nach a).
+Eine Matrix ist orthogonal, wenn $\transpose{A}A=I$ ist.
+Da $S$ symmetrisch ist, ist $\transpose{S}=S$ und damit
+$\transpose{S}S=SS=I$ nach a).
 \end{teilaufgaben}
 \end{loesung}
 
