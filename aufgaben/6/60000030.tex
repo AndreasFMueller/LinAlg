@@ -8,7 +8,7 @@ P
 0&0
 \end{pmatrix}
 =
-\frac12E+\frac12S,
+\frac12I+\frac12S,
 \qquad
 S
 =
@@ -22,10 +22,10 @@ geschrieben werden kann.
 \item
 Rechnen Sie nach, dass $P$ eine Projektionsmatrix ist, d.~h.~$P^2=P$.
 \item
-Zeigen Sie, dass $S$ eine Spiegelungsmatrix der Form $S=E-2nn^t$ ist,
+Zeigen Sie, dass $S$ eine Spiegelungsmatrix der Form $S=I-2n\transpose{n}$ ist,
 finden Sie den Vektor $n$.
 \item
-Rechnen Sie nach, dass $S^2=E$ ist.
+Rechnen Sie nach, dass $S^2=I$ ist.
 \item 
 Rechnen Sie nach, dass $SD_{\omega t}=D_{-\omega t}S$.
 \item
@@ -86,7 +86,7 @@ Der Vektor
 \]
 ergibt die Spiegelungsmatrix
 \[
-E-2nn^t
+I-2n\transpose{n}
 =
 \begin{pmatrix}1&0\\0&1\end{pmatrix}
 -2\begin{pmatrix}0\\1\end{pmatrix}\begin{pmatrix}0&1\end{pmatrix}
@@ -109,7 +109,7 @@ S^2
 =
 \begin{pmatrix}1&0\\0&1\end{pmatrix}
 =
-E.
+I.
 \]
 \item 
 Wir müssen die Vertauschung von $S$ mit $D_{\omega t}$ bestimmen.
@@ -152,7 +152,7 @@ Wir berechnen
 \begin{align*}
 D_{-\omega t}PD_{\omega t}\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
 &=
-D_{-\omega t}\frac12(E+S)D_{\omega t}\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
+D_{-\omega t}\frac12(I+S)D_{\omega t}\begin{pmatrix}I(t)\\Q(t)\end{pmatrix}
 =
 \biggl(
 \frac12
