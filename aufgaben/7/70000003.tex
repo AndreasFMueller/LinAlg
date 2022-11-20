@@ -7,15 +7,15 @@ Das Gleichungssystem $Ax=b$ ist überbestimmt, es wurde früher
 gezeigt, dass die beste Lösung aus dem (nicht überbestimmten)
 Gleichungssystem
 \[
-A^tAx=A^tb
+\transpose{A}Ax=\transpose{A}b
 \]
 bestimmt werden kann.
 \begin{teilaufgaben}
-\item Bestimmen Sie $A^tA$ und $A^tb$.
-\item $A^tA$ ist eine symmetrische Matrix, finden Sie die
-Cholesky-Zerlegung $A^tA=LL^t$.
-\item Lösen Sie $Ly=A^tb$.
-\item Lösen Sie $L^tx=y$.
+\item Bestimmen Sie $\transpose{A}A$ und $\transpose{A}b$.
+\item $\transpose{A}A$ ist eine symmetrische Matrix, finden Sie die
+Cholesky-Zerlegung $\transpose{A}A=L\transpose{L}$.
+\item Lösen Sie $Ly=\transpose{A}b$.
+\item Lösen Sie $\transpose{L}x=y$.
 \end{teilaufgaben}
 
 \thema{Cholesky-Zerlegung}
@@ -24,7 +24,7 @@ Cholesky-Zerlegung $A^tA=LL^t$.
 \begin{teilaufgaben}
 \item
 \begin{align*}
-A^tA&=
+\transpose{A}A&=
 \begin{pmatrix}1&2&2\\2&1&1\end{pmatrix}
 \begin{pmatrix}1&2\\2&1\\2&1\end{pmatrix}
 =
@@ -33,7 +33,7 @@ A^tA&=
 6&6
 \end{pmatrix}
 \\
-A^tb&=
+\transpose{A}b&=
 \begin{pmatrix}1&2&2\\2&1&1\end{pmatrix}
 \begin{pmatrix}2\\2\\2\end{pmatrix}
 =
@@ -52,7 +52,9 @@ L=\begin{pmatrix}
 \]
 Aus der Gleichung
 \[
-LL^t=\begin{pmatrix}9&6\\6&1+?^2\end{pmatrix}=\begin{pmatrix}9&6\\6&6\end{pmatrix}
+L\transpose{L}
+=
+\begin{pmatrix}9&6\\6&1+?^2\end{pmatrix}=\begin{pmatrix}9&6\\6&6\end{pmatrix}
 \]
 schliesst man dann, dass $?=\sqrt{2}$, also
 \[
