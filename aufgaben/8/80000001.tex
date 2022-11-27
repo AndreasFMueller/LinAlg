@@ -6,10 +6,17 @@ A=\begin{pmatrix}
 0&1&1
 \end{pmatrix}.
 \]
+\begin{hinweis}
+Gleichungssysteme zur Bestimmung der Eigenvektoren
+\gaussurl{gausscalc:80000001--1},
+\gaussurl{gausscalc:80000001-1},
+\gaussurl{gausscalc:80000001-2}
+\end{hinweis}
 
 \thema{Eigenwerte}
 \thema{Eigenvektoren}
 \thema{charakteristisches Polynom}
+
 
 \begin{loesung}
 Das charakteristische Polynom ist
@@ -34,7 +41,9 @@ Dieses Polynom hat die Nullstellen $\lambda_1=-1$, $\lambda_2=1$
 und $\lambda_3=2$. Für jeden dieser Werte müssen jetzt auch noch
 Eigenvektoren gefunden werden.
 
-Für $\lambda_1=-1$ muss das Gleichungssystem $(A-\lambda_1 I) v_1=(A+I) v_1 = 0$ gelöst werden:
+Für $\lambda_1=-1$ muss das Gleichungssystem
+$(A-\lambda_1 I) v_1=(A+I) v_1 = 0$ gelöst werden
+(\gaussurl{gausscalc:80000001--1}):
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -111,8 +120,9 @@ Für $\lambda_2=1$ gilt
 0&1&0&0\\
 0&0&0&0\\
 \hline
-\end{tabular},
+\end{tabular}
 \end{align*}
+(\gaussurl{gausscalc:80000001-1}),
 was auf den Eigenvektor
 \[
 v_2=\begin{pmatrix}-1\\0\\1\end{pmatrix}
@@ -120,6 +130,7 @@ v_2=\begin{pmatrix}-1\\0\\1\end{pmatrix}
 führt.
 
 Oder für $\lambda_3=2$ findet man das Gleichungssystem
+(\gaussurl{gausscalc:80000001-2})
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
