@@ -9,7 +9,7 @@ Wirkung hat wie das Vektorprodukt:
 \[
 \Omega v=\omega\times v.
 \]
-\item Bestimmen Sie $\operatorname{Spur}(\Omega\Omega^t)$.
+\item Bestimmen Sie $\operatorname{Spur}(\Omega\transpose{\Omega})$.
 \end{teilaufgaben}
 
 \thema{Spur}
@@ -55,10 +55,10 @@ Also ist die Matrix
 \end{pmatrix}
 \]
 \item
-Für die Berechnung von $\operatorname{Spur}(\Omega\Omega^t)$ muss erst
-das Produkt $\Omega\Omega^t$ bestimmt werden:
+Für die Berechnung von $\operatorname{Spur}(\Omega\transpose{\Omega})$ muss erst
+das Produkt $\Omega\transpose{\Omega}$ bestimmt werden:
 \begin{align*}
-\Omega\Omega^t
+\Omega\transpose{\Omega}
 &=
 \begin{pmatrix}
 0&-\omega_3&\omega_2\\
@@ -80,7 +80,7 @@ das Produkt $\Omega\Omega^t$ bestimmt werden:
 \end{align*}
 Also ist
 \[
-\operatorname{Spur}(\Omega\Omega^t)
+\operatorname{Spur}(\Omega\transpose{\Omega})
 =
 2(\omega_1^2+\omega_2^2+\omega_3^2)=2|\omega|^2.
 \qedhere
