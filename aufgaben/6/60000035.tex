@@ -1,0 +1,93 @@
+Ein Fluzeug geht von der normalen Fluglage in Abbildung~\ref{60000035:fig}
+links in den Sturzflug über, bei dem die Nase die Richtung des Vektors
+$(1,1,-1)^t$ hat und die Flügel horizontal sind.
+\begin{figure}[h]
+\centering
+\includeagraphics[]{plane.pdf}
+\caption{
+Zwei Fluglagen des Flugzeugs in Aufgabe~\ref{60000035}
+vor und nach dem Übergang in den Sturzflug.
+\label{60000035:fig}}
+\end{figure}
+\begin{teilaufgaben}
+\item Finden Sie eine Drehmatrix, die diese Drehung erzeugt.
+\item Wie gross ist der Drehwinkel?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir müssen Vektoren finden, auf die die Standardbasisvektoren in der 
+linken Abbildungen abgebildet werden.
+Der Vektor $\vec{e}_1$ wird auf den Vektor
+\[
+\vec{a}_1
+=
+\frac{1}{\sqrt{3}}\begin{pmatrix*}[r] 1\\1\\-1\end{pmatrix*}
+\]
+abgebildet.
+Der zweite Vektor hat die Richtung
+\[
+\begin{pmatrix*}[r]-1\\1\\0\end{pmatrix*}
+\qquad\Rightarrow\qquad
+\vec{a}_2
+=
+\frac{1}{\sqrt{2}}
+\begin{pmatrix*}[r]-1\\1\\0\end{pmatrix*}
+\]
+Der dritte Vektor ist das Vektorprodukt der beiden Vektoren:
+\[
+\vec{a}_1\times \vec{a}_2
+=
+\frac{1}{\sqrt{3}}
+\begin{pmatrix*}[r] 1\\1\\-1\end{pmatrix*}
+\times
+\frac{1}{\sqrt{2}}
+\begin{pmatrix*}[r]-1\\1\\0\end{pmatrix*}
+=
+\frac{1}{\sqrt{6}}
+\begin{pmatrix}
+1\cdot 0-(-1)\cdot 1\\
+(-1)\cdot(-1)-0\cdot 1\\
+1\cdot 1-(-1)\cdot 1
+\end{pmatrix}
+=
+\frac{1}{\sqrt{6}}
+\begin{pmatrix}
+1\\1\\2
+\end{pmatrix}.
+\]
+Daraus lässt sich jetzt die Drehmatrix
+\[
+R = \begin{pmatrix*}[r]
+ \frac{1}{\sqrt{3}}&-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{6}}\\
+ \frac{1}{\sqrt{3}}& \frac{1}{\sqrt{2}}&\frac{1}{\sqrt{6}}\\
+-\frac{1}{\sqrt{3}}&       0           &\frac{2}{\sqrt{6}}
+\end{pmatrix*}
+\]
+ablesen.
+\item
+Den Drehwinkel kann man mit der Spurformel
+\[
+\cos\alpha
+=
+\frac{\operatorname{Spur}A-1}{2}
+=
+\frac{\frac{1}{\sqrt{3}}+\frac{1}{\sqrt{2}}+\frac{2}{\sqrt{6}}-1}{2}
+=
+0.5505
+\qquad\Rightarrow\qquad
+\alpha = 56.600^\circ.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+1.~Spalte normiert ({\bf V1}) 1 Punkt,
+horizontaler Vektor ({\bf V2}) 1 Punkt,
+dritter Vektor mit Vektorprodukt ({\bf V3}) 1 Punkt,
+Drehmatrix ({\bf D}) 1 Punkt,
+Spurformel ({\bf S}) 1 Punkt,
+Drehwinkel ({\bf W}) 1 Punkt.
+\end{bewertung}

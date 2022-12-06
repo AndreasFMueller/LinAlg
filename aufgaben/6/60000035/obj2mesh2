@@ -1,0 +1,79 @@
+#! /bin/bash
+#
+# obj2mesh2 -- convert wavefront obj file to mesh2 for povray
+#
+# (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+#
+set -x
+
+export LANG=C
+
+objfile=${1}
+mesh2file=${2}
+vertices=`egrep -e '^v ' ${objfile} | wc -l`
+faces=`egrep -e '^f ' ${objfile} | wc -wl | awk '{ printf("%d\n", $2-3*$1) }'`
+echo $faces
+
+awk 'BEGIN {
+	vertices = '"${vertices}"'
+	vertexcounter = 0
+	xsum = 0.0
+	ysum = 0.0
+	zsum = 0.0
+	printf("    vertex_vectors {\n")
+	printf("\t%d", vertices)
+	cgx = -39.2701
+	cgy =  87.0967
+	cgz =  0.0152
+	a0 = -14.45
+	angle = (a0 / 180) * 3.1415
+	ca = cos(angle)
+	sa = sin(angle)
+}
+/^v /	{
+	vertexcounter = vertexcounter + 1
+	newx = $2
+	newy = $3
+	newz = $4
+	x = -(newx - cgx)
+	z = newy - cgy
+	y = newz - cgz
+	printf(",\n\t<%s,%s,%s>", ca * x - sa * z, sa * x + ca * z, y)
+	xsum = xsum + newx
+	ysum = ysum + newy
+	zsum = zsum + newz
+} 
+END {
+	printf("\n    }\n")
+	printf("//#declare center_of_mass = <%.4f,%.4f,%.4f>;\n", x/vertices, y/vertices, z/vertices)
+}' ${objfile} > ${2}.vertices
+
+awk 'BEGIN {
+	faces = '"${faces}"'
+	printf("    face_indices {\n")
+	printf("\t%d", faces)
+	trianglecounter = 0
+}
+/^f /	{
+	split($2, a, "/")
+	split($3, b, "/")
+	split($4, c, "/")
+	split($5, d, "/")
+	printf(",\n\t<%d,%d,%d>", a[1]-1, b[1]-1, c[1]-1)
+	if (d[1] > 0) {
+		printf(",\t<%d,%d,%d>", a[1]-1, c[1]-1, d[1]-1)
+		trianglecounter = trianglecounter + 1
+	}
+	trianglecounter = trianglecounter + 1
+}
+END {
+	printf("\n    }\n")
+	printf("// triangles: %d\n", trianglecounter)
+}' ${objfile} > ${mesh2file}.faces
+
+{
+	echo "mesh2 {"
+	cat ${mesh2file}.vertices
+	cat ${mesh2file}.faces
+	echo "}"
+} > ${mesh2file}
