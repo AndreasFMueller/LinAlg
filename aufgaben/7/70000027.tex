@@ -1,0 +1,77 @@
+Ist die Matrix
+\[
+A=\begin{pmatrix}
+1&b&1\\
+b&b^2+1&1 \\
+1&1&b^2-2b+3
+\end{pmatrix}
+\]
+positiv definit?
+
+\begin{loesung}
+Die Matrix ist positiv definit, wenn sich die Cholesky-Zerlegung 
+durchführen lässt.
+Gesucht ist also eine untere Dreiecksmatrix $L$ derart, dass $LL^t=A$.
+Aus
+\[
+L
+=
+\begin{pmatrix}
+l_{11}&0&0\\
+l_{21}&l_{22}&0\\
+l_{31}&l_{32}&l_{33}
+\end{pmatrix}
+\qquad\Rightarrow\qquad
+LL^t
+=
+\begin{pmatrix}
+l_{11}&0&0\\
+l_{21}&l_{22}&0\\
+l_{31}&l_{32}&l_{33}
+\end{pmatrix}
+\begin{pmatrix}
+l_{11}&l_{21}&l_{31}\\
+0&l_{22}&l_{32}\\
+0&0&l_{33}
+\end{pmatrix}
+\]
+bekommt man durch Ausmultiplizieren des Produktes $LL^t$
+\begin{align*}
+a_{11}&=1=l_{11}^2 &&\Rightarrow&l_{11}&=1
+\\
+a_{12}&=b=l_{11}l_{21}&&\Rightarrow&l_{21}&=b
+\\
+a_{13}&=1=l_{11}l_{31}&&\Rightarrow&l_{31}&=1
+\\
+a_{22}&=b^2+1=l_{22}^2+l_{21}^2=l_{22}^2+b^2&&\Rightarrow&l_{22}&=1
+\\
+a_{23}&=1=l_{21}l_{31}+l_{22}l_{32}=b+l_{32}&&\Rightarrow&l_{32}&=1-b
+\\
+a_{33}&=b^2-2b+3=l_{31}^2+l_{32}^2+l_{33}^2=1+(1-b)^2+l_{33}^2=b^2-2b+2+l_{33}^2
+&&\Rightarrow&l_{33}&=1.
+\end{align*}
+Damit ist gezeigt, dass
+\[
+L=\begin{pmatrix}
+1&0&0\\
+b&1&0\\
+1&1-b&1
+\end{pmatrix}
+\]
+die untere Dreiecksmatrix der Cholesky-Zerlegung von $A$ ist.
+Es folgt, dass $A$ positiv definit ist.
+\end{loesung}
+
+\begin{diskussion}
+Da die Matrix $L$ unital ist, kann man die Cholesky-Zerlegung in diesem 
+Fall auch mit Hilfe der LR-Zerlegung finden.
+Da die gefundenen Matrizen $L$ und $R$ übereinstimmen, hat man eine
+Cholesky-Zerlegung gefunden und damit auch nachgewiesen, dass die
+Matrix positiv definit ist.
+\end{diskussion}
+
+\begin{bewertung}
+Druchführung der Cholesky-Zerlegung ({\bf C}) 5 Punkte,
+Schlussfolgerung ``positiv definit'' ({\bf P}) 1 Punkt.
+\end{bewertung}
+
