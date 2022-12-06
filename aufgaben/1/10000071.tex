@@ -1,0 +1,98 @@
+Für welche Werte der Parameter $c$ und $d$ hat das Gleichungssystem
+mit der Matrix
+\[
+A=\begin{pmatrix}
+1&    5&    1\\
+c& 5c+2& c-10\\
+9&   47& c- 1\\
+\end{pmatrix}
+\qquad\text{und rechter Seite}\qquad
+b=\begin{pmatrix}
+     42\\
+42c- 48\\
+ 6c+d\\
+\end{pmatrix}
+\]
+unendlich viele Lösungen?
+Geben Sie auch die Lösungsmenge an.
+
+\begin{loesung}
+Die Durchführung des Gauss-Algorithmus ergibt
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&    5&    1&     42\\
+c& 5c+2& c-10&42c -48\\
+9&   47& c- 1& 6c+d\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&    5&    1&     42\\
+0&    2&  -10&    -48\\
+0&    2& c-10& 6c -378+d\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&    5&    1&     42\\
+0&    1&   -5&    -24\\
+0&    0&    c& 6c -330 +d\\
+\hline
+\end{tabular}
+\end{align*}
+Damit das Gleichungssystem unendlich viele Lösungen hat, muss eine
+Nullzeile entstehen, was nur noch möglich ist, wenn $c=0$ ist.
+Damit das Gleichungssystem mit $c=0$ überhaupt eine Lösung hat, muss
+das Element in der rechten unteren Ecke des Gauss-Tableau verschwinden,
+also $-330+d=0$ oder $d=330$.
+Damit sind die Werte der Parameter $c$ und $d$ bestimmt.
+
+Um die Lösungsmenge zu bestimmen, muss man jetzt den Gauss-Algorithmus
+noch zu Ende führen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&    5&    1& 42\\
+0&    1&   -5&-24\\
+0&    0&    0&  0\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&    0&   26&162\\
+0&    1&   -5&-24\\
+0&    0&    0&  0\\
+\hline
+\end{tabular}
+\end{align*}
+Daraus liest man die Lösungsmenge
+\[
+\mathbb{L}
+=
+\left\{
+\left.
+x
+=
+\begin{pmatrix}162\\-24\\0\end{pmatrix}
++
+z\begin{pmatrix}-26\\5\\1\end{pmatrix}
+\;
+\right|
+\;z\in\mathbb{R}
+\right\}
+\qedhere
+\]
+\end{loesung}
+
+\begin{bewertung}
+Gauss-Algorithmus ({\bf G}) 2 Punkte,
+Kriterium und Wert für $c$ ({\bf C}) 1 Punkt,
+Kriterium und Wert für $d$ ({\bf D}) 1 Punkt,
+Gauss-Algorithmus zuende führen ({\bf Z}) 1 Punkt,
+Lösungsmenge ablesen ({\bf L}) 1 Punkt.
+\end{bewertung}

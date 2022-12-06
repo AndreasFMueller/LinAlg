@@ -1,0 +1,109 @@
+Es gibt zwei Werte des Parameters $k$, für die 
+das Gleichungssystem mit der Koeffizientenmatrix
+\[
+A=\begin{pmatrix}
+ k& 5k&    k  \\
+ 3& 17&   -7  \\
+ 1&  7& 2k -12
+\end{pmatrix}
+\qquad\text{und rechter Seite}\qquad
+b=\begin{pmatrix}
+k(l+1)\\0\\l
+\end{pmatrix}
+\]
+singulär ist.
+\begin{teilaufgaben}
+\item Finden Sie die beiden Werte für $k$.
+\item Für beide Werte von $k$ bestimmen Sie jeweils die Werte von $l$,
+für die das Gleichungssystem unendlich viele Lösungen hat.
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir lösen das Gleichungssystem mit dem Gauss-Algorithmus.
+Dabei stellen wir fest, dass die erste Zeile zu einer Nullzeile wird,
+wenn $k=0$ ist.
+Das Gauss-Tableau wird in diesem Fall
+\begin{center}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 0&  0&  0& 0\\
+ 3& 17& -7& 0\\
+ 1&  7&-12& l \\
+\hline
+\end{tabular}
+\end{center}
+Insbesondere sieht man, dass die letzte Zeile sich nicht zu einer Nullzeile
+wird, der Wert von $l$ hat also keinen Einfluss darauf, ob das
+Gleichungssystem in diesem Fall unendlich viele oder gar keine Lösung hat.
+In diesem Fall ist also $l\in\mathbb{R}$.
+
+Für $k\ne 0$ dürfen wir den Gauss-Algorithmus wie gewohnt durchführen
+und erhalten
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ k& 5k&    k  &k(l+1)\\
+ 3& 17&   -7  & 0\\
+ 1&  7& 2k -12& l \\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 5&    1  &l+1\\
+ 0& 2&   -10  &-3l-3\\
+ 0& 2& 2k -13& -1 \\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1& 5&    1  &l+1\\
+ 0& 1&   -5  &-\frac32(l+1)\\
+ 0& 0& 2k -3& 3l+2 \\
+\hline
+\end{tabular}
+\end{align*}
+Damit das Gleichungssystem unendlich viele Lösungen hat, muss eine Nullzeile
+entstehen, also $2k-3=0$ und $3l+2=0$, was auf $k=\frac32$ und $l=-\frac23$ 
+führt.
+
+Zusammengefasst:
+\begin{teilaufgaben}
+\item $k\in \{0,\frac32\}$.
+\item Falls $k=0$ kann $l\in\mathbb{R}$ beliebig sein. 
+Falls $k=\frac32$ muss $l=-\frac23$ sein.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Gauss-Algorithmus ({\bf G}) 2 Punkte,
+Spezialfall $k=0$ ({\bf K}) 1 Punkt,
+Kein Einfluss von $l$ im Fall $k=0$ ({\bf L}$\mathstrut_0$), 1 Punkt,
+Zweiter Wert von $k$ ({\bf K}$\mathstrut_1$) 1 Punkt,
+und zugehöriger $l$-Wert ({\bf L}$\mathstrut_1$) 1 Punkt.
+\end{bewertung}
+
+\begin{diskussion}
+Man kann die beiden Werte von $k$, für die die Koeffizientenmatrix
+singulär wird, natürlich auch mit der Determinanten finden.
+Sie ist
+\[
+\det(A)
+=
+\left|
+\begin{matrix}
+ k& 5k&    k  \\
+ 3& 17&   -7  \\
+ 1&  7& 2k -12
+\end{matrix}
+\right|
+=
+4k^2-6k = 2k(2k-3).
+\]
+Die Determinante verschwindet also genau für $k=0$ und $k=\frac32$.
+Es bleibt, wie vorhin die Werte von $l$ mit dem Gauss-Algorithmus zu
+bestimmen.
+\end{diskussion}
