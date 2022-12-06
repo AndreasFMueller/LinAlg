@@ -1,0 +1,155 @@
+Im Laufe der Covid-19-Pandemie konnte man immer wieder beobachten, dass
+die Fallzahlen wie immer wieder vorhergesagt einen exponentiellen
+Verlauf haben, dass sie also einem exponentiellen Gesetz der Form
+\begin{equation}
+N(t) = N_0\cdot  R_0^{t/T_G}
+\label{60000031:funktion}
+\end{equation}
+folgen, wobei $R_0$ die Reproduktionszahl ist und $T_G$ die
+Generationszeit, letztere darf man als bekannt annehmen.
+Es ist offensichtlich, dass $R_0>1$ bedeutet, dass die Fallzahlen
+zunehmen werden, für $R_0<1$ werden die Fallzahlen abnehmen.
+
+Man kann $R_0$ weiter aufschlüssen in $R_0=\kappa\cdot q\cdot D$, wobei
+$\kappa$ die mittlere Anzahl von Kontakten einer infizierten Person
+pro Zeiteinheit ist, $D$ die mittlere Zeitdauer, während der eine
+infizierte Person ansteckend ist, und $q$ die Wahrscheinlichkeit, dass
+bei Kontakt eine Infektion stattfindet.
+Die Ausbreitung kann also beeinflusst werden, indem man die Kontakte
+$\kappa$ (Lockdown, 2G, Zertifikatspflicht, Abstandsregeln)
+und die Wahrscheinlichkeit $q$ (Impfung, Maskenpflicht)
+modifiziert, auf $D$ hat man dagegen kaum Einfluss.
+Dies haben die Zahlen bei jeder neuen Welle und den zur Eindämmung
+ergriffenen Massnahmen jeweils gezeigt.
+
+Um $R_0$ und damit den Erfolg von Massnahmen zu bestimmen,
+braucht man Datenpunkte $t_i$ und zugehörige Fallzahlen $N_i$, die in der
+Schweiz vom BAG veröffentlicht werden, allerdings ist die Datenqualität
+relativ schlecht, weil es anscheinend nicht möglich ist, die Zahlen auch
+am Wochenende nach Tagen gesondert zu erheben, was am Montag jeweils zu
+einer grossen Spitze führt.
+Nehmen Sie für diese Aufgabe an, dass die Daten auf sinnvolle Art und
+Weise geglättet worden sind, dass also an jedem Tag ein Paar
+$(t_i,N_i)$ zur Verfügung steht.
+
+Beschreiben Sie eine Methode, mit der die Parameter
+$R_0$ und $N_0$
+%, die den Verlauf der Fallzahlen bestimmen,
+innerhalb einer Periode von $n$ Tagen
+gleichbleibender Massnahmen bestimmt werden können.
+Geben Sie insbesondere die Matrizen und Vektoren eines Gleichungssystems
+an, welches gelöst werden muss und Formeln, die $N_0$ und $R_0$ aus
+den Lösungen des Gleichungssystems berechnen.
+
+\begin{hinweis}
+Wenden Sie den natürlichen Logarithmus an.
+\end{hinweis}
+
+\thema{Least Squares}
+
+\begin{loesung}
+\definecolor{darkred}{rgb}{0.6,0,0}
+Es geht darum, die Parameter der Funktion $N(t)$ in~\eqref{60000031:funktion}
+abzuschätzen.
+Dabei kann man davon ausgehen, dass die Reproduktionszeit $T_G$ gleich
+bleibt, da ja das gleiche Virus die unveränderte Spezies Homo sapiens 
+infiziert.
+Zu bestimmen sind daher die $N_0$  und $R_0$.
+Der natürliche Logarithmus von~\eqref{60000031:funktion} ist
+\[
+\log N(t)
+=
+\log {\color{darkred}N_0} + \frac{t}{T_G}\log {\color{darkred}R_0}
+\]
+Für die gegebenen Daten müssen also die Gleichungen
+\[
+\begin{linsys}{3}
+\frac{t_1 }{t_G} \log {\color{darkred}R_0}
+&+&\log {\color{darkred}N_0}
+&=&\log N_1
+\\
+\frac{ t_2 }{t_G} \log {\color{darkred}R_0}
+&+&\log {\color{darkred}N_0}
+&=&\log N_2
+\\
+\vdots &&\vdots&&\vdots
+\\
+\frac{ t_n }{t_G} \log {\color{darkred}R_0}
+&+&\log {\color{darkred}N_0}
+&=&\log N_n
+\end{linsys}
+\]
+erfüllt sein.
+Dies ist ein überbestimmtes Gleichungssystem, es wird im Allgemeinen
+keine exakte Lösung haben.
+Man kann aber aus
+\[
+A{\color{darkred}x}
+=
+\begin{pmatrix}
+t_1/T_G & 1\\
+t_2/T_G & 1\\
+\vdots&\vdots\\
+t_n/T_G & 1
+\end{pmatrix}
+\begin{pmatrix}
+\log{\color{darkred}R_0}\\
+\log{\color{darkred}N_0}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\log N_1\\
+\log N_2\\
+\vdots\\
+\log N_n
+\end{pmatrix}
+=
+b
+\]
+die Parameter bestimmen, die am nächsten an einer Lösung sind.
+Man muss also die Matrix
+\[
+A^tA
+=
+\begin{pmatrix}
+\displaystyle
+\sum_{i=1}^n t_i^2/T_G^2 &
+\displaystyle
+\sum_{i=1}^n t_i/T_G \\
+\displaystyle
+\sum_{i=1}^n t_i/T_G   & n 
+\end{pmatrix}
+\]
+und den Vektor der rechten Seiten
+\[
+A^tb
+=
+\begin{pmatrix}
+\displaystyle
+\sum_{i=1}^n \log(N_i)t_i\\
+\displaystyle
+\sum_{i=1}^n \log N_i
+\end{pmatrix}
+\]
+ermitteln und dann das Gleichungssystem $A^tA{\color{darkred}x} = A^tb$
+lösen.
+Danach kann man $R_0$ und $N_0$ durch Auflösen von
+\begin{align*}
+{\color{darkred}x_1}&=\log{\color{darkred}R_0}
+&&\Rightarrow&
+{\color{darkred}R_0} &= \exp({\color{darkred}x_1})
+\\
+{\color{darkred}x_2}&=\log{\color{darkred}N_0}
+&&\Rightarrow&
+{\color{darkred}N_0} &= \exp({\color{darkred}x_2})
+\end{align*}
+gewinnen.
+\end{loesung}
+
+\begin{bewertung}
+Least-Squares-Problem ({\bf LS}) 1 Punkt,
+Logarithmusgesetze ({\bf L}) 1 Punkt,
+Matrix $A$ ({\bf A}) und Vektor $b$ ({\bf B}) je 1 Punkt,
+Lösungsverfahren über $A^tA$ und $A^tb$ ({\bf V}) 1 Punkt.
+Auflösung nach $R_0$ und $N_0$ ({\bf L}) 1 Punkt.
+\end{bewertung}
