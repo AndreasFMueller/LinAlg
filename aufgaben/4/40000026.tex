@@ -109,10 +109,10 @@ In Matrixform ist dies das Gleichungssystem
 }_{\displaystyle=b}.
 \]
 Um die Unbekannten $x_0$, $v$ und $b$ zu bestimmen, muss das
-Gleichungssystem $A^tAx=A^tb$ gelöst werden.
+Gleichungssystem $\transpose{A}Ax=\transpose{A}b$ gelöst werden.
 Die Matrizenprodukte sind
 \[
-A^tA
+\transpose{A}A
 =
 \begin{pmatrix}
    5&   100&   3000\\
@@ -120,7 +120,7 @@ A^tA
 3000&100000&3540000
 \end{pmatrix},
 \qquad
-A^tb
+\transpose{A}b
 =
 \begin{pmatrix}
 \phantom{000}15.82\\
@@ -154,8 +154,8 @@ v/\omega
 \begin{bewertung}
 Least-Squares Gleichungen \eqref{40000026:gl} ({\bf G}) 1 Punkt,
 Matrix $A$ ({\bf A}) 1 Punkt,
-Matrix $A^tA$ ({\bf C}) 1 Punkt,
-Vektor $A^tb$ ({\bf B}) 1 Punkt,
+Matrix $\transpose{A}A$ ({\bf C}) 1 Punkt,
+Vektor $\transpose{A}b$ ({\bf B}) 1 Punkt,
 Wert $v$ ({\bf V}) 1 Punkt,
 Brennweite $f$ ({\bf F}) 1 Punkt.
 \end{bewertung}

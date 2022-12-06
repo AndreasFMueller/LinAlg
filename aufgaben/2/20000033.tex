@@ -13,7 +13,7 @@ A_n
 \end{pmatrix}
 \]
 \begin{hinweis}
-Die Matrix $A_n$ lässt sich als Produkt $A_n=B_nB_n^t$ schreiben, wobei 
+Die Matrix $A_n$ lässt sich als Produkt $A_n=B_n\transpose{B_n}$ schreiben, wobei 
 $B_n$ eine (untere) Dreiecksmatrix ist.
 \end{hinweis}
 
@@ -36,7 +36,7 @@ B_n
 \]
 Tatsächlich kann man das Produkt
 \begin{align*}
-P=B_nB_n^t
+P=B_n\transpose{B_n}
 &=
 \begin{pmatrix}
      1&     0&     0&\dots &     0\\
@@ -67,7 +67,11 @@ das sind aber genau die Matrixelemente der Matrix $A_n$.
 Da man die Matrix $A_n$ als Produkt sehr einfacher Matrizen schreiben kann,
 kann man jetzt die Produktformel verwenden, um die Determinante zu berechnen:
 \[
-\det(A_n)=\det(B_nB_n^t)=\det(B_n)\det(B_n^t)=\det(B_n)^2=1.
+\det(A_n)
+=
+\det(B_n\transpose{B_n})=\det(B_n)\det(\transpose{B_n})
+=
+\det(B_n)^2=1.
 \]
 Darin wurde verwendet, dass die Determinante von $B_n$ als Determinante
 einer Dreiecksmatrix das Produkt der Diagonalelemente ist, also

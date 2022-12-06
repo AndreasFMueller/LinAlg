@@ -100,7 +100,7 @@ f_{23}
 Die Zahlen $\color{red}a$ und $\color{red}b$ kann man nun als Lösung
 des Gleichungssystems
 \[
-A^tA{\color{red}x}=A^tb
+\transpose{A}A{\color{red}x}=\transpose{A}b
 \qquad\text{mit}\qquad
 {\color{red}x}
 =
@@ -112,7 +112,7 @@ A^tA{\color{red}x}=A^tb
 finden.
 Die rechte Seite des Gleichungssystems kann man explizit ausrechnen:
 \begin{align*}
-A^tb
+\transpose{A}b
 &=
 \begin{pmatrix}
 \cos\omega t_0&\cos\omega t_1&\dots&\cos\omega t_{23}\\
@@ -135,7 +135,7 @@ f_0\sin\omega t_0 + f_1\sin\omega t_1+\dots+f_{23}\sin\omega t_{23}
 \end{align*}
 Die linke Seite ist etwas komplizierter, nämlich
 \[
-A^tA
+\transpose{A}A
 =
 \begin{pmatrix}
 \displaystyle \sum_{k=0}^{23} \cos^2\omega t_k
@@ -151,7 +151,7 @@ A^tA
 \end{loesung}
 
 \begin{diskussion}
-Es stellt sich heraus, dass die Matrix $A^tA$ vollständig berechnen lässt.
+Es stellt sich heraus, dass die Matrix $\transpose{A}A$ vollständig berechnen lässt.
 Die beiden Diagonalterme sind als Summe von Quadraten natürlich positiv.
 Sie sind aber sogar identisch, denn die $\sin$ und $\cos$ Werte
 sind nur um $90^\circ$ phasenverschoben.
@@ -197,7 +197,7 @@ Es folgt daher
 \frac12\sum_{k=0}^{23} \sin 2\omega t_k
 = 0.
 \end{align*}
-Die Matrix $A^tA$ ist also die Diaogonalmatrix $A^tA=12E$.
+Die Matrix $\transpose{A}A$ ist also die Diaogonalmatrix $\transpose{A}A=12E$.
 Damit kann man die Lösungen für ${\color{red}a}$ und ${\color{red}b}$
 sofort angeben:
 \begin{align*}
@@ -217,9 +217,9 @@ Lineare Gleichungen für Variablen ${\color{red}a}$ und ${\color{red}b}$
 ({\bf G}) 1 Punkt,
 Matrix $A$ ({\bf A}) 1 Punkt,
 Vektor $b$ ({\bf b}) 1 Punkt,
-Lösungsverfahren $A^tA{\color{red}x} = A^tb$ ({\bf L}) 1 Punkt,
-Produkt $A^tA$ ({\bf P}) 1 Punkt,
-rechte Seite $A^tb$ ({\bf R} 1 Punkt.
+Lösungsverfahren $\transpose{A}A{\color{red}x} = \transpose{A}b$ ({\bf L}) 1 Punkt,
+Produkt $\transpose{A}A$ ({\bf P}) 1 Punkt,
+rechte Seite $\transpose{A}b$ ({\bf R} 1 Punkt.
 \end{bewertung}
 
 

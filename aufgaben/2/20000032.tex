@@ -9,9 +9,9 @@ A_n=\begin{pmatrix}
      1&     2&     3&     4&\dots &     n
 \end{pmatrix}.
 \]
-Die Matrix $A_nA_n^t$ hat die Form
+Die Matrix $A_n\transpose{A_n}$ hat die Form
 \[
-A_nA_n^t
+A_n\transpose{A_n}
 =
 \begin{pmatrix}
      1&     1&     1&     1& \dots&      1&      1\\
@@ -29,7 +29,7 @@ q_k=\sum_{i=1}^ki^2=\frac{k(k+1)(2k+1)}6.
 \qquad
 \text{(Wikipedia)}
 \]
-Berechnen Sie die Determinante von $A_nA^t_n$.
+Berechnen Sie die Determinante von $A_n\transpose{A_n}$.
 
 \thema{Produktsatz}
 
@@ -39,7 +39,7 @@ Diagonalelement, also $\det(A_n)=n!$.
 Die Determinante bleibt beim Transponieren gleich, also folgt aus der
 Produktformel
 \[
-\det(A_nA_n^t)=\det(A_n)\det(A_n^t)=\det(A_n)^2=(n!)^2.
+\det(A_n\transpose{A_n})=\det(A_n)\det(\transpose{A_n})=\det(A_n)^2=(n!)^2.
 \qedhere
 \]
 \end{loesung}

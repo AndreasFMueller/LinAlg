@@ -69,11 +69,11 @@ t_1\\t_2
 b.
 \]
 Das Lösungsverfahren für überbestimmte Gleichungssysteme verlangt,
-$A^tA$ und $A^tb$ zu berechnen:
+$\transpose{A}A$ und $\transpose{A}b$ zu berechnen:
 \[
-A^tA=\begin{pmatrix}51&-6\\-6&62\end{pmatrix}
+\transpose{A}A=\begin{pmatrix}51&-6\\-6&62\end{pmatrix}
 \qquad\text{und}\qquad
-A^tb=\begin{pmatrix}50\\50\end{pmatrix}.
+\transpose{A}b=\begin{pmatrix}50\\50\end{pmatrix}.
 \]
 \item
 Die Lösung des Gleichungssystems ergibt
@@ -151,10 +151,10 @@ Der Rest der Matrix wird mit Nullen gefüllt.
 \hline
 x&y&z&t_1&t_2&\dots&t_n&\\
 \hline
- &   E  & &-\vec r_1&    0    &\dots &    0    &\vec p_1 \\
- &   E  & &   0     &-\vec r_2&\dots &    0    &\vec p_2 \\
+ &   I  & &-\vec r_1&    0    &\dots &    0    &\vec p_1 \\
+ &   I  & &   0     &-\vec r_2&\dots &    0    &\vec p_2 \\
  &\vdots& &         &\vdots   &\ddots&\vdots   &\vdots   \\
- &   E  & &   0     &    0    &\dots &-\vec r_n&\vec p_n \\
+ &   I  & &   0     &    0    &\dots &-\vec r_n&\vec p_n \\
 \hline
 \end{tabular}
 \end{center}
@@ -179,7 +179,7 @@ b=\begin{pmatrix}
 Die Least-Squares-Lösung des überbestimmten Gleichungssystems $Av=b$
 kann mit 
 \[
-A^tA=\begin{pmatrix}
+\transpose{A}A=\begin{pmatrix}
     2 &  0 &  0 & -5 &  5\\
     0 &  2 &  0 & -5 & -6\\
     0 &  0 &  2 & -1 & -1\\
@@ -187,7 +187,7 @@ A^tA=\begin{pmatrix}
     5 & -6 & -1 &  0 & 62
 \end{pmatrix}
 \qquad\text{und}\qquad
-A^tb=\begin{pmatrix}
+\transpose{A}b=\begin{pmatrix}
     0 \\
     0 \\
     0 \\
@@ -216,8 +216,8 @@ was mit der Musterlösung übereinstimmt.
 Least-Squares Ansatz ({\bf L}) 1 Punkt,
 Matrix $A$ ({\bf A}) 1 Punkt,
 rechte Seite $b$ ({\bf B}) 1 Punkt,
-Matrix $A^tA$ ({\bf M}) 1 Punkt,
-Vektor $A^tb$ ({\bf R}) 1 Punkt,
+Matrix $\transpose{A}A$ ({\bf M}) 1 Punkt,
+Vektor $\transpose{A}b$ ({\bf R}) 1 Punkt,
 Schnittpunkt ({\bf S}) 1 Punkt.
 \end{bewertung}
 

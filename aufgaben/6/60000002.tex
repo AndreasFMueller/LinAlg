@@ -131,7 +131,7 @@ weshalb das Gleichungssystems keine Lösung hat. Stattdessen
 suchen wir eine Lösung im Sinne der kleinsten Quadrate, also die
 Lösung des Gleichungssystems
 \[
-A^tA\vec x = A^t\vec b
+\transpose{A}A\vec x = \transpose{A}\vec b
 \quad\text{mit}\quad 
 A = \begin{pmatrix}
 1&0&0& 1 & 0 \\
@@ -153,7 +153,7 @@ A = \begin{pmatrix}
 \]
 Die Rechnung ergibt 
 \[
-\vec x =  (A^tA)^{-1} A^t\vec b = 
+\vec x =  (\transpose{A}A)^{-1} \transpose{A}\vec b = 
 \begin{pmatrix}
  2 & 0 & 0 & 1 & -0.13\\
  0 & 2 & 0 & -0.24 & 1\\

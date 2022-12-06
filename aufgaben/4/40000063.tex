@@ -95,10 +95,10 @@ b
 \phantom{-}6.94\\ -6.94
 \end{pmatrix}
 \]
-Das gesuchte Gleichungssystem hat die Matrix $A^tA$ und die rechte
-Seite $A^tb$:
+Das gesuchte Gleichungssystem hat die Matrix $\transpose{A}A$ und die rechte
+Seite $\transpose{A}b$:
 \[
-A^tA
+\transpose{A}A
 =
 \begin{pmatrix}
   146.58 & -44.58  &       0  &       0\\
@@ -107,7 +107,7 @@ A^tA
          0   &      0  & -44.58 & 143.72\\
 \end{pmatrix}
 ,\qquad
-A^tb=\begin{pmatrix}
+\transpose{A}b=\begin{pmatrix}
     144.87\\
   -33.02\\
   -59.33\\
@@ -116,9 +116,9 @@ A^tb=\begin{pmatrix}
 \]
 \item
 Um die Matrixelemente von $C$ zu bestimmen muss das Gleichungssystem
-$A^tA x = A^tb $ nun gelöst werden. Mann findet
+$\transpose{A}A x = \transpose{A}b $ nun gelöst werden. Mann findet
 \[
-  x = (A^tA)^{-1}A^tb = 
+  x = (\transpose{A}A)^{-1}\transpose{A}b = 
   \begin{pmatrix}
     \phantom{-}1.0141\\
     \phantom{-}0.0848\\
@@ -142,8 +142,8 @@ ergibt.
 Gleichung \eqref{40000063:basis1} für ein Paar von Messpaaren ({\bf M}) 1 Punkt,
 Least-Squares Gleichungen \eqref{40000063:gl} ({\bf G}) 1 Punkt,
 Matrix $A$ ({\bf A}) 1 Punkt,
-Matrix $A^tA$ ({\bf L}) 1 Punkt,
-Vektor $A^tb$ ({\bf B}) 1 Punkt,
+Matrix $\transpose{A}A$ ({\bf L}) 1 Punkt,
+Vektor $\transpose{A}b$ ({\bf B}) 1 Punkt,
 Matrix $C$ ({\bf C}) 1 Punkt.
 \end{bewertung}
 

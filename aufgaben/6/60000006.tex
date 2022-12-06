@@ -24,15 +24,16 @@ Ist $A$ eine Drehmatrix? Wenn ja, bestimmen Sie den Drehwinkel?
 \begin{teilaufgaben}
 \item
 Um nachzuprüfen, dass die Matrix orthogonal ist, muss das Produkt
-$A^tA$ berechnet werden:
+$\transpose{A}A$ berechnet werden:
 \begin{align*}
-A^tA
+\transpose{A}A
 &=
+\transpose{
 \begin{pmatrix}
 \frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
 0&-\frac1{\sqrt{2}}&\frac1{\sqrt{2}}\\
 \frac2{\sqrt{6}}&-\frac1{\sqrt{6}}&-\frac1{\sqrt{6}}
-\end{pmatrix}^t
+\end{pmatrix}}
 \begin{pmatrix}
 \frac1{\sqrt{3}}&\frac1{\sqrt{3}}&\frac1{\sqrt{3}}\\
 0&-\frac1{\sqrt{2}}&\frac1{\sqrt{2}}\\
@@ -65,7 +66,7 @@ A^tA
 \end{pmatrix}
 =E
 \end{align*}
-Somit ist $A^tA=E$, $A$ ist also orthogonal.
+Somit ist $\transpose{A}A=E$, $A$ ist also orthogonal.
 \item
 Eine orthogonale Matrix kann nur die Determinante $1$ oder $-1$ haben.
 Sie hat Determinante $1$, wenn der dritte Vektor das Vektorprodukt der

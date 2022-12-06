@@ -32,13 +32,13 @@ Berechnen Sie die $C$-Koordinaten ($\vec u_C$ und $\vec v_C$) der beiden Vektore
 Die Vektoren $\vec u_B$ und $\vec v_B$ stehen senkrecht aufeinander.
 \item
 Das Skalarprodukt hat in $C$-Koordinaten nicht mehr die einfache
-Formel $\vec u_C\,\!\!^t \vec v_C$.
+Formel $\transpose{\vec{u}_C} \vec v_C$.
 Aus der Matrix $T$ lässt sich aber auch eine Formel für die
 Koordinatenumrechnung von $C$-Koordinaten in $B$-Koordinaten finden,
 die dazu verwendet werden kann, eine Formel für das Skalarprodukt in
 $C$-Koordinaten aufzustellen.
 Dabei stellt sich heraus, dass das Skalarprodukt
-als $\vec u_C\,\!\!^tG\vec v_C$ geschrieben werden kann.
+als $\transpose{\vec{u}_C}G\vec v_C$ geschrieben werden kann.
 Berechnen Sie die Matrix $G$.
 \item 
 Berechnen Sie das Skalarprodukt von $\vec u_C$ und $\vec v_C$ in den $C$-Koordinaten.
@@ -76,7 +76,7 @@ T
 \]
 Alternativ könnte die Transformationsmatrix $T$ auch als Inverse der Matrix $C$ mit Hilfe der Minoren wie folgt gefunden werden:
 \[
-  T = C^{-1}B = C^{-1}E = C^{-1} 
+  T = C^{-1}B = C^{-1}I = C^{-1} 
   = \begin{pmatrix}1 & \frac12\\0 & \frac{\sqrt{3}}2\end{pmatrix}^{-1} 
   = \dfrac{2}{\sqrt{3}}\begin{pmatrix}\frac{\sqrt{3}}2 & -\frac12\\0 & 1\end{pmatrix} 
   = \begin{pmatrix}1&-\frac1{\sqrt{3}}\\0&\frac2{\sqrt{3}}\end{pmatrix}
@@ -111,18 +111,18 @@ Die Matrix $T$ rechnet von $B$- auf $C$-Koordinaten um, die Matrix $T^{-1}$
 liefert die Umrechnung in umgekehrter Richtung, also von $C$- auf $B$-Koordinaten.
 Für das Skalarprodukt gilt
 \[
-\vec u_B\,\!\!^t \vec v_B
+\transpose{\vec{u}_B} \vec v_B
 =
-(T^{-1}\vec u_C)^t(T^{-1}\vec v_C)
+\transpose{(T^{-1}\vec{u}_C)}(T^{-1}\vec v_C)
 =
-\vec u_C\,\!\!^t
-\underbrace{ (T^{-1})^t T^{-1}}_{\displaystyle =G} \vec v_C.
+\transpose{\vec{u}_C}
+\underbrace{ \transpose{(T^{-1})} T^{-1}}_{\displaystyle =G} \vec v_C.
 \]
 Wenden wir dies auf die oben berechnete Matrix $T$ an, erhalten wir:
 \[
 G
 =
-(T^{-1})^tT^{-1}
+\transpose{(T^{-1})}T^{-1}
 =
 \begin{pmatrix}1&0\\\frac12&\frac{\sqrt{3}}2\end{pmatrix}
 \begin{pmatrix}1&\frac12\\0&\frac{\sqrt{3}}2\end{pmatrix}
@@ -133,9 +133,9 @@ G
 Unter Verwendung der Matrix $G$ lässt sich das Skalarprodukt jetzt auch
 in $C$-Koordinaten berechnen:
 \begin{align*}
-\vec u_B\,\!\!^t \vec v_B
+\transpose{\vec{u}_B} \vec v_B
 &=
-\vec u_C\,\!\!^t G \vec v_C
+\transpose{\vec{u}_C} G \vec v_C
 =
 \begin{pmatrix} 1-\frac1{\sqrt{3}}&\frac2{\sqrt{3}} \end{pmatrix}
 \begin{pmatrix} 1&\frac12\\\frac12&1 \end{pmatrix}

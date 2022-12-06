@@ -36,7 +36,7 @@ Die Projektion $\vec v_{\perp}$ haben wir in der Vorlesung bereits gefunden, es 
 \vec n^0
 (\vec n^0\cdot \vec v)
 =
-(\vec n^0(\vec n^0)^t)\vec v
+(\vec n^0\transpose{(\vec n^0)})\vec v
 \]
 Der normierte Normalenvektor ist
 \[
@@ -61,7 +61,7 @@ P\vec v
 =
 \vec v-\vec v_{\perp}
 =
-\left(E-
+\left(I-
 \frac13\begin{pmatrix}
 1&1&1\\
 1&1&1\\
@@ -108,7 +108,7 @@ PP
 =P.
 \end{align*}
 \item
-Da $P^t=P$ ist $P^tP=PP=P\ne E$, die Matrix $P$ ist daher nicht
+Da $\transpose{P}=P$ ist $\transpose{P}P=PP=P\ne I$, die Matrix $P$ ist daher nicht
 orthogonal.
 \item
 Da die Spalten von $P$ alle in der Ebene senkrecht auf $\vec n$ liegen,

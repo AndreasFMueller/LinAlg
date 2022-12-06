@@ -7,7 +7,7 @@ A=\begin{pmatrix}
 \end{pmatrix}
 \]
 \begin{teilaufgaben}
-\item Berechnen Sie die Matrix $B=(A-\lambda E)^3$
+\item Berechnen Sie die Matrix $B=(A-\lambda I)^3$
 \item Bestimmen Sie die Determinante von $B$.
 \item Für welche Werte von $\lambda$ ist $B$ singulär?
 \end{teilaufgaben}
@@ -20,7 +20,7 @@ A=\begin{pmatrix}
 \begin{teilaufgaben}
 \item Es gilt die binomische Formel:
 \begin{align*}
-(A-\lambda E)^3&=A^3-3\lambda A^2+3\lambda^2 A-\lambda^3 E
+(A-\lambda I)^3&=A^3-3\lambda A^2+3\lambda^2 A-\lambda^3 I
 \end{align*}
 Die Potenzen von $A$ sind aber besonders leicht auszurechnen:
 \begin{align*}
@@ -88,9 +88,9 @@ der Diagonalelemente, also
 \]
 Oder man verwendet
 \[
-\det((A-\lambda E)^3)
+\det((A-\lambda I)^3)
 =
-\det(A-\lambda E)^3=(-\lambda^3)^3=-\lambda^9.
+\det(A-\lambda I)^3=(-\lambda^3)^3=-\lambda^9.
 \]
 \item Die Determinante verschwindet genau dann, wenn $\lambda=0$.
 \qedhere

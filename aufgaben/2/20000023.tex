@@ -7,7 +7,7 @@ Ist $R$ die $k\times k$-Matrix, die auf der Diagonalen die Widerstände der
 einzelnen Kanten enthält, dann sind die Maschengleichungen für den
 $k$-Vektor der Ströme 
 \[
-Z^tRI=Z^te,
+\transpose{Z}RI=\transpose{Z}e,
 \]
 darin sind $e$ die Spannungsquellen.
 Die Knotengleichungen werden zu $\partial I=0$, wobei zu beachten ist,
@@ -96,7 +96,7 @@ z_8=\begin{pmatrix}
 \]
 Damit kann man jetzt die $Z$-Matrix aufstellen:
 \[
-Z^t=\begin{pmatrix}
+\transpose{Z}=\begin{pmatrix}
 -1& 1& 0& 0& 1& 0& 0& 0& 0& 0& 0& 0& 0\\
 -1& 0& 0& 1& 0& 1& 0& 0& 0& 0& 0& 0& 0\\
  0&-1& 1& 0& 0& 0& 0& 1& 0& 0& 0& 0& 0\\
@@ -111,14 +111,18 @@ Damit kann man jetzt die Maschengleichungen aufstellen. Da $R=R_0E$ ist,
 wobei $R_0$ der für alle Kanten gleiche Widerstand einer Kante ist,
 erhält man:
 \[
-Z^tR_0EI=R_0Z^tI=Z^te
+\transpose{Z}R_0EI
+=
+R_0\transpose{Z}I
+=
+\transpose{Z}e
 \]
 Die einzige Spannungsquelle ist die in der Kante $x_{13}$, der Vektor
 ist $e$ ist also der Standardbasisvektor $e_{13}$. Dann ist aber
-$Z^te=Z^te_{13}$ die letzte Spalte von $Z^t$, also der $8$-dimensionale
+$\transpose{Z}e=\transpose{Z}e_{13}$ die letzte Spalte von $\transpose{Z}$, also der $8$-dimensionale
 Standardbasisvektor $e_{8}$. Die Maschengleichungen sind damit:
 \[
-R_0Z^tI=e_8.
+R_0\transpose{Z}I=e_8.
 \]
 Dazu kommen noch die Knotengleichungen $\partial I=0$, wobei wir die letzte
 Gleichung weglassen können. Setzen wir zudem $R_0=1$, dann hat das

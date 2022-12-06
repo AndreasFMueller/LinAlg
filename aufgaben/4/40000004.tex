@@ -102,14 +102,14 @@ und $\vec r_{\perp}$, nämlich
 \begin{align*}
 \vec r_{\|}
 &=
-\vec u\vec u^t\vec r
+\vec{u}\transpose{\vec{u}}\vec r
 &
 &\text{und}&
 \vec r_{\perp}
 &=
-\vec r - \vec u\vec u^t\vec r
+\vec r - \vec{u}\transpose{\vec{u}}\vec r
 =
-(E-\vec u\vec u^t)\vec r
+(E-\vec u\transpose{\vec{u}})\vec r
 \end{align*}
 Die Komponente $\vec u\times \vec r$ können wir ebenfalls als Matrix schreiben,
 nämlich
@@ -136,7 +136,7 @@ Jetzt kann man alle drei Matrizen zusammensetzen:
 \vec r'
 &=
 \left(
-(\vec u\vec u^t) + c(E-\vec u\vec u^t) + 
+(\vec u\transpose{\vec{u}}) + c(E-\vec u\transpose{\vec{u}}) + 
 s
 \begin{pmatrix}
    0&-u_3& u_2\\

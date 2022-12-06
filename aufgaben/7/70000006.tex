@@ -6,7 +6,7 @@ A=\begin{pmatrix}
 1& 8&6
 \end{pmatrix}
 \]
-als Produkt $A=BB^t$ schreiben? Geben Sie eine mögliche Matrix $B$ an.
+als Produkt $A=B\transpose{B}$ schreiben? Geben Sie eine mögliche Matrix $B$ an.
 
 \thema{Cholesky-Zerlegung}
 
@@ -17,7 +17,7 @@ dies ist die Cholesky-Zerlegung von $A$.
 Im ersten Schritt sucht man die erste Spalte von $L$ zu bestimmen.
 Es muss gelten
 \[
-LL^t=
+L\transpose{L}=
 \begin{pmatrix}
 l_{11}&  0&  0\\
 l_{21}&  ?&  0\\
@@ -48,7 +48,7 @@ $l_{21}=2$ und $l_{31}=1$. Damit ist die erste Spalte bestimmt.
 Im zweiten Schritt versucht man, die zweite Spalte zu bestimmen.
 Dazu schreibt man wieder
 \[
-LL^t
+L\transpose{L}
 =
 \begin{pmatrix}
 1&     0&0\\
@@ -78,7 +78,7 @@ $l_{32}=2$.
 
 Im dritten Schritt ist jetzt nur noch das Element unten rechts zu bestimmen:
 \[
-LL^t=
+L\transpose{L}=
 \begin{pmatrix}
 1&0&     0\\
 2&3&     0\\

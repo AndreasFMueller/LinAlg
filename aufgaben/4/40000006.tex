@@ -65,9 +65,9 @@ A=\begin{pmatrix}
 \]
 Exakt kann dieses Gleichungssystem nicht erfüllt werden, aber eine
 Näherungs\-lösung ist immer möglich, indem man das Gleichungssystem
-mit Matrix $A^tA$ und rechter Seite $A^tb$ löst, also
+mit Matrix $\transpose{A}A$ und rechter Seite $\transpose{A}b$ löst, also
 \begin{align*}
-A^tA&=
+\transpose{A}A&=
 \begin{pmatrix}
 0&1000&   0&1000\\
 0&   0&1000&1000\\
@@ -86,7 +86,7 @@ A^tA&=
    2000&   2000&   4
 \end{pmatrix},
 \\
-A^tb&=
+\transpose{A}b&=
 \begin{pmatrix}
 0&1000&   0&1000\\
 0&   0&1000&1000\\
@@ -120,7 +120,7 @@ A^tb&=
 \begin{bewertung}
 Gleichungen für $a$, $b$ und $c$ ({\bf G}) 2 Punkt,
 "Uberbestimmtes Gleichungssystem ({\bf U}) 1 Punkt,
-Berechnung von $A^tA$ ({\bf A}) 2 Punkt,
-Berechung von $A^tb$ ({\bf B}) 1 Punkt.
+Berechnung von $\transpose{A}A$ ({\bf A}) 2 Punkt,
+Berechung von $\transpose{A}b$ ({\bf B}) 1 Punkt.
 \end{bewertung}
 

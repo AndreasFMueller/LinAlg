@@ -75,10 +75,10 @@ b=\begin{pmatrix}
 \end{pmatrix}.
 \]
 Die beste Lösung findet man mit Hilfe von kleinsten Quadraten, also
-als Lösung des Gleichungssystems $A^tAx=A^tb$.
-Wir berechnen daher zuerst $A^tA$ und $A^tb$:
+als Lösung des Gleichungssystems $\transpose{A}Ax=\transpose{A}b$.
+Wir berechnen daher zuerst $\transpose{A}A$ und $\transpose{A}b$:
 \begin{align*}
-A^tA&=
+\transpose{A}A&=
 \begin{pmatrix}
          4&1&1+\sqrt{2}\\
          1&2&         0\\
@@ -90,7 +90,7 @@ A^tA&=
    2.41421 & 0.00000 & 2.00000
 \end{pmatrix}
 \\
-A^tb&=
+\transpose{A}b&=
 \begin{pmatrix}
 10\\
 -2-\frac{3\sqrt{2}}2\\
@@ -124,7 +124,7 @@ Funktion $f(t)$ graphisch dargestellt.
 worden sein, dass dies ein überbestimmtes Gleichungssystem ist),
 Lösungsverfahren für überbestimmte Gleichungssysteme ({\bf L}),
 Matrix $A$ und Vektor $b$ ({\bf M}) 1 Punkt,
-Matrix $A^tA$ und Vektor $A^tb$ ({\bf A}) je 1 Punkt,
+Matrix $\transpose{A}A$ und Vektor $\transpose{A}b$ ({\bf A}) je 1 Punkt,
 Lösung ({\bf X}) 1 Punkt.
 \end{bewertung}
 

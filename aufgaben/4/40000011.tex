@@ -66,21 +66,21 @@ b=\begin{pmatrix}
 Das Lösungsverfahren für überbestimmte Gleichungssysteme besagt,
 dass man stattdessen das Gleichungssystem 
 \[
-A^tA\begin{pmatrix}\color{red}a\\\color{red}b\end{pmatrix}
+\transpose{A}A\begin{pmatrix}\color{red}a\\\color{red}b\end{pmatrix}
 =
-A^tb
+\transpose{A}b
 \]
 lösen muss.
 Die Berechnung liefert 
 \[
-A^tA=\begin{pmatrix}
+\transpose{A}A=\begin{pmatrix}
           12354107464&          152908\\
 \phantom{00000}152908&\phantom{00000}3
 \end{pmatrix}
 \qquad
 \text{und}
 \qquad
-A^tb=\begin{pmatrix}
+\transpose{A}b=\begin{pmatrix}
           77610.46\\
 \phantom{000}12.04
 \end{pmatrix}.
@@ -124,7 +124,7 @@ Big Mac Preis bestimmt wird\dots
 worden sein, dass dies ein überbestimmtes Gleichungssystem ist),
 Lösungsverfahren für überbestimmte Gleichungssysteme ({\bf L}) 1 Punkt,
 Matrix $A$ und Vektor $b$ ({\bf M}) 1 Punkt,
-Matrix $A^tA$ und Vektor $A^tb$ ({\bf A}) 1 Punkt,
+Matrix $\transpose{A}A$ und Vektor $\transpose{A}b$ ({\bf A}) 1 Punkt,
 Lösung für $a$ und $b$ ({\bf X}) 1 Punkt,
 Theoretischer Big Mac Preis ({\bf T}) 1 Punkt.
 \end{bewertung}

@@ -18,7 +18,7 @@ B
 \]
 \begin{teilaufgaben}
 \item Berechnen Sie $\det(A)$.
-\item Berechnen Sie $C=BAB^t$.
+\item Berechnen Sie $C=BA\transpose{B}$.
 \item Berechnen Sie $\det(C)$.
 \end{teilaufgaben}
 
@@ -36,7 +36,7 @@ Diagonalelemente:
 \[
 C
 =
-BAB^t
+BA\transpose{B}
 =
 \begin{pmatrix}
     0&  11&   7&   5\\
@@ -62,11 +62,11 @@ BAB^t
 \[
 \det(C)
 =
-\det(BAB^t)
+\det(BA\transpose{B})
 =
-\det(B)\det(A)\det(B^t)=\det(B)\det(A)\det(B).
+\det(B)\det(A)\det(\transpose{B})=\det(B)\det(A)\det(B).
 \]
-Im letzten Schritt wurde $\det(B)=\det(B^t)$ verwendet.
+Im letzten Schritt wurde $\det(B)=\det(\transpose{B})$ verwendet.
 Die Determinante $\det(A)$ auf der rechten Seite wurde in Teilaufgabe a)
 bereits berechnet.
 Es muss also nur noch $\det(B)$ berechnet werden.
@@ -95,7 +95,7 @@ bringen.
 \]
 Damit folgt
 \[
-\det(BAB^t)
+\det(BA\transpose{B})
 =
 \det(A)\det(B)^2
 =

@@ -81,13 +81,13 @@ b_{12}&b_{22}&     0&     0\\
 \\
 &=
 \begin{pmatrix}
-a_{11}E&a_{12}E\\
-a_{21}E&a_{22}E
+a_{11}I&a_{12}I\\
+a_{21}I&a_{22}I
 \end{pmatrix}
 +
 \begin{pmatrix}
-B^t&0\\
-0&B^t
+\transpose{B}&0\\
+0&\transpose{B}
 \end{pmatrix}.
 \label{10000040:matrix}
 \end{align}
@@ -118,18 +118,18 @@ Die Matrix (\ref{10000040:matrix}) hat eine sehr spezielle Form.
 Mit dem sogenannten Kronecker-Produkt kann man sie in der Form
 \[
 \begin{pmatrix}
-a_{11}E&a_{12}E\\
-a_{21}E&a_{22}E
+a_{11}I&a_{12}I\\
+a_{21}I&a_{22}I
 \end{pmatrix}
 +
 \begin{pmatrix}
-B^t&0\\
-0&B^t
+\transpose{B}&0\\
+0&\transpose{B}
 \end{pmatrix}
 =
 E_n \otimes A
 +
-B^t \otimes E_n
+\transpose{B} \otimes E_n
 \]
 schreiben.
 
@@ -140,7 +140,7 @@ lineare Gleichungssystem (\ref{10000040:glsystem}) kompakt als
 \[
 (E_n \otimes A
 +
-B^t \otimes E_n)\operatorname{vec}X
+\transpose{B} \otimes E_n)\operatorname{vec}X
 =
 \operatorname{vec}C
 \]

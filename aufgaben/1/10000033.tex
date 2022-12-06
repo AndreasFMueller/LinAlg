@@ -46,7 +46,7 @@ und den {\em Kommutator} $[A,B]=AB-BA$ gilt, also
 \item
 Rechnen Sie ausserdem nach:
 Definiert man das Skalarprodukt von zwei Matrizen $A$ und $B$ als
-$\operatorname{Spur}(A^tB)$
+$\operatorname{Spur}(\transpose{A}B)$
 (für Vektoren ist dies bis auf die Spur die Definition des Skalarproduktes),
 dann sind $E_1$, $E_2$
 und $E_3$ bezüglich dieses Skalarproduktes orthonormiert.
@@ -114,13 +114,13 @@ Wir müssen jetzt die gemischten Kommutatoren nachrechnen:
 \end{align*}
 Damit ist gezeigt, dass die Kommutatorgleichungen eingehalten werden.
 \item
-Wir müssen nachrechnen, dass $E_i^tE_j=\delta_{ij}$ ist.
+Wir müssen nachrechnen, dass $\transpose{E_i}E_j=\delta_{ij}$ ist.
 Wir können die Rechnung etwas vereinfachen, wenn wir berücksichtigen,
-dass die Matrizen alle antisymmetrisch sind, dass also $E_i^t=-E_i$ ist.
+dass die Matrizen alle antisymmetrisch sind, dass also $\transpose{E_i}=-E_i$ ist.
 Die gemischten Produkte $E_iE_j$ haben wir oben alle ausgerechnet, und
 man kann ablesen, dass auf der Diagonalen nur Nullen stehen. Also gilt
 \[
-\operatorname{Spur}E_i^tE_j
+\operatorname{Spur}\transpose{E_i}E_j
 =
 -\operatorname{Spur}E_iE_j=0
 \qquad
@@ -128,7 +128,7 @@ man kann ablesen, dass auf der Diagonalen nur Nullen stehen. Also gilt
 \]
 Für $i=j$ rechnen wir
 \begin{align*}
-\operatorname{Spur}E_1^tE_1
+\operatorname{Spur}\transpose{E_1}E_1
 &=-\operatorname{Spur}E_1^2
 =-\operatorname{Spur}\frac14\begin{pmatrix}
 -1& 0& 0& 0\\
@@ -138,7 +138,7 @@ Für $i=j$ rechnen wir
 \end{pmatrix}
 =1,
 \\
-\operatorname{Spur}E_2^tE_2
+\operatorname{Spur}\transpose{E_2}E_2
 &=-\operatorname{Spur}E_2^2
 =-\operatorname{Spur}\frac14\begin{pmatrix}
 -1& 0& 0& 0\\
@@ -148,7 +148,7 @@ Für $i=j$ rechnen wir
 \end{pmatrix}
 =1,
 \\
-\operatorname{Spur}E_3^tE_3
+\operatorname{Spur}\transpose{E_3}E_3
 &=-\operatorname{Spur}E_3^2
 =-\operatorname{Spur}\frac14\begin{pmatrix}
 -1& 0& 0& 0\\
@@ -170,9 +170,9 @@ also auch in einer Basis bestehend aus $E_1$, $E_2$ und $E_3$ machen.
 Diese Matrizen sind eine reelle Variante der sogenannten
 Pauli-Matrizen,
 die in der Quantenmechanik eine bedeutende Rolle spielen.
-Das Skalarprodukt der Matrizen $\operatorname{Spur}A^tB$ ist übrigens
+Das Skalarprodukt der Matrizen $\operatorname{Spur}\transpose{A}B$ ist übrigens
 genau das Skalarprodukt der Vektoren. Nimmt man für $A$ und $B$
-$n$-dimensionale Spaltenvektoren, dann ist $A^tB$ eine $1\times 1$-Matrix,
+$n$-dimensionale Spaltenvektoren, dann ist $\transpose{A}B$ eine $1\times 1$-Matrix,
 und die Spur davon ist genau das übliche Skalarprodukt von Spaltenvektoren.
 \end{diskussion}
 
@@ -182,9 +182,9 @@ und die Spur davon ist genau das übliche Skalarprodukt von Spaltenvektoren.
 Berechnung der Kommutatoren in $[E_i,E_j]$ mit $i\ne j$ (die Fälle
 $i=j$ sind trivial) ({\bf K}) je 1 Punkt.
 \item
-Berechnung $\operatorname{Spur}E_i^tE_j=0$ für ein Paar $i\ne j$ ({\bf O})
+Berechnung $\operatorname{Spur}\transpose{E_i}E_j=0$ für ein Paar $i\ne j$ ({\bf O})
 1 Punkt,
 Berechnung der Norm 
-$\operatorname{Spur}E_i^tE_i=1$ für ein $i$ ({\bf N}) 2 Punkte.
+$\operatorname{Spur}\transpose{E_i}E_i=1$ für ein $i$ ({\bf N}) 2 Punkte.
 \end{teilaufgaben}
 \end{bewertung}

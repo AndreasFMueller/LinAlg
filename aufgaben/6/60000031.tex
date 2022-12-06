@@ -109,7 +109,7 @@ b
 die Parameter bestimmen, die am nächsten an einer Lösung sind.
 Man muss also die Matrix
 \[
-A^tA
+\transpose{A}A
 =
 \begin{pmatrix}
 \displaystyle
@@ -122,7 +122,7 @@ A^tA
 \]
 und den Vektor der rechten Seiten
 \[
-A^tb
+\transpose{A}b
 =
 \begin{pmatrix}
 \displaystyle
@@ -131,7 +131,8 @@ A^tb
 \sum_{i=1}^n \log N_i
 \end{pmatrix}
 \]
-ermitteln und dann das Gleichungssystem $A^tA{\color{darkred}x} = A^tb$
+ermitteln und dann das Gleichungssystem
+$\transpose{A}A{\color{darkred}x} = \transpose{A}b$
 lösen.
 Danach kann man $R_0$ und $N_0$ durch Auflösen von
 \begin{align*}
@@ -150,6 +151,6 @@ gewinnen.
 Least-Squares-Problem ({\bf LS}) 1 Punkt,
 Logarithmusgesetze ({\bf L}) 1 Punkt,
 Matrix $A$ ({\bf A}) und Vektor $b$ ({\bf B}) je 1 Punkt,
-Lösungsverfahren über $A^tA$ und $A^tb$ ({\bf V}) 1 Punkt.
+Lösungsverfahren über $\transpose{A}A$ und $\transpose{A}b$ ({\bf V}) 1 Punkt.
 Auflösung nach $R_0$ und $N_0$ ({\bf L}) 1 Punkt.
 \end{bewertung}

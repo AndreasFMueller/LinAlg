@@ -66,10 +66,10 @@ A
 \end{pmatrix}.
 \]
 Die Theorie besagt, dass sich die bestmögliche Lösung finden lässt,
-indem man das Gleichungssystem mit der Matrix $A^tA$ und rechter Seite
-$A^tb$ löst:
+indem man das Gleichungssystem mit der Matrix $\transpose{A}A$ und rechter Seite
+$\transpose{A}b$ löst:
 \begin{align*}
-A^tA
+\transpose{A}A
 &=
 \begin{pmatrix}
  10& 10&-10&-10\\
@@ -89,7 +89,7 @@ A^tA
   0&  0&  4
 \end{pmatrix}
 \\
-A^tb
+\transpose{A}b
 &=
 \begin{pmatrix}
  10& 10&-10&-10\\
@@ -106,7 +106,7 @@ A^tb
 0.076
 \end{pmatrix}
 \end{align*}
-Das Gleichungssystem kann dank der Diagonalform von $A^tA$
+Das Gleichungssystem kann dank der Diagonalform von $\transpose{A}A$
 sofort gelöst werden:
 \[
 a=-0.00005,\qquad b=-0.00030,\qquad c=0.019.

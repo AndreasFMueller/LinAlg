@@ -8,18 +8,18 @@ a^2&2a^2&ab+a^2\\
 ab&ab+a^2&b^2+2a^2
 \end{pmatrix}
 \]
-als Produkt $A=BB^t$ schreiben?
+als Produkt $A=B\transpose{B}$ schreiben?
 Wenn ja bestimmen Sie eine solche Matrix $B$.
 
 \thema{Cholesky-Zerlegung}
 
 \begin{loesung}
 Wir verwenden den Algorithmus für die Cholesky-Zerlegung, er liefert
-eine untere Dreiecksmatrix $L$ mit $A=LL^t$.
+eine untere Dreiecksmatrix $L$ mit $A=L\transpose{L}$.
 
 Im ersten Schritt versucht man die erste Spalte von $L$ zu bestimmen:
 \[
-LL^t
+L\transpose{L}
 =
 \begin{pmatrix}
 l_{11}&0&0\\
@@ -50,7 +50,7 @@ l_{31}&=b
 \]
 Diese Daten können wir jetzt verwenden, um die zweite Spalte zu bestimmen:
 \[
-LL^t
+L\transpose{L}
 =
 \begin{pmatrix}
 a&0&0\\
@@ -80,7 +80,7 @@ l_{32}&=a
 \]
 Somit bleibt nur noch das Element $l_{33}$ zu bestimmen:
 \[
-LL^t
+L\transpose{L}
 =
 \begin{pmatrix}
 a&0&0\\

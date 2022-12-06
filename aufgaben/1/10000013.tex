@@ -13,9 +13,9 @@ Betrachten Sie das folgende Netzwerk
 \item Berechnen Sie die $\partial$-Matrix dieses Netzwerkes.
 \item Bestimmen Sie die Zyklen.
 \item Welche Ströme sind frei wählbar? Bestimmen Sie die Gleichungen dafür.
-\item Berechnen Sie den Laplace-Operator $\partial\partial^t$ 
+\item Berechnen Sie den Laplace-Operator $\partial\transpose{\partial}$ 
 durch Ausmultiplizieren des Matrizenproduktes.
-\item Berechnen Sie den Laplace-Operator $\partial S\partial^t$, wenn
+\item Berechnen Sie den Laplace-Operator $\partial S\transpose{\partial}$, wenn
 die Leitwerte proportional zur Länge der Drähte in der graphischen
 Darstellung des Netzwerkes sind.
 \end{teilaufgaben}
@@ -85,11 +85,11 @@ Z=
 Die frei wählbaren Ströme ergeben sich als Lösung der
 Gleichung
 \[
-Z^tRZj=Ze
+\transpose{Z}RZj=Ze
 \]
-Wir berechnen $Z^tRZ$:
+Wir berechnen $\transpose{Z}RZ$:
 \begin{align*}
-Z^tRZ&=
+\transpose{Z}RZ&=
 \begin{pmatrix}
    1& -1&  0&  1&  0&  0\\
    1&  0& -1&  0&  1&  0\\
@@ -165,7 +165,7 @@ nämlich dass jeder Knoten mit drei Nachbarn verbunden ist.
 als Widerstand $\sqrt{2}$ statt $1$. Der Laplace-Operator wird 
 damit
 \begin{align*}
-\partial S\partial^t
+\partial S\transpose{\partial}
 &=
 \begin{pmatrix}
 -1&-1&-1& 0& 0& 0\\

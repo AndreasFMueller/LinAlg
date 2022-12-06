@@ -59,11 +59,13 @@ b=
 Das Lösungsverfahren für diese Art von Problem besagt, dass man das
 Gleichungssystem
 \[
-A^tA\begin{pmatrix}{\color{red}a}\\{\color{red}b}\end{pmatrix}=A^tb
+\transpose{A}A\begin{pmatrix}{\color{red}a}\\{\color{red}b}\end{pmatrix}
+=
+\transpose{A}b
 \]
-lösen muss. Die Matrix $A^tA$ und der Verktor $A^tb$ sind
+lösen muss. Die Matrix $\transpose{A}A$ und der Verktor $\transpose{A}b$ sind
 \begin{align*}
-A^tA&=
+\transpose{A}A&=
 \begin{pmatrix}
 0&1&2&3\\
 1&1&1&1
@@ -80,7 +82,7 @@ A^tA&=
  6&4
 \end{pmatrix},
 \\
-A^tb&=
+\transpose{A}b&=
 \begin{pmatrix}
 0&1&2&3\\
 1&1&1&1

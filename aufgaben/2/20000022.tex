@@ -7,7 +7,7 @@ Ist $R$ die $k\times k$-Matrix, die auf der Diagonalen die Widerstände der
 einzelnen Kanten enthält, dann sind die Maschengleichungen für den
 $k$-Vektor der Ströme 
 \[
-Z^tRJ=Z^te,
+\transpose{Z}RJ=\transpose{Z}e,
 \]
 darin sind $e$ die Spannungsquellen.
 Die Knotengleichungen werden zu $\partial J=0$, wobei zu beachten ist,
@@ -84,7 +84,7 @@ z_4=\begin{pmatrix}
 \]
 Damit kann man jetzt die $Z$-Matrix aufstellen:
 \[
-Z^t=\begin{pmatrix}
+\transpose{Z}=\begin{pmatrix}
  1&-1& 0& 1& 0& 0& 0\\
  1& 0&-1& 0& 1& 0& 0\\
  0& 1&-1& 0& 0& 1& 0\\
@@ -95,14 +95,15 @@ Damit kann man jetzt die Maschengleichungen aufstellen. Da $R=R_0E$ ist,
 wobei $R_0$ der für alle Kanten gleiche Widerstand einer Kante ist,
 erhält man:
 \[
-Z^tR_0IJ=R_0Z^tJ=Z^te
+\transpose{Z}R_0IJ=R_0\transpose{Z}J=\transpose{Z}e
 \]
 Die einzige Spannungsquelle ist die in der Kante $x_7$, der Vektor
 ist $e$ ist also der Standardbasisvektor $e_7$. Dann ist aber
-$Z^te=Z^te_7$ die letzte Spalte von $Z^t$, also der $4$-dimensionale
+$\transpose{Z}e=\transpose{Z}e_7$ die letzte Spalte von $\transpose{Z}$,
+also der $4$-dimensionale
 Standardbasisvektor $e_4$. Die Maschengleichungen sind damit:
 \[
-R_0Z^tJ=e_4.
+R_0\transpose{Z}J=e_4.
 \]
 Dazu kommen noch die Knotengleichungen $\partial J=0$, wobei wir die letzte
 Gleichung weglassen können. Setzen wir zudem $R_0=1$, dann hat das

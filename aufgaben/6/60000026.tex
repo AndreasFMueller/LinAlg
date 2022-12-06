@@ -80,7 +80,7 @@ b=
 \]
 Um die Koeffizienten zu bestimmen, muss man das Gleichungssystem
 \[
-A^tA {\color{red}x} = A^tb
+\transpose{A}A {\color{red}x} = \transpose{A}b
 \]
 lösen, wobei 
 \[
@@ -93,9 +93,9 @@ lösen, wobei
 {\color{red}b}
 \end{pmatrix}
 \]
-Die Matrix $A^tA$ und den Vektor $A^tb$ kann man explizit berechnen:
+Die Matrix $\transpose{A}A$ und den Vektor $\transpose{A}b$ kann man explizit berechnen:
 \begin{align*}
-A^tA
+\transpose{A}A
 &=
 \begin{pmatrix}
 n
@@ -135,5 +135,5 @@ Anzahl Messungen ({\bf N}) 1 Punkt,
 Least-Squares-Prinzip ({\bf L}) 1 Punkt,
 Matrix $A$ ({\bf A}) 2 Punkte,
 Matrix $b$ ({\bf B}) 1 Punkt,
-Gleichungssytem $A^tA{\color{red}}x=A^tb$ ({\bf G}) 1 Punkt.
+Gleichungssytem $\transpose{A}A{\color{red}}x=\transpose{A}b$ ({\bf G}) 1 Punkt.
 \end{bewertung}

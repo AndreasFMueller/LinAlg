@@ -6,17 +6,17 @@ A=\begin{pmatrix}
 -28&27a + 20&9a^2 + 17
 \end{pmatrix}
 \]
-als Produkt $A=BB^t$ schreiben? Geben Sie eine mögliche Matrix $B$ an.
+als Produkt $A=B\transpose{B}$ schreiben? Geben Sie eine mögliche Matrix $B$ an.
 
 \thema{Cholesky-Zerlegung}
 
 \begin{loesung}
 Wir verwenden den Algorithmus für die Cholesky-Zerlegung. Er liefert eine 
-untere Dreiecksmatrix $L$ mit $A = LL^t$.
+untere Dreiecksmatrix $L$ mit $A = L\transpose{L}$.
 
 Im ersten Schritt versucht man die erste Spalte von $L$ zu bestimmen.
 \[
-LL^t=
+L\transpose{L}=
 \begin{pmatrix}
 l_{11}&  0&  0\\
 l_{21}&  ?&  0\\
@@ -46,7 +46,7 @@ l_{31}&=-4
 \]
 Diese Daten können wir jetzt verwenden, um die zweite Spalte zu bestimmen:
 \[
-LL^t
+L\transpose{L}
 =
 \begin{pmatrix}
 7&     0&0\\
@@ -76,7 +76,7 @@ l_{32}&=3a
 \]
 Somit bleibt nur noch das Element $l_{33}$ zu bestimmen:
 \[
-LL^t=
+L\transpose{L}=
 \begin{pmatrix}
 7&     0&0\\
 -5&9&0\\

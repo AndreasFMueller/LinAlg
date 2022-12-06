@@ -11,7 +11,7 @@ positiv definit?
 \begin{loesung}
 Die Matrix ist positiv definit, wenn sich die Cholesky-Zerlegung 
 durchführen lässt.
-Gesucht ist also eine untere Dreiecksmatrix $L$ derart, dass $LL^t=A$.
+Gesucht ist also eine untere Dreiecksmatrix $L$ derart, dass $L\transpose{L}=A$.
 Aus
 \[
 L
@@ -22,7 +22,7 @@ l_{21}&l_{22}&0\\
 l_{31}&l_{32}&l_{33}
 \end{pmatrix}
 \qquad\Rightarrow\qquad
-LL^t
+L\transpose{L}
 =
 \begin{pmatrix}
 l_{11}&0&0\\
@@ -35,7 +35,7 @@ l_{11}&l_{21}&l_{31}\\
 0&0&l_{33}
 \end{pmatrix}
 \]
-bekommt man durch Ausmultiplizieren des Produktes $LL^t$
+bekommt man durch Ausmultiplizieren des Produktes $L\transpose{L}$
 \begin{align*}
 a_{11}&=1=l_{11}^2 &&\Rightarrow&l_{11}&=1
 \\

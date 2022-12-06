@@ -18,12 +18,12 @@ im Sinne der kleinsten Quadrate.
 \begin{loesung}
 Gesucht ist die Lösung des Least-Square-Gleichungssystems
 \[
- A^tA x= A^tb.
+ \transpose{A}A x= \transpose{A}b.
 \]
-Es muss folglich die Matrix $A^tA$ und der Vektor $A^tb$
+Es muss folglich die Matrix $\transpose{A}A$ und der Vektor $\transpose{A}b$
 berechnet werden:
 \begin{align*}
-A^tA
+\transpose{A}A
 &=
 \begin{pmatrix}
    51 &  6 & 14 \\
@@ -31,7 +31,7 @@ A^tA
    14 & -4 & 12
 \end{pmatrix}
 \\
-A^tb
+\transpose{A}b
 &=
 \begin{pmatrix}
 59\\-24\\30
@@ -41,7 +41,7 @@ Die Lösung $x$ wird damit
 \[
 x
 =
-(A^tA)^{-1} A^tb
+(\transpose{A}A)^{-1} \transpose{A}b
 =
 \begin{pmatrix}
    51 &  6 & 14 \\

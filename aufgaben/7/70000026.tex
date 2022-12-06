@@ -38,7 +38,7 @@ l_{31}&l_{32}&l_{33}
 \end{pmatrix}
 \]
 und berechnet dann schrittweise die Matrixelemente $l_{ik}$ von $L$
-durch Ausmultiplizieren von $LL^t$ und Vergleich mit $A$:
+durch Ausmultiplizieren von $L\transpose{L}$ und Vergleich mit $A$:
 \[
 \begin{aligned}
 l_{11}^2                   &=  25u^2       &&\Rightarrow&    l_{11} &= 5u  \\
@@ -65,7 +65,7 @@ L=\begin{pmatrix}
 15u^3.
 \]
 Damit kann man jetzt auch die Determinante von $A$ berechnen:
-$\det A = \det LL^t = (\det L)^2 = 15^2u^6 = 225u^6.$
+$\det A = \det L\transpose{L} = (\det L)^2 = 15^2u^6 = 225u^6.$
 \end{loesung}
 
 \begin{bewertung}

@@ -70,9 +70,9 @@ c
 \]
 Dieses überbestimmte Gleichungssystem kann mit Hilfe der
 Least-Squares-Methode gelöst werden, dazu ist das Gleichungssystem
-mit Matrix $A^tA$ und rechter Seite $A^tb$ zu lösen:
+mit Matrix $\transpose{A}A$ und rechter Seite $\transpose{A}b$ zu lösen:
 \[
-A^tA
+\transpose{A}A
 =
 \begin{pmatrix}
 46750000&783000&13900\\
@@ -80,7 +80,7 @@ A^tA
    13900&   270&    6
 \end{pmatrix},
 \qquad
-A^tb
+\transpose{A}b
 =
 \begin{pmatrix}
 5787800\\
@@ -128,7 +128,7 @@ sehr gut durch eine quadratische Funktion approximieren.
 Lineares Gleichungssystem für die Koeffizienten $a$, $b$ und $c$ ({\bf G})
 1 Punkt,
 Lösungsverfahren Least Squares ({\bf L}) 1 Punkt,
-Berechungung $A^tA$ und $A^tb$ ({\bf A}) je 1 Punkt,
+Berechungung $\transpose{A}A$ und $\transpose{A}b$ ({\bf A}) je 1 Punkt,
 Berechnung der Koeffizienten ({\bf K}) 1 Punkt,
 $w$-Wert für Maximum ({\bf W}) 1 Punkt.
 \end{bewertung}
