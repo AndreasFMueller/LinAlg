@@ -1,0 +1,116 @@
+Betrachten Sie die Matrix
+\[
+A
+=
+\begin{pmatrix}
+3-s &  1 \\
+-s^2&s+3
+\end{pmatrix}
+\]
+mit $s\ne 0$.
+\begin{teilaufgaben}
+\item 
+Bestimmen Sie die Eigenwerte von $A$.
+\item
+Finden Sie so viele linear unabhängige Eigenvektoren wie möglich.
+\item
+Ist die Matrix diagonalisierbar?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item 
+Wir berechnen das charakteristische Polynom
+\[
+\chi_A(\lambda)
+=
+\left|
+\begin{matrix}
+3-s-\lambda & 1 \\
+-s^2 & s+3-\lambda
+\end{matrix}
+\right|
+=
+(3-\lambda+s)(3-\lambda-s)+s^2
+=
+(3-\lambda)^2-s^2+s^2
+=
+(\lambda-3)^2.
+\]
+Die Eigenwerte sind Nullstellen des charakteristischen Polynoms, also
+Lösungen der Gleichung $\chi_A(\lambda)=(\lambda-3)^2 = 0$.
+$\lambda=3$ ist eine doppelte Nullstelle, dies ist also der einzige Eigenwert.
+\item 
+Für die Eigenvektoren müssen wir das homogene Gleichungssystem mit 
+Koeffizientenmatrix $A-3E$ mit dem Gauss-Algorithmus lösen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+3-s-\lambda & 1 & 0\\
+ -s^2 & s+3-\lambda& 0\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-s & 1 & 0\\
+-s^2 & s & 0\\
+\hline
+\end{tabular}
+\\
+& \rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1 & -\frac{1}s & 0\\
+0 & 0 & 0\\
+\hline
+\end{tabular}
+\end{align*}
+Die Division durch das Pivot-Element $-s$ im ersten Schritt ist möglich,
+weil $s\ne 0$ in der Aufgabenstellung vorausgesetzt war.
+Die zweite Variable ist frei wählbar, zum Beispiel könnten wir den Wert $s$
+wählen.
+Dann wird ein möglicher Eigenvektor:
+\[
+v
+=
+\begin{pmatrix}1\\s\end{pmatrix}.
+\]
+Alle anderen Eigenvektoren sind davon linear abhängig.
+
+Kontrolle:
+\[
+Av
+=
+\begin{pmatrix}
+3-s &  1 \\
+-s^2&s+3
+\end{pmatrix}
+\begin{pmatrix}1\\s\end{pmatrix}
+=
+\begin{pmatrix}
+(3-s)+s\\
+-s^2+(s+3)s
+\end{pmatrix}
+=
+\begin{pmatrix}
+3\\
+3s
+\end{pmatrix}
+=
+3v.
+\]
+\item
+Da der Eigenraum von $\lambda=3$ nur eindimensional ist, gibt es keine
+Basis aus Eigenvektoren und die Matrix $A$ ist daher nicht diagonalisierbar.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Charakteristisches Polynome ({\bf X}) 2 Punkte,
+Eigenwerte ({\bf L}) 1 Punkt,
+Gauss-Algorithmus ({\bf G}) 1 Punkt,
+Eigenvektor ({\bf V}) 1 Punkt,
+Diagonalisierbarkeit ({\bf D}) 1 Punkt.
+\end{bewertung}
