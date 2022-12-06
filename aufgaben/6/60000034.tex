@@ -1,0 +1,148 @@
+Die Durham Bridge ist eine Eisenbahnbrücke in der Stadt Durham
+in North Carolina in den USA.
+\begin{center}
+\includeagraphics[width=\textwidth]{canopener.jpeg}
+\end{center}
+Die Durchfahrthöhe ist mit $3.76\,\text{m}$ sehr gering, etwa $30\,\text{cm}$
+geringer als normalerweise von einer solchen Brücke verlangt wird.
+Aus diesem Grund kommt es trotz aufwendiger Warnsysteme
+regelmässig zu Unfällen mit zu hohen Fahrzeuge, die von verschiedenen
+Webcams festgehalten werden und die Brücke unter dem Namen
+{\em can opener bridge} zu einem Internet-Phänomen gemacht haben.
+Aus verschiedenen Gründen scheint es nicht möglich zu sein, die Brücke
+ausreichend zu erhöhen oder die Strasse abzusenken.
+
+Der Youtube-Kanal \texttt{yovo68} dokumentiert alle Unfälle mit mehreren
+Kameras.
+Um die Aufzeichnung nur bei bevorstehenden Unfälle auszulösen,
+könnte man eine weitere Kamera verwenden, die den heranfahrenden
+Verkehr beobachtet.
+Die Kamera mit einem Objektiv mit $f=8000$ Brennweite und einem
+$1920\times 1080$-Chip ist im Punkt $C=(0,0,12)$ montiert und mit der
+Drehmatrix
+\[
+D=\begin{pmatrix*}[r]
+  -0.9806&  0.1961&  0\phantom{.0000}\\
+   0.0077&  0.0384& -0.9992\\
+  -0.1960& -0.9798& -0.0392
+\end{pmatrix*}
+\]
+orientiert.
+
+\begin{teilaufgaben}
+\item
+Das Auslösesystem soll die Aufzeichnung immer dann starten, wenn auf den
+Bildern eine Bewegung oberhalb einer Geraden zwischen den Punkten
+$P_1=(10,-100,13)$ und $P_2=(-10,-100,13)$.
+Bestimmen Sie die Punkte $B_1$ und $B_2$ auf dem Chip, auf die $P_1$ und
+$P_2$ abgebildet werden.
+\item
+Bei einem Unfall hat das System nicht ausgelöst. 
+Auf Bild der Auslöserkamera kann man Aktivität im Punkt
+$B=(b_x,b_y)$ sehen.
+Geben Sie eine einfache Formel mit der man testen kann, ob der
+Punkt $B$ oberhalb der Verbindungsstrecke $B_1B_2$ liegt.
+Wenden Sie die Formel auf den Punkt $B=(666,148)$ an.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Kameramatrix ist
+\[
+K=\begin{pmatrix}
+f&0&m_x\\
+0&f&m_y\\
+0&0&1
+\end{pmatrix}
+=
+\begin{pmatrix*}[r]
+8000&   0&960\\
+   0&8000&540\\
+   0&   0&  1
+\end{pmatrix*}.
+\]
+Die Projektionsmatrix wird damit
+\[
+P
+=
+K D \begin{pmatrix}E&-\vec{c}\end{pmatrix}
+=
+\begin{pmatrix*}[r]
+-8032.8\phantom{0000}& 628.29\phantom{000}&  -37.625\phantom{000}&161110\phantom{.0000}\\
+  -44.330\phantom{00}&-221.65\phantom{000}&-8015.0\phantom{00000}& 97067\phantom{.0000}\\
+   -0.19597          &  -0.97983          &   -0.039193          &     4.3896
+\end{pmatrix*}.
+\]
+Die Bildpunkte erhält man, indem man die Matrix $P$ auf die
+Punkte $P_1$ und $P_2$ mit homogenen Koordinaten 
+\begin{align*}
+\tilde{p}_1&=\begin{pmatrix*}[r]10\\-100\\1\\1\end{pmatrix*}
+&
+\tilde{p}_2&=\begin{pmatrix*}[r]-10\\-100\\1\\1\end{pmatrix*}.
+\intertext{anwendet. Die homogenen Koordinaten der Bilder sind}
+\tilde{b}_1&=P\tilde{p}_1 = \begin{pmatrix*}[r]
+  -143190\phantom{.000}
+   13707\phantom{.000}
+   95.984
+\end{pmatrix*}
+&
+\tilde{b}_2&=P\tilde{p}_2 = \begin{pmatrix*}[r]
+   17461\phantom{.000}
+   14593\phantom{.000}
+      99.903
+\end{pmatrix*}.
+\intertext{Nach Teilen durch die dritte Komponente bekommt man die
+Pixel-Koordinaten:}
+B_1&=(-1492,143)
+&
+B_2&=(175,146)
+\end{align*}
+(An dieser Stelle ist beim Tippen der Aufgabe ein kleiner Fehler
+passiert, der Punkt $C$ war falsch abgetippt worden, was zu einem Punkt $B_1$
+ausserhalb des Chips führt. Dies hat jedoch keine Konsequenzen für
+die Lösungsmethoden.)
+\item
+Der Punkt $B$ liegt oberhalb der Verbindungsstrecke, wenn das Dreieck
+$\triangle B_1B_2B$ positiv orientiert ist. 
+Dies kann man mit der Determinanten testen:
+\[
+\det(\overrightarrow{B_1B_2},\overrightarrow{B_1B})
+=
+\left|
+\begin{matrix}
+b_{2x}-b_{1x}&b_x-b_{1x}\\
+b_{2y}-b_{1y}&b_y-b_{1y}
+\end{matrix}
+\right|
+> 0.
+\]
+Für den Punkt $B=(66,148)$ ergibt sich die Determinante
+\[
+\left|
+\begin{matrix}
+1667& 3\\
+2158& 5\\
+\end{matrix}
+\right|
+=
+2\cdot 1541 - 3\cdot 491 
+=
+1861 > 0,
+\]
+das Kriterium ist also erfüllt, der Bildpunkt ist oberhalb der
+Verbindungsstrecke.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Kameramatrix ({\bf K}) 1 Punkt,
+Kamerazentrum ({\bf C}) 1 Punkt,
+Projizierte Punkte in homogenen Koordinaten ({\bf H}) 2 Punkt3,
+Pixelkoordinaten der projizierten Punkte ({\bf B}) 1 Punkt,
+Kriterium für Lage eines Punktes oberhalb der Verbindungslinie 
+({\bf O}) 1 Punkt.
+\end{bewertung}
+
+
