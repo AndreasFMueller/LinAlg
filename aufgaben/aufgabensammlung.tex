@@ -4,9 +4,11 @@
 % (c) 2017 Prof. Dr. Andreas Mueller, HSR
 %
 \documentclass[a4paper,12pt]{book}
-\usepackage{german}
 \usepackage[utf8]{inputenc}
+\usepackage[english,ngerman]{babel}
 \usepackage[T1]{fontenc}
+\usepackage{CJKutf8}
+%\usepackage{german}
 \usepackage{times}
 \usepackage{geometry}
 \geometry{papersize={210mm,297mm},total={170mm,240mm},top=31mm,bindingoffset=15mm,marginparwidth=9mm}
@@ -32,8 +34,6 @@
 \usepackage{paralist}
 \usepackage{enumitem}
 \usepackage{multicol}
-\usepackage{CJKutf8}
-\usepackage{wasysym}
 \usepackage{tikz}
 \usetikzlibrary{arrows,3d,calc}
 \usepackage{color}
@@ -45,6 +45,7 @@
 \usepackage{environ}
 \usepackage{epic}
 \usepackage{etoolbox}
+\usepackage{wasysym}
 \makeindex
 \begin{document}
 \pagestyle{fancy}
@@ -91,6 +92,9 @@ OST Ostschweizer Fachhochschule, Rapperswil, 2011-2022
 \def\gaussurl#1{
 \edef\glnumber{\getrefnumber{#1}}
 \url{https://linalg.ch/gauss/?id=\glnumber}}
+\def\jacobiurl#1{
+\edef\glnumber{\getrefnumber{#1}}
+\url{https://linalg.ch/jacobi/?id=\glnumber}}
 %
 \input{../skript/linsys.tex}
 \input{uebungen.tex}
