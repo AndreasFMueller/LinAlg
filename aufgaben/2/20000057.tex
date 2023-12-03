@@ -1,0 +1,60 @@
+Bestimmen Sie den Wert der Determinanten der Matrix
+\[
+A=\begin{pmatrix}
+   1&  a&  2&  7\\
+   8&  b&  4&  1\\
+   0&  c&  0&  0\\
+   6&  d&  3&  1\\
+\end{pmatrix}.
+\]
+Für welche Werte von $a,b,c$ und $d$ ist die Matrix singulär?
+
+\begin{loesung}
+Wir entwickeln nach der zweiten Spalte und erhalten
+\begin{align*}
+\det A
+&=
+-c\left|\begin{matrix}
+   1&  2&  7\\
+   8&  4&  1\\
+   6&  3&  1
+\end{matrix}\right|
+\\
+&=
+-c\bigl(
+1\cdot4\cdot1
++
+2\cdot1\cdot6
++
+7\cdot8\cdot3
+-
+6\cdot4\cdot7
+-
+3\cdot1\cdot1
+-
+1\cdot8\cdot2
+\bigr)
+\\
+&=
+-c\bigl(
+4+12+168
+-168-3-16
+\bigr)
+=
+3c.
+\end{align*}
+Die Matrix $A$ ist genau dann singulär, wenn $\det(A)=0$ ist, was genau 
+für $c=0$ eintritt.
+Die Werte der anderen Variablen haben keinen Einfluss darauf, ob $A$
+singulär ist.
+\end{loesung}
+
+\begin{bewertung}
+Entwicklungssatz ({\bf E}) 1 Punkt,
+Vorzeichenregel ({\bf V}) 1 Punkt,
+Sarrus-Formel ({\bf S}) 1 Punkt,
+Berechnung der Determinanten ({\bf R}) 2 Punkt,
+Singularität der Matrix $A$ ({\bf Z}) 1 Punkt.
+\end{bewertung}
+
+
