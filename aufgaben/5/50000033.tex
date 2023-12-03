@@ -1,0 +1,81 @@
+Gesucht ist ein orthonormiertes Koordinaten-System, in dem die
+Drehung um die Achse mit Richtung
+\[
+\vec{r}
+=
+\begin{pmatrix} 2\\3\\6 \end{pmatrix}
+\]
+als Drehung um die dritte Achse beschrieben werden kann.
+Der erste Basisvektor soll in der $x$-$y$-Ebene liegen und positive
+$x$-Komponente haben.
+Die Basis soll ein Rechtssystem sein.
+
+
+\begin{loesung}
+Der Vektor $\vec{b}_3$ muss ein Einheitsvektor mit Richung $\vec{r}$ sein,
+also
+\[
+\vec{b}_3
+=
+\frac{\vec{r}}{|\vec{r}|}
+=
+\frac{1}{7}
+\begin{pmatrix} 2\\3\\6 \end{pmatrix}.
+\]
+Der Vektor $\vec{b}_1$ soll sowohl auf $\vec{r}$ als auch auf der
+Vertikalen $\vec{e}_3$ senkrecht stehen, dazu kann man das Vektorprodukt
+\[
+a_1
+=
+\vec{b}_3\times \vec{e}_3
+=
+\frac17
+\begin{pmatrix} 2\\3\\6 \end{pmatrix}
+\times
+\begin{pmatrix} 0\\0\\1\end{pmatrix}
+=
+\frac17
+\begin{pmatrix} 3\\-2\\0 \end{pmatrix}
+\quad\Rightarrow\quad
+|a_1|=\frac17 \sqrt{13}
+\quad\Rightarrow\quad
+\vec{b}_1
+=
+\frac{1}{\sqrt{13}}
+\begin{pmatrix} 3\\-2\\0 \end{pmatrix}
+\]
+verwenden.
+Der dritte Basisvektor $\vec{b}_2$ muss auf den beiden anderen senkrecht
+stehen, dazu kann man wieder das Vektorprodukt verwenden.
+Für jedes Paar $\vec{a}$ und $\vec{b}$ von Vektoren bilden die drei
+Vektoren $\vec{a}$, $\vec{b}$ und $\vec{a}\times\vec{b}$ ein Rechtssystem,
+daher bilden auch zyklische Vertauschungen davon ein Rechtssystem.
+Da $\vec{b}_3$, $\vec{b}_1$ und $\vec{b}_3\times\vec{b}_1$ ein Rechtssystem
+bilden, dann auch
+$\vec{b}_1$, $\vec{b}_3\times\vec{b}_1$ und $\vec{b}_3$.
+Der gesuchte Vektor $\vec{b}_2$ ist also
+\[
+\vec{b}_2
+=
+\vec{b}_3\times \vec{b}_1
+=
+\frac{1}{7}
+\begin{pmatrix} 2\\3\\6 \end{pmatrix}
+\times
+\frac{1}{\sqrt{13}}
+\begin{pmatrix} 3\\-2\\0 \end{pmatrix}
+=
+\frac{1}{7\sqrt{13}}
+\begin{pmatrix}
+12\\18\\-13
+\end{pmatrix}.
+\qedhere
+\]
+\end{loesung}
+
+\begin{bewertung}
+Normierung von $\vec{b}_3$ ({\bf B$\mathstrut_3$}) 1 Punkt,
+Vektorprodukt und Normierung für $\vec{b}_1$ ({\bf B$\mathstrut_1$}) 2 Punkte,
+Vektorprdoukt und Normierung für $\vec{b}_2$ ({\bf B$\mathstrut_2$}) 2 Punkte,
+Orientierung der Basis ({\bf O}) 1 Punkt.
+\end{bewertung}
