@@ -1,0 +1,7 @@
+L: matrix(
+	[ 2, 0, 0 ],
+	[-1, c, 0 ],
+	[ 1-c,-1, 1 ]
+);
+A: L.transpose(L);
+ratsimp(A);

@@ -1,0 +1,115 @@
+Ist die Matrix
+\[
+A=
+\begin{pmatrix}
+4&-2&2-2c\\
+-2&c^2+1&-1\\
+2-2c&-1&c^2-2c+3
+\end{pmatrix}
+\]
+mit $c>0$ positiv definit?
+
+\begin{loesung}
+%                               [   2     0   0 ]
+%                               [               ]
+%(%o2)                          [  - 1    c   0 ]
+%                               [               ]
+%                               [ 1 - c  - 1  1 ]
+Die Matrix is positiv definit, wenn sich die Cholesky-Zerlegung durchführen
+lässt.
+Gesucht ist also eine untere Dreiecksmatrix
+\[
+L=
+\begin{pmatrix}
+l_{11}&     0&     0\\
+l_{21}&l_{22}&     0\\
+l_{31}&l_{32}&l_{33}
+\end{pmatrix}
+\]
+derart, dass $A=L\transpose{L}$, also
+\[
+L\transpose{L}
+=
+\begin{pmatrix}
+l_{11}&     0&     0\\
+l_{21}&l_{22}&     0\\
+l_{31}&l_{32}&l_{33}
+\end{pmatrix}
+\begin{pmatrix}
+l_{11}&l_{21}&l_{31}\\
+     0&l_{22}&l_{32}\\
+     0&     0&l_{33}
+\end{pmatrix}
+=
+A.
+\]
+Daraus gewinnt man Schritt für Schritt
+\begin{align*}
+a_{11}
+&=
+4
+=
+l_{11}^2
+&&\Rightarrow& l_{11} &= 2
+\\
+a_{12}
+&=
+-2
+=
+l_{11}l_{21}
+=
+2l_{21}
+&&\Rightarrow& l_{21} &= -1
+\\
+a_{13}
+&=
+2-2c
+=
+l_{11}l_{31}
+=2l_{31}
+&&\Rightarrow& l_{31} &=1-c
+\\
+a_{22}
+&=
+c^2+1
+=
+l_{21}^2 + l_{22}^2 = 1 + l_{22}^2
+&&\Rightarrow& l_{22} &= c
+\\
+a_{23}
+&=
+-1
+=
+l_{21}l_{31}+l_{22}l_{32}
+=
+c-1+cl_{32}
+&&\Rightarrow& l_{32} &= -1
+\\
+a_{33}
+&=
+c^2-3c+3
+=
+l_{31}^2+l_{32}^2+l_{33}^2
+=
+(1-c)^2+1+l_{33}^2
+=
+c^2-2c+2+l_{33}^2
+&&\Rightarrow& l_{33} &= 1.
+\end{align*}
+Damit ist gezeigt, dass
+\[
+L=\begin{pmatrix}
+2&0&0\\
+-1&c&0\\
+1-c&-1&1
+\end{pmatrix}
+\]
+die untere Dreiecksmatrix der Cholesky-Zerlegung von $A$ ist.
+Damit folgt auch, dass $A$ positiv definit ist.
+\end{loesung}
+
+\begin{bewertung}
+Druchführung der Cholesky-Zerlegung ({\bf C}) 5 Punkte,
+Schlussfolgerung ``positiv definit'' ({\bf P}) 1 Punkt.
+\end{bewertung}
+
