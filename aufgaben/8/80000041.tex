@@ -1,0 +1,156 @@
+Betrachten Sie die Matrix
+\[
+A
+=
+\begin{pmatrix}
+1&\frac1t\\
+-2t&4
+\end{pmatrix}
+\]
+mit $t\ne 0$.
+\begin{teilaufgaben}
+\item
+Bestimmen Sie die Eigenwerte von $A$.
+\item
+Bestimmen Sie so viele linear unabhängige Eigenvektoren von $A$ wie
+möglich.
+\item
+Ist die Matrix $A$ diagonalisierbar?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Das charakteristische Polynom von $A$ ist
+\[
+\chi_A(\lambda)
+=
+\det(A-\lambda I)
+=
+\left|\begin{matrix}
+1-\lambda&\frac1t\\
+-2t&4-\lambda
+\end{matrix}\right|
+=
+(1-\lambda)(4-\lambda)+2
+=
+\lambda^2-5\lambda+6
+=
+(\lambda-2)(\lambda-3).
+\]
+Die Nullstellen von $\chi_A(\lambda)$ sind die Eigenwerte
+$\lambda=2$ und $\lambda=3$.
+\item
+Für die Eigenvektoren müssen jetzt die homogenen linearen Gleichungssysteme
+mit Koeffizientenmatrix $A-\lambda I$ gelöst werden:
+\begin{align*}
+\lambda&=2:&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1-\lambda&\frac1t&0\\
+-2t&4-\lambda&0\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-1&\frac1t&0\\
+-2t&2&0\\
+\hline
+\end{tabular}
+&\lambda&=3:&
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1-\lambda&\frac1t&0\\
+-2t&4-\lambda&0\\
+\hline
+\end{tabular}
+&=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-2&\frac1t&0\\
+-2t&1&0\\
+\hline
+\end{tabular}
+\\
+&&&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-\frac1t&0\\
+0&0&0\\
+\hline
+\end{tabular}
+&&&&\rightarrow
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&-\frac1{2t}&0\\
+0&0&0\\
+\hline
+\end{tabular}
+\\
+&&\Rightarrow\quad v_2&=
+\begin{pmatrix}1\\t\end{pmatrix},
+&&&\Rightarrow\quad v_3&=
+\begin{pmatrix}1\\2t\end{pmatrix}.
+\end{align*}
+Kontrolle:
+\begin{align*}
+l&=2:&
+Av_2
+&=
+\begin{pmatrix}
+1&\frac1t\\
+-2t&4
+\end{pmatrix}
+\begin{pmatrix}1\\t\end{pmatrix}
+=
+\begin{pmatrix}
+1+t\frac1t\\
+-2t+4t
+\end{pmatrix}
+=
+\begin{pmatrix}2\\2t\end{pmatrix}
+=
+2 \begin{pmatrix}1\\t\end{pmatrix}
+=
+\lambda v_2
+\\
+l&=3:&
+Av_3
+&=
+\begin{pmatrix}
+1&\frac1t\\
+-2t&4
+\end{pmatrix}
+\begin{pmatrix}1\\2t\end{pmatrix}
+=
+\begin{pmatrix}
+1+\frac1t\cdot 2t\\
+-2t+8t
+\end{pmatrix}
+=
+\begin{pmatrix}3\\6t\end{pmatrix}
+=
+3\begin{pmatrix}1\\2t\end{pmatrix}
+=
+\lambda v_3.
+\end{align*}
+\item
+Da es zwei linear unabhängige Eigenvektoren und damit eine Basis aus
+Eigenvektoren gibt, ist die Matrix $A$ diagonalisierbar.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Für die Diagonalisierbarkeit ist es nicht nötig, die Transformationsmatrix
+zu berechnen.
+\end{diskussion}
+
+\begin{bewertung}
+Charakteristisches Polynome ({\bf X}) 2 Punkte,
+Eigenwerte ({\bf E}) 1 Punkt,
+Gauss-Algorithmus und Eigenvektoren ({\bf G}) 2 Punkte (je ein Punkt
+für jeden Eigenvektor,
+Diagonalisierbarkeit ({\bf D}) 1 Punkt.
+\end{bewertung}

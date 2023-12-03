@@ -1,0 +1,30 @@
+
+A0: matrix(
+	[ 2, 1 ],
+	[ 0, 3 ]
+);
+
+T: matrix(
+	[ 1, 0 ],
+	[ t, t ]
+);
+invert(T);
+
+A: ratsimp(T.A0.invert(T));
+
+B: A - lambda * identfor(A);
+chi: ratsimp(determinant(B));
+
+A2: ratsimp(A - 2 * identfor(A));
+
+A2[1]: A2[1] / A2[1,1];
+A2[2]: A2[2] - A2[2,1] * A2[1];
+
+A2;
+
+A3: ratsimp(A - 3 * identfor(A));
+
+A3[1]: A3[1] / A3[1,1];
+A3[2]: A3[2] - A3[2,1] * A3[1];
+
+A3;
