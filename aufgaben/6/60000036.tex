@@ -1,0 +1,279 @@
+Ein Fluzeug fängt sich aus dem Sturzflug
+(Abbildung~\ref{60000036:fig} links)
+in die Normallage
+(Abbildung~\ref{60000036:fig} rechts)
+auf.
+Im Sturzflug zeigt die Nase in die Richtung des Vektors
+$\transpose{(1,1,-1)}$ und die Flügel sind horizontal.
+\begin{figure}[ht]
+\centering
+\includeagraphics[]{plane.pdf}
+\caption{
+Zwei Fluglagen des Flugzeugs in Aufgabe~\ref{60000036}
+vor und nach dem Abfangmanöver aus dem Sturzflug.
+\label{60000036:fig}}
+\end{figure}
+\begin{teilaufgaben}
+\item Finden Sie eine Drehmatrix, die diese Drehung erzeugt.
+\item Wie gross ist der Drehwinkel?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Es ist einfacher, die Drehung zu finden, die von der Fluglage rechts
+in die Fluglage links führt, und dann die inverse Matrix zu bestimmen.
+Da die Drehmatrix eine orthogonale Matrix ist, ist die Inverse einfach
+die Transponierte.
+
+Wir also die Bilder der Standardbasisvektoren in der Abbilung rechts.
+Der erste Vektor ist der rechte Flügel, er wird auf die Richtung
+\[
+\begin{pmatrix} 1\\-1\\0 \end{pmatrix}
+\qquad\Rightarrow\qquad
+a_1
+=
+\frac{1}{\sqrt{2}}
+\begin{pmatrix} 1\\-1\\0 \end{pmatrix}
+\]
+abgebildet.
+Der Vektor $e_2$ wird auf die Richtung der Flugzeugnase abgebildet,
+also
+\[
+a_2
+=
+\frac{1}{\sqrt{3}}
+\begin{pmatrix} 1\\1\\-1 \end{pmatrix}.
+\]
+Der vertikale Vektor $e_3$ ist das Vektorprodukt von $e_1$ und $e_2$,
+er wird auf das Vektorprodukt
+\[
+a_3
+=
+a_1\times a_2
+=
+\frac{1}{\sqrt{2}}
+\begin{pmatrix} 1\\-1\\0 \end{pmatrix}
+\times
+\frac{1}{\sqrt{3}}
+\begin{pmatrix} 1\\1\\-1 \end{pmatrix}.
+=
+\frac{1}{\sqrt{6}}
+\begin{pmatrix}
+(-1)\cdot(-1)-0\cdot 1\\
+0\cdot 1 - (-1)\cdot 1\\
+1\cdot 1 - 1\cdot(-1)
+\end{pmatrix}
+=
+\frac{1}{\sqrt{6}}
+\begin{pmatrix}
+1\\
+1\\
+2
+\end{pmatrix}
+\]
+abgebildet.
+Füllt man diese Vektoren in eine Matrix ein, erhält man die Inverse
+\[
+R^{-1}
+=
+\begin{pmatrix}
+ \frac{1}{\sqrt{2}}& \frac{1}{\sqrt{3}}&\frac{1}{\sqrt{6}}\\
+-\frac{1}{\sqrt{2}}& \frac{1}{\sqrt{3}}&\frac{1}{\sqrt{6}}\\
+       0           &-\frac{1}{\sqrt{3}}&\frac{2}{\sqrt{6}}
+\end{pmatrix}
+\]
+und damit für die Drehmatrix durch Transponieren
+\[
+R
+=
+\transpose{R^{-1}}
+=
+\begin{pmatrix}
+\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}&       0           \\
+\frac{1}{\sqrt{3}}& \frac{1}{\sqrt{3}}&-\frac{1}{\sqrt{3}}\\
+\frac{1}{\sqrt{6}}& \frac{1}{\sqrt{6}}& \frac{2}{\sqrt{6}}
+\end{pmatrix}.
+\]
+
+\item
+Den Drehwinkel kann man mit der Spurformel
+\[
+\cos\alpha
+=
+\frac{\operatorname{Spur}A-1}{2}
+=
+\frac{\frac{1}{\sqrt{3}}+\frac{1}{\sqrt{2}}+\frac{2}{\sqrt{6}}-1}{2}
+=
+0.5505
+\qquad\Rightarrow\qquad
+\alpha = 56.600^\circ.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+\begin{teilaufgaben}
+\item
+Vorgehensweise ({\bf L}) 1 Punkt,
+Bestimmung von drei geeigneten Vektoren ({\bf V}) 1 Punkte,
+Methode zur Berechnung der Inversen ({\bf I}) 1 Punkt,
+Berechnung der Drehmatrix ({\bf D}) 1 Punkt.
+\item
+Spurformel ({\bf S}) 1 Punkt,
+Winkel ({\bf W}) 1 Punkt.
+\end{teilaufgaben}
+\end{bewertung}
+
+\begin{diskussion}
+Alternativ, aber leider etwas aufwendiger, kann man die Drehmatrix
+auch finden, indem man im Flugzeug links leicht zu identifizierende
+Vektoren sucht, und ihre Bilder im rechten Bild bestimmt.
+
+Der erste Vektor hat die Richtung der Nase:
+\[
+\vec{b}_1
+=
+\frac{1}{\sqrt{3}}\begin{pmatrix*}[r] 1\\1\\-1\end{pmatrix*},
+\]
+er wird auf $e_2$ abgebildet.
+Der zweite Vektor hat die Richtung des linken Flügels:
+\[
+\begin{pmatrix*}[r]-1\\1\\0\end{pmatrix*}
+\qquad\Rightarrow\qquad
+\vec{b}_2
+=
+\frac{1}{\sqrt{2}}
+\begin{pmatrix*}[r]-1\\1\\0\end{pmatrix*},
+\]
+er wird auf $-e_1$ abgebildet.
+Der dritte Vektor ist das Vektorprodukt der beiden Vektoren:
+\[
+\vec{b}_1\times \vec{b}_2
+=
+\frac{1}{\sqrt{3}}
+\begin{pmatrix*}[r] 1\\1\\-1\end{pmatrix*}
+\times
+\frac{1}{\sqrt{2}}
+\begin{pmatrix*}[r]-1\\1\\0\end{pmatrix*}
+=
+\frac{1}{\sqrt{6}}
+\begin{pmatrix}
+1\cdot 0-(-1)\cdot 1\\
+(-1)\cdot(-1)-0\cdot 1\\
+1\cdot 1-(-1)\cdot 1
+\end{pmatrix}
+=
+\frac{1}{\sqrt{6}}
+\begin{pmatrix}
+1\\1\\2
+\end{pmatrix},
+\]
+er wird auf $e_3$ abgebildet.
+
+Schreibt man die Vektoren als Spalten in eine Matrix $B$, dann ist
+jetzt die Matrix $R$ gesucht, die
+\[
+RB
+=
+R
+\begin{pmatrix}
+ \frac{1}{\sqrt{3}}&-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{6}}\\
+ \frac{1}{\sqrt{3}}& \frac{1}{\sqrt{2}}&\frac{1}{\sqrt{6}}\\
+-\frac{1}{\sqrt{3}}&       0           &\frac{2}{\sqrt{6}}
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 0&-1& 0\\
+ 1& 0& 0\\
+ 0& 0& 1
+\end{pmatrix}
+=
+C.
+\]
+Die Drehmatrix ist dann $R=CB^{-1}$.
+
+Die inverse Matrix $B^{-1}$ kann mit dem Gauss-Algorithmus
+bestimmt werden.
+\bgroup
+\renewcommand\arraystretch{1.3}
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+ \frac{1}{\sqrt{3}}&-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{6}}&1&0&0\\
+ \frac{1}{\sqrt{3}}& \frac{1}{\sqrt{2}}&\frac{1}{\sqrt{6}}&0&1&0\\
+-\frac{1}{\sqrt{3}}&       0           &\frac{2}{\sqrt{6}}&0&0&1\\[2pt]
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-\frac{\sqrt{3}}{\sqrt{2}}&\frac{1}{\sqrt{2}}& \sqrt{3}&0&0\\
+0& \frac{2}{\sqrt{2}}       &      0           & -1      &1&0\\
+0&-\frac{1}{\sqrt{2}}       &\frac{3}{\sqrt{6}}&  1      &0&1\\[2pt]
+\hline
+\end{tabular}
+\\
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-\frac{\sqrt{3}}{\sqrt{2}}&\frac{1}{\sqrt{2}}& \sqrt{3}           &     0            &0\\
+0&       1                  &      0           &-\frac{1}{\sqrt{2}} &\frac{1}{\sqrt{2}}&0\\
+0&       0                  &      1           & \frac{1}{\sqrt{6}} &\frac{1}{\sqrt{6}}&\frac{2}{\sqrt{6}}\\[2pt]
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1&-\frac{\sqrt{3}}{\sqrt{2}}& 0& \sqrt{3}-\frac{1}{2\sqrt{3}} &-\frac{1}{2\sqrt{3}} &-\frac{1}{\sqrt{3}}\\
+0&       1                  & 0&-\frac{1}{\sqrt{2}}           & \frac{1}{\sqrt{2}}  & 0\\
+0&       0                  & 1& \frac{1}{\sqrt{6}}           & \frac{1}{\sqrt{6}}  & \frac{2}{\sqrt{6}}\\[2pt]
+\hline
+\end{tabular}
+\\
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 0& 0& \sqrt{3}-\frac{1}{2\sqrt{3}}-\frac{\sqrt{3}}2 &-\frac{1}{2\sqrt{3}}+\frac{\sqrt{3}}{2} &-\frac{1}{\sqrt{3}}\\
+0& 1& 0&-\frac{1}{\sqrt{2}}                            & \frac{1}{\sqrt{2}}  & 0\\
+0& 0& 1& \frac{1}{\sqrt{6}}                            & \frac{1}{\sqrt{6}}  & \frac{2}{\sqrt{6}}\\[2pt]
+\hline
+\end{tabular}
+&
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\hline
+1& 0& 0& \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}}  &-\frac{1}{\sqrt{3}}\\
+0& 1& 0&-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  & 0\\
+0& 0& 1& \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{6}}  & \frac{2}{\sqrt{6}}\\[2pt]
+\hline
+\end{tabular}
+\end{align*}
+\egroup
+Die Drehmatrix kann jetzt durch Berechnung des Produktes
+\[
+R
+=
+CB^{-1}
+=
+\begin{pmatrix}
+ 0&-1& 0\\
+ 1& 0& 0\\
+ 0& 0& 1
+\end{pmatrix}
+\begin{pmatrix}
+ \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}}  &-\frac{1}{\sqrt{3}}\\
+-\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}  & 0\\
+ \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{6}}  & \frac{2}{\sqrt{6}}
+\end{pmatrix}
+=
+\begin{pmatrix}
+ \frac{1}{\sqrt{2}} &-\frac{1}{\sqrt{2}}  & 0\\
+ \frac{1}{\sqrt{3}} & \frac{1}{\sqrt{3}}  &-\frac{1}{\sqrt{3}}\\
+ \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{6}}  & \frac{2}{\sqrt{6}}
+\end{pmatrix}
+\]
+gefunden werden und stimmt mit der früher gefundenen Matrix überein.
+\end{diskussion}
+
