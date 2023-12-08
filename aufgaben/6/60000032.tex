@@ -1,0 +1,145 @@
+Mit Hilfe eines Tastkopfes wurden die Koordinaten $(x_i,y_i,z_i)$,
+$i=1,\dots,n$, einiger Punkte auf der Oberfläche eines vertikalen,
+zylindrischen Rohres ermittelt.
+Stellen Sie ein Gleichungssystem zur Bestimmung der $x$- und $y$-Koordinaten
+der Achse und des Radius $r$ des Rohres auf.
+Drücken Sie die zugehörigen Matrizen und Vektoren durch $x_i$ und $y_i$ aus.
+
+\thema{Least Squares}
+
+\begin{loesung}
+\definecolor{darkred}{rgb}{0.6,0,0}
+Es handelt sich um ein Least-Squares-Problem zur Bestimmung der
+Unbekannten ${\color{darkred}x_0}$, ${\color{darkred}y_0}$
+und ${\color{darkred}r}$.
+Offensichtlich tragen die $z$-Koordinaten nichts zu den gesuchten
+Daten bei.
+Die Projektion des Mantels des Zylinders in die $x$-$y$-Ebene ist
+ein Kreis um den Punkt $({\color{darkred}x_0},{\color{darkred}y_0})$
+mit Radius ${\color{darkred}r}$.
+Es handelt sich also um das in der Vorlesung besprochene Problem,
+Mittelpunktskoordinaten und Radius eines Kreises aus Kreispunkten
+zu bestimmen.
+
+Die Punkte müssen die Kreisgleichung
+\[
+(x_i-{\color{darkred}x_0})^2 + (y_i-{\color{darkred}y_0})^2
+=
+{\color{darkred}r}^2
+\]
+erfüllen.
+Durch Ausmultiplizieren und Umstellen findet man die Gleichungen
+\begin{equation}
+-2x_i{\color{darkred}x_0}
+-2y_i{\color{darkred}y_0}
++({\color{darkred}x_0}^2
++{\color{darkred}y_0}^2
+-{\color{darkred}r}^2)
+=
+-x_i^2
+-y_i^2
+\label{60000032:eqn}
+\end{equation}
+Indem man den Klammerausdruck auf der linken Seite zu einer neuen 
+Unbekannten 
+\[
+{\color{darkred}c}
+=
+{\color{darkred}r}^2
+-
+{\color{darkred}x_i}^2
+-
+{\color{darkred}y_i}^2
+\]
+zusammenfassen, wird die Gleichung~\eqref{60000032:eqn} zu
+\[
+\begin{linsys}{3}
+2x_1{\color{darkred}x_0}
+&+&
+2y_1{\color{darkred}y_0}
+&+&
+{\color{darkred}c}
+&=&
+x_1^2
++y_1^2
+\\
+2x_2{\color{darkred}x_0}
+&+&
+2y_2{\color{darkred}y_0}
+&+&
+{\color{darkred}c}
+&=&
+x_2^2
++y_2^2
+\\
+2x_n{\color{darkred}x_0}
+&+&
+2y_n{\color{darkred}y_0}
+&+&
+{\color{darkred}c}
+&=&
+x_n^2
++y_n^2
+\\
+\end{linsys}
+\]
+Es ist also das überbestimmte Gleichungssystem
+\[
+A{\color{darkred}x}
+=
+\begin{pmatrix}
+2x_1&2y_1&1\\
+2x_2&2y_2&1\\
+\vdots&\vdots&\vdots\\
+2x_n&2y_n&1
+\end{pmatrix}
+\begin{pmatrix}
+{\color{darkred}x_0}\\
+{\color{darkred}y_0}\\
+{\color{darkred}c}
+\end{pmatrix}
+=
+b
+\]
+zu lösen.
+Das Gleichungssystem kann mit Hilfe des bekannten Verfahrens auf das
+gewöhnliche $3\times 3$-Gleichungssystem
+$\transpose{A}A{\color{darkred}x}=\transpose{A}b$
+reduziert werden mit
+\[
+\transpose{A}A
+=
+\begin{pmatrix}
+\displaystyle4\sum_{i=1}^n x_i^2  & \displaystyle4\sum_{i=1}^n x_iy_i & \displaystyle2\sum_{i=1}^n x_i \\
+\displaystyle4\sum_{i=1}^n x_iy_i & \displaystyle4\sum_{i=1}^n x_i^2  & \displaystyle2\sum_{i=1}^n y_i \\
+\displaystyle2\sum_{i=1}^n x_i    & \displaystyle2\sum_{i=1}^n y_i    & n
+\end{pmatrix}
+\qquad\text{und}\qquad
+\transpose{A}b
+=
+\begin{pmatrix}
+\displaystyle 2\sum_{i=1}^n x_i(x_i^2+y_i^2)\\
+\displaystyle 2\sum_{i=1}^n y_i(x_i^2+y_i^2)\\
+\displaystyle \sum_{i=1}^n (x_i^2+y_i^2)
+\end{pmatrix}.
+\]
+Nach der Bestimmung von ${\color{darkred}x_0}$, ${\color{darkred}y_0}$
+und ${\color{darkred}c}$ kann ${\color{darkred}r}$ mit Hilfe von
+\[
+{\color{darkred}r}
+=
+\sqrt{
+{\color{darkred}c}+{\color{darkred}x_0}^2+{\color{darkred}y_0}^2
+}
+\]
+bestimmt werden.
+\end{loesung}
+
+\begin{bewertung}
+Least Squares ({\bf LS}) 1 Punkt,
+Kreisgleichung ({\bf K}) 1 Punkt,
+neue Variable $c$ ({\bf C}) 1 Punkt,
+Methode $\transpose{A}Ax=\transpose{A}b$ ({\bf M}) 1 Punkt,
+Berechnung von $\transpose{A}A$ ({\bf A}) 1 Punkt,
+Berechnung von $\transpose{A}b$ ({\bf B}) 1 Punkt.
+\end{bewertung}

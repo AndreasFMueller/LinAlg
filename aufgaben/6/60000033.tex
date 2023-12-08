@@ -1,0 +1,144 @@
+In einem Gang mit quadratischem Querschnitt $2\times 2$, dessen
+Achse die $x$-Achse ist, ist im Punkt 
+$C=(2,-1,1)$ eine Überwachungskamera mit einem Objektiv mit
+Brennweite $f=2000$ und einem $1920\times 1080$-Chip montiert.
+Sie ist mit der Drehmatrix
+\[
+D=
+\begin{pmatrix*}[r]
+  -0.44721&  -0.89443&  0.00000\\
+  -0.36515&   0.18257&  0.91287\\
+  -0.81650&   0.40825& -0.40825
+\end{pmatrix*}
+\]
+auf den Punkt $O=(0,0,0)$ ausgerichtet. 
+Eine Lichtschranke zwischen den Punkten $P_1=(0,-1,0)$
+und $P_2=(0,1,0)$ soll durch eine Softwarelösung
+ersetzt werden, die Bilder der Kamera verarbeitet und Bewegung
+im Bereich der Lichtschranke detektiert.
+\begin{teilaufgaben}
+\item
+Bestimmen Sie dazu die Bildpunkte $B_1$ und $B_2$ der Endpunkte
+der Lichtschranke, die Koordinaten auf ganze Pixel gerundet.
+\item
+Der Punkt $O$ sollte auf den Mittelpunkt $M$ des Chip abgebildet werden.
+Verwenden Sie dies, um Ihr Resultat wie folgt zu kontrollieren.
+Bestimmen Sie den Abstand des Mittelpunktes $M$
+des Chip von der Geraden durch die beiden Punkte $B_1$ und $B_2$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Kameramatrix ist
+\[
+K
+=
+\begin{pmatrix}
+f&0&m_x\\
+0&f&m_y\\
+0&0&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2000&0&960\\
+  0 &2000&540\\
+0 & 0& 1
+\end{pmatrix}.
+\]
+Das Kamerazentrum ist der Vektor
+\[
+\vec{c}= \begin{pmatrix}2\\-1\\1\end{pmatrix}.
+\]
+Damit kann man jetzt die Kameraprojektionsmatrix 
+\[
+P
+=
+K D \begin{pmatrix} I& -\vec{c}\end{pmatrix}
+=
+\begin{pmatrix*}[r]
+-1678.3\phantom{0000}&-1396.9\phantom{0000}&-391.92\phantom{000}&  2351.5\phantom{000}\\
+-1171.2\phantom{0000}&  585.60\phantom{000}&1605.3\phantom{0000}&  1322.7\phantom{000}\\
+   -0.81650          &    0.40825          &  -0.40825          &     2.4495
+\end{pmatrix*}
+\]
+berechnen.
+Daraus kann man dann die harmonischen Koordinaten der Bildpunkte berechnen:
+\begin{align*}
+\tilde{b}_1
+&=
+P\begin{pmatrix}0\\-1\\0\\1\end{pmatrix}
+=
+\begin{pmatrix*}[r]
+   3748.4\phantom{000}\\
+   737.12\phantom{00}\\
+   2.0412
+\end{pmatrix*}
+&
+\tilde{b}_2
+&=
+P\begin{pmatrix}0\\1\\0\\1\end{pmatrix}
+=
+\begin{pmatrix*}[r]
+   954.57\phantom{00}\\
+   1908.3\phantom{000}\\
+   2.8577
+\end{pmatrix*}.
+\intertext{Nach Division durch die letzte Koordinaten entstehen die 
+Pixelkoordinaten der Bilder:}
+B_1&=( 1836, 361)
+&
+B_2&=( 334, 668)
+\end{align*}
+\item
+Die Abstandsformel in der Ebene verwendet den Flächeninhalt $F$ des
+Parallelogramms, welches von den Vektoren
+\[
+\overrightarrow{B_1B_2}
+=
+\begin{pmatrix*}[r]
+  -1502\\
+    307
+\end{pmatrix*}
+\quad\text{und}\quad
+\overrightarrow{B_1M}
+=
+\begin{pmatrix*}[r]
+  -876\\
+   179
+\end{pmatrix*}
+\]
+aufgespannt wird.
+Er ist
+\[
+F = 
+\left|\begin{matrix*}[r]
+-1502& -876\\
+  307&  179
+\end{matrix*}\right|
+=
+74.
+\]
+Der Abstand ist jetzt
+\[
+d
+=
+\frac{F}{\overline{B_1B_2}}
+=
+\frac{74}{1533.1}
+=0.0483
+\]
+Als deutlich kleiner als ein Pixel.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Kameraprojektionsmatrix ({\bf K}) 1 Punkt,
+Projektionsformel ({\bf P}) 1 Punkt,
+Bildpunkte in homogenen Koordinaten ({\bf H}) 1 Punkt,
+Bildpunkte in Chip-Koordinaten ({\bf B}) 1 Punkt,
+Abstandsformel ({\bf F}) 1 Punkt,
+Abstandswert ({\bf A}) 1 Punkt.
+\end{bewertung}
+
