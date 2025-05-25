@@ -12,7 +12,6 @@ aufgabensammlung.pdf:	$(TEXFILES) aufgabensammlung.ind thema.tex gausslabels.tex
 	pdflatex aufgabensammlung.tex
 
 thema.tex:	thema.tix mkthemaidx
-	iconv -f ISO-8859-1 -t UTF-8 thema.tix > thema.tix2
 	./mkthemaidx thema.tix thema.tex
 
 thema.tix:	$(TEXFILES)
