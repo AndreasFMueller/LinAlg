@@ -1,8 +1,26 @@
 %
-% uebung.tex -- gemeinsame Makros fuer Uebungsblaetter
+% uebungen.tex
 %
-% (c) 2006-2017 Prof. Dr. Andreas Mueller, HSR
+% (c) 2025 Prof Dr Andreas Müller
 %
+\newenvironment{beispiel}[1][Beispiel]{%
+\begin{proof}[#1]%
+\renewcommand{\qedsymbol}{$\bigcirc$}
+}{\end{proof}}
+% labels
+\makeatletter
+\newcommand{\customlabel}[2]{%
+\protected@write \@auxout {}{\string \newlabel {#1}{{#2}{}{}{}{}}}}
+\makeatother
+\input{gausslabels.tex}
+\def\gaussurl#1{
+\edef\glnumber{\getrefnumber{#1}}
+\url{https://linalg.ch/gauss/?id=\glnumber}}
+\def\jacobiurl#1{
+\edef\glnumber{\getrefnumber{#1}}
+\url{https://linalg.ch/jacobi/?id=\glnumber}}
+%
+\input{../skript/linsys.tex}
 \newcounter{uebungsaufgabe}
 \newboolean{loesungen}
 % environment fuer uebungsaufgaben
@@ -39,6 +57,8 @@
 \renewcommand{\qedsymbol}{}
 \begin{proof}[Hinweis]}{\end{proof}}
 % Aufgabe aus der Sammlung wiedergeben
+\newboolean{showthema}
+\setboolean{showthema}{false}
 \newboolean{themastatus}
 \setboolean{themastatus}{false}
 \newcounter{problemcounter}[chapter]
@@ -51,20 +71,24 @@
 }
 \def\includeagraphics[#1]#2{\expandafter\includegraphics[#1]{\aufgabepath#2}}
 % \aufgabe
-\newcommand{\aufgabe}[2]{%
+\newcommand{\aufgabe}[1]{%
+\StrRemoveBraces{#1}[\FirstChar]%
+\StrChar{\FirstChar}{1}[\FirstChar]%
   \expandafter\def\csname themalist\endcsname{}
   \setboolean{themastatus}{false}
   \refstepcounter{problemcounter}%
-  \label{#2}
+  \label{#1}
   \bigskip{\parindent0pt\strut}\hbox{\bf\theproblemcounter. }%
-  \marginpar{\raggedright\tiny #2}%
-  \expandafter\def\csname currentaufgabe\endcsname{#2}%
-  \expandafter\def\csname aufgabepath\endcsname{\inputpath/#1/#2/}%
-  \expandafter\input{\inputpath#1/#2.tex}
+  \marginpar{\raggedright\tiny #1}%
+  \expandafter\def\csname currentaufgabe\endcsname{#1}%
+  \expandafter\def\csname aufgabepath\endcsname{\inputpath/\FirstChar/#1/}%
+  \expandafter\input{\inputpath\FirstChar/#1.tex}
   %\medskip
   \ifthenelse{\boolean{themastatus}}{
+   \ifthenelse{\boolean{showthema}}{
     \parindent 0pt
     {\sc Thema:} {\small \themalist.}}{%
+    }{}
   }
   \bigskip
 

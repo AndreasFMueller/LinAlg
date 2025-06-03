@@ -1,0 +1,21 @@
+%
+% woche01.tex -- 
+%
+% (c) 2023 Prof. Dr. Andreas Mueller, OST
+%
+\documentclass[a4paper,12pt]{book}
+\input{macros/packages.tex}
+\externaldocument{work/aufgabensammlung}
+\makeindex
+\begin{document}
+\pagestyle{fancy}
+\let\thechapter=1
+\lhead{Kapitel~\thechapter, Woche 1}
+\rhead{Gauss-Algorithmus}
+\input{macros/uebungen.tex}
+\setboolean{loesungen}{true}
+\aufgabetoplevel{./}
+\setcounter{problemcounter}{72}
+\aufgabe{10000079}
+\aufgabe{10000080}
+\end{document}

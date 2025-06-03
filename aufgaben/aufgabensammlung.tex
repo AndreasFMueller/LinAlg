@@ -4,145 +4,18 @@
 % (c) 2017 Prof. Dr. Andreas Mueller, HSR
 %
 \documentclass[a4paper,12pt]{book}
-\usepackage[utf8]{inputenc}
-\usepackage[english,ngerman]{babel}
-\usepackage[T1]{fontenc}
-\usepackage{CJKutf8}
-%\usepackage{german}
-\usepackage{times}
-\usepackage{geometry}
-\geometry{papersize={210mm,297mm},total={170mm,240mm},top=31mm,bindingoffset=15mm,marginparwidth=9mm}
-\usepackage{alltt}
-\usepackage{verbatim}
-\usepackage{fancyhdr}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{mathtools}
-\usepackage{textcomp}
-\usepackage{graphicx}
-\usepackage{array}
-\usepackage{ifthen}
-\usepackage{multirow}
-\usepackage{txfonts}
-%\usepackage[basic]{circ}
-\usepackage[all]{xy}
-\usepackage{algorithm}
-\usepackage{algorithmic}
-\usepackage{makeidx}
-\usepackage{paralist}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{tikz}
-\usetikzlibrary{arrows,3d,calc}
-\usepackage{color}
-\usepackage[colorlinks=true]{hyperref}
-\hypersetup{
-    linktoc=all,
-    linkcolor=blue
-}
-\usepackage{environ}
-\usepackage{epic}
-\usepackage{etoolbox}
-\usepackage{wasysym}
+\input{macros/packages.tex}
 \makeindex
 \begin{document}
 \pagestyle{fancy}
-\lhead{Aufgabensammlung}
-\rhead{}
-\frontmatter
-\newcommand\HRule{\noindent\rule{\linewidth}{1.5pt}}
-\begin{titlepage}
-\vspace*{\stretch{1}}
-\HRule
-\vspace*{2pt}
-\begin{flushright}
-{\Huge
-Lineare Algebra:\\
-\bigskip
-Aufgabensammlung}
-\end{flushright}
-\HRule
-\begin{flushright}
-\vspace{30pt}
-\LARGE
-Andreas Müller
-und
-Tabea Gassmann-Méndez
-\end{flushright}
-\vspace*{\stretch{2}}
-\begin{center}
-OST Ostschweizer Fachhochschule, Rapperswil, 2011-2022
-\end{center}
-\end{titlepage}
-\rhead{Inhaltsverzeichnis}
-\tableofcontents
-\newenvironment{beispiel}[1][Beispiel]{%
-\begin{proof}[#1]%
-\renewcommand{\qedsymbol}{$\bigcirc$}
-}{\end{proof}}
+\input{macros/front.tex}
 \mainmatter
-% labels
-\makeatletter
-\newcommand{\customlabel}[2]{%
-\protected@write \@auxout {}{\string \newlabel {#1}{{#2}{}{}{}{}}}}
-\makeatother
-\input{gausslabels.tex}
-\def\gaussurl#1{
-\edef\glnumber{\getrefnumber{#1}}
-\url{https://linalg.ch/gauss/?id=\glnumber}}
-\def\jacobiurl#1{
-\edef\glnumber{\getrefnumber{#1}}
-\url{https://linalg.ch/jacobi/?id=\glnumber}}
-%
-\input{../skript/linsys.tex}
-\input{uebungen.tex}
+\input{macros/uebungen.tex}
+\allowdisplaybreaks
 \openthemaindex
+\setboolean{showthema}{true}
 \setboolean{loesungen}{true}
 \aufgabetoplevel{./}
-\allowdisplaybreaks
-\chapter{Lineare Gleichungssysteme}
-\lhead{Kapitel \thechapter}
-\rhead{Lineare Gleichungssysteme}
-\input{1.tex}
-\chapter{Determinanten}
-\lhead{Kapitel \thechapter}
-\rhead{Determinanten}
-\input{2.tex}
-\chapter{Affine Vektorgeometrie}
-\lhead{Kapitel \thechapter}
-\rhead{Affine Vektorgeometrie}
-\input{3.tex}
-\chapter{Orthogonalität}
-\lhead{Kapitel \thechapter}
-\rhead{Orthogonalität}
-\input{4.tex}
-\chapter{Orientierung}
-\lhead{Kapitel \thechapter}
-\rhead{Orientierung}
-\input{5.tex}
-\chapter{Eigenschaften linearer Abbildungen}
-\lhead{Kapitel \thechapter}
-\rhead{Eigenschaften linearer Abbildungen}
-\input{6.tex}
-\chapter{Matrixzerlegungen}
-\lhead{Kapitel \thechapter}
-\rhead{Matrixzerlegungen}
-\input{7.tex}
-\chapter{Eigenwerte und Eigenvektoren}
-\lhead{Kapitel \thechapter}
-\rhead{Eigenwerte und Eigenvektoren}
-\input{8.tex}
-\chapter{Octave}
-\lhead{Kapitel \thechapter}
-\rhead{Octave}
-Die Aufgaben in diesem Kapitel sind als Lernaufgaben gedacht, mit denen
-man sich in die Benutzung des Programms Octave einführen lassen kann.
-
-\bigskip
-\input{o.tex}
-\closethemaindex
-\printthemata
-\input aufgabensammlung.ind
+\input{macros/vorwort.tex}
+\input{macros/content.tex}
 \end{document}

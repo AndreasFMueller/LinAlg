@@ -3,27 +3,60 @@
 #
 # (c) 2013 Prof Dr Andreas Mueller, Hochschule Rapperswil
 #
-all:	aufgabensammlung.pdf
+all:
+	@echo choose test, sammlung or 'woche(0?|1?)'
 
-TEXFILES = aufgabensammlung.tex uebungen.tex \
-	1.tex 2.tex 3.tex 4.tex 5.tex 6.tex 7.tex 8.tex o.tex
+test:	test.pdf
 
-aufgabensammlung.pdf:	$(TEXFILES) aufgabensammlung.ind thema.tex gausslabels.tex
-	pdflatex aufgabensammlung.tex
+sammlung:	aufgabensammlung.pdf
 
-thema.tex:	thema.tix mkthemaidx
-	./mkthemaidx thema.tix thema.tex
+makeindex = makeindex
+pdflatex = pdflatex --output-directory=$(workdir)
+bibtex = bibtex
+touch = touch
 
-thema.tix:	$(TEXFILES)
-	pdflatex aufgabensammlung.tex
+TEXFILES = aufgabensammlung.tex						\
+	macros/uebungen.tex						\
+	macros/packages.tex						\
+	macros/front.tex						\
+	macros/vorwort.tex						\
+	macros/content.tex						\
+	$(workdir)/1.tex						\
+	$(workdir)/2.tex						\
+	$(workdir)/3.tex						\
+	$(workdir)/4.tex						\
+	$(workdir)/5.tex						\
+	$(workdir)/6.tex						\
+	$(workdir)/7.tex						\
+	$(workdir)/8.tex						\
+	$(workdir)/o.tex
 
-aufgabensammlung.ind:	$(TEXFILES) images gausslabels.tex
-	touch aufgabensammlung.ind
-	pdflatex aufgabensammlung.tex
-	makeindex aufgabensammlung.idx
+topdir := ${PWD}
+workdir := work
+
+aufgabensammlung.pdf:	$(workdir)/aufgabensammlung.pdf
+	cp $(workdir)/aufgabensammlung.pdf .
+
+$(workdir)/aufgabensammlung.pdf:	$(workdir) $(TEXFILES) \
+	$(workdir)/aufgabensammlung.ind $(workdir)/thema.tex gausslabels.tex
+	$(pdflatex) aufgabensammlung.tex
+
+$(workdir)/aufgabensammlung.ind: $(workdir) $(workdir)/aufgabensammlung.idx
+	cd $(workdir) ; $(makeindex) aufgabensammlung.idx
+
+$(workdir)/aufgabensammlung.idx:	$(workdir) $(TEXFILES) \
+	aufgabensammlung.tex
+	$(touch) $(workdir)/aufgabensammlung.ind
+	$(pdflatex) aufgabensammlung.tex
 
 gausslabels.tex:
 	curl --output gausslabels.tex https://linalg.ch/gauss/tableau.php
+
+$(workdir)/thema.tex:	$(workdir)/thema.tix mkthemaidx
+	cd $(workdir) ; ../mkthemaidx thema.tix thema.tex
+
+$(workdir)/thema.tix:	$(TEXFILES)
+	$(pdflatex) aufgabensammlung.tex
 
 mkthemaidx:	mkthemaidx.cpp
 	g++ -std=c++11 -Wall -g -O -o mkthemaidx mkthemaidx.cpp
@@ -31,32 +64,40 @@ mkthemaidx:	mkthemaidx.cpp
 clean:
 	rm -f *.dvi *.log ?.tex aufgabensammlung.pdf
 
-1.tex:	buildchapter.sh 1/*.tex
-	./buildchapter.sh 1 > 1.tex
+$(workdir)/1.tex:	buildchapter.sh 1/*.tex
+	./buildchapter.sh 1 > $(workdir)/1.tex
 
-2.tex:	buildchapter.sh 2/*.tex
-	./buildchapter.sh 2 > 2.tex
+$(workdir)/2.tex:	buildchapter.sh 2/*.tex
+	./buildchapter.sh 2 > $(workdir)/2.tex
 
-3.tex:	buildchapter.sh 3/*.tex
-	./buildchapter.sh 3 > 3.tex
+$(workdir)/3.tex:	buildchapter.sh 3/*.tex
+	./buildchapter.sh 3 > $(workdir)/3.tex
 
-4.tex:	buildchapter.sh 4/*.tex
-	./buildchapter.sh 4 > 4.tex
+$(workdir)/4.tex:	buildchapter.sh 4/*.tex
+	./buildchapter.sh 4 > $(workdir)/4.tex
 
-5.tex:	buildchapter.sh 5/*.tex
-	./buildchapter.sh 5 > 5.tex
+$(workdir)/5.tex:	buildchapter.sh 5/*.tex
+	./buildchapter.sh 5 > $(workdir)/5.tex
 
-6.tex:	buildchapter.sh 6/*.tex
-	./buildchapter.sh 6 > 6.tex
+$(workdir)/6.tex:	buildchapter.sh 6/*.tex
+	./buildchapter.sh 6 > $(workdir)/6.tex
 
-7.tex:	buildchapter.sh 7/*.tex
-	./buildchapter.sh 7 > 7.tex
+$(workdir)/7.tex:	buildchapter.sh 7/*.tex
+	./buildchapter.sh 7 > $(workdir)/7.tex
 
-8.tex:	buildchapter.sh 8/*.tex
-	./buildchapter.sh 8 > 8.tex
+$(workdir)/8.tex:	buildchapter.sh 8/*.tex
+	./buildchapter.sh 8 > $(workdir)/8.tex
 
-o.tex:	buildchapter.sh o/*.tex
-	./buildchapter.sh o > o.tex
+$(workdir)/o.tex:	buildchapter.sh o/*.tex
+	./buildchapter.sh o > $(workdir)/o.tex
+
+wochen:	woche01 woche02 woche03 woche04 woche05 woche06 woche07 woche08	\
+	woche09 woche10 woche11 woche12 woche13 woche14
+
+woche01:	woche01.pdf
+woche01.pdf:	$(workdir) $(TEXFILES) woche01.tex
+	$(pdflatex) woche01.tex
+	cp $(workdir)/woche01.pdf .
 
 images:
 	for d in ?/*; \
