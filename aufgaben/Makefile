@@ -110,3 +110,7 @@ images:
 			cd ../..; \
 		fi; \
 	done
+
+test.pdf:	test.tex testaufgabe.tex $(TEXFILES)
+	pdflatex test.tex
+
