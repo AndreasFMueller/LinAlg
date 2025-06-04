@@ -1,0 +1,63 @@
+Der Gauss-Algorithmus liefert für 
+\begin{equation*}
+A
+=
+\bgroup
+\renewcommand{\arraycolsep}{1pt}
+\begin{pmatrix*}[r]
+   5 & -20 &  15 &  10 \\
+  -2 &   3 & -11 & -19 \\
+   1 &  -5 &   2 &  -1 \\
+  -4 &  18 & -10 &  -2 
+\end{pmatrix*}\!,
+\egroup
+\;
+b
+=
+\begin{pmatrix*}[r]
+ -170 \\
+   88 \\
+  -30 \\
+  128 
+\end{pmatrix*}
+\;\text{das Schlusstableau}\quad
+%\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+%\hline
+% x_1 & x_2 & x_3 & x_4 &    1 \\
+%\hline
+%   5 & -20 &  15 &  10 & -170 \\
+%  -2 &   3 & -11 & -19 &   88 \\
+%   1 &  -5 &   2 &  -1 &  -30 \\
+%  -4 &  18 & -10 &  -2 &  128 \\
+%\hline
+%\end{tabular}
+%\to
+\bgroup
+\renewcommand{\tabcolsep}{4pt}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ x_1 & x_2 & x_3 & x_4 &    1 \\
+\hline
+   1 &   0 &   7 &  14 &  -50 \\
+   0 &   1 &   1 &   3 &   -4 \\
+   0 &   0 &   0 &   0 &    0 \\
+   0 &   0 &   0 &   0 &    0 \\
+\hline
+\end{tabular}.
+\egroup
+\end{equation*}
+\begin{teilaufgaben}
+\item Wie gross ist der Rang der Matrix $A$?
+\item Wieviele Lösungen hat das Gleichungssystem $Ax=b$?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item $\operatorname{Rang}A=2$
+\item Da es zwei frei wählbare Variablen gibt, gibt es unendlich
+viele Lösungen.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+

@@ -144,6 +144,9 @@ int	main(int argc, char *argv[]) {
 		} catch (const std::exception& x) {
 		}
 	}
+	if (debug) {
+		std::cerr << "entries added: " << counter << std::endl;
+	}
 
 	in.close();
 

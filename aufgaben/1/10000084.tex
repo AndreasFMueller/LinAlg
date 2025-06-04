@@ -1,0 +1,45 @@
+Lesen Sie die Lösungsmenge aus dem Tableau
+\begin{equation*}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+x_1 & x_2 & x_3 &  1 \\
+\hline
+  1 &   0 &   3 & -8 \\
+  0 &   1 &  -2 &  7 \\
+  0 &   0 &   0 &  0 \\
+\hline
+\end{tabular}
+\end{equation*}
+ab.
+
+\begin{loesung}
+Die Lösungsmenge ist nicht leer, weil rechts unten eine 0 steht.
+Die Variable $x_3$ ist frei wählbar, daher ist die Lösungsmenge
+\[
+\raisebox{0.7cm}{$\displaystyle
+\mathbb{L}
+=
+\left\{
+\left.
+\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}
+=
+\begin{pmatrix*}[r]
+-8\\
+ 7\\
+ 0
+\end{pmatrix*}
++
+{\color{darkgreen}x_3}
+\begin{pmatrix*}[r]
+                   -3 \\
+                    2 \\
+  {\color{darkgreen}1}
+\end{pmatrix*}
+\;
+\right|
+\;
+{\color{darkgreen}x_3}\in\mathbb{R}
+\right\}.$}
+\qedhere
+\]
+\end{loesung}

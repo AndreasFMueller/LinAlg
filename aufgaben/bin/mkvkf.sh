@@ -37,6 +37,7 @@ buildchapter () {
 		if [ -r work/vkf.pdf ]
 		then
 			mv work/vkf.pdf ${pdf}
+			rm vkf.tex
 		else
 			echo failed to produce ${pdf}
 			echo see vkf/vkf.log for details

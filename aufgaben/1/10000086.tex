@@ -1,0 +1,26 @@
+Ein Gleichungssystem mit $5$ Gleichungen für $7$ Unbekannte hat
+eine Koeffizientenmatrix vom Rang 4.
+Es ist bekannt, dass das Gleichungssystem unendlich viele Lösungen hat.
+Wieviele frei wählbare Variable hat die Lösungsmenge?
+
+\begin{loesung}
+Das Schlusstableau muss die Form
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x_1&x_2&x_3&x_4&\color{darkgreen}x_5&\color{darkgreen}x_6&\color{darkgreen}x_7&1\\
+\hline
+  1&  0&  0&  0&  *&  *&  *&*\\
+  0&  1&  0&  0&  *&  *&  *&*\\
+  0&  0&  1&  0&  *&  *&  *&*\\
+  0&  0&  0&  1&  *&  *&  *&*\\
+\hline
+  0&  0&  0&  0&  0&  0&  0&\color{red}*\\
+\hline
+\end{tabular}
+\]
+Da das Gleichungssystem unendlich viele Lösungen hat, muss der
+{\color{red}rote} Stern rechts unten $=0$ sein.
+Die Variablen $x_5$, $x_6$ und $x_7$ sind frei wählbar, es gibt also
+drei frei wählbare Variablen.
+\end{loesung}

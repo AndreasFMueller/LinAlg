@@ -4,7 +4,7 @@
 # (c) 2013 Prof Dr Andreas Mueller, Hochschule Rapperswil
 #
 all:
-	@echo choose test, sammlung or 'woche(0?|1?)'
+	@echo choose test, sammlung or 'woche(0[1-9]|1[0-4])'
 
 test:	test.pdf
 
@@ -52,44 +52,41 @@ $(workdir)/aufgabensammlung.idx:	$(workdir) $(TEXFILES) \
 gausslabels.tex:
 	curl --output gausslabels.tex https://linalg.ch/gauss/tableau.php
 
-$(workdir)/thema.tex:	$(workdir)/thema.tix mkthemaidx
-	cd $(workdir) ; ../mkthemaidx thema.tix thema.tex
+$(workdir)/thema.tex:	$(workdir)/thema.tix bin/mkthemaidx
+	cd $(workdir) ; ../bin/mkthemaidx thema.tix thema.tex
+
+bin/mkthemaidx:	bin/mkthemaidx.cpp
+	cd bin; make
 
 $(workdir)/thema.tix:	$(TEXFILES)
 	$(pdflatex) aufgabensammlung.tex
 
-mkthemaidx:	mkthemaidx.cpp
-	g++ -std=c++11 -Wall -g -O -o mkthemaidx mkthemaidx.cpp
+$(workdir)/1.tex:	bin/buildchapter.sh 1/*.tex
+	bin/buildchapter.sh 1 > $(workdir)/1.tex
 
-clean:
-	rm -f *.dvi *.log ?.tex aufgabensammlung.pdf
+$(workdir)/2.tex:	bin/buildchapter.sh 2/*.tex
+	bin/buildchapter.sh 2 > $(workdir)/2.tex
 
-$(workdir)/1.tex:	buildchapter.sh 1/*.tex
-	./buildchapter.sh 1 > $(workdir)/1.tex
+$(workdir)/3.tex:	bin/buildchapter.sh 3/*.tex
+	bin/buildchapter.sh 3 > $(workdir)/3.tex
 
-$(workdir)/2.tex:	buildchapter.sh 2/*.tex
-	./buildchapter.sh 2 > $(workdir)/2.tex
+$(workdir)/4.tex:	bin/buildchapter.sh 4/*.tex
+	bin/buildchapter.sh 4 > $(workdir)/4.tex
 
-$(workdir)/3.tex:	buildchapter.sh 3/*.tex
-	./buildchapter.sh 3 > $(workdir)/3.tex
+$(workdir)/5.tex:	bin/buildchapter.sh 5/*.tex
+	bin/buildchapter.sh 5 > $(workdir)/5.tex
 
-$(workdir)/4.tex:	buildchapter.sh 4/*.tex
-	./buildchapter.sh 4 > $(workdir)/4.tex
+$(workdir)/6.tex:	bin/buildchapter.sh 6/*.tex
+	bin/buildchapter.sh 6 > $(workdir)/6.tex
 
-$(workdir)/5.tex:	buildchapter.sh 5/*.tex
-	./buildchapter.sh 5 > $(workdir)/5.tex
+$(workdir)/7.tex:	bin/buildchapter.sh 7/*.tex
+	bin/buildchapter.sh 7 > $(workdir)/7.tex
 
-$(workdir)/6.tex:	buildchapter.sh 6/*.tex
-	./buildchapter.sh 6 > $(workdir)/6.tex
+$(workdir)/8.tex:	bin/buildchapter.sh 8/*.tex
+	bin/buildchapter.sh 8 > $(workdir)/8.tex
 
-$(workdir)/7.tex:	buildchapter.sh 7/*.tex
-	./buildchapter.sh 7 > $(workdir)/7.tex
-
-$(workdir)/8.tex:	buildchapter.sh 8/*.tex
-	./buildchapter.sh 8 > $(workdir)/8.tex
-
-$(workdir)/o.tex:	buildchapter.sh o/*.tex
-	./buildchapter.sh o > $(workdir)/o.tex
+$(workdir)/o.tex:	bin/buildchapter.sh o/*.tex
+	bin/buildchapter.sh o > $(workdir)/o.tex
 
 wochen:	woche01 woche02 woche03 woche04 woche05 woche06 woche07 woche08	\
 	woche09 woche10 woche11 woche12 woche13 woche14
@@ -111,6 +108,9 @@ images:
 		fi; \
 	done
 
-test.pdf:	test.tex testaufgabe.tex $(TEXFILES)
-	pdflatex test.tex
+$(workdir)/test.pdf:	test.tex testaufgabe.tex $(TEXFILES)
+	$(pdflatex) test.tex
+
+test.pdf:	$(workdir)/test.pdf
+	cp $(workdir)/test.pdf .
 

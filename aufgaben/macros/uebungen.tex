@@ -139,3 +139,63 @@
 }
 \definecolor{darkgreen}{rgb}{0,0.6,0}
 \def\transpose#1{\prescript{t}{}{#1}}
+%
+% macros for gauss operations, they all have 4 arguments
+%
+% #1  width (cm)
+% #2  height (cm)
+% #3  offset-x (units required)
+% #4  offset-y (units required)
+%
+\def\pivotoperationr{0.2}
+% a rounded rectangle around the pivot element
+\def\pivotoperation#1#2#3#4{
+\smash{\rlap{\raisebox{#4}{\hspace{#3}\begin{tikzpicture}[thick]
+\def\p{
+        ({#1/2},0)
+        -- +(0,{(#2/2)-\pivotoperationr}) arc (0:90:\pivotoperationr)
+        -- +({-(#1)+2*\pivotoperationr},0) arc (90:180:\pivotoperationr)
+        -- +(0,{-(#2)+2*\pivotoperationr}) arc(180:270:\pivotoperationr)
+        -- +({#1-2*\pivotoperationr},0) arc(270:360:\pivotoperationr)
+        -- cycle
+}
+\fill[color=red!20] \p;
+\draw[color=red] \p;
+\end{tikzpicture}}}}}
+% a circle around the pivot element (this operation has only three
+% arguments, width and height are the same, the diameter of the
+% circle, so the first two arguments are replaced by one
+\def\pivotoperationcircle#1#2#3{
+\smash{\rlap{\raisebox{#3}{\hspace{#2}\begin{tikzpicture}[thick]
+\def\p{ ({#1/2},0) arc (0:360:{#1/2}) -- cycle
+}
+\fill[color=red!20] \p;
+\draw[color=red] \p;
+\end{tikzpicture}}}}}
+% forwardreduction
+\def\forwardreduction#1#2#3#4{
+\smash{\rlap{\hspace*{#3}\raisebox{#4}{\begin{tikzpicture}[thick]
+\def\p{
+        (#1,-0.25)
+        -- +(0,{#2-\pivotoperationr}) arc(0:90:\pivotoperationr)
+        -- +({-#1+2*\pivotoperationr},0) arc (90:180:\pivotoperationr)
+        -- +(0,{-#2+\pivotoperationr)})
+}
+\fill[color=blue!20] \p -- cycle;
+\draw[color=blue] \p;
+\end{tikzpicture}}}}
+}
+% backwardsubstitution
+\def\backwardsubstitution#1#2#3#4{
+\smash{\rlap{\hspace*{#3}\raisebox{#4}{\begin{tikzpicture}[thick]
+\def\p{
+        ({#1},0.25)
+        -- +(0,{-#2+\pivotoperationr}) arc(0:-90:\pivotoperationr)
+        -- +({-#1+2*\pivotoperationr},0) arc(-90:-180:\pivotoperationr)
+        -- +(0,{#2-\pivotoperationr})
+}
+\fill[color=blue!20] \p -- cycle;
+\draw[color=blue] \p;
+\end{tikzpicture}}}}
+}
+
