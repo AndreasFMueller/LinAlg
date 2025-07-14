@@ -1,0 +1,112 @@
+Eine Folge von grösser werdenden Rechtecken wird wie folgt konstruiert:
+Einem Rechteck wird an jeder langen Seite ein Quadrat mit der langen Seite
+als Seitenlänge angesetzt.
+Der Prozess wird mit dem so entstandenen neuen Rechteck wiederholt.
+Es entsteht eine Folge $(R_n)_{n\in\mathbb{N}}$ von Rechtecken
+mit Seitenlängen $u_n$ und $v_n$, wobei $u_n>v_n$.
+Berechnen Sie den Grenzwert $\lim_{n\to\infty} \frac{u_n}{v_n}$.
+
+\begin{loesung}
+$u_n$ ist die lange Seite des Rechtecks $R_n$.
+Die Konstruktion fügt zwei Quadrate mit Seitenlänge $u_n$ an, wodurch
+die kurze Seite $v_n$ auf $v_n+2u_n$ anwächst. 
+Das neue Rechteck hat daher die Seitenlängen $u_{n+1}=2u_n + v_n$ und
+$v_{n+1}=u_n$.
+Nach Wiederholung der Konstruktion kann man $v_n = u_{n-1}$ schreiben.
+Durch Einsetzen in der ersten Formel folgt die Rekursionsformel
+\begin{equation}
+u_{n+1} = 2u_n + u_{n-1},
+\label{80000047:rekursion}
+\end{equation}
+die auch in der Aufgabe~\ref{80000046} für die pellschen Zahlen
+aufgetreten ist.
+
+Die Lösung von Aufgabe~\ref{80000046} hat gezeigt, dass Lösungen
+der Rekursionsgleichung \eqref{80000047:rekursion} in der Form
+\begin{equation}
+\begin{pmatrix} u_n\\v_n\end{pmatrix}
+=
+P^n
+\begin{pmatrix} u_0\\v_0\end{pmatrix}
+\label{800000467:loesung}
+\end{equation}
+geschrieben werden können.
+Indem man den Vektor auf der rechten Seite linear aus den Eigenvektoren
+$v_+$ und $v_-$ in der Form
+\[
+\begin{pmatrix}u_0\\v_0\end{pmatrix}
+=
+a_+v_+ + a_-v_-
+\]
+kombiniert, kann man auch \eqref{800000467:loesung} als
+\begin{align*}
+\begin{pmatrix}u_n\\v_n\end{pmatrix}
+&=
+P^n(a_+v_++a_-v_-)
+=
+a_+P^nv_++a_-P^nv_-
+=
+a_+
+\lambda_+^n
+\begin{pmatrix} \lambda_+\\1\end{pmatrix}
++
+a_-
+\lambda_-^n
+\begin{pmatrix} \lambda_-\\1\end{pmatrix},
+\intertext{dessen Komponenten}
+%\Rightarrow\qquad
+u_n &= a_+\lambda_+^{n+1} + a_-\lambda_-^{n+1} \\
+v_n &= a_-\lambda_-^{n\phantom{\mathstrut+1}}   + a_-\lambda_-^{n\phantom{\mathstrut+1}}
+\end{align*}
+sind.
+Für das Verhältnis der beiden Seiten folgt daher
+\begin{align*}
+\frac{u_n}{v_n}
+&=
+\frac{
+a_+\lambda_+^{n+1}+a_-\lambda_-^{n+1}
+}{
+a_+\lambda_+^{n}+a_-\lambda_-^{n}
+}
+=
+\lambda_+
+\frac{
+a_+ + a_-\lambda_-^{n+1}/\lambda_+^{n+1}
+}{
+a_+ + a_-\lambda_-^{n}/\lambda_+^{n}
+}
+=
+\lambda_+
+\frac{a_++a_-q^{n+1}}{a_++a_-q^{n\phantom{\mathstrut+1}}}
+\end{align*}
+mit $q=\lambda_-/\lambda_+$ wie in Aufgaben~\ref{80000046}.
+Im Gegensatz zur Aufgabe~\ref{80000046} kann man jetzt aber nicht mehr 
+sofort schliessen, dass der Bruch auf der rechten Seite gegen 1 konvergiert.
+Falls $a_+\ne 0$ ist folgt dies tatsächlich immer noch.
+Wenn aber $a_+=0$ ist, dann folgt
+\[
+\lim_{n\to\infty} \frac{u_n}{v_n}
+=
+\lim_{n\to\infty} 
+\lambda_+
+\frac{a_-q^{n+1}}{a_-q^n}
+=
+\lambda_+
+\lim_{n\to\infty} q
+=
+\lambda_+q
+=
+\lambda_-.
+\]
+Für $n=0$ gilt dann aber
+\begin{align*}
+u_0 &= a_-\lambda_- \\
+v_0 &= a_-.
+\end{align*}
+Da $\lambda_-<0$ ist, müssten die Seitenlängen des Ausgangsrechtecks
+verschiedene Vorzeichen haben.
+Dies zeigt, dass der Fall $q_+$ für Rechtecke mit positiven Seitenlängen
+nicht auftreten kann.
+Für solche Rechtecke konvergiert das Verhältnis der Recheckseiten
+immer gegen $\lambda_+=1+\!\sqrt{2}$.
+\end{loesung}
