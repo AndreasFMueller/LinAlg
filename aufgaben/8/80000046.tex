@@ -1,0 +1,345 @@
+Die pellschen Zahlen $P_n$ sind definiert durch die Rekursionsformel
+\begin{equation}
+P_{n+1} = 2P_n + P_{n-1}
+\label{80000046:rekursion}
+\end{equation}
+mit Startwerten $P_0=0$ und $P_1=1$.
+\begin{teilaufgaben}
+\item
+Schreiben Sie die Rekursion mit Hilfe einer Matrix.
+\item
+Bestimmen Sie Eigenwerte und Eigenvektoren der Matrix
+\item
+Finden Sie eine Formel für $P_n$ im Stile der Binet-Formel für die
+Fibonacci-Zahlen.
+\item
+Berechnen Sie den Grenzwert
+\[
+\lim_{n\to \infty} \frac{P_{n+1}}{P_n}.
+\]
+Er ist bekannt als das Verhältnis des {\em slibernen Schnittes}, der
+in der japanischen Ästhetik als Verhältnis besonderer Harmonie gilt
+(\begin{CJK}{UTF8}{min}大和比\end{CJK}, Yamato-Hi).
+Man findet Rechtecke mit Seitenverhältnissen des silbernen Schnittes
+zum Beispiel in der Architektur japanischer Tempel.
+\end{teilaufgaben}
+
+
+\begin{loesung}
+\definecolor{darkred}{rgb}{0.8,0,0}
+Für spätere Beispielrechnungen führen wir die Rekursion
+\eqref{80000046:rekursion}
+für einige Schritte aus.
+Die Folge der pellschen Zahlen ist also
+\[
+0,\;
+1, \;
+5,\;
+12,\;
+29,\;
+70,\;
+169,\;
+408,\;
+985,\;
+2378,\;
+5741,\;
+13860,\;
+33461,\dots
+\]
+\begin{teilaufgaben}
+\item
+Indem wir wie bei den Fibonacci-Zahlen die pellschen Zahlen in Vektoren
+der Form.
+\[
+\begin{pmatrix}
+P_{n+1}\\
+P_n
+\end{pmatrix}
+=
+P
+\begin{pmatrix}
+P_n\\
+P_{n-1}
+\end{pmatrix}
+\]
+Die zugehörige Matrix $P$ ist
+\[
+P
+=
+\begin{pmatrix}
+2&1\\
+1&0
+\end{pmatrix}.
+\]
+\item
+Die Eigenwerte von $P$ können mit der charakteristischen Gleichung
+\begin{align*}
+0
+&=
+\det(P-\lambda I)
+\\
+&=
+\left|
+\begin{matrix}
+2-\lambda &     1    \\
+    1     & -\lambda
+\end{matrix}
+\right|
+\\
+&=
+-(2-\lambda)\lambda-1
+\\
+&=
+\lambda^2-2\lambda -1.
+\end{align*}
+Sie hat die Nullstellen
+\[
+\lambda_{\pm}
+=
+1\pm\!\sqrt{(-1)^2+1}
+=
+1\pm\!\sqrt{2}
+=
+\left\{
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{ccl}
+1+\!\sqrt{2} &=& \phantom{-}2.4142135\dots \\
+1-\!\sqrt{2} &=&           -0.4142135\dots
+\end{array}
+\right.
+\]
+Für später beachten wir noch, dass 
+\begin{equation}
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{cccccccl}
+    & 2-\lambda_+ &=& 2-(1+\!\sqrt{2}) &=& 1-\!\sqrt{2} &=& \lambda_- \\
+\text{und}\qquad
+    & 2-\lambda_- &=& 2-(1-\!\sqrt{2}) &=& 1+\!\sqrt{2} &=& \lambda_+.
+\end{array}
+\label{80000046:lambda}
+\end{equation}
+Für den Gauss-Algorithmus brauchen wir ausserdem die Kehrwerte
+\begin{align*}
+\frac{1}{\lambda_+}
+&=
+\frac{1}{1+\!\sqrt{2}}
+=
+\frac{1-\!\sqrt{2}}{(1+\!\sqrt{2})(1-\!\sqrt{2})}
+=
+\frac{\lambda_-}{1-2}=-\lambda_-
+\\
+\frac{1}{\lambda_-}
+&=
+\frac{1}{1-\!\sqrt{2}}
+=
+\frac{1+\!\sqrt{2}}{(1-\!\sqrt{2})(1+\!\sqrt{2})}
+=
+\frac{\lambda_+}{1-2}=-\lambda_+.
+\end{align*}
+
+Für die beiden Eigenwerte müssen jetzt die zugehörigen Eigenvektoren
+berechnet werden.
+Für $\lambda_+=1+\!\sqrt{2}$ ergibt sich wegen 
+\eqref{80000046:lambda}
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+v_1&v_2&1\\
+\hline
+2-\lambda_+ &      1     & 0 \\
+    1       & -\lambda_+ & 0 \\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+v_1&v_2&1\\
+\hline
+\lambda_- &     1     & 0\\
+    1     &-\lambda_+ & 0\\
+\hline
+\end{tabular}
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+v_1&v_2&1\\
+\hline
+    1     &-\lambda_+ & 0\\
+    0     &     0     & 0\\
+\hline
+\end{tabular}
+\]
+Eine mögliche Lösung ist
+\begin{align*}
+v_+ = \begin{pmatrix} \lambda_+\\1\end{pmatrix}
+\qquad\text{mit}\qquad
+Pv_+
+&=
+\begin{pmatrix}2&1\\1&0\end{pmatrix}
+\begin{pmatrix}\lambda_+\\1\end{pmatrix}
+=
+\begin{pmatrix}2\lambda_++1\\\lambda_+\end{pmatrix}
+=
+\lambda_+
+\begin{pmatrix} 2 +\frac{1}{\lambda_+} \\ 1\end{pmatrix}
+=
+\lambda_+
+\begin{pmatrix} 2 -\lambda_- \\ 1\end{pmatrix}
+\\
+&=
+\lambda_+
+\begin{pmatrix} \lambda_+ \\ 1\end{pmatrix}
+=
+\lambda_+v_+
+\end{align*}
+Für den Eigenwert $\lambda_-$ ergibt die analoge Rechnung den Eigenvektor
+$v_-$ aus dem Gauss-Tableau
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+v_1&v_2&1\\
+\hline
+2-\lambda_- &      1     & 0 \\
+    1       & -\lambda_- & 0 \\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+v_1&v_2&1\\
+\hline
+\lambda_+ &     1     & 0\\
+    1     &-\lambda_- & 0\\
+\hline
+\end{tabular}
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+v_1&v_2&1\\
+\hline
+    1     &-\lambda_- & 0\\
+    0     &     0     & 0\\
+\hline
+\end{tabular}
+\]
+Eine mögliche Lösung ist
+\begin{align*}
+v_- = \begin{pmatrix} \lambda_-\\1\end{pmatrix}
+\qquad\text{mit}\qquad
+Pv_-
+&=
+\begin{pmatrix}2&1\\1&0\end{pmatrix}
+\begin{pmatrix}\lambda_-\\1\end{pmatrix}
+=
+\begin{pmatrix}2\lambda_-+1\\\lambda_-\end{pmatrix}
+=
+\lambda_-
+\begin{pmatrix} 2 +\frac{1}{\lambda_-} \\ 1\end{pmatrix}
+=
+\lambda_-
+\begin{pmatrix} 2 -\lambda_+ \\ 1\end{pmatrix}
+\\
+&=
+\lambda_-
+\begin{pmatrix} \lambda_- \\ 1\end{pmatrix}
+=
+\lambda_-v_-.
+\end{align*}
+Damit sind die Eigenvektoren $v_{\pm}$ zu den Eigenwerten $\lambda_{\pm}$
+gefunden.
+\item
+Um eine Formel für die pellschen Zahlen zu finden schreiben wir die Folge
+mit Hilfe der Matrixpotenz
+\[
+\begin{pmatrix}
+P_{n}\\
+P_{n-1}
+\end{pmatrix}
+=
+P^n
+\begin{pmatrix}1\\0\end{pmatrix}.
+\]
+Um die Potenz zu berechnen, müssen wir den Vektor auf der rechten Seite
+in der Eigenbasis schreiben.
+Wir müssen also das Vektorgleichungssystem
+\[
+a_+v_+ + a_-v_- = \begin{pmatrix}1\\0\end{pmatrix}
+\qquad\Leftrightarrow\qquad
+\begin{array}{rcrcl}
+\lambda_+ {\color{darkred}a_+} &+& \lambda_- {\color{darkred}a_-} &=& 1 \\
+          {\color{darkred}a_+} &+&           {\color{darkred}a_-} &=& 0
+\end{array}
+\]
+lösen.
+Mit der Cramerschen Formel finden wir die Lösungen
+\begin{align*}
+a_+
+&=
+\frac{
+\left|\begin{matrix}1&\lambda_-\\0&1\end{matrix}\right|
+}{
+\left|\begin{matrix}\lambda_+&\lambda_-\\1&1\end{matrix}\right|
+}
+=
+\frac{1}{\lambda_+-\lambda_-}
+=
+\frac{1}{2\!\sqrt{2}}
+\\
+a_-
+&=
+\frac{
+\left|\begin{matrix}\lambda_+&1\\1&0\end{matrix}\right|
+}{
+\left|\begin{matrix}\lambda_+&\lambda_-\\1&1\end{matrix}\right|
+}
+=
+\frac{-1}{\lambda_+-\lambda_-}
+=
+-\frac{1}{2\!\sqrt{2}}.
+\end{align*}
+Einsetzen ergibt jetzt die Binet-ähnliche Formel
+\begin{equation}
+P_n
+=
+\frac{\lambda_+^n - \lambda_-^n}{2\!\sqrt{2}}
+=
+\frac{(1+\!\sqrt{2})^n}{2\!\sqrt{2}}
+-
+\frac{(1-\!\sqrt{2})^n}{2\!\sqrt{2}}
+\label{80000046:binet}
+\end{equation}
+für die pellschen Zahlen.
+\item
+Der Quotient aufeinanderfolgender pellscher Zahlen wird mit der Formel
+\eqref{80000046:binet}
+\begin{align}
+\frac{P_{n+1}}{P_n}
+&=
+\frac{\lambda_+^{n+1}-\lambda_-^{n+1}}{\lambda_+^n-\lambda_-^n}
+=
+\lambda_+
+\frac{1 - \lambda_-^{n+1}/\lambda_+^{n+1}}{1+\lambda_-^n/\lambda_+^n}
+=
+\lambda_+
+\frac{1-q^{n+1}}{1-q^{n}}
+\label{80000046:grenzwert}
+\end{align}
+mit $q=\lambda_-/\lambda_+$.
+Da $|q|<0$ ist, konvergiert der zweite Term in Zähler und Nenner von
+\eqref{80000046:grenzwert} jeweils gegen $0$ und es folgt
+\[
+\lim_{n\to\infty}
+\frac{P_{n+1}}{P_n}
+=
+\lambda_+
+\lim_{n\to\infty}
+\frac{1-q^{n+1}}{1-q^{n}}
+=
+\lambda_+.
+\]
+Der Quotient aufeinanderfolgender pellscher Zahlen konvergiert also
+gegen das Verhältnis des silbernen Schnittes.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
