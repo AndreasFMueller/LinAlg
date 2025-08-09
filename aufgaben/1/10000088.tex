@@ -1,0 +1,94 @@
+Was muss an den leeren Stellen im Tableau stehen, damit die Zeilen linear
+abhängig sind?
+\begin{teilaufgaben}
+\item
+\(
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+1&-1\\
+2&  \\
+\hline
+\end{tabular}
+\)
+\item
+\(
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+1&2&3\\
+0&0&1\\
+2& &0\\
+\hline
+\end{tabular}
+\)
+\end{teilaufgaben}
+
+\begin{hinweis}
+Schreiben Sie eine Unbekannte in des leere Feld und führen Sie den
+Gauss-Algorithmus durch.
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Damit in der zweiten Zeile eine Nullzeile entsteht, muss im Feld rechts
+unten der Wert $-2$ stehen.
+Schreibt man $d$ für das unbekannte Element, ergibt die Vorwärtsreduktion
+\[
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+1&-1\\
+2& d\\
+\hline
+\end{tabular}
+\to
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+1&-1\\
+0& d+2\\
+\hline
+\end{tabular}.
+\]
+Damit eine Nullzeile entsteht, muss $d+2=0$ oder $d=-2$ sein.
+\item
+Damit bei Anwendung des RREF-Algorithmus in der letzten Zeile eine
+Nullzeile steht, muss das zweite Feld in der letzten Zeile zu $0$
+werden.
+Die Zeilenoperation, die die $2$ im ersten Feld der letzten Zeile
+zu $0$ macht, subtrahiert $4$ vom zweiten Feld der letzten Zeile.
+Es dort muss also eine $4$ stehen.
+
+
+Im dritten Feld der letzten Zeile steht dann aber die Zahl $-6$.
+Dieses verschwindet aber, wenn wir die Vorwärtsreduktion mit der 
+$1$ im dritten Feld der zweiten Zeile als Pivot-Element durchführen.
+
+Schreiben wir $b$ für das unbekannte Feld, ergibt die Vorwärtsreduktion
+\[
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+1&2&3\\
+0&0&1\\
+2&b&0\\
+\hline
+\end{tabular}
+\to
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+1&2&3\\
+0&0&1\\
+0&b-4&-6\\
+\hline
+\end{tabular}
+\to
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+1&2&3\\
+0&0&1\\
+0&b-4&0\\
+\hline
+\end{tabular}.
+\]
+Damit eine Nullzeile entsteht, muss $b-4=0$ oder $b=4$ sein.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}

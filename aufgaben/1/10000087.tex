@@ -1,0 +1,43 @@
+Lesen Sie die Lösungsmenge aus dem RREF-Tableau
+\[
+\begin{tabular}{|>{$}r<{$} >{$}r<{$} >{$}r<{$}|>{$}r<{$}|}
+\hline
+x_1&x_2&x_3&1\\
+\hline
+1&3& 0& 4\\
+0&0& 1& 2\\
+0&0& 0& 0\\
+\hline
+\end{tabular}
+\]
+ab.
+
+\begin{loesung}
+Die Variable ${\color{darkgreen}x_2}$ ist frei wählbar.
+Auflösung nach den anderen zwei Variablen ergibt
+\[
+\left.
+\begin{aligned}
+x_1&=&5-3{\color{darkgreen}x_2}\\
+x_3&=&2
+\end{aligned}
+\quad\right\}
+\qquad
+\Rightarrow
+\qquad
+\mathbb{L}
+=
+\left\{
+\left.
+\begin{pmatrix}5\\0\\2\end{pmatrix}
++
+{\color{darkgreen}x_2}
+\begin{pmatrix*}[r]0\\-3\\0\end{pmatrix*}
+\;
+\right|
+\;
+x_2\in\mathbb{R}
+\right\}
+\
+\]
+\end{loesung}
