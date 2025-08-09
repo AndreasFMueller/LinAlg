@@ -11,7 +11,6 @@ Bei welcher $x$-Koordinate schneidet der gebrochene Strahl die Achse?
 \end{teilaufgaben}
 
 
-\begin{loesung}
 \begin{center}
 \begin{tikzpicture}[>=latex,thick]
 \def\y{1}
@@ -32,11 +31,21 @@ Bei welcher $x$-Koordinate schneidet der gebrochene Strahl die Achse?
 \draw[->] ({-\R-1},0) -- ({3*\R+1},0) coordinate[label={$x$}];
 \fill[color=white] ({3*\R},0) circle[radius=0.05];
 \draw[color=red] ({3*\R},0) circle[radius=0.05];
+\draw[->] (0,0) -- (-135:\R);
+\node at (-135:{0.5*\R}) [below right] {$1$};
+\fill[color=white] (0,0) circle[radius=0.05];
+\draw (0,0) circle[radius=0.05];
+\ifthenelse{\boolean{loesungen}}{
 \node[color=red] at ({2*\R},{0.333*\y}) [above] {$-\frac14y$};
-\node at ({-\R},0) [below left] {$0$};
 \node at ({3*\R},0) [below] {$4$};
+}{
+\node[color=red] at ({2*\R},{0.333*\y}) [above] {$?$};
+\node at ({3*\R},0) [below] {$?$};
+}
+\node at ({-\R},0) [below left] {$0$};
 \end{tikzpicture}
 \end{center}
+\begin{loesung}
 \begin{teilaufgaben}
 \item
 Da der Brechungsindex $n_1$ von Luft vernachlässigt werden kann, muss nur der
