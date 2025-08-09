@@ -1,0 +1,72 @@
+Können die leeren Felder in
+\[
+\def\feld#1#2{\raisebox{-0.2cm}{\begin{tikzpicture}[>=latex,thick]
+\draw[color=#2] (0,0) rectangle (0.8,0.7);
+\node at (0.8,0.35) [left] {$#1$};
+\end{tikzpicture}}}
+\begin{pmatrix}
+\feld{3}{white} & \feld{\phantom{-}7}{white} \\[2pt]
+%\feld{\phantom{-}2}
+\feld{}{gray}
+& \feld{5}{white}
+\end{pmatrix}
+\begin{pmatrix*}[r]
+\feld{ 5}{white} & \feld{-7}{white}
+\\[2pt]
+\feld{%-2
+}{gray} & \feld{ 3}{white}
+\end{pmatrix*}
+\]
+so mit Zahlen ausgefüllt werden, dass die beiden
+Matrizen invers zueinander sind?
+
+\begin{loesung}
+Wir bezeichnen die beiden Matrizen mit $A$ und $B$ mit den Matrixelemente
+$a_{ik}$ und $b_{ik}$.
+
+Damit in der linken oberen Ecke des Produktes eine $1$ zu stehen kommt,
+muss das Matrixelement $b_{21}$ die Gleichung
+\[
+3\cdot 5 + 7\cdot b_{11} = 1
+\qquad
+\Rightarrow
+\qquad
+7\cdot b_{11} = -14
+\qquad
+\Rightarrow
+\qquad
+b_{11} = -2
+\]
+erfüllen.
+
+Um das Matrixelement $a_{11}$ zu bestimmen, berechnen wird das Produkt
+der zweiten Zeile von $A$ mit der ersten Spalte von $B$, dieses Produkt
+muss $0$ ergeben.
+Ausmultiplizieren ergibt
+\[
+a_{11}\cdot 5 + 5\cdot b_{11}
+=
+a_{11}\cdot 5 + 5\cdot (-2)
+=
+5a_{11}-10=0
+\qquad
+\Rightarrow
+\qquad
+5a_{11}=10
+\qquad
+\Rightarrow
+\qquad
+a_{11}=2.
+\]
+Die beiden Matrizen sind daher
+\[
+\begin{pmatrix*}[r] 3 &  7 \\  2 & 5 \end{pmatrix*}
+\begin{pmatrix*}[r] 5 & -7 \\ -2 & 3 \end{pmatrix*}
+=
+\begin{pmatrix}
+1&0\\0&1
+\end{pmatrix}.
+\qedhere
+\]
+\end{loesung}
+

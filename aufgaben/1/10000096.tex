@@ -1,0 +1,47 @@
+Berechnen Sie das Matrizenprodukt
+\[
+\begin{pmatrix} 1 & 0 \\ 3 & 1 \end{pmatrix}
+\begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix}
+\]
+ohne erneut die Multiplikation $\text{Zeile} \times \text{Spalte}$
+auszuführen.
+
+\begin{hinweis}
+Verwenden Sie die Aufgabe \ref{10000094}.
+\end{hinweis}
+
+\begin{loesung}
+Die Matrizen sind die Matrizen, die in Aufgabe \ref{10000094} a) vorgekommen
+sind.
+Schreiben wir 
+\[
+A = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}
+\qquad\text{und}\qquad
+B = \begin{pmatrix} 1 & B \\ 0 & 1 \end{pmatrix},
+\]
+dann wird verlangt, das Produkt $\transpose{B}\transpose{A}$ zu berechnen.
+Es ist aber
+\(
+\transpose{B}\transpose{A}
+=
+\transpose{(AB)}
+\),
+weil bei der Transposition eines Produktes die Faktoren die Plätze tauschen.
+Das Produkt $AB$ wurde in der Aufgabe \ref{10000094} berechnet.
+Somit ist
+\[
+\begin{pmatrix} 1 & 0 \\ 3 & 1 \end{pmatrix}
+\begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix}
+=
+\transpose{B}\transpose{A}
+=
+\transpose{(AB)}
+=
+\transpose{
+\begin{pmatrix} 1 & 6 \\ 0 & 1 \end{pmatrix}
+}
+=
+\begin{pmatrix} 1 & 0 \\ 6 & 1 \end{pmatrix}.
+\qedhere
+\]
+\end{loesung}

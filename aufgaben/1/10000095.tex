@@ -1,0 +1,33 @@
+Multiplizieren Sie aus:
+\begin{teilaufgaben}
+\item $(A+B)(A+B)$
+\item $(A+B)(A-B)$
+\item $(I+A)^3$
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item $(A+B)(A+B) = A^2 + AB + BA + B^2$
+\item $(A+B)(A-B) = A^2-BA+BA-B^2$
+\item Die 3. Potenz kann durch wiederholtes Ausmultiplizieren berechnet werden:
+\begin{align*}
+(I+A)^3 
+&=
+(I+A)(I+A)(I+A)
+\\
+&=
+(I^2+IA+AI+A^2)(I+A)
+=
+(I+2A+A^2)(I+A)
+\\
+&=
+I^2+2AI+A^2I+IA+2A^2+A^3
+=
+I+2A+A^2+A+2A^2+A^3
+\\
+&=
+I+3A+3A^2+A^3
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
