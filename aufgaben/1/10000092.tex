@@ -1,0 +1,44 @@
+Finden Sie den Randoperator $\partial$ für das Netzwerk
+\begin{center}
+\def\p{
+\raisebox{-0.2cm}{\begin{tikzpicture}[>=latex,thick]
+\draw[color=gray] (0,0) rectangle (0.9,0.7);
+\end{tikzpicture}}
+}
+\begin{tikzpicture}[>=latex,thick]
+\def\l{1.3}
+\coordinate (A1) at ({-sqrt(3)*\l/2},{0.5*\l});
+\coordinate (A2) at ({sqrt(3)*\l/2},{0.5*\l});
+\coordinate (A3) at (0,{-\l});
+\draw[->,shorten <= 0.25cm,shorten >= 0.25cm] (A1) -- (A2);
+\draw[->,shorten <= 0.25cm,shorten >= 0.25cm] (A2) -- (A3);
+\draw[->,shorten <= 0.25cm,shorten >= 0.25cm] (A1) -- (A3);
+\node at (A1) {$1$}; \draw (A1) circle[radius=0.25];
+\node at (A2) {$2$}; \draw (A2) circle[radius=0.25];
+\node at (A3) {$3$}; \draw (A3) circle[radius=0.25];
+\node at ($0.5*(A1)+0.5*(A2)$) [above] {$1$};
+\node at ($0.5*(A1)+0.5*(A3)$) [left] {$2$};
+\node at ($0.5*(A2)+0.5*(A3)$) [right] {$3$};
+\node at (5,-0.2) {$\displaystyle
+\partial =
+\renewcommand{\arraystretch}{1.4}
+\begin{pmatrix}
+\p & \p & \p \\[2pt]
+\p & \p & \p \\[2pt]
+\p & \p & \p
+\end{pmatrix}
+$};
+\end{tikzpicture}
+\end{center}
+\begin{loesung}
+\[
+\partial
+=
+\begin{pmatrix*}[r]
+-1& -1 &  0 \\
+ 1&  0 & -1 \\
+ 0&  1 &  1 
+\end{pmatrix*}
+\qedhere
+\]
+\end{loesung}
