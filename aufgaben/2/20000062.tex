@@ -1,4 +1,34 @@
-Determinante einer nicht regulären Matrix
+% Determinante einer nicht regulären Matrix
+Welche der folgenden Matrizen haben Determinante 0?
+\begin{teilaufgaben}
+\item  $A = \left|\,\begin{matrix}1&2&3\\4&5&6\\0&0&0\end{matrix}\,\right|$
+\item  $B = \left|\,\begin{matrix}1&2&0\\3&4&0\\5&6&0\end{matrix}\,\right|$
+\item  $C = \left|\,\begin{matrix}1&2\\2&4\end{matrix}\,\right|$
+\item  $D = \left|\,\begin{matrix}1&2&3\\0&4&5\\0&0&6\end{matrix}\,\right|$
+\item  $E = \left|\,\begin{matrix}1&0&0\\2&3&0\\4&5&6\end{matrix}\,\right|$
+\end{teilaufgaben}
+
 
 \begin{loesung}
+\begin{teilaufgaben}
+\item
+Wegen der Nullzeile ist $A$ singulär, also ist $\det A = 0$.
+\item
+Wegen der Nullspalte wird es im Gauss-Algorithmus ein unvermeidbares 
+Null-Pivot geben, daher ist $B$ singulär und damit $\det B = 0$.
+\item
+Die zweite Zeile von $C$ ist ein Vielfaches der ersten,
+im Gaussalgorithmus wird sie schon im ersten Schritt zu einer Nullzeile.
+Daher ist $C$ singulär und damit$\det C = 0$.
+\item
+$D$ ist eine Dreiecksmatrix, in der Gauss-Algorithmus ohne blaue Operationen
+durchgeführt werden kann.
+Die Pivot-Elemente sind alle von 0 verschieden, daher ist $D$ regulär
+und damit $\det D \ne 0$.
+\item
+Die Matrix $E$ wird durch Umkehrung der Reihenfolge aller Zeilen und
+Spalten zu einer Matrix der Form von $D$, daher ist auch $D$ regulär
+und damit $\det E \ne 0$.
+\qedhere
+\end{teilaufgaben}
 \end{loesung}
