@@ -1,0 +1,48 @@
+Lösen Sie die $4\times 4$-Determinante
+\[
+\left|\,\begin{matrix*}[r]
+ 16 &  3 &  2 & 13 \\
+  5 & 10 & 11 &  8 \\
+  9 &  6 &  7 & 12 \\
+  4 & 15 & 14 &  1
+\end{matrix*}\,\right|
+\]
+mit der Entwicklung nach der dritten Zeile in eine Summe von
+$3\times 3$-Determinanten auf.
+
+\begin{loesung}
+\begin{align*}
+\det A
+&=
+%+
+9\cdot
+\left|\,\begin{matrix*}[r]
+  3 &  2 & 13 \\
+ 10 & 11 &  8 \\
+ 15 & 14 &  1
+\end{matrix*}\,\right|
+-
+6\cdot
+\left|\,\begin{matrix*}[r]
+ 16 &  2 & 13 \\
+  5 & 11 &  8 \\
+  4 & 14 &  1
+\end{matrix*}\,\right|
++
+7\cdot
+\left|\,\begin{matrix*}[r]
+ 16 &  3 & 13 \\
+  5 & 10 &  8 \\
+  4 & 15 &  1
+\end{matrix*}\,\right|
+-
+12\cdot
+\left|\,\begin{matrix*}[r]
+ 16 &  3 &  2 \\
+  5 & 10 & 11 \\
+  4 & 15 & 14 
+\end{matrix*}\,\right|
+\qedhere
+\end{align*}
+\end{loesung}
+

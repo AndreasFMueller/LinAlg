@@ -1,0 +1,53 @@
+%Inverse Matrix mit Minoren, $2\times 2$-Fall
+Bestimmen Sie die inverse Matrix von
+\[
+A
+=
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}
+\]
+mit der Methode der Minoren.
+
+\begin{loesung}
+Wir brauchen die Minoren
+\[
+\begin{aligned}
+A_{11}&= (\,d\,) &&\qquad&
+A_{12}&= (\,c\,) \\
+A_{21}&= (\,b\,) &&\qquad&
+A_{22}&= (\,a\,)
+\end{aligned}
+\]
+und die Determinante 
+\[
+\det A
+=
+\left|\,\begin{matrix}
+a&b\\
+c&d
+\end{matrix}
+\,\right|
+=
+ad-bc
+\]
+von $A$.
+Die inverse Matrix ergibt sich dann als
+\begin{align*}
+A^{-1}
+&=
+\frac{1}{\det A}
+\begin{pmatrix}
+\phantom{-}\det A_{11} & -\det A_{21} \\
+-\det A_{12} & \phantom{-}\det A_{22}
+\end{pmatrix}
+=
+\frac{1}{ad-bc}
+\begin{pmatrix}
+\phantom{-}d &          - b \\
+         - c & \phantom{-}a
+\end{pmatrix}.
+\qedhere
+\end{align*}
+\end{loesung}

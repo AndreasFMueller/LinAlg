@@ -1,0 +1,46 @@
+Bestimmen Sie eine Kettenbruchentwicklung für $\!\sqrt{5}$.
+
+\begin{loesung}
+Wegen $\!\sqrt{5} \approx 2.236067977499789696$ ist $a_0=2$.
+Der nächste Teilnenner wird bestimmt, indem man den Kehrwert von
+$\!\sqrt{5}-a_0$ ausrechnet:
+\begin{equation}
+\frac{1}{\!\sqrt{5}-a_0} = 4.236067977499789696,
+\label{20000073:eqn}
+\end{equation}
+also ist $a_1$ der nächste Teilnenner.
+Für die folgenden Teilnenner muss dieser Prozess wiederholt werden.
+Weil der Nachkommateil von \eqref{20000073:eqn} der selbe ist wie
+der von $\!\sqrt{5}$, wird sich immer wieder der gleiche Teilnenner
+ergeben.
+Dies kann man auch beweisen:
+\begin{align*}
+&\text{für $a_0$:}&
+\frac{1}{\sqrt{5}-2}
+&=
+\frac{\sqrt{5}+2}{5-4}
+=
+\sqrt{5}+2
+&&\Rightarrow& a_0&=2
+\\
+&\text{für $a_k$, $k>0$:}&
+\frac{1}{{\color{red}\sqrt{5}+2}-4}
+&=
+\frac{1}{\sqrt{5}-2}
+=
+\frac{\sqrt{5}+2}{5-4}
+=
+{\color{red}\sqrt{5}+2}
+&&\Rightarrow& a_k&=4.
+\end{align*}
+Es folgt, dass
+\[
+\sqrt{5}
+=
+[2;4,4,4,4,\dots]
+=
+2 + \cfrac{1}{4+\cfrac{1}{4 + \cfrac{1}{4+\cfrac{1}{4+\cfrac{1}{\dots}}}}}
+.
+\qedhere
+\]
+\end{loesung}

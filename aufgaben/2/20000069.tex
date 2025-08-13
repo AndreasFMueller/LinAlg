@@ -1,0 +1,40 @@
+Die Berechnung der Determinante mit dem Entwicklungssatz ist am effizientesten,
+wenn eine Zeile oder Spalte mit möglichst vielen Nullen zur Entwicklung verwendet wird.
+Welche Zeile oder Spalte verwenden Sie bei der Entwicklung der Determinante
+der folgenden Matrizen?
+\begin{teilaufgaben}
+\item
+\(\displaystyle
+A
+=
+\begin{pmatrix*}[r]
+    5 &   7 &   9 &   3 \\
+    0 &  11 &  11 &   8 \\
+    0 &   8 &   0 &   0 \\
+   10 &   2 &   0 &  12
+\end{pmatrix*}
+\)
+\item
+\(\displaystyle
+B
+=
+\begin{pmatrix*}[r]
+   14 &            5 &   0 &   0 \\
+    0 &            8 &  15 &  10 \\
+   16 &            1 &   3 &   0 \\
+    8 & \phantom{0}5 &  12 &   0
+\end{pmatrix*}
+\)
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Auf Zeile 3 von $A$ stehen ausser in Spalte 2 lauter Nullen.
+Die Entwicklung nach der dritten Zeile reduziert sich daher auf einen Term.
+\item
+In der letzten Spalte stehen drei Nullen, die Entwicklung nach dieser
+Spalte reduziert sich daher auf einen Term.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
