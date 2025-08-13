@@ -1,5 +1,44 @@
-Produktformel für Determinante
+%Produktformel für Determinante
+Es gilt
+\[
+C = AB
+=
+\begin{pmatrix*}[r]
+   4 &  6 &  5\\
+   0 & -2 & -7\\
+   0 &  0 &  1
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+   4 & 0 &  0\\
+   2 & 3 &  0\\
+  -6 & 5 & -6
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+   -2 &  43 & -30\\
+   38 & -41 &  42\\
+   -6 &   5 &  -6
+\end{pmatrix*}.
+\]
+Verwenden Sie dies, um die Determinante von $C$ ohne Anwendung des
+Gauss-Algorithmus zu berechnen.
 
 \begin{loesung}
+Nach der Produktformel ist
+\[
+\det C
+=
+\det AB
+=
+\det A\cdot \det B
+=
+(4\cdot(-2)\cdot 1)\cdot (4\cdot 3 \cdot (-6))
+=
+(-8)\cdot (-72)
+=
+576,
+\]
+wobei die Determinanten von $A$ und $B$ einfach zu berechnen sind, weil
+$A$ und $B$ Dreiecksmatrizen sind.
 \end{loesung}
 

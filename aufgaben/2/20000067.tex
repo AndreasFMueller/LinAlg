@@ -1,4 +1,130 @@
-Cramer für 2x2-Gleichungssystem
+%Cramer für 2x2-Gleichungssystem
+Lösen Sie das Gleichungssystem
+\begin{equation}
+\renewcommand{\arraycolsep}{2pt}
+%A =
+%
+%   4  -7
+%   6   7
+%
+%x =
+%
+%   5
+%   2
+%
+%b =
+%
+%    6
+%   44
+\begin{array}{rcrcr}
+4x_1 &-& 7x_2 &=&  6 \\
+6x_1 &+& 7x_2 &=& 44
+\end{array}
+\label{20000067:eqn}
+\end{equation}
+mit der Methode von Cramer.
+Überprüfen Sie Ihr Resultat durch Einsetzen.
 
 \begin{loesung}
+Die Koeffizientenmatrix und die rechte Seite sind
+\[
+A
+=
+\begin{pmatrix*}[r]
+4 & -7 \\
+6 &  7
+\end{pmatrix*}
+,\qquad
+b
+=
+\begin{pmatrix*}[r]
+ 6 \\
+44
+\end{pmatrix*}.
+\]
+Nach der Methode von Kramer sind daher die Determinante
+\[
+\det A
+=
+\left|\,\begin{matrix*}[r]
+4 & -7 \\
+6 &  7
+\end{matrix*}\,\right|
+=
+4\cdot 7-(-7)\cdot 6
+=
+70
+\]
+der Koeffizientenmatrix und die beiden Determinanten
+\[
+\left|\,\begin{matrix*}[r]
+{\color{darkgreen} 6}& -7 \\
+{\color{darkgreen}44}&  7
+\end{matrix*}\,\right|
+=
+6\cdot 7 - (-7)\cdot 44
+=
+350
+\qquad
+\text{und}
+\qquad
+\left|\,\begin{matrix*}[r]
+ 4 &{\color{darkgreen}  6}\\
+ 6 &{\color{darkgreen} 44}
+\end{matrix*}\,\right|
+=
+4\cdot 44 - 6\cdot 6
+=
+140,
+\]
+in denen eine Spalte von $A$ durch $b$ ersetzt wurde.
+Die Lösung des Gleichungssystems ist jetzt
+\[
+x_1
+=
+\frac{
+\left|\,\begin{matrix*}[r]
+{\color{darkgreen} 6}& -7 \\
+{\color{darkgreen}44}&  7
+\end{matrix*}\,\right|
+}{
+\left|\,\begin{matrix*}[r]
+4 & -7 \\
+6 &  7
+\end{matrix*}\,\right|
+}
+=
+\frac{350}{70}
+=
+5
+\qquad
+\text{und}
+\qquad
+x_2
+=
+\frac{
+\left|\,\begin{matrix*}[r]
+ 4 &{\color{darkgreen}  6}\\
+ 6 &{\color{darkgreen} 44}
+\end{matrix*}\,\right|
+}{
+\left|\,\begin{matrix*}[r]
+4 & -7 \\
+6 &  7
+\end{matrix*}\,\right|
+}
+=
+\frac{140}{70}
+=
+2.
+\]
+Einsetzen ergibt
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrcrcr}
+4\cdot 5 &-& 7\cdot 2 &=& 20-14 &=&  6\\
+6\cdot 5 &+& 7\cdot 2 &=& 30+14 &=& 44
+\end{array}
+\]
+$x_1=5,x_2=2$ ist also tatsächlich die Lösung der Gleichung~\eqref{20000067:eqn}
 \end{loesung}

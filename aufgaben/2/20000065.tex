@@ -1,4 +1,100 @@
-Zeilenoperationen (Vereinfachung)
+%Zeilenoperationen (Vereinfachung)
+Verwenden Sie Zeilenoperationen, um die folgenden Determinanten in
+Determinanten von Dreiecksmatrizen zu verwandeln und damit deren Berechnung
+zu vereinfachen.
+
+\vspace*{5pt}
+\hbox to\hsize{%
+\hbox to0.5\hsize{%
+a)\;
+\(\displaystyle
+\det A
+=
+\left|\,\begin{matrix*}[r]
+1& 2&  9& 1\\
+0& 3&  9& 6\\
+2& 4& 20& 3\\
+3& 6& 27& 0
+\end{matrix*}\,\right|
+=
+\text{?}
+\)\hfill}%
+\hbox to0.5\hsize{%
+b)\;
+\(\displaystyle
+\det B
+=
+\left|\,\begin{matrix*}[r]
+1&  2&  9& 1\\
+0&  3&  9& 6\\
+2&  4& 20& 3\\
+3& 12& 45& 0
+\end{matrix*}\,\right|
+=
+\text{?}
+\)
+\hfill}}
 
 \begin{loesung}
+\begin{teilaufgaben}
+\item
+Durch zwei Zeilenoperatationen mit der ersten Zeile, genauer durch Subtraktion
+des zweifachen der ersten Zeile von der dritten und des dreifachen von der 
+vierten Zeile entsteht eine Dreiecksmatrix:
+\[
+\det A
+=
+\left|\,\begin{matrix*}[r]
+1& 2&  9& 1\\
+0& 3&  9& 6\\
+2& 4& 20& 3\\
+3& 6& 27& 0
+\end{matrix*}\,\right|
+=
+\left|\,\begin{matrix*}[r]
+1& 2&   9&  1\\
+0& 3&   9&  6\\
+0& 0&   2&  1\\
+0& 0&   0& -3
+\end{matrix*}\,\right|
+=
+1\cdot 3 \cdot 2 \cdot (-3)
+=
+-18.
+\]
+\item
+Mit den gleichen zwei Operationen wie in a) entsteht nicht ganz eine
+Dreiecksmatrix, nämlich
+\begin{align*}
+\det B
+&=
+\left|\,\begin{matrix*}[r]
+1&  2&  9& 1\\
+0&  3&  9& 6\\
+2&  4& 20& 3\\
+3& 12& 45& 0
+\end{matrix*}\,\right|
+=
+\left|\,\begin{matrix*}[r]
+1&  2&  9&  1\\
+0&  3&  9&  6\\
+0&  0&  2&  1\\
+0&  6& 18& -3
+\end{matrix*}\,\right|.
+\intertext{Um auch noch die letzte Zeile zu bereinigen, wird das
+zweifache der zweiten Zeile von der vierten Zeile subtrahiert:}
+&=
+\left|\,\begin{matrix*}[r]
+1&  2&  9&   1\\
+0&  3&  9&   6\\
+0&  0&  2&   1\\
+0&  0&  0& -15
+\end{matrix*}\,\right|
+=
+1\cdot 3 \cdot 2 \cdot (-15)
+=
+-90.
+\qedhere
+\end{align*}
+\end{teilaufgaben}
 \end{loesung}
