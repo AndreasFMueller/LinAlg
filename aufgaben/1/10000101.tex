@@ -1,0 +1,96 @@
+Codieren Sie den Zyklus
+\begin{center}
+\def\r{0.25}
+\def\h{2.5}
+\def\d{0.3}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\begin{tikzpicture}[>=latex,thick]
+\coordinate (A1) at ({0*\h},{0*\h});
+\coordinate (A2) at ({1*\h},{0*\h});
+\coordinate (A3) at ({2*\h},{0*\h});
+\coordinate (A4) at ({0*\h},{-1*\h});
+\coordinate (A5) at ({1*\h},{-1*\h});
+\coordinate (A6) at ({2*\h},{-1*\h});
+\coordinate (A7) at ({0.5*\h},{\h*(-1-sqrt(3)/2)});
+\coordinate (A8) at ({1.5*\h},{\h*(-1-sqrt(3)/2)});
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A1) -- (A2);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A2) -- (A3);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A1) -- (A4);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A2) -- (A5);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A3) -- (A6);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A4) -- (A5);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A5) -- (A6);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A4) -- (A7);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A5) -- (A7);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A5) -- (A8);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A6) -- (A8);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A7) -- (A8);
+\node[color=gray!50] at ($0.5*(A1)+0.5*(A2)$) [above] {\small $1$};
+\node[color=gray!50] at ($0.5*(A2)+0.5*(A3)$) [above] {\small $2$};
+\node[color=gray!50] at ($0.5*(A1)+0.5*(A4)$) [left] {\small $3$};
+\node[color=gray!50] at ($0.5*(A2)+0.5*(A5)$) [left] {\small $4$};
+\node[color=gray!50] at ($0.5*(A3)+0.5*(A6)$) [right] {\small $5$};
+\node[color=gray!50] at ($0.5*(A4)+0.5*(A5)$) [below] {\small $6$};
+\node[color=gray!50] at ($0.5*(A5)+0.5*(A6)$) [below] {\small $7$};
+\node[color=gray!50] at ($0.5*(A4)+0.5*(A7)$) [left] {\small $8$};
+\node[color=gray!50] at ($0.5*(A5)+0.5*(A7)$) [left] {\small $9$};
+\node[color=gray!50] at ($0.5*(A5)+0.5*(A8)$) [right] {\small $10$};
+\node[color=gray!50] at ($0.5*(A6)+0.5*(A8)$) [right] {\small $11$};
+\node[color=gray!50] at ($0.5*(A7)+0.5*(A8)$) [below] {\small $12$};
+\node at (A1) {\small $1\mathstrut$}; \draw (A1) circle[radius=\r];
+\node at (A2) {\small $2\mathstrut$}; \draw (A2) circle[radius=\r];
+\node at (A3) {\small $3\mathstrut$}; \draw (A3) circle[radius=\r];
+\node at (A4) {\small $4\mathstrut$}; \draw (A4) circle[radius=\r];
+\node at (A5) {\small $5\mathstrut$}; \draw (A5) circle[radius=\r];
+\node at (A6) {\small $6\mathstrut$}; \draw (A6) circle[radius=\r];
+\node at (A7) {\small $7\mathstrut$}; \draw (A7) circle[radius=\r];
+\node at (A8) {\small $8\mathstrut$}; \draw (A8) circle[radius=\r];
+\draw[color=darkred,rounded corners=0.2cm,line width=1.4pt] 
+	($(A1)+(\d,-\d)$)
+	-- ++({2*\h-2*\d},0)
+	-- ++(0,{-\h+2*\d})
+	-- ++({-2*\h+2*\d},0)
+	-- ++(0,{\h-2*\d});
+\draw[->,color=darkred,line width=1.2pt]
+	($0.55*(A1)+0.45*(A2)+(0,-\d)$) -- ($0.45*(A1)+0.55*(A2)+(0,-\d)$);
+\draw[->,color=darkred,line width=1.2pt]
+	($0.55*(A2)+0.45*(A3)+(0,-\d)$) -- ($0.45*(A2)+0.55*(A3)+(0,-\d)$);
+\draw[<-,color=darkred,line width=1.2pt]
+	($0.55*(A4)+0.45*(A5)+(0,\d)$) -- ($0.45*(A4)+0.55*(A5)+(0,\d)$);
+\draw[<-,color=darkred,line width=1.2pt]
+	($0.55*(A5)+0.45*(A6)+(0,\d)$) -- ($0.45*(A5)+0.55*(A6)+(0,\d)$);
+\draw[->,color=darkred,line width=1.2pt]
+	($0.55*(A3)+0.45*(A6)+(-\d,0)$) -- ($0.45*(A3)+0.55*(A6)+(-\d,0)$);
+\draw[<-,color=darkred,line width=1.2pt]
+	($0.55*(A1)+0.45*(A4)+(\d,0)$) -- ($0.45*(A1)+0.55*(A4)+(\d,0)$);
+
+\node[color=darkred] at ({2*\h-\d},{-0.5*\h}) [left] {$z$};
+
+\end{tikzpicture}
+\end{center}
+als Vektor.
+
+\begin{loesung}
+Der Zyklus verwendet die Kanten 1, 2, 3, 5, 6 und 7, wobei 2, 6 und 7 
+in der Gegenrichtung durchlaufen werden.
+Daher wird der Zyklus durch
+\[
+z
+=
+\begin{pmatrix*}[r]
+ 1\\
+ 1\\
+-1\\
+ 0\\
+ 1\\
+-1\\
+-1\\
+ 0\\
+ 0\\
+ 0\\
+ 0\\
+ 0
+\end{pmatrix*}
+\]
+codiert.
+\end{loesung}
