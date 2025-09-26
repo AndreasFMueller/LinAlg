@@ -2,11 +2,108 @@ Berechnen Sie die Summe der in der Vorlesung gefunden Zyklen
 $z_3$ und $z_5$.
 
 \begin{loesung}
-Die beiden Zyklen haben die Kanten 1, 3, 4 und 5 gemeinsam.
+Die beiden Zyklen haben die Kanten 1, 3, 4 und 8 gemeinsam.
 Allerdings durchläuft $z_5$ diese Kanten in der zur in $z_3$ verwendeten
 Richtung entgegengesetzten Richtung.
 In der Summe heben sich die Kanten daher auf und es bleiben nur
 die Kanten 9, 10 und 12.
 Die Summe ist daher das im Gegenurzeigersinn durchlaufene Dreieck 
 mit den Ecken 5, 7 und 8.
+\begin{center}
+\def\r{0.25}
+\def\h{2.5}
+\def\d{0.05}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\begin{tikzpicture}[>=latex,thick]
+\coordinate (A1) at ({0*\h},{0*\h});
+\coordinate (A2) at ({1*\h},{0*\h});
+\coordinate (A3) at ({2*\h},{0*\h});
+\coordinate (A4) at ({0*\h},{-1*\h});
+\coordinate (A5) at ({1*\h},{-1*\h});
+\coordinate (A6) at ({2*\h},{-1*\h});
+\coordinate (A7) at ({0.5*\h},{\h*(-1-sqrt(3)/2)});
+\coordinate (A8) at ({1.5*\h},{\h*(-1-sqrt(3)/2)});
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A1) -- (A2);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A2) -- (A3);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A1) -- (A4);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A2) -- (A5);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A3) -- (A6);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A4) -- (A5);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A5) -- (A6);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A4) -- (A7);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A5) -- (A7);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A5) -- (A8);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A6) -- (A8);
+\draw[->,color=gray!50,shorten <= 0.25cm,shorten >= 0.25cm] (A7) -- (A8);
+\node[color=gray!50] at ($0.5*(A1)+0.5*(A2)$) [above] {\small $1$};
+\node[color=gray!50] at ($0.5*(A2)+0.5*(A3)$) [above] {\small $2$};
+\node[color=gray!50] at ($0.5*(A1)+0.5*(A4)$) [left] {\small $3$};
+\node[color=gray!50] at ($0.5*(A2)+0.5*(A5)$) [left] {\small $4$};
+\node[color=gray!50] at ($0.5*(A3)+0.5*(A6)$) [right] {\small $5$};
+\node[color=gray!50] at ($0.5*(A4)+0.5*(A5)$) [below] {\small $6$};
+\node[color=gray!50] at ($0.5*(A5)+0.5*(A6)$) [below] {\small $7$};
+\node[color=gray!50] at ($0.5*(A4)+0.5*(A7)$) [left] {\small $8$};
+\node[color=gray!50] at ($0.5*(A5)+0.5*(A7)$) [left] {\small $9$};
+\node[color=gray!50] at ($0.5*(A5)+0.5*(A8)$) [right] {\small $10$};
+\node[color=gray!50] at ($0.5*(A6)+0.5*(A8)$) [right] {\small $11$};
+\node[color=gray!50] at ($0.5*(A7)+0.5*(A8)$) [below] {\small $12$};
+\node[color=gray!50] at (A1) {\small $1\mathstrut$};
+\node[color=gray!50] at (A2) {\small $2\mathstrut$};
+\node[color=gray!50] at (A3) {\small $3\mathstrut$};
+\node[color=gray!50] at (A4) {\small $4\mathstrut$};
+\node[color=gray!50] at (A5) {\small $5\mathstrut$};
+\node[color=gray!50] at (A6) {\small $6\mathstrut$};
+\node[color=gray!50] at (A7) {\small $7\mathstrut$};
+\node[color=gray!50] at (A8) {\small $8\mathstrut$};
+\draw[color=gray!50] (A1) circle[radius=\r];
+\draw[color=gray!50] (A2) circle[radius=\r];
+\draw[color=gray!50] (A3) circle[radius=\r];
+\draw[color=gray!50] (A4) circle[radius=\r];
+\draw[color=gray!50] (A5) circle[radius=\r];
+\draw[color=gray!50] (A6) circle[radius=\r];
+\draw[color=gray!50] (A7) circle[radius=\r];
+\draw[color=gray!50] (A8) circle[radius=\r];
+
+\draw[->,color=darkred,line width=1.3pt]
+	($0.55*(A1)+0.45*(A2)+(0,-\d)$) -- ++({0.1*\h},0);
+\draw[->,color=darkred,line width=1.3pt]
+	($0.55*(A5)+0.55*(-\d,{\d*tan(30)})+0.45*(A7)+0.45*(0,{\d/sin(30)})$)
+	-- ++({-0.1*\h*sin(30)},{-0.1*\h*cos(30)});
+\draw[->,color=darkred,line width=1.3pt]
+	($0.55*(A7)+0.55*(0,{\d/sin(30)})+0.45*(A4)+0.45*(\d,{\d*tan(30)})$)
+	-- ++({-0.1*\h*sin(30)},{0.1*\h*cos(30)});
+\draw[color=darkred,rounded corners,line width=1.4pt] ($(A1)+(\d,-\d)$)
+	-- ($(A2)+(-\d,-\d)$)
+	-- ($(A5)+(-\d,{\d*tan(30)})$)
+	-- ($(A7)+(0,{\d/sin(30)})$)
+	-- ($(A4)+(\d,{\d*tan(30)})$)
+	-- cycle;
+\node[color=darkred] at ({0.5*\h},{-0.8*\h}) {$z_3$};
+
+\draw[->,color=blue,line width=1.3pt]
+	($0.55*(A1)+0.45*(A4)+(-\d,0)$) -- ++(0,{-0.1*\h});
+\draw[->,color=blue,line width=1.3pt]
+	($0.45*(A2)+0.55*(A5)+(\d,0)$) -- ++(0,{0.1*\h});
+\draw[->,color=blue,line width=1.3pt]
+	($0.55*(A7)+0.45*(A8)+(0,-\d)$) -- ++({0.1*\h},0);
+\draw[color=blue,rounded corners,line width=1.4pt] ($(A1)+(-\d,\d)$)
+	-- ($(A2)+(\d,\d)$)
+	-- ($(A5)+(\d,{\d*tan(30)})$)
+	-- ($(A8)+({\d/tan(30)},-\d)$)
+	-- ($(A7)+({-\d*tan(30)},-\d)$)
+	-- ($(A4)+(-\d,{-\d*tan(30)})$)
+	-- cycle;
+\node[color=blue] at ({\h+\d},{-0.7*\h}) [right] {$z_5$};
+
+\draw[->,color=darkgreen,line width=1.3pt]
+	($0.55*(A5)+0.55*(0,{-\d/sin(30)})+0.45*(A8)+0.45*({-\d/tan(30)},\d)$)
+	-- ++({0.1*\h*sin(30)},{-0.1*\h*cos(30)});
+\draw[color=darkgreen,rounded corners,line width=1.4pt]
+	($(A5)+(0,{-\d/sin(30)})$)
+	-- ($(A8)+({-\d/tan(30)},\d)$)
+	-- ($(A7)+({\d/tan(30)},\d)$)
+	-- cycle;
+\node[color=darkgreen] at ($(A5)+(0,{-0.66*\h})$) {$z_3+z_5$};
+\end{tikzpicture}
+\end{center}
 \end{loesung}

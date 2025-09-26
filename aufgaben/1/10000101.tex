@@ -37,20 +37,39 @@ Codieren Sie den Zyklus
 \node[color=gray!50] at ($0.5*(A5)+0.5*(A8)$) [right] {\small $10$};
 \node[color=gray!50] at ($0.5*(A6)+0.5*(A8)$) [right] {\small $11$};
 \node[color=gray!50] at ($0.5*(A7)+0.5*(A8)$) [below] {\small $12$};
-\node at (A1) {\small $1\mathstrut$}; \draw (A1) circle[radius=\r];
-\node at (A2) {\small $2\mathstrut$}; \draw (A2) circle[radius=\r];
-\node at (A3) {\small $3\mathstrut$}; \draw (A3) circle[radius=\r];
-\node at (A4) {\small $4\mathstrut$}; \draw (A4) circle[radius=\r];
-\node at (A5) {\small $5\mathstrut$}; \draw (A5) circle[radius=\r];
-\node at (A6) {\small $6\mathstrut$}; \draw (A6) circle[radius=\r];
-\node at (A7) {\small $7\mathstrut$}; \draw (A7) circle[radius=\r];
-\node at (A8) {\small $8\mathstrut$}; \draw (A8) circle[radius=\r];
-\draw[color=darkred,rounded corners=0.2cm,line width=1.4pt] 
-	($(A1)+(\d,-\d)$)
-	-- ++({2*\h-2*\d},0)
-	-- ++(0,{-\h+2*\d})
-	-- ++({-2*\h+2*\d},0)
-	-- ++(0,{\h-2*\d});
+\node[color=gray!50] at (A1) {\small $1\mathstrut$};
+\node[color=gray!50] at (A2) {\small $2\mathstrut$};
+\node[color=gray!50] at (A3) {\small $3\mathstrut$};
+\node[color=gray!50] at (A4) {\small $4\mathstrut$};
+\node[color=gray!50] at (A5) {\small $5\mathstrut$};
+\node[color=gray!50] at (A6) {\small $6\mathstrut$};
+\node[color=gray!50] at (A7) {\small $7\mathstrut$};
+\node[color=gray!50] at (A8) {\small $8\mathstrut$};
+\draw[color=gray!50] (A1) circle[radius=\r];
+\draw[color=gray!50] (A2) circle[radius=\r];
+\draw[color=gray!50] (A3) circle[radius=\r];
+\draw[color=gray!50] (A4) circle[radius=\r];
+\draw[color=gray!50] (A5) circle[radius=\r];
+\draw[color=gray!50] (A6) circle[radius=\r];
+\draw[color=gray!50] (A7) circle[radius=\r];
+\draw[color=gray!50] (A8) circle[radius=\r];
+%\node at (A1) {\small $1\mathstrut$}; \draw (A1) circle[radius=\r];
+%\node at (A2) {\small $2\mathstrut$}; \draw (A2) circle[radius=\r];
+%\node at (A3) {\small $3\mathstrut$}; \draw (A3) circle[radius=\r];
+%\node at (A4) {\small $4\mathstrut$}; \draw (A4) circle[radius=\r];
+%\node at (A5) {\small $5\mathstrut$}; \draw (A5) circle[radius=\r];
+%\node at (A6) {\small $6\mathstrut$}; \draw (A6) circle[radius=\r];
+%\node at (A7) {\small $7\mathstrut$}; \draw (A7) circle[radius=\r];
+%\node at (A8) {\small $8\mathstrut$}; \draw (A8) circle[radius=\r];
+%\draw[color=darkred,rounded corners=0.2cm,line width=1.4pt] 
+%	($(A1)+(\d,-\d)$)
+%	-- ++({2*\h-2*\d},0)
+%	-- ++(0,{-\h+2*\d})
+%	-- ++({-2*\h+2*\d},0)
+%	-- ++(0,{\h-2*\d});
+\draw[color=darkred,rounded corners=0.2cm,line width=1.4pt]
+	($(A1)+(\d,-\d)$) rectangle ({2*\h-\d},{-\h+\d});
+	
 \draw[->,color=darkred,line width=1.2pt]
 	($0.55*(A1)+0.45*(A2)+(0,-\d)$) -- ($0.45*(A1)+0.55*(A2)+(0,-\d)$);
 \draw[->,color=darkred,line width=1.2pt]
