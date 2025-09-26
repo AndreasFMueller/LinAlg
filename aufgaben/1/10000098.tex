@@ -2,13 +2,12 @@ In der Matrixoptik werden Strahlen durch Vektoren mit zwei Elementen
 dargestellt.
 Ordnen Sie die Lichstrahlen in der Abbildung den folgenden Vektoren zu:
 
-\smash{\raisebox{-4.7cm}{%
-\hbox{\hspace*{4cm}%
-\begin{tikzpicture}[>=latex,thick]
 \def\punkt#1{
-\fill[color=white] #1 circle[radius=0.05];
-\draw[color=red] #1 circle[radius=0.05];
+	\fill[color=white] #1 circle[radius=0.05];
+	\draw[color=red] #1 circle[radius=0.05];
 }
+\def\aufgabenbild{
+\begin{tikzpicture}[>=latex,thick]
 \foreach \y in {-2,...,2}{
 	\draw[color=gray!30] (-0.1,\y) -- (6.4,\y);
 }
@@ -36,8 +35,20 @@ Ordnen Sie die Lichstrahlen in der Abbildung den folgenden Vektoren zu:
 \punkt{(1,1.5)}
 \node[color=red] at (1,1.5) [above right] {$D$};
 \end{scope}
+
+\node at (1.1,0.1) [below left] {$\scriptstyle 1$};
+\node at (2.1,0.1) [below left] {$\scriptstyle 2$};
+\node at (3.1,0.1) [below left] {$\scriptstyle 3$};
+\node at (4.1,0.1) [below left] {$\scriptstyle 4$};
+\node at (5.1,0.1) [below left] {$\scriptstyle 5$};
+\node at (6.1,0.1) [below left] {$\scriptstyle 6$};
+\node at (0,2) [left] {$\scriptstyle 2$};
+\node at (0,1) [left] {$\scriptstyle 1$};
+\node at (0,0) [left] {$\scriptstyle 0$};
+\node at (0,-1) [left] {$\scriptstyle -1$};
+\node at (0,-2) [left] {$\scriptstyle -2$};
 \end{tikzpicture}}%
-}}
+
 \begin{teilaufgaben}
 \item
 $\begin{pmatrix} \phantom{-}2 \\ -1 \end{pmatrix}$
@@ -48,6 +59,11 @@ $\begin{pmatrix} -1\phantom{.0} \\ \phantom{-}0.1 \end{pmatrix}$
 \item
 $\begin{pmatrix} 0.5 \\ 0\phantom{.5} \end{pmatrix}$
 \end{teilaufgaben}
+\nopagebreak
+\smash{\raisebox{0.0cm}{%
+\hbox{\hspace*{4cm}%
+\aufgabenbild
+}}}
 
 \begin{loesung}
 \begin{teilaufgaben}
