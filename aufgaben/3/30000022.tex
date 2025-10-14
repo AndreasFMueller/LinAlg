@@ -1,0 +1,105 @@
+\bgroup
+\definecolor{darkred}{rgb}{0.8,0,0}
+Gegeben sind die beiden Basen
+\[
+\mathcal{B}
+=
+\left\{
+\vec{b}_1
+=
+\begin{pmatrix*}[r]3\\-2\end{pmatrix*}
+,
+\vec{b}_2
+=
+\begin{pmatrix}1\\2\end{pmatrix}
+\right\}
+\qquad\text{und}\qquad
+\mathcal{C}
+=
+\left\{
+\vec{c}_1
+=
+\begin{pmatrix}4\\0\end{pmatrix}
+,
+\vec{c}_2
+=
+\begin{pmatrix}0\\8\end{pmatrix}
+\right\}.
+\]
+Stellen Sie das Tableau zur Berechnung der Transformationsmatrix $T$ auf,
+um Koordinaten in der Basis $\color{blue}\mathcal{C}$ in Koordinaten
+in der Basis $\color{darkred}\mathcal{B}$ umzurechnen.
+\egroup
+
+\begin{loesung}
+Das Tableau und die Anwendung des Gauss-Algorithmus ist
+\definecolor{darkred}{rgb}{0.8,0,0}
+\[
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|}
+\hline
+{\color{darkred}y_1}&
+{\color{darkred}y_2}&
+{\color{blue}x_1}&
+{\color{blue}x_2}\\
+\hline
+ 3& 1& 4& 0\\
+-2& 2& 0& 8\\
+\hline
+\end{tabular}
+%
+\rightarrow
+%
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|}
+\hline
+{\color{darkred}y_1}&
+{\color{darkred}y_2}&
+{\color{blue}x_1}&
+{\color{blue}x_2}\\
+\hline
+ 1& \frac13& \frac43& 0\\
+ 0& \frac83& \frac83& 8\\
+\hline
+\end{tabular}
+%
+\rightarrow
+%
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|}
+\hline
+{\color{darkred}y_1}&
+{\color{darkred}y_2}&
+{\color{blue}x_1}&
+{\color{blue}x_2}\\
+\hline
+ 1& \frac13& \frac43& 0\\
+ 0& 1& 1& 3\\
+\hline
+\end{tabular}
+%
+\rightarrow
+%
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}|}
+\hline
+{\color{darkred}y_1}&
+{\color{darkred}y_2}&
+{\color{blue}x_1}&
+{\color{blue}x_2}\\
+\hline
+ 1& 0& 1& -1\\
+ 0& 1& 1&  3\\
+\hline
+\end{tabular}.
+\]
+Die Transformationsmatrix ist daher
+\[
+T
+=
+\begin{pmatrix*}[r]
+1&-1\\
+1& 3
+\end{pmatrix*}.
+\qedhere
+\]
+\end{loesung}
+
+
