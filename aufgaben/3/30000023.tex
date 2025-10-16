@@ -1,0 +1,36 @@
+Eine lineare Abbildung dreht die Ebene erst um $90^\circ$ und spiegelt
+anschliessend den erhaltenen Vektor an der $x$-Achse.
+Finden Sie die Abbildungsmatrix.
+
+\begin{loesung}
+Die Standardbasisvektoren werden wie folgt abgebildet:
+\begin{align*}
+\vec{e}_1
+&\mapsto
+\phantom{-}
+\vec{e}_2
+\mapsto
+-\vec{e}_2
+=
+\begin{pmatrix*}[r]0\\-1\end{pmatrix*}
+\\
+\vec{e}_2
+&\mapsto
+-\vec{e_1}
+\mapsto
+-\vec{e_1}
+=
+\begin{pmatrix*}[r] -1\\0 \end{pmatrix*}.
+\end{align*}
+Daraus liest man die Abbildungsmatrix
+\[
+A
+=
+\begin{pmatrix*}[r]
+ 0 & -1\\
+-1 &  0
+\end{pmatrix*}
+\]
+ab.
+\end{loesung}
+

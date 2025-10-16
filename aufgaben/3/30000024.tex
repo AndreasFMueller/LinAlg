@@ -1,0 +1,73 @@
+%Transformationsformel
+Die Drehung um $90^\circ$ im Gegenuhrzeigersinn wird in kartesischen
+Koordinaten durch die Matrix
+\[
+\renewcommand{\arraystretch}{1.2}
+D
+=
+\begin{pmatrix*}[r]
+0&-1\\
+1& 0
+\end{pmatrix*}
+\]
+beschrieben.
+Jetzt soll Sie in einem neuen Koordinatensystem beschrieben werden,
+die kartesischen Koordinaten werden mit der Matrix
+\[
+\renewcommand{\arraystretch}{1.2}
+T
+=
+\begin{pmatrix*}[r]
+1&-1\\
+1& 3
+\end{pmatrix*}
+\quad\text{mit der Inversen}\quad
+T^{-1}
+=
+\begin{pmatrix*}[r]
+ \frac34&\frac14\\
+-\frac14&\frac14
+\end{pmatrix*}
+\]
+in die neuen Koordinaten umgerechnet.
+Bestimmen Sie die Abbildungsmatrix im neuen Koordinatensystem.
+
+\begin{loesung}
+Die neue Abbildungsmatrix ist
+\renewcommand{\arraystretch}{1.2}
+\begin{align*}
+D'
+&=
+TDT^{-1}
+=
+\begin{pmatrix*}[r]
+1&-1\\
+1& 3
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+0&-1\\
+1& 0
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+ \frac34&\frac14\\
+-\frac14&\frac14
+\end{pmatrix*}
+\\
+&=
+\begin{pmatrix*}[r]
+1&-1\\
+1& 3
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+\frac14&-\frac14\\
+\frac34& \frac14
+\end{pmatrix*}
+\\
+&=
+\begin{pmatrix*}[r]
+-\frac12&-\frac12\\
+\frac52&\frac12
+\end{pmatrix*}.
+\qedhere
+\end{align*}
+\end{loesung}
