@@ -1,0 +1,147 @@
+Für die Kettenbruchentwicklung von $\varphi-1$ ist die $Q$-Matrix
+\[
+Q_k
+=
+\begin{pmatrix}
+0&b_k\\
+1&a_k
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&1\\
+1&1
+\end{pmatrix}
+=
+Q
+\]
+\begin{teilaufgaben}
+\item
+Berechnen Sie die Potenzen  $Q^2$, $Q^3$, $Q^4$,\dots
+\item
+Lesen Sie in der zweiten Spalte der Matrizen $Q^k$ die Näherungsbrücke 
+für $\varphi-1$ ab.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+Die Produkte sind
+\begin{align*}
+Q^2
+&=
+\begin{pmatrix}
+0&1\\
+1&1
+\end{pmatrix}
+\begin{pmatrix}
+0&1\\
+1&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 1 \\
+1 & 2
+\end{pmatrix}
+\\
+Q^3
+&=
+\begin{pmatrix}
+1&1\\
+1&2
+\end{pmatrix}
+\begin{pmatrix}
+0&1\\
+1&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 2 \\
+2 & 3
+\end{pmatrix}
+\\
+Q^4
+&=
+\begin{pmatrix}
+1 & 2 \\
+2 & 3
+\end{pmatrix}
+\begin{pmatrix}
+0&1\\
+1&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 2 & 3 \\
+ 3 & 5
+\end{pmatrix}
+\\
+Q^5
+&=
+\begin{pmatrix}
+ 2 & 3 \\
+ 3 & 5
+\end{pmatrix}
+\begin{pmatrix}
+0&1\\
+1&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 3 & 5 \\
+ 5 & 8
+\end{pmatrix}
+\\
+Q^6
+&=
+\begin{pmatrix}
+ 3 & 5 \\
+ 5 & 8
+\end{pmatrix}
+\begin{pmatrix}
+0&1\\
+1&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 5 & 8\\
+ 8 & 13
+\end{pmatrix}
+\\
+Q^7
+&=
+\begin{pmatrix}
+ 5 & 8 \\
+ 8 & 13
+\end{pmatrix}
+\begin{pmatrix}
+0&1\\
+1&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+ 8  & 13 \\
+ 13 & 21
+\end{pmatrix}
+\end{align*}
+\item
+Die Näherungsbrüche sind
+\begin{align*}
+\frac{1}{1}     &= 1                                  \\
+\frac{1}{2}     &= 0.5                                \\
+\frac{2}{3}     &= 0.\underline{6}6666666666666666666 \\
+\frac{3}{5}     &= 0.\underline{6}                    \\
+\frac{5}{8}     &= 0.\underline{6}25                  \\
+\frac{8}{13}    &= 0.\underline{61}538461538461538461 \\
+\frac{13}{21}   &= 0.\underline{61}904761904761904761 \\
+\frac{21}{34}   &= 0.\underline{61}764705882352941176 \\
+\frac{34}{55}   &= 0.\underline{618}18181818181818181 \\
+\frac{55}{89}   &= 0.\underline{61}797752808988764044 \\
+\frac{89}{144}  &= 0.\underline{6180}5555555555555555 \\
+\frac{144}{233} &= 0.\underline{6180}2575107296137339 \\
+\frac{233}{337} &= 0.\underline{61803}713527851458885 \\
+\varphi-1       &\approx 0.61803398874989484820.
+\end{align*}
+Die korrekten Stellen sind unterstrichen.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
