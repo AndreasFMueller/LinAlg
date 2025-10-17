@@ -1,0 +1,46 @@
+Stellen Sie das Tableau auf, mit dem Sie die Koeffizienten
+der Geradengleichung $ax+by+c=0$ einer Geraden durch die Punkte
+$A=(1,2)$ und $B=(9,1)$ finden können.
+
+\begin{loesung}
+\definecolor{darkred}{rgb}{0.8,0,0}%
+\[
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+{\color{darkred}a}&{\color{darkred}b}&{\color{darkred}c}&1\\
+\hline
+1&2&1& 0 \\
+9&1&1& 0 \\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+{\color{darkred}a}&{\color{darkred}b}&{\color{darkred}c}&1\\
+\hline
+1&  2& 1& 0 \\
+0&-17&-8& 0 \\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+{\color{darkred}a}&{\color{darkred}b}&{\color{darkred}c}&1\\
+\hline
+1&0& \frac{1}{17}& 0 \\
+0&1& \frac{8}{17}& 0 \\
+\hline
+\end{tabular}
+\]
+Mit $c=17$ werden die  Koeffizienten besonders einfach:
+$a=-1$ und $b=-8$.
+Damit ist die gesuchte Gleichung
+\[
+-x-8y+17 = 0
+\qquad\Leftrightarrow\qquad
+x+8y-17 = 0.
+\]
+Durch Einsetzen der Punkte kann man nachprüfen, dass diese
+Gerade tatsächlich durch $A$ und $B$ geht.
+\end{loesung}

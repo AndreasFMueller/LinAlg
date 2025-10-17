@@ -1,0 +1,48 @@
+Stellen Sie das Tableau auf, mit dem die Schnittmenge der beiden Geraden
+\[
+\vec{p}
+=
+\begin{pmatrix}1\\9\end{pmatrix}
++
+t
+\begin{pmatrix}2\\1\end{pmatrix}
+\quad
+\text{und}
+\quad
+\vec{p}
+=
+\begin{pmatrix*}[r]4\\-1\end{pmatrix*}
++
+t
+\begin{pmatrix*}[r]-7\\1\end{pmatrix*}
+\]
+gefunden werden kann.
+
+\begin{loesung}
+\[
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$}|>{$}r<{$}|}
+\hline
+x_1&x_2&t_1&t_2&1\\
+\hline
+1&0&-9& 0& 2\\
+0&1&-1& 0& 1\\
+1&0& 0& 7& 4\\
+0&1& 0&-1&-1\\
+\hline
+\end{tabular}
+\quad\rightarrow\quad
+\begin{tabular}{|>{$}r<{$} >{$}r<{$} >{$}r<{$} >{$}r<{$}|>{$}r<{$}|}
+\hline
+x_1&x_2&t_1&t_2&1\\
+\hline
+1&0& 0& 0&-\frac{19}{4}\\
+0&1& 0& 0& \frac{1}{4}\\
+0&0& 0& 0&-\frac{3}{4}\\
+0&0& 0& 1& \frac{5}{4}\\
+\hline
+\end{tabular}
+\]
+woraus man den Schnittpunkt $(\frac{-19}{4},\frac{1}{4})$ ablesen kann,
+der mit $t_1=-\frac{3}{4}$ bzw.~$t_2=\frac{5}{4}$ erreicht wird.
+\end{loesung}
