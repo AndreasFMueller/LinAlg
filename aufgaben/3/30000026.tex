@@ -1,0 +1,105 @@
+Gegeben sind die Vektoren
+\[
+v_1
+=
+\begin{pmatrix*}[r]
+100\\
+0
+\end{pmatrix*}
+\quad\text{und}\quad
+v_2
+=
+\begin{pmatrix*}[r]
+0\\
+100
+\end{pmatrix*}
+\quad\text{und die Matrix}\quad
+D
+=
+\begin{pmatrix}
+0 & -1 \\
+1 &  0
+\end{pmatrix},
+\]
+die eine Drehung um $90^\circ$ beschreibt.
+\begin{teilaufgaben}
+\item
+Stellen Sie die $3\times 3$-Matrizen $T_i$ auf, die eine Verschiebung
+um $v_i$ beschreiben, und die $3\times 3$-Matrix $O$, die Drehung um
+$90^\circ$ beschreibt.
+\item
+Bestimmen Sie die Zusammensetzung von $T_2$ gefolgt von $O$ gefolgt
+von $T_1$.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Matrizen sind
+\[
+T_1
+=
+\begin{pmatrix*}[r]
+1 & 0 & 100 \\
+0 & 1 &   0 \\
+0 & 0 &   1
+\end{pmatrix*},
+\quad
+T_2
+=
+\begin{pmatrix*}[r]
+1 & 0 &   0 \\
+0 & 1 & 100 \\
+0 & 0 &   1
+\end{pmatrix*}
+\quad\text{und}\quad
+O
+=
+\begin{pmatrix*}[r]
+0 & -1 & 0 \\
+1 &  0 & 0 \\
+0 &  0 & 1
+\end{pmatrix*}.
+\]
+\item
+Die Zusammesetzung ist
+\begin{align*}
+T_1OT_2
+&=
+\begin{pmatrix*}[r]
+1 & 0 & 100 \\
+0 & 1 &   0 \\
+0 & 0 &   1
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+0 & -1 & 0 \\
+1 &  0 & 0 \\
+0 &  0 & 1
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+1 & 0 &   0 \\
+0 & 1 & 100 \\
+0 & 0 &   1
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+1 & 0 & 100 \\
+0 & 1 &   0 \\
+0 & 0 &   1
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+0 & -1 & -100 \\
+1 &  0 &    0 \\
+0 &  0 &    1
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+0 & -1 & 0 \\
+1 &  0 & 0 \\
+0 &  0 & 1
+\end{pmatrix*}.
+\end{align*}
+Dies ist wieder die Drehung um $90^\circ$.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
