@@ -1,0 +1,60 @@
+RGB-Farben bilden einen Vektorraum, Farbtransformationen können daher 
+mit Matrizen durchgeführt werden. 
+\definecolor{farbe1}{rgb}{0.6,0.4,0.8}%
+\definecolor{farbe2}{rgb}{0.83,0.48,0.48}%
+Wenden Sie die Matrix
+\[
+\begin{pmatrix*}[r]
+   0.33& -0.24&  0.91\\
+   0.91&  0.33& -0.24\\
+  -0.24&  0.91&  0.33
+\end{pmatrix*}
+\quad
+\text{auf die Farbe}
+\quad
+{\color{farbe1}
+f_1=\begin{pmatrix} 153\\102\\204\end{pmatrix}
+}
+\qquad
+\qrcode[height=1.6cm]{https://www.w3schools.com/colors/colors_rgb.asp}
+\quad
+\qrcode[height=1.6cm]{https://www.visibone.com/colorlab/}
+\]
+an.
+\begin{teilaufgaben}
+\item Verwenden Sie den RGB-Rechner aus dem QR-Code, um die neue Farbe
+${\color{farbe2}f_2}=D{\color{farbe1}f_1}$
+zu bestimmen.
+\item $D$ ist ungefähr eine Drehung um $90^\circ$, suchen Sie eine
+ähnliche Farbe in \url{https://www.visibone.com/colorlab/} (2.~QR-Code)
+und überzeugen Sie sich, dass sie etwa $90^\circ$ verdreht auf dem
+Farbkreis liegt.
+\end{teilaufgaben}
+
+\begin{loesung}
+Die Anwendung der Matrix ergibt:
+\[
+D
+f_1
+=
+D\begin{pmatrix} 153\\102\\204\end{pmatrix}
+=
+{\color{farbe2}
+\begin{pmatrix}
+  211.65\\
+  123.93\\
+  123.42
+\end{pmatrix}
+\approx
+\begin{pmatrix}
+  212\\
+  124\\
+  123
+\end{pmatrix}
+}
+\]
+Die gefundene Farbe ist nahe bei der Farbe \texttt{\#cc6666}, die auf
+Visibone \emph{light dull red} genannt wird, und die von der
+Farbe \texttt{\#9966cc}, genannt \emph{light dull violet}, etwa
+$90^\circ$ im Gegenuhrzeigersinn entfernt ist.
+\end{loesung}
