@@ -1,0 +1,25 @@
+Finden Sie die Kameramatrix $K$ für eine Kamera mit einem $640\times 480$-Chip
+und einem Objektiv mit Brennweite $f=500\,\text{px}$.
+
+\begin{loesung}
+Die Kameramatrix ist durch die Brennweite $f$ und die Koordianten
+des Chipmittelpunktes $(m_x,m_y)=(320,240)$ vollständig bestimmt.
+Sie ist
+\[
+K
+=
+\begin{pmatrix*}
+f & 0 & m_x \\
+0 & f & m_y \\
+0 & 0 & 1
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+500 &   0 & 320 \\
+  0 & 500 & 240 \\
+  0 &   0 &   1
+\end{pmatrix*}.
+\qedhere
+\]
+\end{loesung}
+

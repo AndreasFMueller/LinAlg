@@ -1,0 +1,68 @@
+\definecolor{darkred}{rgb}{0.8,0,0}
+Gegeben sind Datenpunkte $(x_i,y_i)$, $i=1,\dots,n$.
+Gesucht ist das quadratische Polynom
+\[
+p(x)
+=
+{\color{darkred}a}x^2
++
+{\color{darkred}b}x
++
+{\color{darkred}c},
+\]
+dessen Graph am besten zu den Punkten $(x_i,y_i)$ passt.
+\begin{teilaufgaben}
+\item
+Stellen Sie die notwendigen Gleichungen auf.
+\item
+Finden Sie die Matrix $A$  und den Vektor $b$
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Für jeden Punkt $(x_i,y_i)$ sollte die Gleichung
+\[
+y_i
+=
+{\color{darkred}a}x_i^2
++
+{\color{darkred}b}x_i
++
+{\color{darkred}c}
+\]
+erfüllen.
+Dies ist ein überbestimmtes lineares Gleichungssystem für die 
+Koeffizienten 
+{\color{darkred}a},
+{\color{darkred}b} und
+{\color{darkred}c}.
+\item
+Auf Zeile $i$ der Matrix $A$ stehen die Koeffizienten $x_i^2$, 
+$x_i$ und $1$, auf der rechten Seite in Zeile $i$ des Vektors $b$
+die Zahl $y_i$.
+Das Gleichungssystem hat daher die Matrixform
+\[
+\begin{pmatrix}
+\vdots&\vdots&\vdots\\
+x_i^2 &x_i   &1     \\
+\vdots&\vdots&\vdots
+\end{pmatrix}
+\begin{pmatrix}
+\color{darkred}a\\
+\color{darkred}b\\
+\color{darkred}c
+\end{pmatrix}
+=
+\begin{pmatrix}
+\vdots\\
+y_i\\
+\vdots
+\end{pmatrix}
+\]
+$A$ ist eine $n\times 3$-Matrix und $b$ ist ein $n$-dimensionaler
+Spaltenvektor.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+

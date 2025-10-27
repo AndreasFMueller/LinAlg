@@ -1,0 +1,50 @@
+\begin{teilaufgaben}
+\item
+Finden Sie den Mittelpunkt $M$ des Kreises mit der Gleichung
+\begin{equation}
+x^2-8x+y^2+6y=0.
+\ifthenelse{\boolean{presentation}}{\notag}{
+\label{40000080:eqn}
+}
+\end{equation}
+\item
+Stellen Sie die Gleichung eines Kreises mit Radius $r$ um den
+Mittelpunkt $M$ von a) auf.
+\item
+Finden Sie den Radius des Kreises von a).
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Der Mittelpunkt kann von den Koeffizienten der linearen Terme
+abgelesen werden: $M=(4,-3)$.
+\item
+Da der Mittelpunkt bekannt ist, kann man die Kreisgleichung
+\begin{align}
+(\vec{p}-\vec{m})^2&= r^2
+\notag
+\\
+(x-4)^2 + (y+3)^2 &= r^2
+\notag
+\\
+x^2-8x+16 + y^2 + 6y + 9 &= r^2
+\label{40000080:eqn2}
+\end{align}
+aufstellen.
+\item
+Bringen wir die konstanten Terme in 
+\eqref{40000080:eqn2}
+auf die rechte Seite, ergibt sich
+\begin{align*}
+x^2-8x + y^2 + 6y + 25 &= r^2
+\\
+\Rightarrow\qquad
+x^2-8x + y^2 + 6y \phantom{\mathstrut+25} &= r^2-25.
+\end{align*}
+Da die rechte Seite in \eqref{40000080:eqn} verschwindet, muss
+$r^2=25$ bzw.~$r=5$ sein.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+

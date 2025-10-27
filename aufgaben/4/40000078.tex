@@ -1,0 +1,115 @@
+Gegeben sind die Vektoren
+\[
+\vec{a}_1
+=
+\begin{pmatrix}
+ \frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{2}}\\
+\end{pmatrix}
+\qquad\text{und}\qquad
+\vec{a}_2
+=
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}
+.
+\]
+Beide Vektoren haben Länge $1$.
+Bei der Konstruktion einer orthonormierten Basis kann man
+also $\vec{b}_1=\vec{a}_1$ wählen.
+\begin{teilaufgaben}
+\item
+Korrigieren Sie den Vektor $\vec{a}_2$ nach dem Verfahren von
+Gram-Schmidt, derart, dass der neue Vektor senkrecht auf $\vec{b}_1$
+steht.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Es muss die Projektion auf die Reichung $\vec{b}_1$ subtrahiert werden:
+\begin{align}
+\vec{a}_2-(\vec{b}_1\cdot\vec{a}_2)\,\vec{b}_1
+&=
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}
+-
+\left(
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+ \frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{2}}\\
+\end{pmatrix}
+\right)
+\begin{pmatrix}
+ \frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{2}}\\
+\end{pmatrix}
+\notag
+\\
+&=
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}
++
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+ \frac{1}{\sqrt{2}}\\
+-\frac{1}{\sqrt{2}}\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\
+1
+\end{pmatrix}
++
+\begin{pmatrix}
+ \frac12\\
+-\frac12
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac12\\
+\frac12
+\end{pmatrix}
+\label{40000078:eqn}
+\end{align}
+\item
+Der Vektor \eqref{40000078:eqn} ist kein Einheitsvektor, er hat die 
+Länge
+\[
+|\vec{a}_2-(\vec{b}_1\cdot\vec{a}_2)\,\vec{b}_1|
+=
+\sqrt{(\textstyle\frac12)^2+(\textstyle\frac12)^2}
+=
+\frac{1}{\!\sqrt{2}}.
+\]
+Der normierte Vektor ist daher
+\[
+\vec{b}_2
+=
+\frac{
+\vec{a}_2-(\vec{b}_1\cdot\vec{a}_2)\,\vec{b}_1
+}{
+|\vec{a}_2-(\vec{b}_1\cdot\vec{a}_2)\,\vec{b}_1|
+}
+=
+\!\sqrt{2}
+\begin{pmatrix}
+\frac12\\
+\frac12
+\end{pmatrix}
+=
+\frac{\!\sqrt{2}}2
+\begin{pmatrix}1\\1\end{pmatrix}.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}

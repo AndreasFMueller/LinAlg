@@ -1,0 +1,66 @@
+Ist die Matrix
+\[
+A
+=
+\renewcommand{\arraystretch}{1.4}
+\begin{pmatrix*}
+\frac12              & -\frac{\!\sqrt{3}-1}2 \\
+\frac{\!\sqrt{3}-1}2 &  \frac12
+\\
+\end{pmatrix*}
+\]
+orthogonal?
+
+\begin{loesung}
+\begin{align*}
+AA^t
+&=
+\renewcommand{\arraystretch}{1.4}
+\begin{pmatrix*}
+\frac12              & -\frac{\!\sqrt{3}-1}2 \\
+\frac{\!\sqrt{3}-1}2 &  \frac12
+\end{pmatrix*}
+\begin{pmatrix*}
+ \frac12              &  \frac{\!\sqrt{3}-1}2 \\
+-\frac{\!\sqrt{3}-1}2 &  \frac12
+\end{pmatrix*}
+=
+\begin{pmatrix*}
+\bigl(\frac{1}{2}\bigr)^2
++
+\bigl(\frac{\!\sqrt{3}}2\bigr)^2
+&
+\frac12\cdot\frac{\!\sqrt{3}-1}2
+-
+\frac{\!\sqrt{3}}2 \cdot \frac12
+\\
+\frac{\!\sqrt{3}}2 \cdot \frac12
+-
+\frac12\cdot\frac{\!\sqrt{3}}2
+&
+\bigl(\frac{1}{2}\bigr)^2
++
+\bigl(\frac{\!\sqrt{3}}2\bigr)^2
+\end{pmatrix*}.
+\end{align*}
+Wegen
+\[
+\biggl(\frac{1}{2}\biggr)^2
++
+\biggl(\frac{\!\sqrt{3}}2\biggr)^2
+=
+\frac14 + \frac34
+=
+1
+\]
+folgt
+\[
+AA^t
+=
+I.
+\]
+Daher ist $A$ orthogonal.
+\end{loesung}
+
+
+

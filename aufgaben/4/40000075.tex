@@ -1,0 +1,110 @@
+\definecolor{darkred}{rgb}{0.8,0,0}
+Die Länge der Vektoren $\color{darkred}\vec{a}$ und $\color{blue}\vec{b}$
+haben die Länge
+$|{\color{darkred}\vec{a}}|={\color{red}6}$ und
+$|{\color{blue}\vec{b}}|={\color{blue}10}$.
+Die Orthogonalprojektion
+$p_{{\color{darkred}\vec{a}}}({\color{blue}\vec{b}}))$
+von ${\color{blue}\vec{b}}$ auf
+die Richtung von ${\color{darkred}\vec{a}}$ hat die Länge 5.
+
+\hbox to\hsize{%
+\begin{minipage}{0.5\textwidth}
+\begin{teilaufgaben}
+\item
+Wie gross ist der Zwischenwinkel $\alpha$ zwischen den beiden Vektoren?
+\item
+Wie lang ist die Orthogonalprojektion $p_{\vec{a}}(\vec{b})$ von $\vec{a}$
+auf die Richtung von $\vec{b}$?
+\item
+Drücken Sie $p_{\vec{a}}(\vec{b})$ als algebraischen Ausdruck durch
+$|\vec{a}|$, $|\vec{b}|$ und $p_{\vec{b}}(\vec{a})$ aus.
+\end{teilaufgaben}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\def\u{0.5}
+\def\w{20}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\pgfmathparse{0.9*\u}
+\xdef\r{\pgfmathresult}
+\begin{tikzpicture}[>=latex,thick]
+
+\fill[color=violet!20] (0,0)
+	-- (\w:{1.4*\u}) arc (\w:{\w+60}:{1.4*\u})
+	-- cycle;
+\node[color=violet] at ({\w+30}:{1*\u}) {$\alpha$};
+
+\fill[color=gray!40] (\w:{5*\u})
+	-- ++({\w+90}:{\r}) arc({\w+90}:{\w+180}:{\r})
+	-- cycle;
+\fill[color=white] ($(\w:{5*\u})+({\w+135}:{0.6*\r})$) circle[radius=0.05];
+
+\fill[color=gray!40] ({\w+60}:{3*\u})
+	-- ++({\w+240}:{\r}) arc ({\w+240}:{\w+330}:{\r})
+	-- cycle;
+\fill[color=white] ($({\w+60}:{3*\u})+({\w-75}:{0.6*\r})$) circle[radius=0.05];
+
+\draw[color=violet,line width=0.08cm] ({\w-90}:0.05) -- ++(\w:{5*\u});
+\node[color=violet] at (\w:{0.6*5*\u}) [below] {$p_{\vec{a}}(\vec{b})$};
+
+\draw[color=violet,line width=0.08cm] ({\w+150}:0.05) -- ++({\w+60}:{3*\u});
+\node[color=violet] at ({\w+60}:{0.5*3*\u}) [left] {$p_{\vec{b}}(\vec{a})$};
+
+
+\draw[line width=0.2pt] ({\w+60}:{10*\u}) -- (\w:{5*\u});
+\draw[line width=0.2pt] (\w:{6*\u}) -- ({\w+60}:{3*\u});
+
+\draw[->,color=darkred,line width=1.4pt] (0,0) -- (\w:{6*\u});
+\node[color=darkred] at (\w:{6*\u}) [right] {$\vec{a}$};
+
+\draw[->,color=blue,line width=1.4pt] (0,0) -- ({\w+60}:{10*\u});
+\node[color=blue] at ({\w+60}:{10*\u}) [left] {$\vec{b}$};
+
+\fill (0,0) circle[radius=0.09];
+
+\end{tikzpicture}
+\end{center}
+\end{minipage}}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Der Kosinus von $\alpha$ ist
+\begin{equation}
+\cos\alpha
+=
+\frac{p_{\vec{a}}(\vec{b})}{|\vec{b}|}
+=
+\frac{5}{10}
+=
+\frac12
+\qquad\Rightarrow\qquad
+\alpha = 60^\circ.
+\label{40000075:cos}
+\end{equation}
+\item Mit dem Resultat von a) folgt
+\begin{equation}
+p_{\vec{b}}(\vec{a})
+=
+|\vec{a}|\cos\alpha
+=
+6\cos 60^\circ
+=
+6\cdot\frac12
+=
+3.
+\label{40000075:pba}
+\end{equation}
+\item
+Verwendet man den Ausdruck von \eqref{40000075:cos} für $\cos\alpha$,
+wird aus \eqref{40000075:pba}
+\[
+p_{\vec{b}}(\vec{a})
+=
+|\vec{a}|\cdot \frac{p_{\vec{a}}(\vec{b})}{|\vec{b}|}.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
