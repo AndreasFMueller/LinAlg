@@ -12,6 +12,8 @@
 \input{macros/uebungen.tex}
 \openthemaindex
 \setboolean{loesungen}{true}
+\newboolean{presentation}
+\setboolean{presentation}{true}
 \allowdisplaybreaks
 \aufgabetoplevel{./}
 \setcounter{problemcounter}{NUMMER}
