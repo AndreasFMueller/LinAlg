@@ -1,0 +1,48 @@
+Die Matrizen
+\[
+A
+=
+\begin{pmatrix*}[r]
+0.6820 & -0.7314 \\
+0.7314 & 0.6820
+\end{pmatrix*}
+\qquad\text{und}\qquad
+B
+=
+\begin{pmatrix*}[r]
+   0.7526& -0.4034&  0.5205\\
+   0.3889& -0.3657& -0.8456\\
+   0.5315&  0.8388& -0.1184
+\end{pmatrix*}
+\]
+sind Drehmatrizen.
+Bestimmen Sie für beide den Drehwinkel.
+
+\begin{loesung}
+Für die $2\times 2$-Matrix $A$ ist der Drehwinkel durch die Formel
+\begin{align*}
+\cos\alpha
+&=
+\frac12\operatorname{tr} A = \frac12\cdot 1.3640 = 0.6820
+&&\Rightarrow&
+\alpha &= \arccos 0.6820 = 47.000^\circ
+\intertext{gegeben.
+Für die Matrix $B$ muss die Formel für $3\times 3$-Matrizen verwendet
+werden.
+Sie ergibt}
+\cos\beta
+&=
+\frac12 (\operatorname{tr}A-1)
+=
+\frac12(0.2685-1)
+=
+-0.3658
+&&\Rightarrow&
+\beta
+&=
+\arccos(-0.3658)
+=
+111.46^\circ
+\end{align*}
+für den Drehwinkel.
+\end{loesung}
