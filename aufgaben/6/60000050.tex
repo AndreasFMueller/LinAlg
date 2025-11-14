@@ -4,14 +4,6 @@ U
 =
 \langle u_1,u_2\rangle
 =
-%\left\langle
-%\bgroup
-%\begin{small}
-%\begin{pmatrix}1\\1\\0\end{pmatrix},
-%\begin{pmatrix}0\\1\\1\end{pmatrix}
-%\end{small}
-%\egroup
-%\right\rangle.
 \biggl\langle
 \biggl(
 \:
@@ -31,10 +23,17 @@ $}
 \biggr)
 \biggr\rangle.
 \]
+\begin{teilaufgaben}
+\item
 Stellen Sie das Gauss-Tableau auf, mit dem $U^\perp$ bestimmt werden
 kann.
+\item
+Berechnen Sie $U^\perp$.
+\end{teilaufgaben}
 
 \begin{loesung}
+\begin{teilaufgaben}
+\item
 Um das Orthogonalkomplement der Vektoren $u_1$ und $u_2$ zu
 bestimmen, muss erst die Matrix $A$ so konstruiert werden, dass
 die Spalten von $A^t$ die Vektoren $u_1$ und $u_2$ sind, also
@@ -59,7 +58,7 @@ A
 Das Orthogonalkomplement von $U$ ist der Kern von $A$, $U^\perp=\ker A$,
 also die Läsungsmenge des Gleichungssystems $Ax=0$.
 Dies entspricht dem Tableau
-\begin{align*}
+\begin{align}
 \begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
 \hline
 x_1 & x_2 & x_3 & 1 \\
@@ -76,9 +75,12 @@ x_1 & x_2 & {\color{darkgreen}x_3} & 1 \\
   1 &   0 & {\color{darkgreen} -1} & 0 \\
   0   & 1 & {\color{darkgreen}  1} & 0 \\
 \hline
-\end{tabular}
-\end{align*}
-Daraus kann man die Lösungsmenge
+\end{tabular}.
+\label{60000050:tableau}
+\end{align}
+\item
+Aus dem Schlusstableau auf der rechten Seite von
+\eqref{60000050:tableau} kann man die Lösungsmenge
 \[
 U^\perp
 =
@@ -99,5 +101,7 @@ U^\perp
 \right\}
 \]
 ablesen.
+\qedhere
+\end{teilaufgaben}
 \end{loesung}
 
