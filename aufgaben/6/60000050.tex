@@ -1,0 +1,103 @@
+$U^\perp$ ist das Orthogonalkomplement von
+\[
+U
+=
+\langle u_1,u_2\rangle
+=
+%\left\langle
+%\bgroup
+%\begin{small}
+%\begin{pmatrix}1\\1\\0\end{pmatrix},
+%\begin{pmatrix}0\\1\\1\end{pmatrix}
+%\end{small}
+%\egroup
+%\right\rangle.
+\biggl\langle
+\biggl(
+\:
+\clap{$\displaystyle
+\renewcommand{\arraystretch}{0.6}
+\begin{array}{c}\scriptstyle 1\\\scriptstyle 1\\\scriptstyle 0\end{array}
+$}
+\:
+\biggr),
+\biggl(
+\:
+\clap{$\displaystyle
+\renewcommand{\arraystretch}{0.6}
+\begin{array}{c}\scriptstyle 0\\\scriptstyle 1\\\scriptstyle 1\end{array}
+$}
+\:
+\biggr)
+\biggr\rangle.
+\]
+Stellen Sie das Gauss-Tableau auf, mit dem $U^\perp$ bestimmt werden
+kann.
+
+\begin{loesung}
+Um das Orthogonalkomplement der Vektoren $u_1$ und $u_2$ zu
+bestimmen, muss erst die Matrix $A$ so konstruiert werden, dass
+die Spalten von $A^t$ die Vektoren $u_1$ und $u_2$ sind, also
+\[
+A^t
+=
+\begin{pmatrix}
+1 & 0 \\
+1 & 1 \\
+0 & 1
+\end{pmatrix}.
+\]
+Somit ist
+\[
+A
+=
+\begin{pmatrix}
+1&1&0\\
+0&1&1
+\end{pmatrix}.
+\]
+Das Orthogonalkomplement von $U$ ist der Kern von $A$, $U^\perp=\ker A$,
+also die Läsungsmenge des Gleichungssystems $Ax=0$.
+Dies entspricht dem Tableau
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x_1 & x_2 & x_3 & 1 \\
+\hline
+  1 &   1 &   0 & 0 \\
+  0 &   1 &   1 & 0 \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+x_1 & x_2 & {\color{darkgreen}x_3} & 1 \\
+\hline
+  1 &   0 & {\color{darkgreen} -1} & 0 \\
+  0   & 1 & {\color{darkgreen}  1} & 0 \\
+\hline
+\end{tabular}
+\end{align*}
+Daraus kann man die Lösungsmenge
+\[
+U^\perp
+=
+\ker A
+=
+\left\{
+\left.
+{\color{darkgreen}x_3}
+\begin{pmatrix*}[r]
+ 1\\
+-1\\
+ 1
+\end{pmatrix*}
+\;
+\right|
+\;
+{\color{darkgreen}x_3}\in\mathbb{R}
+\right\}
+\]
+ablesen.
+\end{loesung}
+
