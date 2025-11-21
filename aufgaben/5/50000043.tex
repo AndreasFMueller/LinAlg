@@ -1,0 +1,59 @@
+Berechnen Sie den Abstand des Punktes $Q=(12,9,1)$ von der Geraden
+mit der Parameterdarstellung
+\[
+\vec{p}
+=
+\begin{pmatrix*}[r]
+12 \\ 8 \\ 0
+\end{pmatrix*}
++
+t
+\begin{pmatrix*}[r]
+1\\1\\0
+\end{pmatrix*}.
+\]
+
+\begin{loesung}
+Mit der Abstandsformel für den Abstand eines Punktes von einer Geraden
+finden wir
+\begin{align*}
+h
+&=
+\frac{
+|\vec{r}\times(\vec{q}-\vec{p_0})|
+}{
+|\vec{r}|
+}
+=
+\frac{\left|
+\begin{pmatrix}1\\1\\0\end{pmatrix}
+\times
+\left(
+\begin{pmatrix*}[r] 12\\9\\ 1 \end{pmatrix*}
+-
+\begin{pmatrix*}[r] 12\\8\\ 0 \end{pmatrix*}
+\right)
+\right|}{
+\left|
+\begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}
+\right|
+}
+=
+\frac{\left|
+\begin{pmatrix}1\\1\\0\end{pmatrix}
+\times
+\begin{pmatrix}0\\1\\1\end{pmatrix}
+\right|}{
+\sqrt{2}
+}
+=
+\frac{\left|
+\begin{pmatrix*}[r]1\\-1\\1\end{pmatrix*}
+\right|}{\sqrt{2}}
+=
+\frac{\!\sqrt{3}}{\!\sqrt{2}}
+\approx
+1.224745.
+\qedhere
+\end{align*}
+\end{loesung}

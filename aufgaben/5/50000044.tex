@@ -1,0 +1,73 @@
+Finden Sie den Abstand der beiden Geraden mit Parameterdarstellungen
+\[
+\begin{pmatrix*}[r] 12 \\ 9 \\ 1 \end{pmatrix*}
++
+t
+\begin{pmatrix*}[r] 1 \\ 1 \\ 0 \end{pmatrix*}
+\qquad\text{und}\qquad
+\begin{pmatrix*}[r] 18 \\ 4 \\ 8 \end{pmatrix*}
++
+t
+\begin{pmatrix*}[r] 0 \\ 1 \\ 1 \end{pmatrix*}
+\]
+
+\begin{loesung}
+In der Formel
+\begin{align*}
+d 
+&=
+(\vec{p}_2-\vec{p}_1)
+\cdot
+\frac{
+\vec{r}_2\times \vec{r}_1
+}{
+|\vec{r}_2\times \vec{r}_1|
+}
+\end{align*}
+für den windschiefen Abstand ist das Vektorprodukt der Richtungsvektoren
+\begin{align*}
+\vec{r}_1\times\vec{r}_2
+&=
+\begin{pmatrix*}[r] 1 \\ 1 \\ 0 \end{pmatrix*}
+\times
+\begin{pmatrix*}[r] 0 \\ 1 \\ 1 \end{pmatrix*}
+=
+\begin{pmatrix*}[r] 1 \\ -1 \\ 1 \end{pmatrix*}
+&&\text{mit}&
+|\vec{r}_1\times\vec{r}_2|
+&=
+\!\sqrt{3},
+\end{align*}
+wie schon in Aufgabe~\ref{50000038} gefunden wurde.
+Damit kann man jetzt den Abstand berechnen:
+\begin{align*}
+d
+&=
+\left(
+\begin{pmatrix*}[r] 18 \\ 4 \\ 8 \end{pmatrix*}
+-
+\begin{pmatrix*}[r] 12 \\ 9 \\ 1 \end{pmatrix*}
+\right)
+\cdot
+\frac{1}{\!\sqrt{3}}
+\begin{pmatrix*}[r] 1 \\ -1 \\ 1 \end{pmatrix*}
+=
+\frac{1}{\!\sqrt{3}}
+\begin{pmatrix*}[r] 6 \\ -5 \\ 7 \end{pmatrix*}
+\cdot
+\begin{pmatrix*}[r] 1 \\ -1 \\ 1 \end{pmatrix*}
+\\
+&=
+\frac{1}{\!\sqrt{3}}
+(6\cdot 1 + (-5)\cdot(-1)+7\cdot 1)
+=
+\frac{1}{\!\sqrt{3}}
+(6+5+7)
+=
+\frac{15}{\!\sqrt{3}}
+=
+5\!\sqrt{3}.
+\qedhere
+\end{align*}
+\end{loesung}
+
