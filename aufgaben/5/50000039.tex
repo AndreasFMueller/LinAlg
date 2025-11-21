@@ -1,0 +1,38 @@
+Verifizieren Sie, dass das in Aufgabe~\ref{50000038} berechnete
+Vektorprodukt $\vec{a}\times\vec{b}$ der Vektoren
+\[
+\vec{a}
+=
+\begin{pmatrix}
+1\\1\\0
+\end{pmatrix}
+\qquad\text{und}\qquad
+\vec{b}
+=
+\begin{pmatrix}
+0\\1\\1
+\end{pmatrix}
+\]
+auf den beiden Vektoren senkrecht steht.
+
+\begin{loesung}
+Man muss die folgenden Skalarprodukte berechne:
+\begin{align*}
+\vec{a}\cdot (\vec{a}\times\vec{b})
+&=
+\begin{pmatrix}1\\1\\0\end{pmatrix}
+\cdot
+\begin{pmatrix*}[r]1\\-1\\1\end{pmatrix*}
+=
+1\cdot 1 + 1\cdot(-1) + 0\cdot 1 = 1 - 1 + 0 = 0,
+\\
+\vec{b}\cdot (\vec{a}\times\vec{b})
+&=
+\begin{pmatrix}0\\1\\1\end{pmatrix}
+\cdot
+\begin{pmatrix*}[r]1\\-1\\1\end{pmatrix*}
+=
+0\cdot 1 + 1\cdot(-1) + 1\cdot 1 = 0 -1+1=0.
+\end{align*}
+Da die Skalarprodukte $=0$ sind, stehen die Vektoren senkrecht.
+\end{loesung}

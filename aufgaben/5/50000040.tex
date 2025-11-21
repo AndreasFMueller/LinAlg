@@ -1,0 +1,122 @@
+Berechnen Sie den Flächeninhalt des Quadrates mit den Ecken
+$A=(1,-2)$, $B=(5,1)$, $C=(2,5)$ und $D=(-2,2)$ auf zwei Arten:
+
+\hbox to\hsize{%
+\begin{minipage}{0.5\textwidth}
+\begin{teilaufgaben}
+\item Mit der Schuhbändelformel
+\item Berechnen Sie den Flächeninhalt aus der Länge der Strecke $AB$
+\end{teilaufgaben}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\def\punkt#1{
+	\fill[color=white] #1 circle[radius=0.08];
+	\draw[color=darkred] #1 circle[radius=0.08];
+}
+\begin{tikzpicture}[>=latex,thick,scale=0.6]
+\coordinate (A) at (1,-2);
+\coordinate (B) at (5,1);
+\coordinate (C) at (2,5);
+\coordinate (D) at (-2,2);
+\draw[->] (-2.8,0) -- (6.2,0) coordinate[label={$x$}];
+\draw[->] (0,-2.1) -- (0,5.5) coordinate[label={right:$y$}];
+\fill[color=darkred!20,opacity=0.5] (A) -- (B) -- (C) -- (D) -- cycle;
+\draw[color=darkred] (A) -- (B) -- (C) -- (D) -- cycle;
+\punkt{(A)}
+\punkt{(B)}
+\punkt{(C)}
+\punkt{(D)}
+\node at (A) [left] {$A$};
+\node at (B) [right] {$B$};
+\node at (C) [right] {$C$};
+\node at (D) [left] {$D$};
+\end{tikzpicture}
+\end{center}
+\end{minipage}}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Mit der Schuhbändelformel bekommt man
+\begin{align*}
+F
+&=
+\frac12
+\left|
+\begin{matrix*}[r]
+ 1&-2\\
+ 5& 1\\
+ 2& 5\\
+-2& 2
+\end{matrix*}
+\right|
+\\
+&=
+\frac12
+\left|
+\begin{matrix*}[r]
+ 1& -2\\
+ 5&  1
+\end{matrix*}
+\right|
++
+\frac12
+\left|
+\begin{matrix*}[r]
+ 5&  1\\
+ 2&  5
+\end{matrix*}
+\right|
++
+\frac12
+\left|
+\begin{matrix*}[r]
+ 2&  5\\
+-2&  2
+\end{matrix*}
+\right|
++
+\frac12
+\left|
+\begin{matrix*}[r]
+-2&  2\\
+ 1& -2
+\end{matrix*}
+\right|
+\\
+&=
+\frac12(1+10)
++
+\frac12(25-2)
++
+\frac12(4+10)
++
+\frac12(4-2)
+=
+\frac12(11+23+14+2)
+=
+\frac12\cdot 50
+=
+25.
+\end{align*}
+\item
+Die Länge der Strecke $AB$ ist
+\begin{align*}
+\overline{AB}
+&=
+\sqrt{(5-1)^2+(1-(-2))^2}
+=
+\sqrt{4^2+3^2}
+=
+\sqrt{16+9}
+=
+\sqrt{25}
+=
+5.
+\end{align*}
+Es folgt, dass der Flächeninhalt $F=5^2=25$ sein muss, in Übereinstimmung
+mit dem Resultat von a).
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
