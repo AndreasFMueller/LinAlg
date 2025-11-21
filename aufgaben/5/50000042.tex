@@ -1,0 +1,48 @@
+Rechnen Sie mithilfe der Definition des Vektorproduktes nach,
+dass $\vec{a}\cdot(\vec{a}\times\vec{b}) = 0$.
+
+\begin{loesung}
+\definecolor{farbea}{rgb}{1,0.6,0.6}
+\definecolor{farbeb}{rgb}{0.6,0.6,1}
+\definecolor{farbec}{rgb}{0.6,0.8,0.6}
+Die Definition des Vektorproduktes ist
+\[
+\vec{a}
+\times
+\vec{b}
+=
+\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}
+\times
+\begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix}
+=
+\begin{pmatrix}
+a_2b_3-a_3b_2\\
+a_3b_1-a_1b_3\\
+a_1b_2-a_2b_1
+\end{pmatrix}.
+\]
+Das Skalarprodukt mit $\vec{a}$ ist daher
+\begin{align*}
+\vec{a}\cdot(\vec{a}\times\vec{b})
+&=
+\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}
+\cdot
+\begin{pmatrix}
+a_2b_3-a_3b_2\\
+a_3b_1-a_1b_3\\
+a_1b_2-a_2b_1
+\end{pmatrix}
+\\
+&=
+{\color{farbea}a_1a_2b_3}-{\color{farbeb}a_1a_3b_2}
++
+{\color{farbec}a_2a_3b_1}-{\color{farbea}a_2a_1b_3}
++
+{\color{farbeb}a_3a_1b_2}-{\color{farbec}a_3a_2b_1}.
+\intertext{Die Terme gleicher Farbe heben sich weg, so dass}
+\vec{a}\cdot(\vec{a}\times\vec{b})
+&=
+0
+\end{align*}
+folgt.
+\end{loesung}
