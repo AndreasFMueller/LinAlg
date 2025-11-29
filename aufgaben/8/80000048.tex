@@ -1,0 +1,134 @@
+Welche der folgenden Vektoren sind Eigenvektoren der Matrix
+\[
+A
+= 
+\begin{pmatrix*}[r]
+   -9 & -4 &  0 \\
+   20 &  9 &  0 \\
+    0 &  0 &  0
+\end{pmatrix*}
+\]
+und was ist der zugehörige Eigenwert:
+\[
+a
+=
+\begin{pmatrix*}[r]
+0\\0\\0
+\end{pmatrix*},\quad
+b
+=
+\begin{pmatrix*}[r]
+0\\0\\1
+\end{pmatrix*}
+,\quad
+c
+=
+\begin{pmatrix*}[r]
+2\\-5\\0
+\end{pmatrix*}
+,\quad
+d
+=
+\begin{pmatrix*}[r]
+-4\\10\\0
+\end{pmatrix*}
+,\quad
+e=
+\begin{pmatrix*}[r]
+1\\-2\\0
+\end{pmatrix*}
+,\quad
+f=
+\begin{pmatrix*}[r]
+2\\2\\0
+\end{pmatrix*}
+\]
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Zwar ist $Aa=0a$, aber der Nullvektor $a=0$ ist kein Eigenvektor.
+\item Wegen $Ab=0$ ist $b$ ein Eigenvektor zum Eigenwert $0$.
+\item 
+\(
+\displaystyle
+Ac
+=
+\begin{pmatrix*}[r]
+   -9 & -4 &  0 \\
+   20 &  9 &  0 \\
+    0 &  0 &  0
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+2\\-5\\0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+2\\ -5\\ 0
+\end{pmatrix*}
+=
+c,
+\)
+also ist $c$ ein Eigenvektor zum Eigenwert $1$.
+\item
+\(
+\displaystyle
+Ad
+=
+\begin{pmatrix*}[r]
+   -9 & -4 &  0 \\
+   20 &  9 &  0 \\
+    0 &  0 &  0
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+-4\\10\\0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+-4\\10\\0
+\end{pmatrix*}
+\),
+somit ist $d$ ebenfalls ein Eigenvektor zum Eigenwert $1$.
+\item
+\(
+\displaystyle
+Ae
+=
+\begin{pmatrix*}[r]
+   -9 & -4 &  0 \\
+   20 &  9 &  0 \\
+    0 &  0 &  0
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+1\\-2\\0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+-1\\2\\0
+\end{pmatrix*}
+=
+(-1)\cdot
+\begin{pmatrix*}[r]
+1\\-2\\0
+\end{pmatrix*}
+\),
+somit ist $e$ ein Eigenvektor zum Eigenwert $-1$.
+\item Da
+\[
+Af
+=
+\begin{pmatrix*}[r]
+   -9 & -4 &  0 \\
+   20 &  9 &  0 \\
+    0 &  0 &  0
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+2\\2\\0
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+-26\\ 58 \\ 0
+\end{pmatrix*}
+\]
+kein Vielfaches von $f$ ist, ist $f$ kein Eigenvektor von $A$.
+\end{teilaufgaben}
+\end{loesung}

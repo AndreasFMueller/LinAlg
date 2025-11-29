@@ -13,10 +13,10 @@
 \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{}{}{}{}}}}
 \makeatother
 \input{gausslabels.tex}
-\def\gaussurl#1{
+\def\gaussurl#1{%
 \edef\glnumber{\getrefnumber{#1}}
 \url{https://linalg.ch/gauss/?id=\glnumber}}
-\def\jacobiurl#1{
+\def\jacobiurl#1{%
 \edef\glnumber{\getrefnumber{#1}}
 \url{https://linalg.ch/jacobi/?id=\glnumber}}
 %

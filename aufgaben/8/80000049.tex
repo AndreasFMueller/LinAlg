@@ -1,0 +1,140 @@
+Gegeben ist die Matrix
+\[
+A
+= 
+\begin{pmatrix*}[r]
+   -9 & -4 \\
+   20 &  9 
+\end{pmatrix*}.
+\]
+\begin{teilaufgaben}
+\item Bestimmen Sie das charakteristische Polynom von $A$.
+\item Bestimmen Sie die Eigenwerte von $A$.
+\item Einer der Eigenwerte ist positiv, finden Sie einen zugehörigen
+Eigenvektor.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Das charakteristische Polynom ist
+\begin{align*}
+\chi_A({\color{darkred}\lambda})
+&=
+\det(A-{\color{darkred}\lambda} I)
+=
+\left|
+\begin{matrix}
+-9-{\color{darkred}\lambda} & -4         \\
+20         &  9-{\color{darkred}\lambda}
+\end{matrix}
+\right|
+=
+(-9-{\color{darkred}\lambda})(9-{\color{darkred}\lambda}) + 80
+=
+{\color{darkred}\lambda}^2-81+80
+=
+{\color{darkred}\lambda}^2-1
+\\
+&=
+({\color{darkred}\lambda}+1)({\color{darkred}\lambda}-1)
+\end{align*}
+\item
+Die Nullstellen von $\chi_A({\color{darkred}\lambda})$ sind $\pm 1$.
+\item 
+Ein Eigenvektor für ${\color{darkred}\lambda=1}$ wird mit dem
+Gauss-Algorithmus gefunden:
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-9 - {\color{darkred}1} & -4                      & 0 \\
+20                      &  9 - {\color{darkred}1} & 0 \\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-10 & -4 & 0 \\
+ 20 &  8 & 0 \\
+\hline
+\end{tabular}
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1 & \frac{2}{5} & 0 \\
+0 &           0 & 0 \rlap{\hspace*{0.3cm}\smiley}\\
+\hline
+\end{tabular}
+\]
+Wie erwartet ist das Gleichungssystem singulär, die zweite Koordinate
+ist frei wählbar.
+Wir können zum Beispiel $y=5$ wählen und erhalten dann als Eigenvektor
+\[
+v_{\color{darkred}1}
+=
+\begin{pmatrix*}[r] -2 \\ 5 \end{pmatrix*}.
+\]
+\end{teilaufgaben}
+Für den zweiten Eigenvektor verwendet man den Gauss-Algorithmus im
+Tableau
+\[
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-9 - {\color{darkred}(-1)} & -4                      & 0 \\
+20                      &  9 - {\color{darkred}(-1)} & 0 \\
+\hline
+\end{tabular}
+=
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+-8 & -4 & 0 \\
+20 & 10 & 0 \\
+\hline
+\end{tabular}
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1 & \frac12  & 0 \\
+ 0 &        0 & 0 \rlap{\hspace*{0.3cm}\smiley}\\
+\hline
+\end{tabular}
+\qquad\Rightarrow\quad
+v_{\color{darkred}-1}
+=
+\begin{pmatrix*}[r] -1\\2\end{pmatrix*}.
+\]
+Die Korrektheit der Lösung kann man durch Nachrechnen prüfen:
+\begin{align*}
+Av_{\color{darkred}1\phantom{-}}
+&=
+\begin{pmatrix*}[r]
+-9 & -4 \\
+20 &  9
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+-2\\5
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+-2\\5
+\end{pmatrix*}
+=
+v_{\color{darkred}1},
+\\
+Av_{\color{darkred}-1}
+&=
+\begin{pmatrix*}[r]
+-9 & -4 \\
+20 &  9
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+-1\\2
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+1\\-2
+\end{pmatrix*}
+=
+-v_{\color{darkred}-1}.
+\end{align*}
+Beide Vektoren sind Eigenvektoren.
+\end{loesung}
