@@ -1,0 +1,58 @@
+Zwei Eigenvektoren der Matrix
+\[
+A
+= 
+\begin{pmatrix*}[r]
+   -9 & -4 \\
+   20 &  9 
+\end{pmatrix*}
+\]
+zu den Eigenwerten $1$ und $-1$ sind
+\[
+v_1
+=
+\begin{pmatrix*}[r]
+2 \\ -5
+\end{pmatrix*}
+\quad\text{und}\quad
+v_2
+=
+\begin{pmatrix*}[r]
+1 \\ -2
+\end{pmatrix*}
+\]
+\begin{teilaufgaben}
+\item
+Welche Matrix $C$ bildet die Standardbasisvektoren $e_1$ und $e_2$
+auf $v_1$ und $v_2$ ab.
+\item
+Bestimmen Sie $ACe_1$ und $ACe_2$ direkt aus der Definition
+\item
+Bestimmen Sie $C^{-1}ACe_1$ und $C^{-1}ACe_2$ direkt aus der Definition
+\item
+Bestimmen Sie die Matrix $D=C^{-1}AC$ direkt aus der Definition
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+\item
+$ACe_1=Av_1=v_1$
+und
+$ACe_2=Av_2=v_2$
+\item
+$C^{-1}AC=C^{-1}v_1 = e_1$
+und
+$C^{-1}AC=C^{-1}v_2 = -e_2$
+\item
+Wegen $De_1=e_1$ und $De_2=-e_2$ bedeutet, dass 
+\[
+D
+=
+\begin{pmatrix*}[r]
+1&0\\0&-1
+\end{pmatrix*}.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}

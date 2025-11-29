@@ -1,0 +1,25 @@
+%
+% woche10.tex -- Woche 10
+%
+% (c) 2025 Prof. Dr. Andreas Mueller, OST
+%
+\documentclass[a4paper,12pt]{book}
+\input{macros/packages.tex}
+\externaldocument{work/aufgabensammlung}
+\makeindex
+\begin{document}
+\newboolean{presentation}
+\setboolean{presentation}{true}
+\pagestyle{fancy}
+\let\thechapter=6
+\lhead{Kapitel~\thechapter, Woche 10}
+\rhead{Eigenschaften von Abbildungen, Drehmatrizen}
+\input{macros/uebungen.tex}
+\setboolean{loesungen}{true}
+\aufgabetoplevel{./}
+\setcounter{problemcounter}{37}
+\aufgabe{60000047}
+\aufgabe{60000048}
+\aufgabe{60000049}
+\aufgabe{60000050}
+\end{document}

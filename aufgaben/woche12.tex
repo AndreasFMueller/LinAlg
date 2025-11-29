@@ -1,0 +1,25 @@
+%
+% woche12.tex -- Woche 12
+%
+% (c) 2025 Prof. Dr. Andreas Mueller, OST
+%
+\documentclass[a4paper,12pt]{book}
+\input{macros/packages.tex}
+\externaldocument{work/aufgabensammlung}
+\makeindex
+\begin{document}
+\newboolean{presentation}
+\setboolean{presentation}{true}
+\pagestyle{fancy}
+\let\thechapter=8
+\lhead{Kapitel~\thechapter, Woche 12}
+\rhead{Das Eigenwertproblem}
+\input{macros/uebungen.tex}
+\setboolean{loesungen}{true}
+\aufgabetoplevel{./}
+\setcounter{problemcounter}{43}
+\aufgabe{80000048}
+\aufgabe{80000049}
+\aufgabe{80000050}
+\aufgabe{80000051}
+\end{document}
