@@ -1,0 +1,70 @@
+Berechnen Sie die CR-Zerlegung der Matrix
+\[
+A
+=
+\begin{pmatrix*}[r]
+   2 &  -2 &   3 \\
+  -3 &   3 &   2
+\end{pmatrix*}
+\]
+
+
+\begin{loesung}
+\begin{align*}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+  2 & -2 &  3 \\
+ -3 &  3 &  2 \\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+  1 & -1 & \frac{ 3}{2} \\
+  0 &  0 & \frac{ 7}{2} \\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
+\hline
+  1 & -1 & 0 \\
+  0 &  0 & 1 \\
+\hline
+\end{tabular}
+\quad\Rightarrow\quad
+R
+=
+\begin{pmatrix*}[r]
+  1 & -1 & 0 \\
+  0 &  0 & 1
+\end{pmatrix*},
+\;
+C
+=
+\begin{pmatrix*}[r]
+ 2 & 3\\
+-3 & 2
+\end{pmatrix*}
+\end{align*}
+Kontrolle:
+\begin{align*}
+CR
+&=
+\begin{pmatrix*}[r]
+ 2 & 3\\
+-3 & 2
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+  1 & -1 & 0 \\
+  0 &  0 & 1
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+  2 & -2 & 3\\
+ -3 &  3 & 2
+\end{pmatrix*}
+=
+A.
+\qedhere
+\end{align*}
+\end{loesung}

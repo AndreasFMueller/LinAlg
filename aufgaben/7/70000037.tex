@@ -1,0 +1,194 @@
+Finden Sie die QR-Zerlegung der Matrix
+\[
+A
+=
+\renewcommand{\arraystretch}{1.4}
+\begin{pmatrix}
+\frac{\!\sqrt{3}}{2} & \frac{2-\!\sqrt{3}}{2} \\
+  \frac{3}{2}        & \frac{2\!\sqrt{3}+1}{2}
+\end{pmatrix}.
+\]
+
+\begin{hinweis}
+Finden sie den zweiten orthonormierten Vektor nicht mit dem Gram-Schmidt-Verfahren
+sondern verwenden sie, dass die Vektoren
+\[
+\begin{pmatrix}v_1\\v_2\end{pmatrix}
+\qquad\text{und}\qquad
+\begin{pmatrix}-v_2\\v_1\end{pmatrix}
+\]
+orthogonal sind.
+\end{hinweis}
+
+\begin{loesung}
+Für die QR-Zerlegung müssen die Spalten der Matrix orthonormalisiert werden.
+Wir verwenden dafür das Verfahren von Gram-Schmidt:
+\bgroup
+\renewcommand{\arraystretch}{1.4}
+\begin{align*}
+a_1
+&=
+\begin{pmatrix}
+\frac{\!\sqrt{3}}{2} \\
+\frac{3}{2}
+\end{pmatrix}
+&&\Rightarrow&
+|a_1|
+&=
+\!\sqrt{\frac34+\frac94}
+=
+\!\sqrt{\frac{12}{4}}
+=
+\!\sqrt{3}
+&&\Rightarrow&
+q_1
+&=
+\frac{1}{\!\sqrt{3}}
+\begin{pmatrix}
+\frac{\!\sqrt{3}}{2} \\
+\frac{3}{2}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac12 \\
+\frac{\!\sqrt{3}}{2}
+\end{pmatrix}
+\intertext{Einen auf $q_1$ orthogonaler Einheitsvektor bekommt man, indem man die
+beiden Komponenten vertauscht und bei einer Komponente das Vorzeichen kehrt:}
+&
+&&&
+&&&
+&
+q_2
+&=
+\begin{pmatrix}
+-\frac{\!\sqrt{3}}{2}\\
+ \frac{1}{2}
+\end{pmatrix}.
+\intertext{Diesen Vektor bekommt man auch auf viel aufwendigere Art mit dem
+Gram-Schmidt-Verfahren finden:}
+a_2
+&=
+\begin{pmatrix}
+\frac{2-\!\sqrt{3}}{2} \\
+\frac{2\!\sqrt{3}-1}{2}
+\end{pmatrix}
+&&\Rightarrow&
+q_2
+&=
+\frac{
+a_2 - (q_1\cdot a_2) q_1
+}{\dots}
+%\\
+%&&&&
+%&
+\rlap{$\displaystyle
+=
+\frac{
+\begin{pmatrix}
+\frac{2-\!\sqrt{3}}{2} \\
+\frac{2\!\sqrt{3}-1}{2}
+\end{pmatrix}
+-
+\left(
+\frac{2-\!\sqrt{3}}{4}
++
+\frac{2\cdot 3-\!\sqrt{3}}{4}
+\right)
+\begin{pmatrix}
+\frac12 \\
+\frac{\!\sqrt{3}}{2}
+\end{pmatrix}
+}{\dots}
+$}
+\\
+&&&&
+&=
+\frac{
+\begin{pmatrix}
+\frac{2-\!\sqrt{3}}{2} \\
+\frac{2\!\sqrt{3}-1}{2}
+\end{pmatrix}
+-
+\left(
+\frac{4-\!\sqrt{3}}{2}
+\right)
+\begin{pmatrix}
+\frac12 \\
+\frac{\!\sqrt{3}}{2}
+\end{pmatrix}
+}{\dots}
+%\\
+%&&&&
+%&
+=
+\rlap{$\displaystyle
+\frac{
+\begin{pmatrix}
+\frac{4-2\!\sqrt{3}}{4} \\
+\frac{4\!\sqrt{3}-2}{4}
+\end{pmatrix}
+-
+\begin{pmatrix}
+\frac{4-\!\sqrt{3}}{4}
+\\
+\frac{4\!\sqrt{3}-\!3}{4}
+\end{pmatrix}
+}{\dots}
+%\\
+%&&&&
+%&
+=
+\frac{
+\begin{pmatrix}
+-\frac{\!\sqrt{3}}{4} \\
+\frac{1}{4}
+\end{pmatrix}
+}{\dots}
+=
+\begin{pmatrix}
+-\frac{\!\sqrt{3}}{2} \\
+\frac{1}{2}
+\end{pmatrix}.$}
+\end{align*}
+Daraus kann man ablesen, dass die Matrix $Q$ die Form
+\[
+Q
+=
+\begin{pmatrix}
+\frac12              & -\frac{\!\sqrt{3}}{2} \\
+\frac{\!\sqrt{3}}{2} & \frac{1}{2}
+\end{pmatrix}.
+\]
+Um jetzt $R$ zu bestimmen, berechnen wir
+\begin{align*}
+A&=QR
+&&\Rightarrow&
+R&=
+Q^tA
+=
+\begin{pmatrix}
+\frac12               & \frac{\!\sqrt{3}}{2} \\
+-\frac{\!\sqrt{3}}{2} & \frac{1}{2}
+\end{pmatrix}
+\begin{pmatrix}
+\frac{\!\sqrt{3}}{2} & \frac{2-\!\sqrt{3}}{2} \\
+  \frac{3}{2}        & \frac{2\!\sqrt{3}+1}{2}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\frac{\!\sqrt{3}+3\!\sqrt{3}}{4} & 
+\frac{2-\!\sqrt{3}+6+\!\sqrt{3}}{4}
+\\
+0 & \frac{3-2\!\sqrt{3}+2\!\sqrt{3}+1}{4}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\!\sqrt{3} & 2 \\
+0 & 1
+\end{pmatrix}
+\end{align*}
+\egroup
+Damit ist die QR-Zerlegung gefunden.
+\end{loesung}
+

@@ -1,0 +1,109 @@
+Gegeben ist die Matrix
+\[
+A
+=
+\begin{pmatrix*}[r]
+ 2& 6\\
+-2&-3
+\end{pmatrix*}
+\]
+\begin{teilaufgaben}
+\item Bestimmen Sie die LU-Zerlegung von $A$.
+\item Berechnen Sie die Determinante aus der LU-Zerlegung.
+\item Finden Sie die Matrix $D$ aus der LU-Zerlegung.
+\item Bestimmen Sie die LR-Zerlegung.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die LU-Zerlegung wird mit dem Gauss-Algorithmus gefunden:
+\begin{align*}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+ 2 &  6 \\
+-2 & -3 \\
+\hline
+\end{tabular}
+&
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+ 1 &  3 \\
+ 0 &  3 \\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|}
+\hline
+ 1 &  3 \\
+ 0 &  1 \\
+\hline
+\end{tabular}
+\Rightarrow
+\left\{
+\begin{aligned}
+L &= \begin{pmatrix*}[r] 2 & 0 \\ -2 & 3 \end{pmatrix*}\\
+U &= \begin{pmatrix*}[r] 1 & 3 \\  0 & 1 \end{pmatrix*}.
+\end{aligned}
+\right.
+\end{align*}
+Kontrolle:
+\[
+LU
+=
+\begin{pmatrix*}[r] 2 & 0 \\ -2 &  3 \end{pmatrix*}
+\begin{pmatrix*}[r] 1 & 3 \\  0 &  1 \end{pmatrix*}
+=
+\begin{pmatrix*}[r] 2 & 6 \\ -2 & -3 \end{pmatrix*}
+=
+A.
+\]
+\item $\det A=\det(LU) = \det L\cdot\det U = 6\cdot 1 = 6$.
+\item
+$D$ ist die Diagonale von $L$: $D=
+\begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}
+$.
+\item
+Die LR-Zerlegung ist
+\begin{align*}
+L'&= LD^{-1}
+=
+\begin{pmatrix*}[r] 2 & 0 \\ -2 &  3 \end{pmatrix*}
+\begin{pmatrix} \frac12 & 0 \\ 0 & \frac13 \end{pmatrix}
+=
+\begin{pmatrix*}[r] 1 & 0 \\ -1 &  1 \end{pmatrix*}
+\\
+R &= DU
+=
+\begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}
+\begin{pmatrix*}[r] 1 & 3 \\  0 &  1 \end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+ 2 & 6 \\
+ 0 & 3
+\end{pmatrix*}.
+\end{align*}
+Kontrolle:
+\[
+L'R
+=
+\begin{pmatrix*}[r]
+ 1 & 0 \\
+-1 & 1
+\end{pmatrix*}
+\begin{pmatrix*}[r]
+ 2 & 6 \\
+ 0 & 3
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+ 2 &  6 \\
+-2 & -3 
+\end{pmatrix*}
+=
+A.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}

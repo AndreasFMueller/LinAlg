@@ -1,0 +1,73 @@
+Gegeben ist die Matrix
+\[
+A
+=
+\begin{pmatrix}
+9 & 3 \\
+3 & 5
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item Bestimmen Sie die Cholesky-Zerlegung von $A$.
+\item Berechnen Sie die Determinante von $A$ unter Verwendung der Cholesky-Zerlegung.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Gesucht ist die untere Dreiecksmatrix $L$ mit $LL^t = A$.
+Aus
+\begin{align*}
+LL^t
+=
+\begin{pmatrix}
+l_{11} &   0    \\
+l_{12} & l_{22}
+\end{pmatrix}
+\begin{pmatrix}
+l_{11} & l_{12} \\
+  0    & l_{22}
+\end{pmatrix}
+=
+\begin{pmatrix}
+l_{11}^2     & l_{11}l_{12}      \\
+l_{12}l_{11} & l_{12}^2+l_{22}^2
+\end{pmatrix}
+\end{align*}
+kann man der Reihe nach ablesen:
+\begin{align*}
+l_{11}^2          &= 9 &&           &              &    &&\Rightarrow& l_{11} &= 3 \\
+l_{11}l_{12}      &= 3 &&\Rightarrow& 3l_{12}      &= 3 &&\Rightarrow& l_{12} &= 1 \\
+l_{12}^2+l_{22}^2 &= 5 &&\Rightarrow& 1 + l_{22}^2 &= 5 &&\Rightarrow& l_{22} &= 2.
+\end{align*}
+Somit ist 
+\[
+L
+=
+\begin{pmatrix}
+2 & 0 \\
+1 & 3
+\end{pmatrix}
+\]
+die gesuchte Matrix.
+\item
+Aus der Determinanten $\det L=6$ findet man mit der Produktformel für die Determinante
+$
+\det A
+=
+\det (LL^t)
+=
+\det L\cdot \det L^t
+=
+\det(L)^2
+=
+6^2
+=
+36.
+$
+Andererseits ergbit die Formel für die Determinante einer $2\times 2$-Matrix
+$\det A = 9\cdot 5-3\cdot 3 = 45-9 = 36$.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
