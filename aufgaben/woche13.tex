@@ -1,0 +1,26 @@
+%
+% woche12.tex -- Woche 12
+%
+% (c) 2025 Prof. Dr. Andreas Mueller, OST
+%
+\documentclass[a4paper,12pt]{book}
+\input{macros/packages.tex}
+\externaldocument{work/aufgabensammlung}
+\makeindex
+\begin{document}
+\newboolean{presentation}
+\setboolean{presentation}{true}
+\pagestyle{fancy}
+\let\thechapter=7
+\lhead{Kapitel~\thechapter, Woche 13}
+\rhead{Matrizzerlegungen}
+\input{macros/uebungen.tex}
+\setboolean{loesungen}{true}
+\aufgabetoplevel{./}
+\setcounter{problemcounter}{28}
+\aufgabe{70000033}
+\aufgabe{70000034}
+\aufgabe{70000035}
+\aufgabe{70000036}
+\aufgabe{70000037}
+\end{document}
