@@ -1,0 +1,23 @@
+%
+% woche14.tex -- Woche 14
+%
+% (c) 2025 Prof. Dr. Andreas Mueller, OST
+%
+\documentclass[a4paper,12pt]{book}
+\input{macros/packages.tex}
+\externaldocument{work/aufgabensammlung}
+\makeindex
+\begin{document}
+\newboolean{presentation}
+\setboolean{presentation}{true}
+\pagestyle{fancy}
+\let\thechapter=7
+\lhead{Kapitel~\thechapter, Woche 14}
+\rhead{Singulärwertzerlegung}
+\input{macros/uebungen.tex}
+\setboolean{loesungen}{true}
+\aufgabetoplevel{./}
+\setcounter{problemcounter}{33}
+\aufgabe{70000038}
+\aufgabe{70000039}
+\end{document}
