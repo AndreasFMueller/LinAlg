@@ -36,14 +36,23 @@ Bestimmen Sie die Matrix $D=C^{-1}AC$ direkt aus der Definition
 \begin{loesung}
 \begin{teilaufgaben}
 \item
+Die Matrix $C$ enthält die Vektoren $v_1$ und $v_2$ als Spalten:
+\[
+C
+=
+\begin{pmatrix*}[r]
+ 2& 1\\
+-5&-2
+\end{pmatrix*}.
+\]
 \item
 $ACe_1=Av_1=v_1$
 und
 $ACe_2=Av_2=v_2$
 \item
-$C^{-1}AC=C^{-1}v_1 = e_1$
+$C^{-1}ACe_1=C^{-1}v_1 = e_1$
 und
-$C^{-1}AC=C^{-1}v_2 = -e_2$
+$C^{-1}ACe_2=C^{-1}v_2 = -e_2$
 \item
 Wegen $De_1=e_1$ und $De_2=-e_2$ bedeutet, dass 
 \[
@@ -55,4 +64,17 @@ D
 \qedhere
 \]
 \end{teilaufgaben}
+Die Matrix $C^{-1}$ wird nicht gebraucht, kann aber leicht mit Hilfe
+der Minoren gefunden werden.
+Es ist
+\[
+C^{-1}
+=
+\begin{pmatrix*}[r]
+-2&-1\\
+ 5& 2
+\end{pmatrix*}
+.
+\qedhere
+\]
 \end{loesung}
