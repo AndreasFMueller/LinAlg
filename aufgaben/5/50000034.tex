@@ -1,0 +1,102 @@
+Die Gerade mit Parameterdarstellung
+\[
+\vec{p}_0
++t
+\vec{r}
+=
+\begin{pmatrix*}[r]
+  -7 \\
+  -6 \\
+  -5
+\end{pmatrix*}
++
+t
+\begin{pmatrix*}[r]
+  -7 \\
+   3 \\
+  -3
+\end{pmatrix*}
+\]
+wird mit der Matrix
+\[
+A
+=
+\begin{pmatrix*}[r]
+  -4 & -7 & 6 \\
+  -3 & -5 & 2 \\
+  -4 & -7 & 5
+\end{pmatrix*}
+\]
+abgebildet.
+Wie gross ist der Abstand zwischen der Bildgeraden und der $x$-Achse?
+
+\begin{loesung}
+Die Parameterdarstellung der Bildgerade $g$ ist
+\[
+A\vec{p}_0 + tA\vec{r}
+=
+\vec{p}_0' + t\vec{r}'
+=
+\begin{pmatrix*}[r]
+   40 \\
+   41 \\
+   45
+\end{pmatrix*}
++t
+\begin{pmatrix*}[r]
+  -11 \\
+    0 \\
+   -8
+\end{pmatrix*}.
+\]
+Zur Berechnnung des Abstands kann die Abstandsformel für windschiefe
+Geraden verwendet werden:
+\begin{align*}
+d
+&=
+\frac{(\vec{e}_1\times \vec{r}')\cdot \vec{p}_0'}{|\vec{e}_1\times\vec{r}'|}
+.
+\end{align*}
+Sie wird vereinfacht durch die Tatsache, dass der Stützvektor der
+$x$-Achse der Nullvektor ist.
+Das Vektorprodukt ist
+\begin{align*}
+\vec{n}
+=
+\vec{e}_1\times\vec{r}'
+=
+\begin{pmatrix*}[r]
+1\\0\\0
+\end{pmatrix*}
+\times
+\begin{pmatrix*}[r]
+  -11 \\
+    0 \\
+   -8
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+0\\8\\0
+\end{pmatrix*}.
+\end{align*}
+Damit kann jetzt der Abstand berechnet werden:
+\[
+d
+=
+\frac{\vec{n}\cdot \vec{p}_0'}{|\vec{n}|}
+=
+-41.
+\]
+Der Abstand der $x$-Achse zur Geraden $g$ ist also 41 Einheiten.
+\end{loesung}
+
+\begin{bewertung}
+Abbildung des Stützvektors, ({\bf S}) 1 Punkt,
+und des Richtungsvektors ({\bf R}) 1 Punkt,
+Abstandsformel ({\bf A}) 1 Punkt,
+Vektorprodukt ({\bf K}) 1 Punkt,
+Richtungsvektor und Stützvektor der $x$-Achse ({\bf X}) 1 Punkt,
+Abstand $d$ ({\bf D}) 1 Punkt.
+\end{bewertung}
+
+

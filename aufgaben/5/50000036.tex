@@ -1,0 +1,179 @@
+Die beiden Ebenen durch den Nullpunkt mit Parameterdarstellungen
+\[
+\vec{p}
+=
+s\vec{r}_1
++
+t\vec{r}_2
+=
+s
+\begin{pmatrix*}[r]
+   2\\
+   2\\
+  -1
+\end{pmatrix*}
++
+t
+\begin{pmatrix*}[r]
+ -2\\
+  4\\
+ -5
+\end{pmatrix*}
+\qquad
+\text{und}
+\qquad
+\vec{p}
+=
+s\vec{r}_3
++
+t\vec{r}_4
+=
+s
+\begin{pmatrix*}[r]
+  -3\\
+  -5\\
+   4
+\end{pmatrix*}
++
+t
+\begin{pmatrix*}[r]
+ -6\\
+ -1\\
+  2
+\end{pmatrix*}
+\]
+schneiden sich mit dem Zwischenwinkel $\alpha$.
+Bestimmen Sie den Sinus
+des Zwischenwinkels $\sin\alpha$.
+
+\begin{hinweis}
+Der Zwischenwinkel $\alpha$ muss nicht bestimmt werden.
+\end{hinweis}
+
+\begin{loesung}
+Der Zwischenwinkel zwischen den Ebenen ist auch der Zwischenwinkel zwischen
+den Normalenvektoren, es sind also zuerst die Vektorprodukt
+\begin{align*}
+\vec{n}_1
+&=
+\begin{pmatrix*}[r]
+   2\\
+   2\\
+  -1
+\end{pmatrix*}
+\times
+\begin{pmatrix*}[r]
+ -2\\
+  4\\
+ -5
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+-6\\
+12\\
+\phantom{-}12
+\end{pmatrix*}
+=
+6\cdot
+\begin{pmatrix*}[r]
+-1\\
+ 2\\
+ 2
+\end{pmatrix*}
+,
+&
+|\vec{n}_1|
+&=
+6\cdot 3,
+\\
+\vec{n}_2
+&=
+\begin{pmatrix*}[r]
+  -3\\
+  -5\\
+   4
+\end{pmatrix*}
+\times
+\begin{pmatrix*}[r]
+ -6\\
+ -1\\
+  2
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+ -6\\
+-18\\
+-27
+\end{pmatrix*}
+=
+3\cdot
+\begin{pmatrix*}[r]
+ -2\\
+ -6\\
+ -9
+\end{pmatrix*}
+,&
+|\vec{n}_2|
+&=
+3\cdot 11
+\end{align*}
+zu berechnen.
+Für den Sinus des Zwischenwinkels können wir die Zwischenwinkelformel
+mit dem Vektorprodukt verwenden:
+\[
+\sin\alpha
+=
+\frac{|\vec{n}_1\times\vec{n}_2|}{|\vec{n}_1|\cdot|\vec{n}_2|}.
+\]
+Das Vektorprodukt ist
+\begin{align*}
+\vec{n}_1\times\vec{n}_2
+&=
+6\cdot
+3\cdot
+\begin{pmatrix*}[r]
+-1\\
+ 2\\
+ 2
+\end{pmatrix*}
+\times
+\begin{pmatrix*}[r]
+-2\\
+-6\\
+-9
+\end{pmatrix*}
+=
+18\cdot
+\begin{pmatrix*}[r]
+ -6\\
+-13\\
+ 10
+\end{pmatrix*}
+\\
+|\vec{n}_1\times\vec{n}_2|
+&=
+6\cdot 3\cdot \sqrt{36+169+100}
+=
+6\cdot 3\cdot \sqrt{305},
+\intertext{woraus wir jetzt den Sinus des Zwischenwinkels}
+\sin\alpha
+=
+\frac{|\vec{n}_1\times\vec{n}_2|}{|\vec{n}_1|\cdot|\vec{n}_2|}
+&=
+\frac{6\cdot 3\cdot \sqrt{305}}{6\cdot 3\cdot 3 \cdot 11}
+=
+\frac{\sqrt{305}}{33}
+=
+0.52921967
+\end{align*}
+bekommen.
+\end{loesung}
+
+\begin{bewertung}
+Berechung der beiden Normalen ({\bf N}) je 1 Punkt,
+Vektorprodukt der Normalen ({\bf V}) 1 Punkt,
+Länge der Normalen ({\bf L}) 1 Punkt,
+Zwischenwinkelformel mit dem Vektorprodukt ({\bf Z}) 1 Punkt,
+Berechnung des Sinus ({\bf S}) 1 Punkt.
+\end{bewertung}
+

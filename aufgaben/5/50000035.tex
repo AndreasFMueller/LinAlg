@@ -1,0 +1,176 @@
+Sei $\sigma$ die zur $x$-$y$-Ebene parallele Ebene, die die $z$-Achse
+im Punkt $(0,0,1)$ schneidet.
+Sie wird von der Matrix
+\[
+A=
+\begin{pmatrix*}[r]
+  -10 & -6 & 11 \\
+    4 &  7 &  9 \\
+    9 & 10 & -4
+\end{pmatrix*}
+\]
+auf eine Ebene abgebildet, die mit $\sigma'$ bezeichnet wird.
+Wie weit ist der Punkt mit Ortsvektor
+\[
+\vec{b}
+=
+\begin{pmatrix*}[r]
+  -7 \\
+  -8 \\
+   9
+\end{pmatrix*}
+\]
+von der Ebene $\sigma'$ entfernt?
+
+\begin{loesung}
+Da die Ebene $\sigma$ die Parameterdarstellung
+\[
+\begin{pmatrix}0\\0\\1\end{pmatrix}
++
+t
+\begin{pmatrix}1\\0\\0\end{pmatrix}
++
+s
+\begin{pmatrix}0\\1\\0\end{pmatrix}
+\]
+hat, hat die Ebene $\sigma'$ hat die Parameterdarstellung
+\[
+\vec{p}
++
+t\vec{r}_1
++
+s\vec{r}_2
+=
+\begin{pmatrix*}[r]
+ 11 \\
+  9 \\
+ -4
+\end{pmatrix*}
++
+t
+\begin{pmatrix*}[r]
+ -10 \\
+   4 \\
+   9
+\end{pmatrix*}
++
+s
+\begin{pmatrix*}[r]
+  -6 \\
+   7 \\
+  10
+\end{pmatrix*}.
+\]
+Für den Abstand kann die Abstandsformel
+\[
+d
+=
+\frac{
+(\vec{r}_1\times\vec{r}_2)\cdot (\vec{b}-\vec{p})
+}{
+|\vec{r}_1\times\vec{r}_2|
+}
+\]
+verwendet werden.
+Das Vektorprodukt ist
+\begin{align*}
+\vec{n}
+=
+\vec{r}_1\times\vec{r}_2
+&=
+\begin{pmatrix*}[r]
+ -10 \\
+   4 \\
+   9
+\end{pmatrix*}
+\times
+\begin{pmatrix*}[r]
+  -6 \\
+   7 \\
+  10
+\end{pmatrix*}
+=
+\begin{pmatrix*}
+(\phantom{-0}4)\cdot(\phantom{-}10)-(\phantom{-1}9)\cdot(\phantom{-}7)\\
+(\phantom{-0}9)\cdot(\phantom{0}{-6})-(-10)\cdot(\phantom{-}\llap{1}0) \\
+(-10)\cdot(\phantom{-0}7)-(\phantom{-1}4)\cdot(-6)
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+-23\\
+ 46\\
+-46
+\end{pmatrix*}
+=
+23
+\begin{pmatrix*}[r]
+-1\\
+ 2\\
+-2\\
+\end{pmatrix*},
+\\
+|\vec{r}_1\times\vec{r}_2|
+&=
+23\cdot 3.
+\end{align*}
+Die Differenz zwischen $\vec{b}$ und Stützvektor ist
+\[
+\vec{b}-\vec{p}
+=
+\begin{pmatrix*}[r]
+-7\\-8\\9
+\end{pmatrix*}
+-
+\begin{pmatrix*}[r]
+11\\9\\-4
+\end{pmatrix*}
+=
+\begin{pmatrix*}[r]
+-18\\
+-17\\
+ 13
+\end{pmatrix*}.
+\]
+Mit der Abstandsformel findet man jetzt
+\begin{align*}
+\vec{n}\cdot(\vec{b}-\vec{p})
+&=
+23\cdot
+\begin{pmatrix*}[r]
+-1\\2\\-2
+\end{pmatrix*}
+\cdot
+\begin{pmatrix*}[r]
+-18\\
+-17\\
+ 13
+\end{pmatrix*}
+=
+23\cdot(18-34-26)
+=
+23\cdot(-42)
+=
+23\cdot3\cdot(-14)
+\\
+\Rightarrow\qquad
+d
+=
+\frac{\vec{n}\cdot(\vec{b}-\vec{p})}{|\vec{n}|}
+&=
+\frac{23\cdot 3 \cdot(-14)}{23\cdot 3}
+=
+-14.
+\end{align*}
+Der Punkt $B$ ist also $14$ Einheiten von der Ebene $\sigma$ entfernt.
+\end{loesung}
+
+\begin{bewertung}
+Parameterdarstellung der Ebene $\sigma$ ({\bf E}) 1 Punkt,
+Abstandsformel ({\bf F}) 1 Punkt,
+Vektorprodukt ({\bf V}) 1 Punkt,
+Länge des Vektorprodukts ({\bf L}) 1 Punkt,
+Skalarprodukt ({\bf S}) 1 Punkt,
+Abstand ({\bf D}) 1 Punkt.
+\end{bewertung}
+
+
