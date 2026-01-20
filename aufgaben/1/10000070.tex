@@ -1,0 +1,173 @@
+Auf dem Youtube-Kanal MindYourDecisions wurde die folgende Aufgabe
+gestellt\footnote{\url{https://youtu.be/UpS9VdY7Nxg}}:
+Ein Sack enthält Kugeln in vier verschiedenen Farben.
+Es gilt:
+\begin{center}
+\begin{tabular}{rl}
+1)&14 Kugeln sind nicht blau\\
+2)&16 Kugeln sind nicht gelb\\
+3)&24 Kugeln sind nicht rot\\
+4)&12 Kugeln sind nicht grün
+\end{tabular}
+\end{center}
+\begin{teilaufgaben}
+\item
+Finden Sie die Anzahl der Kugeln jeder Farbe mit Hilfe eines linearen 
+Gleichungssystems.
+\item
+Warum hat die Matrix des Gleichungsssystems den Eigenwert $-1$?
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Die Anzahlen werden mit $x_i$, $i=1,\dots,4$ bezeichnet.
+Die vier Bedingungen besagen, dass die Summe von jeweils drei der Variablen
+bekannt ist.
+Es entsteht so das Gleichungssystem
+\[
+\begin{linsys}{4}
+   & &x_2&+&x_3&+&x_4&=&14\\
+x_1& &   &+&x_3&+&x_4&=&16\\
+x_1&+&x_2& &   &+&x_4&=&24\\
+x_1&+&x_2&+&x_3& &   &=&12\\
+\end{linsys}
+\]
+mit Koeffizientenmatrix
+\[
+A=\begin{pmatrix}
+0&1&1&1\\
+1&0&1&1\\
+1&1&0&1\\
+1&1&1&0
+\end{pmatrix}
+\qquad\text{und rechter Seite}\qquad
+b=\begin{pmatrix}
+14\\16\\24\\12
+\end{pmatrix}.
+\]
+Um das Gleichungsystem mit dem Gauss-Algorithmus zu lösen, muss zuerst
+eine andere Zeile nach oben geschoben werden, da sonst das erste
+Pivot-Element 0 wäre.
+Wir wählen die letzte Zeile:
+\begin{align*}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ 1& 1& 1& 0& 12\\
+ 0& 1& 1& 1& 14\\
+ 1& 0& 1& 1& 16\\
+ 1& 1& 0& 1& 24\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ 1& 1& 1& 0& 12\\
+ 0& 1& 1& 1& 14\\
+ 0&-1& 0& 1&  4\\
+ 0& 0&-1& 1& 12\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ 1& 1& 1& 0& 12\\
+ 0& 1& 1& 1& 14\\
+ 0& 0& 1& 2& 18\\
+ 0& 0&-1& 1& 12\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ 1& 1& 1& 0& 12\\
+ 0& 1& 1& 1& 14\\
+ 0& 0& 1& 2& 18\\
+ 0& 0& 0& 3& 30\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ 1& 1& 1& 0& 12\\
+ 0& 1& 1& 0&  4\\
+ 0& 0& 1& 0& -2\\
+ 0& 0& 0& 1& 10\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ 1& 1& 0& 0& 14\\
+ 0& 1& 0& 0&  6\\
+ 0& 0& 1& 0& -2\\
+ 0& 0& 0& 1& 10\\
+\hline
+\end{tabular}
+\\
+&\rightarrow
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ 1& 0& 0& 0&  8\\
+ 0& 1& 0& 0&  6\\
+ 0& 0& 1& 0& -2\\
+ 0& 0& 0& 1& 10\\
+\hline
+\end{tabular}
+\end{align*}
+Das Gleichungssytem kann zwar gelöst werden, aber die Anzahl $-2$ der roten
+Kugeln lässt sich natürlich nicht realisieren.
+Die gestellte Aufgabe hat keine Lösung.
+\item
+Die Matrix $A$ hat $\lambda$ als Eigenwert, wenn $A-\lambda I$ nicht regulär
+ist.
+Setzt man den Wert $\lambda=-1$ ein, erhält man
+\[
+A-(-1)I
+=
+\begin{pmatrix}
+0&1&1&1\\
+1&0&1&1\\
+1&1&0&1\\
+1&1&1&0
+\end{pmatrix}
++
+\begin{pmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&1&1&1\\
+1&1&1&1\\
+1&1&1&1\\
+1&1&1&1
+\end{pmatrix},
+\]
+die Rang $1$ hat.
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{diskussion}
+Aus der Tatsache, dass $\operatorname{Rang}(A-(-1)I)=3$ ist, kann man
+weiter folgern, dass $\lambda=-1$ ein dreifacher Eigenwert ist.
+In der Tat ist das charakteristische Polynom
+\[
+\chi_A(\lambda)
+=
+\lambda^4-6\lambda^2-8\lambda - 3.
+\]
+Dies muss durch $(\lambda+1)^3=\lambda^3+3\lambda^2+3\lambda+1$ teilbar
+sein.
+Der Quotient muss ein Faktor der Form $\lambda - a$ sein.
+Dies ist nur möglich wenn $1\cdot (-a) = -3$ ist, also muss $a=3$ sein.
+Tatsächlich kann man nachrechnen, dass
+\[
+\chi_A(\lambda)=
+(\lambda+1)^3(\lambda-3).
+\]
+\end{diskussion}
+

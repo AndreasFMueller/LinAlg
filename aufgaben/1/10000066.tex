@@ -1,0 +1,164 @@
+Gegeben ist das von den Parametern $u$ und $v$ abhängige lineare
+Gleichungssystem
+\[
+\begin{linsys}{3}
+3x&+&   12 y&+& 3    z&=&     3,\\
+2x&+&(u+ 7)y&+&(5-3u)z&=& v-u+3,\\
+5x&+&   19 y&+& 10    z&=&    6.
+\end{linsys}
+\]
+\begin{teilaufgaben}
+\item
+Finden Sie die Lösung im Falle $u=-1$ und $v=-4$.
+\item
+Für welche Werte des Parameters $u$ ist das Gleichungsystem nicht eindeutig
+lösbar?
+\item
+Wie muss $v$ gewählt werden, damit das Gleichungssystem immer mindestens
+eine Lösung hat?
+\item
+Bestimmen Sie die Lösungsmenge in dem Falle, in dem es unendlich viele
+Lösungen gibt.
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir wenden den Gauss-Algorithmus auf das zugehörige Tableau an:
+\begin{align}
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+3&  12& 3   &     3\\
+2&u+ 7& 5-3u& v-u+3\\
+5&  19&10   &     6\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+1&   4& 1   &      1\\
+0&u- 1& 3-3u&  v-u+1\\
+0&  -1& 5   &      1\\
+\hline
+\end{tabular}
+\notag
+\intertext{An dieser Stelle könnte $u-1=0$ ein nicht geeignetes
+Pivot sein, wir verschieben die Behandlung dieses Falles auf 
+später, indem wir die zweite und dritte Zeile vertauschen}
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+1&   4&    1   &     1 \\
+0&  -1&    5   &     1 \\
+0&u- 1& -3(u-1)&v-(u-1)\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+1&   4& 1     &    1\\
+0&   1&-5     &   -1\\
+0&   0& 2(u-1)&    v\\
+\hline
+\end{tabular}
+\label{10000062:singulaer}
+\intertext{Wenn $u-1=0$ erhalten wir eine Nullzeile.
+Das Gleichungssystem wird nur eine Lösung haben, wenn die rechte Seite
+ebenfalls verschwindet.
+Wir nehmen für die weitere Rechnung an, dass $u\ne 1$.}
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+1&   4& 1& 1\\
+0&   1&-5&-1\\
+0&   0& 1&\frac{v}{2(u-1)}\\
+\hline
+\end{tabular}
+&\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+1&   4& 0& 1- q\\
+0&   1& 0&-1+5q\\
+0&   0& 1&    q\\
+\hline
+\end{tabular}
+\notag
+\\
+&\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+1&   0& 0& 5-21q\\
+0&   1& 0&-1+ 5q\\
+0&   0& 1&     q\\
+\hline
+\end{tabular}
+\notag
+\end{align}
+Dabei haben wir den etwas unschönen Bruch $q=\frac{v}{2(u-1)}$ abgekürzt.
+Nach dieser Rechnung können wir jetzt die einzelnen Fragen beantworten.
+\begin{teilaufgaben}
+\item
+Im Falle $u=-1$ und $v=-4$ wird
+\[
+q = \frac{v}{-4} = 1.
+\]
+Daraus lassen sich die Unbekannten $x$, $y$ und $z$ leicht bestimmen
+\begin{align*}
+x &=5-21=-16,\\
+y&=-1+5=4\\
+\text{und}\quad
+z&=1.
+\end{align*}
+\item
+Das Gleichungssystem ist nicht eindeutig lösbar, wenn $u-1=0$ ist, also für
+$u=1$.
+\item
+Für $u\ne 1$ spielt der Wert von $v$ keine Rolle, nur für $u=1$ muss
+genauer untersucht werden, was auf der rechten Seite der Nullzeile steht.
+Dies kann im Schritt \eqref{10000062:singulaer} abgelesen werden.
+Dort steht, dass die rechte Seite für $u=1$ zu $v$ wird, d.~h.~es gibt
+unendlich viele Lösungen genau dann, wenn $v=0$.
+\item
+Um die Lösungsmenge abzulesen, müssen wir ausgehend von
+\eqref{10000062:singulaer} zu einem Schlusstableau gelangen:
+\[
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+1&   4& 1     &    1\\
+0&   1&-5     &   -1\\
+0&   0& 0     &    0\\
+\hline
+\end{tabular}
+\rightarrow
+\begin{tabular}{|>{$}c<{$} >{$}c<{$} >{$}c<{$}|>{$}c<{$}|}
+\hline
+1&   0&21     &    5\\
+0&   1&-5     &   -1\\
+0&   0& 0     &    0\\
+\hline
+\end{tabular}
+\]
+woraus wir die Lösungsmenge
+\[
+\mathbb L
+=
+\left\{
+\left.
+\begin{pmatrix}5\\-1\\0\end{pmatrix}
++
+z\begin{pmatrix}-21\\5\\1\end{pmatrix}
+\; \right| \;
+z\in\mathbb R
+\right\}.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Gaussalgorithmus Vorwärtsreduktion ({\bf V}) 1 Punkt,
+Rückwärtseinsetzen ({\bf R}) 1 Punkt,
+Lösung in Teilaufgabe a) ({\bf A}) 1 Punkt,
+Singularitätskriterium $u=1$ ({\bf S}) 1 Punkt,
+Lösbarkeitsbedingung $v\in\mathbb R$ ({\bf V}) 1 Punkt,
+Lösungsmenge ({\bf L}) 1 Punkt.
+\end{bewertung}
+
+
+

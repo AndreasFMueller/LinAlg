@@ -1,0 +1,155 @@
+Betrachten Sie die Koeffizientenmatrix
+\[
+A
+=
+\begin{pmatrix}
+a-1&2a-2&3a-3\\
+ 1 & a  &2a-1\\
+ 1 & 3  & a+2
+\end{pmatrix}.
+\]
+\begin{teilaufgaben}
+\item
+Es gibt drei Werte des Parameters $a$, für die die Matrix 
+nicht regulär ist.
+Bestimmen Sie diese Werte.
+\item
+Lösen Sie das Gleichungssystem $Ax=b$ mit der rechten Seite
+\[
+b
+=
+\begin{pmatrix}
+2a^2+2a-4\\
+a^2+2a\\
+4a+3
+\end{pmatrix}
+\]
+für Werte $a$, für die das Gleichungssystem regulär ist.
+\end{teilaufgaben}
+
+\begin{loesung}
+Wir wenden den Gauss-Algorithmus an und achten darauf, für welche
+Werte von $a$ das aktuelle Pivotelement verschwinden könnte.
+Für das erste Pivot-Element ist dies der Werte $a=1$, der
+die erste Zeile zu einer Nullzeile machen würde.
+Für $a\ne 1$ kann man den ersten Gauss-Schritt durchführen:
+\begin{align}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\pivotoperation{1.1}{0.42}{-1.3mm}{-1.0mm}
+a-1 & 2a-2 & 3a-3 & 2a^2+2a-4 \\
+\forwardreduction{0.42}{0.98}{-1.3mm}{-6.2mm}
+ 1  & a    & 2a-1 &  a^2+2a   \\
+ 1  &    3 &  a+2 &       a+3 \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1  &   2 &    3 &     2a+4 \\
+ 0  &
+\pivotoperation{1.1}{0.42}{-1.3mm}{-1.0mm}
+      a-2 & 2a-4 & a^2   -4 \\
+ 0  &
+\forwardreduction{0.42}{0.48}{-1.3mm}{-1.3mm}
+        1 &  a-1 &      a-1 \\
+\hline
+\end{tabular}.
+\notag
+\intertext{Das zweite Pivotelement ist $a-2$.
+Es verschwindet, wenn $a=2$ ist.
+In diesem Fall wird die zweite Zeile zu einer Nullzeile.
+Für $a\ne 2$ kann man den zweiten Gauss-Schritt durchführen
+und erhält}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1  &   2 &
+\backwardsubstitution{0.42}{0.88}{-1.2mm}{-5.8mm}
+              3 & 2a+4 \\
+ 0  &   1 &   2 &  a+2 \\
+ 0  &   0 &
+\pivotoperation{1.1}{0.42}{-1.3mm}{-1.0mm}
+            a-3 &  a-3 \\
+\hline
+\end{tabular}.
+\notag
+\intertext{Das dritte Pivot-Element ist $a-3$, somit ist $a=3$
+der dritte Wert, für den die Matrix singulär wird.
+Für $a\ne 3$ kann man den Gauss-Algorithmus zu Ende führen:}
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1  &
+\backwardsubstitution{0.42}{0.44}{-1.2mm}{-1.3mm}
+        2 &   0 & 2a+1 \\
+ 0  &   1 &   0 &    a \\
+ 0  &   0 &   1 &    1 \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+ 1  &   0 &   0 &   1 \\
+ 0  &   1 &   0 &   a \\
+ 0  &   0 &   1 &   1 \\
+\hline
+\end{tabular}.
+\label{10000077:schlusstableau}
+\end{align}
+Aus der Durchführung des Gauss-Algorithmus kann man jetzt die
+Antworten auf die gestellten Fragen ableiten.
+\begin{teilaufgaben}
+\item
+Die Werte, die ausgeschlossen werden müssen, weil sie die Matrix
+$A$ singulär machen, sind $a\in \{1,2,3\}$.
+\item
+Für Werte $a$, für das Gleichungssystem regulär ist, kann man aus dem
+Schlusstableau \eqref{10000077:schlusstableau} die Lösung
+\[
+x=\begin{pmatrix}1\\a\\1\end{pmatrix}
+\]
+ablesen.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Gauss-Algorithmus 3 Punkte: Vorwärtsreduktion ({\bf V}),
+Rückwärtseinsetzen ({\bf R}), Ablauf ({\bf A}),
+Regularitätsbedingung Pivotelemente $\ne 0$ ({\bf U}) 1 Punkt,
+Werte für $a$ ({\bf W}) 1 Punkt,
+Lösung in b) ({\bf L}) 1 Punkt.
+\end{bewertung}
+
+\begin{diskussion}
+Man kann die Werte, für die $A$ singulär wird, natürlich auch mit der
+Determinanten bestimmen.
+Zur Vereinachung zeihen wir vor der Anwendung der Sarrus-Formel
+den gemeinsamen Faktor $a-1$ aus der ersten Zeile:
+\begin{align*}
+\det A
+&=
+(a-1)
+\left|\begin{matrix}
+1&2&3\\
+1&a&2a-1\\
+1&3&a+2
+\end{matrix}\right|
+\\
+&=
+(a-1)\bigl(
+a(a+2)+2(2a-1)+9-3a-3(2a-1)-2(a+2)
+\bigr)
+\\
+&=
+(a-1)(a^2+2a+4a-2+9-3a-6a+3-2a-4)
+\\
+&=
+(a-1)(a^2-5a+6)
+=
+(a-1)(a-2)(a-3).
+\end{align*}
+Die Nullstellen der Determinante sind $a\in\{1,2,3\}$, für diese
+Werte ist die Matrix $A$ nicht regulär.
+\end{diskussion}
