@@ -1,0 +1,327 @@
+\definecolor{darkred}{rgb}{0.8,0,0}
+Stellen Sie ein Gleichungssystem auf, mit dem die Koeffizienten
+$a_0,\dots,a_n$ und $b_0,\dots,b_m$ einer Funktion
+\[
+f(x)
+=
+\frac{
+a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0
+}{
+b_mx^m+b_{m-1}x^{m-1}+\dots+b_1x+b_0
+}
+\]
+bestimmt werden können, die möglichst gut zu gegebenen Datenpunkten
+$(x_i,y_i), i=1,\dots,N$ passen.
+Die Zahl $N$ der Datenpunkte ist grösser als $n+m+1$.
+Das Problem ist in dieser Form nicht eindeutig, da der Bruch beliebig
+erweitert werden kann.
+Es wird jedoch eindeutig, wenn man $b_m=1$ festlegt.
+Der Koeffizient $b_m$ muss also nicht bestimmt werden, sondern darf
+als bekannt mit Wert $b_m=1$ angenommen werden.
+
+\begin{hinweis}
+Damit die Formeln nicht zu umfangreich werden, dürfen Sie sich auf den Fall
+$n=2$ und $m=3$ beschränken.
+In diesem Fall sind $n+m+1=6$ Unbekannte zu bestimmen.
+\end{hinweis}
+
+\begin{loesung}
+Für jeden Datenpunkt $(x_i,y_i)$ sollte gelten
+\[
+y_i
+=
+\frac{
+a_nx_i^n+a_{n-1}x_i^{n-1}+\dots+a_1x_i+a_0
+}{
+b_mx_i^m+b_{m-1}x_i^{m-1}+\dots+b_1x_i+b_0
+}.
+\]
+Diese Gleichung ist nicht linear.
+Durch Multiplizieren mit dem Nenner wird sie zu
+\[
+x_i^m
+y_i
+{\color{darkred}b_m}
++
+x_i^{m-1}
+y_i
+{\color{darkred}b_{m-1}}
++\dots+
+x_i
+y_i
+{\color{darkred}b_1}
++
+{\color{darkred}b_0}
+=
+x_i^n
+{\color{darkred}a_n}
++
+x_i^{n-1}
+{\color{darkred}a_{n-1}}
++\dots+
+x_i
+{\color{darkred}a_1}
++
+{\color{darkred}a_0}.
+\]
+Diese Gleichung ist linear, aber sie ist nicht in der Standardform, die
+wir für ein lineares Gleichungssystem erwarten.
+Durch Umstellen und unter Verwendung von ${\color{darkred}b_m}=1$,
+erhalten wir
+\[
+{\color{darkred}a_0}
++
+{\color{darkred}a_1}x_i
++\dots+
+{\color{darkred}a_{n-1}}x^{n-1}
+{\color{darkred}a_{n}}x^n
+-
+{\color{darkred}b_0}y_i
+-
+{\color{darkred}b_1}x_iy_i
+-\dots-
+{\color{darkred}b_{m-1}}x_i^{m-1}y_i
+=
+{\color{darkred}b_m}x_i^my_i
+=
+x_i^my_i.
+\]
+Daraus lässt sich jetzt das Gleichungssystem mit der Koeffizientenmatrix 
+$A$ und der rechten Seite $b$ wie folgt ablesen:
+\[
+\underbrace{
+\begin{pmatrix}
+1      &x_1    &\dots  &x_1^{n-1} &x_1^n  &-y_1   &-x_1y_1 &\dots &-x_1^{m-1}y_1\\
+1      &x_2    &\dots  &x_2^{n-1} &x_2^n  &-y_2   &-x_2y_2 &\dots &-x_2^{m-1}y_2\\
+1      &x_3    &\dots  &x_3^{n-1} &x_3^n  &-y_3   &-x_3y_2 &\dots &-x_3^{m-1}y_3\\
+\vdots &\vdots &\ddots &\vdots    &\vdots &\vdots &\vdots  &\ddots&\vdots\\
+1      &x_N    &\dots  &x_N^{n-1} &x_N^n  &-y_N   &-x_Ny_2 &\dots &-x_N^{m-1}y_N
+\end{pmatrix}}_{\displaystyle=A}
+\begin{pmatrix}
+{\color{darkred}a_0}\\
+{\color{darkred}a_1}\\
+\vdots\\
+{\color{darkred}a_{n-1}}\\
+{\color{darkred}a_n}\\
+{\color{darkred}b_0}\\
+{\color{darkred}b_1}\\
+\vdots\\
+{\color{darkred}b_{m-1}}
+\end{pmatrix}
+=
+\underbrace{
+\begin{pmatrix}
+x_1^my_1\\
+x_2^my_2\\
+x_3^my_3\\
+\vdots\\
+x_N^my_N
+\end{pmatrix}}_{\displaystyle=b}.
+\]
+Das Gleichungssystem ist jedoch überbstimmt, da es $N$ Gleichungen,
+aber nur $n+m+1<N$ Unbekannte hat.
+Somit lassen sich daraus die Koeffizienten $a_k$ und $b_k$ noch nicht
+exakt bestimmt, dazu muss das
+Gleichungssystem mit der Standard-Lösungsmethode für überbestimmte
+Gleichungssysteme in ein Gleichungssystem mit $n+m+1$ Gleichungen
+umgeformt werden.
+Dazu müssen $\transpose{A}A$ und $\transpose{A}b$ berechnet werden.
+Die Zeilen von
+\[
+\transpose{A}
+=
+\begin{pmatrix}
+1             &1             &1            &\dots  &1            \\
+x_1           &x_2           &x_3          &\dots  &x_N          \\
+%x_1^2&x_2^2&x_3^2&\dots&x_N^2\\
+\vdots        &\vdots        &\vdots       &\ddots &\vdots       \\
+x_1^{n-1}     &x_2^{n-1}     &x_3^{n-1}    &\dots  &x_N^{n-1}    \\
+x_1^{n}       &x_2^{n}       &x_3^{n}      &\dots  &x_N^{n}      \\
+-y_1          &-y_2          &-y_3         &\dots  &-y_N         \\
+-x_1y_1       &-x_2y_2       &-x_3y_3      &\dots  &-x_Ny_N      \\
+\vdots        &\vdots        &\vdots       &\ddots &\vdots       \\
+-x_1^{m-1}y_1 &-x_2^{m-1}y_2 &-x_3^{m-1}y_3&\dots  &-x_N^{m-1}y_N
+\end{pmatrix}
+\]
+sind die Spalten von $A$, im Produkt $\transpose{A}A$ treten daher 
+Summen von Produkt auf:
+\[
+\transpose{A}A
+=
+\begin{small}
+\renewcommand{\arraycolsep}{2pt}
+\begin{pmatrix*}[c]
+N
+	& \displaystyle\sum_{i=1}^N x_i
+	& \dots
+	& \displaystyle\sum_{i=1}^N x_i^{n-1}
+	& \displaystyle\sum_{i=1}^N x_i^n
+	& -\displaystyle\sum_{i=1}^N y_i
+	& -\displaystyle\sum_{i=1}^N x_iy_i
+	& \dots
+	& -\displaystyle\sum_{i=1}^N x_i^{m-1}y_i
+\\
+\displaystyle\sum_{i=1}^N x_i
+	& \displaystyle\sum_{i=1}^N x_i^2
+	& \dots
+	& \displaystyle\sum_{i=1}^N x_i^{n}
+	& \displaystyle\sum_{i=1}^N x_i^{n+1}
+	& -\displaystyle\sum_{i=1}^N x_iy_i
+	& -\displaystyle\sum_{i=1}^N x_i^2y_i
+	& \dots
+	& -\displaystyle\sum_{i=1}^N x_i^{m}y_i
+\\
+\vdots
+	&\vdots
+	&\ddots
+	&\vdots
+	&\vdots
+	&\vdots
+	&\vdots
+	&\ddots
+	&\vdots
+\\
+\displaystyle\sum_{i=1}^N x_i^{n-1}
+	& \displaystyle\sum_{i=1}^N x_i^{n}
+	& \dots
+	& \displaystyle\sum_{i=1}^N x_i^{2n-2}
+	& \displaystyle\sum_{i=1}^N x_i^{2n-1}
+	& -\displaystyle\sum_{i=1}^N x_i^{n-1}y_i
+	& -\displaystyle\sum_{i=1}^N x_i^ny_i
+	& \dots
+	& -\displaystyle\sum_{i=1}^N x_i^{n+m-2}y_i
+\\
+\displaystyle\sum_{i=1}^N x_i^{n}
+	& \displaystyle\sum_{i=1}^N x_i^{n+1}
+	& \dots
+	& \displaystyle\sum_{i=1}^N x_i^{2n-1}
+	& \displaystyle\sum_{i=1}^N x_i^{2n}
+	& -\displaystyle\sum_{i=1}^N x_i^{n}y_i
+	& -\displaystyle\sum_{i=1}^N x_i^{n+1}y_i
+	& \dots
+	& -\displaystyle\sum_{i=1}^N x_i^{n+m-1}y_i
+\\
+-\displaystyle\sum_{i=1}^N y_i
+	& -\displaystyle\sum_{i=1}^N x_iy_i
+	& \dots
+	& -\displaystyle\sum_{i=1}^N x_i^{n-1}y_i
+	& -\displaystyle\sum_{i=1}^N x_i^{n}y_i
+	& \displaystyle\sum_{i=1}^N y_i^2
+	& \displaystyle\sum_{i=1}^N x_iy_i^2
+	& \dots
+	& \displaystyle\sum_{i=1}^N x_i^{m-1}y_i^2
+\\
+-\displaystyle\sum_{i=1}^N x_iy_i
+	& -\displaystyle\sum_{i=1}^N x_i^2y_i
+	& \dots
+	& -\displaystyle\sum_{i=1}^N x_i^{n}y_i
+	& -\displaystyle\sum_{i=1}^N x_i^{n+1}y_i
+	& \displaystyle\sum_{i=1}^N x_iy_i^2
+	& \displaystyle\sum_{i=1}^N x_i^2y_i^2
+	& \dots
+	& \displaystyle\sum_{i=1}^N x_i^{m}y_i^2
+\\
+\vdots
+	&\vdots
+	&\ddots
+	&\vdots
+	&\vdots
+	&\vdots
+	&\vdots
+	&\ddots
+	&\vdots
+\\
+-\displaystyle\sum_{i=1}^N x_i^{m-1}y_i
+	& -\displaystyle\sum_{i=1}^N x_i^my_i
+	& \dots
+	& -\displaystyle\sum_{i=1}^N x_i^{n+m-2}y_i
+	& -\displaystyle\sum_{i=1}^N x_i^{n+m-1}y_i
+	& \displaystyle\sum_{i=1}^N x_i^{m-1}y_i^2
+	& \displaystyle\sum_{i=1}^N x_i^{m}y_i^2
+	& \dots
+	& \displaystyle\sum_{i=1}^N x_i^{2m-2}y_i^2
+\end{pmatrix*}
+\end{small}
+\]
+Für den Vektor $b$ folgt entsprechend
+\[
+\transpose{A}b
+=
+\begin{pmatrix}
+-\displaystyle\sum_{i=1}^N x_i^my_i \\
+-\displaystyle\sum_{i=1}^N x_i^{m+1}y_i \\
+\vdots \\
+-\displaystyle\sum_{i=1}^N x_i^{n+m-1}y_i \\
+-\displaystyle\sum_{i=1}^N x_i^{n+m}y_i \\
+\displaystyle\sum_{i=1}^N x_i^{m}y_i^2 \\
+\displaystyle\sum_{i=1}^N x_i^{m+1}y_i^2 \\
+\vdots \\
+\displaystyle\sum_{i=1}^N x_i^{2m}y_i^2 
+\end{pmatrix}.
+\]
+\begin{figure}
+\ainput{punkte.tex}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\centering
+\def\dx{4}
+\def\dy{0.1}
+\def\punkt#1#2{ \fill[color=darkred]
+	({\dx*(#1)},{\dy*(#2)}) circle[radius=0.08]; }
+\begin{tikzpicture}[>=latex,thick]
+\draw[->] (-0.1,0) -- ({\dx*4+0.3},0) coordinate[label={$x$}];
+\draw[->] (0,-4.1) -- (0,4.3) coordinate[label={right:$y$}];
+\foreach \x in {1,2,3}{
+	\draw ({\dx*\x},-0.05) -- ({\dx*\x},0.05);
+	\node at ({\dx*\x},0) [below right] {$\x$};
+}
+\foreach \y in {10,20,30,40}{
+	\node at (0,{\dy*\y}) [left] {$\y$};
+	\draw (-0.05,{\dy*\y}) -- (0.05,{\dy*\y});
+	\node at (0,{-\dy*\y}) [left] {$-\y$};
+	\draw (-0.05,{-\dy*\y}) -- (0.05,{-\dy*\y});
+}
+\begin{scope}
+\clip (-0.1,-4.1) rectangle ({\dx*4+0.1},4.1);
+\draw[color=blue,line width=1.4pt] plot[domain=0:0.98,samples=50]
+	({\dx*\x},{\dy*((\x+1)*\x+1)/(((\x-6)*\x+11)*\x-6)});
+\draw[color=blue,line width=1.4pt] plot[domain=1.02:1.98,samples=50]
+	({\dx*\x},{\dy*((\x+1)*\x+1)/(((\x-6)*\x+11)*\x-6)});
+\draw[color=blue,line width=1.4pt] plot[domain=2.02:2.98,samples=50]
+	({\dx*\x},{\dy*((\x+1)*\x+1)/(((\x-6)*\x+11)*\x-6)});
+\draw[color=blue,line width=1.4pt] plot[domain=3.02:4,samples=50]
+	({\dx*\x},{\dy*((\x+1)*\x+1)/(((\x-6)*\x+11)*\x-6)});
+\end{scope}
+\draw[color=blue,line width=0.3pt] ({\dx*1},-4.1) -- ({\dx*1},4.1);
+\draw[color=blue,line width=0.3pt] ({\dx*2},-4.1) -- ({\dx*2},4.1);
+\draw[color=blue,line width=0.3pt] ({\dx*3},-4.1) -- ({\dx*3},4.1);
+\begin{scope}
+\clip (-0.1,-4.1) rectangle ({\dx*4+0.1},4.1);
+\kurven{darkgreen}
+\punkte
+\end{scope}
+\end{tikzpicture}
+\caption{Anpassung einer rationalen Funktion an vorgegebene Punkt
+\label{60000042:image}}
+\end{figure}%
+In Abbildung~\ref{60000042:image} wird die Funktion
+\[
+f(x)
+=
+\frac{a_2x^2+a_1x+a_0}{x^3+b_2x^2+b_1x+b_0}
+\]
+an 100 Punkte angepasst, die mit Hilfe der Funktion
+\[
+y = \frac{x^2+x+1}{x^3-6x^2+11x-6}
+\]
+erzeugt worden sind.
+Den Punkten ist ausserdem ein normalverteilter Fehler überlagert.
+\end{loesung}
+
+\begin{bewertung}
+Lineare Gleichung ({\bf L}) 1 Punkt,
+Standardform mit Variablen links und Konstanten rechts ({\bf S}) 1 Punkt,
+Matrix $A$ ({\bf A}) 1 Punkt,
+Vektor $b$ ({\bf B}) 1 Punkt,
+quadratische Matrix ({\bf Q}) 1 Punkt,
+rechte Seite ({\bf R}) 1 Punkt.
+\end{bewertung}

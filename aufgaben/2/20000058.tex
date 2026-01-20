@@ -1,0 +1,58 @@
+Berechnen Sie den Wert der Determinanten der Matrix
+\[
+A
+=
+\begin{pmatrix*}[r]
+   4 &    6 &   -4 &   -1  \\
+   0 &    0 &   -6 &    4  \\
+  -6 &    8 &   -7 &    0  \\
+  -9 &   -2 &   -4 &    9 
+\end{pmatrix*}.
+\]
+
+
+
+\begin{loesung}
+Die Determinante ist am einfachsten mit dem Entwicklungssatz zu berechnen.
+Wir entwickeln nach der zweiten Zeile und erhalten
+\begin{align*}
+\det(A)
+&=
+-(-6)\cdot
+\left|\,\begin{matrix*}[r]
+ 4 &  6 & -1 \\
+-6 &  8 &  0 \\
+-9 & -2 &  9
+\end{matrix*}\,\right|
++4\cdot
+\left|\,\begin{matrix*}[r]
+ 4 &  6 & -4 \\
+-6 &  8 & -7 \\
+-9 & -2 & -4
+\end{matrix*}\,\right|.
+\intertext{Die $3\times 3$-Determinanten können mit der Sarrus-Regel
+ausgewertet werden:}
+&=
+6\cdot\bigl(
+288+0-12-72+0+324
+\bigr)
++4\cdot\bigl(
+-128+378-48-288-56-144
+\bigr)
+\\
+&=
+6\cdot 528 +4\cdot (-286)
+=
+2024.
+\qedhere
+\end{align*}
+\end{loesung}
+
+\begin{bewertung}
+Entwicklungssatz ({\bf E}) 1 Punkt,
+Vorzeichenregel ({\bf V}) 1 Punkt,
+Unterdeterminanten ({\bf U}) 1 Punkt,
+Sarrus ({\bf S}) 1 Punkt,
+Berechnung der Unterdeterminanten ({\bf B}) 1 Punkt,
+Wert der Determinanten ({\bf D}) 1 Punkt.
+\end{bewertung}

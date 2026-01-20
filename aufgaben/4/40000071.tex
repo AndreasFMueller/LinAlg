@@ -1,0 +1,255 @@
+Ein sogenanntes \emph{autoregressives Modell} ist eine Vorhersagemethode
+für zeitabhängige Daten, in der jeder Datenpunkt $x_1,\dots,x_n$
+linear von den letzten $k$ Datenpunkten abhängt.
+Es besagt dass 
+\begin{equation}
+x_t
+=
+\sum_{i=1}^k
+\vartheta_ix_{t-i}
+=
+\vartheta_1x_{t-1}
++
+\vartheta_2x_{t-2}
++
+\dots
++
+\vartheta_kx_{t-k}
+\label{60000043:reg}
+\end{equation}
+gilt für jedes $t$ mit $k < t \le n$.
+Finden Sie die Koeffizienten ${\color{darkred}\vartheta_i}$ eines
+autoregressiven Modells mit $k=2$ für die Daten
+\ainput{ar.tex}
+\begin{equation}
+x_t
+=
+\xwerte,
+\qquad t=1,\dots,5.
+\label{60000043:daten}
+\end{equation}
+
+\begin{loesung}
+Die Gleichungen~\eqref{60000043:reg} sind $n-k$ Gleichungen
+für die $k$ Unbekannten
+${\color{darkred}\vartheta_1},\dots,{\color{darkred}\vartheta_k}$
+\[
+\renewcommand{\arraycolsep}{3pt}
+\begin{array}{rcrcccrcrcr}
+x_k
+{\color{darkred}\vartheta_1}
+&+&
+x_{k-1}
+{\color{darkred}\vartheta_2}
+&+&\dots&+&
+x_2
+{\color{darkred}\vartheta_{k-1}}
+&+&
+x_1
+{\color{darkred}\vartheta_k}
+&=&
+x_{k+1}
+\\
+x_{k+1}
+{\color{darkred}\vartheta_1}
+&+&
+x_{k}
+{\color{darkred}\vartheta_2}
+&+&\dots&+&
+x_3
+{\color{darkred}\vartheta_{k-1}}
+&+&
+x_2
+{\color{darkred}\vartheta_k}
+&=&
+x_{k+2}
+\\
+x_{k+2}
+{\color{darkred}\vartheta_1}
+&+&
+x_{k+1}
+{\color{darkred}\vartheta_2}
+&+&\dots&+&
+x_4
+{\color{darkred}\vartheta_{k-1}}
+&+&
+x_3
+{\color{darkred}\vartheta_k}
+&=&
+x_{k+3}
+\\
+&& && && && &\vdots&
+\\
+x_{n-2}
+{\color{darkred}\vartheta_1}
+&+&
+x_{n-3}
+{\color{darkred}\vartheta_2}
+&+&\dots&+&
+x_{n-k}
+{\color{darkred}\vartheta_{k-1}}
+&+&
+x_{n-k-1}
+{\color{darkred}\vartheta_k}
+&=&
+x_{n-1}
+\\
+x_{n-1}
+{\color{darkred}\vartheta_1}
+&+&
+x_{n-2}
+{\color{darkred}\vartheta_2}
+&+&\dots&+&
+x_{n-k+1}
+{\color{darkred}\vartheta_{k-1}}
+&+&
+x_{n-k}
+{\color{darkred}\vartheta_k}
+&=&
+x_n
+\rlap{.}
+\end{array}
+\]
+Dieses Gleichungssystem ist überbestimmt, wenn $n-k>k$ oder $n>2k$ ist.
+Die Koeffizientenmatrix in der Vektor der rechten Seiten ist
+\[
+A
+=
+\begin{pmatrix*}
+x_k     &x_{k-1} &\dots  &x_2       &x_1     \\
+x_{k+1} &x_{k  } &\dots  &x_3       &x_2     \\
+\vdots  &\vdots  &\ddots &\vdots    &\vdots  \\
+x_{n-2} &x_{n-3} &\dots  &x_{n-k} &x_{n-k-1} \\
+x_{n-1} &x_{n-2} &\dots  &x_{n-k+1} &x_{n-k}
+\end{pmatrix*}
+\qquad\text{und}\qquad
+b
+=
+\begin{pmatrix*}
+x_{k+1}\\
+x_{k+2}\\
+\vdots \\
+x_{n-1}\\
+x_{n}
+\end{pmatrix*}.
+\]
+Die Koeffizienten lassen sich daher mit dem Gleichungssystem
+$\transpose{A}A{\color{darkred}\vartheta} = \transpose{A}b$
+bestimmen.
+Darin gilt
+\[
+\renewcommand{\arraycolsep}{2pt}
+\transpose{A}A
+=
+\begin{pmatrix}
+\displaystyle         \sum_{i=1}^{n-k} x_{k-1+i} x_{k-1+i}
+	&\displaystyle\sum_{i=1}^{n-k} x_{k-1+i} x_{k-2+i}
+	&\dots
+	&\displaystyle\sum_{i=1}^{n-k} x_{k-1+i} x_{  1+i}
+	&\displaystyle\sum_{i=1}^{n-k} x_{k-1+i} x_{    i}
+\\
+\displaystyle         \sum_{i=1}^{n-k} x_{k-2+i} x_{k-1+i}
+	&\displaystyle\sum_{i=1}^{n-k} x_{k-2+i} x_{k-2+i}
+	&\dots
+	&\displaystyle\sum_{i=1}^{n-k} x_{k-2+i} x_{  1+i}
+	&\displaystyle\sum_{i=1}^{n-k} x_{k-2+i} x_{    i}
+\\
+\vdots
+	&\vdots
+	&\ddots
+	&\vdots
+	&\vdots
+\\
+\displaystyle         \sum_{i=1}^{n-k} x_{  2+i} x_{k-1+i}
+	&\displaystyle\sum_{i=1}^{n-k} x_{  2+i} x_{k-2+i}
+	&\dots
+	&\displaystyle\sum_{i=1}^{n-k} x_{  2+i} x_{  1+i}
+	&\displaystyle\sum_{i=1}^{n-k} x_{  2+i} x_{    i}
+\\
+\displaystyle         \sum_{i=1}^{n-k} x_{  1+i} x_{k-1+i}
+	&\displaystyle\sum_{i=1}^{n-k} x_{  1+i} x_{k-2+i}
+	&\dots
+	&\displaystyle\sum_{i=1}^{n-k} x_{  1+i} x_{  1+i}
+	&\displaystyle\sum_{i=1}^{n-k} x_{  1+i} x_{    i}
+\end{pmatrix},
+\quad
+\transpose{A}b
+=
+\begin{pmatrix}
+\displaystyle\sum_{i=1}^{n-k} x_{k-1+i} x_{k+i} \\
+\displaystyle\sum_{i=1}^{n-k} x_{k-2+i} x_{k+i} \\
+\vdots \\
+\displaystyle\sum_{i=1}^{n-k} x_{  1+i} x_{k+i} \\
+\displaystyle\sum_{i=1}^{n-k} x_{    i} x_{k+i}
+\end{pmatrix}.
+\]
+
+Für den Fall $k=2$ und $n=5$ werden die Gleichungen etwas übersichtlicher,
+nämlich
+\[
+\renewcommand{\arraycolsep}{2pt}
+\begin{array}{rcrcl}
+x_2{\color{darkred}\vartheta_1} &+& x_1{\color{darkred}\vartheta_2} &=& x_3 \\
+x_3{\color{darkred}\vartheta_1} &+& x_2{\color{darkred}\vartheta_2} &=& x_4 \\
+x_4{\color{darkred}\vartheta_1} &+& x_3{\color{darkred}\vartheta_2} &=& x_5
+\end{array}
+\]
+Setzt man die Daten \eqref{60000043:daten} in darin
+ein, findet man die Matrizen
+\[
+A
+=
+\begin{pmatrix}
+x_2&x_1\\
+x_3&x_2\\
+x_4&x_3
+\end{pmatrix}
+=
+\Amatrix,\quad
+b
+=
+\begin{pmatrix}
+x_3\\
+x_4\\
+x_5
+\end{pmatrix}
+=
+\bvector.
+\]
+Nach dem Lösungsverfahren für least-squardes-Probleme wird daraus das
+Gleichungssystem
+\[
+\transpose{A}A
+=
+\Mmatrix,\quad
+\transpose{A}b
+=
+\rvector.
+\]
+Durch Auflösung des Gleichungssystems findet man
+\[
+\begin{pmatrix*}
+\vartheta_1\\
+\vartheta_2
+\end{pmatrix*}
+=
+(\transpose{A}A)^{-1}\transpose{A}b
+=
+\thetavector.
+\]
+In der Tat wurden die Daten~\eqref{60000043:daten} mit den Koeffizienten
+$\vartheta_1=0$ und $\vartheta_2=-1$ aus den Anfangswerten
+$x_1=\xone$ und $x_2=\xtwo$ erzeugt und dann mit normalverteilten Fehlern
+gestört.
+\end{loesung}
+
+\begin{bewertung}
+Gleichungen für die Koeffizienten ${\color{darkred}\vartheta}$
+({\bf G}) 1 Punkt,
+überbestimmtes Gleichungssystem mit Matrix $A$ ({\bf A}) 1 Punkt,
+Vektor $b$ ({\bf B}) 1 Punkt,
+Lösungsmethode ({\bf M}) 1 Punkt,
+Berechnung der Matrizen $\transpose{A}A$ und des Vektors $\transpose{A}b$
+({\bf R}) 1 Punkt,
+Lösungsvektor ${\color{darkred}\vartheta}$ ({\bf T}) 1 Punkt.
+\end{bewertung}

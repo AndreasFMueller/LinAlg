@@ -1,0 +1,296 @@
+Bei der numerischen Berechnung einer Funktionen in einer Programmbibliothek
+werden oft Approximationen durch Polynome verwendet.
+Dies funktioniert jedoch nur, wenn die Funktionen sich tatsächlich ähnlich
+wie ein Polynom verhalten.
+Dies ist bei einer Funktion mit Polen nicht möglich.
+Eine {\em Padé-Approximation} ist eine Approximation mit einer rationalen
+Funktion, die in solchen Fällen besser geeignet sein kann.
+\begin{teilaufgaben}
+\item
+Gegeben sind Paare $(x_i,y_i), i=1,\dots,n$, finden
+Sie ein Gleichungssystem für die Koeffizienten $a$ und $b$ derart,
+dass die Gleichung $y_i=f(x_i)$ für die Funktion
+\[
+f(x) = \frac{ax}{x-b}
+\]
+möglichst genau stimmt.
+\item
+Wenden Sie dieses Gleichungssystem auf die Wertepaare
+\begin{center}
+\begin{tabular}{|>{$}c<{$}|>{$}r<{$}>{$}r<{$}|}
+\hline
+i & x_i & y_i \\
+\hline
+   1 & 2.8213 &   3.4351 \\
+   2 & 1.2019 &  -1.5060 \\
+   3 & 3.8204 &   2.0987 \\
+\hline
+\end{tabular}
+\end{center}
+an und bestimmen Sie $a$ und $b$ für diesen Fall.
+\end{teilaufgaben}
+
+%A =
+%
+%   2.8213   3.4351
+%   1.2019  -1.5060
+%   3.8204   2.0987
+%
+%b =
+%
+%   9.6914
+%  -1.8101
+%   8.0179
+%
+%M =
+%
+%   24.000   15.899
+%   15.899   18.472
+%
+%v =
+%
+%   55.798
+%   52.844
+%
+%ans =
+%
+%   1.0000
+%   2.0000
+
+
+\begin{hinweis}
+Verwenden Sie den Taschenrechner zur Lösung des Gleichungssystems.
+\end{hinweis}
+
+\begin{loesung}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\def\dx{3}
+\def\a{1.0000}
+\def\b{2.0000}
+\def\punkt#1#2{ \fill[color=darkred] ({\dx*(#1)},{#2}) circle[radius=0.08]; }
+\begin{figure}
+\centering
+\begin{tikzpicture}[>=latex,thick]
+
+\draw[->] (-0.1,0) -- ({\dx*4+0.3},0) coordinate[label={$x$}];
+\draw[->] (0,-4.1) -- (0,4.2) coordinate[label={$y$}];
+
+\begin{scope}
+	\clip (0,-4) rectangle ({\dx*4},4);
+
+	\draw[color=blue,line width=0.5pt] ({2*\dx},-4) -- ({2*\dx},4);
+	\draw[color=darkgreen,line width=0.5pt] ({\b*\dx},-4) -- ({\b*\dx},4);
+
+	\draw[color=blue,line width=1.4pt]
+		plot[domain=0:{2-0.1},samples=50] ({\dx*\x},{\x/(\x-2)});
+	\draw[color=blue,line width=1.4pt]
+		plot[domain={2+0.1}:4,samples=50] ({\dx*\x},{\x/(\x-2)});
+
+	\draw[color=darkgreen,line width=1.4pt]
+		plot[domain=0:{\b-0.1},samples=50] ({\dx*\x},{\a*\x/(\x-\b)});
+	\draw[color=darkgreen,line width=1.4pt]
+		plot[domain={\b+0.1}:4,samples=50] ({\dx*\x},{\a*\x/(\x-\b)});
+\end{scope}
+
+\foreach \x in {1,2,3,4}{
+	\node at ({\dx*\x},0) [below] {$\x$};
+	\draw ({\dx*\x},-0.05) -- ({\dx*\x},0.05);
+}
+\foreach \y in {1,...,4}{
+	\node at (0,\y) [left] {$\y$};
+	\node at (0,-\y) [left] {$-\y$};
+	\draw (-0.05,\y) -- (0.05,\y);
+	\draw (-0.05,-\y) -- (0.05,-\y);
+}
+
+\punkt{2.8213}{3.4351}
+\punkt{1.2019}{-1.5060}
+\punkt{3.8204}{2.0987}
+
+\end{tikzpicture}
+\caption{Anpassung einer Funktion der Form $f(x)=ax/(x-b)$ an die gegeben
+der Datenpunkte, 
+\label{60000041:figure}}
+\end{figure}
+\begin{teilaufgaben}
+\item
+Für jeden Datenpunkt $(x_i,y_i)$ sollte die Gleichung
+\[
+y_i = \frac{{\color{darkred}a}x_i}{x_i-{\color{darkred}b}}
+\quad\Rightarrow\quad
+x_iy_i - y_i{\color{darkred}b}={\color{darkred}a}x_i
+\quad\Rightarrow\quad
+x_i{\color{darkred}a}
++
+y_i{\color{darkred}b}
+=
+x_iy_i
+\]
+erfüllt sein.
+Die Form ganz rechts ist eine lineare Gleichung für die Koeffizienten
+${\color{darkred}a}$
+und
+${\color{darkred}b}$.
+In Matrixform geschrieben ist das Gleichungssystem
+\[
+\begin{pmatrix*}
+x_1&y_1\\
+x_2&y_2\\
+\vdots&\vdots\\
+x_n&y_n
+\end{pmatrix*}
+\begin{pmatrix*}
+{\color{darkred}a}\\
+{\color{darkred}b}
+\end{pmatrix*}
+=
+\begin{pmatrix*}
+x_1y_1\\
+x_2y_2\\
+\vdots\\
+x_ny_n
+\end{pmatrix*}.
+\quad\Rightarrow\quad
+A=\begin{pmatrix*}
+x_1&y_1\\
+x_2&y_2\\
+\vdots&\vdots\\
+x_n&y_n
+\end{pmatrix*}
+,
+\quad
+b=\begin{pmatrix*}
+x_1y_1\\
+x_2y_2\\
+\vdots\\
+x_ny_n
+\end{pmatrix*}.
+\]
+\item
+Für die Datenpunkt der Tabelle ergibt sich 
+\[
+A
+=
+\begin{pmatrix*}[r]
+   2.8213&  3.4351\\
+   1.2019& -1.5060\\
+   3.8204&  2.0987
+\end{pmatrix*},
+\quad
+b
+=
+\begin{pmatrix*}[r]
+   9.6914\\
+  -1.8101\\
+   8.0179
+\end{pmatrix*}.
+\]
+Das Standardverfahren zur Lösung eines solchen überbestimmten
+Gleichungssystems verwendet die Matrix
+\[
+M
+=
+\transpose{A}A
+=
+\begin{pmatrix*}[r]
+   24.000&  15.899\\
+   15.899&  18.472
+\end{pmatrix*}
+\quad\text{und die recchte Seite}\quad
+\transpose{A}b
+=
+\begin{pmatrix*}[r]
+   55.798\\
+   52.844
+\end{pmatrix*}
+\]
+Lösung des Gleichungssystem liefert die Koeffizienten
+\[
+\begin{pmatrix*}
+{\color{darkred}a}\\
+{\color{darkred}b}
+\end{pmatrix*}
+=
+(\transpose{A}A)^{-1}\transpose{A}b
+=
+\begin{pmatrix*}[r]
+   1.0000\\
+   2.0000
+\end{pmatrix*}.
+\]
+Gefunden wurde 
+${\color{darkred}a} = 1.0000$ und ${\color{darkred}b}=2.0000$,
+was genau mit den Werten übereinstimmt, mit denen die
+Daten erzeugt worden waren.
+In Abbildung~\ref{60000041:figure} ist die Funktion $f(x)=x/(x-2)$
+in blau und die Funktion ${\color{darkred}a}x/(x-{\color{darkred}b})$ 
+in grün dargestellt.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Einzelne Gleichung für $a$ und $b$ ({\bf G}) 1 Punkt,
+Matrix $A$ ({\bf A}) 1 Punkt,
+Vektor $b$ ({\bf B}) 1 Punkt,
+Lösungsmethode mit $\transpose{A}A$ und $\transpose{A}b$ ({\bf M}) 1 Punkt,
+Berechnung der Matrizen ({\bf R}) 1 Punkt,
+Lösung der Gleichungen ({\bf L}) 1 Punkt.
+\end{bewertung}
+
+\begin{diskussion}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+Mit einer grösseren Zahl von Punkten wird die Anpassung der Funktion
+sehr viel genauer.
+In Abbildung~\ref{60000069:image} sind $n=100$ Punkte mit normalverteilten
+Abweichungen verwendet worden, es ergaben sich die Koeffizienten
+${\color{darkred}a}= 1.0036 $
+und
+${\color{darkred}b}= 1.9997 $,
+die auf mindestens drei Nachkommastellen mit den tatsächlichen Werten
+übereinstimmen.
+\begin{figure}
+\def\dx{3}
+\def\punkt#1#2{ \fill[color=darkred] ({\dx*(#1)},{#2}) circle[radius=0.08]; }
+\ainput{punkte.tex}
+\centering
+\begin{tikzpicture}[>=latex,thick]
+
+\draw[->] (-0.1,0) -- ({\dx*4+0.3},0) coordinate[label={$x$}];
+\draw[->] (0,-4.1) -- (0,4.2) coordinate[label={$y$}];
+
+\begin{scope}
+	\clip (0,-4.1) rectangle ({\dx*4.1},4.1);
+
+	\draw[color=blue,line width=0.5pt] ({2*\dx},-4) -- ({2*\dx},4);
+
+	\draw[color=blue,line width=1.4pt]
+		plot[domain=0:{2-0.1},samples=50] ({\dx*\x},{\x/(\x-2)});
+	\draw[color=blue,line width=1.4pt]
+		plot[domain={2+0.1}:4,samples=50] ({\dx*\x},{\x/(\x-2)});
+
+	\kurven
+
+	\punkte
+\end{scope}
+
+\foreach \x in {1,2,3,4}{
+	\node at ({\dx*\x},0) [below] {$\x$};
+	\draw ({\dx*\x},-0.05) -- ({\dx*\x},0.05);
+}
+\foreach \y in {1,...,4}{
+	\node at (0,\y) [left] {$\y$};
+	\node at (0,-\y) [left] {$-\y$};
+	\draw (-0.05,\y) -- (0.05,\y);
+	\draw (-0.05,-\y) -- (0.05,-\y);
+}
+
+\end{tikzpicture}
+\caption{Anpassung einer Funktion an $n=100$ Punkte des Graphen der
+Funktion $y=ax/(x-b)$ mit $a=1$ und $b=2$, mit normalverteilten
+Fehlern überlagert sind.
+\label{60000069:image}}
+\end{figure}
+\end{diskussion}
