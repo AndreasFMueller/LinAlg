@@ -1,0 +1,175 @@
+Die Projektion eines Globus auf einen Körper mit 32 Seitenflächen
+wie in Abbildung~\ref{60000037:image} links wird so gedreht, dass die Punkte
+$A$ (irgendwo im Westen Frankreichs) und $B$ (im Nordwesten Chinas nahe der
+Grenze zur Mongolei), beide auf $45^\circ$ nördlicher Breite, auf die
+Punkte $A'$ und $B'$ in der Abbildung rechts auf der $x$-$y$-Ebene
+abgebildet werden.
+Der Punkt $A'$ liegt auf der Winkelhalbierenden zwischen der $x$- und der
+negativen $y$-Achse.
+\begin{teilaufgaben}
+\item
+Berechnen Sie den Winkel zwischen den Ortsvektoren
+von $A$ und $B$.
+\item
+Berechnen Sie den Ortsvektor des Punktes $B'$.
+\item
+Bestimmen Sie die Drehmatrix, die $A$ auf $A'$ und $B$ auf $B'$ abbildet.
+\item
+Berechnen Sie den Drehwinkel.
+\end{teilaufgaben}
+\begin{figure}[h]
+\centering
+\includeagraphics[]{earth1.pdf}
+\caption{Drehung der Projektion eines Globus auf ein Polyeder für Aufgabe
+\ref{60000037}.
+\label{60000037:image}}
+\end{figure}
+
+\begin{hinweis}
+Die Ecken des Polyeders haben alle Abstand 1 vom Nullpunkt.
+Verwenden Sie das Vektorprodukt der Ortsvektoren von $A$ und $B$ als
+dritten Vektor zur Bestimmung der Drehmatrix.
+Verwenden Sie den Taschenrechner zur Berechnung der Drehmatrix.
+\end{hinweis}
+
+\begin{loesung}
+Die gegebenen Punkte haben die Koordinaten
+\[
+A
+=
+\biggl(\frac{\!\sqrt{2}}{2},0,\frac{\!\sqrt{2}}{2}\biggr),
+\qquad
+B
+=
+\biggl(0, \frac{\!\sqrt{2}}{2},\frac{\!\sqrt{2}}{2}\biggr),
+\qquad
+A'
+=
+\biggl(-\frac{\!\sqrt{2}}{2},\frac{\!\sqrt{2}}{2},0\biggr),
+\]
+\begin{teilaufgaben}
+\item
+Der Winkel zwischen $A$ und $B$ kann mit dem Skalarprodukt der
+Ortsvektoren von $A$ und $B$ ermittelt werden:
+\[
+\cos\alpha
+=
+\begin{pmatrix}
+\frac{\!\sqrt{2}}{2}\\0\\\frac{\!\sqrt{2}}{2}
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+0\\ \frac{\!\sqrt{2}}{2}\\ \frac{\!\sqrt{2}}{2}
+\end{pmatrix}
+=
+\frac12
+\qquad\Rightarrow\qquad
+\alpha=60^\circ.
+\]
+\item
+Der Winkel zwischen der $x$-Achse und dem Ortsvektor des
+Punktes $B'$ ist $\alpha-45^\circ=15^\circ$.
+Daraus ergeben sich die Koordinaten $B'=\cos 15^\circ,\sin 15^\circ,0)$
+und der Ortsvektor
+\[
+\vec{b}' = \begin{pmatrix}
+\cos 15^\circ \\
+\sin 15^\circ \\
+0
+\end{pmatrix}
+\]
+\item 
+Zur Berechnung der Abbildungsmatrix wird ein dritter Vektor
+benötigt, dafür kann das Vektorprodukt verwendet werden.
+Das Vektorprodukt der Vektoren $\vec{a}$ und $\vec{b}$ ist
+\[
+\vec{a}\times\vec{b}
+=
+\begin{pmatrix}
+\frac{\!\sqrt{2}}{2}\\0\\\frac{\!\sqrt{2}}{2}
+\end{pmatrix}
+\times
+\begin{pmatrix}
+0\\ \frac{\!\sqrt{2}}{2}\\ \frac{\!\sqrt{2}}{2}
+\end{pmatrix}
+=
+\begin{pmatrix}
+-\frac12\\
+-\frac12\\
+\phantom{-}\frac12
+\end{pmatrix}
+\quad\Rightarrow\quad
+(\vec{a}\times\vec{b})^0
+=
+\frac{1}{\!\sqrt{3}}
+\begin{pmatrix*}[r]
+-1\\
+-1\\
+ 1
+\end{pmatrix*}.
+\]
+Der normierte Vektor $(\vec{a}\times\vec{b})^0$ wird von der
+gesuchten Drehmatrix $D$ auf den dritten Standardbasisvektor
+abgebildet.
+Die Drehmatrix $D$ muss daher die Gleichung
+\[
+D
+\underbrace{
+\begin{pmatrix*}
+\frac{\!\sqrt{2}}2 &         0          & -\frac{1}{\!\sqrt{3}} \\
+        0          & \frac{\!\sqrt{2}}2 & -\frac{1}{\!\sqrt{3}} \\
+\frac{\!\sqrt{2}}2 & \frac{\!\sqrt{2}}2 &  \frac{1}{\!\sqrt{3}}
+\end{pmatrix*}
+}_{\displaystyle =B}
+=
+\underbrace{
+\begin{pmatrix*}
+ \frac{\!\sqrt{2}}2 & \cos 15^\circ & 0 \\
+-\frac{\!\sqrt{2}}2 & \sin 15^\circ & 0 \\
+         0          &        0      & 1
+\end{pmatrix*}
+}_{\displaystyle =B'}
+\]
+erfüllen.
+Sie kann nach $D$ aufgelöst werden und ergibt
+\[
+D
+=
+B'B^{-1}
+=
+\begin{pmatrix*}[r]
+   0.2113248654&   0.5773502692&   0.7886751346\\
+  -0.7886751346&   0.5773502692&  -0.2113248654\\
+  -0.5773502692&  -0.5773502692&   0.5773502692
+\end{pmatrix*}
+\]
+\item
+Der Drehwinkel $\beta$ kann aus der Spurformel berechnet werden:
+\begin{align*}
+\cos\beta
+&=
+\frac{\operatorname{Spur}(D)-1}{2}
+=
+\frac{1.3660254038-1}{2}
+&&\Rightarrow&
+\beta
+&=
+\arccos(0.1830127019)
+\\
+&&&&&
+=
+79.45470941^\circ
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Zwischenwinkel $\alpha$ in Teilaufgabe a) mit dem Skalarprodukt
+({\bf A}) 1 Punkt,
+Koordinaten des Punktes $B'$ in Teilaufgabe b) ({\bf B}) 1 Punkt,
+dritter Vektor mit dem Vektorprodukt ({\bf N}) 1 Punkt,
+Gleichung für die Drehmatrix ({\bf G}) 1 Punkt,
+Drehmatrix $D$ ({\bf D}) 1 Punkt,
+Drehwinkel mit der Spurformel ({\bf S}) 1 Punkt.
+\end{bewertung}

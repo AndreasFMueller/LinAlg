@@ -1,0 +1,40 @@
+/*
+ * c.maxima
+ *
+ * (c) 2023 Prof Dr Andreas Müller
+ */
+
+L: matrix(
+[     1,     0,   0   ],
+[  -a+1,     a,   0   ],
+[     0,  -a+1,   1   ]
+);
+C: expand(L.transpose(L));
+tex(C);
+
+L: matrix(
+[    2,   0,   0   ],
+[    1,   c,   0   ],
+[   -1,   1,   2   ]
+);
+C: expand(L.transpose(L));
+tex(C);
+
+L: matrix(
+[    b,   0,   0   ],
+[    1,   b,   0   ],
+[   -b,   1,   b   ]
+);
+C: expand(L.transpose(L));
+tex(C);
+
+L: matrix(
+[    u-1,   0,   0   ],
+[    u,   1,   0   ],
+[   -1,   u,   u-1   ]
+);
+C: expand(L.transpose(L));
+tex(C);
+
+
+

@@ -1,0 +1,88 @@
+Ist die Matrix
+\[
+A = \begin{pmatrix*}[r]
+  -44 &    10 \\
+ -196 &    45 
+\end{pmatrix*}
+\]
+diagonalisierbar? Wenn ja, finden Sie eine Basis, in
+der $A$ diagonal wird.
+
+\begin{loesung}
+Wir bestimmen zunächst das charakteristische Polynom
+mit Hilfe der Determinante:
+\[
+\det (A-\lambda I)
+=
+\left|\,\begin{matrix*}[r]
+-44 - \lambda & 10\\
+-196 & 45 - \lambda
+\end{matrix*}\,\right|
+=
+(-44-\lambda)(45-\lambda)-(10)(-196)
+=
+\lambda^2 - 1 \lambda - 20
+=
+(\lambda + 4)(\lambda - 5).
+\]
+Daraus kann man die Eigenwerte $\lambda_1=-4$ und $\lambda_2=5$ ablesen.
+Für jeden dieser Eigenwerte ist jetzt der Gauss-Algorithmus
+durchzuführen, dazu bilden wir die Tableaux
+\begin{align*}
+\lambda_1&=-4:
+&
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+   -40 &    10 & 0 \\
+  -196 &    49 & 0 \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ 1 & \frac{10}{-40} & 0 \\
+ 0 & 0 & 0 \\
+\hline
+\end{tabular}
+&&\Rightarrow
+&v_1&=
+\begin{pmatrix*}[r]
+-10\\-40
+\end{pmatrix*},
+\\
+\lambda_2&=5:
+&
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+   -49 &    10 & 0 \\
+  -196 &    40 & 0 \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ 1 & \frac{10}{-49} & 0 \\
+ 0 & 0 & 0 \\
+\hline
+\end{tabular}
+&&\Rightarrow
+&v_2&=
+\begin{pmatrix*}[r]
+-10\\-49
+\end{pmatrix*}.
+\end{align*}
+Die Vektoren $v_1$ und $v_2$ sind linear unabhängige Eigenvektoren,
+somit können sie als Basis verwendet
+werden, in der $A$ diagonal wird.
+\end{loesung}
+
+\begin{bewertung}
+Charakteristisches Polynom ({\bf X}) 2 Punkte,
+Eigenwerte ({\bf E}) 1 Punkt,
+Gauss-Algorithmus und Eigenvektoren ({\bf G}) 2 Punkte (je ein Punkt
+für jeden Eigenvektor,
+Diagonalisierbarkeit ({\bf D}) 1 Punkt.
+\end{bewertung}
+
+
+

@@ -1,0 +1,88 @@
+Ist die Matrix
+\[
+A = \begin{pmatrix*}[r]
+  -81 &  -104 \\
+   63 &    81 
+\end{pmatrix*}
+\]
+diagonalisierbar? Wenn ja, finden Sie eine Basis, in
+der $A$ diagonal wird.
+
+\begin{loesung}
+Wir bestimmen zunächst das charakteristische Polynom
+mit Hilfe der Determinante:
+\[
+\det (A-\lambda I)
+=
+\left|\,\begin{matrix*}[r]
+-81 - \lambda & -104\\
+63 & 81 - \lambda
+\end{matrix*}\,\right|
+=
+(-81-\lambda)(81-\lambda)-(-104)(63)
+=
+\lambda^2 + 0 \lambda - 9
+=
+(\lambda + 3)(\lambda - 3).
+\]
+Daraus kann man die Eigenwerte $\lambda_1=-3$ und $\lambda_2=3$ ablesen.
+Für jeden dieser Eigenwerte ist jetzt der Gauss-Algorithmus
+durchzuführen, dazu bilden wir die Tableaux
+\begin{align*}
+\lambda_1&=-3:
+&
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+   -78 &  -104 & 0 \\
+    63 &    84 & 0 \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ 1 & \frac{-104}{-78} & 0 \\
+ 0 & 0 & 0 \\
+\hline
+\end{tabular}
+&&\Rightarrow
+&v_1&=
+\begin{pmatrix*}[r]
+104\\-78
+\end{pmatrix*},
+\\
+\lambda_2&=3:
+&
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+   -84 &  -104 & 0 \\
+    63 &    78 & 0 \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ 1 & \frac{-104}{-84} & 0 \\
+ 0 & 0 & 0 \\
+\hline
+\end{tabular}
+&&\Rightarrow
+&v_2&=
+\begin{pmatrix*}[r]
+104\\-84
+\end{pmatrix*}.
+\end{align*}
+Die Vektoren $v_1$ und $v_2$ sind linear unabhängige Eigenvektoren,
+somit können sie als Basis verwendet
+werden, in der $A$ diagonal wird.
+\end{loesung}
+
+\begin{bewertung}
+Charakteristisches Polynom ({\bf X}) 2 Punkte,
+Eigenwerte ({\bf E}) 1 Punkt,
+Gauss-Algorithmus und Eigenvektoren ({\bf G}) 2 Punkte (je ein Punkt
+für jeden Eigenvektor,
+Diagonalisierbarkeit ({\bf D}) 1 Punkt.
+\end{bewertung}
+
+
+

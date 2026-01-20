@@ -1,0 +1,134 @@
+Eine Kamera mit einem $1024\times 1024$-Chip und einem
+Objektiv mit einer Brennweite von 600 Pixeln
+ist im Punkt $C=(-8,-6,0)$ montiert und mit der Matrix
+\[
+D
+=
+\begin{pmatrix*}[r]
+ 0.7071 &  -0.7071 &  0.0000\\
+ 0.1503 &  0.1503 &  0.9771\\
+ 0.6909 &  0.6909 &  -0.2126\end{pmatrix*}
+\]
+auf den Punkt $Q=(5,7,-4)$ ausgerichtet.
+Die beiden Punkte $P_1=(2,12,-13)$ und $P_2=(-4,18,5)$
+werden durch die Kamera auf die Punkte $B_1$ und $B_2$
+abgebildet.
+Wegen perspektivischer Verzerrung wird der Mittelpunkt
+$M$ der Strecke $P_1P_2$ nicht auf den Mittelpunkt
+$M'$ der Strecke $B_1B_2$ auf dem Chip abgebildet.
+Berechnen Sie die Pixelentfernung der Punkte $B_1$
+und $B_2$ vom Bild des Mittelpunktes der Strecke
+$P_1P_2$.
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[>=latex,thick]
+\begin{scope}[xshift=-5cm]
+\node at (0,3.0000) {\includeagraphics[scale=1.2]{pov2024.pdf}};
+\end{scope}
+\draw (0,0) rectangle (6.0000,6.0000);
+\node at (0,0) [left] {$(0,0)$};
+\node at (6.0000,6.0000) [right] {$(1024,1024)$};
+\draw[line width=0.3pt] (0,0) -- (6.0000,6.0000);
+\draw[line width=0.3pt] (6.0000,0) -- (0,6.0000);
+\draw[color=darkred] (2.0977,1.6465) -- (0.2812,4.7461);
+\fill[color=white] (1.1895,3.1963) circle[radius=0.08];
+\draw[color=darkred] (1.1895,3.1963) circle[radius=0.08];
+\fill[color=blue] (1.2773,3.0527)
+	circle[radius=0.08];
+\node[color=blue] at (1.2773,3.0527) [above] {$M'\mathstrut$};
+\fill[color=darkred] (2.0977,1.6465)
+	circle[radius=0.08];
+\node[color=darkred] at (2.0977,1.6465) [above] {$B_1$};
+\fill[color=darkred] (0.2812,4.7461)
+	circle[radius=0.08];
+\node[color=darkred] at (0.2812,4.7461) [above] {$B_2$};
+\end{tikzpicture}
+\end{figure}
+
+\begin{loesung}
+Die Abbildung der Punkte $P_1$ und $P_2$ erfolgt mit
+\[
+p_i \mapsto p_i - c \mapsto D(p_i-c) \mapsto KD(p_i-c)
+\]
+und liefert homogene Koordinaten für die Bildpunkte.
+Die Kameramatrix $K$ enthält Brennweite und
+Mittelpunktskoordinaten des Sensors:
+\[
+K = \begin{pmatrix*}[r]
+ 600 &  0 & 512\\
+  0 & 600 & 512\\
+  0 &  0 &  1
+\end{pmatrix*}.
+\]
+Angewendet auf die beiden gegebenen Punkte erhält man
+die homogenen Koordinaten der Bildpunkte
+\[
+\tilde{b}_1
+=
+\begin{pmatrix*}[r]
+7925.7280\\6223.4680\\22.1090
+\end{pmatrix*},\quad
+\tilde{b}_2
+=
+\begin{pmatrix*}[r]
+875.2864\\14816.8264\\18.2822
+\end{pmatrix*}
+\qquad\text{und}\qquad
+\tilde{b}_m
+=
+\begin{pmatrix*}[r]
+4400.5072\\10520.1472\\20.1956
+\end{pmatrix*}.
+\]
+Division durch die dritte Komponente liefert die
+auf ganze Zahlen gerundeten Pixelkoordinaten der
+Bildpunkte
+\[
+b_1=\begin{pmatrix*}[r]
+358\\281\end{pmatrix*},\quad
+b_2=\begin{pmatrix*}[r]
+48\\810\end{pmatrix*}
+\qquad\text{und}\qquad
+b_m=\begin{pmatrix*}[r]
+218\\521\end{pmatrix*}.
+\]
+Die gesuchten Abstände sind
+\begin{align*}
+\overline{B_1M'}
+&=
+|b_1-b_m|
+=
+\biggl|\begin{pmatrix*}[r]
+140\\-240
+\end{pmatrix*}\biggr|
+=
+277.8489,
+\\
+\overline{B_2M'}
+&=
+|b_2-b_m|
+=
+\biggl|\begin{pmatrix*}[r]
+-170\\289
+\end{pmatrix*}\biggr|
+=
+335.2924.
+\qedhere
+\end{align*}
+\end{loesung}
+
+
+\begin{bewertung}
+Kameramatrix mit Brennweite ({\bf F}), 1 Punkt,
+und Verschiebung für den Mittelpunkt ({\bf V}),
+1 Punkt,
+homogene Koordinaten der beiden Bildpunkte ({\bf H})
+1 Punkt,
+Pixelkoordinaten der beiden Bildpunkte ({\bf P})
+1 Punkt
+Abbildung des Mittelpunktes zwischen $P_1$ und $P_2$
+({\bf M}) 1 Punkt,
+Pixelabstände der Bildpunkte vom Bild des
+Mittelpunktes ({\bf A}) 1 Punkt.
+\end{bewertung}
+

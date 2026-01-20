@@ -1,0 +1,138 @@
+Das Shamisen
+(\begin{CJK}{UTF8}{min}しゃみせん\end{CJK},
+\begin{CJK}{UTF8}{min}三味線\end{CJK})
+ist eine dreisaitige japanische Laute.
+In der Abbildung~\ref{60000039:image} liegt das Shamisen links in
+der $x$-$y$-Ebene mit dem Hals des Shamisen in einem Winkel von $45^\circ$ zur
+$y$-Achse.
+Im rechten Bild befindet es sich in der Stellung, wie es der Spieler
+beim Spielen hält, nämlich in der $x$-$z$-Ebene mit einem Winkel
+von $60^\circ$ zur Vertikalen.
+\begin{teilaufgaben}
+\item 
+Berechnen Sie den Einheitsvektor mit der Richtung des Halses des
+Shamisen für beide Abbildungen.
+\item
+Finden Sie eine Drehmatrix, die das Shamisen in der Abbildung links
+in die Stellung in der Abbildung rechts dreht.
+\item
+Berechnen Sie den Drehwinkel dieser Drehmatrix.
+\end{teilaufgaben}
+
+\begin{figure}[h]
+\centering
+\includeagraphics[]{shamizen.pdf}
+\caption{Das Shamisen liegt in der linken Abbildung in der $x$-$y$-Ebene
+in einem Winkel von $45^\circ$ zur $y$-Achse, in der rechten Abbildung
+ist es in die Stellung gedreht, in der es der Spieler hält, nämlich in
+der $x$-$z$-Ebene mit einem Winkel von $60^\circ$ zur Vertikalen.
+\label{60000039:image}}
+\end{figure}
+
+\begin{hinweis}
+Verwenden Sie den Taschenrechner zur Berechnung der Matrix $D$.
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item Da die roten Vektoren in den Koordinatenebenen liegen und die
+Winkel bekannt sind, können ihre Koordinaten sofort als
+\[
+\vec{a}_1
+=
+\begin{pmatrix*}
+-\frac{\!\sqrt{2}}2\\
+\frac{\!\sqrt{2}}2\\
+0
+\end{pmatrix*}
+\qquad\text{und}\qquad
+\vec{b}_1
+=
+\begin{pmatrix*}
+-\frac{\!\sqrt{3}}2\\
+0\\
+\frac12
+\end{pmatrix*}
+\]
+angegeben werden.
+\item
+Zur Berechnung der Drehmatrix sind zwei weitere Vektoren nötig.
+Wir wählen dazu den Vektor senkrecht auf die Achse in der Ebene 
+des Shamisen.
+In den beiden Bildern sind dies die Richtungen
+\[
+\vec{a}_2
+=
+\begin{pmatrix*}
+-\frac{\!\sqrt{2}}2\\
+-\frac{\!\sqrt{2}}2\\
+0
+\end{pmatrix*}
+\qquad\text{und}\qquad
+\vec{b}_2
+=
+\begin{pmatrix*}
+\frac12\\
+0\\
+\frac{\!\sqrt{3}}2
+\end{pmatrix*}
+\]
+Als dritten Vektor verwenden wir den Normalenvektor auf der Ebene
+des Shamisen.
+In der Lage links ist dies der Standardbasisvektor $\vec{e}_3$, in der
+rechten Lage ist es $\vec{e}_2$.
+Damit erhalten wir die Gleichung
+\[
+D
+\underbrace{
+\begin{pmatrix*}
+-\frac{\!\sqrt{2}}2 & -\frac{\!\sqrt{2}}2 & 0 \\
+ \frac{\!\sqrt{2}}2 & -\frac{\!\sqrt{2}}2 & 0 \\
+         0          &          0          & 1
+\end{pmatrix*}
+}_{\displaystyle =A}
+=
+\underbrace{
+\begin{pmatrix*}
+-\frac{\!\sqrt{3}}2 &     \frac12        & 0 \\
+        0           &         0          & 1 \\
+     \frac12        & \frac{\!\sqrt{3}}2 & 0
+\end{pmatrix*}
+}_{\displaystyle =B}
+\]
+für die Drehmatrix $D$.
+Durch Auflösen nach $D$ erhalten wir
+\[
+D
+=
+BA^{-1}
+=
+\begin{pmatrix*}[r]
+   0.258819& -0.965925&  0.000000\\
+   0.000000&  0.000000&  1.000000\\
+  -0.965925& -0.258819&  0.000000
+\end{pmatrix*}.
+\]
+\item
+Die Spur von $D$ ist das Element in der linken oberen Ecke von $D$.
+Daraus kann man den Drehwinkel mit Hilfe der Spurformel finden:
+\begin{align*}
+\cos\alpha
+&=
+\frac{\operatorname{Spur}D-1}2
+=
+\frac{0.258819-1}2
+= -0.370590
+&&\Rightarrow&
+\alpha &= 111.752^\circ
+\qedhere
+\end{align*}
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Bestimmung der roten Vektoren ({\bf V}) je 1 Punkt,
+Bestimmung von zwei weiteren Vektorpaaren ({\bf P}) je 1 Punkt,
+Bestimmung der Drehmatrix $D$ ({\bf D}) 1 Punkt,
+Drehwinkel $\alpha$ ({\bf A}) 1 Punkt.
+\end{bewertung}

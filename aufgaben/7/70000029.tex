@@ -1,0 +1,136 @@
+Für welche Werte von $a$ ist die Matrix
+\[
+A=\begin{pmatrix}
+1   & 1-a       &0       \\
+1-a & 2a^2-2a+1 &a-a^2   \\
+0   & a-a^2     &a^2-2a+2
+\end{pmatrix}
+\]
+positiv definit?
+
+\begin{loesung}
+Die Matrix ist positiv definit, wenn sie sich als $A=L\transpose{L}$
+schreiben lässt mit einer unteren Dreiecksmatrix $L$.
+Gesucht ist also eine untere Dreiecksmatrix
+\[
+L=
+\begin{pmatrix}
+l_{11}&     0&     0\\
+l_{21}&l_{22}&     0\\
+l_{31}&l_{32}&l_{33}
+\end{pmatrix}
+\]
+derart, dass $A=L\transpose{L}$, also
+\[
+L\transpose{L}
+=
+\begin{pmatrix}
+l_{11}&     0&     0\\
+l_{21}&l_{22}&     0\\
+l_{31}&l_{32}&l_{33}
+\end{pmatrix}
+\begin{pmatrix}
+l_{11}&l_{21}&l_{31}\\
+     0&l_{22}&l_{32}\\
+     0&     0&l_{33}
+\end{pmatrix}
+=
+A.
+\]
+Daraus gewinnt man Schritt für Schritt
+\begin{align*}
+a_{11}
+&=
+% a_11
+1
+&&=
+l_{11}^2
+&&\Rightarrow&
+l_{11}
+&=
+1
+\\
+a_{12}
+&=
+% a_12
+1-a
+&&=
+l_{11}l_{21}
+=
+2l_{21}
+&&\Rightarrow&
+l_{21}
+&=
+1-a
+\\
+a_{13}
+&=
+% a_13
+0
+&&=
+l_{11}l_{31}
+=2l_{31}
+&&\Rightarrow&
+l_{31}
+&=
+0
+\\
+a_{22}
+&=
+% a_22
+2a^2-2a+1
+&&=
+l_{21}^2 + l_{22}^2 = (1-a)^2 + l_{22}^2
+&&\Rightarrow&
+l_{22}
+&=
+|a|
+\\
+a_{23}
+&=
+% a_23
+a-a^2
+&&=
+l_{21}l_{31}+l_{22}l_{32}
+=
+|a|l_{32}
+&&\Rightarrow& l_{32}
+&=
+(a-a^2)/|a|
+\\
+a_{33}
+&=
+% a_33
+a^2-2a+2
+&&=
+l_{31}^2+l_{32}^2+l_{33}^2
+=
+(a-a^2)^2/a^2+l_{33}^2
+=
+a^2-2a+1+l_{33}^2
+&&\Rightarrow& l_{33}
+&=
+1
+.
+\end{align*}
+Damit ist eine Matrix
+\[
+L
+=
+\begin{pmatrix*}
+1&0&0\\
+1-a&|a|&0\\
+0&(a-a^2)/|a|&1
+\end{pmatrix*}
+\]
+mit den verlangten Eigenschaften gefunden.
+Der Algorithmus funktioniert wegen der Division durch $|a|$ bei der
+Berechnung von $l_{32}$ genau dann, wenn $a\ne 0$.
+Ausser für $a=0$ ist $A$ also immer positiv definit.
+\end{loesung}
+
+\begin{bewertung}
+Durchführung der Cholesky-Zerlegung ({\bf C}) 5 Punkte,
+Schlussfolgerung ``positiv definit'' ({\bf P}) 1 Punkt.
+\end{bewertung}
+

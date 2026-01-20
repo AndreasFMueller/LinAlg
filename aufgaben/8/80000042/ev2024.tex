@@ -1,0 +1,88 @@
+Ist die Matrix
+\[
+A = \begin{pmatrix*}[r]
+  -12 &    28 \\
+   -2 &     3 
+\end{pmatrix*}
+\]
+diagonalisierbar? Wenn ja, finden Sie eine Basis, in
+der $A$ diagonal wird.
+
+\begin{loesung}
+Wir bestimmen zunächst das charakteristische Polynom
+mit Hilfe der Determinante:
+\[
+\det (A-\lambda I)
+=
+\left|\,\begin{matrix*}[r]
+-12 - \lambda & 28\\
+-2 & 3 - \lambda
+\end{matrix*}\,\right|
+=
+(-12-\lambda)(3-\lambda)-(28)(-2)
+=
+\lambda^2 + 9 \lambda + 20
+=
+(\lambda + 5)(\lambda + 4).
+\]
+Daraus kann man die Eigenwerte $\lambda_1=-5$ und $\lambda_2=-4$ ablesen.
+Für jeden dieser Eigenwerte ist jetzt der Gauss-Algorithmus
+durchzuführen, dazu bilden wir die Tableaux
+\begin{align*}
+\lambda_1&=-5:
+&
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+    -7 &    28 & 0 \\
+    -2 &     8 & 0 \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ 1 & \frac{28}{-7} & 0 \\
+ 0 & 0 & 0 \\
+\hline
+\end{tabular}
+&&\Rightarrow
+&v_1&=
+\begin{pmatrix*}[r]
+-28\\-7
+\end{pmatrix*},
+\\
+\lambda_2&=-4:
+&
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+    -8 &    28 & 0 \\
+    -2 &     7 & 0 \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}|>{$}r<{$}|}
+\hline
+ 1 & \frac{28}{-8} & 0 \\
+ 0 & 0 & 0 \\
+\hline
+\end{tabular}
+&&\Rightarrow
+&v_2&=
+\begin{pmatrix*}[r]
+-28\\-8
+\end{pmatrix*}.
+\end{align*}
+Die Vektoren $v_1$ und $v_2$ sind linear unabhängige Eigenvektoren,
+somit können sie als Basis verwendet
+werden, in der $A$ diagonal wird.
+\end{loesung}
+
+\begin{bewertung}
+Charakteristisches Polynom ({\bf X}) 2 Punkte,
+Eigenwerte ({\bf E}) 1 Punkt,
+Gauss-Algorithmus und Eigenvektoren ({\bf G}) 2 Punkte (je ein Punkt
+für jeden Eigenvektor,
+Diagonalisierbarkeit ({\bf D}) 1 Punkt.
+\end{bewertung}
+
+
+

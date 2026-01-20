@@ -1,0 +1,147 @@
+Für welche Werte von $b$ ist die Matrix
+\[
+A=\begin{pmatrix}
+ b^2 & b     & -b^2  \\
+ b   & b^2+1 & 0     \\
+-b^2 &     0 & 2b^2+1
+\end{pmatrix}
+\]
+positiv definit?
+
+\begin{loesung}
+Die Matrix ist positiv definit, wenn sie sich als $A=L\transpose{L}$
+schreiben lässt mit einer unteren Dreiecksmatrix $L$.
+Gesucht ist also eine untere Dreiecksmatrix
+\[
+L=
+\begin{pmatrix}
+l_{11}&     0&     0\\
+l_{21}&l_{22}&     0\\
+l_{31}&l_{32}&l_{33}
+\end{pmatrix}
+\]
+derart, dass $A=L\transpose{L}$, also
+\[
+L\transpose{L}
+=
+\begin{pmatrix}
+l_{11}&     0&     0\\
+l_{21}&l_{22}&     0\\
+l_{31}&l_{32}&l_{33}
+\end{pmatrix}
+\begin{pmatrix}
+l_{11}&l_{21}&l_{31}\\
+     0&l_{22}&l_{32}\\
+     0&     0&l_{33}
+\end{pmatrix}
+=
+A.
+\]
+Daraus gewinnt man Schritt für Schritt
+\begin{align*}
+a_{11}
+&=
+% a_11
+b^2
+&&=
+l_{11}^2
+&&\Rightarrow&
+l_{11}
+&=
+|b|
+\\
+a_{12}
+&=
+% a_12
+b
+&&=
+l_{11}l_{21}
+=
+|b|l_{21}
+&&\Rightarrow&
+l_{21}
+&=
+b/|b|
+\\
+a_{13}
+&=
+% a_13
+-b^2
+&&=
+l_{11}l_{31}
+=|b| l_{31}
+&&\Rightarrow&
+l_{31}
+&=
+-b^2/|b|
+\\
+a_{22}
+&=
+% a_22
+b^2+1
+&&=
+l_{21}^2 + l_{22}^2 = 1 + l_{22}^2
+&&\Rightarrow&
+l_{22}
+&=
+|b|
+\\
+a_{23}
+&=
+% a_23
+0
+&&=
+l_{21}l_{31}+l_{22}l_{32}
+=
+-b
++|b|l_{32}
+&&\Rightarrow& l_{32}
+&=
+ b/|b|
+\\
+a_{33}
+&=
+% a_33
+2b^2+1
+&&=
+l_{31}^2+l_{32}^2+l_{33}^2
+=
+b^2+1+l_{33}^2
+&&\Rightarrow& l_{33}
+&=
+|b|
+.
+\end{align*}
+Damit ist eine Matrix
+\[
+L
+=
+\begin{pmatrix*}
+|b|      &    0   &   0  \\
+b/|b|    &   |b|  &   0  \\
+-b^2/|b| &  b/|b| &  |b|
+\end{pmatrix*}
+\]
+mit den genannten Eigenschaften gefunden.
+Der Algorithmus funktioniert wegen der Division durch $|b|$ bei der
+Gerechnung von $l_{21}$ genau dann, wenn $b\ne 0$.
+Damit folgt, dass die Matrix genau dann positiv definit ist, wenn $b\ne 0$
+ist.
+\[
+L
+=
+\begin{pmatrix*}
+b  &  0  &  0  \\
+1  &  b  &  0  \\
+-b &  1  &  b
+\end{pmatrix*}
+\]
+Für $b>0$ kann man die Matrix $L$ noch etwas einfacher als
+schreiben.
+\end{loesung}
+
+\begin{bewertung}
+Durchführung der Cholesky-Zerlegung ({\bf C}) 5 Punkte,
+Schlussfolgerung ``positiv definit'' ({\bf P}) 1 Punkt.
+\end{bewertung}
+

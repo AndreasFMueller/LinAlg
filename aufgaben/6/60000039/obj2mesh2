@@ -1,0 +1,107 @@
+#! /bin/bash
+#
+# obj2mesh2 -- convert wavefront obj file to mesh2 for povray
+#
+# (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
+#
+set -x
+
+export LANG=C
+
+objfile=${1}
+mesh2file=${2}
+vertices=`egrep -e '^v ' ${objfile} | wc -l`
+normals=`egrep -e '^vn ' ${objfile} | wc -l`
+facelines=`egrep -e '^f ' ${objfile} | wc -l`
+facewords=`egrep -e '^f ' ${objfile} | wc -w`
+faces=`expr ${facewords} - 3 \* ${facelines}`
+
+awk 'BEGIN {
+	vertices = '"${vertices}"'
+}
+/^v /	{
+	if (vertexcounter == 0) {
+		printf("    vertex_vectors {\n")
+		printf("\t%d,\n", vertices)
+	}
+	vertexcounter = vertexcounter + 1
+	printf("\t<%s,%s,%s>", $2, $4, $3)
+	x = x + $2
+	y = y + $4
+	z = z + $3
+	if (vertexcounter < vertices) {
+		printf(",\n")
+	} else {
+		printf("\n    }\n")
+	}
+}' ${objfile} > ${mesh2file}.vertices
+
+awk 'BEGIN {
+	normals = '"${normals}"'
+}
+/^vn/	{
+	if (normalcounter == 0) {
+		printf("    normal_vectors {\n")
+		printf("\t%d,\n", normals)
+	}
+	normalcounter = normalcounter + 1
+	printf("\t<%s,%s,%s>", $2, $4, $3)
+	if (normalcounter < normals) {
+		printf(",\n")
+	} else {
+		printf("\n    }\n")
+	}
+}' ${objfile} > ${mesh2file}.normals
+
+awk 'BEGIN {
+	faces = '"${faces}"'
+}
+/^f /	{
+	if (facecounter == 0) {
+		printf("    face_indices {\n")
+		printf("\t%d,\n", faces)
+	}
+	l = NF
+	for (i = 2; i <= l; i++) {
+		split($i, a, "/")
+		vertices[i - 2] = a[1] - 1
+		normals[i - 2] = a[3] - 1
+	}
+	l = l - 1
+	for (k = 1; k <= l - 2; k++) {
+		if (k > 1) {
+			printf(",")
+		}
+		printf("\t<%d,%d,%d>", vertices[0], vertices[k], vertices[k+1])
+		facecounter = facecounter + 1
+	}
+	if (facecounter < faces) {
+		printf(",\n")
+	} else {
+		printf("\n    }\n")
+	}
+}' ${objfile} > ${mesh2file}.faces
+
+echo "mesh2 {" > ${mesh2file}
+cat ${mesh2file}.vertices >> ${mesh2file}
+#cat ${mesh2file}.normals >> ${mesh2file}
+cat ${mesh2file}.faces >> ${mesh2file}
+echo "}" >> ${mesh2file}
+
+awk 'BEGIN {
+	x = 0.0
+	y = 0.0
+	z = 0.0
+	vertices = 0
+}
+/^v /	{
+	x = x + $2
+	y = y + $4
+	z = z + $3
+	vertices = vertices + 1;
+}
+END {
+	printf("#declare center_of_mass = <%.4f,%.4f,%.4f>;\n", x/vertices, y/vertices, z/vertices)
+}' ${objfile} >> ${mesh2file}
+
+

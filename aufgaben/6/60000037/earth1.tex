@@ -1,0 +1,75 @@
+%
+% earth1.tex
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\usetikzlibrary{arrows,intersections,math}
+\usepackage{ifthen}
+\begin{document}
+
+\def\punkt#1#2{
+	\fill[color=white,opacity=0.5] #1 circle[radius=0.2];
+	\node at #1 {$#2$};
+}
+
+\newboolean{showgrid}
+\setboolean{showgrid}{false}
+%\setboolean{showgrid}{true}
+\def\breite{8}
+\def\hoehe{4}
+
+\begin{tikzpicture}[>=latex,thick]
+
+% Povray Bild
+\begin{scope}[xshift=-4cm]
+\node at (0,0) {\includegraphics[width=7.0cm]{earth1.jpg}};
+\end{scope}
+\begin{scope}[xshift=4cm]
+\node at (0,0) {\includegraphics[width=7.0cm]{verdreht1.jpg}};
+\end{scope}
+
+% Gitter
+\ifthenelse{\boolean{showgrid}}{
+\draw[step=0.1,line width=0.1pt] (-\breite,-\hoehe) grid (\breite, \hoehe);
+\draw[step=0.5,line width=0.4pt] (-\breite,-\hoehe) grid (\breite, \hoehe);
+\draw                            (-\breite,-\hoehe) grid (\breite, \hoehe);
+\fill (0,0) circle[radius=0.05];
+}{}
+
+\coordinate (A) at (-5.4,2.0);
+\coordinate (B)  at (-1.8,2.1);
+\punkt{(A)}{A}
+\punkt{(B)}{B}
+
+\coordinate (x) at (-6.3,-0.8);
+\coordinate (y) at (-0.6,-0.5);
+\coordinate (z) at (-3.8,3.5);
+\punkt{(x)}{x}
+\punkt{(y)}{y}
+\punkt{(z)}{z}
+
+\coordinate (Aprime) at (0.6,-0.2);
+\coordinate (Bprime) at (3,-0.7);
+\coordinate (nprime)  at (4.3,3.1);
+\punkt{(Aprime)}{A\!'}
+\punkt{(Bprime)}{B'}
+\punkt{(nprime)}{\vec{n}'}
+
+\coordinate (xprime) at (1.7,-0.8);
+\coordinate (yprime) at (7.4,-0.5);
+\coordinate (zprime) at (4.2,3.5);
+\punkt{(xprime)}{x}
+\punkt{(yprime)}{y}
+\punkt{(zprime)}{z}
+
+
+\end{tikzpicture}
+
+\end{document}
+

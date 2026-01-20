@@ -1,0 +1,150 @@
+Für welche Werte von $c$ ist die Matrix
+\[
+A=\begin{pmatrix}
+ 4 &     2 &  -2 \\
+ 2 & c^2+1 & c-1 \\
+-2 & c  -1 &   6
+\end{pmatrix}
+\]
+positiv definit?
+
+\begin{loesung}
+Die Matrix ist positiv definit, wenn sie sich als $A=L\transpose{L}$
+mit einer unteren Dreiecksmatrix $L$ schreiben lässt.
+Gesucht ist also eine untere Dreiecksmatrix
+\[
+L=
+\begin{pmatrix}
+l_{11}&     0&     0\\
+l_{21}&l_{22}&     0\\
+l_{31}&l_{32}&l_{33}
+\end{pmatrix}
+\]
+derart, dass $A=L\transpose{L}$, also
+\[
+L\transpose{L}
+=
+\begin{pmatrix}
+l_{11}&     0&     0\\
+l_{21}&l_{22}&     0\\
+l_{31}&l_{32}&l_{33}
+\end{pmatrix}
+\begin{pmatrix}
+l_{11}&l_{21}&l_{31}\\
+     0&l_{22}&l_{32}\\
+     0&     0&l_{33}
+\end{pmatrix}
+=
+A.
+\]
+Daraus gewinnt man Schritt für Schritt
+\begin{equation*}
+\renewcommand{\arraycolsep}{3pt}
+\begin{array}{rclclclccclcrcl}
+a_{11}
+&=&
+% a_11
+4
+&=&
+l_{11}^2
+&&
+&&
+&&\Rightarrow&&
+l_{11}
+&=&
+2
+\\
+a_{12}
+&=&
+% a_12
+2
+&=&
+l_{11}l_{21}
+&=&
+2l_{21}
+&&
+&&\Rightarrow&&
+l_{21}
+&=&
+1
+\\
+a_{13}
+&=&
+% a_13
+-2
+&=&
+l_{11}l_{31}
+&=&
+2l_{31}
+&&
+&&\Rightarrow&&
+l_{31}
+&=&
+-1
+\\
+a_{22}
+&=&
+% a_22
+c^2+1
+&=&
+l_{21}^2 + l_{22}^2
+&=&
+1 + l_{22}^2
+&&
+&&\Rightarrow&&
+l_{22}
+&=&
+|c|
+\\
+a_{23}
+&=&
+% a_23
+c-1
+&=&
+l_{21}l_{31}+l_{22}l_{32}
+&=&
+-1+|c|l_{32}
+&&
+&&\Rightarrow&&
+l_{32}
+&=&
+c/|c|
+\\
+a_{33}
+&=&
+% a_33
+6
+&=&
+l_{31}^2+l_{32}^2+l_{33}^2
+&=&
+1+1+l_{33}^2
+&=&
+2+l_{33}^2
+&&\Rightarrow&&
+l_{33}
+&=&
+2
+.
+\end{array}
+\end{equation*}
+Damit ist eine Matrix
+\[
+L
+=
+\begin{pmatrix*}[r]
+2&0&0\\
+1&c&0\\
+-1&1&2
+\end{pmatrix*}
+\]
+mit den verlangten Eigenschaften gefunden.
+Der Algorithmus funktioniert wegen der Division durch $|c|$ bei der
+Berechnung von $l_{32}$ genau dann, wenn $c\ne 0$ ist.
+Somit ist $A$ genau dann positiv, wenn $c\ne 0$.
+\end{loesung}
+
+\begin{bewertung}
+Durchführung der Cholesky-Zerlegung ({\bf C}) 5 Punkte,
+Schlussfolgerung ``positiv definit'' ({\bf P}) 1 Punkt.
+\end{bewertung}
+
