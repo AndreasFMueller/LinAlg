@@ -1,0 +1,170 @@
+Betrachten Sie das Gleichungssystem 
+mit Koeffizientenmatrix
+\[
+A
+=
+\begin{pmatrix*}[r]
+2& -14&  -2\\
+1& a-6&-a-2\\
+3& -20&   1
+\end{pmatrix*}
+\qquad
+\text{und rechter Seite}
+\qquad
+b
+=
+\begin{pmatrix*}[c]
+2c+12\\
+c-2a+4\\
+3c+21
+\end{pmatrix*}.
+\]
+Es hängt von den zwei Parametern $a$ und $c$ ab.
+\begin{teilaufgaben}
+\item
+Für welche Werte von $a$ ist die Lösung des Gleichungssystems $Ax=b$
+nicht eindeutig bestimmt?
+\item
+Welchen Rang hat die die Matrix $A$ im Falle der in a) gefundenen
+Parameterwerte?
+Bestimmen Sie auch die Lösungsmenge.
+\item 
+Für andere Werte von $a$ ist die Lösung eindeutig bestimmt,
+finden Sie die Lösung.
+\end{teilaufgaben}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir wenden den Gauss-Algorithmus an:
+\begin{align}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\pivotoperationcircle{0.42}{-1.3mm}{-1.0mm}
+2& -14&  -2&  2c+12\\
+\forwardreduction{0.42}{0.98}{-1.3mm}{-6.2mm}
+1& a-6&-a-2& c-2a+4\\
+3& -20&   1&  3b+21\\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1& -7&  -1&  c+6\\
+0&
+\pivotoperation{1.1}{0.42}{-1.3mm}{-1.0mm}
+   a+1&-a-1& -2a-2\\
+0&
+\forwardreduction{0.42}{0.48}{-1.3mm}{-1.3mm}
+     1&   4&      3\\
+\hline
+\end{tabular}
+\label{10000075:regtableau}
+\intertext{Im Fall $a+1=0$ entsteht auf der zweiten Zeile eine Nullzeile,
+das Gleichungssystem ist in diesem Fall singulär, das Tableau wird
+nach Vertauschung der zweiten und dritten Zeile zu}
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&
+\backwardsubstitution{0.68}{0.44}{-1.2mm}{-1.2mm}
+   {-7}&  -1&  c+6\\
+0&   1 &   4&    3\\
+0&   0 &   0&    0\\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&   0&  27& c+27\\
+0&   1&   4&    3\\
+0&   0&   0&    0\\
+\hline
+\end{tabular}.
+\label{10000075:schlusstableau}
+\end{align}
+Die Lösung ist also für $a= -1$  nicht eindeutig bestimmt.
+\item
+Im Fall $a=-1$ gibt es eine frei wählbare Variable, somit ist 
+der Rang $\rank A = 2$.
+Aus dem Schlusstableau~\eqref{10000075:schlusstableau}
+kann man die Lösungsmenge
+\[
+\mathbb{L}
+=
+\left\{
+\left.
+\begin{pmatrix*}[r]
+c+27\\
+   3\\
+   0
+\end{pmatrix*}
++z
+\begin{pmatrix*}[r]
+-27\\
+ -4\\
+  1
+\end{pmatrix*}
+\right|
+z\in\mathbb{R}
+\right\}
+\]
+bestimmen.
+\item
+Für $a\ne -1$ ist das Gleichungssystem regulär und das Element
+$a+1$ in der zweiten Zeile des rechten Tableaus in
+\eqref{10000075:regtableau} kann als Pivot-Element
+verwendet werden.
+Der Gauss-Algorithmus lässt sich damit zu Ende führen:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&  -7&
+\backwardsubstitution{0.68}{0.88}{-1.2mm}{-5.8mm}
+       {-1}& c+6\\
+0&   1&  -1&  -2\\
+0&   0&
+\pivotoperationcircle{0.42}{-1.3mm}{-1.0mm}
+          5&   5\\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&
+\backwardsubstitution{0.68}{0.44}{-1.2mm}{-1.2mm}
+  {-7}&   0& c+7\\
+0&   1&   0&  -1\\
+0&   0&   1&   1\\
+\hline
+\end{tabular}
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&   0&   0&   c\\
+0&   1&   0&  -1\\
+0&   0&   1&   1\\
+\hline
+\end{tabular}.
+\end{align*}
+Daraus kann man die Lösung
+\[
+x
+=
+\begin{pmatrix*}[r]
+c\\-1\\1
+\end{pmatrix*}
+\]
+ablesen.
+\qedhere
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Gauss-Algorithmus ({\bf G}) 2 Punkte,
+Regularitätsbedingung $a+1\ne 0$ ({\bf A}) 1 Punkt.
+Rang ({\bf R}) 1 Punkt.
+Lösungsmenge ({\bf L}) 1 Punkt,
+Lösung im regulären Fall ({\bf X}) 1 Punkt.
+\end{bewertung}
+

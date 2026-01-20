@@ -1,0 +1,27 @@
+/*
+ * l.maxima -- computation for problem 10000075
+ *
+ * (c) 2023 Prof Dr Andreas Müller
+ */
+L: matrix(
+[   2,    0,    0  ],
+[   1,  a+1,    0  ],
+[   3,    1,    5  ]
+);
+R: matrix(
+[   1,   -7,   -1  ],
+[   0,    1,   -1  ],
+[   0,    0,    1  ]
+);
+x: matrix(
+[   b   ],
+[  -1   ],
+[   1   ]
+);
+A: L.R;
+b: A.x;
+invert(A).b;
+
+T: addcol(A, b);
+
+echelon(T);

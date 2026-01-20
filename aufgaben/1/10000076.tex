@@ -1,0 +1,242 @@
+Betrachten Sie das Gleichungssystem mit der Koeffizientenmatrix
+\[
+A
+=
+\begin{pmatrix*}
+ u &   u v  &   u v   \\
+ 1 &  v + u & u v + v \\
+ 1 &  v + 1 & 2 v + u 
+\end{pmatrix*}
+\quad\text{und der rechten Seite}\quad
+b
+=
+\begin{pmatrix*}
+-uv-u\\
+-2uv-v+u-1\\
+-3v-2u
+\end{pmatrix*}.
+\]
+\begin{teilaufgaben}
+\item
+Für welche Werte der Parameter $u$ und $v$ ist die Lösung des
+Gleichungssystems nicht eindeutig bestimmt?
+Bestimmen Sie den Rang der Matrix $A$ in diesen Fällen.
+\item
+Finden Sie die Lösung des Gleichungssystmes $Ax=b$ in dem Fall, wo
+die Lösung eindeutig bestimmt ist.
+\item
+Bestimmen Sie die LU-Zerlegung von $A$.
+\end{teilaufgaben}
+
+\begin{hinweis}
+In a) ist die Lösungsmenge nicht verlangt.
+\end{hinweis}
+
+\begin{loesung}
+\begin{teilaufgaben}
+\item
+Wir wenden den Gauss-Algorithmus an.
+Das erste Pivot-Element ist $u$, für $u=0$ wird die erste Zeile
+zu einer Nullzeile.
+In diesem Fall wird das Gleichungssystem zu
+\begin{align}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\pivotoperationcircle{0.42}{-1.3mm}{-1.0mm}
+u& uv  & uv   & -uv-u       \\
+\forwardreduction{0.42}{0.98}{-1.3mm}{-6.2mm}
+1& u+v & uv+v & -2uv+u-v+1  \\
+1& v+1 & u+2v & -2u-3v      \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+0&  0  &  0 &     0 \\
+1&  v  &  v &  -v-1 \\
+1& v+1 & 2v & -3v   \\
+\hline
+\end{tabular}
+\notag
+\\
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\pivotoperationcircle{0.42}{-1.3mm}{-1.0mm}
+1&  v  &  v &  -v-1 \\
+\forwardreduction{0.42}{0.98}{-1.3mm}{-6.2mm}
+1& v+1 & 2v & -3v   \\
+0&  0  &  0 &     0 \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&  v &  v &  -v-1 \\
+0&  1 &  v & -2v-1 \\
+0&  0 &  0 &   0   \\
+\hline
+\end{tabular}
+\label{10000075:singtableau}
+\end{align}
+Da die Lösungsmenge nicht verlangt war, ist es auch nicht nötig, den
+Gauss-Algorithmus ganz zu Ende zu führen (siehe auch die Diskussion 
+weiter unten).
+Aus dem Tableau \eqref{10000075:singtableau} kann man ablesen,
+dass es keine weiteren Nullzeilen mehr geben kann, daher ist
+der Rang $\rank A=2$.
+\item
+Im Fall $u\ne 0$ kann der Gauss-Algorithmus durchgeführt werden:
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+\pivotoperationcircle{0.42}{-1.3mm}{-1.0mm}
+u& uv  & uv   & -uv-u       \\
+\forwardreduction{0.42}{0.98}{-1.3mm}{-6.2mm}
+1& u+v & uv+v & -2uv+u-v-1  \\
+1& v+1 & u+2v & -2u-3v      \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&  v  &  v  & - v-1       \\
+0&
+\pivotoperationcircle{0.42}{-1.3mm}{-1.0mm}
+    u  & uv  & -2uv+u    \\
+0&
+\forwardreduction{0.42}{0.48}{-1.3mm}{-1.3mm}
+    1  & u+v & -2u-2v+1      \\
+\hline
+\end{tabular}
+\\
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&  v  &  v  & - v-1     \\
+0&  1  &  v  & -2v+1    \\
+0&  0  &
+\pivotoperationcircle{0.42}{-1.3mm}{-1.0mm}
+          u  & -2u        \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&  v  &
+\backwardsubstitution{0.42}{0.88}{-1.2mm}{-5.8mm}
+          v  &  -v-1 \\
+0&  1  &  v  & -2v+1 \\
+0&  0  &  1  &    -2 \\
+\hline
+\end{tabular}
+\\
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}r<{$}|}
+\hline
+1&
+\backwardsubstitution{0.42}{0.44}{-1.2mm}{-1.2mm}
+    v  &  0  &  v-1 \\
+0&  1  &  0  &  1   \\
+0&  0  &  1  & -2   \\
+\hline
+\end{tabular}
+&\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}r<{$}|}
+\hline
+1&  0  &  0  & -1 \\
+0&  1  &  0  &  1 \\
+0&  0  &  1  & -2 \\
+\hline
+\end{tabular}
+\qquad\Rightarrow\qquad
+x
+=
+\begin{pmatrix*}[r]
+-1\\1\\-2
+\end{pmatrix*}.
+\end{align*}
+\item
+Aus der Durchführung des Gauss-Algorithmus im Fall $u\ne 0$ kann man
+die LU-Zerlegung ablesen:
+\[
+L
+=
+\begin{pmatrix}
+u&0&0\\
+1&u&0\\
+1&1&u
+\end{pmatrix}
+,
+\;
+U=
+\begin{pmatrix}
+1&v&v\\
+0&1&v\\
+0&0&1
+\end{pmatrix}
+\qquad\Rightarrow\qquad
+LU
+=
+A.
+\qedhere
+\]
+\end{teilaufgaben}
+\end{loesung}
+
+\begin{bewertung}
+Gauss-Algorithmus ({\bf G}) 2 Punkte,
+Regularitätsbedingung $u\ne 0$ ({\bf U}) 1 Punkt,
+Rang ({\bf R}) 1 Punkt,
+Lösung im regulären Fall ({\bf X}) 1 Punkt,
+LU-Zerlegung ({\bf L}) 1 Punkt.
+\end{bewertung}
+
+\begin{diskussion}
+Im Falle $u=0$ war es nicht nötig, die Lösungsmenge zu bestimmen
+und daher musste auch der Gauss-Algorithmus nicht vollständig durchgeführt
+werden.
+Hier soll dies nachgeholt werden.
+Im Anschluss an \eqref{10000075:singtableau} findet man
+\begin{align*}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&
+\backwardsubstitution{0.42}{0.44}{-1.2mm}{-1.3mm}
+    v &  v &  -v-1 \\
+0&  1 &  v & -2v-1 \\
+0&  0 &  0 &   0   \\
+\hline
+\end{tabular}
+\to
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}|}
+\hline
+1&  0 &  v-v^2 & -1+2v^2 \\
+0&  1 &  v     & -2v-1 \\
+0&  0 &  0     &   0   \\
+\hline
+\end{tabular}
+\end{align*}
+für das Schlusstableau.
+Daraus ergibt sich die Lösungsmenge
+\[
+\mathbb{L}
+=
+\left\{\left.
+\begin{pmatrix}
+2v^2-1\\
+-2v-1 \\
+0
+\end{pmatrix}
++
+z
+\begin{pmatrix}
+v^2-v\\-v\\1
+\end{pmatrix}
+\;
+\right|
+\;
+z\in\mathbb{R}
+\right\}.
+\]
+\end{diskussion}

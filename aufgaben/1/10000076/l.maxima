@@ -1,0 +1,28 @@
+/*
+ * l.maxima
+ *
+ * (c) 2023 Prof Dr Andreas Müller
+ */
+
+L: matrix(
+[   u,   0,   0   ],
+[   1,   u,   0   ],
+[   1,   1,   u   ]
+);
+R: matrix(
+[   1,   v,   v   ],
+[   0,   1,   v   ],
+[   0,   0,   1   ]
+);
+A: L.R;
+x: matrix(
+[  -1  ],
+[   1  ],
+[  -2  ]
+);
+b: expand(A.x);
+
+T: addcol(A, b);
+echelon(T);
+T: subst(0, u, T);
+echelon(T);
