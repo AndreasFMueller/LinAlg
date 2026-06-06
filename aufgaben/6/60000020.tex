@@ -9,11 +9,11 @@ Drehmatrix
 \[
 D
 =
-\begin{pmatrix}
-0 &    -1   &  0\\
-\phantom{-}0.334 &0 & 0.943\\
+\begin{pmatrix*}[r]
+0\phantom{.000} &    -1   &  0\phantom{.000}\\
+0.334 &0 & 0.943\\
 -0.943 &0 & 0.334\\
-\end{pmatrix}
+\end{pmatrix*}
 \]
 gegeben. Seine Kamera hat eine Brennweite von $f=630$ und einen 
 $480\times 640$-Chip.
@@ -29,8 +29,8 @@ $480\times 640$-Chip.
 
 \coordinate (O) at (0.0,-0.3,-2.6);
 
-\def\dx{8};
-\def\dz{1};
+\def\dx{8}
+\def\dz{1}
 \draw[black](O)--++(\dx,0,0)--++(0,0,\dz);
 \shade [ball color=CadetRed] ($(O)+(\dx,0,\dz)$) circle (3pt)node[left=1pt]{$P$};
 
@@ -89,26 +89,26 @@ Die Kameramatrix $K$ kann aus den Aufgabendaten abgelesen werden, sie ist
 \[
 K
 =
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 630&  0&240\\
   0&630&320\\
   0&  0&  1
-\end{pmatrix}
+\end{pmatrix*}
 \]
 und das Kamerazentrum entspricht dem Punkt $P$
 \[
 \vec c = \vec p = 
-\begin{pmatrix}
-330\\ 0\\ 1.7
-\end{pmatrix}.
+\begin{pmatrix*}[r]
+330\phantom{.0}\\ 0\phantom{.0}\\ 1.7
+\end{pmatrix*}.
 \]
 Zunächst müssen wir aus den Punkten $B_S$ und $B_G$ dreidimensionale Vektoren
 in homogenen Koordinaten machen, also
 \[
 \begin{aligned}
-\vec b_S &= \begin{pmatrix}229\\613\\1\end{pmatrix}
+\vec b_S &= \begin{pmatrix*}[r]229\\613\\1\end{pmatrix*}
 &&\text{und}&
-\vec b_G &= \begin{pmatrix}229\\94\\1\end{pmatrix}.
+\vec b_G &= \begin{pmatrix*}[r]229\\94\\1\end{pmatrix*}.
 \end{aligned}
 \]
 Mit der Formel $\vec{r} = (KD)^{-1} \vec b$ können wir zu jedem Punkt
@@ -117,18 +117,18 @@ den Richtungsvektor
 \begin{aligned}
 \vec r_S
 &=
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 -0.7870 \\
-\phantom{-}0.0175 \\
-\phantom{-}0.7719
-\end{pmatrix}
+ 0.0175 \\
+ 0.7719
+\end{pmatrix*}
 &&\text{und}&
 \vec r_G &= 
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 -1.0620 \\
-\phantom{-}0.0175 \\
+ 0.0175 \\
 -0.0043
-\end{pmatrix}
+\end{pmatrix*}
 \end{aligned}
 \]
 der Geraden von der Kamera in $P$ aus zu den Punkten $S$ bzw. $G$ berechnen.
@@ -164,11 +164,11 @@ für die beiden Punkte.
 Die Höhe des Eiffelturms entspricht nun der Länge des Vektors $\overrightarrow{GS}$
 \[
   h = |\overrightarrow{GS}| = |\vec s - \vec g| = 
-\left|\begin{pmatrix}
-0\\
+\left|\begin{pmatrix*}[r]
+0\phantom{.000}\\
 1.895\\
 325.006
-\end{pmatrix}\right| = \sqrt{0^2 + (1.895)^2 + 325.006^2} = 325.01.
+\end{pmatrix*}\right| = \sqrt{0^2 + (1.895)^2 + 325.006^2} = 325.01.[r]
 \]
 Die Messung von Rudolf ergab also eine Höhe von $325.01\,$m, welche nur geringfügig 
 von der wahren Höhe des Eiffelturms von $324.82\,$m abweicht.
