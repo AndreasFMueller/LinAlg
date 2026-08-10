@@ -65,14 +65,14 @@ Die rechte Seite der Gleichung wird durch die Wirkung der $n\times n$-Matrix
 \Delta=
 -\frac{K}{m}
 \begin{pmatrix}
--2&1&0&0&0&\dots&&&0\\
-1&-2&1&0&0&&&&\\
-0&1&-2&1&0&&&&\\
-0&0&1&-2&1&&&&\\
-\vdots&&&&&\ddots&&\\
- &&&&&&-2&1&0\\
- &&&&&&1&-2&1\\
-0&&&&&&0&1&-2
+-2&1&0&0&\dots&&&0\\
+1&-2&1&0&&&&\\
+0&1&-2&1&&&&\\
+0&0&1&-2&&&&\\
+\vdots&&&&\ddots&&\\
+ &&&&&-2&1&0\\
+ &&&&&1&-2&1\\
+0&&&&&0&1&-2
 \end{pmatrix}
 \]
 beschrieben.
@@ -142,14 +142,14 @@ $\lambda=\lambda_+:$&%
 \caption{Schwingungsmodi einer Federkette mit zwei Massen ( $n=2$)\label{n2modi}}
 \end{figure}%
 Es gibt also zwei Schwingungsmodi, in
-Abbildung~\ref{n2modi} werden jeweils die beiden Extremlagen 
+Abbildung~\ref{n2modi} werden jeweils die beiden Extremlagen
 gezeigt.
 Bei der langsamen Schwingung mit Kreisfrequenz
 $\omega_-=\sqrt{\lambda_-}=1$ bewegen sich die Massen gleichphasig,
 was auch angezeigt wird durch die gleichen Vorzeichen
 der Komponenten von $v_-$.
 Bei der schnellen Schwingung mit Kreisfrequenz
-$\omega_+=\sqrt{\lambda_+}=\sqrt{3}\simeq 1.732$ bewegen sich die 
+$\omega_+=\sqrt{\lambda_+}=\sqrt{3}\simeq 1.732$ bewegen sich die
 beiden Massen gegenphasig, ausgedrückt auch durch
 die verschiedenen Vorzeichen der Komponenten von $v_+$.
 
@@ -227,7 +227,7 @@ wieder jeweils die Extremlagen dargestellt sind.
 Zur geringsten Frequenz
 $\omega_3=\sqrt{\mathstrut\lambda_3}=\sqrt{2-\sqrt{2\mathstrut}}\simeq 0.7654$
 gehört eine Schwingung, bei der alle drei Massen in Phase
-hin- und herschwingen, wobei die mittlere Masse eine 41\% 
+hin- und herschwingen, wobei die mittlere Masse eine 41\%
 grössere Amplitude hat (Abbildung~\ref{n3modi} unten).
 Zur höchsten Frequenz
 $\omega_2=\sqrt{\lambda_2}=\sqrt{2+\sqrt{2}}\simeq 1.848$
@@ -303,12 +303,12 @@ Werte $0$ und $1$ festlegt.
 Durch Wahl eines anderen Paares von Startzahlen
 erhält man eine alternative Fibonacci-Folge.
 Die Fibonacci-Zahlen
-erfüllen die Gleichung 
+erfüllen die Gleichung
 \[
 x_{n+1}=x_n+x_{n-1},
 \]
 die wir
-auch 
+auch
 \begin{equation}
 x_{n+1}-x_n-x_{n-1}=0
 \end{equation}
@@ -379,7 +379,7 @@ A
 Natürlich ist es etwas umständlich, zum Beispiel die 1291-ste Fibonacci-Zahl
 zu berechnen, da wäre eine Formel $f(n)$ sehr praktisch, in der man einfach
 die Zahl 1291 einsetzen könnte.
-Die Fibonacci-Zahlen nehmen sehr schnell zu, 
+Die Fibonacci-Zahlen nehmen sehr schnell zu,
 wir versuchen die Lösung in der Form
 \[
 f(n)=a\lambda^n
@@ -454,7 +454,7 @@ A-\lambda_-I=
 1&-\frac{1-\sqrt{5}}2
 \end{pmatrix}
 \]
-und eine nichttriviale Lösung 
+und eine nichttriviale Lösung
 \[
 y_-=\begin{pmatrix}
 \frac{1-\sqrt{5}}2\\
@@ -593,7 +593,7 @@ der Quotient aufeinanderfolgender Fibonacci-Zahlen strebt also gegen
 $\lambda_+$.
 
 \subsubsection{Verallgemeinerung}
-Das eben dargestellte Verfahren zur Lösung einer endlichen 
+Das eben dargestellte Verfahren zur Lösung einer endlichen
 Differenzengleichung lässt sich verallgemeinern.
 Eine Differenzengleichung der Form
 \[
@@ -638,7 +638,7 @@ wird daraus ein
 Eigenwert-Problem
 \[
 \begin{pmatrix}
-\lambda_{n-k+1}\\
+\lambda^{n-k+1}\\
 \vdots\\
 \lambda^{n+1}
 \end{pmatrix}
