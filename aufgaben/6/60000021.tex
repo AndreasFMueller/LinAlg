@@ -11,11 +11,11 @@ der Kamera ist durch die Drehmatrix
 \[
 D
 =
-\begin{pmatrix}
--1     &    0  &       0\\
-0 &   0.5  &  0.866\\
-0 &   0.866 &  -0.5\\
-\end{pmatrix}
+\begin{pmatrix*}[r]
+-1 &   0\phantom{.000} &  0\phantom{.000}\\
+ 0 &   0.5\phantom{00} &  0.866\\
+ 0 &   0.866           & -0.5\phantom{00}\\
+\end{pmatrix*}
 \]
 gegeben.
 \begin{center}
@@ -50,9 +50,9 @@ gegeben.
 
 \begin{scope}[xshift=2cm,yshift=0.5cm]
 
-\def\dx{320};
-\def\dy{240};
-\def\s{3.5};
+\def\dx{320}
+\def\dy{240}
+\def\s{3.5}
 
 \node at (0,0) {\includeagraphics[height=\s cm]{view8.jpg}};
 
@@ -68,9 +68,9 @@ gegeben.
 
 \begin{scope}[xshift=7.5cm,yshift=0.5cm]
 
-\def\dx{320};
-\def\dy{240};
-\def\s{3.5};
+\def\dx{320}
+\def\dy{240}
+\def\s{3.5}
 
 \node at (0,0) {\includeagraphics[height=\s cm]{view9.jpg}};
 
@@ -113,26 +113,26 @@ Die Kameramatrix $K$ kann aus den Aufgabendaten abgelesen werden, sie ist
 \[
 K
 =
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 150&  0&160\\
   0&150&120\\
   0&  0&  1
-\end{pmatrix}
+\end{pmatrix*}
 \]
 und das Kamerazentrum entspricht dem Punkt $P$
 \[
 \vec c = \vec p = 
-\begin{pmatrix}
-0\\ -1\\ 0.8
-\end{pmatrix}.
+\begin{pmatrix*}[r]
+0\phantom{.0}\\ -1\phantom{.0}\\ 0.8
+\end{pmatrix*}.
 \]
 Zunächst müssen wir aus den Punkten $B_8$ und $B_9$ dreidimensionale Vektoren
 in homogenen Koordinaten machen, also
 \[
 \begin{aligned}
-\vec b_8 &= \begin{pmatrix}225\\136\\1\end{pmatrix}
+\vec b_8 &= \begin{pmatrix*}[r]225\\136\\1\end{pmatrix*}
 &&\text{und}&
-\vec b_9 &= \begin{pmatrix}197\\137\\1\end{pmatrix}.
+\vec b_9 &= \begin{pmatrix*}[r]197\\137\\1\end{pmatrix*}.
 \end{aligned}
 \]
 Mit der Formel $\vec{r} = (KD)^{-1} \vec b$ können wir zu jedem Punkt
@@ -141,18 +141,18 @@ den Richtungsvektor
 \begin{aligned}
 \vec r_8
 &=
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 -0.4333 \\
-\phantom{-}0.9194 \\
+ 0.9194 \\
 -0.4076
-\end{pmatrix}
+\end{pmatrix*}
 &&\text{und}&
 \vec r_9 &= 
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 -0.2467 \\
-\phantom{-}0.9227 \\
+ 0.9227 \\
 -0.4019
-\end{pmatrix}
+\end{pmatrix*}
 \end{aligned}
 \]
 der Geraden von der Kamera in $P$ aus zu den Punkten $S_8$ bzw. $S_9$ berechnen.
@@ -191,8 +191,8 @@ nun mit der Zwischenwinkelformel berechnet werden:
 &=
 \frac{\overrightarrow{s_8}\cdot\overrightarrow{s_9}}{|\overrightarrow{s_8}|\cdot|\overrightarrow{s_9}|}
 =
-\frac{\begin{pmatrix}-0.8504\\ 0.8043\\ 0\end{pmatrix}
-\cdot\begin{pmatrix}-0.4910\\ 0.8368\\ 0\end{pmatrix}}
+\frac{\begin{pmatrix*}[r]-0.8504\\ 0.8043\\ 0\phantom{.0000}\end{pmatrix*}
+\cdot\begin{pmatrix*}[r]-0.4910\\ 0.8368\\ 0\phantom{.0000}\end{pmatrix*}}
 {|\overrightarrow{s_8}|\cdot|\overrightarrow{s_9}|}
 =
 \frac{1.0906}{1.1705\cdot 0.9703} = 0.9603,
@@ -207,7 +207,8 @@ nun mit der Zwischenwinkelformel berechnet werden:
 Die Länge des Schattens um 12 Uhr entspricht der Projektion des ''Stab''-Vektors
 \[
   \vec s = \begin{pmatrix} 0\\ \cos(30^\circ) \\ \sin(30^\circ) \end{pmatrix}
-  = \begin{pmatrix} 0\\ 0.866 \\ 0.5 \end{pmatrix}
+  =
+\begin{pmatrix*}[r] 0\phantom{.000}\\ 0.866 \\ 0.5\phantom{00} \end{pmatrix*}
 \]
 auf die $y$-Achse: $l = 0.866\,$m.
 \end{teilaufgaben}

@@ -26,15 +26,17 @@ Betrachten Sie das Gleichungssystem
 \begin{loesung}
 Wir schreiben $A$ für die Koeffizienten-Matrix:
 \[
-\begin{pmatrix}
+\begin{pmatrix*}[r]
   -1& -1&  5\\
   -3&  1& -3\\
    0& -1&  2
-\end{pmatrix}
+\end{pmatrix*}
 \]
 \begin{teilaufgaben}
 \item
 Die Inverse kann man mit Hilfe des Gauss-Algorithmus berechnen:
+\bgroup
+\renewcommand{\arraystretch}{1.2}
 \begin{align*}
 \begin{tabular}{|>{$}c<{$}|>{$}c<{$}|}
 \hline
@@ -42,7 +44,7 @@ A&I\\
 \hline
 \end{tabular}
 &=
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
 \hline
   -1& -1&  5&  1&  0&  0\\
   -3&  1& -3&  0&  1&  0\\
@@ -50,7 +52,7 @@ A&I\\
 \hline
 \end{tabular}
 \rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
 \hline
    1&  1& -5& -1&  0&  0\\
    0&  4&-18& -3&  1&  0\\
@@ -59,7 +61,7 @@ A&I\\
 \end{tabular}
 \\
 &\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
 \hline
    1&  1& -5     & -1      &  0      &  0\\
    0&  1&-\frac92& -\frac34&  \frac14&  0\\
@@ -67,7 +69,7 @@ A&I\\
 \hline
 \end{tabular}
 \rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}r<{$}>{$}r<{$}>{$}r<{$}|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
 \hline
    1&  1& -5     & -1        &  0         &  0\\
    0&  1&-\frac92& -\frac34  &  \frac14   &  0\\
@@ -76,7 +78,7 @@ A&I\\
 \end{tabular}
 \\
 &\rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
 \hline
    1&  1&  0&\frac12      &-\frac12     &-2\\
    0&  1&  0&\frac{12}{20}&-\frac{4}{20}&-\frac{9}{5}\\
@@ -84,7 +86,7 @@ A&I\\
 \hline
 \end{tabular}
 \rightarrow
-\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}c<{$}>{$}c<{$}>{$}c<{$}|}
+\begin{tabular}{|>{$}c<{$}>{$}c<{$}>{$}c<{$}|>{$}r<{$}>{$}r<{$}>{$}r<{$}|}
 \hline
    1&  0&  0&-\frac1{10}  &-\frac3{10}  &-\frac15\\
    0&  1&  0&\frac35      &-\frac15     &-\frac95\\
@@ -98,47 +100,50 @@ I&A^{-1}\\
 \hline
 \end{tabular}
 \end{align*}
-Daraus kann jetzt die Inverse Matrix abgelesen werden:
+\egroup
+Daraus kann jetzt die inverse Matrix abgelesen werden:
 \[
 A^{-1}
 =
 \frac1{10}
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 -1&-3& -2\\
  6&-2&-18\\
  3&-1& -4
-\end{pmatrix}
+\end{pmatrix*}
 \]
 Wir kontrollieren das Resultat durch Ausmultiplizieren:
 \begin{align*}
 A\cdot A^{-1}
 &=
 \frac1{10}
-\begin{pmatrix}
+\begin{pmatrix*}[r]
   -1& -1&  5\\
   -3&  1& -3\\
    0& -1&  2
-\end{pmatrix}
-\begin{pmatrix}
+\end{pmatrix*}
+\begin{pmatrix*}[r]
 -1&-3& -2\\
  6&-2&-18\\
  3&-1& -4
-\end{pmatrix}
+\end{pmatrix*}
 \\
 &=
 \frac1{10}
 {
-\tiny
+%\scriptscriptstyle
 \begin{pmatrix}
+\renewcommand{\arraystretch}{0.9}
+\scriptstyle
 (-1)\cdot(-1) + (-1)\cdot6 + 5\cdot3
-	&(-1)\cdot(-3) + (-1)\cdot(-2) + 5\cdot(-1)
-		&(-1)\cdot(-2) + (-1)\cdot(-18) + 5\cdot(-4)\\
-(-3)\cdot(-1) + 1\cdot6 + (-3)\cdot3
-	&(-3)\cdot(-3) + 1\cdot(-2) + (-3)\cdot(-1)
-		&(-3)\cdot(-2) + 1\cdot(-18) + (-3)\cdot(-4)\\
-0\cdot(-1) + (-1)\cdot6 + 2\cdot3
-	&0\cdot(-3) + (-1)\cdot(-2) + 2\cdot(-1)
-		&0\cdot(-2) + (-1)\cdot(-18) + 2\cdot(-4)
+	&\scriptstyle (-1)\cdot(-3) + (-1)\cdot(-2) + 5\cdot(-1)
+		&\scriptstyle (-1)\cdot(-2) + (-1)\cdot(-18) + 5\cdot(-4)\\
+\scriptstyle (-3)\cdot(-1) + 1\cdot6 + (-3)\cdot3
+	&\scriptstyle (-3)\cdot(-3) + 1\cdot(-2) + (-3)\cdot(-1)
+		&\scriptstyle (-3)\cdot(-2) + 1\cdot(-18) + (-3)\cdot(-4)\\
+\scriptstyle 0\cdot(-1) + (-1)\cdot6 + 2\cdot3
+	&\scriptstyle 0\cdot(-3) + (-1)\cdot(-2) + 2\cdot(-1)
+		&\scriptstyle 0\cdot(-2) + (-1)\cdot(-18) + 2\cdot(-4)
 \end{pmatrix}
 }
 \\
@@ -159,16 +164,16 @@ A\cdot A^{-1}
 werden:
 \begin{align*}
 b&=
-\begin{pmatrix}-1\\3\\1\end{pmatrix}
+\begin{pmatrix*}[r]-1\\3\\1\end{pmatrix*}
 &
 x&=A^{-1}b=
 \frac1{10}
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 -1&-3& -2\\
  6&-2&-18\\
  3&-1& -4
-\end{pmatrix}
-\begin{pmatrix}-1\\ 3\\ 1\end{pmatrix}
+\end{pmatrix*}
+\begin{pmatrix*}[r]-1\\ 3\\ 1\end{pmatrix*}
 =
 \frac1{10}
 \begin{pmatrix}
@@ -187,11 +192,11 @@ Auch dieses Resultat können wir durch Ausrechnen von $Ax$ kontrollieren:
 \begin{align*}
 Ax
 &=
-\begin{pmatrix}
+\begin{pmatrix*}[r]
   -1& -1&  5\\
   -3&  1& -3\\
    0& -1&  2
-\end{pmatrix}
+\end{pmatrix*}
 \begin{pmatrix}
 -1\\-3\\-1
 \end{pmatrix}
@@ -202,9 +207,9 @@ Ax
 0+3-2
 \end{pmatrix}
 =
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 -1\\3\\1
-\end{pmatrix}
+\end{pmatrix*}
 =b.
 \end{align*}
 \end{teilaufgaben}
@@ -226,24 +231,24 @@ Die Inverse kann man jetzt direkt hinschreiben:
 A^{-1}
 &=
 \frac1{10}
-\begin{pmatrix}
-\left|\begin{matrix} 1&-3\\-1& 2\end{matrix}\right|&
--\left|\begin{matrix}-1& 5\\-1& 2\end{matrix}\right|&
-\left|\begin{matrix}-1& 5\\ 1&-3\end{matrix}\right|\\
--\left|\begin{matrix}-3&-3\\ 0& 2\end{matrix}\right|&
-\left|\begin{matrix}-1& 5\\ 0& 2\end{matrix}\right|&
--\left|\begin{matrix}-1& 5\\-3&-3\end{matrix}\right|\\
-\left|\begin{matrix}-3& 1\\ 0&-1\end{matrix}\right|&
--\left|\begin{matrix}-1&-1\\ 0&-1\end{matrix}\right|&
-\left|\begin{matrix}-1&-1\\-3& 1\end{matrix}\right|
-\end{pmatrix}
+\begin{pmatrix*}[r]
+ \left|\begin{matrix*}[r] 1&-3\\-1& 2\end{matrix*}\right|&
+-\left|\begin{matrix*}[r]-1& 5\\-1&\phantom{-}2\end{matrix*}\right|&
+ \left|\begin{matrix*}[r]-1& 5\\ 1&-3\end{matrix*}\right|\\[12pt]
+-\left|\begin{matrix*}[r]-3&-3\\ 0& 2\end{matrix*}\right|&
+ \left|\begin{matrix*}[r]-1& 5\\ 0&\phantom{-}2\end{matrix*}\right|&
+-\left|\begin{matrix*}[r]-1& 5\\-3&-3\end{matrix*}\right|\\[12pt]
+ \left|\begin{matrix*}[r]-3& 1\\ 0&-1\end{matrix*}\right|&
+-\left|\begin{matrix*}[r]-1&-1\\ 0&-1\end{matrix*}\right|&
+ \left|\begin{matrix*}[r]-1&-1\\-3& 1\end{matrix*}\right|
+\end{pmatrix*}
 =
 \frac1{10}
-\begin{pmatrix}
+\begin{pmatrix*}[r]
 -1&-3& -2\\
  6&-2&-18\\
  3&-1& -4
-\end{pmatrix},
+\end{pmatrix*},
 \end{align*}
 was mit der Mittels Gaussalgorithmus gefundenen Inversen übereinstimmt.
 \end{loesung}
